@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "disenosluna",
+  "main": "functions/worker.js",
+  "compatibility_date": "2024-09-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  }
+}
