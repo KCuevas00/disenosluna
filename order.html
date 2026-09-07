@@ -150,6 +150,16 @@
       border: 1px solid #bbf7d0;
       transition: all 0.2s ease;
     }
+    .cloud-link-feedback.is-hint {
+      background: #fffbeb;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+    .cloud-link-feedback.is-neutral {
+      background: #f1f5f9;
+      color: #334155;
+      border-color: #cbd5e1;
+    }
     .confirmation-copy-wrap {
       margin: 16px auto 20px;
       display: flex;
@@ -270,12 +280,12 @@
             </div>
 
             <div class="package-options">
-              <!-- Basic ($70) -->
+              <!-- Basic ($55) -->
               <label class="package-option-label" id="pkg-label-basic">
                 <input type="radio" name="package" value="Basic" />
                 <div class="pkg-header-row">
                   <span class="pkg-title">Basic</span>
-                  <span class="pkg-price">$70</span>
+                  <span class="pkg-price">$55</span>
                 </div>
                 <p class="pkg-tagline">“A complete digital invitation with everything your guests need.”</p>
                 <ul class="pkg-bullet-list">
@@ -291,13 +301,13 @@
                 </ul>
               </label>
 
-              <!-- Premium ($85) -->
+              <!-- Premium ($70) -->
               <label class="package-option-label is-selected" id="pkg-label-premium">
                 <span class="pkg-tag">Most Popular</span>
                 <input type="radio" name="package" value="Premium" checked />
                 <div class="pkg-header-row">
                   <span class="pkg-title">Premium</span>
-                  <span class="pkg-price">$85</span>
+                  <span class="pkg-price">$70</span>
                 </div>
                 <p class="pkg-tagline">“The full interactive experience.”</p>
                 <ul class="pkg-bullet-list">
@@ -408,11 +418,11 @@
             <div class="order-summary-box">
               <div class="summary-line">
                 <span class="summary-label">Selected Package:</span>
-                <span class="summary-val" id="summary-pkg-name">Premium Package ($85)</span>
+                <span class="summary-val" id="summary-pkg-name">Premium Package ($70)</span>
               </div>
               <div class="summary-line">
                 <span class="summary-label">Package Price:</span>
-                <span class="summary-val summary-price" id="summary-pkg-price">$85.00</span>
+                <span class="summary-val summary-price" id="summary-pkg-price">$70.00</span>
               </div>
             </div>
 
@@ -458,7 +468,7 @@
           <div class="osh-package-pill-wrap">
             <div class="osh-package-pill">
               <span class="osh-label">Selected Package:</span>
-              <strong id="step2-pkg-badge">Premium ($85)</strong>
+              <strong id="step2-pkg-badge">Premium ($70)</strong>
             </div>
             <button type="button" class="osh-change-btn" id="btn-change-pkg">
               ← Edit Package / Basics
@@ -479,8 +489,8 @@
           
           <!-- Hidden tracking & Step 1 values submitted to FormSubmit -->
           <input type="hidden" id="field-order-ref" name="Order_Reference" value="" />
-          <input type="hidden" id="field-selected-package" name="Selected_Package" value="Premium ($85)" />
-          <input type="hidden" id="field-package-price" name="Package_Price" value="$85.00" />
+          <input type="hidden" id="field-selected-package" name="Selected_Package" value="Premium ($70)" />
+          <input type="hidden" id="field-package-price" name="Package_Price" value="$70.00" />
           <input type="hidden" id="field-client-name" name="Client_Name" value="" />
           <input type="hidden" id="field-client-phone" name="Client_Phone" value="" />
           <input type="hidden" id="field-client-email" name="email" value="" />
@@ -809,7 +819,7 @@
             </div>
             <div class="receipt-row">
               <span class="r-label">Selected Package:</span>
-              <span class="r-val" id="conf-package">Premium Package ($85)</span>
+              <span class="r-val" id="conf-package">Premium Package ($70)</span>
             </div>
             <div class="receipt-row">
               <span class="r-label">Order Reference:</span>

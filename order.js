@@ -10,8 +10,8 @@
  */
 
 let currentOrderRef = '';
-let currentSelectedPackage = 'Premium ($85)';
-let currentPackagePrice = '$85.00';
+let currentSelectedPackage = 'Premium ($70)';
+let currentPackagePrice = '$70.00';
 let currentOrderSummary = '';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,8 +74,8 @@ function initPackageSelector() {
     });
 
     const isBasic = pkgVal.toLowerCase().includes('basic');
-    currentSelectedPackage = isBasic ? 'Basic ($70)' : 'Premium ($85)';
-    currentPackagePrice = isBasic ? '$70.00' : '$85.00';
+    currentSelectedPackage = isBasic ? 'Basic ($55)' : 'Premium ($70)';
+    currentPackagePrice = isBasic ? '$55.00' : '$70.00';
 
     if (summaryPkgName) summaryPkgName.textContent = currentSelectedPackage;
     if (summaryPkgPrice) summaryPkgPrice.textContent = currentPackagePrice;
@@ -284,7 +284,7 @@ function applyDynamicPackageRules(packageType) {
       badgeMusic.className = 'feature-badge badge-locked';
     }
     if (inputSong) {
-      inputSong.placeholder = 'Background music is included in the Premium package ($85)';
+      inputSong.placeholder = 'Background music is included in the Premium package ($70)';
       inputSong.disabled = true;
     }
     if (hintMusic) {
@@ -307,7 +307,7 @@ function applyDynamicPackageRules(packageType) {
       badgeCourt.className = 'feature-badge badge-locked';
     }
     if (textareaCourt) {
-      textareaCourt.placeholder = 'Court of honor roster is included in the Premium package ($85).';
+      textareaCourt.placeholder = 'Court of honor roster is included in the Premium package ($70).';
       textareaCourt.disabled = true;
     }
     if (blockCourt) blockCourt.classList.add('is-locked');
@@ -325,7 +325,7 @@ function applyDynamicPackageRules(packageType) {
     if (blockGalleryPhotos) blockGalleryPhotos.classList.add('is-locked');
 
   } else {
-    // Premium ($85)
+    // Premium ($70)
     if (badgeMusic) {
       badgeMusic.textContent = 'Included with Premium ✓';
       badgeMusic.className = 'feature-badge badge-included';
@@ -440,6 +440,8 @@ function initCloudLinkFeedback() {
 
   const checkLink = () => {
     const rawVal = input.value.trim();
+    feedback.className = 'cloud-link-feedback';
+    
     if (!rawVal) {
       feedback.classList.add('is-hidden');
       feedback.textContent = '';
@@ -447,23 +449,50 @@ function initCloudLinkFeedback() {
     }
 
     const val = rawVal.toLowerCase();
-    let service = 'Cloud Album Link';
-    if (val.includes('google.com') || val.includes('photos.app.goo.gl')) {
-      service = 'Google Drive / Google Photos link';
-    } else if (val.includes('icloud.com')) {
-      service = 'iCloud Shared Album link';
-    } else if (val.includes('dropbox.com')) {
-      service = 'Dropbox album link';
-    } else if (val.includes('onedrive') || val.includes('1drv.ms') || val.includes('live.com')) {
-      service = 'OneDrive album link';
+    const hasValidUrlShape = /^https?:\/\//i.test(val) || /[a-z0-9-]+\.[a-z]{2,}/i.test(val);
+
+    if (!hasValidUrlShape) {
+      feedback.classList.add('is-hint');
+      feedback.innerHTML = `
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span>Please enter a share link (e.g. drive.google.com, icloud.com, or dropbox.com)</span>
+      `;
+      feedback.classList.remove('is-hidden');
+      return;
     }
 
-    feedback.innerHTML = `
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:-2px;">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-      <span>${service} recognized &bull; We will retrieve your photos directly!</span>
-    `;
+    let service = '';
+    if (val.includes('google.com') || val.includes('photos.app.goo.gl')) {
+      service = 'Google Drive / Google Photos';
+    } else if (val.includes('icloud.com')) {
+      service = 'iCloud Shared Album';
+    } else if (val.includes('dropbox.com')) {
+      service = 'Dropbox album';
+    } else if (val.includes('onedrive') || val.includes('1drv.ms') || val.includes('live.com')) {
+      service = 'OneDrive album';
+    }
+
+    if (service) {
+      feedback.classList.add('is-valid');
+      feedback.innerHTML = `
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:-2px;">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>${service} recognized &bull; We will retrieve your photos directly!</span>
+      `;
+    } else {
+      feedback.classList.add('is-neutral');
+      feedback.innerHTML = `
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:-2px;">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Link saved &bull; We will access your shared photos directly.</span>
+      `;
+    }
     feedback.classList.remove('is-hidden');
   };
 
@@ -471,7 +500,7 @@ function initCloudLinkFeedback() {
   input.addEventListener('change', checkLink);
   input.addEventListener('blur', () => {
     let val = input.value.trim();
-    if (val && !/^https?:\/\//i.test(val) && !val.startsWith('//')) {
+    if (val && !/^https?:\/\//i.test(val) && !val.startsWith('//') && /[a-z0-9-]+\.[a-z]{2,}/i.test(val)) {
       input.value = 'https://' + val;
       checkLink();
     }
