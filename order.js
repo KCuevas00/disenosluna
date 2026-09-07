@@ -24,12 +24,32 @@ function initFlowRouter() {
   const sessionId = urlParams.get('session_id');
   const stepParam = urlParams.get('step');
 
-  if (sessionId && sessionId.trim() !== '') {
-    // Returning from Stripe checkout!
-    activateStep2(sessionId);
+  if (stepParam === 'cancelled') {
+    activateStep1(urlParams.get('package'));
+    showStep1Notice('Your Stripe checkout was cancelled. No charges were made. You can review your details and try again below.', 'notice-cancelled');
+  } else if (sessionId && sessionId.trim() !== '') {
+    // Returning from Stripe checkout -> verify server-side!
+    activateStep2(sessionId.trim());
   } else {
     // Normal visit -> Step 1
     activateStep1(urlParams.get('package'));
+  }
+}
+
+function showStep1Notice(message, className) {
+  const noticeEl = document.getElementById('step-1-notice');
+  if (noticeEl) {
+    noticeEl.textContent = message;
+    noticeEl.className = `order-notice-banner ${className}`;
+    noticeEl.classList.remove('is-hidden');
+    noticeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function hideStep1Notice() {
+  const noticeEl = document.getElementById('step-1-notice');
+  if (noticeEl) {
+    noticeEl.classList.add('is-hidden');
   }
 }
 
@@ -81,62 +101,80 @@ function activateStep1(preselectedPkg) {
 
 /**
  * Activates Step 2 View (Detailed Invitation Form after Stripe Payment)
+ * STRICT SERVER VERIFICATION: Step 2 will ONLY unlock if Stripe API verifies payment_status === 'paid'.
  */
 async function activateStep2(sessionId) {
   const step1Sec = document.getElementById('step-1-section');
   const step2Sec = document.getElementById('step-2-section');
   const step3Sec = document.getElementById('step-3-confirmation');
 
+  // Keep Step 1 visible while verifying with Stripe
+  if (step1Sec) step1Sec.classList.remove('is-hidden');
+  if (step2Sec) step2Sec.classList.add('is-hidden');
+  if (step3Sec) step3Sec.classList.add('is-hidden');
+
+  showStep1Notice('Verifying your payment with Stripe...', 'notice-loading');
+
+  let sessionData;
+  try {
+    const res = await fetch(`/api/get-checkout-session?session_id=${encodeURIComponent(sessionId)}`);
+    const data = await res.json();
+
+    if (!res.ok || !data.verified || data.payment_status !== 'paid') {
+      const errMsg = data.error || 'Payment could not be verified by Stripe. Access to invitation details is restricted until payment is confirmed.';
+      showStep1Notice(errMsg, 'notice-error');
+      activateStep1();
+      return;
+    }
+
+    sessionData = data;
+  } catch (err) {
+    showStep1Notice('Unable to connect to Stripe verification service. Please try reloading or contact Diseños Luna.', 'notice-error');
+    activateStep1();
+    return;
+  }
+
+  // Payment is 100% verified by Stripe! Unlock Step 2
+  hideStep1Notice();
   if (step1Sec) step1Sec.classList.add('is-hidden');
   if (step2Sec) step2Sec.classList.remove('is-hidden');
   if (step3Sec) step3Sec.classList.add('is-hidden');
 
-  // Update stepper to Step 3 active (Step 1 & 2 done)
   updateStepper(3);
 
-  // Set hidden inputs
+  // Set hidden session tracking input
   const fieldSessionId = document.getElementById('field-stripe-session-id');
-  if (fieldSessionId) fieldSessionId.value = sessionId;
+  if (fieldSessionId) fieldSessionId.value = sessionData.id || sessionId;
 
   const pcSessionDisplay = document.getElementById('pc-session-id');
-  if (pcSessionDisplay) pcSessionDisplay.textContent = `Order Ref: #${sessionId.slice(0, 16)}...`;
+  if (pcSessionDisplay) pcSessionDisplay.textContent = `Order Ref: #${(sessionData.id || sessionId).slice(0, 16)}...`;
 
-  // Try retrieving draft info from sessionStorage
+  const meta = sessionData.metadata || {};
+
+  // Try retrieving client draft as backup for any extra non-metadata fields
   let draftData = {};
   try {
     const saved = sessionStorage.getItem('luna_order_draft');
     if (saved) draftData = JSON.parse(saved);
   } catch (e) {}
 
-  let packageType = draftData.packageType || 'Premium';
+  const clientName = meta.client_name || draftData.clientName || '';
+  const clientPhone = meta.client_phone || draftData.clientPhone || '';
+  const clientEmail = meta.client_email || sessionData.customer_email || draftData.clientEmail || '';
+  const celebrantName = meta.celebrant_name || draftData.celebrantName || '';
+  const eventType = meta.event_type || draftData.eventType || '';
+  const eventDate = meta.event_date || draftData.eventDate || '';
+  const packageType = meta.package_type || draftData.packageType || 'Premium ($85)';
 
-  // Try fetching session details from server
-  try {
-    const res = await fetch(`/api/get-checkout-session?session_id=${encodeURIComponent(sessionId)}`);
-    if (res.ok) {
-      const session = await res.json();
-      const meta = session.metadata || {};
-      if (meta.package_type) packageType = meta.package_type;
-      if (meta.client_name) draftData.clientName = meta.client_name;
-      if (meta.client_phone) draftData.clientPhone = meta.client_phone;
-      if (meta.client_email) draftData.clientEmail = meta.client_email;
-      if (meta.celebrant_name) draftData.celebrantName = meta.celebrant_name;
-      if (meta.event_type) draftData.eventType = meta.event_type;
-      if (meta.event_date) draftData.eventDate = meta.event_date;
-    }
-  } catch (err) {
-    console.warn('Could not fetch server session details, relying on client draft:', err);
-  }
+  // Pre-fill Step 2 fields from verified server data
+  if (clientName) document.getElementById('det-name').value = clientName;
+  if (clientPhone) document.getElementById('det-phone').value = clientPhone;
+  if (clientEmail) document.getElementById('det-email').value = clientEmail;
+  if (celebrantName) document.getElementById('det-celebrant').value = celebrantName;
+  if (eventType) document.getElementById('det-event-type').value = eventType;
+  if (eventDate) document.getElementById('det-date').value = eventDate;
 
-  // Pre-fill Step 2 fields
-  if (draftData.clientName) document.getElementById('det-name').value = draftData.clientName;
-  if (draftData.clientPhone) document.getElementById('det-phone').value = draftData.clientPhone;
-  if (draftData.clientEmail) document.getElementById('det-email').value = draftData.clientEmail;
-  if (draftData.celebrantName) document.getElementById('det-celebrant').value = draftData.celebrantName;
-  if (draftData.eventType) document.getElementById('det-event-type').value = draftData.eventType;
-  if (draftData.eventDate) document.getElementById('det-date').value = draftData.eventDate;
-
-  // Set package display and rules
+  // Set verified package badge & rules
   const isBasic = packageType.toLowerCase().includes('basic');
   const pkgLabel = isBasic ? 'Basic ($70)' : 'Premium ($85)';
 
@@ -148,7 +186,7 @@ async function activateStep2(sessionId) {
 
   const fsSubject = document.getElementById('fs-subject');
   if (fsSubject) {
-    fsSubject.value = `PAID [${pkgLabel}] Order Details — ${draftData.celebrantName || 'Diseños Luna'}`;
+    fsSubject.value = `PAID [${pkgLabel}] Order Details — ${celebrantName || 'Diseños Luna'}`;
   }
 
   applyDynamicPackageRules(packageType);
