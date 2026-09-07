@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Order Your Custom Invitation — Diseños Luna</title>
   <meta name="description"
-    content="Order your custom digital invitation website with Stripe secure checkout. Weddings, quinceañeras, birthdays & more." />
+    content="Order your custom digital invitation website with Diseños Luna. Weddings, quinceañeras, birthdays & more." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -65,13 +65,13 @@
       <div class="container">
         <span class="order-hero-badge">
           <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block; vertical-align:middle; margin-right:4px;">
-            <path d="M12 2a9 9 0 0 1 9 9c0 4.97-4.03 9-9 9A9 9 0 0 1 3 11C3 6.03 7.03 2 12 2z"/>
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
-          SECURE STRIPE CHECKOUT &bull; WEDDINGS &bull; QUINCEAÑERAS
+          CUSTOM DIGITAL STATIONERY &bull; WEDDINGS &bull; QUINCEAÑERAS
         </span>
         <h1 class="order-hero-title" id="order-flow-title">Order your custom invitation.</h1>
         <p class="order-hero-desc" id="order-flow-desc">
-          Choose your package, enter your basic event info, and pay securely via Stripe. Once paid, you’ll complete your invitation timeline, colors, and photos!
+          Choose your package, enter your celebration details, and submit your order. We’ll review your specifications and contact you directly regarding payment and next steps!
         </p>
 
         <!-- Progress Stepper Indicator -->
@@ -83,12 +83,12 @@
           <div class="step-divider"></div>
           <div class="step-indicator" id="step-indicator-2">
             <span class="step-dot">2</span>
-            <span class="step-label">Stripe Payment</span>
+            <span class="step-label">Invitation Details</span>
           </div>
           <div class="step-divider"></div>
           <div class="step-indicator" id="step-indicator-3">
             <span class="step-dot">3</span>
-            <span class="step-label">Invitation Details</span>
+            <span class="step-label">Submit Order</span>
           </div>
         </div>
       </div>
@@ -165,7 +165,7 @@
               <div class="step-circle">2</div>
               <div class="step-text">
                 <h2>Your Contact Information</h2>
-                <p>Where we will send your Stripe receipt and private invitation preview link.</p>
+                <p>Where we will contact you regarding payment and send your private invitation preview link.</p>
               </div>
             </div>
 
@@ -249,29 +249,30 @@
             </div>
           </div>
 
-          <!-- 4. ORDER SUMMARY & STRIPE CHECKOUT CTA -->
+          <!-- 4. PACKAGE SUMMARY & NEXT STEP CTA -->
           <div class="payment-checkout-card">
             <div class="order-summary-box">
               <div class="summary-line">
                 <span class="summary-label">Selected Package:</span>
-                <span class="summary-val" id="summary-pkg-name">Premium Package</span>
+                <span class="summary-val" id="summary-pkg-name">Premium Package ($85)</span>
               </div>
               <div class="summary-line">
-                <span class="summary-label">Total Due Today:</span>
+                <span class="summary-label">Package Price:</span>
                 <span class="summary-val summary-price" id="summary-pkg-price">$85.00</span>
               </div>
             </div>
 
-            <div class="stripe-badge-box">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            <div class="payment-notice-box">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
-              <span>Encrypted 256-bit SSL • Secure Checkout via <strong>Stripe</strong></span>
+              <span><strong>No payment required now:</strong> You’ll complete your invitation details on the next step. We will contact you directly to confirm your order and arrange payment before design work begins.</span>
             </div>
 
-            <button type="submit" id="pay-stripe-btn" class="submit-btn">
-              <span>Continue to Payment ($85)</span>
+            <button type="submit" id="continue-step2-btn" class="submit-btn">
+              <span>Continue to Invitation Details</span>
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -279,7 +280,7 @@
             </button>
 
             <p class="submit-note">
-              After payment, you’ll be returned here to fill in your venues, music choice, schedule, and photos.
+              You will complete your invitation timeline, song choice, venues, and photos on the next step.
             </p>
           </div>
 
@@ -287,27 +288,27 @@
       </section>
 
       <!-- ══════════════════════════════════════════════════════════════
-           STEP 2 VIEW: DETAILED INVITATION SPECIFICATIONS (AFTER PAYMENT)
+           STEP 2 VIEW: DETAILED INVITATION SPECIFICATIONS
       ══════════════════════════════════════════════════════════════ -->
       <section id="step-2-section" class="flow-step-section is-hidden">
 
-        <!-- Payment Confirmed Banner -->
-        <div class="payment-confirmed-banner">
-          <div class="pc-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <div class="pc-text">
-            <h2 id="pc-title">Payment Confirmed!</h2>
-            <p id="pc-sub">
-              Your order is locked in. Let’s complete your invitation specifications below so we can start designing.
+        <!-- Step 2 Header & Package Indicator -->
+        <div class="order-step2-header">
+          <div class="osh-content">
+            <span class="osh-badge">Step 2 of 2</span>
+            <h2 class="osh-title">Invitation Specifications</h2>
+            <p class="osh-desc">
+              Fill out your celebration details below. Once submitted, we will review your specifications and contact you directly to arrange payment before we begin designing.
             </p>
-            <div class="pc-meta-pill">
-              <span id="pc-package-badge">Premium ($85)</span>
-              <span class="pc-meta-divider">•</span>
-              <span id="pc-session-id">Order Ref: Loading...</span>
+          </div>
+          <div class="osh-package-pill-wrap">
+            <div class="osh-package-pill">
+              <span class="osh-label">Selected Package:</span>
+              <strong id="step2-pkg-badge">Premium ($85)</strong>
             </div>
+            <button type="button" class="osh-change-btn" id="btn-change-pkg">
+              ← Edit Package / Basics
+            </button>
           </div>
         </div>
 
@@ -315,23 +316,20 @@
           <!-- FormSubmit Controls -->
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_subject" id="fs-subject" value="ORDER DETAILS — Diseños Luna" />
+          <input type="hidden" name="_subject" id="fs-subject" value="NEW INVITATION ORDER — Diseños Luna" />
           
-          <!-- Hidden tracking values tying submission to Stripe payment -->
+          <!-- Hidden tracking values -->
           <input type="hidden" id="field-order-ref" name="Order_Reference" value="" />
-          <input type="hidden" id="field-stripe-session-id" name="Stripe_Session_ID" value="" />
-          <input type="hidden" id="field-upgrade-session-id" name="Upgrade_Session_ID" value="" />
-          <input type="hidden" id="field-upgrade-amount" name="Upgrade_Amount" value="" />
-          <input type="hidden" id="field-total-paid" name="Total_Amount_Paid" value="$70.00" />
-          <input type="hidden" id="field-purchased-package" name="Purchased_Package" value="Premium ($85)" />
+          <input type="hidden" id="field-selected-package" name="Selected_Package" value="Premium ($85)" />
+          <input type="hidden" id="field-package-price" name="Package_Price" value="$85.00" />
 
-          <!-- Contact Recap (Pre-filled, editable) -->
+          <!-- Contact Recap (Pre-filled from Step 1, editable) -->
           <div class="order-card">
             <div class="card-step-header">
               <div class="step-circle">1</div>
               <div class="step-text">
                 <h2>Client &amp; Celebrant Confirmation</h2>
-                <p>Pre-filled from your payment. Adjust if needed.</p>
+                <p>Pre-filled from Step 1. Adjust if needed.</p>
               </div>
             </div>
 
@@ -427,42 +425,6 @@
               <div class="step-text">
                 <h2>Personalization, Music &amp; Court</h2>
                 <p>Tailor the interactive features of your digital stationery.</p>
-              </div>
-            </div>
-
-            <!-- UPGRADE TO PREMIUM CALLOUT (Shown for Basic orders) -->
-            <div id="upgrade-to-premium-card" class="upgrade-card is-hidden">
-              <div class="upgrade-card-badge">✨ UNLOCK ALL FEATURES</div>
-              <div class="upgrade-card-body">
-                <div class="upgrade-card-text">
-                  <h3 class="upgrade-card-title">Want more features?</h3>
-                  <p class="upgrade-card-desc">
-                    Upgrade to <strong>Premium for $15 more</strong> and unlock music, countdown, court/party members, extra photos, and more customization.
-                  </p>
-                  <span class="upgrade-price-sub">Original $70 + $15 upgrade = $85 total</span>
-                </div>
-                <div class="upgrade-card-action">
-                  <button type="button" class="upgrade-btn" id="upgrade-to-premium-btn">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
-                    <span>Upgrade to Premium — $15</span>
-                  </button>
-                  <div class="upgrade-btn-note">Instant Stripe checkout • Unlocks immediately</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- UPGRADE CONFIRMED BANNER (Shown when upgrade payment is verified) -->
-            <div id="upgrade-confirmed-banner" class="upgrade-confirmed-banner is-hidden">
-              <div class="uc-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <div class="uc-text">
-                <h3>Premium Upgrade Confirmed!</h3>
-                <p>Your Premium features are now unlocked. You can now request your background song, live countdown, court of honor, and additional gallery photos below.</p>
               </div>
             </div>
 
@@ -632,10 +594,10 @@
                 <path d="M22 2L11 13"></path>
                 <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
               </svg>
-              <span>Submit Invitation Details</span>
+              <span>Submit Invitation Order</span>
             </button>
             <p class="submit-note">
-              Once submitted, our design team will begin building your custom invitation website!
+              Once submitted, we’ll review your invitation specifications and contact you directly regarding payment and next steps!
             </p>
           </div>
 
@@ -655,25 +617,29 @@
 
           <h2 class="confirmation-title">Order received!</h2>
           <p class="confirmation-msg">
-            We have your payment and invitation details. We'll review everything and contact you with the next steps.
+            We've received your invitation details. We'll review everything and contact you directly regarding payment and the next steps.
           </p>
 
           <div class="confirmation-receipt-box">
             <div class="receipt-row">
-              <span class="r-label">Package:</span>
-              <span class="r-val" id="conf-package">Premium Package ($85)</span>
+              <span class="r-label">Client Name:</span>
+              <span class="r-val" id="conf-client-name">—</span>
             </div>
             <div class="receipt-row">
-              <span class="r-label">Celebrant:</span>
+              <span class="r-label">Celebrant / Couple:</span>
               <span class="r-val" id="conf-celebrant">—</span>
             </div>
             <div class="receipt-row">
-              <span class="r-label">Order Ref:</span>
+              <span class="r-label">Selected Package:</span>
+              <span class="r-val" id="conf-package">Premium Package ($85)</span>
+            </div>
+            <div class="receipt-row">
+              <span class="r-label">Order Reference:</span>
               <span class="r-val" id="conf-order-id">—</span>
             </div>
             <div class="receipt-row">
-              <span class="r-label">Payment Status:</span>
-              <span class="r-val r-paid">✓ Paid via Stripe</span>
+              <span class="r-label">Status:</span>
+              <span class="r-val" style="color: #b83258; font-weight: 700;">Details Submitted • Payment Pending</span>
             </div>
           </div>
 

@@ -551,7 +551,7 @@
   align-self: flex-start;
 }
 
-/* ── STRIPE CHECKOUT SUMMARY BOX ── */
+/* ── PACKAGE CHECKOUT SUMMARY BOX ── */
 .payment-checkout-card {
   text-align: center;
   padding: 32px 24px;
@@ -602,17 +602,26 @@
   font-family: 'Playfair Display', Georgia, serif;
 }
 
-.stripe-badge-box {
-  display: inline-flex;
+.payment-notice-box {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  color: #555;
-  margin-bottom: 18px;
+  justify-content: center;
+  gap: 10px;
+  max-width: 440px;
+  margin: 0 auto 18px;
+  padding: 12px 16px;
+  background: #fff9f4;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: #9a3412;
+  line-height: 1.45;
+  text-align: left;
 }
 
-.stripe-badge-box strong {
-  color: #111111;
+.payment-notice-box svg {
+  flex-shrink: 0;
+  color: #ea580c;
 }
 
 /* ── BUTTONS ── */
@@ -654,59 +663,95 @@
   margin-top: 14px;
 }
 
-/* ── STEP 2: PAYMENT CONFIRMED BANNER ── */
-.payment-confirmed-banner {
+/* ── STEP 2: INVITATION DETAILS HEADER ── */
+.order-step2-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 18px;
   background: #ffffff;
-  border: 2px solid #f8cad5;
+  border: 1.5px solid #f8cad5;
   border-radius: 16px;
   padding: 22px 24px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 18px rgba(247, 168, 190, 0.18);
+  box-shadow: 0 4px 18px rgba(247, 168, 190, 0.14);
 }
 
-.pc-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #f7a8be;
-  color: #111111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.osh-content {
+  flex: 1;
+  min-width: 260px;
 }
 
-.pc-text h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
-  color: #111111;
+.osh-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #fff0f4;
+  color: #b83258;
+  border: 1px solid #f8cad5;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.osh-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #242220;
   margin-bottom: 4px;
 }
 
-.pc-text p {
-  font-size: 0.88rem;
-  color: #555;
+.osh-desc {
+  font-size: 0.85rem;
+  color: #615c56;
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin: 0;
 }
 
-.pc-meta-pill {
+.osh-package-pill-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.osh-package-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.76rem;
-  font-weight: 700;
+  gap: 6px;
   background: #fff0f4;
-  border: 1px solid #f8cad5;
-  padding: 3px 10px;
-  border-radius: 6px;
-  color: #111111;
+  border: 1.5px solid #f8cad5;
+  padding: 8px 14px;
+  border-radius: 24px;
+  font-size: 0.86rem;
 }
 
-.pc-meta-divider {
+.osh-label {
+  color: #615c56;
+  font-weight: 600;
+}
+
+.osh-package-pill strong {
+  color: #b83258;
+  font-weight: 800;
+}
+
+.osh-change-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.78rem;
+  color: #8c2543;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 2px 4px;
+  transition: color 0.2s ease;
+}
+
+.osh-change-btn:hover {
   color: #b83258;
 }
 
@@ -1001,184 +1046,4 @@
   font-weight: 600;
 }
 
-/* ── PREMIUM UPGRADE CALLOUT CARD (BASIC ORDERS) ── */
-.upgrade-card {
-  position: relative;
-  background: linear-gradient(135deg, #fff5f8 0%, #fffbf0 50%, #fff1f6 100%);
-  border: 2px solid #f7c5d2;
-  border-radius: 16px;
-  padding: 24px 22px 20px;
-  margin-bottom: 26px;
-  box-shadow: 0 4px 18px rgba(184, 50, 88, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.upgrade-card:hover {
-  box-shadow: 0 6px 24px rgba(184, 50, 88, 0.12);
-}
-
-.upgrade-card-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, #b83258, #922242);
-  color: #ffffff;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 8px rgba(184, 50, 88, 0.25);
-}
-
-.upgrade-card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-@media (max-width: 680px) {
-  .upgrade-card-body {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-  }
-}
-
-.upgrade-card-text {
-  flex: 1;
-}
-
-.upgrade-card-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #242220;
-  margin-bottom: 6px;
-}
-
-.upgrade-card-desc {
-  font-size: 0.88rem;
-  color: #554e48;
-  line-height: 1.5;
-  margin-bottom: 6px;
-}
-
-.upgrade-price-sub {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #b83258;
-}
-
-.upgrade-card-action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-@media (max-width: 680px) {
-  .upgrade-card-action {
-    align-items: stretch;
-    margin-top: 10px;
-  }
-}
-
-.upgrade-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #fbbcd0 0%, #f7a2be 100%);
-  color: #111111;
-  font-weight: 800;
-  font-size: 0.94rem;
-  padding: 12px 22px;
-  border: 1.5px solid #f095b2;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(184, 50, 88, 0.18);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.upgrade-btn:hover {
-  background: linear-gradient(135deg, #f7a8c2 0%, #f48faf 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(184, 50, 88, 0.28);
-}
-
-.upgrade-btn:active {
-  transform: translateY(0);
-}
-
-.upgrade-btn:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.upgrade-btn-note {
-  font-size: 0.74rem;
-  color: #726b63;
-  font-weight: 600;
-  text-align: center;
-}
-
-/* ── UPGRADE CONFIRMED BANNER ── */
-.upgrade-confirmed-banner {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 16px 20px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #ebfbf0 100%);
-  border: 2px solid #86efac;
-  color: #14532d;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.12);
-  animation: fadeIn 0.4s ease forwards;
-}
-
-.upgrade-confirmed-banner .uc-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #16a34a;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.upgrade-confirmed-banner .uc-icon svg {
-  stroke: #ffffff;
-}
-
-.upgrade-confirmed-banner .uc-text h3 {
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: #14532d;
-  margin-bottom: 4px;
-}
-
-.upgrade-confirmed-banner .uc-text p {
-  font-size: 0.84rem;
-  color: #166534;
-  line-height: 1.45;
-  margin: 0;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.spin-icon {
-  animation: spin 0.8s linear infinite;
-  display: inline-block;
-  vertical-align: middle;
-}
 
