@@ -50,37 +50,74 @@ export async function onRequestPost(context) {
         const packageType = meta.package_type || 'Premium';
         const amountPaid = session.amount_total ? `$${(session.amount_total / 100).toFixed(2)}` : 'Verified';
 
-        console.log(`[STRIPE WEBHOOK VERIFIED] Order ${orderRef} paid: ${packageType} (${amountPaid}) by ${customerEmail}`);
+        // Check if this is a $15 Premium Upgrade or an initial order payment
+        const isUpgrade = meta.package_type === 'premium_upgrade';
+        const clientName = meta.client_name || meta.celebrant_name || customerEmail || 'Customer';
 
-        // Forward authoritative paid event notification to FormSubmit / notification endpoint
-        try {
-          const clientName = meta.client_name || meta.celebrant_name || customerEmail || 'Customer';
-          const cleanPkg = (meta.package_type || packageType).replace(/[\(\)]/g, '').toUpperCase();
-          const webhookSubject = `PAID ORDER — ${cleanPkg} — ${clientName}`;
+        if (isUpgrade) {
+          console.log(`[STRIPE UPGRADE VERIFIED] PREMIUM UPGRADE — ${orderRef} — ${clientName}`);
 
-          const notificationData = new URLSearchParams();
-          notificationData.append('_subject', webhookSubject);
-          notificationData.append('_template', 'table');
-          notificationData.append('_captcha', 'false');
-          notificationData.append('Payment_Status', 'VERIFIED PAID VIA STRIPE');
-          notificationData.append('Order_Reference', orderRef);
-          notificationData.append('Stripe_Session_ID', session.id);
-          notificationData.append('Package', packageType);
-          notificationData.append('Amount_Paid', amountPaid);
-          notificationData.append('Client_Name', meta.client_name || '');
-          notificationData.append('Client_Email', customerEmail);
-          notificationData.append('Client_Phone', meta.client_phone || '');
-          notificationData.append('Celebrant_Name', meta.celebrant_name || '');
-          notificationData.append('Event_Type', meta.event_type || '');
-          notificationData.append('Event_Date', meta.event_date || '');
+          try {
+            const upgradeSubject = `PREMIUM UPGRADE — ${orderRef} — ${clientName}`;
+            const notificationData = new URLSearchParams();
+            notificationData.append('_subject', upgradeSubject);
+            notificationData.append('_template', 'table');
+            notificationData.append('_captcha', 'false');
+            notificationData.append('Payment_Status', 'VERIFIED PAID VIA STRIPE (PREMIUM UPGRADE)');
+            notificationData.append('Order_Reference', orderRef);
+            notificationData.append('Client_Name', clientName);
+            notificationData.append('Original_Package', 'Basic ($70)');
+            notificationData.append('Upgrade_Package', 'Premium ($85)');
+            notificationData.append('Upgrade_Amount', '$15.00');
+            notificationData.append('Total_Paid', '$85.00');
+            notificationData.append('Original_Stripe_Session_ID', meta.original_session_id || '');
+            notificationData.append('Upgrade_Stripe_Session_ID', session.id);
+            notificationData.append('Client_Email', customerEmail);
+            notificationData.append('Celebrant_Name', meta.celebrant_name || '');
+            notificationData.append('Event_Type', meta.event_type || '');
+            notificationData.append('Event_Date', meta.event_date || '');
 
-          await fetch('https://formsubmit.co/disenosluna815@gmail.com', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: notificationData.toString()
-          });
-        } catch (dispatchErr) {
-          console.warn('Authoritative webhook email notification dispatch notice:', dispatchErr);
+            await fetch('https://formsubmit.co/disenosluna815@gmail.com', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: notificationData.toString()
+            });
+          } catch (dispatchErr) {
+            console.warn('Authoritative webhook upgrade email notification dispatch notice:', dispatchErr);
+          }
+
+        } else {
+          console.log(`[STRIPE WEBHOOK VERIFIED] Order ${orderRef} paid: ${packageType} (${amountPaid}) by ${customerEmail}`);
+
+          // Forward authoritative paid event notification to FormSubmit / notification endpoint
+          try {
+            const cleanPkg = (meta.package_type || packageType).replace(/[\(\)]/g, '').toUpperCase();
+            const webhookSubject = `PAID ORDER — ${cleanPkg} — ${clientName}`;
+
+            const notificationData = new URLSearchParams();
+            notificationData.append('_subject', webhookSubject);
+            notificationData.append('_template', 'table');
+            notificationData.append('_captcha', 'false');
+            notificationData.append('Payment_Status', 'VERIFIED PAID VIA STRIPE');
+            notificationData.append('Order_Reference', orderRef);
+            notificationData.append('Stripe_Session_ID', session.id);
+            notificationData.append('Package', packageType);
+            notificationData.append('Amount_Paid', amountPaid);
+            notificationData.append('Client_Name', meta.client_name || '');
+            notificationData.append('Client_Email', customerEmail);
+            notificationData.append('Client_Phone', meta.client_phone || '');
+            notificationData.append('Celebrant_Name', meta.celebrant_name || '');
+            notificationData.append('Event_Type', meta.event_type || '');
+            notificationData.append('Event_Date', meta.event_date || '');
+
+            await fetch('https://formsubmit.co/disenosluna815@gmail.com', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: notificationData.toString()
+            });
+          } catch (dispatchErr) {
+            console.warn('Authoritative webhook email notification dispatch notice:', dispatchErr);
+          }
         }
       }
     }

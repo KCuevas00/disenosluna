@@ -8,6 +8,8 @@
 import { onRequestPost as handleCreateCheckoutSession } from './api/create-checkout-session.js';
 import { onRequestGet as handleGetCheckoutSession } from './api/get-checkout-session.js';
 import { onRequestPost as handleStripeWebhook } from './api/stripe-webhook.js';
+import { onRequestPost as handleCreateUpgradeSession, onRequestGet as handleGetCreateUpgradeInfo } from './api/create-upgrade-checkout-session.js';
+import { onRequestGet as handleGetUpgradeSession } from './api/get-upgrade-session.js';
 
 export default {
   async fetch(request, env, ctx) {
@@ -75,6 +77,31 @@ export default {
           status: 200,
           headers: { 'Content-Type': 'application/json' }
         });
+      }
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 405,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    // 4. /api/create-upgrade-checkout-session ($15 Basic -> Premium upgrade)
+    if (pathname === '/api/create-upgrade-checkout-session') {
+      if (method === 'POST') {
+        return handleCreateUpgradeSession(context);
+      }
+      if (method === 'GET') {
+        return handleGetCreateUpgradeInfo(context);
+      }
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 405,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    // 5. /api/get-upgrade-session (Verify $15 upgrade payment)
+    if (pathname === '/api/get-upgrade-session') {
+      if (method === 'GET') {
+        return handleGetUpgradeSession(context);
       }
       return new Response(JSON.stringify({ error: 'Method not allowed' }), {
         status: 405,

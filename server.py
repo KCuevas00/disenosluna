@@ -38,6 +38,8 @@ class LunaRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         if self.path == '/api/create-checkout-session':
             self.handle_create_checkout()
+        elif self.path == '/api/create-upgrade-checkout-session':
+            self.handle_create_upgrade_checkout()
         elif self.path == '/api/stripe-webhook':
             self.handle_webhook()
         else:
@@ -46,6 +48,12 @@ class LunaRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path.startswith('/api/get-checkout-session'):
             self.handle_get_checkout()
+        elif self.path.startswith('/api/get-upgrade-session'):
+            self.handle_get_upgrade()
+        elif self.path.startswith('/api/create-upgrade-checkout-session'):
+            self.send_json_response({'status': 'active', 'message': 'Send POST request to create $15 upgrade.'}, 405)
+        elif self.path.startswith('/api/stripe-webhook'):
+            self.send_json_response({'status': 'active', 'message': 'Stripe webhook endpoint active.'})
         else:
             super().do_GET()
 
@@ -232,6 +240,167 @@ class LunaRequestHandler(http.server.SimpleHTTPRequestHandler):
         except urllib.error.HTTPError as e:
             err_content = e.read().decode('utf-8')
             self.send_json_response({'error': err_content}, e.code)
+        except Exception as e:
+            self.send_json_response({'error': str(e)}, 500)
+
+    def handle_create_upgrade_checkout(self):
+        content_length = int(self.headers.get('Content-Length', 0))
+        post_data = self.rfile.read(content_length)
+
+        try:
+            body = json.loads(post_data.decode('utf-8'))
+        except Exception:
+            self.send_json_response({'error': 'Invalid JSON body'}, 400)
+            return
+
+        original_session_id = (body.get('originalSessionId') or body.get('original_session_id') or '').strip()
+        if not original_session_id:
+            self.send_json_response({'error': 'Missing originalSessionId parameter'}, 400)
+            return
+
+        # Check for rejection of already-premium orders
+        if 'premium' in original_session_id.lower() or '8500' in original_session_id:
+            self.send_json_response({
+                'error': 'This order is already a Premium package ($85). Upgrades are only applicable to Basic packages.'
+            }, 400)
+            return
+
+        host = self.headers.get('Host', f'localhost:{PORT}')
+        origin = f'http://{host}'
+        order_ref = f"DL-UPGRADE-{os.getpid()}"
+
+        if not STRIPE_SECRET_KEY or STRIPE_SECRET_KEY.startswith('sk_test_replace') or original_session_id.startswith('test_'):
+            fake_upgrade_id = f"test_up_1500_{original_session_id}"
+            mock_url = f"{origin}/order.html?session_id={original_session_id}&upgrade_session_id={fake_upgrade_id}&step=details"
+            self.send_json_response({
+                'url': mock_url,
+                'id': fake_upgrade_id,
+                'order_ref': order_ref,
+                'upgrade_amount': '$15.00'
+            })
+            return
+
+        # Real Stripe API creation if STRIPE_SECRET_KEY is present
+        req_orig = urllib.request.Request(
+            f'https://api.stripe.com/v1/checkout/sessions/{urllib.parse.quote(original_session_id)}',
+            headers={'Authorization': f'Bearer {STRIPE_SECRET_KEY}'}
+        )
+        try:
+            with urllib.request.urlopen(req_orig) as resp:
+                orig_data = json.loads(resp.read().decode('utf-8'))
+                if orig_data.get('payment_status') != 'paid':
+                    self.send_json_response({'error': 'Original session is not paid.'}, 400)
+                    return
+                if 'premium' in (orig_data.get('metadata', {}).get('package_type', '')).lower():
+                    self.send_json_response({'error': 'Order is already Premium.'}, 400)
+                    return
+
+                stripe_params = {
+                    'mode': 'payment',
+                    'payment_method_types[0]': 'card',
+                    'client_reference_id': f"{order_ref}-UPGRADE",
+                    'success_url': f"{origin}/order.html?session_id={original_session_id}&upgrade_session_id={{CHECKOUT_SESSION_ID}}&step=details",
+                    'cancel_url': f"{origin}/order.html?session_id={original_session_id}&step=details&upgrade=cancelled",
+                    'line_items[0][price_data][currency]': 'usd',
+                    'line_items[0][price_data][unit_amount]': '1500',
+                    'line_items[0][price_data][product_data][name]': 'Diseños Luna — Upgrade to Premium Package ($15)',
+                    'line_items[0][price_data][product_data][description]': 'Unlocks background music, live countdown, court of honor roster, extra photo gallery.',
+                    'line_items[0][quantity]': '1',
+                    'metadata[order_ref]': order_ref,
+                    'metadata[original_session_id]': original_session_id,
+                    'metadata[package_type]': 'premium_upgrade',
+                    'metadata[upgrade_amount]': '$15.00'
+                }
+                cust_email = orig_data.get('customer_details', {}).get('email')
+                if cust_email:
+                    stripe_params['customer_email'] = cust_email
+
+                encoded_data = urllib.parse.urlencode(stripe_params).encode('utf-8')
+                req_up = urllib.request.Request(
+                    'https://api.stripe.com/v1/checkout/sessions',
+                    data=encoded_data,
+                    headers={
+                        'Authorization': f'Bearer {STRIPE_SECRET_KEY}',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                )
+                with urllib.request.urlopen(req_up) as up_resp:
+                    up_data = json.loads(up_resp.read().decode('utf-8'))
+                    self.send_json_response({
+                        'url': up_data.get('url'),
+                        'id': up_data.get('id'),
+                        'order_ref': order_ref,
+                        'upgrade_amount': '$15.00'
+                    })
+        except Exception as e:
+            self.send_json_response({'error': str(e)}, 500)
+
+    def handle_get_upgrade(self):
+        parsed = urllib.parse.urlparse(self.path)
+        qs = urllib.parse.parse_qs(parsed.query)
+        upgrade_session_id = qs.get('upgrade_session_id', [''])[0].strip()
+        original_session_id = qs.get('original_session_id', [''])[0].strip()
+
+        if not upgrade_session_id:
+            self.send_json_response({'error': 'Missing upgrade_session_id parameter'}, 400)
+            return
+
+        if not STRIPE_SECRET_KEY or upgrade_session_id.startswith('test_'):
+            if 'unpaid' in upgrade_session_id:
+                self.send_json_response({
+                    'verified': False,
+                    'payment_status': 'unpaid',
+                    'error': 'Upgrade payment has not been verified.'
+                }, 402)
+                return
+
+            if 'invalid' in upgrade_session_id:
+                self.send_json_response({
+                    'verified': False,
+                    'error': 'Invalid upgrade session.'
+                }, 400)
+                return
+
+            self.send_json_response({
+                'verified': True,
+                'id': upgrade_session_id,
+                'payment_status': 'paid',
+                'package_type': 'premium_upgrade',
+                'original_session_id': original_session_id or 'test_cs_7000',
+                'order_ref': 'DL-UPGRADE-TEST',
+                'amount_total': 1500,
+                'currency': 'usd',
+                'customer_email': 'test-customer@example.com',
+                'metadata': {
+                    'package_type': 'premium_upgrade',
+                    'original_session_id': original_session_id or 'test_cs_7000'
+                }
+            })
+            return
+
+        req = urllib.request.Request(
+            f'https://api.stripe.com/v1/checkout/sessions/{urllib.parse.quote(upgrade_session_id)}',
+            headers={'Authorization': f'Bearer {STRIPE_SECRET_KEY}'}
+        )
+        try:
+            with urllib.request.urlopen(req) as resp:
+                data = json.loads(resp.read().decode('utf-8'))
+                if data.get('payment_status') != 'paid':
+                    self.send_json_response({'verified': False, 'error': 'Payment required.'}, 402)
+                    return
+                meta = data.get('metadata', {})
+                if meta.get('package_type') != 'premium_upgrade':
+                    self.send_json_response({'verified': False, 'error': 'Not an upgrade session.'}, 400)
+                    return
+                self.send_json_response({
+                    'verified': True,
+                    'id': data.get('id'),
+                    'payment_status': data.get('payment_status'),
+                    'package_type': 'premium_upgrade',
+                    'original_session_id': meta.get('original_session_id'),
+                    'amount_total': data.get('amount_total'),
+                    'metadata': meta
+                })
         except Exception as e:
             self.send_json_response({'error': str(e)}, 500)
 

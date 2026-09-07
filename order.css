@@ -1000,3 +1000,185 @@
   color: #615c56;
   font-weight: 600;
 }
+
+/* ── PREMIUM UPGRADE CALLOUT CARD (BASIC ORDERS) ── */
+.upgrade-card {
+  position: relative;
+  background: linear-gradient(135deg, #fff5f8 0%, #fffbf0 50%, #fff1f6 100%);
+  border: 2px solid #f7c5d2;
+  border-radius: 16px;
+  padding: 24px 22px 20px;
+  margin-bottom: 26px;
+  box-shadow: 0 4px 18px rgba(184, 50, 88, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upgrade-card:hover {
+  box-shadow: 0 6px 24px rgba(184, 50, 88, 0.12);
+}
+
+.upgrade-card-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #b83258, #922242);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(184, 50, 88, 0.25);
+}
+
+.upgrade-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 680px) {
+  .upgrade-card-body {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+}
+
+.upgrade-card-text {
+  flex: 1;
+}
+
+.upgrade-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #242220;
+  margin-bottom: 6px;
+}
+
+.upgrade-card-desc {
+  font-size: 0.88rem;
+  color: #554e48;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.upgrade-price-sub {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #b83258;
+}
+
+.upgrade-card-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 680px) {
+  .upgrade-card-action {
+    align-items: stretch;
+    margin-top: 10px;
+  }
+}
+
+.upgrade-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fbbcd0 0%, #f7a2be 100%);
+  color: #111111;
+  font-weight: 800;
+  font-size: 0.94rem;
+  padding: 12px 22px;
+  border: 1.5px solid #f095b2;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(184, 50, 88, 0.18);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upgrade-btn:hover {
+  background: linear-gradient(135deg, #f7a8c2 0%, #f48faf 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 50, 88, 0.28);
+}
+
+.upgrade-btn:active {
+  transform: translateY(0);
+}
+
+.upgrade-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.upgrade-btn-note {
+  font-size: 0.74rem;
+  color: #726b63;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ── UPGRADE CONFIRMED BANNER ── */
+.upgrade-confirmed-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ebfbf0 100%);
+  border: 2px solid #86efac;
+  color: #14532d;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.12);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.upgrade-confirmed-banner .uc-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.upgrade-confirmed-banner .uc-icon svg {
+  stroke: #ffffff;
+}
+
+.upgrade-confirmed-banner .uc-text h3 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #14532d;
+  margin-bottom: 4px;
+}
+
+.upgrade-confirmed-banner .uc-text p {
+  font-size: 0.84rem;
+  color: #166534;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-icon {
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+

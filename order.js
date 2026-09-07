@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initFlowRouter() {
   const urlParams = new URLSearchParams(window.location.search);
   const sessionId = urlParams.get('session_id');
+  const upgradeSessionId = urlParams.get('upgrade_session_id');
+  const upgradeParam = urlParams.get('upgrade');
   const stepParam = urlParams.get('step');
 
   if (stepParam === 'cancelled') {
@@ -31,7 +33,7 @@ function initFlowRouter() {
     showStep1Notice('Your Stripe checkout was cancelled. No charges were made. You can review your details and try again below.', 'notice-cancelled');
   } else if (sessionId && sessionId.trim() !== '') {
     // Returning from Stripe checkout -> verify server-side!
-    activateStep2(sessionId.trim());
+    activateStep2(sessionId.trim(), upgradeSessionId ? upgradeSessionId.trim() : null, upgradeParam);
   } else {
     // Normal visit -> Step 1
     activateStep1(urlParams.get('package'));
@@ -104,8 +106,9 @@ function activateStep1(preselectedPkg) {
 /**
  * Activates Step 2 View (Detailed Invitation Form after Stripe Payment)
  * STRICT SERVER VERIFICATION: Step 2 will ONLY unlock if Stripe API verifies payment_status === 'paid'.
+ * In addition, Premium features will ONLY unlock if the order was purchased as Premium OR upgraded via verified $15 payment.
  */
-async function activateStep2(sessionId) {
+async function activateStep2(sessionId, upgradeSessionId = null, upgradeParam = null) {
   const step1Sec = document.getElementById('step-1-section');
   const step2Sec = document.getElementById('step-2-section');
   const step3Sec = document.getElementById('step-3-confirmation');
@@ -181,25 +184,145 @@ async function activateStep2(sessionId) {
   if (eventType) document.getElementById('det-event-type').value = eventType;
   if (eventDate) document.getElementById('det-date').value = eventDate;
 
-  // Set verified package badge & rules
-  const isBasic = packageType.toLowerCase().includes('basic');
-  const pkgLabel = isBasic ? 'Basic ($70)' : 'Premium ($85)';
+  // Check if original package is Basic
+  const isOriginallyBasic = packageType.toLowerCase().includes('basic');
 
-  const pcPkgBadge = document.getElementById('pc-package-badge');
-  if (pcPkgBadge) pcPkgBadge.textContent = pkgLabel;
+  // SERVER-SIDE UPGRADE VERIFICATION: Check if customer returning with upgrade_session_id
+  let isUpgraded = false;
+  let verifiedUpgradeData = null;
 
-  const fieldPurchasedPkg = document.getElementById('field-purchased-package');
-  if (fieldPurchasedPkg) fieldPurchasedPkg.value = pkgLabel;
-
-  // FormSubmit subject: ORDER DETAILS — [Order Reference] — [Client Name]
-  const fsSubject = document.getElementById('fs-subject');
-  if (fsSubject) {
-    fsSubject.value = `ORDER DETAILS — ${orderRef} — ${clientName || celebrantName || 'Customer'}`;
+  if (isOriginallyBasic && upgradeSessionId) {
+    try {
+      const upRes = await fetch(`/api/get-upgrade-session?upgrade_session_id=${encodeURIComponent(upgradeSessionId)}&original_session_id=${encodeURIComponent(sessionId)}`);
+      const upData = await upRes.json();
+      if (upRes.ok && upData.verified && upData.payment_status === 'paid') {
+        isUpgraded = true;
+        verifiedUpgradeData = upData;
+      }
+    } catch (upErr) {
+      console.warn('Upgrade verification error:', upErr);
+    }
   }
 
-  applyDynamicPackageRules(packageType);
+  // Setup UI references
+  const pcPkgBadge = document.getElementById('pc-package-badge');
+  const fieldPurchasedPkg = document.getElementById('field-purchased-package');
+  const fieldUpgradeSession = document.getElementById('field-upgrade-session-id');
+  const fieldUpgradeAmount = document.getElementById('field-upgrade-amount');
+  const fieldTotalPaid = document.getElementById('field-total-paid');
+  const cardUpgrade = document.getElementById('upgrade-to-premium-card');
+  const bannerConfirmed = document.getElementById('upgrade-confirmed-banner');
+  const fsSubject = document.getElementById('fs-subject');
+
+  if (isUpgraded) {
+    // 1. Basic package UPGRADED to Premium ($15 paid, $85 total)
+    const pkgLabel = 'Premium ($85 — Upgraded)';
+    if (pcPkgBadge) pcPkgBadge.textContent = pkgLabel;
+    if (fieldPurchasedPkg) fieldPurchasedPkg.value = pkgLabel;
+    if (fieldUpgradeSession) fieldUpgradeSession.value = upgradeSessionId;
+    if (fieldUpgradeAmount) fieldUpgradeAmount.value = '$15.00';
+    if (fieldTotalPaid) fieldTotalPaid.value = '$85.00';
+
+    if (cardUpgrade) cardUpgrade.classList.add('is-hidden');
+    if (bannerConfirmed) {
+      bannerConfirmed.classList.remove('is-hidden');
+    }
+
+    if (fsSubject) {
+      fsSubject.value = `ORDER DETAILS (UPGRADED) — ${orderRef} — ${clientName || celebrantName || 'Customer'}`;
+    }
+
+    applyDynamicPackageRules('Premium');
+
+  } else if (isOriginallyBasic) {
+    // 2. Pure Basic package ($70 paid)
+    const pkgLabel = 'Basic ($70)';
+    if (pcPkgBadge) pcPkgBadge.textContent = pkgLabel;
+    if (fieldPurchasedPkg) fieldPurchasedPkg.value = pkgLabel;
+    if (fieldUpgradeSession) fieldUpgradeSession.value = '';
+    if (fieldUpgradeAmount) fieldUpgradeAmount.value = '';
+    if (fieldTotalPaid) fieldTotalPaid.value = '$70.00';
+
+    if (cardUpgrade) cardUpgrade.classList.remove('is-hidden');
+    if (bannerConfirmed) bannerConfirmed.classList.add('is-hidden');
+
+    if (fsSubject) {
+      fsSubject.value = `ORDER DETAILS — ${orderRef} — ${clientName || celebrantName || 'Customer'}`;
+    }
+
+    applyDynamicPackageRules('Basic');
+
+    // Attach handler for the Upgrade to Premium button
+    initUpgradeButton(sessionId);
+
+  } else {
+    // 3. Initial Premium package ($85 paid)
+    const pkgLabel = 'Premium ($85)';
+    if (pcPkgBadge) pcPkgBadge.textContent = pkgLabel;
+    if (fieldPurchasedPkg) fieldPurchasedPkg.value = pkgLabel;
+    if (fieldUpgradeSession) fieldUpgradeSession.value = '';
+    if (fieldUpgradeAmount) fieldUpgradeAmount.value = '';
+    if (fieldTotalPaid) fieldTotalPaid.value = '$85.00';
+
+    if (cardUpgrade) cardUpgrade.classList.add('is-hidden');
+    if (bannerConfirmed) bannerConfirmed.classList.add('is-hidden');
+
+    if (fsSubject) {
+      fsSubject.value = `ORDER DETAILS — ${orderRef} — ${clientName || celebrantName || 'Customer'}`;
+    }
+
+    applyDynamicPackageRules('Premium');
+  }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/**
+ * Initializes the Upgrade to Premium ($15) button logic
+ */
+function initUpgradeButton(originalSessionId) {
+  const btn = document.getElementById('upgrade-to-premium-btn');
+  if (!btn) return;
+
+  // Re-bind click listener safely
+  const freshBtn = btn.cloneNode(true);
+  btn.parentNode.replaceChild(freshBtn, btn);
+
+  freshBtn.addEventListener('click', async () => {
+    freshBtn.disabled = true;
+    const origContent = freshBtn.innerHTML;
+    freshBtn.innerHTML = `
+      <svg class="spin-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+        <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+      </svg>
+      <span>Connecting to Stripe...</span>
+    `;
+
+    try {
+      const res = await fetch('/api/create-upgrade-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ originalSessionId })
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        alert(data.error || 'Could not create upgrade session. Please try again or contact support.');
+        freshBtn.disabled = false;
+        freshBtn.innerHTML = origContent;
+        return;
+      }
+
+      // Redirect customer to Stripe Checkout for $15 upgrade
+      window.location.href = data.url;
+
+    } catch (err) {
+      alert('Network error connecting to Stripe. Please try again.');
+      freshBtn.disabled = false;
+      freshBtn.innerHTML = origContent;
+    }
+  });
 }
 
 /**
@@ -564,10 +687,15 @@ function initStep2Form() {
     const orderRef = document.getElementById('field-order-ref')?.value || 'DL-ORDER';
     const clientName = document.getElementById('det-name')?.value || celebrantName || 'Customer';
 
-    // Update subject right before submit: ORDER DETAILS — [Order Reference] — [Client Name]
+    const isUpgraded = pkg.toLowerCase().includes('upgraded');
+    const upgradeSessionId = document.getElementById('field-upgrade-session-id')?.value || '';
+    const totalPaid = document.getElementById('field-total-paid')?.value || (isUpgraded ? '$85.00' : (pkg.includes('Basic') ? '$70.00' : '$85.00'));
+
+    // Update subject right before submit: ORDER DETAILS (UPGRADED) / ORDER DETAILS — [Order Reference] — [Client Name]
     const fsSubject = document.getElementById('fs-subject');
     if (fsSubject) {
-      fsSubject.value = `ORDER DETAILS — ${orderRef} — ${clientName}`;
+      const subjPrefix = isUpgraded ? 'ORDER DETAILS (UPGRADED)' : 'ORDER DETAILS';
+      fsSubject.value = `${subjPrefix} — ${orderRef} — ${clientName}`;
     }
 
     // If FormSubmit action is configured, let it submit naturally via POST
@@ -586,13 +714,22 @@ function initStep2Form() {
     const reception = document.getElementById('det-reception')?.value || '';
     const song = document.getElementById('det-song')?.value || 'None';
 
-    const orderSummary = `══════════════════════════════════════\n` +
+    let orderSummary = `══════════════════════════════════════\n` +
       `DISEÑOS LUNA — PAID INVITATION ORDER\n` +
       `══════════════════════════════════════\n\n` +
       `• Order Reference: ${orderRef}\n` +
-      `• Stripe Session ID: ${sessionId}\n` +
-      `• Package: ${pkg}\n` +
-      `• Client Name: ${clientName}\n` +
+      `• Stripe Session ID: ${sessionId}\n`;
+
+    if (isUpgraded && upgradeSessionId) {
+      orderSummary += `• Upgrade Session ID: ${upgradeSessionId}\n` +
+        `• Package: Premium (Upgraded from Basic, +$15)\n` +
+        `• Total Amount Paid: ${totalPaid}\n`;
+    } else {
+      orderSummary += `• Package: ${pkg}\n` +
+        `• Total Amount Paid: ${totalPaid}\n`;
+    }
+
+    orderSummary += `• Client Name: ${clientName}\n` +
       `• Phone/WhatsApp: ${clientPhone}\n` +
       `• Email: ${clientEmail}\n\n` +
       `• Event Type: ${eventType}\n` +
