@@ -70,7 +70,7 @@ export async function onRequestPost(context) {
           notificationData.append('Event_Type', meta.event_type || '');
           notificationData.append('Event_Date', meta.event_date || '');
 
-          await fetch('https://formsubmit.co/disenosluna@gmail.com', {
+          await fetch('https://formsubmit.co/disenosluna815@gmail.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: notificationData.toString()
