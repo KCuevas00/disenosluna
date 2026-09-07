@@ -315,9 +315,10 @@
           <!-- FormSubmit Controls -->
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_subject" id="fs-subject" value="PAID Order Details — Diseños Luna" />
+          <input type="hidden" name="_subject" id="fs-subject" value="ORDER DETAILS — Diseños Luna" />
           
           <!-- Hidden tracking values tying submission to Stripe payment -->
+          <input type="hidden" id="field-order-ref" name="Order_Reference" value="" />
           <input type="hidden" id="field-stripe-session-id" name="Stripe_Session_ID" value="" />
           <input type="hidden" id="field-purchased-package" name="Purchased_Package" value="Premium ($85)" />
 
@@ -486,6 +487,16 @@
                 <h2>Photos &amp; Cover Image</h2>
                 <p>Upload photos directly or paste an album link (Google Drive, Dropbox, iCloud).</p>
               </div>
+            </div>
+
+            <!-- Email Attachment Limit Warning & Cloud Album Recommendation -->
+            <div class="photo-limit-notice">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span><strong>Photo Upload Note:</strong> Email attachment size is limited (~25MB total). If you have large batches of high-resolution photos, we recommend uploading your favorite cover photo here and pasting a shared <strong>Cloud Album Link</strong> (Google Photos, Drive, Dropbox, iCloud) below so no photos get compressed or omitted.</span>
             </div>
 
             <!-- Cover Photo (Included in Basic & Premium) -->

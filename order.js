@@ -8,6 +8,8 @@
  * ═════════════════════════════════════════════════════════════════════
  */
 
+let isPaymentServerVerified = false;
+
 document.addEventListener('DOMContentLoaded', () => {
   initFlowRouter();
   initStep1PackageSelector();
@@ -135,6 +137,7 @@ async function activateStep2(sessionId) {
   }
 
   // Payment is 100% verified by Stripe! Unlock Step 2
+  isPaymentServerVerified = true;
   hideStep1Notice();
   if (step1Sec) step1Sec.classList.add('is-hidden');
   if (step2Sec) step2Sec.classList.remove('is-hidden');
@@ -142,14 +145,18 @@ async function activateStep2(sessionId) {
 
   updateStepper(3);
 
-  // Set hidden session tracking input
+  const meta = sessionData.metadata || {};
+  const orderRef = meta.order_ref || (sessionData.id ? sessionData.id.slice(0, 16) : 'DL-ORDER');
+
+  // Set hidden session tracking inputs
+  const fieldOrderRef = document.getElementById('field-order-ref');
+  if (fieldOrderRef) fieldOrderRef.value = orderRef;
+
   const fieldSessionId = document.getElementById('field-stripe-session-id');
   if (fieldSessionId) fieldSessionId.value = sessionData.id || sessionId;
 
   const pcSessionDisplay = document.getElementById('pc-session-id');
-  if (pcSessionDisplay) pcSessionDisplay.textContent = `Order Ref: #${(sessionData.id || sessionId).slice(0, 16)}...`;
-
-  const meta = sessionData.metadata || {};
+  if (pcSessionDisplay) pcSessionDisplay.textContent = `Order Ref: #${orderRef}`;
 
   // Try retrieving client draft as backup for any extra non-metadata fields
   let draftData = {};
@@ -184,9 +191,10 @@ async function activateStep2(sessionId) {
   const fieldPurchasedPkg = document.getElementById('field-purchased-package');
   if (fieldPurchasedPkg) fieldPurchasedPkg.value = pkgLabel;
 
+  // FormSubmit subject: ORDER DETAILS — [Order Reference] — [Client Name]
   const fsSubject = document.getElementById('fs-subject');
   if (fsSubject) {
-    fsSubject.value = `PAID [${pkgLabel}] Order Details — ${celebrantName || 'Diseños Luna'}`;
+    fsSubject.value = `ORDER DETAILS — ${orderRef} — ${clientName || celebrantName || 'Customer'}`;
   }
 
   applyDynamicPackageRules(packageType);
@@ -538,6 +546,14 @@ function initStep2Form() {
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
+    // SECURITY GUARD: Ensure payment was verified by Stripe before allowing submission
+    if (!isPaymentServerVerified) {
+      e.preventDefault();
+      alert('Payment Verification Required: This detailed invitation form can only be submitted after your payment has been verified by Stripe.');
+      activateStep1();
+      return;
+    }
+
     if (!form.checkValidity()) {
       return; // Browser validation
     }
@@ -545,6 +561,14 @@ function initStep2Form() {
     const celebrantName = document.getElementById('det-celebrant')?.value || 'Celebrant';
     const pkg = document.getElementById('field-purchased-package')?.value || 'Premium ($85)';
     const sessionId = document.getElementById('field-stripe-session-id')?.value || '';
+    const orderRef = document.getElementById('field-order-ref')?.value || 'DL-ORDER';
+    const clientName = document.getElementById('det-name')?.value || celebrantName || 'Customer';
+
+    // Update subject right before submit: ORDER DETAILS — [Order Reference] — [Client Name]
+    const fsSubject = document.getElementById('fs-subject');
+    if (fsSubject) {
+      fsSubject.value = `ORDER DETAILS — ${orderRef} — ${clientName}`;
+    }
 
     // If FormSubmit action is configured, let it submit naturally via POST
     // We also show the confirmation screen smoothly
@@ -554,7 +578,6 @@ function initStep2Form() {
     }
 
     // Build clipboard text summary as backup
-    const clientName = document.getElementById('det-name')?.value || '';
     const clientPhone = document.getElementById('det-phone')?.value || '';
     const clientEmail = document.getElementById('det-email')?.value || '';
     const eventType = document.getElementById('det-event-type')?.value || '';
@@ -566,6 +589,7 @@ function initStep2Form() {
     const orderSummary = `══════════════════════════════════════\n` +
       `DISEÑOS LUNA — PAID INVITATION ORDER\n` +
       `══════════════════════════════════════\n\n` +
+      `• Order Reference: ${orderRef}\n` +
       `• Stripe Session ID: ${sessionId}\n` +
       `• Package: ${pkg}\n` +
       `• Client Name: ${clientName}\n` +

@@ -754,6 +754,31 @@
   pointer-events: none;
 }
 
+/* ── PHOTO BATCH ATTACHMENT LIMIT WARNING ── */
+.photo-limit-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #fff9f4;
+  border: 1.5px solid #fbd0a0;
+  color: #8c5210;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.photo-limit-notice svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #c96d10;
+}
+
+.photo-limit-notice strong {
+  color: #6d3a05;
+}
+
 /* ── PHOTO UPLOAD DROPZONES ── */
 .upload-dropzone {
   border: 2px dashed #f8cad5;

@@ -54,8 +54,12 @@ export async function onRequestPost(context) {
 
         // Forward authoritative paid event notification to FormSubmit / notification endpoint
         try {
+          const clientName = meta.client_name || meta.celebrant_name || customerEmail || 'Customer';
+          const cleanPkg = (meta.package_type || packageType).replace(/[\(\)]/g, '').toUpperCase();
+          const webhookSubject = `PAID ORDER — ${cleanPkg} — ${clientName}`;
+
           const notificationData = new URLSearchParams();
-          notificationData.append('_subject', `[STRIPE PAID] ${packageType} — ${meta.celebrant_name || customerEmail}`);
+          notificationData.append('_subject', webhookSubject);
           notificationData.append('_template', 'table');
           notificationData.append('_captcha', 'false');
           notificationData.append('Payment_Status', 'VERIFIED PAID VIA STRIPE');
