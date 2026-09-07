@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tiaraGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4e3b5"/>
+      <stop offset="35%" stop-color="#c99f57"/>
+      <stop offset="70%" stop-color="#9d7432"/>
+      <stop offset="100%" stop-color="#dfb86c"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke="url(#tiaraGold)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left Ornamental Flourish Scroll -->
+    <path d="M 60,75 C 90,75 115,55 140,55 C 170,55 195,78 215,78 C 225,78 232,70 230,62 C 227,52 215,50 205,58 C 195,66 200,80 212,82 C 228,84 240,65 242,55" stroke-width="2.2"/>
+    <path d="M 90,75 C 120,75 145,35 185,38 C 205,40 215,55 210,65" stroke-width="1.4" opacity="0.75"/>
+    <path d="M 40,78 C 50,78 55,72 50,68 C 44,63 35,70 42,80 C 52,90 75,85 105,75" stroke-width="1.5"/>
+
+    <!-- Right Ornamental Flourish Scroll (Mirror) -->
+    <path d="M 440,75 C 410,75 385,55 360,55 C 330,55 305,78 285,78 C 275,78 268,70 270,62 C 273,52 285,50 295,58 C 305,66 300,80 288,82 C 272,84 260,65 258,55" stroke-width="2.2"/>
+    <path d="M 410,75 C 380,75 355,35 315,38 C 295,40 285,55 290,65" stroke-width="1.4" opacity="0.75"/>
+    <path d="M 460,78 C 450,78 445,72 450,68 C 456,63 465,70 458,80 C 448,90 425,85 395,75" stroke-width="1.5"/>
+
+    <!-- Center Royal Crown / Tiara -->
+    <!-- Tiara Base Arc -->
+    <path d="M 215,82 Q 250,76 285,82" stroke-width="3"/>
+    <path d="M 218,87 Q 250,81 282,87" stroke-width="1.8"/>
+
+    <!-- Tiara Peaks and Jewels -->
+    <!-- Center Peak -->
+    <path d="M 250,38 L 244,68 Q 250,72 256,68 Z" fill="url(#tiaraGold)" stroke-width="1.5"/>
+    <circle cx="250" cy="34" r="3.5" fill="url(#tiaraGold)"/>
+    <circle cx="250" cy="48" r="2" fill="#ffffff"/>
+
+    <!-- Left Peak 1 -->
+    <path d="M 236,46 L 232,70 Q 237,73 242,70 Z" fill="url(#tiaraGold)" stroke-width="1.2"/>
+    <circle cx="236" cy="42" r="2.8" fill="url(#tiaraGold)"/>
+
+    <!-- Right Peak 1 -->
+    <path d="M 264,46 L 258,70 Q 263,73 268,70 Z" fill="url(#tiaraGold)" stroke-width="1.2"/>
+    <circle cx="264" cy="42" r="2.8" fill="url(#tiaraGold)"/>
+
+    <!-- Left Outer Peak -->
+    <path d="M 224,56 L 222,74 Q 226,76 230,74 Z" fill="url(#tiaraGold)" stroke-width="1"/>
+    <circle cx="224" cy="53" r="2.2" fill="url(#tiaraGold)"/>
+
+    <!-- Right Outer Peak -->
+    <path d="M 276,56 L 270,74 Q 274,76 278,74 Z" fill="url(#tiaraGold)" stroke-width="1"/>
+    <circle cx="276" cy="53" r="2.2" fill="url(#tiaraGold)"/>
+
+    <!-- Intricate Tiara Filigree Webbing -->
+    <path d="M 228,70 Q 236,58 244,68" stroke-width="1.4"/>
+    <path d="M 272,70 Q 264,58 256,68" stroke-width="1.4"/>
+    <path d="M 240,65 Q 250,54 260,65" stroke-width="1.6"/>
+  </g>
+</svg>

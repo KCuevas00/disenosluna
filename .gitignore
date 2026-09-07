@@ -1,0 +1,11 @@
+# Environment variables with private keys
+.env
+*.env.local
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS metadata
+Thumbs.db
+.DS_Store

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bgGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#2d2b29" />
+      <stop offset="100%" stop-color="#121110" />
+    </radialGradient>
+    <linearGradient id="goldTrim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3dfb9" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#aa8528" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)" />
+  <rect x="3" y="3" width="58" height="58" rx="11" fill="none" stroke="url(#goldTrim)" stroke-width="1.5" stroke-opacity="0.6" />
+  <!-- Monogram DL -->
+  <text x="32" y="38" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="700" fill="url(#goldTrim)" text-anchor="middle" letter-spacing="1">DL</text>
+  <!-- Small star flourish -->
+  <circle cx="32" cy="48" r="1.6" fill="#f3dfb9" />
+</svg>

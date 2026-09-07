@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Order Your Custom Invitation — Diseños Luna</title>
+  <meta name="description"
+    content="Order your custom digital invitation website with Stripe secure checkout. Weddings, quinceañeras, birthdays & more." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Order Your Custom Invitation — Diseños Luna" />
+  <meta property="og:description"
+    content="Custom digital event invitation order flow for weddings, quinceañeras, birthdays & more." />
+  <meta property="og:image" content="photos/navyblue.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Alex+Brush&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="order.css" />
+</head>
+
+<body class="order-page">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ORDER HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <header class="order-header-simple">
+    <div class="container order-header-inner">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Homepage</span>
+      </a>
+
+      <div class="order-brand">
+        <img src="photos/squarelogo.jpg" alt="Diseños Luna Logo" class="order-brand-logo" />
+        <span class="order-brand-title">Diseños Luna</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO INTRO
+    ══════════════════════════════════════════════════════════════ -->
+    <section class="order-hero">
+      <!-- Romantic Botanical Garden Corner Sprays -->
+      <img src="photos/flowers-mint.png" alt="" class="order-hero-flower flower-left" aria-hidden="true" />
+      <img src="photos/flowers-blush-top.png" alt="" class="order-hero-flower flower-right" aria-hidden="true" />
+
+      <div class="container">
+        <span class="order-hero-badge">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block; vertical-align:middle; margin-right:4px;">
+            <path d="M12 2a9 9 0 0 1 9 9c0 4.97-4.03 9-9 9A9 9 0 0 1 3 11C3 6.03 7.03 2 12 2z"/>
+          </svg>
+          SECURE STRIPE CHECKOUT &bull; WEDDINGS &bull; QUINCEAÑERAS
+        </span>
+        <h1 class="order-hero-title" id="order-flow-title">Order your custom invitation.</h1>
+        <p class="order-hero-desc" id="order-flow-desc">
+          Choose your package, enter your basic event info, and pay securely via Stripe. Once paid, you’ll complete your invitation timeline, colors, and photos!
+        </p>
+
+        <!-- Progress Stepper Indicator -->
+        <div class="order-stepper" id="order-stepper">
+          <div class="step-indicator is-active" id="step-indicator-1">
+            <span class="step-dot">1</span>
+            <span class="step-label">Package &amp; Basics</span>
+          </div>
+          <div class="step-divider"></div>
+          <div class="step-indicator" id="step-indicator-2">
+            <span class="step-dot">2</span>
+            <span class="step-label">Stripe Payment</span>
+          </div>
+          <div class="step-divider"></div>
+          <div class="step-indicator" id="step-indicator-3">
+            <span class="step-dot">3</span>
+            <span class="step-label">Invitation Details</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="order-form-container">
+
+      <!-- ══════════════════════════════════════════════════════════════
+           STEP 1 VIEW: PACKAGE SELECTION & BASIC INFORMATION
+      ══════════════════════════════════════════════════════════════ -->
+      <section id="step-1-section" class="flow-step-section">
+        <form id="step-1-form" novalidate>
+
+          <!-- 1. PACKAGE SELECTION -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">1</div>
+              <div class="step-text">
+                <h2>Select Your Package</h2>
+                <p>One flat fee. No subscriptions or hidden costs.</p>
+              </div>
+            </div>
+
+            <div class="package-options">
+              <!-- Basic ($70) -->
+              <label class="package-option-label" id="pkg-label-basic">
+                <input type="radio" name="package" value="Basic" />
+                <div class="pkg-header-row">
+                  <span class="pkg-title">Basic</span>
+                  <span class="pkg-price">$70</span>
+                </div>
+                <p class="pkg-tagline">“A complete digital invitation with everything your guests need.”</p>
+                <ul class="pkg-bullet-list">
+                  <li>Custom invitation website</li>
+                  <li>Interactive 3D opening envelope</li>
+                  <li>Custom wax seal / monogram</li>
+                  <li>Photo centerpiece</li>
+                  <li>Event schedule &amp; timeline</li>
+                  <li>One-tap Google &amp; Apple Maps</li>
+                  <li>Online RSVP</li>
+                  <li>Custom event colors</li>
+                  <li>Text / WhatsApp link preview card</li>
+                </ul>
+              </label>
+
+              <!-- Premium ($85) -->
+              <label class="package-option-label is-selected" id="pkg-label-premium">
+                <span class="pkg-tag">Most Popular</span>
+                <input type="radio" name="package" value="Premium" checked />
+                <div class="pkg-header-row">
+                  <span class="pkg-title">Premium</span>
+                  <span class="pkg-price">$85</span>
+                </div>
+                <p class="pkg-tagline">“The full interactive experience.”</p>
+                <ul class="pkg-bullet-list">
+                  <li><strong>Everything in Basic, plus:</strong></li>
+                  <li>Background music — song of choice</li>
+                  <li>Live event countdown</li>
+                  <li>Falling celebration petals / particles</li>
+                  <li>Court of honor / party members section</li>
+                  <li>Additional photo sections</li>
+                  <li>More design customization</li>
+                </ul>
+              </label>
+            </div>
+          </div>
+
+          <!-- 2. CONTACT INFORMATION -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">2</div>
+              <div class="step-text">
+                <h2>Your Contact Information</h2>
+                <p>Where we will send your Stripe receipt and private invitation preview link.</p>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="step1-name">Your Full Name <span class="req">*</span></label>
+                <input type="text" id="step1-name" name="clientName" class="input-styled" placeholder="e.g. Maria Gonzalez" required />
+                <span class="error-msg" id="err-step1-name">Please enter your full name.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="step1-phone">Phone / WhatsApp Number <span class="req">*</span></label>
+                <input type="tel" id="step1-phone" name="clientPhone" class="input-styled" placeholder="(555) 000-0000" required />
+                <span class="error-msg" id="err-step1-phone">Please enter your phone number.</span>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="step1-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="step1-email" name="clientEmail" class="input-styled" placeholder="maria@example.com" required />
+                <span class="error-msg" id="err-step1-email">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="step1-handle">Instagram or TikTok <span class="opt">(Optional)</span></label>
+                <input type="text" id="step1-handle" name="socialHandle" class="input-styled" placeholder="@username" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="step1-contact-method">Preferred Contact Method</label>
+              <select id="step1-contact-method" name="preferredContact" class="select-styled">
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Text Message (SMS)">Text Message (SMS)</option>
+                <option value="Instagram DM">Instagram DM</option>
+                <option value="TikTok DM">TikTok DM</option>
+                <option value="Email">Email</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 3. BASIC EVENT INFO -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">3</div>
+              <div class="step-text">
+                <h2>Basic Event Details</h2>
+                <p>The core information for your celebration.</p>
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-field">
+                <label for="step1-event-type">Event Type <span class="req">*</span></label>
+                <select id="step1-event-type" name="eventType" class="select-styled" required>
+                  <option value="" disabled selected>Select celebration...</option>
+                  <option value="Quinceañera">Quinceañera (15th Birthday)</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Sweet 16">Sweet 16</option>
+                  <option value="Milestone Birthday">Milestone Birthday</option>
+                  <option value="Baby Shower / Gender Reveal">Baby Shower / Gender Reveal</option>
+                  <option value="Baptism / First Communion">Baptism / First Communion</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="Other Celebration">Other Celebration</option>
+                </select>
+                <span class="error-msg" id="err-step1-event-type">Please select an event type.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="step1-celebrant">Celebrant or Couple Name(s) <span class="req">*</span></label>
+                <input type="text" id="step1-celebrant" name="celebrantName" class="input-styled" placeholder="e.g. Camila Navarro or Maria &amp; Carlos" required />
+                <span class="error-msg" id="err-step1-celebrant">Please enter the celebrant or couple name(s).</span>
+              </div>
+
+              <div class="form-field">
+                <label for="step1-date">Event Date <span class="req">*</span></label>
+                <input type="date" id="step1-date" name="eventDate" class="input-styled" required />
+                <span class="error-msg" id="err-step1-date">Please select your event date.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. ORDER SUMMARY & STRIPE CHECKOUT CTA -->
+          <div class="payment-checkout-card">
+            <div class="order-summary-box">
+              <div class="summary-line">
+                <span class="summary-label">Selected Package:</span>
+                <span class="summary-val" id="summary-pkg-name">Premium Package</span>
+              </div>
+              <div class="summary-line">
+                <span class="summary-label">Total Due Today:</span>
+                <span class="summary-val summary-price" id="summary-pkg-price">$85.00</span>
+              </div>
+            </div>
+
+            <div class="stripe-badge-box">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Encrypted 256-bit SSL • Secure Checkout via <strong>Stripe</strong></span>
+            </div>
+
+            <button type="submit" id="pay-stripe-btn" class="submit-btn">
+              <span>Continue to Payment ($85)</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <p class="submit-note">
+              After payment, you’ll be returned here to fill in your venues, music choice, schedule, and photos.
+            </p>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════════
+           STEP 2 VIEW: DETAILED INVITATION SPECIFICATIONS (AFTER PAYMENT)
+      ══════════════════════════════════════════════════════════════ -->
+      <section id="step-2-section" class="flow-step-section is-hidden">
+
+        <!-- Payment Confirmed Banner -->
+        <div class="payment-confirmed-banner">
+          <div class="pc-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="pc-text">
+            <h2 id="pc-title">Payment Confirmed!</h2>
+            <p id="pc-sub">
+              Your order is locked in. Let’s complete your invitation specifications below so we can start designing.
+            </p>
+            <div class="pc-meta-pill">
+              <span id="pc-package-badge">Premium ($85)</span>
+              <span class="pc-meta-divider">•</span>
+              <span id="pc-session-id">Order Ref: Loading...</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="step-2-details-form" action="https://formsubmit.co/disenosluna@gmail.com" method="POST" enctype="multipart/form-data">
+          <!-- FormSubmit Controls -->
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" id="fs-subject" value="PAID Order Details — Diseños Luna" />
+          
+          <!-- Hidden tracking values tying submission to Stripe payment -->
+          <input type="hidden" id="field-stripe-session-id" name="Stripe_Session_ID" value="" />
+          <input type="hidden" id="field-purchased-package" name="Purchased_Package" value="Premium ($85)" />
+
+          <!-- Contact Recap (Pre-filled, editable) -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">1</div>
+              <div class="step-text">
+                <h2>Client &amp; Celebrant Confirmation</h2>
+                <p>Pre-filled from your payment. Adjust if needed.</p>
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-field">
+                <label for="det-name">Your Full Name <span class="req">*</span></label>
+                <input type="text" id="det-name" name="Client_Name" class="input-styled" required />
+              </div>
+              <div class="form-field">
+                <label for="det-phone">Phone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="det-phone" name="Client_Phone" class="input-styled" required />
+              </div>
+              <div class="form-field">
+                <label for="det-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="det-email" name="Client_Email" class="input-styled" required />
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-field">
+                <label for="det-celebrant">Celebrant or Couple Name(s) <span class="req">*</span></label>
+                <input type="text" id="det-celebrant" name="Celebrant_Name" class="input-styled" required />
+              </div>
+              <div class="form-field">
+                <label for="det-event-type">Event Type <span class="req">*</span></label>
+                <input type="text" id="det-event-type" name="Event_Type" class="input-styled" required />
+              </div>
+              <div class="form-field">
+                <label for="det-date">Event Date <span class="req">*</span></label>
+                <input type="date" id="det-date" name="Event_Date" class="input-styled" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Theme & Styling -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">2</div>
+              <div class="step-text">
+                <h2>Theme, Colors &amp; Language</h2>
+                <p>We will match the invitation palette to your celebration colors.</p>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="det-theme-colors">Theme &amp; Colors <span class="req">*</span></label>
+                <input type="text" id="det-theme-colors" name="Theme_and_Colors" class="input-styled" placeholder="e.g. Blush Pink &amp; Gold, Mint Green, Royal Navy &amp; Silver" required />
+                <span class="field-hint">Include main color, accent metal (gold, silver, rose gold), and floral vibe.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="det-language">Invitation Language</label>
+                <select id="det-language" name="Language_Preference" class="select-styled">
+                  <option value="English Only">English Only</option>
+                  <option value="Spanish Only">Spanish Only</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Venues, Addresses & Schedule -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">3</div>
+              <div class="step-text">
+                <h2>Venues, Addresses &amp; Schedule</h2>
+                <p>We configure 1-tap Google &amp; Apple Maps directions for your guests.</p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="det-church">Ceremony / Church Information <span class="opt">(Optional)</span></label>
+              <textarea id="det-church" name="Ceremony_Venue_and_Address" class="textarea-styled" rows="3" placeholder="Church / Ceremony Venue Name, Full Address, and Start Time&#10;e.g. Saint Patrick Catholic Church, Chicago, IL — 2:00 PM"></textarea>
+              <span class="field-hint">Leave blank if ceremony and reception are at the same location.</span>
+            </div>
+
+            <div class="form-field">
+              <label for="det-reception">Reception / Banquet Hall Information <span class="req">*</span></label>
+              <textarea id="det-reception" name="Reception_Venue_and_Address" class="textarea-styled" rows="3" placeholder="Hall / Venue Name, Full Address, and Start Time&#10;e.g. The Grand Palace Ballroom, Chicago, IL — 5:00 PM" required></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="det-milestones">Schedule Timeline Milestones <span class="opt">(Optional)</span></label>
+              <textarea id="det-milestones" name="Schedule_Milestones" class="textarea-styled" rows="3" placeholder="e.g.&#10;5:00 PM — Cocktail &amp; Welcome&#10;6:00 PM — Grand Entrance&#10;6:30 PM — Dinner&#10;8:00 PM — Waltz &amp; Toast / Vals y Brindis&#10;9:00 PM — Dance &amp; Party"></textarea>
+            </div>
+          </div>
+
+          <!-- Personalization & Dynamic Features -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">4</div>
+              <div class="step-text">
+                <h2>Personalization, Music &amp; Court</h2>
+                <p>Tailor the interactive features of your digital stationery.</p>
+              </div>
+            </div>
+
+            <!-- Background Music (Dynamic) -->
+            <div class="form-field dynamic-feature-block" id="block-music">
+              <div class="feature-label-row">
+                <label for="det-song">Background Song Request</label>
+                <span class="feature-badge" id="badge-music">Included with Premium ✓</span>
+              </div>
+              <input type="text" id="det-song" name="Background_Song_Request" class="input-styled" placeholder="Artist and Song Title (or YouTube/Spotify link)" />
+              <span class="field-hint" id="hint-music">Plays automatically when guests open the virtual envelope (Included in Premium).</span>
+            </div>
+
+            <!-- Event Countdown (Dynamic) -->
+            <div class="form-field dynamic-feature-block" id="block-countdown">
+              <div class="feature-label-row">
+                <label for="det-countdown">Live Event Countdown</label>
+                <span class="feature-badge" id="badge-countdown">Included with Premium ✓</span>
+              </div>
+              <select id="det-countdown" name="Live_Countdown_Enabled" class="select-styled">
+                <option value="Yes, include live countdown">Yes, include live countdown clock</option>
+                <option value="No, skip countdown">No countdown needed</option>
+              </select>
+              <span class="field-hint" id="hint-countdown">Counts down days, hours, and minutes until the big day.</span>
+            </div>
+
+            <!-- Dedication Quote -->
+            <div class="form-field">
+              <label for="det-quote">Quote, Bible Verse, or Dedication Message <span class="opt">(Optional)</span></label>
+              <textarea id="det-quote" name="Dedication_Message" class="textarea-styled" rows="2" placeholder="e.g. 'A special day to celebrate family, love, and new beginnings...' or your favorite verse"></textarea>
+            </div>
+
+            <!-- Court of Honor (Dynamic) -->
+            <div class="form-field dynamic-feature-block" id="block-court">
+              <div class="feature-label-row">
+                <label for="det-court">Court of Honor / Padrinos / Party Members <span class="opt">(Optional)</span></label>
+                <span class="feature-badge" id="badge-court">Included with Premium ✓</span>
+              </div>
+              <textarea id="det-court" name="Court_of_Honor" class="textarea-styled" rows="3" placeholder="List names and roles, e.g.:&#10;Chambelán de Honor: Mateo Ramirez&#10;Damas: Camila, Valentina, Sofia&#10;Padrinos: Juan &amp; Carmen Gomez"></textarea>
+              <span class="field-hint" id="hint-court">Dedicated roster section highlighting court members and godparents.</span>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="det-dress-code">Dress Code Guidelines <span class="opt">(Optional)</span></label>
+                <input type="text" id="det-dress-code" name="Dress_Code" class="input-styled" placeholder="e.g. Formal Attire / Please avoid white &amp; navy blue" />
+              </div>
+
+              <div class="form-field">
+                <label for="det-registry">Gift Registry / Wishing Well <span class="opt">(Optional)</span></label>
+                <input type="text" id="det-registry" name="Gift_Registry" class="input-styled" placeholder="e.g. Zelle, Cash App, Amazon link, or 'Envelopes preferred'" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo Uploads (Dynamic) -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">5</div>
+              <div class="step-text">
+                <h2>Photos &amp; Cover Image</h2>
+                <p>Upload photos directly or paste an album link (Google Drive, Dropbox, iCloud).</p>
+              </div>
+            </div>
+
+            <!-- Cover Photo (Included in Basic & Premium) -->
+            <div class="form-field">
+              <div class="feature-label-row">
+                <label>Cover / Main Centerpiece Photo <span class="req">*</span></label>
+                <span class="feature-badge badge-included">Included with All Packages ✓</span>
+              </div>
+              <div class="upload-dropzone" id="cover-dropzone">
+                <input type="file" id="cover-photo-input" name="Cover_Photo" accept="image/*" class="upload-input-hidden" required />
+                <div class="dropzone-content">
+                  <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <span class="dropzone-title">Click or drag &amp; drop your main cover photo</span>
+                  <span class="dropzone-sub">High resolution JPG or PNG of the celebrant or couple</span>
+                </div>
+              </div>
+              <div id="cover-preview" class="preview-grid"></div>
+            </div>
+
+            <!-- Court of Honor Photos (Dynamic) -->
+            <div class="form-field dynamic-feature-block" id="block-court-photos">
+              <div class="feature-label-row">
+                <label>Court of Honor Photos (Damas &amp; Chambelanes) <span class="opt">(Optional)</span></label>
+                <span class="feature-badge" id="badge-court-photos">Included with Premium ✓</span>
+              </div>
+              <div class="upload-dropzone" id="court-dropzone">
+                <input type="file" id="court-photo-input" name="Court_Photos[]" accept="image/*" multiple class="upload-input-hidden" />
+                <div class="dropzone-content">
+                  <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span class="dropzone-title">Upload photos of court members</span>
+                  <span class="dropzone-sub">Individual portraits or group photos</span>
+                </div>
+              </div>
+              <div id="court-preview" class="preview-grid"></div>
+            </div>
+
+            <!-- Extra Photo Gallery (Dynamic) -->
+            <div class="form-field dynamic-feature-block" id="block-gallery-photos">
+              <div class="feature-label-row">
+                <label>Additional Highlights &amp; Gallery Photos <span class="opt">(Optional)</span></label>
+                <span class="feature-badge" id="badge-gallery-photos">Included with Premium ✓</span>
+              </div>
+              <div class="upload-dropzone" id="gallery-dropzone">
+                <input type="file" id="gallery-photo-input" name="Gallery_Photos[]" accept="image/*" multiple class="upload-input-hidden" />
+                <div class="dropzone-content">
+                  <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                  <span class="dropzone-title">Upload extra photos for your invitation gallery</span>
+                  <span class="dropzone-sub">Pre-quince, childhood milestone, or engagement photos</span>
+                </div>
+              </div>
+              <div id="gallery-preview" class="preview-grid"></div>
+            </div>
+
+            <!-- Cloud Album Link -->
+            <div class="form-field">
+              <label for="det-cloud-link">Or Paste a Cloud Album Link <span class="opt">(Google Photos, iCloud, Drive, Dropbox)</span></label>
+              <input type="url" id="det-cloud-link" name="Cloud_Album_Link" class="input-styled" placeholder="https://drive.google.com/... or https://photos.app.goo.gl/..." />
+            </div>
+          </div>
+
+          <!-- Special Notes -->
+          <div class="order-card">
+            <div class="card-step-header">
+              <div class="step-circle">6</div>
+              <div class="step-text">
+                <h2>Special Notes &amp; Final Review</h2>
+                <p>Any additional instructions or requests for our design team.</p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="det-notes">Additional Notes or Requests <span class="opt">(Optional)</span></label>
+              <textarea id="det-notes" name="Special_Notes" class="textarea-styled" rows="3" placeholder="Tell us about any specific animations, fonts, colors to avoid, or questions..."></textarea>
+            </div>
+          </div>
+
+          <!-- SUBMIT INVITATION DETAILS BUTTON -->
+          <div class="submit-card">
+            <button type="submit" class="submit-btn" id="submit-final-details-btn">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 2L11 13"></path>
+                <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+              </svg>
+              <span>Submit Invitation Details</span>
+            </button>
+            <p class="submit-note">
+              Once submitted, our design team will begin building your custom invitation website!
+            </p>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════════
+           STEP 3 VIEW: CONFIRMATION SCREEN ("Order received!")
+      ══════════════════════════════════════════════════════════════ -->
+      <section id="step-3-confirmation" class="flow-step-section is-hidden">
+        <div class="confirmation-card">
+          <div class="confirmation-icon-wrap">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+
+          <h2 class="confirmation-title">Order received!</h2>
+          <p class="confirmation-msg">
+            We have your payment and invitation details. We'll review everything and contact you with the next steps.
+          </p>
+
+          <div class="confirmation-receipt-box">
+            <div class="receipt-row">
+              <span class="r-label">Package:</span>
+              <span class="r-val" id="conf-package">Premium Package ($85)</span>
+            </div>
+            <div class="receipt-row">
+              <span class="r-label">Celebrant:</span>
+              <span class="r-val" id="conf-celebrant">—</span>
+            </div>
+            <div class="receipt-row">
+              <span class="r-label">Order Ref:</span>
+              <span class="r-val" id="conf-order-id">—</span>
+            </div>
+            <div class="receipt-row">
+              <span class="r-label">Payment Status:</span>
+              <span class="r-val r-paid">✓ Paid via Stripe</span>
+            </div>
+          </div>
+
+          <p class="confirmation-subtext">
+            Need to send extra photos or have a quick question? Message us anytime directly on social media:
+          </p>
+
+          <div class="confirmation-social-actions">
+            <a href="https://www.instagram.com/disenosluna815/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-instagram">
+              Instagram DM
+            </a>
+            <a href="https://www.tiktok.com/@disenosluna" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-tiktok">
+              TikTok DM
+            </a>
+            <a href="index.html" class="btn btn-sm btn-secondary">
+              Back to Home
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       WEDDING GARDEN GRASS & FOOTER
+  ══════════════════════════════════════════════════════════════ -->
+  <footer class="order-footer">
+    <div class="wedding-grass-strip" aria-hidden="true">
+      <img src="photos/wedding-grass-lawn.jpg" alt="Lush green garden lawn grass" class="wedding-grass-img" />
+    </div>
+    <div class="container order-footer-inner">
+      <p class="order-footer-text">Diseños Luna &bull; Handcrafted Digital Wedding &amp; Event Invitations</p>
+    </div>
+  </footer>
+
+  <script src="order.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,947 @@
+/* ═════════════════════════════════════════════════════════════════════
+   DISEÑOS LUNA — CLIENT ORDER & EVENT INTAKE FORM STYLES
+   Romantic Wedding & Event Aesthetic: Soft Pink, Crisp White & Warm Cream
+   ═════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --wedding-pink-dark: #b83258;
+  --wedding-pink-primary: #f7a8be;
+  --wedding-pink-hover: #f28fa9;
+  --wedding-pink-light: #fff0f4;
+  --wedding-pink-border: #f8cad5;
+  --wedding-rose: #b83258;
+  --wedding-bg: #faf7f5;
+  --wedding-card-border: #f8cad5;
+  --wedding-card-bg: #ffffff;
+  --wedding-input-bg: #ffffff;
+  --wedding-input-border: #e8d7de;
+  --wedding-green-dark: #b83258;
+  --wedding-green-primary: #f7a8be;
+  --wedding-green-light: #fff0f4;
+  --wedding-green-border: #f8cad5;
+  --text-main: #242220;
+  --text-muted: #615c56;
+  --transition: all 0.22s ease-in-out;
+}
+
+/* ── PAGE LAYOUT ── */
+.order-page {
+  background-color: var(--wedding-bg);
+  background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #faf7f5 50%, #fdf2f5 100%);
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.order-header-simple {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(248, 202, 213, 0.45);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.order-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #111111;
+  transition: var(--transition);
+}
+
+.back-link:hover {
+  color: #b83258;
+  transform: translateX(-3px);
+}
+
+.order-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.order-brand-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.order-brand-logo:hover {
+  transform: scale(1.04);
+}
+
+.order-brand-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+/* ── HERO BANNER ── */
+.order-hero {
+  padding: 40px 0 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.order-hero-flower {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.04));
+  transition: opacity 0.3s ease;
+}
+
+.flower-left {
+  top: -40px;
+  left: -50px;
+  width: 260px;
+  max-width: 40vw;
+}
+
+.flower-right {
+  top: -40px;
+  right: -50px;
+  width: 260px;
+  max-width: 40vw;
+}
+
+.order-hero-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #111111;
+  background: #fff0f4;
+  border: 1px solid #f8cad5;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.order-hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: #242220;
+}
+
+.order-hero-desc {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  font-size: 0.98rem;
+  color: #615c56;
+  line-height: 1.6;
+}
+
+/* ── STEPPER BREADCRUMBS ── */
+.order-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 580px;
+  margin: 18px auto 0;
+  padding: 10px 16px;
+  background: #ffffff;
+  border: 1px solid #f8cad5;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(247, 168, 190, 0.12);
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+
+.step-indicator.is-active,
+.step-indicator.is-completed {
+  opacity: 1;
+}
+
+.step-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fdf2f5;
+  border: 1px solid #f8cad5;
+  color: #111111;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-indicator.is-active .step-dot {
+  background: #f7a8be;
+  color: #111111;
+  border-color: #f49bb3;
+}
+
+.step-indicator.is-completed .step-dot {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #242220;
+}
+
+.step-divider {
+  width: 24px;
+  height: 1.5px;
+  background: #f8cad5;
+}
+
+@media (max-width: 480px) {
+  .step-label {
+    display: none;
+  }
+  .step-indicator.is-active .step-label {
+    display: inline;
+  }
+}
+
+/* ── FORM CONTAINER & CARDS ── */
+.order-form-container {
+  max-width: 820px;
+  margin: 24px auto 60px;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.order-card {
+  background: var(--wedding-card-bg);
+  border: 1px solid var(--wedding-card-border);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(35, 55, 38, 0.03);
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (min-width: 768px) {
+  .order-card {
+    padding: 34px 34px;
+  }
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 16px rgba(247, 168, 190, 0.15);
+  border-color: #f7a8be;
+}
+
+.card-step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f8cad5;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff0f4;
+  color: #111111;
+  border: 1.5px solid #f8cad5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.step-text h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #242220;
+  margin-bottom: 4px;
+}
+
+.step-text p {
+  font-size: 0.88rem;
+  color: #615c56;
+}
+
+/* ── FORM INPUTS & LAYOUT ── */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 700px) {
+  .form-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
+.form-field label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #242220;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-field label .req {
+  color: #c43b3b;
+  margin-left: 2px;
+}
+
+.form-field label .opt {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #8c8680;
+}
+
+.input-styled,
+.select-styled,
+.textarea-styled {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--wedding-input-border);
+  background: var(--wedding-input-bg);
+  font-size: 0.95rem;
+  color: #111111;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.input-styled:focus,
+.select-styled:focus,
+.textarea-styled:focus {
+  outline: none;
+  border-color: #f7a8be;
+  box-shadow: 0 0 0 3px rgba(247, 168, 190, 0.25);
+  background: #ffffff;
+}
+
+.input-styled.has-error,
+.select-styled.has-error {
+  border-color: #c43b3b !important;
+  background: #fff8f8;
+}
+
+.error-msg {
+  display: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #c43b3b;
+  margin-top: 2px;
+}
+
+.error-msg.is-visible {
+  display: block;
+}
+
+.field-hint {
+  font-size: 0.78rem;
+  color: #615c56;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ── PACKAGE SELECTOR CARDS ── */
+.package-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+@media (min-width: 600px) {
+  .package-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.package-option-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+  border-radius: 14px;
+  border: 2px solid var(--wedding-card-border);
+  background: #fafcfa;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.package-option-label:hover {
+  border-color: #f7a8be;
+  background: #fffafd;
+}
+
+.package-option-label input[type="radio"] {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  accent-color: #f7a8be;
+  width: 20px;
+  height: 20px;
+}
+
+.package-option-label.is-selected {
+  border-color: #f7a8be;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(247, 168, 190, 0.3);
+}
+
+.pkg-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding-right: 32px;
+}
+
+.pkg-title {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #242220;
+}
+
+.pkg-price {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #111111;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.pkg-tagline {
+  font-size: 0.84rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.pkg-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pkg-bullet-list li {
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1.35;
+  padding-left: 16px;
+  position: relative;
+}
+
+.pkg-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #b83258;
+  font-weight: bold;
+}
+
+.pkg-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #f7a8be;
+  color: #111111 !important;
+  padding: 3px 9px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+/* ── STRIPE CHECKOUT SUMMARY BOX ── */
+.payment-checkout-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: #ffffff;
+  border: 1.5px solid #f8cad5;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(247, 168, 190, 0.14);
+}
+
+.order-summary-box {
+  max-width: 440px;
+  margin: 0 auto 18px;
+  background: #fff8fa;
+  border: 1px solid #f8cad5;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.summary-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.summary-line:last-child {
+  margin-bottom: 0;
+  padding-top: 8px;
+  border-top: 1px dashed #f8cad5;
+}
+
+.summary-label {
+  font-weight: 600;
+  color: #615c56;
+}
+
+.summary-val {
+  font-weight: 700;
+  color: #111111;
+}
+
+.summary-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #111111;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.stripe-badge-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.stripe-badge-box strong {
+  color: #111111;
+}
+
+/* ── BUTTONS ── */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 440px;
+  background: #f7a8be;
+  color: #111111 !important;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 16px 28px;
+  border-radius: 12px;
+  border: 1px solid #f49bb3;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(247, 168, 190, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #f28fa9;
+  color: #111111 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 143, 169, 0.55);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.submit-note {
+  font-size: 0.82rem;
+  color: #615c56;
+  margin-top: 14px;
+}
+
+/* ── STEP 2: PAYMENT CONFIRMED BANNER ── */
+.payment-confirmed-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #ffffff;
+  border: 2px solid #f8cad5;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 18px rgba(247, 168, 190, 0.18);
+}
+
+.pc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #f7a8be;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pc-text h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.pc-text p {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.pc-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: #fff0f4;
+  border: 1px solid #f8cad5;
+  padding: 3px 10px;
+  border-radius: 6px;
+  color: #111111;
+}
+
+.pc-meta-divider {
+  color: #b83258;
+}
+
+/* ── DYNAMIC FEATURE BADGES ── */
+.feature-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.feature-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  background: #fff0f4;
+  border: 1px solid #f8cad5;
+  color: #111111;
+}
+
+.feature-badge.badge-included {
+  background: #fff0f4;
+  border-color: #f8cad5;
+  color: #111111;
+}
+
+.feature-badge.badge-locked {
+  background: #f0ede9;
+  border-color: #ded6c8;
+  color: #7d7770;
+}
+
+.dynamic-feature-block.is-locked {
+  opacity: 0.65;
+}
+
+.dynamic-feature-block.is-locked input,
+.dynamic-feature-block.is-locked select,
+.dynamic-feature-block.is-locked textarea,
+.dynamic-feature-block.is-locked .upload-dropzone {
+  background: #f8f6f3 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── PHOTO UPLOAD DROPZONES ── */
+.upload-dropzone {
+  border: 2px dashed #f8cad5;
+  border-radius: 12px;
+  background: #fff8fa;
+  padding: 28px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.drag-over {
+  border-color: #f7a8be;
+  background: #fff0f4;
+}
+
+.upload-input-hidden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.dropzone-icon {
+  width: 32px;
+  height: 32px;
+  color: #b83258;
+}
+
+.dropzone-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #242220;
+}
+
+.dropzone-sub {
+  font-size: 0.78rem;
+  color: #615c56;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.preview-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--wedding-card-border);
+  background: #fff0f4;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  transition: background 0.2s ease;
+}
+
+.preview-remove:hover {
+  background: #c43b3b;
+}
+
+/* ── STEP 3: CONFIRMATION CARD ── */
+.confirmation-card {
+  text-align: center;
+  background: #ffffff;
+  border: 2px solid #f8cad5;
+  border-radius: 18px;
+  padding: 42px 24px;
+  box-shadow: 0 8px 30px rgba(247, 168, 190, 0.2);
+}
+
+.confirmation-icon-wrap {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #f7a8be;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 16px rgba(247, 168, 190, 0.4);
+}
+
+.confirmation-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.2rem;
+  color: #111111;
+  margin-bottom: 10px;
+}
+
+.confirmation-msg {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 auto 24px;
+}
+
+.confirmation-receipt-box {
+  max-width: 440px;
+  margin: 0 auto 28px;
+  background: #fff8fa;
+  border: 1px solid #f8cad5;
+  border-radius: 12px;
+  padding: 18px 22px;
+  text-align: left;
+}
+
+.receipt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.receipt-row:last-child {
+  margin-bottom: 0;
+  padding-top: 8px;
+  border-top: 1px dashed #f8cad5;
+}
+
+.r-label {
+  font-weight: 600;
+  color: #615c56;
+}
+
+.r-val {
+  font-weight: 700;
+  color: #111111;
+}
+
+.r-paid {
+  color: #111111;
+  font-weight: 800;
+}
+
+.confirmation-subtext {
+  font-size: 0.88rem;
+  color: #615c56;
+  margin-bottom: 18px;
+}
+
+.confirmation-social-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ── LAWN GRASS FOOTER STRIP ── */
+.order-footer {
+  margin-top: 20px;
+  background: #faf6f0;
+  border-top: 1px solid var(--wedding-card-border);
+  position: relative;
+}
+
+.wedding-grass-strip {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+}
+
+.wedding-grass-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.order-footer-inner {
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.order-footer-text {
+  font-size: 0.86rem;
+  color: #615c56;
+  font-weight: 600;
+}
