@@ -28,6 +28,160 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="order.css" />
+
+  <style>
+    /* Embedded bulletproof styling for Step 2 Recap Card & Cloud Link */
+    .order-recap-card {
+      background: #ffffff !important;
+      border: 1.5px solid #f8cad5 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 18px rgba(247, 168, 190, 0.12) !important;
+      padding: 24px !important;
+      margin-bottom: 24px !important;
+    }
+    @media (min-width: 768px) {
+      .order-recap-card { padding: 28px 32px !important; }
+    }
+    .recap-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-wrap: wrap !important;
+      gap: 14px !important;
+      margin-bottom: 20px !important;
+      padding-bottom: 16px !important;
+      border-bottom: 1px solid #f8cad5 !important;
+    }
+    .recap-header-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+    }
+    .step-circle-check {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      background: #b83258 !important;
+      color: #ffffff !important;
+      border: 1.5px solid #b83258 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.05rem !important;
+      font-weight: 800 !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 2px 8px rgba(184, 50, 88, 0.25) !important;
+    }
+    .btn-recap-edit {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      background: #fff0f4 !important;
+      color: #b83258 !important;
+      border: 1.5px solid #f8cad5 !important;
+      border-radius: 24px !important;
+      padding: 8px 16px !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      font-family: inherit !important;
+    }
+    .btn-recap-edit:hover {
+      background: #b83258 !important;
+      color: #ffffff !important;
+      border-color: #b83258 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(184, 50, 88, 0.25) !important;
+    }
+    .recap-grid {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+    @media (min-width: 580px) {
+      .recap-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (min-width: 768px) {
+      .recap-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; }
+    }
+    .recap-item {
+      background: #fffbfa !important;
+      border: 1px solid #f8cad5 !important;
+      border-radius: 12px !important;
+      padding: 12px 16px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 4px !important;
+      transition: all 0.2s ease !important;
+    }
+    .recap-item:hover {
+      background: #ffffff !important;
+      border-color: #f7a8be !important;
+      box-shadow: 0 3px 10px rgba(247, 168, 190, 0.18) !important;
+    }
+    .recap-label {
+      font-size: 0.7rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: #8c737a !important;
+      display: block !important;
+    }
+    .recap-value {
+      font-size: 0.94rem !important;
+      font-weight: 700 !important;
+      color: #242220 !important;
+      line-height: 1.35 !important;
+      word-break: break-word !important;
+      display: block !important;
+    }
+    .cloud-link-feedback {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      transition: all 0.2s ease;
+    }
+    .confirmation-copy-wrap {
+      margin: 16px auto 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .btn-copy-summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff0f4;
+      color: #b83258;
+      border: 1.5px solid #f8cad5;
+      border-radius: 24px;
+      padding: 10px 22px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-copy-summary:hover {
+      background: #f7a8be;
+      color: #111111;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(247, 168, 190, 0.35);
+    }
+    .btn-copy-summary.is-copied {
+      background: #2e7d32;
+      color: #ffffff;
+      border-color: #2e7d32;
+    }
+  </style>
 </head>
 
 <body class="order-page">
@@ -312,54 +466,73 @@
           </div>
         </div>
 
+        <!-- Step 2 Submission Alert / Error Box (Hidden by default) -->
+        <div id="step-2-error" class="order-notice-banner notice-error is-hidden"></div>
+
         <form id="step-2-details-form" action="https://formsubmit.co/disenosluna815@gmail.com" method="POST" enctype="multipart/form-data">
           <!-- FormSubmit Controls -->
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_subject" id="fs-subject" value="NEW INVITATION ORDER — Diseños Luna" />
+          <input type="hidden" name="_autoresponse" value="Thank you for choosing Diseños Luna! We have received your custom invitation order and celebration specifications. We will review your details and reach out to you directly regarding payment and next steps before design begins!" />
+          <input type="hidden" name="_replyto" id="fs-replyto" value="" />
           
-          <!-- Hidden tracking values -->
+          <!-- Hidden tracking & Step 1 values submitted to FormSubmit -->
           <input type="hidden" id="field-order-ref" name="Order_Reference" value="" />
           <input type="hidden" id="field-selected-package" name="Selected_Package" value="Premium ($85)" />
           <input type="hidden" id="field-package-price" name="Package_Price" value="$85.00" />
+          <input type="hidden" id="field-client-name" name="Client_Name" value="" />
+          <input type="hidden" id="field-client-phone" name="Client_Phone" value="" />
+          <input type="hidden" id="field-client-email" name="email" value="" />
+          <input type="hidden" id="field-social-handle" name="Social_Handle" value="" />
+          <input type="hidden" id="field-preferred-contact" name="Preferred_Contact" value="" />
+          <input type="hidden" id="field-event-type" name="Event_Type" value="" />
+          <input type="hidden" id="field-celebrant-name" name="Celebrant_Name" value="" />
+          <input type="hidden" id="field-event-date" name="Event_Date" value="" />
 
-          <!-- Contact Recap (Pre-filled from Step 1, editable) -->
-          <div class="order-card">
-            <div class="card-step-header">
-              <div class="step-circle">1</div>
-              <div class="step-text">
-                <h2>Client &amp; Celebrant Confirmation</h2>
-                <p>Pre-filled from Step 1. Adjust if needed.</p>
+          <!-- Client & Event Recap Card (Clean, Read-Only with Edit Action) -->
+          <div class="order-card order-recap-card">
+            <div class="card-step-header recap-header">
+              <div class="recap-header-left">
+                <div class="step-circle step-circle-check">✓</div>
+                <div class="step-text">
+                  <h2>Client &amp; Celebration Summary</h2>
+                  <p>Captured from Step 1. Click edit if you need to adjust any contact or date details.</p>
+                </div>
               </div>
+              <button type="button" class="btn-recap-edit" id="btn-recap-edit" aria-label="Edit contact and celebration details">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <span>Edit Details</span>
+              </button>
             </div>
 
-            <div class="form-grid-3">
-              <div class="form-field">
-                <label for="det-name">Your Full Name <span class="req">*</span></label>
-                <input type="text" id="det-name" name="Client_Name" class="input-styled" required />
+            <div class="recap-grid">
+              <div class="recap-item">
+                <span class="recap-label">Client Name</span>
+                <span class="recap-value" id="recap-name">—</span>
               </div>
-              <div class="form-field">
-                <label for="det-phone">Phone / WhatsApp <span class="req">*</span></label>
-                <input type="tel" id="det-phone" name="Client_Phone" class="input-styled" required />
+              <div class="recap-item">
+                <span class="recap-label">Phone / WhatsApp</span>
+                <span class="recap-value" id="recap-phone">—</span>
               </div>
-              <div class="form-field">
-                <label for="det-email">Email Address <span class="req">*</span></label>
-                <input type="email" id="det-email" name="Client_Email" class="input-styled" required />
+              <div class="recap-item">
+                <span class="recap-label">Email Address</span>
+                <span class="recap-value" id="recap-email">—</span>
               </div>
-            </div>
-
-            <div class="form-grid-3">
-              <div class="form-field">
-                <label for="det-celebrant">Celebrant or Couple Name(s) <span class="req">*</span></label>
-                <input type="text" id="det-celebrant" name="Celebrant_Name" class="input-styled" required />
+              <div class="recap-item">
+                <span class="recap-label">Preferred Contact</span>
+                <span class="recap-value" id="recap-contact-method">—</span>
               </div>
-              <div class="form-field">
-                <label for="det-event-type">Event Type <span class="req">*</span></label>
-                <input type="text" id="det-event-type" name="Event_Type" class="input-styled" required />
+              <div class="recap-item">
+                <span class="recap-label">Celebrant / Couple</span>
+                <span class="recap-value" id="recap-celebrant">—</span>
               </div>
-              <div class="form-field">
-                <label for="det-date">Event Date <span class="req">*</span></label>
-                <input type="date" id="det-date" name="Event_Date" class="input-styled" required />
+              <div class="recap-item">
+                <span class="recap-label">Event Type &amp; Date</span>
+                <span class="recap-value" id="recap-event-meta">—</span>
               </div>
             </div>
           </div>
@@ -378,12 +551,14 @@
               <div class="form-field">
                 <label for="det-theme-colors">Theme &amp; Colors <span class="req">*</span></label>
                 <input type="text" id="det-theme-colors" name="Theme_and_Colors" class="input-styled" placeholder="e.g. Blush Pink &amp; Gold, Mint Green, Royal Navy &amp; Silver" required />
+                <span class="error-msg" id="err-det-theme-colors">Please enter your celebration theme and colors.</span>
                 <span class="field-hint">Include main color, accent metal (gold, silver, rose gold), and floral vibe.</span>
               </div>
 
               <div class="form-field">
                 <label for="det-language">Invitation Language</label>
                 <select id="det-language" name="Language_Preference" class="select-styled">
+                  <option value="Bilingual (English &amp; Spanish)" selected>Bilingual (English &amp; Spanish)</option>
                   <option value="English Only">English Only</option>
                   <option value="Spanish Only">Spanish Only</option>
                 </select>
@@ -410,6 +585,7 @@
             <div class="form-field">
               <label for="det-reception">Reception / Banquet Hall Information <span class="req">*</span></label>
               <textarea id="det-reception" name="Reception_Venue_and_Address" class="textarea-styled" rows="3" placeholder="Hall / Venue Name, Full Address, and Start Time&#10;e.g. The Grand Palace Ballroom, Chicago, IL — 5:00 PM" required></textarea>
+              <span class="error-msg" id="err-det-reception">Please enter your reception hall or banquet venue information.</span>
             </div>
 
             <div class="form-field">
@@ -503,11 +679,11 @@
             <!-- Cover Photo (Included in Basic & Premium) -->
             <div class="form-field">
               <div class="feature-label-row">
-                <label>Cover / Main Centerpiece Photo <span class="req">*</span></label>
+                <label>Cover / Main Centerpiece Photo <span class="opt">(Optional — or paste cloud link below)</span></label>
                 <span class="feature-badge badge-included">Included with All Packages ✓</span>
               </div>
               <div class="upload-dropzone" id="cover-dropzone">
-                <input type="file" id="cover-photo-input" name="Cover_Photo" accept="image/*" class="upload-input-hidden" required />
+                <input type="file" id="cover-photo-input" name="Cover_Photo" accept="image/*" class="upload-input-hidden" />
                 <div class="dropzone-content">
                   <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -567,7 +743,9 @@
             <!-- Cloud Album Link -->
             <div class="form-field">
               <label for="det-cloud-link">Or Paste a Cloud Album Link <span class="opt">(Google Photos, iCloud, Drive, Dropbox)</span></label>
-              <input type="url" id="det-cloud-link" name="Cloud_Album_Link" class="input-styled" placeholder="https://drive.google.com/... or https://photos.app.goo.gl/..." />
+              <input type="text" inputmode="url" id="det-cloud-link" name="Cloud_Album_Link" class="input-styled" placeholder="drive.google.com/... or photos.app.goo.gl/... or icloud.com/..." />
+              <div id="cloud-link-feedback" class="cloud-link-feedback is-hidden"></div>
+              <span class="field-hint">Paste any link to your Google Drive folder, Google Photos, iCloud shared album, or Dropbox. No direct uploads required!</span>
             </div>
           </div>
 
@@ -637,10 +815,24 @@
               <span class="r-label">Order Reference:</span>
               <span class="r-val" id="conf-order-id">—</span>
             </div>
+            <div class="receipt-row is-hidden" id="conf-cloud-row">
+              <span class="r-label">Photos Link:</span>
+              <span class="r-val" id="conf-cloud-link" style="word-break: break-all; font-size: 0.86rem;">—</span>
+            </div>
             <div class="receipt-row">
               <span class="r-label">Status:</span>
               <span class="r-val" style="color: #b83258; font-weight: 700;">Details Submitted • Payment Pending</span>
             </div>
+          </div>
+
+          <div class="confirmation-copy-wrap">
+            <button type="button" class="btn-copy-summary" id="btn-copy-order-summary">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copy-summary-text">Copy Order Details</span>
+            </button>
           </div>
 
           <p class="confirmation-subtext">

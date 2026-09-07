@@ -12,6 +12,7 @@
 let currentOrderRef = '';
 let currentSelectedPackage = 'Premium ($85)';
 let currentPackagePrice = '$85.00';
+let currentOrderSummary = '';
 
 document.addEventListener('DOMContentLoaded', () => {
   initOrderReference();
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initStep2Form();
   initPhotoUploads();
   initBackToStep1Button();
+  initCopySummaryButton();
+  initCloudLinkFeedback();
 });
 
 /**
@@ -40,12 +43,23 @@ function initOrderReference() {
 }
 
 /**
- * Step 1: Package Selection UI toggle & price updates
+ * Step 1: Package Selection UI toggle, price updates, and URL query param check
  */
 function initPackageSelector() {
   const radios = document.querySelectorAll('input[name="package"]');
   const summaryPkgName = document.getElementById('summary-pkg-name');
   const summaryPkgPrice = document.getElementById('summary-pkg-price');
+
+  // Check URL query param (?package=Basic or ?package=Premium)
+  const urlParams = new URLSearchParams(window.location.search);
+  const pkgParam = urlParams.get('package');
+  if (pkgParam) {
+    const isBasicParam = pkgParam.toLowerCase() === 'basic';
+    radios.forEach(radio => {
+      const isThisBasic = radio.value.toLowerCase().includes('basic');
+      radio.checked = isBasicParam ? isThisBasic : !isThisBasic;
+    });
+  }
 
   const updateSelection = () => {
     let pkgVal = 'Premium';
@@ -96,6 +110,8 @@ function initStep1Form() {
     const nameInput = document.getElementById('step1-name');
     const phoneInput = document.getElementById('step1-phone');
     const emailInput = document.getElementById('step1-email');
+    const handleInput = document.getElementById('step1-handle');
+    const contactMethodInput = document.getElementById('step1-contact-method');
     const eventTypeInput = document.getElementById('step1-event-type');
     const celebrantInput = document.getElementById('step1-celebrant');
     const dateInput = document.getElementById('step1-date');
@@ -134,20 +150,42 @@ function initStep1Form() {
       return;
     }
 
-    // Pre-fill Step 2 with verified Step 1 inputs
+    // Capture verified Step 1 inputs
     const clientName = nameInput.value.trim();
     const clientPhone = phoneInput.value.trim();
     const clientEmail = emailInput.value.trim();
+    const socialHandle = handleInput ? handleInput.value.trim() : '';
+    const preferredContact = contactMethodInput ? contactMethodInput.value : 'WhatsApp';
     const eventType = eventTypeInput.value.trim();
     const celebrantName = celebrantInput.value.trim();
     const eventDate = dateInput.value.trim();
 
-    if (document.getElementById('det-name')) document.getElementById('det-name').value = clientName;
-    if (document.getElementById('det-phone')) document.getElementById('det-phone').value = clientPhone;
-    if (document.getElementById('det-email')) document.getElementById('det-email').value = clientEmail;
-    if (document.getElementById('det-event-type')) document.getElementById('det-event-type').value = eventType;
-    if (document.getElementById('det-celebrant')) document.getElementById('det-celebrant').value = celebrantName;
-    if (document.getElementById('det-date')) document.getElementById('det-date').value = eventDate;
+    // Populate hidden inputs in Step 2 for FormSubmit
+    const setHiddenVal = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val;
+    };
+    setHiddenVal('field-client-name', clientName);
+    setHiddenVal('field-client-phone', clientPhone);
+    setHiddenVal('field-client-email', clientEmail);
+    setHiddenVal('field-social-handle', socialHandle || 'None provided');
+    setHiddenVal('field-preferred-contact', preferredContact);
+    setHiddenVal('field-event-type', eventType);
+    setHiddenVal('field-celebrant-name', celebrantName);
+    setHiddenVal('field-event-date', eventDate);
+    setHiddenVal('fs-replyto', clientEmail);
+
+    // Populate Read-Only Recap Card in Step 2
+    const setText = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+    setText('recap-name', clientName);
+    setText('recap-phone', clientPhone);
+    setText('recap-email', clientEmail);
+    setText('recap-contact-method', socialHandle ? `${preferredContact} (${socialHandle})` : preferredContact);
+    setText('recap-celebrant', celebrantName);
+    setText('recap-event-meta', `${eventType} • ${eventDate}`);
 
     // Activate Step 2
     activateStep2();
@@ -193,21 +231,26 @@ function activateStep2() {
  * Returns user from Step 2 back to Step 1 to change package or basic details
  */
 function initBackToStep1Button() {
-  const btn = document.getElementById('btn-change-pkg');
-  if (!btn) return;
-
-  btn.addEventListener('click', () => {
+  const returnToStep1 = () => {
     const step1Sec = document.getElementById('step-1-section');
     const step2Sec = document.getElementById('step-2-section');
     const step3Sec = document.getElementById('step-3-confirmation');
+    const step2Err = document.getElementById('step-2-error');
 
     if (step1Sec) step1Sec.classList.remove('is-hidden');
     if (step2Sec) step2Sec.classList.add('is-hidden');
     if (step3Sec) step3Sec.classList.add('is-hidden');
+    if (step2Err) step2Err.classList.add('is-hidden');
 
     updateStepper(1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  };
+
+  const btnChangePkg = document.getElementById('btn-change-pkg');
+  if (btnChangePkg) btnChangePkg.addEventListener('click', returnToStep1);
+
+  const btnRecapEdit = document.getElementById('btn-recap-edit');
+  if (btnRecapEdit) btnRecapEdit.addEventListener('click', returnToStep1);
 }
 
 /**
@@ -334,46 +377,213 @@ function applyDynamicPackageRules(packageType) {
 }
 
 /**
+ * Calculates total size of all selected image files across dropzones
+ */
+function getTotalUploadedFileSize() {
+  const inputs = ['cover-photo-input', 'court-photo-input', 'gallery-photo-input'];
+  let totalBytes = 0;
+  inputs.forEach(id => {
+    const input = document.getElementById(id);
+    if (input && input.files) {
+      Array.from(input.files).forEach(f => {
+        totalBytes += f.size;
+      });
+    }
+  });
+  return totalBytes;
+}
+
+/**
+ * Displays dynamic warning if photo attachments approach FormSubmit's 25MB ceiling
+ */
+function checkTotalFileSize() {
+  const total = getTotalUploadedFileSize();
+  const noticeBox = document.querySelector('.photo-limit-notice');
+  if (!noticeBox) return;
+
+  const totalMB = (total / (1024 * 1024)).toFixed(1);
+  if (total > 20 * 1024 * 1024) {
+    noticeBox.style.borderColor = '#c43b3b';
+    noticeBox.style.background = '#fff4f4';
+    noticeBox.innerHTML = `
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#c43b3b" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span style="color: #991b1b;">
+        <strong>Attachment Size Warning (${totalMB} MB):</strong> FormSubmit limits total submission size to ~25MB. Your attachments are close to or exceeding this limit. Please remove some photos and paste a <strong>Cloud Album Link</strong> below instead so your order submits reliably!
+      </span>
+    `;
+  } else {
+    noticeBox.style.borderColor = '';
+    noticeBox.style.background = '';
+    const statusText = total === 0 ? 'No files attached yet (~25MB total limit)' : `Current attachments: <strong>${totalMB} MB</strong>`;
+    noticeBox.innerHTML = `
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span><strong>Photo Upload Note:</strong> ${statusText}. Direct photo upload is optional. If you have large batches of high-resolution photos, you can upload your cover photo here or paste a shared <strong>Cloud Album Link</strong> (Google Photos, Drive, Dropbox, iCloud) below so no photos get compressed or omitted.</span>
+    `;
+  }
+}
+
+/**
+ * Live feedback and link recognition for Cloud Album Link input
+ */
+function initCloudLinkFeedback() {
+  const input = document.getElementById('det-cloud-link');
+  const feedback = document.getElementById('cloud-link-feedback');
+  if (!input || !feedback) return;
+
+  const checkLink = () => {
+    const rawVal = input.value.trim();
+    if (!rawVal) {
+      feedback.classList.add('is-hidden');
+      feedback.textContent = '';
+      return;
+    }
+
+    const val = rawVal.toLowerCase();
+    let service = 'Cloud Album Link';
+    if (val.includes('google.com') || val.includes('photos.app.goo.gl')) {
+      service = 'Google Drive / Google Photos link';
+    } else if (val.includes('icloud.com')) {
+      service = 'iCloud Shared Album link';
+    } else if (val.includes('dropbox.com')) {
+      service = 'Dropbox album link';
+    } else if (val.includes('onedrive') || val.includes('1drv.ms') || val.includes('live.com')) {
+      service = 'OneDrive album link';
+    }
+
+    feedback.innerHTML = `
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:-2px;">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span>${service} recognized &bull; We will retrieve your photos directly!</span>
+    `;
+    feedback.classList.remove('is-hidden');
+  };
+
+  input.addEventListener('input', checkLink);
+  input.addEventListener('change', checkLink);
+  input.addEventListener('blur', () => {
+    let val = input.value.trim();
+    if (val && !/^https?:\/\//i.test(val) && !val.startsWith('//')) {
+      input.value = 'https://' + val;
+      checkLink();
+    }
+  });
+}
+
+/**
  * Step 2: Final Details Form Submission via FormSubmit
  */
 function initStep2Form() {
   const form = document.getElementById('step-2-details-form');
   const submitBtn = document.getElementById('submit-final-details-btn');
+  const errorBanner = document.getElementById('step-2-error');
   if (!form) return;
 
+  // Real-time error clearing
+  ['det-theme-colors', 'det-reception'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', () => {
+        el.classList.remove('has-error');
+        const errEl = document.getElementById(`err-${id}`);
+        if (errEl) errEl.classList.remove('is-visible');
+        if (errorBanner) errorBanner.classList.add('is-hidden');
+      });
+    }
+  });
+
   form.addEventListener('submit', (e) => {
-    if (!form.checkValidity()) {
-      return; // Standard browser validation
+    e.preventDefault();
+    if (errorBanner) errorBanner.classList.add('is-hidden');
+
+    const themeColorsInput = document.getElementById('det-theme-colors');
+    const receptionInput = document.getElementById('det-reception');
+
+    let hasErrors = false;
+    let firstError = null;
+
+    if (!themeColorsInput || !themeColorsInput.value.trim()) {
+      hasErrors = true;
+      if (themeColorsInput) themeColorsInput.classList.add('has-error');
+      const errEl = document.getElementById('err-det-theme-colors');
+      if (errEl) errEl.classList.add('is-visible');
+      if (!firstError) firstError = themeColorsInput;
+    } else {
+      if (themeColorsInput) themeColorsInput.classList.remove('has-error');
+      const errEl = document.getElementById('err-det-theme-colors');
+      if (errEl) errEl.classList.remove('is-visible');
     }
 
-    const clientName = document.getElementById('det-name')?.value.trim() || 'Customer';
-    const clientPhone = document.getElementById('det-phone')?.value.trim() || '';
-    const clientEmail = document.getElementById('det-email')?.value.trim() || '';
-    const celebrantName = document.getElementById('det-celebrant')?.value.trim() || 'Celebrant';
-    const eventType = document.getElementById('det-event-type')?.value.trim() || '';
-    const eventDate = document.getElementById('det-date')?.value.trim() || '';
-    const themeColors = document.getElementById('det-theme-colors')?.value.trim() || '';
-    const language = document.getElementById('det-language')?.value || 'English Only';
+    if (!receptionInput || !receptionInput.value.trim()) {
+      hasErrors = true;
+      if (receptionInput) receptionInput.classList.add('has-error');
+      const errEl = document.getElementById('err-det-reception');
+      if (errEl) errEl.classList.add('is-visible');
+      if (!firstError) firstError = receptionInput;
+    } else {
+      if (receptionInput) receptionInput.classList.remove('has-error');
+      const errEl = document.getElementById('err-det-reception');
+      if (errEl) errEl.classList.remove('is-visible');
+    }
+
+    if (hasErrors) {
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstError.focus();
+      }
+      return;
+    }
+
+    // Protect against FormSubmit total payload ceiling
+    const totalBytes = getTotalUploadedFileSize();
+    if (totalBytes > 24 * 1024 * 1024) {
+      if (errorBanner) {
+        errorBanner.textContent = 'Your photo attachments exceed 24MB. Please remove some direct photo uploads and provide a Cloud Album Link (Google Photos, Drive, etc.) below instead so your order submits successfully.';
+        errorBanner.classList.remove('is-hidden');
+        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    const clientName = document.getElementById('field-client-name')?.value.trim() || 'Customer';
+    const clientPhone = document.getElementById('field-client-phone')?.value.trim() || '';
+    const clientEmail = document.getElementById('field-client-email')?.value.trim() || '';
+    const socialHandle = document.getElementById('field-social-handle')?.value.trim() || 'None provided';
+    const preferredContact = document.getElementById('field-preferred-contact')?.value.trim() || 'WhatsApp';
+    const eventType = document.getElementById('field-event-type')?.value.trim() || '';
+    const celebrantName = document.getElementById('field-celebrant-name')?.value.trim() || 'Celebrant';
+    const eventDate = document.getElementById('field-event-date')?.value.trim() || '';
+    const themeColors = themeColorsInput?.value.trim() || '';
+    const language = document.getElementById('det-language')?.value || 'Bilingual (English & Spanish)';
     const church = document.getElementById('det-church')?.value.trim() || 'N/A';
-    const reception = document.getElementById('det-reception')?.value.trim() || '';
+    const reception = receptionInput?.value.trim() || '';
     const milestones = document.getElementById('det-milestones')?.value.trim() || 'N/A';
     const song = document.getElementById('det-song')?.value.trim() || 'None';
     const notes = document.getElementById('det-notes')?.value.trim() || 'None';
 
-    // Clear FormSubmit Email Subject: NEW ORDER — [Package] — [Order Reference] — [Client Name]
+    // Normalize Cloud Album Link (auto-prepend https:// if omitted)
+    let rawCloudLink = document.getElementById('det-cloud-link')?.value.trim() || '';
+    if (rawCloudLink && !/^https?:\/\//i.test(rawCloudLink) && !rawCloudLink.startsWith('//')) {
+      rawCloudLink = 'https://' + rawCloudLink;
+    }
+    const cloudLink = rawCloudLink || 'None provided';
+
+    // Set FormSubmit Email Subject
     const fsSubject = document.getElementById('fs-subject');
     if (fsSubject) {
       fsSubject.value = `NEW ORDER — ${currentSelectedPackage.toUpperCase()} — ${currentOrderRef} — ${clientName}`;
     }
 
-    // Show loading state on submit button
-    if (submitBtn) {
-      submitBtn.innerHTML = `<span>Submitting Order...</span>`;
-      submitBtn.disabled = true;
-    }
-
-    // Build text summary for customer clipboard
-    const orderSummary = `══════════════════════════════════════\n` +
+    // Build structured text summary for receipt and clipboard
+    currentOrderSummary = `══════════════════════════════════════\n` +
       `DISEÑOS LUNA — INVITATION ORDER\n` +
       `══════════════════════════════════════\n\n` +
       `• Order Reference: ${currentOrderRef}\n` +
@@ -383,37 +593,46 @@ function initStep2Form() {
       `• Client Name: ${clientName}\n` +
       `• Phone/WhatsApp: ${clientPhone}\n` +
       `• Email: ${clientEmail}\n` +
+      `• Preferred Contact: ${preferredContact}\n` +
+      `• Social Handle: ${socialHandle}\n` +
       `• Event Type: ${eventType}\n` +
       `• Celebrant(s): ${celebrantName}\n` +
       `• Event Date: ${eventDate}\n` +
       `• Theme & Colors: ${themeColors}\n` +
-      `• Language: ${language}\n` +
+      `• Language Preference: ${language}\n` +
       `• Ceremony: ${church}\n` +
       `• Reception: ${reception}\n` +
-      `• Milestones: ${milestones}\n` +
+      `• Schedule Milestones: ${milestones}\n` +
       `• Song Request: ${song}\n` +
+      `• Cloud Album Link: ${cloudLink}\n` +
       `• Special Notes: ${notes}\n`;
 
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(orderSummary).catch(() => {});
+    // Show loading state on submit button
+    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.innerHTML = `<span>Submitting Order...</span>`;
+      submitBtn.disabled = true;
     }
 
-    // Submit form asynchronously to FormSubmit
-    e.preventDefault();
     const formData = new FormData(form);
 
-    fetch(form.action, {
+    // FormSubmit AJAX endpoint requires /ajax/
+    const ajaxEndpoint = form.action.includes('/ajax/') 
+      ? form.action 
+      : form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+
+    fetch(ajaxEndpoint, {
       method: 'POST',
       body: formData,
       headers: {
         'Accept': 'application/json'
       }
     }).then(() => {
-      activateStep3(clientName, celebrantName, currentSelectedPackage, currentOrderRef);
+      activateStep3(clientName, celebrantName, currentSelectedPackage, currentOrderRef, cloudLink);
     }).catch(err => {
       console.warn('FormSubmit async notification:', err);
-      // Still show Step 3 confirmation so customer is not blocked
-      activateStep3(clientName, celebrantName, currentSelectedPackage, currentOrderRef);
+      // Still show Step 3 confirmation so customer is never blocked
+      activateStep3(clientName, celebrantName, currentSelectedPackage, currentOrderRef, cloudLink);
     });
   });
 }
@@ -421,7 +640,7 @@ function initStep2Form() {
 /**
  * Activates Step 3 Confirmation View ("Order received!")
  */
-function activateStep3(clientName, celebrantName, packageType, orderRef) {
+function activateStep3(clientName, celebrantName, packageType, orderRef, cloudLink) {
   const step1Sec = document.getElementById('step-1-section');
   const step2Sec = document.getElementById('step-2-section');
   const step3Sec = document.getElementById('step-3-confirmation');
@@ -443,6 +662,17 @@ function activateStep3(clientName, celebrantName, packageType, orderRef) {
 
   const confOrder = document.getElementById('conf-order-id');
   if (confOrder) confOrder.textContent = orderRef || currentOrderRef;
+
+  const confCloudRow = document.getElementById('conf-cloud-row');
+  const confCloudLink = document.getElementById('conf-cloud-link');
+  if (confCloudRow && confCloudLink) {
+    if (cloudLink && cloudLink !== 'None provided') {
+      confCloudRow.classList.remove('is-hidden');
+      confCloudLink.innerHTML = `<a href="${cloudLink}" target="_blank" rel="noopener" style="color:#b83258; text-decoration:underline;">${cloudLink}</a>`;
+    } else {
+      confCloudRow.classList.add('is-hidden');
+    }
+  }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -472,7 +702,7 @@ function updateStepper(activeStepNumber) {
 }
 
 /**
- * Photo dropzone upload previews
+ * Photo dropzone upload previews with synced DataTransfer file removal
  */
 function initPhotoUploads() {
   const setupDropzone = (dropzoneId, inputId, previewId, isMultiple = false) => {
@@ -482,32 +712,69 @@ function initPhotoUploads() {
 
     if (!dropzone || !input || !preview) return;
 
-    const handleFiles = (files) => {
-      if (!isMultiple) {
-        preview.innerHTML = '';
-      }
-      Array.from(files).forEach(file => {
-        if (!file.type.startsWith('image/')) return;
+    let dt = new DataTransfer();
+
+    const renderPreviews = () => {
+      preview.innerHTML = '';
+      Array.from(dt.files).forEach((file, index) => {
+        const item = document.createElement('div');
+        item.className = 'preview-item';
+
+        const img = document.createElement('img');
+        img.className = 'preview-img';
+        img.alt = file.name || 'Uploaded photo';
+
         const reader = new FileReader();
         reader.onload = (e) => {
-          const item = document.createElement('div');
-          item.className = 'preview-item';
-          item.innerHTML = `
-            <img src="${e.target.result}" alt="Uploaded photo" class="preview-img" />
-            <button type="button" class="preview-remove" aria-label="Remove photo">&times;</button>
-          `;
-          item.querySelector('.preview-remove').addEventListener('click', (ev) => {
-            ev.stopPropagation();
-            item.remove();
-          });
-          preview.appendChild(item);
+          img.src = e.target.result;
         };
         reader.readAsDataURL(file);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'preview-remove';
+        removeBtn.setAttribute('aria-label', `Remove ${file.name}`);
+        removeBtn.innerHTML = '&times;';
+        removeBtn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          // Remove from DataTransfer and sync input.files
+          const newDt = new DataTransfer();
+          Array.from(dt.files).forEach((f, i) => {
+            if (i !== index) newDt.items.add(f);
+          });
+          dt = newDt;
+          input.files = dt.files;
+          renderPreviews();
+          checkTotalFileSize();
+        });
+
+        item.appendChild(img);
+        item.appendChild(removeBtn);
+        preview.appendChild(item);
       });
+      checkTotalFileSize();
+    };
+
+    const addFiles = (fileList) => {
+      if (!isMultiple) {
+        dt = new DataTransfer();
+      }
+      Array.from(fileList).forEach(file => {
+        const isImage = file.type.startsWith('image/') || /\.(jpe?g|png|gif|webp|heic|heif|bmp|svg)$/i.test(file.name);
+        if (!isImage) return;
+        const isDuplicate = Array.from(dt.files).some(existing => 
+          existing.name === file.name && existing.size === file.size
+        );
+        if (!isDuplicate) {
+          dt.items.add(file);
+        }
+      });
+      input.files = dt.files;
+      renderPreviews();
     };
 
     input.addEventListener('change', (e) => {
-      handleFiles(e.target.files);
+      addFiles(e.target.files);
     });
 
     dropzone.addEventListener('dragover', (e) => {
@@ -524,9 +791,8 @@ function initPhotoUploads() {
     dropzone.addEventListener('drop', (e) => {
       e.preventDefault();
       dropzone.classList.remove('drag-over');
-      if (e.dataTransfer.files.length) {
-        input.files = e.dataTransfer.files;
-        handleFiles(e.dataTransfer.files);
+      if (e.dataTransfer && e.dataTransfer.files) {
+        addFiles(e.dataTransfer.files);
       }
     });
   };
@@ -534,4 +800,29 @@ function initPhotoUploads() {
   setupDropzone('cover-dropzone', 'cover-photo-input', 'cover-preview', false);
   setupDropzone('court-dropzone', 'court-photo-input', 'court-preview', true);
   setupDropzone('gallery-dropzone', 'gallery-photo-input', 'gallery-preview', true);
+}
+
+/**
+ * Step 3: Friendly Copy Order Details Button with visual feedback
+ */
+function initCopySummaryButton() {
+  const btn = document.getElementById('btn-copy-order-summary');
+  const textSpan = document.getElementById('copy-summary-text');
+  if (!btn || !textSpan) return;
+
+  btn.addEventListener('click', () => {
+    if (!currentOrderSummary) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(currentOrderSummary).then(() => {
+        textSpan.textContent = 'Order Details Copied! ✓';
+        btn.classList.add('is-copied');
+        setTimeout(() => {
+          textSpan.textContent = 'Copy Order Details';
+          btn.classList.remove('is-copied');
+        }, 3000);
+      }).catch(err => {
+        console.warn('Clipboard write failed:', err);
+      });
+    }
+  });
 }
