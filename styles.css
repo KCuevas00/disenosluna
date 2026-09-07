@@ -1312,226 +1312,179 @@ details[open] .faq-question::after {
   line-height: 1.6;
 }
 
-/* ── CONTACT & ORDER INQUIRY BOX ── */
+/* ── ORDER OPTIONS SECTION (FORM VS DIRECT DM) ── */
 .contact-section {
-  background: #fcf5f7;
+  background: #ffffff;
   color: var(--text-main);
-  border-top: 1px solid #f8e5eb;
+  border-bottom: 1px solid var(--border-subtle);
   padding: 54px 0;
 }
 
 .contact-box {
-  max-width: 740px;
+  max-width: 960px;
 }
 
 .contact-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
-.direct-contact-buttons {
+.order-options-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 26px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-.contact-divider {
-  text-align: center;
+@media (min-width: 768px) {
+  .order-options-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.order-choice-card {
+  background: var(--bg-page);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  margin: 28px 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-.contact-divider::before {
-  content: '';
+.order-choice-card:hover {
+  border-color: #f7a8be;
+  box-shadow: var(--shadow-md);
+}
+
+.occ-badge {
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #d4e2d6;
-}
-
-.contact-divider span {
-  position: relative;
-  background: #f4f8f4;
-  padding: 0 16px;
+  top: -12px;
+  left: 24px;
+  background: #fff0f4;
+  border: 1px solid #f8cad5;
+  color: #111111;
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  color: #5e8463;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 12px;
+  border-radius: 20px;
 }
 
-/* ── ORDER PORTAL CARD (Fresh Light Garden Invitation Card) ── */
-.order-portal-card {
+.occ-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   background: #ffffff;
   border: 1.5px solid #f8cad5;
-  border-radius: var(--radius-lg);
-  padding: 36px 24px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(26, 136, 98, 0.06);
-  margin-bottom: 28px;
-  transition: var(--transition);
-}
-
-@media (min-width: 600px) {
-  .order-portal-card {
-    padding: 42px 36px;
-  }
-}
-
-.order-portal-card:hover {
-  border-color: #f7a8be;
-  box-shadow: 0 14px 40px rgba(26, 136, 98, 0.10);
-}
-
-.opc-icon-badge {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--mint-light);
-  color: var(--mint-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
-  border: 2px solid var(--mint-border);
-  box-shadow: none;
+  color: #b83258;
+  margin-bottom: 16px;
 }
 
-.opc-title {
+.occ-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-size: 1.32rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
 
-.opc-desc {
-  font-size: 0.95rem;
+.occ-sub {
+  font-size: 0.88rem;
   color: var(--text-muted);
-  max-width: 580px;
-  margin: 0 auto 18px;
-  line-height: 1.55;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
-.opc-perks {
+.occ-action {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.occ-btn {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  justify-content: center;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--green-primary);
-  margin-bottom: 24px;
-}
-
-.opc-btn {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 32px;
-  font-size: 1.05rem;
+  text-align: center;
+  padding: 14px 24px;
+  font-size: 0.98rem;
   font-weight: 800;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(32, 57, 35, 0.22);
 }
 
-.inquiry-form {
-  background: #1c1a18;
-  border: 1px solid #332f2b;
-  border-radius: var(--radius-md);
-  padding: 22px;
-}
-
-@media (min-width: 600px) {
-  .inquiry-form {
-    padding: 30px;
-  }
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-@media (min-width: 600px) {
-  .form-row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.form-group {
-  margin-bottom: 14px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #dedbd6;
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 11px 13px;
+/* Option 2: DM Requirements Checklist */
+.dm-requirements-toggle {
   background: #ffffff;
   border: 1px solid var(--border-card);
-  border-radius: 8px;
-  color: var(--text-main);
-  font-size: 0.9rem;
-  outline: none;
-  transition: var(--transition);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--green-primary);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(52, 87, 56, 0.12);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #6a665f;
-}
-
-.form-feedback {
-  margin-top: 18px;
-}
-
-.feedback-box {
-  background: #2b261e;
-  border: 1px solid var(--gold-primary);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-
-.feedback-box h4 {
-  font-size: 1.05rem;
-  color: #f7efe1;
-  margin-bottom: 4px;
-}
-
-.feedback-box p {
-  font-size: 0.86rem;
-  color: #d1cdc7;
-  margin-bottom: 12px;
-}
-
-.feedback-actions {
+.dm-requirements-summary {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.dm-requirements-summary::-webkit-details-marker {
+  display: none;
+}
+
+.dm-toggle-icon {
+  transition: transform 0.2s ease;
+  color: #b83258;
+}
+
+.dm-requirements-toggle[open] .dm-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.dm-requirements-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.dm-requirements-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.req-check {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dm-social-buttons {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin-top: auto;
 }
 
 /* ── FOOTER WITH USER LOGO ── */
