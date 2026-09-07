@@ -1562,52 +1562,346 @@ details[open] .faq-question::after {
   width: 100%;
 }
 
-/* ── STICKY MOBILE BOTTOM BAR ── */
-.sticky-mobile-bar {
+/* ══════════════════════════════════════════════════════════════
+   FLOATING BOTTOM CONTROLS: BILINGUAL TOGGLE & EXPANDABLE CHAT
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 1. FLOATING BILINGUAL PILL (BOTTOM LEFT) ── */
+.floating-lang-pill {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-  box-shadow: 0 -4px 16px rgba(35, 55, 38, 0.05);
-}
-
-@media (min-width: 768px) {
-  .sticky-mobile-bar {
-    display: none;
-  }
-}
-
-.smb-btn {
-  flex: 1;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  left: 20px;
+  z-index: 1050;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 0.86rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid #f8cad5;
+  border-radius: 999px;
+  padding: 4px 6px;
+  box-shadow: 0 4px 18px rgba(35, 25, 30, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.floating-lang-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(184, 50, 88, 0.20);
+}
+
+.lang-pill-btn {
+  background: transparent;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
   font-weight: 700;
-  padding: 12px 14px;
-  border-radius: 10px;
-  text-align: center;
+  color: #5e5954;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+  line-height: 1;
 }
 
-.smb-primary {
+.lang-pill-btn:hover {
+  color: #111111;
+}
+
+.lang-pill-btn.active {
   background: #f7a8be;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(32, 57, 35, 0.20);
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(247, 168, 190, 0.45);
 }
 
-.smb-secondary {
-  background: #f4f8f4;
-  color: var(--green-primary);
-  border: 1px solid var(--green-border);
+.lang-pill-divider {
+  color: #d1c9be;
+  font-size: 0.75rem;
+  margin: 0 1px;
+}
+
+/* ── 2. FLOATING CHAT BUBBLE & EXPANDABLE SPEED DIAL (BOTTOM RIGHT) ── */
+.floating-contact-wrapper {
+  position: fixed;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  right: 20px;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Main Trigger Bubble Button */
+.contact-fab-bubble {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  background: linear-gradient(135deg, #f7a8be 0%, #b83258 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(184, 50, 88, 0.38), 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.contact-fab-bubble:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(184, 50, 88, 0.48);
+}
+
+.contact-fab-bubble:active {
+  transform: scale(0.95);
+}
+
+/* Radiant breathing pulse ring */
+.fab-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(247, 168, 190, 0.7);
+  animation: fabPulse 2.4s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes fabPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  65% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.fab-icon-chat,
+.fab-icon-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.fab-icon-close {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+.floating-contact-wrapper.is-open .fab-icon-chat {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+.floating-contact-wrapper.is-open .fab-icon-close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.floating-contact-wrapper.is-open .fab-pulse-ring {
+  display: none;
+}
+
+/* Expanded Dropdown Speed Dial Card */
+.contact-menu-dropdown {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  width: 275px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid #f8cad5;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 16px 40px rgba(35, 25, 30, 0.16), 0 4px 12px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.93);
+  transform-origin: bottom right;
+  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+  pointer-events: none;
+}
+
+.floating-contact-wrapper.is-open .contact-menu-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Header inside dropdown */
+.contact-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px 10px;
+  border-bottom: 1px solid #f3eaee;
+  margin-bottom: 8px;
+}
+
+.contact-menu-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #22201e;
+}
+
+.contact-menu-close-btn {
+  background: none;
+  border: none;
+  color: #8c8680;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+
+.contact-menu-close-btn:hover {
+  color: #111111;
+  background: #fdf5f7;
+}
+
+/* Action items list */
+.contact-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.contact-menu-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #22201e;
+  background: #fdfafb;
+  border: 1px solid #f9edf1;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.contact-menu-action:hover {
+  background: #fff0f4;
+  border-color: #f8cad5;
+  transform: translateX(-2px);
+}
+
+.contact-menu-action:active {
+  transform: scale(0.98);
+}
+
+.action-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.action-icon-ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.action-icon-fb {
+  background: #1877f2;
+}
+
+.action-icon-sms {
+  background: linear-gradient(135deg, #34c759 0%, #248a3d 100%);
+}
+
+.action-icon-email {
+  background: #b83258;
+}
+
+.action-icon-close {
+  background: #5e5954;
+}
+
+.action-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.action-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #22201e;
+}
+
+.action-sub {
+  font-size: 0.72rem;
+  color: #8c8680;
+}
+
+.contact-act-close {
+  font-family: inherit;
+  margin-top: 2px;
+  border-top: 1px dashed #e8dedf;
+  background: transparent;
+}
+
+.contact-act-close:hover {
+  background: #f5f0f2;
+  border-color: #d8cdd0;
+}
+
+/* Dismiss Backdrop */
+.contact-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s;
+}
+
+.contact-menu-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 480px) {
+  .floating-lang-pill {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    left: 14px;
+    padding: 3px 5px;
+  }
+  .lang-pill-btn {
+    font-size: 0.78rem;
+    padding: 5px 8px;
+  }
+  .floating-contact-wrapper {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+  }
+  .contact-fab-bubble {
+    width: 50px;
+    height: 50px;
+  }
+  .contact-menu-dropdown {
+    width: calc(100vw - 32px);
+    max-width: 290px;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════════

@@ -94,6 +94,7 @@ function initPackageSelector() {
   };
 
   radios.forEach(r => r.addEventListener('change', updateSelection));
+  window.addEventListener('dl_language_changed', updateSelection);
   updateSelection();
 }
 
@@ -278,73 +279,102 @@ function applyDynamicPackageRules(packageType) {
   const blockGalleryPhotos = document.getElementById('block-gallery-photos');
   const badgeGalleryPhotos = document.getElementById('badge-gallery-photos');
 
+  const selectLanguage = document.getElementById('det-language');
+  const optBilingual = document.getElementById('opt-bilingual');
+  const hintLanguage = document.getElementById('hint-language');
+  const isSpanish = (document.documentElement.lang === 'es');
+
   if (isBasic) {
     if (badgeMusic) {
-      badgeMusic.textContent = 'Premium Feature (Not in Basic)';
+      badgeMusic.textContent = isSpanish ? 'Función Premium (No en Básico)' : 'Premium Feature (Not in Basic)';
       badgeMusic.className = 'feature-badge badge-locked';
     }
     if (inputSong) {
-      inputSong.placeholder = 'Background music is included in the Premium package ($70)';
+      inputSong.placeholder = isSpanish ? 'La música de fondo está incluida en el paquete Premium ($70)' : 'Background music is included in the Premium package ($70)';
       inputSong.disabled = true;
     }
     if (hintMusic) {
-      hintMusic.textContent = 'Music playback is exclusive to the Premium package. Leave blank or discuss upgrading with us.';
+      hintMusic.textContent = isSpanish ? 'La reproducción de música es exclusiva de Premium. Puedes cambiar de paquete con nosotros.' : 'Music playback is exclusive to the Premium package. Leave blank or discuss upgrading with us.';
     }
     if (blockMusic) blockMusic.classList.add('is-locked');
 
     if (badgeCountdown) {
-      badgeCountdown.textContent = 'Premium Feature (Not in Basic)';
+      badgeCountdown.textContent = isSpanish ? 'Función Premium (No en Básico)' : 'Premium Feature (Not in Basic)';
       badgeCountdown.className = 'feature-badge badge-locked';
     }
     if (selectCountdown) {
-      selectCountdown.innerHTML = '<option value="Not Included in Basic" selected>Not included in Basic Package</option>';
+      selectCountdown.innerHTML = isSpanish
+        ? '<option value="Not Included in Basic" selected>No incluido en Paquete Básico</option>'
+        : '<option value="Not Included in Basic" selected>Not included in Basic Package</option>';
       selectCountdown.disabled = true;
     }
     if (blockCountdown) blockCountdown.classList.add('is-locked');
 
     if (badgeCourt) {
-      badgeCourt.textContent = 'Premium Feature (Not in Basic)';
+      badgeCourt.textContent = isSpanish ? 'Función Premium (No en Básico)' : 'Premium Feature (Not in Basic)';
       badgeCourt.className = 'feature-badge badge-locked';
     }
     if (textareaCourt) {
-      textareaCourt.placeholder = 'Court of honor roster is included in the Premium package ($70).';
+      textareaCourt.placeholder = isSpanish ? 'La sección de corte de honor está incluida en el paquete Premium ($70).' : 'Court of honor roster is included in the Premium package ($70).';
       textareaCourt.disabled = true;
     }
     if (blockCourt) blockCourt.classList.add('is-locked');
 
     if (badgeCourtPhotos) {
-      badgeCourtPhotos.textContent = 'Premium Feature';
+      badgeCourtPhotos.textContent = isSpanish ? 'Función Premium' : 'Premium Feature';
       badgeCourtPhotos.className = 'feature-badge badge-locked';
     }
     if (blockCourtPhotos) blockCourtPhotos.classList.add('is-locked');
 
     if (badgeGalleryPhotos) {
-      badgeGalleryPhotos.textContent = 'Premium Feature';
+      badgeGalleryPhotos.textContent = isSpanish ? 'Función Premium' : 'Premium Feature';
       badgeGalleryPhotos.className = 'feature-badge badge-locked';
     }
     if (blockGalleryPhotos) blockGalleryPhotos.classList.add('is-locked');
 
+    // Restrict Bilingual Language Selection for Basic
+    if (selectLanguage) {
+      if (selectLanguage.value.toLowerCase().includes('bilingual')) {
+        selectLanguage.value = isSpanish ? 'Spanish Only' : 'English Only';
+      }
+    }
+    if (optBilingual) {
+      optBilingual.disabled = true;
+      optBilingual.textContent = isSpanish
+        ? 'Bilingüe (Solo en Paquete Premium)'
+        : 'Bilingual (Premium Package Only)';
+    }
+    if (hintLanguage) {
+      hintLanguage.textContent = isSpanish
+        ? 'El paquete Básico ($55) incluye un solo idioma. Para versión bilingüe (Inglés y Español), selecciona Premium ($70).'
+        : 'Basic package ($55) includes single language (English or Spanish). Bilingual is included in Premium ($70).';
+      hintLanguage.className = 'field-hint hint-warning';
+    }
+
   } else {
     // Premium ($70)
     if (badgeMusic) {
-      badgeMusic.textContent = 'Included with Premium ✓';
+      badgeMusic.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
       badgeMusic.className = 'feature-badge badge-included';
     }
     if (inputSong) {
-      inputSong.placeholder = 'Artist and Song Title (or YouTube/Spotify link)';
+      inputSong.placeholder = isSpanish ? 'Artista y Título de la Canción (o enlace de YouTube/Spotify)' : 'Artist and Song Title (or YouTube/Spotify link)';
       inputSong.disabled = false;
     }
     if (hintMusic) {
-      hintMusic.textContent = 'Plays automatically when guests open the virtual envelope (Included in Premium).';
+      hintMusic.textContent = isSpanish ? 'Suena automáticamente al abrir el sobre virtual (Incluido en Premium).' : 'Plays automatically when guests open the virtual envelope (Included in Premium).';
     }
     if (blockMusic) blockMusic.classList.remove('is-locked');
 
     if (badgeCountdown) {
-      badgeCountdown.textContent = 'Included with Premium ✓';
+      badgeCountdown.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
       badgeCountdown.className = 'feature-badge badge-included';
     }
     if (selectCountdown) {
-      selectCountdown.innerHTML = `
+      selectCountdown.innerHTML = isSpanish ? `
+        <option value="Yes, include live countdown">Sí, incluir reloj de cuenta regresiva en vivo</option>
+        <option value="No, skip countdown">No se necesita cuenta regresiva</option>
+      ` : `
         <option value="Yes, include live countdown">Yes, include live countdown clock</option>
         <option value="No, skip countdown">No countdown needed</option>
       `;
@@ -353,26 +383,40 @@ function applyDynamicPackageRules(packageType) {
     if (blockCountdown) blockCountdown.classList.remove('is-locked');
 
     if (badgeCourt) {
-      badgeCourt.textContent = 'Included with Premium ✓';
+      badgeCourt.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
       badgeCourt.className = 'feature-badge badge-included';
     }
     if (textareaCourt) {
-      textareaCourt.placeholder = 'List names and roles, e.g.:\nChambelán de Honor: Mateo Ramirez\nDamas: Camila, Valentina, Sofia\nPadrinos: Juan & Carmen Gomez';
+      textareaCourt.placeholder = isSpanish ? 'Escribe nombres y roles, ej:\nChambelán de Honor: Mateo Ramirez\nDamas: Camila, Valentina, Sofia\nPadrinos: Juan & Carmen Gomez' : 'List names and roles, e.g.:\nChambelán de Honor: Mateo Ramirez\nDamas: Camila, Valentina, Sofia\nPadrinos: Juan & Carmen Gomez';
       textareaCourt.disabled = false;
     }
     if (blockCourt) blockCourt.classList.remove('is-locked');
 
     if (badgeCourtPhotos) {
-      badgeCourtPhotos.textContent = 'Included with Premium ✓';
+      badgeCourtPhotos.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
       badgeCourtPhotos.className = 'feature-badge badge-included';
     }
     if (blockCourtPhotos) blockCourtPhotos.classList.remove('is-locked');
 
     if (badgeGalleryPhotos) {
-      badgeGalleryPhotos.textContent = 'Included with Premium ✓';
+      badgeGalleryPhotos.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
       badgeGalleryPhotos.className = 'feature-badge badge-included';
     }
     if (blockGalleryPhotos) blockGalleryPhotos.classList.remove('is-locked');
+
+    // Unlock Bilingual Language Selection for Premium
+    if (optBilingual) {
+      optBilingual.disabled = false;
+      optBilingual.textContent = isSpanish
+        ? 'Bilingüe (Inglés y Español) ✓ Incluido'
+        : 'Bilingual (English & Spanish) ✓ Included';
+    }
+    if (hintLanguage) {
+      hintLanguage.textContent = isSpanish
+        ? 'Incluye traducción bilingüe completa (Inglés y Español) en tu invitación.'
+        : 'Includes full bilingual English & Spanish translation in your invitation.';
+      hintLanguage.className = 'field-hint hint-success';
+    }
   }
 }
 
@@ -591,7 +635,11 @@ function initStep2Form() {
     const celebrantName = document.getElementById('field-celebrant-name')?.value.trim() || 'Celebrant';
     const eventDate = document.getElementById('field-event-date')?.value.trim() || '';
     const themeColors = themeColorsInput?.value.trim() || '';
-    const language = document.getElementById('det-language')?.value || 'Bilingual (English & Spanish)';
+    const rawLanguage = document.getElementById('det-language')?.value || 'English Only';
+    const isBasicOrder = currentSelectedPackage.toLowerCase().includes('basic');
+    const language = (isBasicOrder && rawLanguage.toLowerCase().includes('bilingual'))
+      ? (document.documentElement.lang === 'es' ? 'Spanish Only' : 'English Only')
+      : rawLanguage;
     const church = document.getElementById('det-church')?.value.trim() || 'N/A';
     const reception = receptionInput?.value.trim() || '';
     const milestones = document.getElementById('det-milestones')?.value.trim() || 'N/A';
@@ -855,3 +903,10 @@ function initCopySummaryButton() {
     }
   });
 }
+
+// Re-evaluate dynamic package rules when user toggles language
+window.addEventListener('dl_language_changed', () => {
+  if (typeof applyDynamicPackageRules === 'function' && currentSelectedPackage) {
+    applyDynamicPackageRules(currentSelectedPackage);
+  }
+});

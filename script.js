@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPricingButtons();
   initInquiryForm();
   initHeaderScroll();
-  initStickyBarVisibility();
+  initFloatingChatMenu();
   initHeroPetals();
   initScrollFadeIn();
 });
@@ -99,27 +99,52 @@ function initHeaderScroll() {
 }
 
 /**
- * Hides bottom sticky bar when user reaches the contact box so
- * it does not cover form buttons on small screens.
+ * Controls the Floating Expandable Contact Widget (Bottom Right)
+ * Smoothly opens Instagram, Facebook, Email, and Close actions.
  */
-function initStickyBarVisibility() {
-  const stickyBar = document.getElementById('sticky-mobile-bar');
-  const contactSection = document.getElementById('contact');
+function initFloatingChatMenu() {
+  const wrapper = document.getElementById('floating-contact-menu');
+  const bubble = document.getElementById('contact-fab-bubble');
+  const dropdown = document.getElementById('contact-menu-dropdown');
+  const backdrop = document.getElementById('contact-menu-backdrop');
+  const closeBtnHeader = document.getElementById('contact-menu-close-btn');
+  const closeBtnAction = document.getElementById('contact-action-close');
 
-  if (!stickyBar || !contactSection) return;
+  if (!wrapper || !bubble) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        stickyBar.style.transform = 'translateY(100%)';
-        stickyBar.style.transition = 'transform 0.25s ease';
-      } else {
-        stickyBar.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
+  const openMenu = () => {
+    wrapper.classList.add('is-open');
+    bubble.setAttribute('aria-expanded', 'true');
+    if (dropdown) dropdown.setAttribute('aria-hidden', 'false');
+    if (backdrop) backdrop.classList.add('is-visible');
+  };
 
-  observer.observe(contactSection);
+  const closeMenu = () => {
+    wrapper.classList.remove('is-open');
+    bubble.setAttribute('aria-expanded', 'false');
+    if (dropdown) dropdown.setAttribute('aria-hidden', 'true');
+    if (backdrop) backdrop.classList.remove('is-visible');
+  };
+
+  const toggleMenu = (e) => {
+    e.stopPropagation();
+    if (wrapper.classList.contains('is-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  };
+
+  bubble.addEventListener('click', toggleMenu);
+  if (closeBtnHeader) closeBtnHeader.addEventListener('click', closeMenu);
+  if (closeBtnAction) closeBtnAction.addEventListener('click', closeMenu);
+  if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && wrapper.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
 }
 
 /**
