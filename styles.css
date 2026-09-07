@@ -489,17 +489,27 @@ button, input, select, textarea {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 24px;
 }
 
 @media (min-width: 900px) {
   .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 48px;
+    max-width: 860px;
   }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-crown-wrap {
@@ -539,7 +549,7 @@ button, input, select, textarea {
   font-size: 1rem;
   padding: 6px 16px;
   border-radius: 30px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -562,12 +572,16 @@ button, input, select, textarea {
   flex-direction: column;
   gap: 12px;
   margin-bottom: 22px;
+  width: 100%;
+  max-width: 440px;
 }
 
 @media (min-width: 480px) {
   .hero-ctas {
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    width: auto;
   }
 }
 
@@ -577,6 +591,7 @@ button, input, select, textarea {
   gap: 8px;
   padding-top: 16px;
   border-top: 1px dashed var(--border-card);
+  align-items: center;
 }
 
 .hf-item {
@@ -1182,7 +1197,7 @@ button, input, select, textarea {
 
 /* ── HOW IT WORKS SECTION ── */
 .steps-section {
-  background: #ffffff;
+  background: var(--bg-page);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -1199,24 +1214,33 @@ button, input, select, textarea {
 }
 
 .step-card {
-  background: var(--bg-page);
+  background: #ffffff;
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
-  padding: 26px 20px;
+  padding: 28px 22px;
   position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.step-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-border);
+  box-shadow: var(--shadow-md);
 }
 
 .step-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--text-main);
-  color: #ffffff;
+  background: #fff0f4;
+  color: #111111;
+  border: 1px solid #f8cad5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 14px;
 }
@@ -1236,7 +1260,7 @@ button, input, select, textarea {
 
 /* ── FAQ SECTION ── */
 .faq-section {
-  background: var(--bg-page);
+  background: #ffffff;
   border-bottom: 1px solid var(--border-subtle);
 }
 
