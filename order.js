@@ -626,72 +626,213 @@ function initStep2Form() {
       return;
     }
 
-    const clientName = document.getElementById('field-client-name')?.value.trim() || 'Customer';
+    const isSpanish = (document.documentElement.lang === 'es');
+
+    const clientName = document.getElementById('field-client-name')?.value.trim() || (isSpanish ? 'Cliente' : 'Customer');
     const clientPhone = document.getElementById('field-client-phone')?.value.trim() || '';
     const clientEmail = document.getElementById('field-client-email')?.value.trim() || '';
-    const socialHandle = document.getElementById('field-social-handle')?.value.trim() || 'None provided';
+    const socialHandle = document.getElementById('field-social-handle')?.value.trim() || (isSpanish ? 'No proporcionado' : 'None provided');
     const preferredContact = document.getElementById('field-preferred-contact')?.value.trim() || 'WhatsApp';
     const eventType = document.getElementById('field-event-type')?.value.trim() || '';
-    const celebrantName = document.getElementById('field-celebrant-name')?.value.trim() || 'Celebrant';
+    const celebrantName = document.getElementById('field-celebrant-name')?.value.trim() || (isSpanish ? 'Festejado(a)' : 'Celebrant');
     const eventDate = document.getElementById('field-event-date')?.value.trim() || '';
-    const themeColors = themeColorsInput?.value.trim() || '';
-    const rawLanguage = document.getElementById('det-language')?.value || 'English Only';
+    const themeColors = themeColorsInput?.value.trim() || (isSpanish ? 'No especificado' : 'None provided');
+    const rawLanguage = document.getElementById('det-language')?.value || (isSpanish ? 'Solo Español' : 'English Only');
     const isBasicOrder = currentSelectedPackage.toLowerCase().includes('basic');
     const language = (isBasicOrder && rawLanguage.toLowerCase().includes('bilingual'))
-      ? (document.documentElement.lang === 'es' ? 'Spanish Only' : 'English Only')
+      ? (isSpanish ? 'Solo Español' : 'English Only')
       : rawLanguage;
-    const church = document.getElementById('det-church')?.value.trim() || 'N/A';
+    const church = document.getElementById('det-church')?.value.trim() || (isSpanish ? 'No especificado' : 'N/A');
     const reception = receptionInput?.value.trim() || '';
-    const milestones = document.getElementById('det-milestones')?.value.trim() || 'N/A';
-    const song = document.getElementById('det-song')?.value.trim() || 'None';
-    const notes = document.getElementById('det-notes')?.value.trim() || 'None';
+    const milestones = document.getElementById('det-milestones')?.value.trim() || (isSpanish ? 'No especificado' : 'N/A');
+    const song = document.getElementById('det-song')?.value.trim() || (isSpanish ? 'Ninguna' : 'None');
+    const countdown = document.getElementById('det-countdown')?.value.trim() || (isSpanish ? 'No especificado' : 'N/A');
+    const quote = document.getElementById('det-quote')?.value.trim() || (isSpanish ? 'Ninguno' : 'None');
+    const court = document.getElementById('det-court')?.value.trim() || (isSpanish ? 'Ninguno' : 'None');
+    const dressCode = document.getElementById('det-dress-code')?.value.trim() || (isSpanish ? 'Ninguno' : 'None');
+    const registry = document.getElementById('det-registry')?.value.trim() || (isSpanish ? 'Ninguna' : 'None');
+    const notes = document.getElementById('det-notes')?.value.trim() || (isSpanish ? 'Ninguna' : 'None');
 
     // Normalize Cloud Album Link (auto-prepend https:// if omitted)
     let rawCloudLink = document.getElementById('det-cloud-link')?.value.trim() || '';
     if (rawCloudLink && !/^https?:\/\//i.test(rawCloudLink) && !rawCloudLink.startsWith('//')) {
       rawCloudLink = 'https://' + rawCloudLink;
     }
-    const cloudLink = rawCloudLink || 'None provided';
-
-    // Set FormSubmit Email Subject
-    const fsSubject = document.getElementById('fs-subject');
-    if (fsSubject) {
-      fsSubject.value = `NEW ORDER — ${currentSelectedPackage.toUpperCase()} — ${currentOrderRef} — ${clientName}`;
-    }
+    const cloudLink = rawCloudLink || (isSpanish ? 'No proporcionado' : 'None provided');
 
     // Build structured text summary for receipt and clipboard
-    currentOrderSummary = `══════════════════════════════════════\n` +
-      `DISEÑOS LUNA — INVITATION ORDER\n` +
-      `══════════════════════════════════════\n\n` +
-      `• Order Reference: ${currentOrderRef}\n` +
-      `• Selected Package: ${currentSelectedPackage}\n` +
-      `• Package Price: ${currentPackagePrice}\n` +
-      `• Payment Status: Pending arrangement with customer\n\n` +
-      `• Client Name: ${clientName}\n` +
-      `• Phone/WhatsApp: ${clientPhone}\n` +
-      `• Email: ${clientEmail}\n` +
-      `• Preferred Contact: ${preferredContact}\n` +
-      `• Social Handle: ${socialHandle}\n` +
-      `• Event Type: ${eventType}\n` +
-      `• Celebrant(s): ${celebrantName}\n` +
-      `• Event Date: ${eventDate}\n` +
-      `• Theme & Colors: ${themeColors}\n` +
-      `• Language Preference: ${language}\n` +
-      `• Ceremony: ${church}\n` +
-      `• Reception: ${reception}\n` +
-      `• Schedule Milestones: ${milestones}\n` +
-      `• Song Request: ${song}\n` +
-      `• Cloud Album Link: ${cloudLink}\n` +
-      `• Special Notes: ${notes}\n`;
+    if (isSpanish) {
+      currentOrderSummary = `══════════════════════════════════════\n` +
+        `DISEÑOS LUNA — PEDIDO DE INVITACIÓN\n` +
+        `══════════════════════════════════════\n\n` +
+        `• Idioma de Contacto: ESPAÑOL 🇲🇽 (Enviar mensaje de texto en Español)\n` +
+        `• Referencia de Pedido: ${currentOrderRef}\n` +
+        `• Paquete Seleccionado: ${currentSelectedPackage}\n` +
+        `• Precio del Paquete: ${currentPackagePrice}\n` +
+        `• Estado de Pago: Pendiente de coordinar con el cliente\n\n` +
+        `• Nombre del Cliente: ${clientName}\n` +
+        `• Teléfono / WhatsApp: ${clientPhone}\n` +
+        `• Correo: ${clientEmail || 'No proporcionado'}\n` +
+        `• Contacto Preferido: ${preferredContact}\n` +
+        `• Red Social: ${socialHandle}\n` +
+        `• Tipo de Evento: ${eventType}\n` +
+        `• Festejado(a) o Pareja: ${celebrantName}\n` +
+        `• Fecha del Evento: ${eventDate}\n` +
+        `• Tema y Colores: ${themeColors}\n` +
+        `• Idioma de la Invitación: ${language}\n` +
+        `• Ceremonia / Iglesia: ${church}\n` +
+        `• Salón de Recepción: ${reception}\n` +
+        `• Itinerario y Horarios: ${milestones}\n` +
+        `• Canción Solicitada: ${song}\n` +
+        `• Cuenta Regresiva: ${countdown}\n` +
+        `• Dedicatoria: ${quote}\n` +
+        `• Corte de Honor: ${court}\n` +
+        `• Código de Vestimenta: ${dressCode}\n` +
+        `• Mesa de Regalos: ${registry}\n` +
+        `• Enlace de Fotos en Nube: ${cloudLink}\n` +
+        `• Notas Especiales: ${notes}\n`;
+    } else {
+      currentOrderSummary = `══════════════════════════════════════\n` +
+        `DISEÑOS LUNA — INVITATION ORDER\n` +
+        `══════════════════════════════════════\n\n` +
+        `• Customer Language: ENGLISH 🇺🇸 (Text customer in English)\n` +
+        `• Order Reference: ${currentOrderRef}\n` +
+        `• Selected Package: ${currentSelectedPackage}\n` +
+        `• Package Price: ${currentPackagePrice}\n` +
+        `• Payment Status: Pending arrangement with customer\n\n` +
+        `• Client Name: ${clientName}\n` +
+        `• Phone/WhatsApp: ${clientPhone}\n` +
+        `• Email: ${clientEmail || 'None provided'}\n` +
+        `• Preferred Contact: ${preferredContact}\n` +
+        `• Social Handle: ${socialHandle}\n` +
+        `• Event Type: ${eventType}\n` +
+        `• Celebrant(s): ${celebrantName}\n` +
+        `• Event Date: ${eventDate}\n` +
+        `• Theme & Colors: ${themeColors}\n` +
+        `• Language Preference: ${language}\n` +
+        `• Ceremony: ${church}\n` +
+        `• Reception: ${reception}\n` +
+        `• Schedule Milestones: ${milestones}\n` +
+        `• Song Request: ${song}\n` +
+        `• Countdown Clock: ${countdown}\n` +
+        `• Dedication Message: ${quote}\n` +
+        `• Court of Honor: ${court}\n` +
+        `• Dress Code: ${dressCode}\n` +
+        `• Gift Registry: ${registry}\n` +
+        `• Cloud Album Link: ${cloudLink}\n` +
+        `• Special Notes: ${notes}\n`;
+    }
 
     // Show loading state on submit button
     const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
     if (submitBtn) {
-      submitBtn.innerHTML = `<span>Submitting Order...</span>`;
+      submitBtn.innerHTML = `<span>${isSpanish ? 'Enviando Pedido...' : 'Submitting Order...'}</span>`;
       submitBtn.disabled = true;
     }
 
-    const formData = new FormData(form);
+    // Build localized FormData for FormSubmit email table
+    const formData = new FormData();
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
+    formData.append('_subject', isSpanish
+      ? `NUEVO PEDIDO [ESPAÑOL 🇲🇽] — ${currentSelectedPackage.toUpperCase()} — ${currentOrderRef} — ${clientName}`
+      : `NEW ORDER [ENGLISH 🇺🇸] — ${currentSelectedPackage.toUpperCase()} — ${currentOrderRef} — ${clientName}`);
+    if (clientEmail) {
+      formData.append('_replyto', clientEmail);
+    }
+    formData.append('_autoresponse', isSpanish
+      ? `¡Gracias por elegir a Diseños Luna! Hemos recibido los datos de tu invitación digital personalizada. Revisaremos todos tus detalles y te contactaremos directamente por mensaje de texto o WhatsApp para coordinar el pago y los siguientes pasos antes de comenzar el diseño.`
+      : `Thank you for choosing Diseños Luna! We have received your custom invitation order and celebration specifications. We will review your details and reach out to you directly regarding payment and next steps before design begins!`);
+
+    if (isSpanish) {
+      // Spanish field names & values
+      formData.append('Idioma_del_Cliente', 'ESPAÑOL 🇲🇽 (Enviar mensaje de texto en Español)');
+      formData.append('Referencia_de_Pedido', currentOrderRef);
+      formData.append('Paquete_Seleccionado', currentSelectedPackage);
+      formData.append('Precio_del_Paquete', currentPackagePrice);
+      formData.append('Nombre_del_Cliente', clientName);
+      formData.append('Telefono_del_Cliente', clientPhone);
+      formData.append('email', clientEmail || 'No proporcionado');
+      formData.append('Red_Social', socialHandle);
+      formData.append('Metodo_de_Contacto_Preferido', preferredContact);
+      formData.append('Tipo_de_Evento', eventType);
+      formData.append('Nombre_del_Festejado_o_Pareja', celebrantName);
+      formData.append('Fecha_del_Evento', eventDate);
+      formData.append('Tema_y_Colores', themeColors);
+      formData.append('Idioma_de_la_Invitacion', language);
+      formData.append('Ceremonia_Iglesia_y_Direccion', church);
+      formData.append('Recepcion_Salon_y_Direccion', reception);
+      formData.append('Itinerario_y_Horarios', milestones);
+      formData.append('Cancion_de_Fondo', song);
+      formData.append('Cuenta_Regresiva_en_Vivo', countdown);
+      formData.append('Dedicatoria_o_Versiculo', quote);
+      formData.append('Corte_de_Honor_y_Padrinos', court);
+      formData.append('Codigo_de_Vestimenta', dressCode);
+      formData.append('Mesa_de_Regalos', registry);
+      formData.append('Enlace_de_Fotos_en_Nube', cloudLink);
+      formData.append('Notas_Especiales', notes);
+
+      const coverInput = document.getElementById('cover-photo-input');
+      if (coverInput && coverInput.files && coverInput.files[0]) {
+        formData.append('Foto_de_Portada', coverInput.files[0]);
+      }
+      const courtInput = document.getElementById('court-photo-input');
+      if (courtInput && courtInput.files && courtInput.files.length > 0) {
+        Array.from(courtInput.files).forEach(file => {
+          formData.append('Fotos_de_Corte[]', file);
+        });
+      }
+      const galleryInput = document.getElementById('gallery-photo-input');
+      if (galleryInput && galleryInput.files && galleryInput.files.length > 0) {
+        Array.from(galleryInput.files).forEach(file => {
+          formData.append('Fotos_de_Galeria[]', file);
+        });
+      }
+    } else {
+      // English field names & values
+      formData.append('Customer_Language', 'ENGLISH 🇺🇸 (Text customer in English)');
+      formData.append('Order_Reference', currentOrderRef);
+      formData.append('Selected_Package', currentSelectedPackage);
+      formData.append('Package_Price', currentPackagePrice);
+      formData.append('Client_Name', clientName);
+      formData.append('Client_Phone', clientPhone);
+      formData.append('email', clientEmail || 'None provided');
+      formData.append('Social_Handle', socialHandle);
+      formData.append('Preferred_Contact', preferredContact);
+      formData.append('Event_Type', eventType);
+      formData.append('Celebrant_Name', celebrantName);
+      formData.append('Event_Date', eventDate);
+      formData.append('Theme_and_Colors', themeColors);
+      formData.append('Language_Preference', language);
+      formData.append('Ceremony_Venue_and_Address', church);
+      formData.append('Reception_Venue_and_Address', reception);
+      formData.append('Schedule_Milestones', milestones);
+      formData.append('Background_Song_Request', song);
+      formData.append('Live_Countdown_Enabled', countdown);
+      formData.append('Dedication_Message', quote);
+      formData.append('Court_of_Honor', court);
+      formData.append('Dress_Code', dressCode);
+      formData.append('Gift_Registry', registry);
+      formData.append('Cloud_Album_Link', cloudLink);
+      formData.append('Special_Notes', notes);
+
+      const coverInput = document.getElementById('cover-photo-input');
+      if (coverInput && coverInput.files && coverInput.files[0]) {
+        formData.append('Cover_Photo', coverInput.files[0]);
+      }
+      const courtInput = document.getElementById('court-photo-input');
+      if (courtInput && courtInput.files && courtInput.files.length > 0) {
+        Array.from(courtInput.files).forEach(file => {
+          formData.append('Court_Photos[]', file);
+        });
+      }
+      const galleryInput = document.getElementById('gallery-photo-input');
+      if (galleryInput && galleryInput.files && galleryInput.files.length > 0) {
+        Array.from(galleryInput.files).forEach(file => {
+          formData.append('Gallery_Photos[]', file);
+        });
+      }
+    }
 
     // FormSubmit AJAX endpoint requires /ajax/
     const ajaxEndpoint = form.action.includes('/ajax/') 
