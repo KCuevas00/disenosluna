@@ -47,8 +47,150 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', blockScrollUntilEntered, { passive: false });
   window.addEventListener('keydown', blockKeysUntilEntered, { passive: false });
 
-  // Collapsible utility audio tab
+  /* ─────────────────────────────────────────────────────────────
+     1. BILINGUAL TRANSLATION DICTIONARY (EN / ES)
+     ───────────────────────────────────────────────────────────── */
+  const translations = {
+    es: {
+      'invite-quince': 'Quinceañera',
+      'invite-parents': 'OLGA LÓPEZ &amp; GENARO POCTECO',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A LA',
+      'invite-daughter': 'DE SU HIJA',
+      'invite-date-month': 'DIC',
+      'invite-date-day': 'SÁBADO',
+      'invite-date-time': 'A LAS 2:30 PM',
+      'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
+      'cd-days': 'Días',
+      'cd-hours': 'Horas',
+      'cd-mins': 'Minutos',
+      'cd-secs': 'Segundos',
+      'invite-venue': 'BROOKLYN • NUEVA YORK',
+      'program-title': 'PROGRAMA',
+      'program-mass-title': 'MISA',
+      'program-mass-desc': 'NUESTRA SEÑORA DEL PERPETUO SOCORRO,<br />5926 5TH AVE, BROOKLYN, NY 11220',
+      'program-reception-title': 'RECEPCIÓN &amp; FIESTA',
+      'program-reception-desc': 'AZTECA HALL,<br />225 47TH ST, BROOKLYN, NY 11220',
+      'program-end-title': 'FIN DEL EVENTO',
+      'program-end-desc': 'DESPEDIDA &amp;<br />AGRADECIMIENTO',
+      'tl-btn-location': 'UBICACIÓN',
+      'court-title': 'PADRINOS DE HONOR',
+      'padrinos-role': 'PADRINOS DE HONOR',
+      'padrinos-subtext': '“Con profundo agradecimiento por su amor, guía y bendiciones”',
+      'dresscode-title': 'CÓDIGO DE VESTIMENTA',
+      'dresscode-subtitle': 'FORMAL / ELEGANTE',
+      'dresscode-ban-label': 'NO GORRAS NI TENIS',
+      'dresscode-reserved-label': 'VESTIMENTA FORMAL',
+      'dresscode-desc': 'Les pedimos amablemente a nuestros invitados asistir con vestimenta formal y elegante.<br /><strong>Por favor evitar gorras, tenis o ropa deportiva</strong>.',
+      'registry-title': 'MESA DE REGALOS',
+      'registry-subtitle': 'LLUVIA DE SOBRES',
+      'registry-desc': 'Su presencia y cariño son nuestro mejor regalo. Si desea tener un detalle con Genesis, una <strong>lluvia de sobres o tarjetas de regalo</strong> será profundamente apreciada.',
+      'message-quote': 'Agradecida de dios por todo siempre bajo su bendición por aver llegado el día para compartir con ustedes. En medio de todo, recuerda que tu refugio es jesucristo. El es tu fortaleza, tu roca, tu escudo, tu padre que te ama con amor eterno.',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 26 DE NOVIEMBRE DE 2026',
+      'rsvp-btn': 'CONFIRMAR ASISTENCIA',
+      'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
+      'rsvp-thankyou': '¡Muchas Gracias!',
+      'modal-title': 'Confirmar Asistencia para Genesis',
+      'modal-subtitle': 'Sábado, 26 de Diciembre de 2026 • Brooklyn, NY',
+      'label-fullname': 'Nombre Completo de los Invitados *',
+      'label-email': 'Teléfono o Correo Electrónico *',
+      'label-attend': '¿Asistirá al Evento? *',
+      'opt-select': 'Por favor seleccione...',
+      'opt-yes': 'Sí, asistiré con mucho gusto',
+      'opt-no': 'No podré asistir (los acompañaré en espíritu)',
+      'label-party': 'Número Total de Personas',
+      'label-notes': 'Mensaje de Felicitación o Canción para Genesis',
+      'btn-submit': 'Enviar Confirmación',
+      'modal-success-title': '¡Muchas Gracias!',
+      'modal-success-desc': 'Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!'
+    },
+    en: {
+      'invite-quince': 'Quinceañera',
+      'invite-parents': 'OLGA LÓPEZ &amp; GENARO POCTECO',
+      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE QUINCEAÑERA OF THEIR DAUGHTER',
+      'invite-daughter': 'OF THEIR DAUGHTER',
+      'invite-date-month': 'DEC',
+      'invite-date-day': 'SATURDAY',
+      'invite-date-time': 'AT 2:30 PM',
+      'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
+      'cd-days': 'Days',
+      'cd-hours': 'Hours',
+      'cd-mins': 'Minutes',
+      'cd-secs': 'Seconds',
+      'invite-venue': 'BROOKLYN • NEW YORK',
+      'program-title': 'PROGRAM',
+      'program-mass-title': 'MASS',
+      'program-mass-desc': 'OUR LADY OF PERPETUAL HELP CHURCH,<br />5926 5TH AVE, BROOKLYN, NY 11220',
+      'program-reception-title': 'RECEPTION &amp; PARTY',
+      'program-reception-desc': 'AZTECA HALL,<br />225 47TH ST, BROOKLYN, NY 11220',
+      'program-end-title': 'EVENT FINALE',
+      'program-end-desc': 'FAREWELL &amp;<br />THANK YOU',
+      'tl-btn-location': 'LOCATION',
+      'court-title': 'GODPARENTS OF HONOR',
+      'padrinos-role': 'GODPARENTS OF HONOR',
+      'padrinos-subtext': '“With heartfelt gratitude for their love, guidance, and blessings”',
+      'dresscode-title': 'DRESS CODE',
+      'dresscode-subtitle': 'FORMAL / ELEGANT',
+      'dresscode-ban-label': 'NO HATS OR SNEAKERS',
+      'dresscode-reserved-label': 'FORMAL ATTIRE',
+      'dresscode-desc': 'We kindly ask our guests to attend in formal and elegant attire.<br /><strong>Please avoid baseball caps, sneakers, or sportswear</strong>.',
+      'registry-title': 'GIFT REGISTRY',
+      'registry-subtitle': 'CARD &amp; ENVELOPE SHOWER',
+      'registry-desc': 'Your presence and love are our greatest gift. If you wish to honor Genesis with a gift, an <strong>envelope shower or gift cards</strong> will be deeply appreciated.',
+      'message-quote': 'Grateful to God for everything, always under His blessing for having reached this day to share with you. In the midst of everything, remember that your refuge is Jesus Christ. He is your strength, your rock, your shield, your Father who loves you with everlasting love.',
+      'rsvp-deadline': 'PLEASE CONFIRM BY NOVEMBER 26, 2026',
+      'rsvp-btn': 'CONFIRM RSVP',
+      'rsvp-instruction': 'CLICK THE BUTTON TO<br />CONFIRM YOUR ATTENDANCE',
+      'rsvp-thankyou': 'Thank You So Much!',
+      'modal-title': 'RSVP for Genesis',
+      'modal-subtitle': 'Saturday, December 26, 2026 • Brooklyn, NY',
+      'label-fullname': 'Full Name(s) of Guests *',
+      'label-email': 'Phone or Email Address *',
+      'label-attend': 'Will You Be Attending? *',
+      'opt-select': 'Please select...',
+      'opt-yes': 'Yes, joyfully accept',
+      'opt-no': 'No, regretfully decline',
+      'label-party': 'Total Number of Guests Attending',
+      'label-notes': 'Warm Wishes or Song Request for Genesis',
+      'btn-submit': 'Submit RSVP',
+      'modal-success-title': 'Thank You So Much!',
+      'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!'
+    }
+  };
+
+  let currentLang = 'es';
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    const dict = translations[lang] || translations.es;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) {
+        el.innerHTML = dict[key];
+      }
+    });
+
+    const btnEs = document.getElementById('btn-lang-es');
+    const btnEn = document.getElementById('btn-lang-en');
+    if (btnEs && btnEn) {
+      btnEs.classList.toggle('active', lang === 'es');
+      btnEn.classList.toggle('active', lang === 'en');
+    }
+  }
+
+  const btnEs = document.getElementById('btn-lang-es');
+  const btnEn = document.getElementById('btn-lang-en');
+  if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
+  if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+
+  // Default to Spanish on startup
+  applyLanguage('es');
+
+  // Collapsible utility tabs (Language bar top-left, audio bar top-right)
   function initControlToggles() {
+    const langBar = document.getElementById('lang-control-bar');
+    const langToggle = document.getElementById('lang-collapse-toggle');
     const audioBar = document.getElementById('audio-control-bar');
     const audioToggle = document.getElementById('audio-collapse-toggle');
 
@@ -68,8 +210,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    bindToggle(langBar, langToggle, 'Ocultar selector de idioma', 'Mostrar selector de idioma');
     bindToggle(audioBar, audioToggle, 'Ocultar reproductor', 'Mostrar reproductor de música');
 
+    if (langBar && langToggle && langBar.dataset.userToggled !== 'true') {
+      setCollapsed(langBar, langToggle, true, 'Ocultar selector de idioma', 'Mostrar selector de idioma');
+    }
     if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
       setCollapsed(audioBar, audioToggle, true, 'Ocultar reproductor', 'Mostrar reproductor de música');
     }
@@ -192,12 +338,12 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(59, 130, 246, 0.88)',  // vibrant royal sky blue
+          'rgba(29, 78, 216, 0.88)',   // deep royal blue
+          'rgba(59, 130, 246, 0.90)',  // royal sapphire blue
           'rgba(147, 197, 253, 0.92)', // light ice blue
-          'rgba(192, 132, 252, 0.88)', // light lavender / purple
-          'rgba(244, 114, 182, 0.85)', // pastel light pink
           'rgba(255, 255, 255, 0.95)', // glistening platinum white
-          'rgba(203, 213, 225, 0.80)'  // silver shimmer
+          'rgba(203, 213, 225, 0.85)', // silver shimmer
+          'rgba(226, 232, 240, 0.88)'  // frosted slate silver
         ][Math.floor(Math.random() * 6)],
         bend: Math.random() * 0.5 + 0.5
       };

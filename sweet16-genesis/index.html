@@ -43,7 +43,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2.0.0" />
+  <link rel="stylesheet" href="style.css?v=2.1.0" />
 </head>
 
 <body>
@@ -95,7 +95,7 @@
             </div>
 
             <!-- Title & Celebrant Name -->
-            <div class="card-quince-script">Quinceañera</div>
+            <div class="card-quince-script" data-i18n="invite-quince">Quinceañera</div>
             <h2 class="card-celebrant-name">GENESIS LOPEZ</h2>
             <div class="card-flourish-accent" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
           </div>
@@ -158,6 +158,22 @@
   <!-- Falling royal blue, lavender, pastel pink petals & silver sparkles canvas -->
   <canvas id="entry-canvas" class="entry-canvas" aria-hidden="true"></canvas>
 
+  <!-- Floating Utility Bar: Language Switcher (Top-Left) & Music Player (Top-Right) -->
+  <div class="lang-control-bar collapsed" id="lang-control-bar" role="region" aria-label="Selector de Idioma">
+    <button type="button" class="control-arrow-btn" id="lang-collapse-toggle" aria-label="Mostrar selector de idioma"
+      aria-expanded="false">
+      <span class="arrow-icon">‹</span>
+    </button>
+    <div class="lang-btn-group" id="lang-btn-group">
+      <button type="button" class="lang-pill-btn active" id="btn-lang-es" data-lang="es" aria-label="Cambiar a Español">
+        <span class="lang-flag">🇲🇽</span> ES
+      </button>
+      <button type="button" class="lang-pill-btn" id="btn-lang-en" data-lang="en" aria-label="Switch to English">
+        <span class="lang-flag">🇺🇸</span> EN
+      </button>
+    </div>
+  </div>
+
   <!-- Floating Audio Controls (Play/Pause & Song Preview Ticker) -->
   <div class="audio-control-bar collapsed" id="audio-control-bar" role="region" aria-label="Reproductor de Música">
     <div class="audio-collapsible-content" id="audio-collapsible-content">
@@ -218,23 +234,23 @@
       <!-- Invitation Text & Phrasing -->
       <div class="invitation-body-content">
 
-        <p class="parents-line">OLGA LÓPEZ &amp; GENARO POCTECO</p>
+        <p class="parents-line" data-i18n="invite-parents">OLGA LÓPEZ &amp; GENARO POCTECO</p>
 
-        <p class="invite-preamble">TIENEN EL HONOR DE INVITARLE A LA</p>
+        <p class="invite-preamble" data-i18n="invite-preamble">TIENEN EL HONOR DE INVITARLE A LA</p>
 
-        <h1 class="quince-script-title">Quinceañera</h1>
+        <h1 class="quince-script-title" data-i18n="invite-quince">Quinceañera</h1>
 
-        <p class="daughter-subtitle">DE SU HIJA</p>
+        <p class="daughter-subtitle" data-i18n="invite-daughter">DE SU HIJA</p>
 
         <h2 class="celebrant-name">Genesis Lopez</h2>
 
         <!-- Classic Editorial Date & Time Box -->
         <div class="editorial-date-box">
-          <div class="date-month">DIC</div>
+          <div class="date-month" data-i18n="invite-date-month">DIC</div>
           <div class="date-middle-row">
-            <span class="date-day-name">SÁBADO</span>
+            <span class="date-day-name" data-i18n="invite-date-day">SÁBADO</span>
             <span class="date-day-num">26</span>
-            <span class="date-time">A LAS 2:30 PM</span>
+            <span class="date-time" data-i18n="invite-date-time">A LAS 2:30 PM</span>
           </div>
           <div class="date-year">2026</div>
         </div>
@@ -243,34 +259,34 @@
         <div class="pure-countdown-section scroll-fade-in" role="timer" aria-label="Cuenta regresiva para la Quinceañera">
           <div class="pt-header">
             <span class="pt-fleuron" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</span>
-            <h3 class="pt-caption">CONTANDO LOS DÍAS PARA LA FIESTA</h3>
+            <h3 class="pt-caption" data-i18n="countdown-title">CONTANDO LOS DÍAS PARA EL GRAN DÍA</h3>
           </div>
 
           <div class="pt-numbers-row pt-style-italic">
             <div class="pt-item">
               <span class="pt-big-num cd-val-days" id="cd-days">00</span>
-              <span class="pt-sublabel">Días</span>
+              <span class="pt-sublabel" data-i18n="cd-days">Días</span>
             </div>
             <span class="pt-colon italic-fleuron" aria-hidden="true">❦</span>
             <div class="pt-item">
               <span class="pt-big-num cd-val-hours" id="cd-hours">00</span>
-              <span class="pt-sublabel">Horas</span>
+              <span class="pt-sublabel" data-i18n="cd-hours">Horas</span>
             </div>
             <span class="pt-colon italic-fleuron" aria-hidden="true">❦</span>
             <div class="pt-item">
               <span class="pt-big-num cd-val-mins" id="cd-mins">00</span>
-              <span class="pt-sublabel">Minutos</span>
+              <span class="pt-sublabel" data-i18n="cd-mins">Minutos</span>
             </div>
             <span class="pt-colon italic-fleuron" aria-hidden="true">❦</span>
             <div class="pt-item">
               <span class="pt-big-num cd-val-secs" id="cd-secs">00</span>
-              <span class="pt-sublabel">Segundos</span>
+              <span class="pt-sublabel" data-i18n="cd-secs">Segundos</span>
             </div>
           </div>
         </div>
 
         <!-- Location Details -->
-        <p class="venue-location-hint scroll-fade-in delay-1">BROOKLYN • NEW YORK</p>
+        <p class="venue-location-hint scroll-fade-in delay-1" data-i18n="invite-venue">BROOKLYN • NUEVA YORK</p>
 
         <!-- Scroll down indicator -->
         <a href="#program" class="scroll-down-btn scroll-fade-in delay-2" aria-label="Ir al programa">
@@ -293,82 +309,102 @@
       </div>
 
       <div class="program-header scroll-fade-in">
-        <h2 class="program-title">PROGRAMA</h2>
+        <h2 class="program-title" data-i18n="program-title">PROGRAMA</h2>
         <div class="title-accent-line"></div>
       </div>
 
-      <div class="editorial-timeline">
+      <!-- Vertical Timeline -->
+      <div class="program-timeline">
 
-        <!-- 1. Misa (Ceremonia) -->
-        <div class="tl-row scroll-fade-in">
-          <div class="tl-col-time">
-            <span class="tl-time-digits">2:30</span>
-            <span class="tl-time-period">PM</span>
+        <!-- 2:30 PM: MISA -->
+        <div class="timeline-row row-left scroll-fade-in">
+          <div class="time-block">
+            <span class="time-stamp">2:30 PM</span>
+            <h3 class="event-title" data-i18n="program-mass-title">MISA</h3>
+            <p class="event-desc" data-i18n="program-mass-desc">NUESTRA SEÑORA DEL PERPETUO SOCORRO,<br />5926 5TH AVE, BROOKLYN, NY 11220</p>
+            <div class="timeline-loc-wrap">
+              <a href="https://maps.google.com/?q=5926+5th+Ave,+Brooklyn,+NY+11220"
+                data-apple-url="https://maps.apple.com/?q=5926+5th+Ave,+Brooklyn,+NY+11220" target="_blank"
+                rel="noopener noreferrer" class="timeline-loc-btn" aria-label="Ubicación de la Misa en Google Maps">
+                <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <span data-i18n="tl-btn-location">UBICACIÓN</span>
+              </a>
+            </div>
           </div>
-
-          <div class="tl-col-spine">
-            <div class="tl-spine-dot"></div>
-            <div class="tl-spine-line"></div>
+          <div class="timeline-connector">
+            <div class="timeline-line"></div>
+            <div class="timeline-node" title="Ceremonia / Misa">
+              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" aria-label="Church Icon">
+                <path d="M12 2v4M10 4h4" />
+                <path d="M4 11l8-6 8 6v10H4V11z" />
+                <path d="M10 21v-5a2 2 0 014 0v5" />
+                <circle cx="12" cy="11" r="1.5" />
+              </svg>
+            </div>
           </div>
+          <div class="timeline-empty"></div>
+        </div>
 
-          <div class="tl-col-content">
-            <h3 class="tl-event-name">MISA</h3>
-            <p class="tl-event-desc">
-              NUESTRA SEÑORA DEL PERPETUO SOCORRO,<br />5926 5TH AVE, BROOKLYN, NY 11220
-            </p>
-            <a href="https://maps.google.com/?q=5926+5th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer"
-              class="tl-location-pill" aria-label="Abrir ubicación de la iglesia en Google Maps">
-              <span class="tl-pin-icon">📍</span>
-              UBICACIÓN
-            </a>
+        <!-- 6:30 PM: RECEPCIÓN & FIESTA -->
+        <div class="timeline-row row-right scroll-fade-in">
+          <div class="timeline-empty"></div>
+          <div class="timeline-connector">
+            <div class="timeline-line"></div>
+            <div class="timeline-node" title="Recepción & Fiesta">
+              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" aria-label="Royal Tiara Icon">
+                <path d="M3 18h18l-2-10-4.5 4L12 4 9.5 12 5 8 3 18z" />
+                <circle cx="12" cy="4" r="1" fill="currentColor" />
+                <circle cx="5" cy="8" r="0.8" fill="currentColor" />
+                <circle cx="19" cy="8" r="0.8" fill="currentColor" />
+                <path d="M5 18v2h14v-2" />
+              </svg>
+            </div>
+          </div>
+          <div class="time-block">
+            <span class="time-stamp">6:30 PM</span>
+            <h3 class="event-title" data-i18n="program-reception-title">RECEPCIÓN &amp; FIESTA</h3>
+            <p class="event-desc" data-i18n="program-reception-desc">AZTECA HALL,<br />225 47TH ST, BROOKLYN, NY 11220</p>
+            <div class="timeline-loc-wrap">
+              <a href="https://maps.google.com/?q=225+47th+St,+Brooklyn,+NY+11220"
+                data-apple-url="https://maps.apple.com/?q=225+47th+St,+Brooklyn,+NY+11220" target="_blank"
+                rel="noopener noreferrer" class="timeline-loc-btn"
+                aria-label="Ubicación de la Recepción en Google Maps">
+                <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <span data-i18n="tl-btn-location">UBICACIÓN</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- 2. Recepción & Fiesta -->
-        <div class="tl-row scroll-fade-in delay-1">
-          <div class="tl-col-time">
-            <span class="tl-time-digits">6:30</span>
-            <span class="tl-time-period">PM</span>
+        <!-- 2:00 AM: FIN DEL EVENTO -->
+        <div class="timeline-row row-left scroll-fade-in">
+          <div class="time-block">
+            <span class="time-stamp">2:00 AM</span>
+            <h3 class="event-title" data-i18n="program-end-title">FIN DEL EVENTO</h3>
+            <p class="event-desc" data-i18n="program-end-desc">DESPEDIDA &amp;<br />AGRADECIMIENTO</p>
           </div>
-
-          <div class="tl-col-spine">
-            <div class="tl-spine-dot"></div>
-            <div class="tl-spine-line"></div>
+          <div class="timeline-connector">
+            <div class="timeline-line"></div>
+            <div class="timeline-node" title="Fin del Evento">
+              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" aria-label="Farewell Sparkle Icon">
+                <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
           </div>
-
-          <div class="tl-col-content">
-            <h3 class="tl-event-name">RECEPCIÓN &amp; FIESTA</h3>
-            <p class="tl-event-desc">
-              AZTECA HALL,<br />225 47TH ST, BROOKLYN, NY 11220
-            </p>
-            <a href="https://maps.google.com/?q=225+47th+St,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer"
-              class="tl-location-pill" aria-label="Abrir ubicación de la recepción en Google Maps">
-              <span class="tl-pin-icon">📍</span>
-              UBICACIÓN
-            </a>
-          </div>
+          <div class="timeline-empty"></div>
         </div>
 
-        <!-- 3. Fin del Evento -->
-        <div class="tl-row scroll-fade-in delay-2">
-          <div class="tl-col-time">
-            <span class="tl-time-digits">2:00</span>
-            <span class="tl-time-period">AM</span>
-          </div>
-
-          <div class="tl-col-spine">
-            <div class="tl-spine-dot"></div>
-          </div>
-
-          <div class="tl-col-content">
-            <h3 class="tl-event-name">FIN DEL EVENTO</h3>
-            <p class="tl-event-desc">
-              DESPEDIDA &amp;<br />AGRADECIMIENTO
-            </p>
-          </div>
-        </div>
-
-      </div><!-- /.editorial-timeline -->
+      </div><!-- /.program-timeline -->
 
     </section>
 
@@ -384,7 +420,7 @@
       </div>
 
       <div class="court-header scroll-fade-in">
-        <h2 class="court-title">PADRINOS DE HONOR</h2>
+        <h2 class="court-title" data-i18n="court-title">PADRINOS DE HONOR</h2>
         <div class="title-accent-line"></div>
       </div>
 
@@ -405,10 +441,10 @@
               <circle cx="32" cy="7" r="1.3" fill="currentColor" />
             </svg>
           </div>
-          <span class="padrinos-role-badge">PADRINOS DE HONOR</span>
+          <span class="padrinos-role-badge" data-i18n="padrinos-role">PADRINOS DE HONOR</span>
           <h3 class="padrinos-names">Dimas López <span class="gold-amp">&amp;</span> Maribel López</h3>
           <div class="padrinos-divider-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
-          <p class="padrinos-subtext">&ldquo;Con profundo agradecimiento por su amor, guía y bendiciones&rdquo;</p>
+          <p class="padrinos-subtext" data-i18n="padrinos-subtext">&ldquo;Con profundo agradecimiento por su amor, guía y bendiciones&rdquo;</p>
         </div>
       </div>
 
@@ -443,8 +479,8 @@
                 <circle cx="32" cy="7" r="1.3" fill="currentColor" />
               </svg>
             </div>
-            <span class="vignette-eyebrow">CÓDIGO DE VESTIMENTA</span>
-            <h3 class="vignette-headline">FORMAL / ELEGANTE</h3>
+            <span class="vignette-eyebrow" data-i18n="dresscode-title">CÓDIGO DE VESTIMENTA</span>
+            <h3 class="vignette-headline" data-i18n="dresscode-subtitle">FORMAL / ELEGANTE</h3>
 
             <!-- Obvious Silk Disc Prohibited Swatch -->
             <div class="vignette-swatch-badge">
@@ -455,14 +491,14 @@
                 </svg>
               </div>
               <div class="swatch-text-col">
-                <span class="swatch-bold-ban">NO GORRAS NI TENIS</span>
-                <span class="swatch-sub-note">VESTIMENTA FORMAL</span>
+                <span class="swatch-bold-ban" data-i18n="dresscode-ban-label">NO GORRAS NI TENIS</span>
+                <span class="swatch-sub-note" data-i18n="dresscode-reserved-label">VESTIMENTA FORMAL</span>
               </div>
             </div>
 
             <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
 
-            <p class="vignette-prose">
+            <p class="vignette-prose" data-i18n="dresscode-desc">
               Les pedimos amablemente a nuestros invitados asistir con vestimenta formal y elegante.<br />
               <strong>Por favor evitar gorras, tenis o pantalones de chándal</strong>.
             </p>
@@ -487,12 +523,12 @@
               </div>
             </div>
 
-            <span class="vignette-eyebrow">MESA DE REGALOS</span>
-            <h3 class="vignette-headline readable-registry-title">LLUVIA DE SOBRES</h3>
+            <span class="vignette-eyebrow" data-i18n="registry-title">MESA DE REGALOS</span>
+            <h3 class="vignette-headline readable-registry-title" data-i18n="registry-subtitle">LLUVIA DE SOBRES</h3>
 
             <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
 
-            <p class="vignette-prose">
+            <p class="vignette-prose" data-i18n="registry-desc">
               Su presencia y cariño son nuestro mejor regalo. Si desea tener un detalle con Genesis, una <strong>lluvia de sobres o tarjetas de regalo</strong> será profundamente apreciada.
             </p>
           </div>
@@ -520,7 +556,7 @@
         </div>
         <div class="message-copy">
           <span class="message-quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="message-quote-text">
+          <p class="message-quote-text" data-i18n="message-quote">
             Agradecida de dios por todo siempre bajo su bendición por aver llegado el día para compartir con ustedes. En medio de todo, recuerda que tu refugio es jesucristo. El es tu fortaleza, tu roca, tu escudo, tu padre que te ama con amor eterno.
           </p>
           <span class="message-signature">Genesis</span>
@@ -572,22 +608,22 @@
 
       <!-- Deadline Phrasing -->
       <div class="rsvp-callout-block">
-        <p class="rsvp-deadline-text scroll-fade-in">FAVOR DE CONFIRMAR ANTES DEL 26 DE NOVIEMBRE DE 2026</p>
+        <p class="rsvp-deadline-text scroll-fade-in" data-i18n="rsvp-deadline">FAVOR DE CONFIRMAR ANTES DEL 26 DE NOVIEMBRE DE 2026</p>
 
         <!-- Royal Blue Ribbon Banner Button -->
         <div class="ribbon-btn-wrapper scroll-fade-in delay-1">
           <button id="open-rsvp-modal-btn" class="blush-ribbon-btn" type="button">
             <span class="ribbon-tail left"></span>
-            <span class="ribbon-center">CONFIRMAR ASISTENCIA</span>
+            <span class="ribbon-center" data-i18n="rsvp-btn">CONFIRMAR ASISTENCIA</span>
             <span class="ribbon-tail right"></span>
           </button>
         </div>
 
-        <p class="rsvp-instruction-text scroll-fade-in delay-2">
+        <p class="rsvp-instruction-text scroll-fade-in delay-2" data-i18n="rsvp-instruction">
           HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA
         </p>
 
-        <div class="rsvp-thank-you scroll-fade-in delay-3">
+        <div class="rsvp-thank-you scroll-fade-in delay-3" data-i18n="rsvp-thankyou">
           ¡Muchas Gracias!
         </div>
       </div>
@@ -605,35 +641,35 @@
       <button id="close-modal-btn" class="close-modal" aria-label="Cerrar ventana">&times;</button>
 
       <div class="modal-header">
-        <h3 class="modal-title">Confirmar Asistencia para Genesis</h3>
-        <p class="modal-subtitle">Sábado, 26 de Diciembre de 2026 • Brooklyn, NY</p>
+        <h3 class="modal-title" data-i18n="modal-title">Confirmar Asistencia para Genesis</h3>
+        <p class="modal-subtitle" data-i18n="modal-subtitle">Sábado, 26 de Diciembre de 2026 • Brooklyn, NY</p>
       </div>
 
       <form id="rsvp-form" class="modal-form" novalidate>
 
         <div class="form-group">
-          <label for="guest-fullname">Nombre Completo de los Invitados *</label>
+          <label for="guest-fullname" data-i18n="label-fullname">Nombre Completo de los Invitados *</label>
           <input type="text" id="guest-fullname" name="fullname" placeholder="Ej. Familia López"
             required />
         </div>
 
         <div class="form-group">
-          <label for="guest-email">Teléfono o Correo Electrónico *</label>
+          <label for="guest-email" data-i18n="label-email">Teléfono o Correo Electrónico *</label>
           <input type="text" id="guest-email" name="contact" placeholder="(718) 555-0192 o correo@ejemplo.com"
             required />
         </div>
 
         <div class="form-group">
-          <label for="guest-attend">¿Asistirá al Evento? *</label>
+          <label for="guest-attend" data-i18n="label-attend">¿Asistirá al Evento? *</label>
           <select id="guest-attend" name="attendance" required>
-            <option value="" disabled selected>Por favor seleccione...</option>
-            <option value="yes">Sí, asistiré con mucho gusto</option>
-            <option value="no">No podré asistir (los acompañaré en espíritu)</option>
+            <option value="" disabled selected data-i18n="opt-select">Por favor seleccione...</option>
+            <option value="yes" data-i18n="opt-yes">Sí, asistiré con mucho gusto</option>
+            <option value="no" data-i18n="opt-no">No podré asistir (los acompañaré en espíritu)</option>
           </select>
         </div>
 
         <div class="form-group" id="group-guests-count">
-          <label for="guest-party-size">Número Total de Personas</label>
+          <label for="guest-party-size" data-i18n="label-party">Número Total de Personas</label>
           <select id="guest-party-size" name="partySize">
             <option value="1">1 Persona</option>
             <option value="2" selected>2 Personas</option>
@@ -644,20 +680,20 @@
         </div>
 
         <div class="form-group">
-          <label for="guest-notes">Mensaje de Felicitación o Canción para Genesis</label>
+          <label for="guest-notes" data-i18n="label-notes">Mensaje de Felicitación o Canción para Genesis</label>
           <textarea id="guest-notes" name="notes" rows="2"
             placeholder="Escribe un mensaje de bendición o una canción que te gustaría bailar..."></textarea>
         </div>
 
-        <button type="submit" class="btn-submit-rsvp" id="btn-submit-rsvp">
+        <button type="submit" class="btn-submit-rsvp" id="btn-submit-rsvp" data-i18n="btn-submit">
           Enviar Confirmación
         </button>
 
         <!-- Feedback message -->
         <div id="modal-success-alert" class="modal-success" hidden>
           <div class="success-icon">👑 ✨ 💙</div>
-          <h4>¡Muchas Gracias!</h4>
-          <p>Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!</p>
+          <h4 data-i18n="modal-success-title">¡Muchas Gracias!</h4>
+          <p data-i18n="modal-success-desc">Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!</p>
         </div>
 
       </form>
