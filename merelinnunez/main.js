@@ -759,26 +759,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const isAttending = currentAttend.value === 'yes';
-      const attendanceSpanish = isAttending ? 'Sí, Asistirá' : 'No podré asistir';
-      const attendanceEnglish = isAttending ? 'Yes (Joyfully Accept)' : 'No (Regretfully Decline)';
-      const attendanceLabel = currentLang === 'es' ? attendanceSpanish : attendanceEnglish;
+      // Google Sheet summary dashboard formulas look specifically for 'Joyfully Accept' / 'Regretfully Decline'
+      const attendanceStandard = isAttending ? 'Joyfully Accept' : 'Regretfully Decline';
+      const cleanPartySize = isAttending ? (partySizeInput ? partySizeInput.value.replace('+', '') : '1') : '0';
 
       const payload = {
         eventSlug: EVENT_SLUG,
         clientName: CLIENT_NAME,
         clientEmail: CLIENT_EMAIL,
         submittedAt: new Date().toISOString(),
+        // Primary keys expected by Google Sheets
         fullname: nameInput.value.trim(),
+        contact: contactInput.value.trim(),
+        attendance: attendanceStandard,
+        partySize: cleanPartySize,
+        notes: notesInput ? notesInput.value.trim() : '',
+        // Fallback & descriptive aliases
         guestName: nameInput.value.trim(),
         name: nameInput.value.trim(),
-        contact: contactInput.value.trim(),
         phone: contactInput.value.trim(),
         email: contactInput.value.trim(),
-        attendance: attendanceLabel,
-        attending: isAttending ? 'Sí' : 'No',
-        partySize: isAttending ? (partySizeInput ? partySizeInput.value : '1') : '0',
-        guests: isAttending ? (partySizeInput ? partySizeInput.value : '1') : '0',
-        notes: notesInput ? notesInput.value.trim() : '',
+        attendance_es: isAttending ? 'Sí, Asistirá' : 'No podré asistir',
+        attending: isAttending ? 'Yes' : 'No',
+        guests: cleanPartySize,
         wishes: notesInput ? notesInput.value.trim() : '',
         song: notesInput ? notesInput.value.trim() : '',
         message: notesInput ? notesInput.value.trim() : ''
