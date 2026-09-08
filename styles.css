@@ -1592,61 +1592,65 @@ details[open] .faq-question::after {
 }
 
 .lang-welcome-card.is-collapsing {
-  animation: collapseToBottomLeft 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition: none !important;
+  animation: collapseCardDown 0.35s cubic-bezier(0.32, 0, 0.67, 0) forwards;
   pointer-events: none;
 }
 
-@keyframes collapseToBottomLeft {
+@keyframes collapseCardDown {
   0% {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
   }
-  50% {
-    opacity: 0.8;
-    transform: translateX(-85%) translateY(12%) scale(0.55);
-  }
   100% {
     opacity: 0;
-    transform: translateX(-125%) translateY(32%) scale(0.15);
+    transform: translateX(-50%) translateY(125%) scale(0.96);
     visibility: hidden;
   }
 }
 
 .lang-welcome-collapse-btn {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 32px;
-  height: 32px;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid #ebd7dc;
+  border: 1.5px solid #f8cad5;
   background: #ffffff;
-  color: #7a736f;
+  color: #555555;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(184, 50, 88, 0.15);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0;
-  z-index: 2;
+  z-index: 10;
 }
 
 .lang-welcome-collapse-btn:hover {
   background: #fff0f4;
-  color: #111111;
-  border-color: #f8cad5;
-  transform: scale(1.08);
+  color: #b83258;
+  border-color: #f7a8be;
+  transform: translateX(-50%) translateY(3px);
+  box-shadow: 0 6px 20px rgba(184, 50, 88, 0.22);
+}
+
+.lang-welcome-collapse-btn:active {
+  transform: translateX(-50%) translateY(5px) scale(0.95);
 }
 
 .lang-welcome-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.15rem, 2.7vw, 1.42rem);
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
   font-weight: 700;
   color: #111111;
   margin-bottom: 20px;
   line-height: 1.38;
   text-align: center;
-  padding: 0 28px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -1658,6 +1662,7 @@ details[open] .faq-question::after {
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
+  white-space: nowrap;
 }
 
 .lang-welcome-actions {
@@ -1746,24 +1751,33 @@ details[open] .faq-question::after {
     max-width: 100%;
     border-radius: 24px 24px 0 0;
     transform: translateY(100%);
-    padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+    padding: 24px 16px calc(24px + env(safe-area-inset-bottom, 0px));
   }
   .lang-welcome-card.is-visible {
     transform: translateY(0);
   }
   .lang-welcome-card.is-collapsing {
-    animation: collapseMobileToBottomLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition: none !important;
+    animation: collapseMobileCardDown 0.35s cubic-bezier(0.32, 0, 0.67, 0) forwards;
   }
-  @keyframes collapseMobileToBottomLeft {
+  @keyframes collapseMobileCardDown {
     0% {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
     100% {
       opacity: 0;
-      transform: translateY(40%) translateX(-40%) scale(0.2);
+      transform: translateY(125%);
       visibility: hidden;
     }
+  }
+  .lang-welcome-title {
+    font-size: clamp(0.85rem, 4.15vw, 1.12rem);
+    padding: 0;
+    margin-bottom: 16px;
+    gap: 6px;
+    line-height: 1.32;
+    letter-spacing: -0.01em;
   }
   .lang-welcome-actions {
     grid-template-columns: 1fr;

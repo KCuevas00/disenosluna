@@ -564,10 +564,9 @@
       card.setAttribute('aria-modal', 'false');
       card.setAttribute('aria-labelledby', 'lang-welcome-title');
       card.innerHTML = `
-        <button type="button" class="lang-welcome-collapse-btn" id="btn-welcome-collapse" aria-label="Skip and keep English" title="Skip">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
+        <button type="button" class="lang-welcome-collapse-btn" id="btn-welcome-collapse" aria-label="Collapse" title="Collapse">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
         <h2 class="lang-welcome-title" id="lang-welcome-title">
@@ -619,9 +618,9 @@
         const pill = document.getElementById('floating-lang-pill');
         if (pill) {
           pill.classList.add('pill-dock-pulse');
-          setTimeout(() => pill.classList.remove('pill-dock-pulse'), 1300);
+          setTimeout(() => pill.classList.remove('pill-dock-pulse'), 1200);
         }
-      }, 550);
+      }, 360);
     };
 
     const btnEn = document.getElementById('btn-welcome-en');
