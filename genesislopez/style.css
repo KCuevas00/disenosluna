@@ -580,13 +580,13 @@ body.site-entered .lang-control-bar {
   object-fit: contain;
 }
 
-/* Celebrant Photo Centerpiece (Clean & Unobstructed with Generous Breathing Room) */
+/* Celebrant Photo Centerpiece (Clean & Balanced Breathing Room) */
 .photo-stage,
 .celebrant-portrait-container {
   position: relative;
   width: 76%;
   max-width: 350px;
-  margin: 0.8rem auto 7.5rem;
+  margin: 0.8rem auto 4.5rem;
   display: flex;
   justify-content: center;
 }
@@ -612,14 +612,13 @@ body.site-entered .lang-control-bar {
   transform: scale(1.03);
 }
 
-/* Invitation Typography Matching Flyer with Generous Top Breathing Room */
+/* Invitation Typography Matching Flyer */
 .invitation-body-content {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 1.5rem;
 }
 
 .parents-line {
@@ -2571,12 +2570,12 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     padding-bottom: 2rem;
   }
 
-  /* Main Celebrant Photo Centerpiece: Clean 75% Screen Width with Generous Breathing Room */
+  /* Main Celebrant Photo Centerpiece: Clean 75% Screen Width with Balanced Breathing Room */
   .photo-stage,
   .celebrant-portrait-container {
     width: 80%;
     max-width: 300px;
-    margin: 0.6rem auto 6.5rem;
+    margin: 0.6rem auto 3.8rem;
   }
 
   .quince-script-title {

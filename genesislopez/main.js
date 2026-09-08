@@ -12,7 +12,7 @@
  * dedicated private Google Sheet.
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
-const EVENT_SLUG = 'sweet16-genesis';
+const EVENT_SLUG = 'genesislopez';
 const CLIENT_NAME = "Genesis Lopez's Quinceañera";
 const CLIENT_EMAIL = ''; // Optional parents' email to share Google Sheet with
 
