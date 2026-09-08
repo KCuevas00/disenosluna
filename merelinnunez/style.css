@@ -72,21 +72,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Prevent accidental scrolling while envelope is closed */
-html:not(.site-entered),
-body:not(.site-entered) {
+/* ── SCROLL CONTROL (SINGLE CLEAN WINDOW SCROLLBAR) ── */
+/* Prevent all scrolling while envelope is closed */
+html:not(.site-entered) {
   overflow: hidden !important;
-  height: 100vh !important;
+  height: 100% !important;
   touch-action: none !important;
+  overscroll-behavior: none !important;
 }
 
-/* Explicitly unlock scrolling once envelope is opened */
-html.site-entered,
-body.site-entered {
+body:not(.site-entered) {
+  overflow: hidden !important;
+  height: 100% !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
+/* Explicitly unlock single clean window scrollbar once envelope is opened */
+html.site-entered {
   overflow-x: hidden !important;
   overflow-y: auto !important;
   height: auto !important;
-  min-height: 100vh !important;
+  min-height: 100% !important;
+  touch-action: auto !important;
+}
+
+/* Body must NEVER have overflow-y: auto or a second scrollbar appears */
+body.site-entered {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  height: auto !important;
+  min-height: 100% !important;
   touch-action: auto !important;
 }
 
@@ -1089,6 +1105,47 @@ body.site-entered .lang-control-bar {
   border-color: var(--theme-primary);
 }
 
+/* ── TIMELINE EVENT VENUE PHOTOS ── */
+.timeline-photo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.6rem;
+}
+
+.row-left .timeline-photo-cell {
+  justify-content: flex-start;
+  padding-left: 0.8rem;
+}
+
+.row-right .timeline-photo-cell {
+  justify-content: flex-end;
+  padding-right: 0.8rem;
+}
+
+.timeline-photo-card {
+  width: 100%;
+  max-width: 135px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(196, 150, 88, 0.48);
+  box-shadow: 0 6px 18px rgba(184, 107, 132, 0.16);
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-photo-card:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(184, 107, 132, 0.24);
+}
+
+.timeline-venue-img {
+  width: 100%;
+  height: 84px;
+  object-fit: cover;
+  display: block;
+}
+
 /* ── SECTION 3: PADRINOS & COURT OF HONOR ── */
 .court-section {
   background: #ffffff;
@@ -1298,208 +1355,222 @@ body.site-entered .lang-control-bar {
   text-align: center;
 }
 
-/* ── SECTION 4: EVENT GUIDELINES (DRESS CODE & GIFT REGISTRY) ── */
+/* ── SECTION 4: EVENT GUIDELINES (BOTANICAL VIGNETTES) ── */
 .guidelines-section {
   background: #fdfbfb;
   border-top: 1px solid rgba(196, 150, 88, 0.18);
+  overflow: visible;
 }
 
-.guidelines-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2.2rem;
-  max-width: 460px;
+.guidelines-wrapper {
+  max-width: 500px;
   margin: 0 auto;
   width: 100%;
 }
 
-.guideline-luxury-card {
-  position: relative;
-  background: #ffffff;
-  background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fdf8fa 65%, #fcf0f4 100%);
-  border: 1.5px solid rgba(196, 150, 88, 0.48);
-  border-radius: 20px;
-  box-shadow:
-    0 16px 40px rgba(184, 107, 132, 0.13),
-    inset 0 0 0 5px #ffffff,
-    inset 0 0 0 6.5px rgba(196, 150, 88, 0.28);
-  padding: 2.4rem 1.8rem;
-  text-align: center;
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
+/* ── COMMON: READABLE PLAYFAIR REGISTRY TITLE ── */
+.readable-registry-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(1.35rem, 4.2vw, 1.75rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  color: #8e3d54 !important;
+  text-transform: uppercase !important;
+  font-style: normal !important;
+}
+
+/* ── HIGH VISIBILITY PROHIBITED COLOR SWATCH BADGE ── */
+.vignette-swatch-badge {
+  display: inline-flex;
   align-items: center;
-}
-
-.card-corner-floral {
-  position: absolute;
-  object-fit: contain;
-  pointer-events: none;
-  filter: drop-shadow(0 6px 14px rgba(70, 35, 45, 0.15));
-  z-index: 3;
-}
-
-.card-corner-floral.top-right {
-  top: -22px;
-  right: -22px;
-  width: 110px;
-  height: 110px;
-}
-
-.card-corner-floral.bottom-left {
-  bottom: -22px;
-  left: -22px;
-  width: 110px;
-  height: 110px;
-}
-
-.card-editorial-header {
-  margin-bottom: 0.8rem;
-}
-
-.guideline-eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  color: #a47638;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-  display: block;
-}
-
-.guideline-headline {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--text-dark);
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
-}
-
-.guideline-script-headline {
-  font-family: 'Alex Brush', cursive;
-  font-size: 2.7rem;
-  color: #a44865;
-  line-height: 1;
-  margin-bottom: 0.4rem;
-  font-weight: normal;
-}
-
-/* ── PROHIBITED PALE PINK OBVIOUS GRAPHIC ── */
-.prohibited-color-module {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0.6rem 0 0.8rem;
-  padding: 1.1rem 1.4rem;
-  background: rgba(254, 238, 243, 0.85);
+  gap: 0.9rem;
+  margin: 0.75rem 0 0.95rem;
+  padding: 0.7rem 1.25rem;
+  background: #fff0f4;
   border: 1.5px dashed rgba(217, 56, 86, 0.45);
-  border-radius: 16px;
-  width: 100%;
-  max-width: 340px;
-  box-shadow: 0 4px 16px rgba(217, 56, 86, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(217, 56, 86, 0.08);
 }
 
-.swatch-spotlight-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 1.15rem;
-}
-
-.color-swatch-disc {
+.swatch-silk-disc {
   position: relative;
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   flex-shrink: 0;
   background: linear-gradient(135deg, #fff2f6 0%, #fcd4e2 50%, #f7b4c9 100%);
-  border: 2.5px solid #ffffff;
+  border: 2px solid #ffffff;
   box-shadow:
     0 0 0 1px rgba(217, 56, 86, 0.25),
-    0 6px 16px rgba(217, 56, 86, 0.22);
+    0 4px 12px rgba(217, 56, 86, 0.18);
 }
 
-.swatch-ban-slash {
+.swatch-ban-svg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 2px 5px rgba(160, 15, 40, 0.4));
+  filter: drop-shadow(0 2px 4px rgba(180, 20, 50, 0.35));
 }
 
-.prohibited-badge-label {
+.swatch-text-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
 
-.ban-title {
+.swatch-bold-ban {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   color: #c22543;
   text-transform: uppercase;
+  line-height: 1.15;
 }
 
-.ban-subtitle {
+.swatch-sub-note {
   font-family: var(--font-sans);
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #684151;
   text-transform: uppercase;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
-/* ── REGISTRY WISHING ENVELOPE EMBLEM ── */
-.registry-emblem-wrapper {
-  margin: 0.4rem 0 0.8rem;
+/* ── ORGANIC BOTANICAL VIGNETTES (ZERO BOXED BORDERS) ── */
+.vignette-guidelines-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 2.6rem 1.6rem;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 245, 248, 0.8) 0%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
+  overflow: visible;
+  border-radius: 28px;
 }
 
-.registry-gift-seal {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fef7f9 55%, #fae2e8 100%);
-  border: 1.5px solid rgba(196, 150, 88, 0.48);
+.vignette-floral-accent {
+  position: absolute;
+  pointer-events: none;
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(70, 35, 45, 0.14));
+  z-index: 2;
+}
+
+.vignette-floral-accent.top-right {
+  top: -24px;
+  right: -20px;
+}
+
+.vignette-floral-accent.bottom-left {
+  bottom: -24px;
+  left: -20px;
+}
+
+.vignette-item {
+  position: relative;
+  z-index: 3;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 8px 22px rgba(184, 107, 132, 0.16),
-    inset 0 0 0 2px #ffffff;
+  text-align: center;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
-.card-ornament-line {
+.vignette-crown-icon {
+  color: #c49658;
+  margin-bottom: 0.4rem;
+  filter: drop-shadow(0 1px 2px rgba(196, 150, 88, 0.3));
+}
+
+.vignette-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #a47638;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.vignette-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.4rem, 4.4vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.vignette-ornament {
   color: #d89fb0;
   font-size: 0.85rem;
   letter-spacing: 0.3em;
-  margin: 0.8rem 0 0.7rem;
+  margin: 0.55rem 0 0.75rem;
 }
 
-.guideline-body-text {
+.vignette-prose {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.14rem;
   font-style: italic;
   line-height: 1.62;
   color: #4e323f;
-  max-width: 360px;
+  max-width: 340px;
   margin: 0 auto;
 }
 
-.guideline-body-text strong {
+.vignette-prose strong {
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
   font-size: 0.84rem;
   letter-spacing: 0.04em;
   color: #b02340;
-  display: inline-block;
-  margin-top: 0.25rem;
+}
+
+.vignette-inter-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin: 2.2rem auto;
+  width: 65%;
+  color: #d89fb0;
+}
+
+.v-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(216, 159, 176, 0.6), transparent);
+}
+
+.v-leaf {
+  font-size: 1rem;
+  color: #c49658;
+}
+
+.vignette-wishing-emblem {
+  margin: 0.4rem 0 0.6rem;
+}
+
+.vignette-seal-disc {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fef7f9 55%, #fae2e8 100%);
+  border: 1.5px solid rgba(196, 150, 88, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(184, 107, 132, 0.14);
 }
 
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
@@ -2072,10 +2143,9 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .luxury-envelope-container:hover {
-  transform: translateY(-4px) scale(1.015);
   box-shadow:
-    0 30px 65px rgba(110, 40, 65, 0.22),
-    0 12px 28px rgba(0, 0, 0, 0.08);
+    0 32px 70px rgba(110, 40, 65, 0.24),
+    0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Envelope Interior Back Wall */
@@ -2339,7 +2409,9 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .wax-seal-btn:hover {
-  transform: scale(1.1) !important;
+  animation-play-state: paused;
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 22px rgba(110, 40, 65, 0.55));
 }
 
 /* ── SCROLL REVEAL ANIMATIONS ── */

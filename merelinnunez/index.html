@@ -43,7 +43,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.3.0" />
+  <link rel="stylesheet" href="style.css?v=1.3.2" />
 </head>
 
 <body>
@@ -356,12 +356,20 @@
               </svg>
             </div>
           </div>
-          <div class="timeline-empty"></div>
+          <div class="timeline-photo-cell">
+            <div class="timeline-photo-card">
+              <img src="photos/iglesia.PNG" alt="Iglesia Nuestra Señora de Guadalupe" class="timeline-venue-img" />
+            </div>
+          </div>
         </div>
 
         <!-- 5:00 PM: ENTRANCE / ENTRADA -->
         <div class="timeline-row row-right scroll-fade-in">
-          <div class="timeline-empty"></div>
+          <div class="timeline-photo-cell">
+            <div class="timeline-photo-card">
+              <img src="photos/venue.PNG" alt="El Bekal Shrine Reception Hall" class="timeline-venue-img" />
+            </div>
+          </div>
           <div class="timeline-connector">
             <div class="timeline-line"></div>
             <div class="timeline-node" title="Grand Entrance">
@@ -584,70 +592,80 @@
         <span class="divider-line"></span>
       </div>
 
-      <div class="guidelines-container">
+      <div class="guidelines-wrapper">
 
-        <!-- Dress Code Luxury Stationery Card -->
-        <div class="guideline-luxury-card dresscode-luxury-card scroll-fade-in">
-          <!-- Delicate corner floral spray accent -->
-          <img src="photos/envelope-flowers-top.png" alt="" class="card-corner-floral top-right" aria-hidden="true" />
+        <!-- ════════════════════════════════════════════════════════════
+             EVENT GUIDELINES: BOTANICAL VIGNETTES
+        ════════════════════════════════════════════════════════════ -->
+        <div class="vignette-guidelines-wrap">
+          <!-- Floating watercolor botanical corners -->
+          <img src="photos/envelope-flowers-top.png" alt="" class="vignette-floral-accent top-right" aria-hidden="true" />
+          <img src="photos/envelope-flowers-bottom.png" alt="" class="vignette-floral-accent bottom-left" aria-hidden="true" />
 
-          <div class="card-editorial-header">
-            <span class="guideline-eyebrow" data-i18n="dresscode-title">CÓDIGO DE VESTIMENTA</span>
-            <h3 class="guideline-headline" data-i18n="dresscode-subtitle">TRAJE FORMAL</h3>
-          </div>
+          <!-- Dress Code Proclamation Vignette -->
+          <div class="vignette-item dresscode-vignette scroll-fade-in">
+            <div class="vignette-crown-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 20" width="30" height="16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M4 17h28M8 17l-4-9 8 4 6-8 6 8 8-4-4 9H8z" />
+                <circle cx="4" cy="7" r="1.3" fill="currentColor" />
+                <circle cx="18" cy="3.5" r="1.5" fill="currentColor" />
+                <circle cx="32" cy="7" r="1.3" fill="currentColor" />
+              </svg>
+            </div>
+            <span class="vignette-eyebrow" data-i18n="dresscode-title">CÓDIGO DE VESTIMENTA</span>
+            <h3 class="vignette-headline" data-i18n="dresscode-subtitle">TRAJE FORMAL</h3>
 
-          <!-- Obvious Visual Color Indicator: NO PALE PINK -->
-          <div class="prohibited-color-module">
-            <div class="swatch-spotlight-wrapper">
-              <div class="color-swatch-disc pale-pink-disc">
-                <span class="swatch-color-fill" aria-hidden="true"></span>
-                <svg class="swatch-ban-slash" viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
+            <!-- Obvious Silk Disc Prohibited Swatch -->
+            <div class="vignette-swatch-badge">
+              <div class="swatch-silk-disc">
+                <svg class="swatch-ban-svg" viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
                   <circle cx="50" cy="50" r="44" fill="none" stroke="#d93856" stroke-width="5" />
                   <line x1="19" y1="19" x2="81" y2="81" stroke="#d93856" stroke-width="5.5" stroke-linecap="round" />
                 </svg>
               </div>
-              <div class="prohibited-badge-label">
-                <span class="ban-title" data-i18n="dresscode-ban-label">NO PALE PINK</span>
-                <span class="ban-subtitle" data-i18n="dresscode-reserved-label">RESERVADO PARA LA QUINCEAÑERA</span>
+              <div class="swatch-text-col">
+                <span class="swatch-bold-ban" data-i18n="dresscode-ban-label">NO PALE PINK</span>
+                <span class="swatch-sub-note" data-i18n="dresscode-reserved-label">RESERVADO PARA LA QUINCEAÑERA</span>
               </div>
             </div>
+
+            <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+            <p class="vignette-prose" data-i18n="dresscode-desc">
+              Les pedimos amablemente a nuestros invitados evitar cualquier tono de rosa, rose gold o beige.<br />
+              <strong>Específicamente no rosa pálido</strong>, ya que está reservado exclusivamente para la Quinceañera.
+            </p>
           </div>
 
-          <div class="card-ornament-line" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
-
-          <p class="guideline-body-text" data-i18n="dresscode-desc">
-            Les pedimos amablemente a nuestros invitados evitar cualquier tono de rosa, rose gold o beige.<br />
-            <strong>Específicamente no rosa pálido</strong>, ya que está reservado exclusivamente para la Quinceañera.
-          </p>
-        </div>
-
-        <!-- Gift Registry / Lluvia de Sobres Luxury Stationery Card -->
-        <div class="guideline-luxury-card registry-luxury-card scroll-fade-in delay-1">
-          <!-- Delicate corner floral spray accent -->
-          <img src="photos/envelope-flowers-bottom.png" alt="" class="card-corner-floral bottom-left" aria-hidden="true" />
-
-          <div class="card-editorial-header">
-            <span class="guideline-eyebrow" data-i18n="registry-title">MESA DE REGALOS</span>
-            <h3 class="guideline-script-headline" data-i18n="registry-subtitle">Lluvia de Sobres</h3>
+          <div class="vignette-inter-separator" aria-hidden="true">
+            <span class="v-line"></span>
+            <span class="v-leaf">❦</span>
+            <span class="v-line"></span>
           </div>
 
-          <!-- Elegant Gold Wax-Sealed Wishing Envelope Motif -->
-          <div class="registry-emblem-wrapper" aria-hidden="true">
-            <div class="registry-gift-seal">
-              <svg viewBox="0 0 54 44" width="46" height="38" fill="none">
-                <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z" fill="#fdfaf8" stroke="#c49658" stroke-width="1.8"/>
-                <path d="M5 6l22 17L49 6" stroke="#c49658" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="27" cy="23" r="6" fill="#f6c2d3" stroke="#ffffff" stroke-width="1.2"/>
-                <text x="27" y="24.5" text-anchor="middle" dominant-baseline="central" font-family="'Alex Brush', cursive" font-size="7" fill="#ffffff" font-weight="bold">M</text>
-              </svg>
+          <!-- Gift Registry Vignette -->
+          <div class="vignette-item registry-vignette scroll-fade-in delay-1">
+            <div class="vignette-wishing-emblem" aria-hidden="true">
+              <div class="vignette-seal-disc">
+                <svg viewBox="0 0 54 44" width="44" height="36" fill="none">
+                  <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z" fill="#fdfaf8" stroke="#c49658" stroke-width="1.8"/>
+                  <path d="M5 6l22 17L49 6" stroke="#c49658" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="27" cy="23" r="6" fill="#f6c2d3" stroke="#ffffff" stroke-width="1.2"/>
+                  <text x="27" y="24.5" text-anchor="middle" dominant-baseline="central" font-family="'Alex Brush', cursive" font-size="7" fill="#ffffff" font-weight="bold">M</text>
+                </svg>
+              </div>
             </div>
+
+            <span class="vignette-eyebrow" data-i18n="registry-title">MESA DE REGALOS</span>
+            <h3 class="vignette-headline readable-registry-title" data-i18n="registry-subtitle">LLUVIA DE SOBRES</h3>
+
+            <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+            <p class="vignette-prose" data-i18n="registry-desc">
+              Su presencia y cariño son nuestro mejor regalo. Si desea tener un detalle con Merelin, una <strong>lluvia de sobres o tarjetas de regalo</strong> será profundamente apreciada.
+            </p>
           </div>
 
-          <div class="card-ornament-line" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
-
-          <p class="guideline-body-text" data-i18n="registry-desc">
-            Su presencia y cariño son nuestro mejor regalo. Si desea tener un detalle con Merelin, una <strong>lluvia de sobres o tarjetas de regalo</strong> será profundamente apreciada.
-          </p>
         </div>
 
       </div>
@@ -821,7 +839,7 @@
     <p class="footer-date">Saturday, November 7, 2026 • Santa Ana &amp; Anaheim, California</p>
   </footer>
 
-  <script src="main.js?v=1.3.0"></script>
+  <script src="main.js?v=1.3.2"></script>
 </body>
 
 </html>

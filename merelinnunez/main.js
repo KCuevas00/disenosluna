@@ -24,15 +24,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 
-  // Keep pinned to top while envelope has not opened
-  const pinToTopBeforeEnter = () => {
+  // Strictly block any scrolling, wheeling or touchmove while envelope is unopened
+  const blockScrollUntilEntered = (e) => {
     if (!document.body.classList.contains('site-entered')) {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
+      e.preventDefault();
+      return false;
     }
   };
-  window.addEventListener('scroll', pinToTopBeforeEnter, { passive: true });
+
+  const blockKeysUntilEntered = (e) => {
+    if (!document.body.classList.contains('site-entered')) {
+      const blockedKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Space', ' ', 'Home', 'End'];
+      if (blockedKeys.includes(e.key)) {
+        e.preventDefault();
+      }
+    }
+  };
+
+  window.addEventListener('wheel', blockScrollUntilEntered, { passive: false });
+  window.addEventListener('touchmove', blockScrollUntilEntered, { passive: false });
+  window.addEventListener('keydown', blockKeysUntilEntered, { passive: false });
 
   /* ─────────────────────────────────────────────────────────────
      1. BILINGUAL TRANSLATION DICTIONARY (56 KEYS EN / ES)
@@ -525,14 +536,10 @@ document.addEventListener('DOMContentLoaded', () => {
     void document.body.offsetHeight;
     window.dispatchEvent(new Event('resize'));
 
-    // Lift scroll lock listener once entered
-    window.removeEventListener('scroll', pinToTopBeforeEnter);
-
-    requestAnimationFrame(() => {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    });
+    // Lift scroll block listeners once entered so user can freely scroll anywhere
+    window.removeEventListener('wheel', blockScrollUntilEntered);
+    window.removeEventListener('touchmove', blockScrollUntilEntered);
+    window.removeEventListener('keydown', blockKeysUntilEntered);
 
     setTimeout(() => {
       if (overlay) {
@@ -544,9 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
           overlay.parentNode.removeChild(overlay);
         }
       }
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
       void document.body.offsetHeight;
       window.dispatchEvent(new Event('resize'));
       // Re-enable smooth scrolling after page is entered
