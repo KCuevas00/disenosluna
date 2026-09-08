@@ -225,6 +225,8 @@
       next_step_1: 'We will review your event details, venues, and photos.',
       next_step_2: 'We will contact you within 24 hours to confirm your design and details.',
       next_step_3: 'We will send you a private preview link to test your envelope, music, and maps.',
+      conf_channels_title: 'Have Questions or Want to Chat?',
+      conf_channels_sub: 'Need to send extra photos or have a quick question? Message us anytime directly on social media:',
       btn_back_home: 'Back to Home'
     },
 
@@ -442,6 +444,8 @@
       next_step_1: 'Revisaremos los detalles de tu evento, salones y fotos.',
       next_step_2: 'Te contactaremos dentro de 24 horas para confirmar el diseño y detalles.',
       next_step_3: 'Te mandaremos un enlace privado de prueba para que verifiques el sobre, música y mapas.',
+      conf_channels_title: '¿Tienes Preguntas o Quieres Chatear?',
+      conf_channels_sub: '¿Necesitas enviar más fotos o tienes alguna duda? Escríbenos en cualquier momento directamente en redes sociales:',
       btn_back_home: 'Volver al Inicio'
     }
   };

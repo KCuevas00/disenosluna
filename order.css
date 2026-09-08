@@ -1348,18 +1348,121 @@
   font-weight: 800;
 }
 
-.confirmation-subtext {
-  font-size: 0.88rem;
-  color: #615c56;
-  margin-bottom: 18px;
+/* ── CONFIRMATION SOCIAL CHANNELS & RETURN ── */
+.confirmation-channels-box {
+  margin-top: 24px;
+  padding: 22px 20px;
+  background: #fdfbf7;
+  border: 1px solid #ebdcd0;
+  border-radius: 16px;
+  text-align: center;
 }
 
-.confirmation-social-actions {
+.channels-box-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2c2724;
+  margin-bottom: 6px;
+}
+
+.channels-box-sub {
+  font-size: 0.88rem;
+  color: #6a645d;
+  margin-bottom: 16px;
+  line-height: 1.45;
+}
+
+.confirmation-social-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 12px;
+}
+
+.conf-channel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.conf-channel-btn svg {
+  flex-shrink: 0;
+}
+
+.conf-channel-btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn-conf-wa {
+  background: #25D366;
+  color: #ffffff !important;
+}
+.btn-conf-wa:hover {
+  background: #20bd5a;
+  box-shadow: 0 5px 16px rgba(37, 211, 102, 0.38);
+}
+
+.btn-conf-ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff !important;
+}
+.btn-conf-ig:hover {
+  box-shadow: 0 5px 16px rgba(220, 39, 67, 0.38);
+  opacity: 0.95;
+}
+
+.btn-conf-tt {
+  background: #010101;
+  color: #ffffff !important;
+  border: 1px solid #282828;
+}
+.btn-conf-tt:hover {
+  background: #1a1a1a;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.35);
+}
+
+.confirmation-return-wrap {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-return-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #433d38;
+  background: #ffffff;
+  border: 1.5px solid #d4c8be;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-return-home:hover {
+  background: #faf6f0;
+  border-color: #bfaea0;
+  color: #1a1816;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
 }
 
 /* ── LAWN GRASS FOOTER STRIP ── */
