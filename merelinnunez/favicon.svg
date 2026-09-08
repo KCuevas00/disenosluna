@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="pinkFlap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff5f7" />
+      <stop offset="100%" stop-color="#f8d5de" />
+    </linearGradient>
+    <linearGradient id="pinkPocket" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5ced8" />
+      <stop offset="100%" stop-color="#ecc0cd" />
+    </linearGradient>
+    <radialGradient id="sealPinkGold" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fae3dc" />
+      <stop offset="45%" stop-color="#e8a8b8" />
+      <stop offset="90%" stop-color="#c97c92" />
+      <stop offset="100%" stop-color="#a85970" />
+    </radialGradient>
+    <linearGradient id="goldTrim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5e4bd" />
+      <stop offset="50%" stop-color="#d4aa63" />
+      <stop offset="100%" stop-color="#c49658" />
+    </linearGradient>
+    <filter id="sealShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#552433" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Envelope Drop Shadow -->
+  <rect x="5" y="15" width="54" height="38" rx="4" fill="#000000" opacity="0.1" transform="translate(0, 2)" />
+
+  <!-- Envelope Back Body -->
+  <rect x="5" y="15" width="54" height="38" rx="3.5" fill="#f3cad5" stroke="url(#goldTrim)" stroke-width="0.8" />
+
+  <!-- Side Folds -->
+  <polygon points="5,15 5,53 28,34" fill="#edc0cc" />
+  <polygon points="59,15 59,53 36,34" fill="#e5b4c2" />
+
+  <!-- Bottom Pocket Fold -->
+  <polygon points="5,53 59,53 32,34" fill="url(#pinkPocket)" />
+  <path d="M5 53 L32 34 L59 53" fill="none" stroke="url(#goldTrim)" stroke-width="0.7" opacity="0.8" />
+
+  <!-- Top Triangular Flap -->
+  <polygon points="5,15 59,15 32,38" fill="url(#pinkFlap)" />
+  <path d="M5 15 L32 38 L59 15" fill="none" stroke="url(#goldTrim)" stroke-width="0.9" opacity="0.9" />
+
+  <!-- Mini Corner Floral Sprays -->
+  <!-- Top Right Floral Bouquet -->
+  <circle cx="53" cy="11" r="3.2" fill="#f8b6c6" opacity="0.95" />
+  <circle cx="56" cy="13" r="2.6" fill="#f29bb0" opacity="0.95" />
+  <circle cx="51" cy="8" r="1.8" fill="#a4c2a5" />
+  <circle cx="57" cy="9" r="1.6" fill="#d4aa63" />
+  <!-- Bottom Left Floral Bouquet -->
+  <circle cx="11" cy="53" r="3.2" fill="#f8b6c6" opacity="0.95" />
+  <circle cx="8" cy="51" r="2.6" fill="#f29bb0" opacity="0.95" />
+  <circle cx="13" cy="56" r="1.8" fill="#a4c2a5" />
+
+  <!-- Pale Pink & Gold Wax Seal Stamp with 'M' -->
+  <g filter="url(#sealShadow)">
+    <circle cx="32" cy="38" r="9.5" fill="url(#sealPinkGold)" stroke="url(#goldTrim)" stroke-width="0.75" />
+    <circle cx="32" cy="38" r="7.8" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.75" />
+    <text x="32" y="38.5" font-family="'Alex Brush', 'Playfair Display', Georgia, serif" font-size="11" font-weight="bold" fill="#fef5db" text-anchor="middle" dominant-baseline="central">M</text>
+  </g>
+</svg>
