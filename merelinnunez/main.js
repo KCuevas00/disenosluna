@@ -171,12 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  let currentLang = 'es';
+  let currentLang = 'en';
 
   function applyLanguage(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
-    const dict = translations[lang] || translations.es;
+    const dict = translations[lang] || translations.en;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
   if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
 
-  // Default to Spanish on startup
-  applyLanguage('es');
+  // Default to English on startup
+  applyLanguage('en');
 
   // Collapsible utility tabs (Matching quincetemplate: both collapsed by default)
   function initControlToggles() {
