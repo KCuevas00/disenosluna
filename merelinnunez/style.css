@@ -1095,49 +1095,111 @@ body.site-entered .lang-control-bar {
   border-top: 1px solid rgba(196, 150, 88, 0.18);
 }
 
-.padrinos-highlight-card {
-  max-width: 380px;
-  margin: 0 auto 2.5rem;
-  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #fdf5f7 100%);
-  border: 1px solid rgba(196, 150, 88, 0.35);
-  border-radius: 16px;
-  padding: 1.6rem 1.4rem;
-  box-shadow: 0 8px 24px rgba(184, 107, 132, 0.12);
+.padrinos-royal-plaque {
+  max-width: 440px;
+  margin: 0 auto 2.8rem;
+  background: #ffffff;
+  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #fdf8fa 65%, #faedf2 100%);
+  border: 1.5px solid rgba(196, 150, 88, 0.48);
+  border-radius: 20px;
+  box-shadow:
+    0 16px 42px rgba(184, 107, 132, 0.13),
+    inset 0 0 0 5px #ffffff,
+    inset 0 0 0 6.5px rgba(196, 150, 88, 0.28);
+  padding: 2.2rem 1.6rem;
+  position: relative;
+  overflow: visible;
+  text-align: center;
+}
+
+.padrinos-floral-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.padrinos-flower {
+  position: absolute;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(70, 35, 45, 0.15));
+  z-index: 3;
+}
+
+.padrinos-flower.flower-tr {
+  top: -24px;
+  right: -24px;
+  width: 110px;
+  height: 110px;
+}
+
+.padrinos-flower.flower-bl {
+  bottom: -24px;
+  left: -24px;
+  width: 110px;
+  height: 110px;
+}
+
+.padrinos-inner-content {
+  position: relative;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.padrinos-emblem-badge {
-  color: var(--gold-accent);
-  margin-bottom: 0.4rem;
+.padrinos-crown-motif {
+  color: #c49658;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 1px 2px rgba(196, 150, 88, 0.3));
 }
 
-.court-role-badge {
+.padrinos-role-badge {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--gold-dark);
+  letter-spacing: 0.28em;
+  color: #a47638;
   text-transform: uppercase;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.55rem;
+  display: block;
 }
 
 .padrinos-names {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 4.8vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: var(--text-dark);
+  line-height: 1.25;
   margin-bottom: 0.4rem;
 }
 
+.gold-amp {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.3rem;
+  color: #c49658;
+  font-weight: normal;
+  margin: 0 0.15rem;
+  vertical-align: -2px;
+}
+
+.padrinos-divider-ornament {
+  color: #d89fb0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin: 0.4rem 0 0.7rem;
+}
+
 .padrinos-subtext {
-  font-family: var(--font-sans);
-  font-size: 0.74rem;
-  color: var(--text-muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.14rem;
   font-style: italic;
-  max-width: 280px;
+  line-height: 1.55;
+  color: #553744;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .court-honor-centerpiece {
@@ -1242,70 +1304,202 @@ body.site-entered .lang-control-bar {
   border-top: 1px solid rgba(196, 150, 88, 0.18);
 }
 
-.guidelines-grid {
+.guidelines-container {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  max-width: 440px;
+  gap: 2.2rem;
+  max-width: 460px;
   margin: 0 auto;
+  width: 100%;
 }
 
-.guideline-card {
+.guideline-luxury-card {
+  position: relative;
   background: #ffffff;
-  border: 1px solid rgba(196, 150, 88, 0.35);
-  border-radius: 16px;
-  padding: 1.8rem 1.5rem;
-  box-shadow: 0 8px 24px rgba(184, 107, 132, 0.1);
+  background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fdf8fa 65%, #fcf0f4 100%);
+  border: 1.5px solid rgba(196, 150, 88, 0.48);
+  border-radius: 20px;
+  box-shadow:
+    0 16px 40px rgba(184, 107, 132, 0.13),
+    inset 0 0 0 5px #ffffff,
+    inset 0 0 0 6.5px rgba(196, 150, 88, 0.28);
+  padding: 2.4rem 1.8rem;
+  text-align: center;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  position: relative;
 }
 
-.guideline-icon-wrapper {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fceef2 0%, #f6d2dc 100%);
-  border: 1.5px solid var(--gold-accent);
-  color: var(--gold-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.9rem;
-  box-shadow: 0 4px 12px rgba(184, 107, 132, 0.14);
+.card-corner-floral {
+  position: absolute;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(70, 35, 45, 0.15));
+  z-index: 3;
 }
 
-.guideline-card-title {
+.card-corner-floral.top-right {
+  top: -22px;
+  right: -22px;
+  width: 110px;
+  height: 110px;
+}
+
+.card-corner-floral.bottom-left {
+  bottom: -22px;
+  left: -22px;
+  width: 110px;
+  height: 110px;
+}
+
+.card-editorial-header {
+  margin-bottom: 0.8rem;
+}
+
+.guideline-eyebrow {
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--gold-dark);
+  letter-spacing: 0.28em;
+  color: #a47638;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.guideline-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-dark);
   text-transform: uppercase;
   margin-bottom: 0.3rem;
 }
 
-.guideline-card-subtitle {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--text-dark);
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
+.guideline-script-headline {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.7rem;
+  color: #a44865;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-weight: normal;
 }
 
-.guideline-card-desc {
+/* ── PROHIBITED PALE PINK OBVIOUS GRAPHIC ── */
+.prohibited-color-module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.6rem 0 0.8rem;
+  padding: 1.1rem 1.4rem;
+  background: rgba(254, 238, 243, 0.85);
+  border: 1.5px dashed rgba(217, 56, 86, 0.45);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 4px 16px rgba(217, 56, 86, 0.08);
+}
+
+.swatch-spotlight-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.color-swatch-disc {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #fff2f6 0%, #fcd4e2 50%, #f7b4c9 100%);
+  border: 2.5px solid #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(217, 56, 86, 0.25),
+    0 6px 16px rgba(217, 56, 86, 0.22);
+}
+
+.swatch-ban-slash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 5px rgba(160, 15, 40, 0.4));
+}
+
+.prohibited-badge-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ban-title {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: var(--text-subtle);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #c22543;
+  text-transform: uppercase;
 }
 
-.guideline-card-desc strong {
-  color: var(--theme-dark);
+.ban-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #684151;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ── REGISTRY WISHING ENVELOPE EMBLEM ── */
+.registry-emblem-wrapper {
+  margin: 0.4rem 0 0.8rem;
+}
+
+.registry-gift-seal {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fef7f9 55%, #fae2e8 100%);
+  border: 1.5px solid rgba(196, 150, 88, 0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 22px rgba(184, 107, 132, 0.16),
+    inset 0 0 0 2px #ffffff;
+}
+
+.card-ornament-line {
+  color: #d89fb0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin: 0.8rem 0 0.7rem;
+}
+
+.guideline-body-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.14rem;
+  font-style: italic;
+  line-height: 1.62;
+  color: #4e323f;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.guideline-body-text strong {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  color: #b02340;
+  display: inline-block;
+  margin-top: 0.25rem;
 }
 
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
@@ -2408,6 +2602,86 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   .pt-colon {
     font-size: 1.5rem;
     margin-top: 0.1rem;
+  }
+
+  /* Padrinos Plaque Mobile Edge Optimization */
+  .padrinos-royal-plaque {
+    padding: 1.8rem 1.2rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .padrinos-flower.flower-tr {
+    width: 80px;
+    height: 80px;
+    top: -16px;
+    right: -16px;
+  }
+
+  .padrinos-flower.flower-bl {
+    width: 80px;
+    height: 80px;
+    bottom: -16px;
+    left: -16px;
+  }
+
+  .padrinos-names {
+    font-size: 1.55rem;
+  }
+
+  .gold-amp {
+    font-size: 1.95rem;
+  }
+
+  .padrinos-subtext {
+    font-size: 1.05rem;
+  }
+
+  /* Guidelines Stationery Cards Mobile Edge Optimization */
+  .guidelines-container {
+    gap: 1.8rem;
+  }
+
+  .guideline-luxury-card {
+    padding: 2rem 1.2rem;
+  }
+
+  .card-corner-floral.top-right {
+    width: 82px;
+    height: 82px;
+    top: -16px;
+    right: -16px;
+  }
+
+  .card-corner-floral.bottom-left {
+    width: 82px;
+    height: 82px;
+    bottom: -16px;
+    left: -16px;
+  }
+
+  .guideline-headline {
+    font-size: 1.35rem;
+  }
+
+  .guideline-script-headline {
+    font-size: 2.3rem;
+  }
+
+  .prohibited-color-module {
+    padding: 0.9rem 1rem;
+  }
+
+  .color-swatch-disc {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ban-title {
+    font-size: 0.88rem;
+  }
+
+  .guideline-body-text {
+    font-size: 1.04rem;
   }
 }
 

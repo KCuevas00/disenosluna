@@ -43,7 +43,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.2.1" />
+  <link rel="stylesheet" href="style.css?v=1.3.0" />
 </head>
 
 <body>
@@ -500,16 +500,28 @@
         <div class="title-accent-line"></div>
       </div>
 
-      <!-- Padrinos de Honor Highlight Card -->
-      <div class="padrinos-highlight-card scroll-fade-scale">
-        <div class="padrinos-emblem-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
+      <!-- Padrinos de Honor Haute Couture Plaque -->
+      <div class="padrinos-royal-plaque scroll-fade-scale">
+        <!-- Delicate botanical corner floral overlays -->
+        <div class="padrinos-floral-frame" aria-hidden="true">
+          <img src="photos/envelope-flowers-top.png" alt="" class="padrinos-flower flower-tr" />
+          <img src="photos/envelope-flowers-bottom.png" alt="" class="padrinos-flower flower-bl" />
         </div>
-        <span class="court-role-badge" data-i18n="padrinos-role">PADRINOS DE HONOR</span>
-        <h3 class="padrinos-names">Carlos &amp; Rosa Ruelas</h3>
-        <p class="padrinos-subtext" data-i18n="padrinos-subtext">With heartfelt gratitude for their love, guidance, and blessings</p>
+
+        <div class="padrinos-inner-content">
+          <div class="padrinos-crown-motif" aria-hidden="true">
+            <svg viewBox="0 0 36 20" width="34" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 17h28M8 17l-4-9 8 4 6-8 6 8 8-4-4 9H8z" />
+              <circle cx="4" cy="7" r="1.3" fill="currentColor" />
+              <circle cx="18" cy="3.5" r="1.5" fill="currentColor" />
+              <circle cx="32" cy="7" r="1.3" fill="currentColor" />
+            </svg>
+          </div>
+          <span class="padrinos-role-badge" data-i18n="padrinos-role">PADRINOS DE HONOR</span>
+          <h3 class="padrinos-names">Carlos <span class="gold-amp">&amp;</span> Rosa Ruelas</h3>
+          <div class="padrinos-divider-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+          <p class="padrinos-subtext" data-i18n="padrinos-subtext">&ldquo;Con profundo agradecimiento por su amor, guía y bendiciones&rdquo;</p>
+        </div>
       </div>
 
       <!-- Main Focus: Chambelán de Honor (Centerpiece) -->
@@ -572,41 +584,69 @@
         <span class="divider-line"></span>
       </div>
 
-      <div class="guidelines-grid">
+      <div class="guidelines-container">
 
-        <!-- Dress Code Card -->
-        <div class="guideline-card scroll-fade-in">
-          <div class="guideline-icon-wrapper" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Elegant Hanger & Formal Dress/Suit silhouette -->
-              <path d="M12 3a2 2 0 0 0-2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2" />
-              <path d="M12 7l9 6a2 2 0 0 1-1 3H4a2 2 0 0 1-1-3l9-6z" />
-              <path d="M7 16v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-4" />
-            </svg>
+        <!-- Dress Code Luxury Stationery Card -->
+        <div class="guideline-luxury-card dresscode-luxury-card scroll-fade-in">
+          <!-- Delicate corner floral spray accent -->
+          <img src="photos/envelope-flowers-top.png" alt="" class="card-corner-floral top-right" aria-hidden="true" />
+
+          <div class="card-editorial-header">
+            <span class="guideline-eyebrow" data-i18n="dresscode-title">CÓDIGO DE VESTIMENTA</span>
+            <h3 class="guideline-headline" data-i18n="dresscode-subtitle">TRAJE FORMAL</h3>
           </div>
-          <h3 class="guideline-card-title" data-i18n="dresscode-title">DRESS CODE</h3>
-          <h4 class="guideline-card-subtitle" data-i18n="dresscode-subtitle">FORMAL ATTIRE</h4>
-          <p class="guideline-card-desc" data-i18n="dresscode-desc">
-            We kindly ask our guests to avoid any shades of pink, rose gold, or beige.<br />
-            <strong>Specifically no pale pink</strong>, as it is exclusively reserved for our Quinceañera.
+
+          <!-- Obvious Visual Color Indicator: NO PALE PINK -->
+          <div class="prohibited-color-module">
+            <div class="swatch-spotlight-wrapper">
+              <div class="color-swatch-disc pale-pink-disc">
+                <span class="swatch-color-fill" aria-hidden="true"></span>
+                <svg class="swatch-ban-slash" viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#d93856" stroke-width="5" />
+                  <line x1="19" y1="19" x2="81" y2="81" stroke="#d93856" stroke-width="5.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="prohibited-badge-label">
+                <span class="ban-title" data-i18n="dresscode-ban-label">NO PALE PINK</span>
+                <span class="ban-subtitle" data-i18n="dresscode-reserved-label">RESERVADO PARA LA QUINCEAÑERA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-ornament-line" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+          <p class="guideline-body-text" data-i18n="dresscode-desc">
+            Les pedimos amablemente a nuestros invitados evitar cualquier tono de rosa, rose gold o beige.<br />
+            <strong>Específicamente no rosa pálido</strong>, ya que está reservado exclusivamente para la Quinceañera.
           </p>
         </div>
 
-        <!-- Gift Registry / Wishing Well Card -->
-        <div class="guideline-card scroll-fade-in delay-1">
-          <div class="guideline-icon-wrapper" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Wishing Well Envelope & Gift Ribbon -->
-              <path d="M21 8v13H3V8" />
-              <path d="M1 3h22v5H1z" />
-              <path d="M10 12h4" />
-              <path d="M12 3v18" />
-            </svg>
+        <!-- Gift Registry / Lluvia de Sobres Luxury Stationery Card -->
+        <div class="guideline-luxury-card registry-luxury-card scroll-fade-in delay-1">
+          <!-- Delicate corner floral spray accent -->
+          <img src="photos/envelope-flowers-bottom.png" alt="" class="card-corner-floral bottom-left" aria-hidden="true" />
+
+          <div class="card-editorial-header">
+            <span class="guideline-eyebrow" data-i18n="registry-title">MESA DE REGALOS</span>
+            <h3 class="guideline-script-headline" data-i18n="registry-subtitle">Lluvia de Sobres</h3>
           </div>
-          <h3 class="guideline-card-title" data-i18n="registry-title">GIFT REGISTRY</h3>
-          <h4 class="guideline-card-subtitle" data-i18n="registry-subtitle">LLUVIA DE SOBRES</h4>
-          <p class="guideline-card-desc" data-i18n="registry-desc">
-            Your love and presence are the greatest gifts of all. Should you wish to honor Merelin with a gift, <strong>cash or gift cards</strong> are warmly appreciated.
+
+          <!-- Elegant Gold Wax-Sealed Wishing Envelope Motif -->
+          <div class="registry-emblem-wrapper" aria-hidden="true">
+            <div class="registry-gift-seal">
+              <svg viewBox="0 0 54 44" width="46" height="38" fill="none">
+                <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z" fill="#fdfaf8" stroke="#c49658" stroke-width="1.8"/>
+                <path d="M5 6l22 17L49 6" stroke="#c49658" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="27" cy="23" r="6" fill="#f6c2d3" stroke="#ffffff" stroke-width="1.2"/>
+                <text x="27" y="24.5" text-anchor="middle" dominant-baseline="central" font-family="'Alex Brush', cursive" font-size="7" fill="#ffffff" font-weight="bold">M</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="card-ornament-line" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+          <p class="guideline-body-text" data-i18n="registry-desc">
+            Su presencia y cariño son nuestro mejor regalo. Si desea tener un detalle con Merelin, una <strong>lluvia de sobres o tarjetas de regalo</strong> será profundamente apreciada.
           </p>
         </div>
 
@@ -781,7 +821,7 @@
     <p class="footer-date">Saturday, November 7, 2026 • Santa Ana &amp; Anaheim, California</p>
   </footer>
 
-  <script src="main.js?v=1.2.0"></script>
+  <script src="main.js?v=1.3.0"></script>
 </body>
 
 </html>
