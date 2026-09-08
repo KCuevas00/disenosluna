@@ -80,6 +80,16 @@ body:not(.site-entered) {
   touch-action: none !important;
 }
 
+/* Explicitly unlock scrolling once envelope is opened */
+html.site-entered,
+body.site-entered {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  touch-action: auto !important;
+}
+
 /* Background bokeh sparkle canvas */
 #ambient-canvas {
   position: fixed;
@@ -1768,6 +1778,23 @@ body.site-entered .lang-control-bar {
 
 .entry-overlay.fade-out * {
   pointer-events: none !important;
+}
+
+/* Hard fail-safe: When site is entered, completely disable and hide the entire overlay hierarchy */
+body.site-entered .entry-overlay,
+body.site-entered #entry-popup-overlay {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+body.site-entered .entry-overlay *,
+body.site-entered #entry-popup-overlay *,
+body.site-entered .env-invitation-card,
+body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 .entry-canvas {

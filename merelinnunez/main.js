@@ -507,6 +507,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.add('site-entered');
     if (overlay) {
       overlay.classList.add('fade-out');
+      overlay.style.pointerEvents = 'none';
+      overlay.style.touchAction = 'pan-y';
+      overlay.querySelectorAll('*').forEach((child) => {
+        child.style.pointerEvents = 'none';
+      });
     }
 
     // iOS Safari sometimes doesn't recompute the scrollable viewport right
@@ -529,10 +534,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (overlay) {
         overlay.style.display = 'none';
         overlay.style.pointerEvents = 'none';
+        overlay.setAttribute('aria-hidden', 'true');
+        // Completely purge the overlay element from the DOM to eliminate any mobile touch interception
+        if (overlay.parentNode) {
+          overlay.parentNode.removeChild(overlay);
+        }
       }
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
+      void document.body.offsetHeight;
+      window.dispatchEvent(new Event('resize'));
       // Re-enable smooth scrolling after page is entered
       setTimeout(() => {
         document.documentElement.style.scrollBehavior = '';
