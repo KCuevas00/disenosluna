@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initPackageSelector();
   initStep1Form();
   initStep2Form();
-  initPhotoUploads();
   initBackToStep1Button();
   initCopySummaryButton();
   initCloudLinkFeedback();
@@ -225,6 +224,17 @@ function activateStep2() {
 
   applyDynamicPackageRules(currentSelectedPackage);
 
+  // Personalize WhatsApp Photos link with Order Reference & Celebrant Name
+  const waPhotosLink = document.getElementById('link-wa-photos');
+  if (waPhotosLink) {
+    const celebrant = document.getElementById('field-celebrant-name')?.value.trim() || 'Custom Invitation';
+    const isSpanish = (document.documentElement.lang === 'es');
+    const msg = isSpanish
+      ? `¡Hola Diseños Luna! Aquí te envío las fotos para mi pedido ${currentOrderRef} (${celebrant}).`
+      : `Hi Diseños Luna! Here are the photos for my order ${currentOrderRef} (${celebrant}).`;
+    waPhotosLink.href = `https://wa.me/18152427556?text=${encodeURIComponent(msg)}`;
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -273,16 +283,19 @@ function applyDynamicPackageRules(packageType) {
   const badgeCourt = document.getElementById('badge-court');
   const textareaCourt = document.getElementById('det-court');
 
-  const blockCourtPhotos = document.getElementById('block-court-photos');
-  const badgeCourtPhotos = document.getElementById('badge-court-photos');
-
-  const blockGalleryPhotos = document.getElementById('block-gallery-photos');
-  const badgeGalleryPhotos = document.getElementById('badge-gallery-photos');
-
   const selectLanguage = document.getElementById('det-language');
   const optBilingual = document.getElementById('opt-bilingual');
   const hintLanguage = document.getElementById('hint-language');
   const isSpanish = (document.documentElement.lang === 'es');
+
+  const optEnglish = document.getElementById('opt-english');
+  const optSpanish = document.getElementById('opt-spanish');
+  if (optEnglish) {
+    optEnglish.textContent = isSpanish ? 'Solo Inglés' : 'English Only';
+  }
+  if (optSpanish) {
+    optSpanish.textContent = isSpanish ? 'Solo Español' : 'Spanish Only';
+  }
 
   if (isBasic) {
     if (badgeMusic) {
@@ -319,18 +332,6 @@ function applyDynamicPackageRules(packageType) {
       textareaCourt.disabled = true;
     }
     if (blockCourt) blockCourt.classList.add('is-locked');
-
-    if (badgeCourtPhotos) {
-      badgeCourtPhotos.textContent = isSpanish ? 'Función Premium' : 'Premium Feature';
-      badgeCourtPhotos.className = 'feature-badge badge-locked';
-    }
-    if (blockCourtPhotos) blockCourtPhotos.classList.add('is-locked');
-
-    if (badgeGalleryPhotos) {
-      badgeGalleryPhotos.textContent = isSpanish ? 'Función Premium' : 'Premium Feature';
-      badgeGalleryPhotos.className = 'feature-badge badge-locked';
-    }
-    if (blockGalleryPhotos) blockGalleryPhotos.classList.add('is-locked');
 
     // Restrict Bilingual Language Selection for Basic
     if (selectLanguage) {
@@ -392,24 +393,15 @@ function applyDynamicPackageRules(packageType) {
     }
     if (blockCourt) blockCourt.classList.remove('is-locked');
 
-    if (badgeCourtPhotos) {
-      badgeCourtPhotos.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
-      badgeCourtPhotos.className = 'feature-badge badge-included';
-    }
-    if (blockCourtPhotos) blockCourtPhotos.classList.remove('is-locked');
-
-    if (badgeGalleryPhotos) {
-      badgeGalleryPhotos.textContent = isSpanish ? 'Incluido con Premium ✓' : 'Included with Premium ✓';
-      badgeGalleryPhotos.className = 'feature-badge badge-included';
-    }
-    if (blockGalleryPhotos) blockGalleryPhotos.classList.remove('is-locked');
-
-    // Unlock Bilingual Language Selection for Premium
+    // Unlock Bilingual Language Selection for Premium & Default to Bilingual
     if (optBilingual) {
       optBilingual.disabled = false;
       optBilingual.textContent = isSpanish
         ? 'Bilingüe (Inglés y Español) ✓ Incluido'
         : 'Bilingual (English & Spanish) ✓ Included';
+    }
+    if (selectLanguage) {
+      selectLanguage.value = 'Bilingual (English & Spanish)';
     }
     if (hintLanguage) {
       hintLanguage.textContent = isSpanish
@@ -417,60 +409,6 @@ function applyDynamicPackageRules(packageType) {
         : 'Includes full bilingual English & Spanish translation in your invitation.';
       hintLanguage.className = 'field-hint hint-success';
     }
-  }
-}
-
-/**
- * Calculates total size of all selected image files across dropzones
- */
-function getTotalUploadedFileSize() {
-  const inputs = ['cover-photo-input', 'court-photo-input', 'gallery-photo-input'];
-  let totalBytes = 0;
-  inputs.forEach(id => {
-    const input = document.getElementById(id);
-    if (input && input.files) {
-      Array.from(input.files).forEach(f => {
-        totalBytes += f.size;
-      });
-    }
-  });
-  return totalBytes;
-}
-
-/**
- * Displays dynamic warning if photo attachments approach FormSubmit's 25MB ceiling
- */
-function checkTotalFileSize() {
-  const total = getTotalUploadedFileSize();
-  const noticeBox = document.querySelector('.photo-limit-notice');
-  if (!noticeBox) return;
-
-  const totalMB = (total / (1024 * 1024)).toFixed(1);
-  if (total > 20 * 1024 * 1024) {
-    noticeBox.style.borderColor = '#c43b3b';
-    noticeBox.style.background = '#fff4f4';
-    noticeBox.innerHTML = `
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#c43b3b" stroke-width="2">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="8" x2="12" y2="12"></line>
-        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-      </svg>
-      <span style="color: #991b1b;">
-        <strong>Attachment Size Warning (${totalMB} MB):</strong> FormSubmit limits total submission size to ~25MB. Your attachments are close to or exceeding this limit. Please remove some photos and paste a <strong>Cloud Album Link</strong> below instead so your order submits reliably!
-      </span>
-    `;
-  } else {
-    noticeBox.style.borderColor = '';
-    noticeBox.style.background = '';
-    const statusText = total === 0 ? 'No files attached yet (~25MB total limit)' : `Current attachments: <strong>${totalMB} MB</strong>`;
-    noticeBox.innerHTML = `
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="8" x2="12" y2="12"></line>
-        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-      </svg>
-      <span><strong>Photo Upload Note:</strong> ${statusText}. Direct photo upload is optional. If you have large batches of high-resolution photos, you can upload your cover photo here or paste a shared <strong>Cloud Album Link</strong> (Google Photos, Drive, Dropbox, iCloud) below so no photos get compressed or omitted.</span>
-    `;
   }
 }
 
@@ -615,17 +553,6 @@ function initStep2Form() {
       return;
     }
 
-    // Protect against FormSubmit total payload ceiling
-    const totalBytes = getTotalUploadedFileSize();
-    if (totalBytes > 24 * 1024 * 1024) {
-      if (errorBanner) {
-        errorBanner.textContent = 'Your photo attachments exceed 24MB. Please remove some direct photo uploads and provide a Cloud Album Link (Google Photos, Drive, etc.) below instead so your order submits successfully.';
-        errorBanner.classList.remove('is-hidden');
-        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      return;
-    }
-
     const isSpanish = (document.documentElement.lang === 'es');
 
     const clientName = document.getElementById('field-client-name')?.value.trim() || (isSpanish ? 'Cliente' : 'Customer');
@@ -689,6 +616,7 @@ function initStep2Form() {
         `• Corte de Honor: ${court}\n` +
         `• Código de Vestimenta: ${dressCode}\n` +
         `• Mesa de Regalos: ${registry}\n` +
+        `• Fotos del Evento: Enviar directamente por WhatsApp al (815) 242-7556\n` +
         `• Enlace de Fotos en Nube: ${cloudLink}\n` +
         `• Notas Especiales: ${notes}\n`;
     } else {
@@ -719,6 +647,7 @@ function initStep2Form() {
         `• Court of Honor: ${court}\n` +
         `• Dress Code: ${dressCode}\n` +
         `• Gift Registry: ${registry}\n` +
+        `• Celebration Photos: Send directly via WhatsApp to (815) 242-7556\n` +
         `• Cloud Album Link: ${cloudLink}\n` +
         `• Special Notes: ${notes}\n`;
     }
@@ -769,25 +698,9 @@ function initStep2Form() {
       formData.append('Corte_de_Honor_y_Padrinos', court);
       formData.append('Codigo_de_Vestimenta', dressCode);
       formData.append('Mesa_de_Regalos', registry);
+      formData.append('Metodo_Envio_Fotos', 'Envío directo por WhatsApp al (815) 242-7556');
       formData.append('Enlace_de_Fotos_en_Nube', cloudLink);
       formData.append('Notas_Especiales', notes);
-
-      const coverInput = document.getElementById('cover-photo-input');
-      if (coverInput && coverInput.files && coverInput.files[0]) {
-        formData.append('Foto_de_Portada', coverInput.files[0]);
-      }
-      const courtInput = document.getElementById('court-photo-input');
-      if (courtInput && courtInput.files && courtInput.files.length > 0) {
-        Array.from(courtInput.files).forEach(file => {
-          formData.append('Fotos_de_Corte[]', file);
-        });
-      }
-      const galleryInput = document.getElementById('gallery-photo-input');
-      if (galleryInput && galleryInput.files && galleryInput.files.length > 0) {
-        Array.from(galleryInput.files).forEach(file => {
-          formData.append('Fotos_de_Galeria[]', file);
-        });
-      }
     } else {
       // English field names & values
       formData.append('Customer_Language', 'ENGLISH 🇺🇸 (Text customer in English)');
@@ -813,25 +726,9 @@ function initStep2Form() {
       formData.append('Court_of_Honor', court);
       formData.append('Dress_Code', dressCode);
       formData.append('Gift_Registry', registry);
+      formData.append('Photo_Submission_Method', 'Sending directly via WhatsApp to (815) 242-7556');
       formData.append('Cloud_Album_Link', cloudLink);
       formData.append('Special_Notes', notes);
-
-      const coverInput = document.getElementById('cover-photo-input');
-      if (coverInput && coverInput.files && coverInput.files[0]) {
-        formData.append('Cover_Photo', coverInput.files[0]);
-      }
-      const courtInput = document.getElementById('court-photo-input');
-      if (courtInput && courtInput.files && courtInput.files.length > 0) {
-        Array.from(courtInput.files).forEach(file => {
-          formData.append('Court_Photos[]', file);
-        });
-      }
-      const galleryInput = document.getElementById('gallery-photo-input');
-      if (galleryInput && galleryInput.files && galleryInput.files.length > 0) {
-        Array.from(galleryInput.files).forEach(file => {
-          formData.append('Gallery_Photos[]', file);
-        });
-      }
     }
 
     // FormSubmit AJAX endpoint requires /ajax/
@@ -892,6 +789,18 @@ function activateStep3(clientName, celebrantName, packageType, orderRef, cloudLi
     }
   }
 
+  // Personalize Step 3 Hero WhatsApp link with Order Ref & Celebrant Name
+  const waBtn = document.getElementById('conf-btn-wa-photos');
+  if (waBtn) {
+    const isSpanish = (document.documentElement.lang === 'es');
+    const celebrant = celebrantName || 'Custom Invitation';
+    const ref = orderRef || currentOrderRef;
+    const msg = isSpanish
+      ? `¡Hola Diseños Luna! Aquí te envío las fotos para mi pedido ${ref} (${celebrant}).`
+      : `Hi Diseños Luna! Here are the photos for my order ${ref} (${celebrant}).`;
+    waBtn.href = `https://wa.me/18152427556?text=${encodeURIComponent(msg)}`;
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -917,107 +826,6 @@ function updateStepper(activeStepNumber) {
     if (s2) s2.classList.add('is-completed');
     if (s3) s3.classList.add('is-active');
   }
-}
-
-/**
- * Photo dropzone upload previews with synced DataTransfer file removal
- */
-function initPhotoUploads() {
-  const setupDropzone = (dropzoneId, inputId, previewId, isMultiple = false) => {
-    const dropzone = document.getElementById(dropzoneId);
-    const input = document.getElementById(inputId);
-    const preview = document.getElementById(previewId);
-
-    if (!dropzone || !input || !preview) return;
-
-    let dt = new DataTransfer();
-
-    const renderPreviews = () => {
-      preview.innerHTML = '';
-      Array.from(dt.files).forEach((file, index) => {
-        const item = document.createElement('div');
-        item.className = 'preview-item';
-
-        const img = document.createElement('img');
-        img.className = 'preview-img';
-        img.alt = file.name || 'Uploaded photo';
-
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-
-        const removeBtn = document.createElement('button');
-        removeBtn.type = 'button';
-        removeBtn.className = 'preview-remove';
-        removeBtn.setAttribute('aria-label', `Remove ${file.name}`);
-        removeBtn.innerHTML = '&times;';
-        removeBtn.addEventListener('click', (ev) => {
-          ev.stopPropagation();
-          // Remove from DataTransfer and sync input.files
-          const newDt = new DataTransfer();
-          Array.from(dt.files).forEach((f, i) => {
-            if (i !== index) newDt.items.add(f);
-          });
-          dt = newDt;
-          input.files = dt.files;
-          renderPreviews();
-          checkTotalFileSize();
-        });
-
-        item.appendChild(img);
-        item.appendChild(removeBtn);
-        preview.appendChild(item);
-      });
-      checkTotalFileSize();
-    };
-
-    const addFiles = (fileList) => {
-      if (!isMultiple) {
-        dt = new DataTransfer();
-      }
-      Array.from(fileList).forEach(file => {
-        const isImage = file.type.startsWith('image/') || /\.(jpe?g|png|gif|webp|heic|heif|bmp|svg)$/i.test(file.name);
-        if (!isImage) return;
-        const isDuplicate = Array.from(dt.files).some(existing => 
-          existing.name === file.name && existing.size === file.size
-        );
-        if (!isDuplicate) {
-          dt.items.add(file);
-        }
-      });
-      input.files = dt.files;
-      renderPreviews();
-    };
-
-    input.addEventListener('change', (e) => {
-      addFiles(e.target.files);
-    });
-
-    dropzone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      dropzone.classList.add('drag-over');
-    });
-
-    ['dragleave', 'dragend'].forEach(ev => {
-      dropzone.addEventListener(ev, () => {
-        dropzone.classList.remove('drag-over');
-      });
-    });
-
-    dropzone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      dropzone.classList.remove('drag-over');
-      if (e.dataTransfer && e.dataTransfer.files) {
-        addFiles(e.dataTransfer.files);
-      }
-    });
-  };
-
-  setupDropzone('cover-dropzone', 'cover-photo-input', 'cover-preview', false);
-  setupDropzone('court-dropzone', 'court-photo-input', 'court-preview', true);
-  setupDropzone('gallery-dropzone', 'gallery-photo-input', 'gallery-preview', true);
 }
 
 /**
