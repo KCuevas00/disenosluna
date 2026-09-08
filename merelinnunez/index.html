@@ -174,7 +174,7 @@
     </div>
   </div>
 
-  <!-- Floating Audio Controls (Play/Pause & Volume Slider) -->
+  <!-- Floating Audio Controls (Play/Pause & Song Preview Ticker) -->
   <div class="audio-control-bar collapsed" id="audio-control-bar" role="region" aria-label="Music Player">
     <div class="audio-collapsible-content" id="audio-collapsible-content">
       <button id="audio-toggle-btn" class="audio-btn" type="button" aria-label="Toggle background music"
@@ -185,16 +185,11 @@
           <i></i><i></i><i></i><i></i>
         </span>
       </button>
-      <div class="audio-volume-panel">
-        <button id="audio-mute-btn" class="volume-mute-btn" type="button" aria-label="Mute or unmute"
-          title="Mute / Unmute">
-          <svg id="vol-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-            <path
-              d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-          </svg>
-        </button>
-        <input type="range" id="audio-volume-slider" class="volume-slider" min="0" max="1" step="0.02" value="0.8"
-          aria-label="Volume Slider" />
+      <div class="song-preview-badge" title="Moonlight · Ariana Grande">
+        <span class="song-note-icon" aria-hidden="true">♫</span>
+        <div class="song-marquee-viewport">
+          <span class="song-title-ticker">Moonlight · Ariana Grande</span>
+        </div>
       </div>
     </div>
     <button type="button" class="control-arrow-btn" id="audio-collapse-toggle" aria-label="Show music player"

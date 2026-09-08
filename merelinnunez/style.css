@@ -219,84 +219,62 @@ body.site-entered .audio-control-bar {
   }
 }
 
-/* Volume Panel & Slider */
-.audio-volume-panel {
+/* ── SONG PREVIEW BADGE (COMPACT SCROLLING TICKER) ── */
+.song-preview-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding-left: 0.4rem;
+  gap: 0.35rem;
+  padding: 3px 6px 3px 8px;
   border-left: 1px solid rgba(212, 170, 99, 0.35);
+  user-select: none;
+  cursor: default;
 }
 
-.volume-mute-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--text-subtle);
-  display: flex;
+.song-note-icon {
+  font-size: 0.72rem;
+  color: var(--gold-accent);
+  line-height: 1;
+  display: inline-flex;
   align-items: center;
-  padding: 8px;
-  border-radius: 50%;
-  -webkit-tap-highlight-color: transparent;
-  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0.9;
+  flex-shrink: 0;
 }
 
-.volume-mute-btn:hover {
+.song-marquee-viewport {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  width: 125px;
+  max-width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent 0, #000 5px, #000 calc(100% - 5px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5px, #000 calc(100% - 5px), transparent 100%);
+}
+
+.song-title-ticker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   color: var(--text-dark);
-  transform: scale(1.1);
+  white-space: nowrap;
+  will-change: transform;
+  animation: songTickerPingPong 7.5s ease-in-out infinite;
 }
 
-.volume-mute-btn:active {
-  transform: scale(0.9);
-}
-
-.volume-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 80px;
-  height: 40px;
-  background: transparent;
-  outline: none;
-  cursor: pointer;
-}
-
-.volume-slider::-webkit-slider-runnable-track {
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(212, 170, 99, 0.28);
-}
-
-.volume-slider::-moz-range-track {
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(212, 170, 99, 0.28);
-}
-
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  margin-top: -9px;
-  border-radius: 50%;
-  background: var(--gold-accent);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-.volume-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.25);
-}
-
-.volume-slider::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border: none;
-  border-radius: 50%;
-  background: var(--gold-accent);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
+@keyframes songTickerPingPong {
+  0%, 25% {
+    transform: translateX(0);
+  }
+  50%, 72% {
+    transform: translateX(var(--scroll-offset, -62px));
+  }
+  95%, 100% {
+    transform: translateX(0);
+  }
 }
 
 /* ── FLOATING LANGUAGE SELECTOR ── */
@@ -387,6 +365,8 @@ body.site-entered .lang-control-bar {
 
 .lang-btn-group,
 .audio-collapsible-content {
+  display: inline-flex;
+  align-items: center;
   overflow: hidden;
   max-width: 260px;
   opacity: 1;
@@ -2514,17 +2494,22 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   .audio-control-bar {
     top: calc(0.7rem + env(safe-area-inset-top, 0px));
     right: calc(0.7rem + env(safe-area-inset-right, 0px));
-    padding: 4px 6px 4px 4px;
-    gap: 0.4rem;
+    padding: 3px 6px 3px 4px;
+    gap: 0.3rem;
   }
 
-  .audio-volume-panel {
-    padding-left: 0.35rem;
-    gap: 0.15rem;
+  .song-preview-badge {
+    padding: 2px 4px 2px 6px;
+    gap: 0.25rem;
   }
 
-  .volume-slider {
-    width: 58px;
+  .song-marquee-viewport {
+    width: 110px;
+    max-width: 115px;
+  }
+
+  .song-title-ticker {
+    font-size: 0.68rem;
   }
 
   /* Envelope Stage Zoom Out for Generous Mobile Breathing Room */
