@@ -714,6 +714,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  [document.getElementById('guest-fullname'), document.getElementById('guest-email'), document.getElementById('guest-attend')].forEach(el => {
+    if (el) {
+      el.addEventListener('input', () => { el.style.borderColor = ''; });
+      el.addEventListener('change', () => { el.style.borderColor = ''; });
+    }
+  });
+
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -725,29 +732,56 @@ document.addEventListener('DOMContentLoaded', () => {
       const notesInput = document.getElementById('guest-notes');
       const btn = document.getElementById('btn-submit-rsvp');
 
+      [nameInput, contactInput, currentAttend].forEach(el => {
+        if (el) el.style.borderColor = '';
+      });
+
       if (!nameInput || !nameInput.value.trim()) {
-        if (nameInput) nameInput.focus();
+        if (nameInput) {
+          nameInput.focus();
+          nameInput.style.borderColor = '#ef4444';
+        }
         return;
       }
       if (!contactInput || !contactInput.value.trim()) {
-        if (contactInput) contactInput.focus();
+        if (contactInput) {
+          contactInput.focus();
+          contactInput.style.borderColor = '#ef4444';
+        }
         return;
       }
       if (!currentAttend || !currentAttend.value) {
-        if (currentAttend) currentAttend.focus();
+        if (currentAttend) {
+          currentAttend.focus();
+          currentAttend.style.borderColor = '#ef4444';
+        }
         return;
       }
 
       const isAttending = currentAttend.value === 'yes';
+      const attendanceSpanish = isAttending ? 'Sí, Asistirá' : 'No podré asistir';
+      const attendanceEnglish = isAttending ? 'Yes (Joyfully Accept)' : 'No (Regretfully Decline)';
+      const attendanceLabel = currentLang === 'es' ? attendanceSpanish : attendanceEnglish;
+
       const payload = {
         eventSlug: EVENT_SLUG,
         clientName: CLIENT_NAME,
         clientEmail: CLIENT_EMAIL,
+        submittedAt: new Date().toISOString(),
         fullname: nameInput.value.trim(),
+        guestName: nameInput.value.trim(),
+        name: nameInput.value.trim(),
         contact: contactInput.value.trim(),
-        attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
+        phone: contactInput.value.trim(),
+        email: contactInput.value.trim(),
+        attendance: attendanceLabel,
+        attending: isAttending ? 'Sí' : 'No',
         partySize: isAttending ? (partySizeInput ? partySizeInput.value : '1') : '0',
-        notes: notesInput ? notesInput.value.trim() : ''
+        guests: isAttending ? (partySizeInput ? partySizeInput.value : '1') : '0',
+        notes: notesInput ? notesInput.value.trim() : '',
+        wishes: notesInput ? notesInput.value.trim() : '',
+        song: notesInput ? notesInput.value.trim() : '',
+        message: notesInput ? notesInput.value.trim() : ''
       };
 
       const originalBtnText = btn ? btn.textContent : (currentLang === 'es' ? 'Enviar Confirmación' : 'Confirm RSVP');
