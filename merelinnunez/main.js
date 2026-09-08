@@ -186,26 +186,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Default to Spanish on startup
   applyLanguage('es');
 
-  // Collapsible utility tabs
-  const langCollapseToggle = document.getElementById('lang-collapse-toggle');
-  const langControlBar = document.getElementById('lang-control-bar');
-  if (langCollapseToggle && langControlBar) {
-    langCollapseToggle.addEventListener('click', () => {
-      langControlBar.classList.toggle('collapsed');
-      const isCollapsed = langControlBar.classList.contains('collapsed');
-      langCollapseToggle.setAttribute('aria-expanded', !isCollapsed);
-    });
+  // Collapsible utility tabs (Matching quincetemplate: both collapsed by default)
+  function initControlToggles() {
+    const langBar = document.getElementById('lang-control-bar');
+    const langToggle = document.getElementById('lang-collapse-toggle');
+    const audioBar = document.getElementById('audio-control-bar');
+    const audioToggle = document.getElementById('audio-collapse-toggle');
+
+    function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      bar.classList.toggle('collapsed', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
+    }
+
+    function bindToggle(bar, btn, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        bar.dataset.userToggled = 'true';
+        setCollapsed(bar, btn, !bar.classList.contains('collapsed'), hiddenLabel, shownLabel);
+      });
+    }
+
+    bindToggle(langBar, langToggle, 'Hide language selector', 'Show language selector');
+    bindToggle(audioBar, audioToggle, 'Hide music player', 'Show music player');
+
+    // Ensure both start collapsed by default so they never collide or block screen
+    if (langBar && langToggle && langBar.dataset.userToggled !== 'true') {
+      setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
+    }
+    if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
+      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
+    }
   }
 
-  const audioCollapseToggle = document.getElementById('audio-collapse-toggle');
-  const audioControlBar = document.getElementById('audio-control-bar');
-  if (audioCollapseToggle && audioControlBar) {
-    audioCollapseToggle.addEventListener('click', () => {
-      audioControlBar.classList.toggle('collapsed');
-      const isCollapsed = audioControlBar.classList.contains('collapsed');
-      audioCollapseToggle.setAttribute('aria-expanded', !isCollapsed);
-    });
-  }
+  initControlToggles();
 
   /* ─────────────────────────────────────────────────────────────
      2. AUDIO CONTROLLER (Exact quincetemplate Implementation)

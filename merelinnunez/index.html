@@ -165,9 +165,9 @@
   <canvas id="entry-canvas" class="entry-canvas" aria-hidden="true"></canvas>
 
   <!-- Floating Utility Bar: Language Switcher (Top-Left) & Music Player (Top-Right) -->
-  <div class="lang-control-bar" id="lang-control-bar" role="region" aria-label="Language Selector">
-    <button type="button" class="control-arrow-btn" id="lang-collapse-toggle" aria-label="Hide language selector"
-      aria-expanded="true">
+  <div class="lang-control-bar collapsed" id="lang-control-bar" role="region" aria-label="Language Selector">
+    <button type="button" class="control-arrow-btn" id="lang-collapse-toggle" aria-label="Show language selector"
+      aria-expanded="false">
       <span class="arrow-icon">‹</span>
     </button>
     <div class="lang-btn-group" id="lang-btn-group">
@@ -181,7 +181,7 @@
   </div>
 
   <!-- Floating Audio Controls (Play/Pause & Volume Slider) -->
-  <div class="audio-control-bar" id="audio-control-bar" role="region" aria-label="Music Player">
+  <div class="audio-control-bar collapsed" id="audio-control-bar" role="region" aria-label="Music Player">
     <div class="audio-collapsible-content" id="audio-collapsible-content">
       <button id="audio-toggle-btn" class="audio-btn" type="button" aria-label="Toggle background music"
         title="Play / Pause">
@@ -203,8 +203,8 @@
           aria-label="Volume Slider" />
       </div>
     </div>
-    <button type="button" class="control-arrow-btn" id="audio-collapse-toggle" aria-label="Hide music player"
-      aria-expanded="true">
+    <button type="button" class="control-arrow-btn" id="audio-collapse-toggle" aria-label="Show music player"
+      aria-expanded="false">
       <span class="arrow-icon">›</span>
     </button>
   </div>
