@@ -104,9 +104,6 @@
       req_item_3_html: '<strong>Venue Address(es) &amp; Timeline</strong> (Ceremony &amp; reception times)',
       req_item_4_html: '<strong>Theme Colors &amp; Package</strong> (Basic $55 or Premium $70)',
       req_item_5_html: '<strong>Song Choice &amp; Photo(s)</strong> (Cover photo &amp; background music link)',
-      dm_ig_label: 'Message on Instagram (@disenosluna815)',
-      dm_tt_label: 'Message on TikTok (@disenosluna)',
-      dm_fb_label: 'Message on Facebook',
 
       // FAQ Section
       faq_eyebrow: 'COMMON QUESTIONS',
@@ -135,10 +132,10 @@
       chat_close: 'Close Menu',
       chat_dismiss: 'Dismiss',
 
-      dm_wa_label: 'Message on WhatsApp (815) 242-7556',
-      dm_ig_label: 'Message on Instagram (@disenosluna815)',
-      dm_tt_label: 'Message on TikTok (@disenosluna)',
-      dm_fb_label: 'Message on Facebook',
+      dm_wa_label: 'WhatsApp (815) 242-7556',
+      dm_ig_label: 'Instagram (@disenosluna815)',
+      dm_tt_label: 'TikTok (@disenosluna)',
+      dm_fb_label: 'Facebook (Diseños Luna)',
 
       // ── ORDER FORM STRINGS ──
       step_ind_1: 'Package & Basics',
@@ -323,41 +320,38 @@
       req_item_3_html: '<strong>Dirección(es) de Iglesia y Salón</strong> (Horarios de misa y fiesta)',
       req_item_4_html: '<strong>Colores del Tema y Paquete</strong> (Básico $55 o Premium $70)',
       req_item_5_html: '<strong>Canción y Foto(s)</strong> (Foto de portada y enlace de música)',
-      dm_ig_label: 'Mensaje por Instagram (@disenosluna815)',
-      dm_tt_label: 'Mensaje por TikTok (@disenosluna)',
-      dm_fb_label: 'Mensaje por Facebook',
-
-      // FAQ Section
-      faq_eyebrow: 'PREGUNTAS FRECUENTES',
-      faq_title: 'Preguntas Frecuentes',
-      faq_q1: '¿Cómo abren la invitación mis invitados?',
-      faq_a1: 'Les envías un enlace directo (por WhatsApp, mensaje de texto o redes sociales). Al tocar el enlace se abre al instante en Safari, Chrome o cualquier navegador. No necesitan descargar aplicaciones ni crear cuentas.',
-      faq_q2: '¿Cómo funciona la música de fondo?',
-      faq_a2: 'Nos indicas la canción que deseas (artista y título) o nos mandas el archivo. La configuramos para que al tocar el sobre virtual, la música comience a sonar automáticamente. Tus invitados pueden pausar o controlar el volumen cuando quieran.',
-      faq_q3: '¿La invitación puede ser en Inglés y Español?',
-      faq_a3: '¡Sí! La opción bilingüe completa (Inglés y Español) está incluida con el paquete Premium ($70). Tus invitados pueden alternar entre ambos idiomas con un solo toque en la pantalla.',
-      faq_q4: '¿Cuánto tiempo permanece activa mi página de invitación?',
-      faq_a4: 'Tu página de invitación se mantiene activa en línea durante todo tu evento y varias semanas después de tu fiesta.',
-      faq_q5: '¿Cuáles son las formas de pago?',
-      faq_a5: 'Aceptamos Zelle, Cash App, Venmo y tarjetas. Realizas el pago al comenzar la creación de tu invitación.',
-
-      // Footer
-      footer_tagline: 'Invitaciones digitales personalizadas para bodas, quinceañeras, cumpleaños y celebraciones especiales.',
-      footer_rights: '© 2026 Diseños Luna. Todos los derechos reservados.',
-
-      // Chat Bubble Menu (Landing Page)
-      chat_header: 'Platica con Nosotros',
-      chat_ig: 'DM por Instagram',
-      chat_fb: 'DM por Facebook',
-      chat_wa: 'WhatsApp',
-      chat_wa_sub: '(815) 242-7556',
-      chat_close: 'Cerrar Menú',
-      chat_dismiss: 'Ocultar',
-
-      dm_wa_label: 'Mensaje por WhatsApp (815) 242-7556',
-      dm_ig_label: 'Mensaje por Instagram (@disenosluna815)',
-      dm_tt_label: 'Mensaje por TikTok (@disenosluna)',
-      dm_fb_label: 'Mensaje por Facebook',
+ 
+       // FAQ Section
+       faq_eyebrow: 'PREGUNTAS FRECUENTES',
+       faq_title: 'Preguntas Frecuentes',
+       faq_q1: '¿Cómo abren la invitación mis invitados?',
+       faq_a1: 'Les envías un enlace directo (por WhatsApp, mensaje de texto o redes sociales). Al tocar el enlace se abre al instante en Safari, Chrome o cualquier navegador. No necesitan descargar aplicaciones ni crear cuentas.',
+       faq_q2: '¿Cómo funciona la música de fondo?',
+       faq_a2: 'Nos indicas la canción que deseas (artista y título) o nos mandas el archivo. La configuramos para que al tocar el sobre virtual, la música comience a sonar automáticamente. Tus invitados pueden pausar o controlar el volumen cuando quieran.',
+       faq_q3: '¿La invitación puede ser en Inglés y Español?',
+       faq_a3: '¡Sí! La opción bilingüe completa (Inglés y Español) está incluida con el paquete Premium ($70). Tus invitados pueden alternar entre ambos idiomas con un solo toque en la pantalla.',
+       faq_q4: '¿Cuánto tiempo permanece activa mi página de invitación?',
+       faq_a4: 'Tu página de invitación se mantiene activa en línea durante todo tu evento y varias semanas después de tu fiesta.',
+       faq_q5: '¿Cuáles son las formas de pago?',
+       faq_a5: 'Aceptamos Zelle, Cash App, Venmo y tarjetas. Realizas el pago al comenzar la creación de tu invitación.',
+ 
+       // Footer
+       footer_tagline: 'Invitaciones digitales personalizadas para bodas, quinceañeras, cumpleaños y celebraciones especiales.',
+       footer_rights: '© 2026 Diseños Luna. Todos los derechos reservados.',
+ 
+       // Chat Bubble Menu (Landing Page)
+       chat_header: 'Platica con Nosotros',
+       chat_ig: 'DM por Instagram',
+       chat_fb: 'DM por Facebook',
+       chat_wa: 'WhatsApp',
+       chat_wa_sub: '(815) 242-7556',
+       chat_close: 'Cerrar Menú',
+       chat_dismiss: 'Ocultar',
+ 
+       dm_wa_label: 'WhatsApp (815) 242-7556',
+       dm_ig_label: 'Instagram (@disenosluna815)',
+       dm_tt_label: 'TikTok (@disenosluna)',
+       dm_fb_label: 'Facebook (Diseños Luna)',
 
       // ── ORDER FORM STRINGS ──
       step_ind_1: 'Paquete y Datos',

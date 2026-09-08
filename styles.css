@@ -1481,10 +1481,55 @@ details[open] .faq-question::after {
 }
 
 .dm-social-buttons {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin-top: auto;
+}
+
+.dm-social-buttons .btn-social {
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: left;
+  text-decoration: none;
+  min-height: 52px;
+}
+
+.dm-social-buttons .btn-social svg {
+  flex-shrink: 0;
+}
+
+.dm-btn-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-width: 0;
+}
+
+.dm-btn-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.dm-btn-handle {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 380px) {
+  .dm-social-buttons {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── FOOTER WITH USER LOGO ── */
