@@ -497,6 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function enterWebsite() {
+    // Snap to top immediately before and during reveal
     document.documentElement.style.scrollBehavior = 'auto';
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
@@ -507,6 +508,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (overlay) {
       overlay.classList.add('fade-out');
     }
+
+    // iOS Safari sometimes doesn't recompute the scrollable viewport right
+    // away after the scroll-lock is lifted. Forcing a reflow + a resize
+    // event nudges it to recalculate immediately instead of leaving the
+    // page "frozen" until some other interaction triggers a layout pass.
+    void document.body.offsetHeight;
+    window.dispatchEvent(new Event('resize'));
+
+    // Lift scroll lock listener once entered
+    window.removeEventListener('scroll', pinToTopBeforeEnter);
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+
+    setTimeout(() => {
+      if (overlay) {
+        overlay.style.display = 'none';
+        overlay.style.pointerEvents = 'none';
+      }
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      // Re-enable smooth scrolling after page is entered
+      setTimeout(() => {
+        document.documentElement.style.scrollBehavior = '';
+      }, 50);
+    }, 600);
 
     triggerScrollReveals();
   }

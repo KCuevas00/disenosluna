@@ -1762,8 +1762,12 @@ body.site-entered .lang-control-bar {
 .entry-overlay.fade-out {
   opacity: 0;
   transform: scale(1.05);
-  pointer-events: none;
-  visibility: hidden;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.entry-overlay.fade-out * {
+  pointer-events: none !important;
 }
 
 .entry-canvas {
