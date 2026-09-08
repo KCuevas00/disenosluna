@@ -8,6 +8,7 @@
 
 (function () {
   const STORAGE_KEY = 'disenos_luna_lang';
+  const STORAGE_CHOSEN_KEY = 'disenos_luna_lang_chosen';
 
   const translations = {
     en: {
@@ -129,10 +130,15 @@
       chat_header: 'Get in Touch',
       chat_ig: 'DM on Instagram',
       chat_fb: 'DM on Facebook',
-      chat_sms: 'Text Us',
-      chat_sms_sub: '(815) 242-7556',
+      chat_wa: 'WhatsApp',
+      chat_wa_sub: '(815) 242-7556',
       chat_close: 'Close Menu',
       chat_dismiss: 'Dismiss',
+
+      dm_wa_label: 'Message on WhatsApp (815) 242-7556',
+      dm_ig_label: 'Message on Instagram (@disenosluna815)',
+      dm_tt_label: 'Message on TikTok (@disenosluna)',
+      dm_fb_label: 'Message on Facebook',
 
       // ── ORDER FORM STRINGS ──
       step_ind_1: 'Package & Basics',
@@ -335,10 +341,15 @@
       chat_header: 'Platica con Nosotros',
       chat_ig: 'DM por Instagram',
       chat_fb: 'DM por Facebook',
-      chat_sms: 'Mándanos un Texto',
-      chat_sms_sub: '(815) 242-7556',
+      chat_wa: 'WhatsApp',
+      chat_wa_sub: '(815) 242-7556',
       chat_close: 'Cerrar Menú',
       chat_dismiss: 'Ocultar',
+
+      dm_wa_label: 'Mensaje por WhatsApp (815) 242-7556',
+      dm_ig_label: 'Mensaje por Instagram (@disenosluna815)',
+      dm_tt_label: 'Mensaje por TikTok (@disenosluna)',
+      dm_fb_label: 'Mensaje por Facebook',
 
       // ── ORDER FORM STRINGS ──
       step_ind_1: 'Paquete y Datos',
@@ -522,13 +533,139 @@
 
     // Apply saved or default language
     applyTranslations(savedLang);
+
+    // Initialize first-visit language welcome prompt
+    initLanguageWelcomePrompt();
+  }
+
+  /**
+   * Initializes and displays the First-Visit Language Selection Banner / Modal
+   */
+  function initLanguageWelcomePrompt() {
+    let hasChosen = false;
+    try {
+      if (window.location.search.includes('reset') || window.location.hash.includes('reset')) {
+        localStorage.removeItem(STORAGE_CHOSEN_KEY);
+      }
+      hasChosen = localStorage.getItem(STORAGE_CHOSEN_KEY) === 'true';
+    } catch (e) {}
+
+    // If user already made an explicit choice previously, do not show
+    if (hasChosen) return;
+
+    // Inject modal card if not already in the DOM (no backdrop, page stays completely visible)
+    let card = document.getElementById('lang-welcome-card');
+
+    if (!card) {
+      card = document.createElement('div');
+      card.className = 'lang-welcome-card';
+      card.id = 'lang-welcome-card';
+      card.setAttribute('role', 'dialog');
+      card.setAttribute('aria-modal', 'false');
+      card.setAttribute('aria-labelledby', 'lang-welcome-title');
+      card.innerHTML = `
+        <button type="button" class="lang-welcome-collapse-btn" id="btn-welcome-collapse" aria-label="Skip and keep English" title="Skip">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h2 class="lang-welcome-title" id="lang-welcome-title">
+          <span>How would you like to view our page?</span>
+          <span>¿Cómo prefieres ver nuestra página?</span>
+        </h2>
+        <div class="lang-welcome-actions">
+          <button type="button" class="btn-lang-choice" id="btn-welcome-en" data-lang="en">
+            <span class="choice-flag">🇺🇸</span>
+            <div class="choice-text">
+              <strong>English</strong>
+            </div>
+          </button>
+          <button type="button" class="btn-lang-choice" id="btn-welcome-es" data-lang="es">
+            <span class="choice-flag">🇲🇽</span>
+            <div class="choice-text">
+              <strong>Español</strong>
+            </div>
+          </button>
+        </div>
+        <p class="lang-welcome-hint">
+          Change anytime on the bottom-left &bull; Cambia de idioma abajo a la izquierda
+        </p>
+      `;
+
+      document.body.appendChild(card);
+    }
+
+    const dismissPrompt = (selectedLang) => {
+      // Default to English if skipping
+      const finalLang = selectedLang || 'en';
+      setLanguage(finalLang);
+
+      try {
+        localStorage.setItem(STORAGE_CHOSEN_KEY, 'true');
+      } catch (e) {}
+
+      if (card) {
+        card.classList.add('is-collapsing');
+      }
+
+      setTimeout(() => {
+        if (card) {
+          card.classList.remove('is-visible', 'is-collapsing');
+          card.style.display = 'none';
+        }
+
+        // Trigger docking pulse on floating bottom-left pill
+        const pill = document.getElementById('floating-lang-pill');
+        if (pill) {
+          pill.classList.add('pill-dock-pulse');
+          setTimeout(() => pill.classList.remove('pill-dock-pulse'), 1300);
+        }
+      }, 550);
+    };
+
+    const btnEn = document.getElementById('btn-welcome-en');
+    const btnEs = document.getElementById('btn-welcome-es');
+    const btnCollapse = document.getElementById('btn-welcome-collapse');
+
+    if (btnEn) {
+      btnEn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissPrompt('en');
+      });
+    }
+    if (btnEs) {
+      btnEs.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissPrompt('es');
+      });
+    }
+    if (btnCollapse) {
+      btnCollapse.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissPrompt('en');
+      });
+    }
+
+    // Display with a gentle 300ms entrance delay
+    setTimeout(() => {
+      if (card) card.classList.add('is-visible');
+    }, 300);
   }
 
   // Export API to global window
   window.DlTranslations = {
     setLanguage,
     getLanguage: () => currentLang,
-    getTranslation: (key) => (translations[currentLang] && translations[currentLang][key]) || (translations.en && translations.en[key]) || ''
+    getTranslation: (key) => (translations[currentLang] && translations[currentLang][key]) || (translations.en && translations.en[key]) || '',
+    showWelcomePrompt: () => {
+      try { localStorage.removeItem(STORAGE_CHOSEN_KEY); } catch (e) {}
+      const oldCard = document.getElementById('lang-welcome-card');
+      if (oldCard) oldCard.remove();
+      const oldBackdrop = document.getElementById('lang-welcome-backdrop');
+      if (oldBackdrop) oldBackdrop.remove();
+      initLanguageWelcomePrompt();
+    }
   };
 
   // Run on DOM ready

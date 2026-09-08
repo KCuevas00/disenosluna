@@ -1232,6 +1232,17 @@
   box-shadow: 0 8px 24px rgba(184, 50, 88, 0.20);
 }
 
+.floating-lang-pill.pill-dock-pulse {
+  animation: pillDockPulse 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes pillDockPulse {
+  0% { transform: scale(1); box-shadow: 0 4px 18px rgba(35, 25, 30, 0.12); }
+  35% { transform: scale(1.18); box-shadow: 0 0 0 8px rgba(247, 168, 190, 0.55), 0 8px 30px rgba(184, 50, 88, 0.35); }
+  70% { transform: scale(0.96); }
+  100% { transform: scale(1); box-shadow: 0 4px 18px rgba(35, 25, 30, 0.12); }
+}
+
 .lang-pill-btn {
   background: transparent;
   border: none;
