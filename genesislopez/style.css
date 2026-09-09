@@ -87,18 +87,11 @@ body:not(.site-entered) {
   overscroll-behavior: none !important;
 }
 
-/* Once envelope is opened: ONE single window scrollbar on html */
-html.site-entered {
+/* Once envelope is opened: unlock scrolling */
+html.site-entered,
+body.site-entered {
   overflow-x: hidden !important;
   overflow-y: auto !important;
-  height: auto !important;
-  min-height: 100% !important;
-  touch-action: auto !important;
-}
-
-/* Body must stay strictly overflow: visible on ALL axes so it NEVER creates a scrollbar */
-body.site-entered {
-  overflow: visible !important;
   height: auto !important;
   min-height: 100vh !important;
   touch-action: auto !important;

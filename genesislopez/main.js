@@ -456,6 +456,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
+      window.removeEventListener('wheel', blockScrollUntilEntered);
+      window.removeEventListener('touchmove', blockScrollUntilEntered);
+      window.removeEventListener('keydown', blockKeysUntilEntered);
     }, 1500);
 
     // 5. Final cleanup of overlay
