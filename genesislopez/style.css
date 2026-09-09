@@ -819,73 +819,45 @@ body.site-entered .lang-control-bar {
   margin-bottom: 1.2rem;
 }
 
-/* Editorial Date & Time Box (Exact quincetemplate Structure) */
+/* Editorial Date Box */
 .editorial-date-box {
   width: 100%;
-  max-width: 320px;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.5rem auto 1.5rem;
+  margin: 0.6rem auto 1.5rem;
 }
 
-.date-month {
+.date-day-name {
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   color: var(--text-dark);
-  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.45rem;
 }
 
 .date-middle-row {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-top: 1px solid #1a1a1a;
   border-bottom: 1px solid #1a1a1a;
-  padding: 0.4rem 0.4rem;
+  padding: 0.55rem 0.8rem;
 }
 
-.date-day-name {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
+.date-full-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 4.5vw, 1.48rem);
   font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--text-dark);
-  text-transform: uppercase;
-  flex: 1;
-  text-align: left;
-}
-
-.date-day-num {
-  font-family: var(--font-editorial-num);
-  font-size: 3.6rem;
-  font-weight: 600;
-  line-height: 0.9;
+  letter-spacing: 0.05em;
   color: #111111;
-  padding: 0 1rem;
-}
-
-.date-time {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--text-dark);
-  text-transform: uppercase;
-  flex: 1;
-  text-align: right;
-}
-
-.date-year {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  color: var(--text-dark);
-  margin-top: 0.4rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* ═════════════════════════════════════════════════════════════════════
