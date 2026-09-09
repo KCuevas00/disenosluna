@@ -67,13 +67,15 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.5;
-  overflow: visible !important;
   position: relative;
   -webkit-font-smoothing: antialiased;
+  /* body is NOT a scroll container — html is the single scroll root */
+  overflow: visible;
+  width: 100%;
 }
 
 /* ── SCROLL CONTROL (SINGLE CLEAN ROOT SCROLLBAR) ── */
-/* Before envelope is opened: lock scrolling on root html */
+/* Before envelope is opened: lock scrolling on root html only */
 html:not(.site-entered) {
   overflow: hidden !important;
   height: 100% !important;
@@ -82,16 +84,24 @@ html:not(.site-entered) {
 }
 
 body:not(.site-entered) {
-  overflow: visible !important;
-  touch-action: none !important;
-  overscroll-behavior: none !important;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
 }
 
-/* Once envelope is opened: unlock scrolling */
-html.site-entered,
-body.site-entered {
+/* Once envelope is opened: html is the ONE scroll container */
+html.site-entered {
   overflow-x: hidden !important;
   overflow-y: auto !important;
+  height: auto !important;
+  touch-action: auto !important;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* body must NOT independently scroll — no overflow-y: auto here */
+body.site-entered {
+  overflow: visible !important;
   height: auto !important;
   min-height: 100vh !important;
   touch-action: auto !important;
