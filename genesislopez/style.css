@@ -445,6 +445,15 @@ body.site-entered .lang-control-bar {
   filter: drop-shadow(0 14px 26px rgba(15, 30, 80, 0.18));
 }
 
+.flower-card-top-left {
+  top: -52px;
+  left: -52px;
+  width: 280px;
+  height: 280px;
+  max-width: 55vw;
+  max-height: 55vw;
+}
+
 .flower-card-top-right {
   top: -52px;
   right: -52px;
@@ -452,6 +461,7 @@ body.site-entered .lang-control-bar {
   height: 280px;
   max-width: 55vw;
   max-height: 55vw;
+  transform: scaleX(-1);
 }
 
 .flower-card-bottom-left {
@@ -461,6 +471,16 @@ body.site-entered .lang-control-bar {
   height: 280px;
   max-width: 55vw;
   max-height: 55vw;
+}
+
+.flower-card-bottom-right {
+  bottom: -52px;
+  right: -52px;
+  width: 280px;
+  height: 280px;
+  max-width: 55vw;
+  max-height: 55vw;
+  transform: scaleX(-1);
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -483,6 +503,7 @@ body.site-entered .lang-control-bar {
   right: -24px;
   width: 105px;
   height: 105px;
+  transform: rotate(90deg);
 }
 
 .env-card-flower.bottom-left {
@@ -563,6 +584,123 @@ body.site-entered .lang-control-bar {
   opacity: 0.85;
 }
 
+/* ── SUBTLE BOTANICAL WATERMARK IN BACKGROUND BEHIND TEXT ── */
+.text-bg-watermark-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.text-bg-flower-watermark {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.13;
+  pointer-events: none;
+  filter: saturate(1.15) brightness(1.05);
+  user-select: none;
+}
+
+.watermark-hero {
+  width: 320px;
+  height: 320px;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-6deg);
+}
+
+.watermark-padrinos {
+  width: 260px;
+  height: 260px;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(8deg);
+}
+
+.watermark-message {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+.watermark-rsvp {
+  width: 240px;
+  height: 240px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(4deg);
+}
+
+.floral-divider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.8rem auto 2.4rem;
+  width: 100%;
+  max-width: 480px;
+  padding: 0 1.2rem;
+  position: relative;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.floral-divider-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(29, 78, 216, 0.14));
+}
+
+.vignette-floral-divider {
+  margin: 1.4rem auto 1.6rem;
+  max-width: 320px;
+}
+
+.vignette-floral-divider .floral-divider-img {
+  max-width: 260px;
+}
+
+.floral-border {
+  position: relative;
+}
+
+.floral-border::after {
+  display: none;
+}
+
+.section-floral-watermark {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.08;
+  filter: drop-shadow(0 8px 20px rgba(29, 78, 216, 0.12));
+}
+
+.watermark-top-right {
+  top: -20px;
+  right: -20px;
+  width: 220px;
+  height: 220px;
+  max-width: 45vw;
+  max-height: 45vw;
+}
+
+.watermark-bottom-left {
+  bottom: -20px;
+  left: -20px;
+  width: 220px;
+  height: 220px;
+  max-width: 45vw;
+  max-height: 45vw;
+}
+
 /* ── SECTION 1: COVER / HERO ── */
 .cover-section {
   padding-top: 3.8rem;
@@ -614,11 +752,22 @@ body.site-entered .lang-control-bar {
 
 /* Invitation Typography Matching Flyer */
 .invitation-body-content {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.invitation-body-content > * {
+  position: relative;
+  z-index: 2;
+}
+
+.invitation-body-content > .text-bg-watermark-wrap {
+  position: absolute;
+  z-index: 1;
 }
 
 .parents-line {
@@ -924,8 +1073,33 @@ body.site-entered .lang-control-bar {
 }
 
 /* ── SECTION 2: PROGRAM / TIMELINE ── */
+#hero {
+  padding-bottom: 0.8rem;
+}
+
 .program-section {
   background: #ffffff;
+  padding-top: 1.4rem;
+}
+
+.program-section > .floral-divider-container {
+  margin: 0 auto 2.2rem;
+}
+
+.court-section {
+  padding-top: 1.6rem;
+}
+
+.court-section > .floral-divider-container {
+  margin: 0 auto 2.2rem;
+}
+
+.guidelines-section {
+  padding-top: 1.6rem;
+}
+
+.guidelines-section > .floral-divider-container {
+  margin: 0 auto 2.2rem;
 }
 
 .program-header,
@@ -1163,6 +1337,7 @@ body.site-entered .lang-control-bar {
   right: -24px;
   width: 110px;
   height: 110px;
+  transform: rotate(90deg);
 }
 
 .padrinos-flower.flower-bl {
@@ -1436,6 +1611,7 @@ body.site-entered .lang-control-bar {
 .vignette-floral-accent.top-right {
   top: -24px;
   right: -20px;
+  transform: rotate(90deg);
 }
 
 .vignette-floral-accent.bottom-left {
@@ -1551,7 +1727,6 @@ body.site-entered .lang-control-bar {
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
 .message-section {
   background: #ffffff;
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
 }
 
 .message-stage {
@@ -1585,6 +1760,16 @@ body.site-entered .lang-control-bar {
   flex-direction: column;
   align-items: center;
   position: relative;
+}
+
+.message-copy > * {
+  position: relative;
+  z-index: 2;
+}
+
+.message-copy > .text-bg-watermark-wrap {
+  position: absolute;
+  z-index: 1;
 }
 
 .message-quote-mark {
@@ -1630,7 +1815,6 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 6: RSVP & DETAILS ── */
 .rsvp-section {
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
   background: #ffffff;
   padding-bottom: 3.5rem;
 }
@@ -1683,6 +1867,13 @@ body.site-entered .lang-control-bar {
   pointer-events: none;
 }
 
+.floral-r {
+  width: 120px;
+  top: -16px;
+  left: -24px;
+  transform: rotate(-15deg);
+}
+
 .floral-s {
   width: 130px;
   top: -18px;
@@ -1705,12 +1896,23 @@ body.site-entered .lang-control-bar {
 }
 
 .rsvp-callout-block {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-top: 1.5rem;
   width: 100%;
+}
+
+.rsvp-callout-block > * {
+  position: relative;
+  z-index: 2;
+}
+
+.rsvp-callout-block > .text-bg-watermark-wrap {
+  position: absolute;
+  z-index: 1;
 }
 
 .rsvp-deadline-text {
@@ -2092,6 +2294,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   width: 275px;
   height: 275px;
   z-index: 25;
+  transform: scaleX(-1);
 }
 
 .flower-bottom-left {
@@ -2479,6 +2682,14 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     height: 180px;
   }
 
+  .flower-card-bottom-right {
+    bottom: -38px;
+    right: -25px;
+    width: 180px;
+    height: 180px;
+    transform: scaleX(-1);
+  }
+
   /* Mobile Floating Utility Controls (Language Left, Music Right) */
   .lang-control-bar {
     top: calc(0.7rem + env(safe-area-inset-top, 0px));
@@ -2564,6 +2775,21 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     width: calc(100% - 24px);
     border-radius: 20px;
   }
+
+  .flower-card-top-left {
+    top: -38px;
+    left: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .flower-card-top-right {
+    top: -38px;
+    right: -38px;
+    width: 200px;
+    height: 200px;
+  }
+
 
   .cover-section {
     padding-top: 1.5rem;
@@ -2780,6 +3006,14 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     left: -15px;
     width: 150px;
     height: 150px;
+  }
+
+  .flower-card-bottom-right {
+    bottom: -30px;
+    right: -15px;
+    width: 150px;
+    height: 150px;
+    transform: scaleX(-1);
   }
 
   .flower-top-right {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +21,8 @@
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Closed Quinceañera Pale Pink and Gold Wax Seal Envelope Invitation for Merelin Nunez" />
+  <meta property="og:image:alt"
+    content="Closed Quinceañera Pale Pink and Gold Wax Seal Envelope Invitation for Merelin Nunez" />
 
   <!-- Twitter / X Card Link Previews -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -165,16 +166,16 @@
       <span class="arrow-icon">‹</span>
     </button>
     <div class="lang-btn-group" id="lang-btn-group">
-      <button type="button" class="lang-pill-btn active" id="btn-lang-en" data-lang="en" aria-label="Switch to English">
+      <button type="button" class="lang-pill-btn" id="btn-lang-en" data-lang="en" aria-label="Switch to English">
         <span class="lang-flag">🇺🇸</span> EN
       </button>
-      <button type="button" class="lang-pill-btn" id="btn-lang-es" data-lang="es" aria-label="Cambiar a Español">
+      <button type="button" class="lang-pill-btn active" id="btn-lang-es" data-lang="es" aria-label="Cambiar a Español">
         <span class="lang-flag">🇲🇽</span> ES
       </button>
     </div>
   </div>
 
-  <!-- Floating Audio Controls (Play/Pause & Song Preview Ticker) -->
+  <!-- Floating Audio Controls (Play/Pause & Volume Slider) -->
   <div class="audio-control-bar collapsed" id="audio-control-bar" role="region" aria-label="Music Player">
     <div class="audio-collapsible-content" id="audio-collapsible-content">
       <button id="audio-toggle-btn" class="audio-btn" type="button" aria-label="Toggle background music"
@@ -185,11 +186,16 @@
           <i></i><i></i><i></i><i></i>
         </span>
       </button>
-      <div class="song-preview-badge" title="Moonlight · Ariana Grande">
-        <span class="song-note-icon" aria-hidden="true">♫</span>
-        <div class="song-marquee-viewport">
-          <span class="song-title-ticker">Moonlight · Ariana Grande</span>
-        </div>
+      <div class="audio-volume-panel">
+        <button id="audio-mute-btn" class="volume-mute-btn" type="button" aria-label="Mute or unmute"
+          title="Mute / Unmute">
+          <svg id="vol-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path
+              d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+          </svg>
+        </button>
+        <input type="range" id="audio-volume-slider" class="volume-slider" min="0" max="1" step="0.02" value="0.8"
+          aria-label="Volume Slider" />
       </div>
     </div>
     <button type="button" class="control-arrow-btn" id="audio-collapse-toggle" aria-label="Show music player"
@@ -291,7 +297,8 @@
         </div>
 
         <!-- Location Details -->
-        <p class="venue-location-hint scroll-fade-in delay-1" data-i18n="invite-venue">SANTA ANA &amp; ANAHEIM • CALIFORNIA</p>
+        <p class="venue-location-hint scroll-fade-in delay-1" data-i18n="invite-venue">SANTA ANA &amp; ANAHEIM •
+          CALIFORNIA</p>
 
         <!-- Scroll down indicator -->
         <a href="#program" class="scroll-down-btn scroll-fade-in delay-2" aria-label="Scroll to program">
@@ -326,11 +333,13 @@
           <div class="time-block">
             <span class="time-stamp">11:45 AM</span>
             <h3 class="event-title" data-i18n="program-mass-title">MASS</h3>
-            <p class="event-desc" data-i18n="program-mass-desc">OUR LADY OF GUADALUPE CHURCH,<br />1322 E THIRD ST, SANTA ANA, CA 92701</p>
+            <p class="event-desc" data-i18n="program-mass-desc">OUR LADY OF GUADALUPE CHURCH,<br />1322 E THIRD ST,
+              SANTA ANA, CA 92701</p>
             <div class="timeline-loc-wrap">
               <a href="https://www.google.com/maps/search/?api=1&query=Our+Lady+of+Guadalupe+Church+1322+E+Third+St+Santa+Ana+CA+92701"
-                data-apple-url="https://maps.apple.com/?q=Our+Lady+of+Guadalupe+Church+1322+E+Third+St+Santa+Ana+CA+92701" target="_blank"
-                rel="noopener noreferrer" class="timeline-loc-btn" aria-label="Location for Mass at Our Lady of Guadalupe Church">
+                data-apple-url="https://maps.apple.com/?q=Our+Lady+of+Guadalupe+Church+1322+E+Third+St+Santa+Ana+CA+92701"
+                target="_blank" rel="noopener noreferrer" class="timeline-loc-btn"
+                aria-label="Location for Mass at Our Lady of Guadalupe Church">
                 <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
                   <path
                     d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5 2.5 2.5-1.12 2.5-2.5 2.5z" />
@@ -381,11 +390,12 @@
           <div class="time-block">
             <span class="time-stamp">5:00 PM</span>
             <h3 class="event-title" data-i18n="program-entrance-title">ENTRANCE</h3>
-            <p class="event-desc" data-i18n="program-entrance-desc">EL BEKAL SHRINE,<br />1320 S SANDERSON AVE, ANAHEIM, CA 92806</p>
+            <p class="event-desc" data-i18n="program-entrance-desc">EL BEKAL SHRINE,<br />1320 S SANDERSON AVE, ANAHEIM,
+              CA 92806</p>
             <div class="timeline-loc-wrap">
               <a href="https://www.google.com/maps/search/?api=1&query=El+Bekal+Shrine+1320+S+Sanderson+Ave+Anaheim+CA+92806"
-                data-apple-url="https://maps.apple.com/?q=El+Bekal+Shrine+1320+S+Sanderson+Ave+Anaheim+CA+92806" target="_blank"
-                rel="noopener noreferrer" class="timeline-loc-btn"
+                data-apple-url="https://maps.apple.com/?q=El+Bekal+Shrine+1320+S+Sanderson+Ave+Anaheim+CA+92806"
+                target="_blank" rel="noopener noreferrer" class="timeline-loc-btn"
                 aria-label="Location for Reception Entrance at El Bekal Shrine">
                 <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
                   <path
@@ -523,7 +533,8 @@
           <span class="padrinos-role-badge" data-i18n="padrinos-role">PADRINOS DE HONOR</span>
           <h3 class="padrinos-names">Carlos <span class="gold-amp">&amp;</span> Rosa Ruelas</h3>
           <div class="padrinos-divider-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
-          <p class="padrinos-subtext" data-i18n="padrinos-subtext">With heartfelt gratitude for their love, guidance, and blessings</p>
+          <p class="padrinos-subtext" data-i18n="padrinos-subtext">&ldquo;Con profundo agradecimiento por su amor, guía
+            y bendiciones&rdquo;</p>
         </div>
       </div>
 
@@ -594,8 +605,10 @@
         ════════════════════════════════════════════════════════════ -->
         <div class="vignette-guidelines-wrap">
           <!-- Floating watercolor botanical corners -->
-          <img src="photos/envelope-flowers-top.png" alt="" class="vignette-floral-accent top-right" aria-hidden="true" />
-          <img src="photos/envelope-flowers-bottom.png" alt="" class="vignette-floral-accent bottom-left" aria-hidden="true" />
+          <img src="photos/envelope-flowers-top.png" alt="" class="vignette-floral-accent top-right"
+            aria-hidden="true" />
+          <img src="photos/envelope-flowers-bottom.png" alt="" class="vignette-floral-accent bottom-left"
+            aria-hidden="true" />
 
           <!-- Dress Code Proclamation Vignette -->
           <div class="vignette-item dresscode-vignette scroll-fade-in">
@@ -607,8 +620,8 @@
                 <circle cx="32" cy="7" r="1.3" fill="currentColor" />
               </svg>
             </div>
-            <span class="vignette-eyebrow" data-i18n="dresscode-title">DRESS CODE</span>
-            <h3 class="vignette-headline" data-i18n="dresscode-subtitle">FORMAL ATTIRE</h3>
+            <span class="vignette-eyebrow" data-i18n="dresscode-title">CÓDIGO DE VESTIMENTA</span>
+            <h3 class="vignette-headline" data-i18n="dresscode-subtitle">TRAJE FORMAL</h3>
 
             <!-- Obvious Silk Disc Prohibited Swatch -->
             <div class="vignette-swatch-badge">
@@ -620,15 +633,15 @@
               </div>
               <div class="swatch-text-col">
                 <span class="swatch-bold-ban" data-i18n="dresscode-ban-label">NO PALE PINK</span>
-                <span class="swatch-sub-note" data-i18n="dresscode-reserved-label">RESERVED FOR THE QUINCEAÑERA</span>
+                <span class="swatch-sub-note" data-i18n="dresscode-reserved-label">RESERVADO PARA LA QUINCEAÑERA</span>
               </div>
             </div>
 
             <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
 
             <p class="vignette-prose" data-i18n="dresscode-desc">
-              We kindly ask our guests to avoid any shades of pink, rose gold, or beige.<br />
-              <strong>Specifically no pale pink</strong>, as it is exclusively reserved for our Quinceañera.
+              Les pedimos amablemente a nuestros invitados evitar cualquier tono de rosa, rose gold o beige.<br />
+              <strong>Específicamente no rosa pálido</strong>, ya que está reservado exclusivamente para la Quinceañera.
             </p>
           </div>
 
@@ -643,21 +656,24 @@
             <div class="vignette-wishing-emblem" aria-hidden="true">
               <div class="vignette-seal-disc">
                 <svg viewBox="0 0 54 44" width="44" height="36" fill="none">
-                  <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z" fill="#fdfaf8" stroke="#c49658" stroke-width="1.8"/>
-                  <path d="M5 6l22 17L49 6" stroke="#c49658" stroke-width="1.6" stroke-linecap="round"/>
-                  <circle cx="27" cy="23" r="6" fill="#f6c2d3" stroke="#ffffff" stroke-width="1.2"/>
-                  <text x="27" y="24.5" text-anchor="middle" dominant-baseline="central" font-family="'Alex Brush', cursive" font-size="7" fill="#ffffff" font-weight="bold">M</text>
+                  <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z" fill="#fdfaf8"
+                    stroke="#c49658" stroke-width="1.8" />
+                  <path d="M5 6l22 17L49 6" stroke="#c49658" stroke-width="1.6" stroke-linecap="round" />
+                  <circle cx="27" cy="23" r="6" fill="#f6c2d3" stroke="#ffffff" stroke-width="1.2" />
+                  <text x="27" y="24.5" text-anchor="middle" dominant-baseline="central"
+                    font-family="'Alex Brush', cursive" font-size="7" fill="#ffffff" font-weight="bold">M</text>
                 </svg>
               </div>
             </div>
 
-            <span class="vignette-eyebrow" data-i18n="registry-title">GIFT REGISTRY</span>
+            <span class="vignette-eyebrow" data-i18n="registry-title">MESA DE REGALOS</span>
             <h3 class="vignette-headline readable-registry-title" data-i18n="registry-subtitle">LLUVIA DE SOBRES</h3>
 
             <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
 
             <p class="vignette-prose" data-i18n="registry-desc">
-              Your love and presence are the greatest gifts of all. Should you wish to honor Merelin with a gift, <strong>cash or gift cards</strong> are warmly appreciated.
+              Su presencia y cariño son nuestro mejor regalo. Si desea tener un detalle con Merelin, una <strong>lluvia
+                de sobres o tarjetas de regalo</strong> será profundamente apreciada.
             </p>
           </div>
 
@@ -685,7 +701,9 @@
         <div class="message-copy">
           <span class="message-quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="message-quote-text" data-i18n="message-quote">
-            I’m so grateful for all the love and guidance my family and friends have given me. Thank you for being here with me. I can’t wait to celebrate and party with all of you!
+            To my family and friends: thank you from the bottom of my heart for your love, your guidance, and for
+            celebrating this day with me.
+            I can't wait to dance the night away with all of you!
           </p>
           <span class="message-signature">Merelin</span>
         </div>
@@ -770,15 +788,15 @@
 
       <div class="modal-header">
         <h3 class="modal-title" data-i18n="modal-title">RSVP to Merelin's Quinceañera</h3>
-        <p class="modal-subtitle" data-i18n="modal-subtitle">Saturday, November 7, 2026 • Santa Ana &amp; Anaheim, CA</p>
+        <p class="modal-subtitle" data-i18n="modal-subtitle">Saturday, November 7, 2026 • Santa Ana &amp; Anaheim, CA
+        </p>
       </div>
 
       <form id="rsvp-form" class="modal-form" novalidate>
 
         <div class="form-group">
           <label for="guest-fullname" data-i18n="label-fullname">Your Full Name(s) *</label>
-          <input type="text" id="guest-fullname" name="fullname" placeholder="e.g. Jorge &amp; Maribel"
-            required />
+          <input type="text" id="guest-fullname" name="fullname" placeholder="e.g. Jorge &amp; Maribel" required />
         </div>
 
         <div class="form-group">
@@ -833,7 +851,7 @@
     <p class="footer-date">Saturday, November 7, 2026 • Santa Ana &amp; Anaheim, California</p>
   </footer>
 
-  <script src="main.js?v=1.3.5"></script>
+  <script src="main.js?v=1.3.3"></script>
 </body>
 
 </html>

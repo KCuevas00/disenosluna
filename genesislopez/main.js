@@ -13,7 +13,7 @@
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
 const EVENT_SLUG = 'genesislopez';
-const CLIENT_NAME = "Genesis Lopez's Quinceañera";
+const CLIENT_NAME = "Genesis Lopez's Sweet 16";
 const CLIENT_EMAIL = ''; // Optional parents' email to share Google Sheet with
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,9 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   const translations = {
     es: {
-      'invite-quince': 'Quinceañera',
+      'invite-16': 'Dulces 16 años',
+      'invite-quince': 'Dulces 16 años',
       'invite-parents': 'OLGA LÓPEZ &amp; GENARO POCTECO',
-      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A LA',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A LOS DULCES 16 AÑOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-month': 'DIC',
       'invite-date-day': 'SÁBADO',
@@ -104,9 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-desc': 'Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!'
     },
     en: {
-      'invite-quince': 'Quinceañera',
+      'invite-16': 'Sweet 16',
+      'invite-quince': 'Sweet 16',
       'invite-parents': 'OLGA LÓPEZ &amp; GENARO POCTECO',
-      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE QUINCEAÑERA OF THEIR DAUGHTER',
+      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE SWEET 16 OF THEIR DAUGHTER',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-month': 'DEC',
       'invite-date-day': 'SATURDAY',
@@ -338,13 +340,15 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(29, 78, 216, 0.88)',   // deep royal blue
-          'rgba(59, 130, 246, 0.90)',  // royal sapphire blue
-          'rgba(147, 197, 253, 0.92)', // light ice blue
-          'rgba(255, 255, 255, 0.95)', // glistening platinum white
-          'rgba(203, 213, 225, 0.85)', // silver shimmer
-          'rgba(226, 232, 240, 0.88)'  // frosted slate silver
-        ][Math.floor(Math.random() * 6)],
+          'rgba(29, 78, 216, 0.90)',   // azul real (deep royal blue)
+          'rgba(37, 99, 235, 0.92)',   // azul real (sapphire blue)
+          'rgba(192, 132, 252, 0.92)', // lila (vibrant lilac)
+          'rgba(216, 180, 254, 0.90)', // lila (soft lavender)
+          'rgba(244, 114, 182, 0.92)', // rosa (blush rose pink)
+          'rgba(251, 207, 232, 0.92)', // rosa (pastel petal pink)
+          'rgba(255, 255, 255, 0.96)', // blanca (glistening white)
+          'rgba(241, 245, 249, 0.90)'  // blanca / silver shimmer
+        ][Math.floor(Math.random() * 8)],
         bend: Math.random() * 0.5 + 0.5
       };
     }
