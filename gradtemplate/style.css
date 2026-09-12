@@ -2373,7 +2373,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 10px 22px rgba(15, 30, 80, 0.22));
+  filter: drop-shadow(0 12px 24px rgba(15, 30, 80, 0.16)) brightness(1.04) contrast(1.02);
 }
 
 .flower-top-right {
