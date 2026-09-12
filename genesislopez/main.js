@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-date-day': 'SÁBADO',
       'invite-date-full': '26 de Diciembre, 2026',
       'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
+      'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
+      'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
       'cd-days': 'Días',
       'cd-hours': 'Horas',
       'cd-mins': 'Minutos',
@@ -112,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-date-day': 'SATURDAY',
       'invite-date-full': 'December 26, 2026',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
+      'countdown-today': '🎉 Today Is the Day! 🎉',
+      'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
       'cd-days': 'Days',
       'cd-hours': 'Hours',
       'cd-mins': 'Minutes',
@@ -504,37 +508,64 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (11 = December)
   const TARGET_DATE = new Date(2026, 11, 26, 14, 30, 0).getTime();
+  // Show "thank you" message 5 hours after event starts (gives time for a late party)
+  const AFTER_EVENT_MS = 5 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');
   const elHours = document.getElementById('cd-hours');
   const elMins = document.getElementById('cd-mins');
   const elSecs = document.getElementById('cd-secs');
+  const numbersRow = document.querySelector('.pt-numbers-row');
+
+  // Create message element once (injected into the countdown section)
+  let cdMsgEl = document.getElementById('cd-message');
+  if (!cdMsgEl) {
+    cdMsgEl = document.createElement('p');
+    cdMsgEl.id = 'cd-message';
+    cdMsgEl.className = 'cd-special-message';
+    cdMsgEl.style.display = 'none';
+    if (numbersRow) numbersRow.parentNode.insertBefore(cdMsgEl, numbersRow);
+  }
+
+  function showNumbers() {
+    if (numbersRow) numbersRow.style.display = '';
+    cdMsgEl.style.display = 'none';
+  }
+
+  function showMessage(key) {
+    if (numbersRow) numbersRow.style.display = 'none';
+    const dict = translations[currentLang] || translations.es;
+    cdMsgEl.textContent = dict[key] || '';
+    cdMsgEl.style.display = '';
+  }
 
   function updateCountdown() {
     const now = new Date().getTime();
     const diff = TARGET_DATE - now;
+    const days = diff > 0 ? Math.floor(diff / (1000 * 60 * 60 * 24)) : 0;
 
-    if (diff <= 0) {
-      if (elDays) elDays.textContent = '00';
-      if (elHours) elHours.textContent = '00';
-      if (elMins) elMins.textContent = '00';
-      if (elSecs) elSecs.textContent = '00';
-      return;
+    if (diff > 0 && days > 0) {
+      // Normal countdown — more than 0 whole days remaining
+      showNumbers();
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+      if (elDays)  elDays.textContent  = String(days).padStart(2, '0');
+      if (elHours) elHours.textContent = String(hours).padStart(2, '0');
+      if (elMins)  elMins.textContent  = String(mins).padStart(2, '0');
+      if (elSecs)  elSecs.textContent  = String(secs).padStart(2, '0');
+    } else if (diff > 0 || -diff < AFTER_EVENT_MS) {
+      // Day of (same day, hours counting down) OR event started but party is still going
+      showMessage('countdown-today');
+    } else {
+      // 5+ hours after event start — party is over, show thank you
+      showMessage('countdown-thankyou');
     }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-    if (elDays) elDays.textContent = String(days).padStart(2, '0');
-    if (elHours) elHours.textContent = String(hours).padStart(2, '0');
-    if (elMins) elMins.textContent = String(mins).padStart(2, '0');
-    if (elSecs) elSecs.textContent = String(secs).padStart(2, '0');
   }
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
 
 
   /* ─────────────────────────────────────────────────────────────
