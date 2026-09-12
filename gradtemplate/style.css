@@ -2356,15 +2356,15 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transition: transform 0.3s ease;
 }
 
-/* Diagonal Corner Floral Sprays Framing Envelope */
+/* Diagonal Corner Floral Sprays Framing Envelope Snugly */
 .envelope-floral-frame {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 420px;
-  height: 290px;
-  max-width: 95vw;
+  width: 370px;
+  height: 250px;
+  max-width: 88vw;
   pointer-events: none;
   z-index: 25;
 }
@@ -2373,23 +2373,23 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 12px 24px rgba(15, 30, 80, 0.16));
+  filter: drop-shadow(0 10px 22px rgba(15, 30, 80, 0.22));
 }
 
 .flower-top-right {
-  top: -55px;
-  right: -48px;
-  width: 275px;
-  height: 275px;
+  top: -42px;
+  right: -36px;
+  width: 255px;
+  height: 255px;
   z-index: 25;
   transform: none;
 }
 
 .flower-bottom-left {
-  bottom: -55px;
-  left: -48px;
-  width: 275px;
-  height: 275px;
+  bottom: -42px;
+  left: -36px;
+  width: 255px;
+  height: 255px;
   z-index: 25;
   transform: none;
 }
@@ -2744,22 +2744,23 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 
   /* Envelope & Flower Sprays: Scaled & Positioned to Never Clip */
   .envelope-floral-frame {
-    width: 360px;
-    height: 280px;
+    width: 320px;
+    height: 220px;
+    max-width: 88vw;
   }
 
   .flower-top-right {
-    top: -45px;
-    right: -35px;
-    width: 190px;
-    height: 190px;
+    top: -34px;
+    right: -28px;
+    width: 195px;
+    height: 195px;
   }
 
   .flower-bottom-left {
-    bottom: -45px;
-    left: -35px;
-    width: 190px;
-    height: 190px;
+    bottom: -34px;
+    left: -28px;
+    width: 195px;
+    height: 195px;
   }
 
   .luxury-envelope-container {
@@ -2856,22 +2857,23 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .envelope-floral-frame {
-    width: 360px;
-    height: 280px;
+    width: 320px;
+    height: 220px;
+    max-width: 88vw;
   }
 
   .flower-top-right {
-    top: -45px;
-    right: -35px;
-    width: 190px;
-    height: 190px;
+    top: -34px;
+    right: -28px;
+    width: 195px;
+    height: 195px;
   }
 
   .flower-bottom-left {
-    bottom: -45px;
-    left: -35px;
-    width: 190px;
-    height: 190px;
+    bottom: -34px;
+    left: -28px;
+    width: 195px;
+    height: 195px;
   }
 
   .luxury-envelope-container {
@@ -3154,7 +3156,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-top-right {
-    top: -35px;
+    top: -26px;
     right: -20px;
     width: 160px;
     height: 160px;
@@ -3162,7 +3164,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-bottom-left {
-    bottom: -35px;
+    bottom: -26px;
     left: -20px;
     width: 160px;
     height: 160px;
