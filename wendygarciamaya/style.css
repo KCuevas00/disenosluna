@@ -772,12 +772,12 @@ body.site-entered .lang-control-bar {
   opacity: 0.85;
 }
 
-/* Matching watercolor botanical framing sprays peeking out organically */
-.portrait-floral-accents {
+/* Full perimeter watercolor floral garland frame around portrait */
+.portrait-floral-frame {
   position: absolute;
-  inset: 0;
+  inset: -12px;
   pointer-events: none;
-  z-index: 2;
+  z-index: 4;
   overflow: visible;
 }
 
@@ -785,25 +785,41 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 6px 14px rgba(15, 30, 80, 0.12));
-  opacity: 0.72;
+  filter: drop-shadow(0 6px 16px rgba(15, 30, 80, 0.15));
+  opacity: 0.85;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
+.portrait-flower.flower-top-left {
+  top: -14px;
+  left: -14px;
+  width: 115px;
+  height: 115px;
+  transform: scaleX(-1) rotate(20deg);
+}
+
 .portrait-flower.flower-top-right {
-  top: -12px;
-  right: -8px;
-  width: 105px;
-  height: 105px;
-  transform: rotate(45deg);
+  top: -14px;
+  right: -14px;
+  width: 115px;
+  height: 115px;
+  transform: rotate(20deg);
 }
 
 .portrait-flower.flower-bottom-left {
-  bottom: 4px;
-  left: -10px;
-  width: 115px;
-  height: 115px;
+  bottom: -6px;
+  left: -14px;
+  width: 125px;
+  height: 125px;
   transform: rotate(-10deg);
+}
+
+.portrait-flower.flower-bottom-right {
+  bottom: -6px;
+  right: -14px;
+  width: 125px;
+  height: 125px;
+  transform: scaleX(-1) rotate(-10deg);
 }
 
 .portrait-card,
