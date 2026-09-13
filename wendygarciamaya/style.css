@@ -791,35 +791,35 @@ body.site-entered .lang-control-bar {
 }
 
 .portrait-flower.flower-top-left {
-  top: -14px;
-  left: -14px;
-  width: 115px;
-  height: 115px;
-  transform: scaleX(-1) rotate(20deg);
+  top: -16px;
+  left: -16px;
+  width: 125px;
+  height: 125px;
+  transform: rotate(0deg);
 }
 
 .portrait-flower.flower-top-right {
-  top: -14px;
-  right: -14px;
-  width: 115px;
-  height: 115px;
-  transform: rotate(20deg);
+  top: -16px;
+  right: -16px;
+  width: 125px;
+  height: 125px;
+  transform: scaleX(-1) rotate(0deg);
 }
 
 .portrait-flower.flower-bottom-left {
-  bottom: -6px;
-  left: -14px;
-  width: 125px;
-  height: 125px;
-  transform: rotate(-10deg);
+  bottom: -8px;
+  left: -16px;
+  width: 130px;
+  height: 130px;
+  transform: rotate(0deg);
 }
 
 .portrait-flower.flower-bottom-right {
-  bottom: -6px;
-  right: -14px;
-  width: 125px;
-  height: 125px;
-  transform: scaleX(-1) rotate(-10deg);
+  bottom: -8px;
+  right: -16px;
+  width: 130px;
+  height: 130px;
+  transform: scaleX(-1) rotate(0deg);
 }
 
 .portrait-card,
