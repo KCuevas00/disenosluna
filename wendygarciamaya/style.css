@@ -6,8 +6,8 @@
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
   /* Baby Blue, Crisp White Linen & Sparkling Silver Scheme */
-  --bg-page: #f8fafc;
-  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #f0f7fc 60%, #e2eff8 100%);
+  --bg-page: #dcedf9;
+  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ebf5fd 0%, #d8ebf9 50%, #c4e0f5 100%);
   --card-white: #ffffff;
 
   /* Typographic Contrast */
@@ -61,7 +61,7 @@ html {
 }
 
 body {
-  background: var(--bg-page-gradient);
+  background: #ffffff;
   min-height: 100vh;
   color: var(--text-dark);
   font-family: var(--font-sans);
@@ -75,21 +75,17 @@ body {
 }
 
 /* ── SCROLL CONTROL (SINGLE CLEAN ROOT SCROLLBAR) ── */
-/* Before envelope is opened: lock scrolling on root html only */
-html:not(.site-entered) {
+/* Before envelope is opened: lock scrolling on root html only & pure white background */
+html:not(.site-entered),
+body:not(.site-entered) {
+  background: #ffffff !important;
   overflow: hidden !important;
   height: 100% !important;
   touch-action: none !important;
   overscroll-behavior: none !important;
 }
 
-body:not(.site-entered) {
-  height: 100%;
-  overflow: hidden;
-  touch-action: none;
-}
-
-/* Once envelope is opened: html is the ONE scroll container */
+/* Once envelope is opened: html is the ONE scroll container & baby blue background */
 html.site-entered {
   overflow-x: hidden !important;
   overflow-y: auto !important;
@@ -99,8 +95,10 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — no overflow-y: auto here */
+/* body must NOT independently scroll — baby blue background behind opened invitation */
 body.site-entered {
+  background: var(--bg-page-gradient) !important;
+  background-attachment: fixed !important;
   overflow: visible !important;
   height: auto !important;
   min-height: 100vh !important;
@@ -430,7 +428,6 @@ body.site-entered .lang-control-bar {
     0 4px 20px rgba(0, 0, 0, 0.04),
     inset 0 0 0 1px rgba(255, 255, 255, 0.9),
     inset 0 0 35px rgba(191, 219, 254, 0.18);
-
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -2250,9 +2247,7 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #f1f5f9;
-  background-image:
-    radial-gradient(circle at 50% 45%, #ffffff 0%, #f1f5f9 55%, #e2e8f0 100%);
+  background: #ffffff !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s;
 }
 
@@ -2339,8 +2334,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .flower-bottom-left {
-  bottom: -55px;
-  left: -48px;
+  bottom: -32px;
+  left: -28px;
   width: 275px;
   height: 275px;
   z-index: 25;
@@ -2682,8 +2677,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-bottom-left {
-    bottom: -45px;
-    left: -35px;
+    bottom: -26px;
+    left: -18px;
     width: 190px;
     height: 190px;
   }
@@ -2784,8 +2779,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-bottom-left {
-    bottom: -45px;
-    left: -35px;
+    bottom: -26px;
+    left: -18px;
     width: 190px;
     height: 190px;
   }
@@ -3065,8 +3060,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-bottom-left {
-    bottom: -35px;
-    left: -20px;
+    bottom: -20px;
+    left: -12px;
     width: 160px;
     height: 160px;
   }
