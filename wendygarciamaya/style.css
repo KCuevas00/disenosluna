@@ -718,16 +718,92 @@ body.site-entered .lang-control-bar {
   object-fit: contain;
 }
 
-/* Celebrant Photo Centerpiece (Discreet Ethereal Gradient Halo — Zero Solid Borders) */
+/* ── CELEBRANT PORTRAIT: COUTURE EDITORIAL INTEGRATION ── */
 .photo-stage,
 .celebrant-portrait-container {
   position: relative;
-  width: 84%;
-  max-width: 340px;
-  margin: 0.5rem auto 3.6rem;
+  width: 95%;
+  max-width: 440px;
+  margin: 1rem auto 3.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.portrait-stage-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Soft ambient gradient watercolor wash behind */
+.portrait-celestial-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 88%;
+  height: 88%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at 50% 48%, rgba(219, 234, 254, 0.8) 0%, rgba(239, 246, 255, 0.45) 45%, rgba(248, 250, 252, 0.15) 65%, transparent 78%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ultra-fine dual concentric celestial stationery ring */
+.portrait-celestial-ring {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: 320px;
+  height: 320px;
+  max-width: 78vw;
+  max-height: 78vw;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 5px transparent,
+    inset 0 0 0 6px rgba(186, 230, 253, 0.45);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+/* Matching watercolor botanical framing sprays peeking out organically */
+.portrait-floral-accents {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.portrait-flower {
+  position: absolute;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(15, 30, 80, 0.12));
+  opacity: 0.72;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.portrait-flower.flower-top-right {
+  top: -12px;
+  right: -8px;
+  width: 105px;
+  height: 105px;
+  transform: rotate(45deg);
+}
+
+.portrait-flower.flower-bottom-left {
+  bottom: 4px;
+  left: -10px;
+  width: 115px;
+  height: 115px;
+  transform: rotate(-10deg);
 }
 
 .portrait-card,
@@ -737,44 +813,44 @@ body.site-entered .lang-control-bar {
   justify-content: center;
   align-items: center;
   position: relative;
-  background: radial-gradient(ellipse at 50% 48%, rgba(219, 234, 254, 0.75) 0%, rgba(239, 246, 255, 0.45) 42%, rgba(248, 250, 252, 0.15) 62%, transparent 75%);
-  border: none;
-  padding: 1.6rem 1rem;
-  box-shadow: none;
-  overflow: visible;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.portrait-card::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 92%;
-  height: 92%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(186, 230, 253, 0.55) 0%, rgba(224, 242, 254, 0.25) 50%, transparent 72%);
-  filter: blur(16px);
-  pointer-events: none;
-  z-index: 1;
+  z-index: 3;
+  padding: 0.4rem 0.4rem 0;
 }
 
 .celebrant-photo {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 480px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 10px 22px rgba(29, 78, 216, 0.12));
+  filter: drop-shadow(0 12px 28px rgba(29, 78, 216, 0.14));
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+}
+
+/* Grounding soft shadow under the dress hem */
+.portrait-ground-shadow {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 16px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(30, 58, 138, 0.16) 0%, rgba(148, 163, 184, 0.06) 50%, transparent 75%);
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .photo-stage:hover .celebrant-photo,
 .celebrant-portrait-container:hover .celebrant-photo {
-  transform: scale(1.03) translateY(-2px);
-  filter: drop-shadow(0 14px 28px rgba(29, 78, 216, 0.18));
+  transform: scale(1.03) translateY(-3px);
+  filter: drop-shadow(0 16px 36px rgba(29, 78, 216, 0.22));
+}
+
+.celebrant-portrait-container:hover .portrait-flower {
+  opacity: 0.9;
 }
 
 /* Invitation Typography Matching Flyer */
