@@ -9,3 +9,6 @@ __pycache__/
 # OS metadata
 Thumbs.db
 .DS_Store
+
+# Chrome temp data
+.chrome_temp/
