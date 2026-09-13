@@ -2325,8 +2325,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .flower-top-right {
-  top: -55px;
-  right: -48px;
+  top: -32px;
+  right: -28px;
   width: 275px;
   height: 275px;
   z-index: 25;
@@ -2670,8 +2670,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-top-right {
-    top: -45px;
-    right: -35px;
+    top: -26px;
+    right: -18px;
     width: 190px;
     height: 190px;
   }
@@ -2769,25 +2769,6 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   .envelope-floral-frame {
     width: 360px;
     height: 280px;
-  }
-
-  .flower-top-right {
-    top: -45px;
-    right: -35px;
-    width: 190px;
-    height: 190px;
-  }
-
-  .flower-bottom-left {
-    bottom: -26px;
-    left: -18px;
-    width: 190px;
-    height: 190px;
-  }
-
-  .luxury-envelope-container {
-    width: 320px;
-    height: 220px;
   }
 
   .env-pocket {
@@ -3053,8 +3034,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-top-right {
-    top: -35px;
-    right: -20px;
+    top: -20px;
+    right: -12px;
     width: 160px;
     height: 160px;
   }
