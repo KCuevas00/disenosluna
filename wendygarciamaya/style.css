@@ -2326,7 +2326,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 12px 24px rgba(15, 30, 80, 0.16));
+  filter: none;
 }
 
 .flower-top-right {
@@ -2346,7 +2346,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   z-index: 25;
 }
 
-/* 3D Envelope Container (Soft Pale Pink Pearl Linen with Gold Trim) */
+/* 3D Envelope Container (Bespoke Baby Blue Stationery with Silver Accents) */
 .luxury-envelope-container {
   position: relative;
   width: 370px;
@@ -2356,29 +2356,29 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   user-select: none;
   transform-style: preserve-3d;
   border-radius: 6px;
-  background: #f8fafc;
-  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: #cbe3f7;
+  border: 1px solid rgba(147, 197, 253, 0.7);
   box-shadow:
-    0 25px 55px rgba(15, 30, 80, 0.18),
-    0 8px 22px rgba(0, 0, 0, 0.06);
+    0 25px 55px rgba(20, 65, 110, 0.22),
+    0 8px 22px rgba(15, 35, 58, 0.08);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
 
 .luxury-envelope-container:hover {
   box-shadow:
-    0 32px 70px rgba(15, 30, 80, 0.24),
-    0 12px 30px rgba(0, 0, 0, 0.08);
+    0 32px 70px rgba(20, 65, 110, 0.28),
+    0 12px 30px rgba(15, 35, 58, 0.1);
 }
 
 /* Envelope Interior Back Wall */
 .env-back {
   position: absolute;
   inset: 0;
-  background: #edf2f9;
+  background: #b5d5f2;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(15, 30, 80, 0.16);
+  box-shadow: inset 0 0 35px rgba(20, 65, 110, 0.22);
 }
 
 .env-interior-pattern {
@@ -2480,11 +2480,11 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(175deg, #ffffff 0%, #f0f5fb 55%, #e2ebf6 100%);
+  background: linear-gradient(175deg, #e4f1fc 0%, #c2dff7 50%, #add3f2 100%);
   border-radius: 6px;
   z-index: 12;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
-  box-shadow: inset 0 -4px 15px rgba(15, 30, 80, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 -4px 15px rgba(20, 65, 110, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .env-pocket::before {
@@ -2492,8 +2492,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(148, 163, 184, 0.12) 0%, transparent 45%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(20, 65, 110, 0.12) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -2508,16 +2508,16 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform-style: preserve-3d;
   z-index: 15;
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
-  filter: drop-shadow(0 6px 14px rgba(15, 30, 80, 0.16));
+  filter: drop-shadow(0 6px 14px rgba(20, 65, 110, 0.2));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(160deg, #ffffff 0%, #f0f6fc 50%, #e2ebf6 100%);
-  border-top: 2px solid #cbd5e1;
+  background: linear-gradient(160deg, #e8f4fd 0%, #c6e2f8 50%, #b0d5f3 100%);
+  border-top: 2px solid #9ec6ea;
 }
 
 .luxury-envelope-container.is-opened .env-flap {
   transform: rotateX(180deg);
   z-index: 15;
-  filter: drop-shadow(0 -4px 10px rgba(15, 30, 80, 0.12));
+  filter: drop-shadow(0 -4px 10px rgba(20, 65, 110, 0.15));
 }
 
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
