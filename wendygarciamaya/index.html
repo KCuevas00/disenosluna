@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2.8.0" />
+  <link rel="stylesheet" href="style.css?v=2.9.0" />
 </head>
 
 <body>
@@ -704,30 +704,33 @@
 
         <div class="form-group">
           <label data-i18n="label-attendance">¿Podrá Asistir? *</label>
-          <div class="attendance-options">
-            <label class="attendance-radio-card">
+          <div class="attendance-options-grid">
+            <label class="attendance-card-btn choice-accept">
               <input type="radio" name="attendance" value="Joyfully Accept" checked />
-              <span class="radio-custom"></span>
-              <span class="radio-text" data-i18n="opt-accept">✨ Sí, asistiré con gusto</span>
+              <span class="choice-status-dot"></span>
+              <span class="choice-label" data-i18n="opt-accept">Sí, Asistiré</span>
             </label>
-            <label class="attendance-radio-card">
+            <label class="attendance-card-btn choice-decline">
               <input type="radio" name="attendance" value="Regretfully Decline" />
-              <span class="radio-custom"></span>
-              <span class="radio-text" data-i18n="opt-decline">🤍 Lamentablemente no podré</span>
+              <span class="choice-status-dot"></span>
+              <span class="choice-label" data-i18n="opt-decline">No Podré Asistir</span>
             </label>
           </div>
         </div>
 
         <button type="submit" class="btn-submit-rsvp" id="btn-submit-rsvp" data-i18n="btn-submit">
-          Enviar Confirmación
+          Enviar Respuesta
         </button>
 
         <!-- Feedback message -->
         <div id="modal-success-alert" class="modal-success" hidden>
-          <div class="success-icon">👑 ✨ 💙</div>
+          <div class="success-check-badge" id="modal-success-badge">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
           <h4 data-i18n="modal-success-title">¡Muchas Gracias!</h4>
-          <p data-i18n="modal-success-desc">Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este
-            gran día!</p>
+          <p data-i18n="modal-success-desc">Su respuesta ha sido guardada con éxito.</p>
         </div>
 
       </form>
@@ -739,7 +742,7 @@
     <p class="footer-date">Sábado, 10 de Octubre de 2026 • Denver, Colorado</p>
   </footer>
 
-  <script src="main.js?v=2.8.0"></script>
+  <script src="main.js?v=2.9.0"></script>
 </body>
 
 </html>

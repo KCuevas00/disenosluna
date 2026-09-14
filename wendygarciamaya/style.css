@@ -2228,74 +2228,99 @@ body.site-entered .lang-control-bar {
   background: #ffffff;
 }
 
-/* ── ATTENDANCE CHOICES (CONFIRM / DECLINE) ── */
-.attendance-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+/* ── BESPOKE GREEN / RED ATTENDANCE OPTIONS ── */
+.attendance-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
   margin-top: 0.4rem;
 }
 
-.attendance-radio-card {
+.attendance-card-btn {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.8rem 1rem;
-  background: #f8fafc;
-  border: 1.5px solid rgba(148, 163, 184, 0.35);
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.8rem 0.6rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.25, 1, 0.5, 1);
   user-select: none;
+  background: #ffffff;
+  border: 1.5px solid rgba(148, 163, 184, 0.38);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
-.attendance-radio-card:hover {
-  background: #f0f7fc;
-  border-color: var(--theme-primary);
-}
-
-.attendance-radio-card input[type="radio"] {
+.attendance-card-btn input[type="radio"] {
   display: none;
 }
 
-.attendance-radio-card .radio-custom {
-  width: 18px;
-  height: 18px;
+.attendance-card-btn .choice-status-dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  border: 2px solid #94a3b8;
-  position: relative;
   flex-shrink: 0;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.attendance-radio-card input[type="radio"]:checked + .radio-custom {
-  border-color: var(--theme-primary);
-  background: var(--theme-primary);
-}
-
-.attendance-radio-card input[type="radio"]:checked + .radio-custom::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-.attendance-radio-card:has(input[type="radio"]:checked) {
-  border-color: var(--theme-primary);
-  background: #edf6fd;
-  box-shadow: 0 2px 8px rgba(91, 163, 208, 0.2);
-}
-
-.attendance-radio-card .radio-text {
+.attendance-card-btn .choice-label {
   font-family: var(--font-sans);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Green (Confirm / Accept) */
+.choice-accept .choice-status-dot {
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.choice-accept .choice-label {
+  color: #065f46;
+}
+
+.choice-accept:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.choice-accept:has(input[type="radio"]:checked) {
+  border-color: #10b981;
+  background: #ecfdf5;
+  box-shadow: 0 0 0 1.5px #10b981, 0 3px 10px rgba(16, 185, 129, 0.2);
+}
+
+.choice-accept:has(input[type="radio"]:checked) .choice-status-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+/* Red (Decline / Deny) */
+.choice-decline .choice-status-dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.choice-decline .choice-label {
+  color: #991b1b;
+}
+
+.choice-decline:hover {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.choice-decline:has(input[type="radio"]:checked) {
+  border-color: #ef4444;
+  background: #fef2f2;
+  box-shadow: 0 0 0 1.5px #ef4444, 0 3px 10px rgba(239, 68, 68, 0.2);
+}
+
+.choice-decline:has(input[type="radio"]:checked) .choice-status-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
 }
 
 .btn-submit-rsvp {
@@ -2323,15 +2348,29 @@ body.site-entered .lang-control-bar {
 .modal-success {
   text-align: center;
   padding: 1.5rem 1rem;
-  background: #f1f5f9;
+  background: #f8fafc;
   border-radius: 12px;
-  border: 1px solid rgba(96, 165, 250, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.35);
   margin-top: 1rem;
 }
 
-.modal-success .success-icon {
-  font-size: 1.8rem;
-  margin-bottom: 0.4rem;
+.success-check-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 0 auto 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ecfdf5;
+  color: #10b981;
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+}
+
+.modal-success.is-decline .success-check-badge {
+  background: #f8fafc;
+  color: #64748b;
+  border-color: rgba(148, 163, 184, 0.4);
 }
 
 .modal-success h4 {
