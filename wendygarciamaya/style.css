@@ -2228,121 +2228,81 @@ body.site-entered .lang-control-bar {
   background: #ffffff;
 }
 
-/* ── BESPOKE GREEN / RED ATTENDANCE OPTIONS ── */
-.attendance-options-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-top: 0.4rem;
+/* ── TWO DIRECT 1-CLICK ACTION BUTTONS (CONFIRM / DECLINE) ── */
+.rsvp-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
 }
 
-.attendance-card-btn {
+.btn-rsvp-action {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.8rem 0.6rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.22s cubic-bezier(0.25, 1, 0.5, 1);
-  user-select: none;
-  background: #ffffff;
-  border: 1.5px solid rgba(148, 163, 184, 0.38);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-}
-
-.attendance-card-btn input[type="radio"] {
-  display: none;
-}
-
-.attendance-card-btn .choice-status-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.attendance-card-btn .choice-label {
+  width: 100%;
+  padding: 0.95rem 1.2rem;
   font-family: var(--font-sans);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-/* Green (Confirm / Accept) */
-.choice-accept .choice-status-dot {
-  background: #10b981;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
-}
-
-.choice-accept .choice-label {
-  color: #065f46;
-}
-
-.choice-accept:hover {
-  border-color: #10b981;
-  background: #f0fdf4;
-}
-
-.choice-accept:has(input[type="radio"]:checked) {
-  border-color: #10b981;
-  background: #ecfdf5;
-  box-shadow: 0 0 0 1.5px #10b981, 0 3px 10px rgba(16, 185, 129, 0.2);
-}
-
-.choice-accept:has(input[type="radio"]:checked) .choice-status-dot {
-  transform: scale(1.25);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-}
-
-/* Red (Decline / Deny) */
-.choice-decline .choice-status-dot {
-  background: #ef4444;
-  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
-}
-
-.choice-decline .choice-label {
-  color: #991b1b;
-}
-
-.choice-decline:hover {
-  border-color: #ef4444;
-  background: #fef2f2;
-}
-
-.choice-decline:has(input[type="radio"]:checked) {
-  border-color: #ef4444;
-  background: #fef2f2;
-  box-shadow: 0 0 0 1.5px #ef4444, 0 3px 10px rgba(239, 68, 68, 0.2);
-}
-
-.choice-decline:has(input[type="radio"]:checked) .choice-status-dot {
-  transform: scale(1.25);
-  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
-}
-
-.btn-submit-rsvp {
-  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
-  color: #ffffff;
-  border: none;
-  padding: 0.95rem 1.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 12px;
   cursor: pointer;
-  margin-top: 0.5rem;
-  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.35);
-  transition: var(--transition-smooth);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  outline: none;
+  user-select: none;
 }
 
-.btn-submit-rsvp:hover {
+.btn-rsvp-action .btn-rsvp-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+/* Primary Green (Accept) */
+.btn-rsvp-accept {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.btn-rsvp-accept:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.45);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.48);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.btn-rsvp-accept:active {
+  transform: translateY(0);
+}
+
+/* Secondary Red/Rose (Decline) */
+.btn-rsvp-decline {
+  background: #ffffff;
+  color: #b91c1c;
+  border: 1.5px solid rgba(239, 68, 68, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.btn-rsvp-decline:hover {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.16);
+}
+
+.btn-rsvp-decline:active {
+  transform: translateY(0);
+}
+
+.btn-rsvp-action:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
 }
 
 .modal-success {

@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2.9.0" />
+  <link rel="stylesheet" href="style.css?v=3.0.0" />
 </head>
 
 <body>
@@ -702,25 +702,16 @@
           <input type="text" id="guest-fullname" name="fullname" placeholder="Ej. Familia García Maya" required autofocus />
         </div>
 
-        <div class="form-group">
-          <label data-i18n="label-attendance">¿Podrá Asistir? *</label>
-          <div class="attendance-options-grid">
-            <label class="attendance-card-btn choice-accept">
-              <input type="radio" name="attendance" value="Joyfully Accept" checked />
-              <span class="choice-status-dot"></span>
-              <span class="choice-label" data-i18n="opt-accept">Sí, Asistiré</span>
-            </label>
-            <label class="attendance-card-btn choice-decline">
-              <input type="radio" name="attendance" value="Regretfully Decline" />
-              <span class="choice-status-dot"></span>
-              <span class="choice-label" data-i18n="opt-decline">No Podré Asistir</span>
-            </label>
-          </div>
+        <div class="rsvp-action-buttons">
+          <button type="button" class="btn-rsvp-action btn-rsvp-accept" id="btn-rsvp-accept" data-i18n="btn-accept">
+            <span class="btn-rsvp-icon">✓</span>
+            <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>
+          </button>
+          <button type="button" class="btn-rsvp-action btn-rsvp-decline" id="btn-rsvp-decline" data-i18n="btn-decline">
+            <span class="btn-rsvp-icon">✕</span>
+            <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>
+          </button>
         </div>
-
-        <button type="submit" class="btn-submit-rsvp" id="btn-submit-rsvp" data-i18n="btn-submit">
-          Enviar Respuesta
-        </button>
 
         <!-- Feedback message -->
         <div id="modal-success-alert" class="modal-success" hidden>
@@ -742,7 +733,7 @@
     <p class="footer-date">Sábado, 10 de Octubre de 2026 • Denver, Colorado</p>
   </footer>
 
-  <script src="main.js?v=2.9.0"></script>
+  <script src="main.js?v=3.0.0"></script>
 </body>
 
 </html>

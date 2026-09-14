@@ -96,10 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'Confirmar Asistencia para Wendy',
       'modal-subtitle': 'Sábado, 10 de Octubre de 2026 • Denver, CO',
       'label-fullname': 'Nombre Completo o Familia *',
-      'label-attendance': '¿Podrá Asistir? *',
-      'opt-accept': 'Sí, Asistiré',
-      'opt-decline': 'No Podré Asistir',
-      'btn-submit': 'Enviar Respuesta',
+      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
+      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
       'modal-success-title': '¡Muchas Gracias!',
       'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
       'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.'
@@ -149,10 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'RSVP for Wendy',
       'modal-subtitle': 'Saturday, October 10, 2026 • Denver, CO',
       'label-fullname': 'Full Name or Family Name *',
-      'label-attendance': 'Will you be attending? *',
-      'opt-accept': 'Yes, Attending',
-      'opt-decline': 'Cannot Attend',
-      'btn-submit': 'Submit Response',
+      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
+      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
       'modal-success-title': 'Thank You So Much!',
       'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!',
       'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.'
@@ -686,98 +682,119 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  if (rsvpForm) {
-    rsvpForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  const btnAccept = document.getElementById('btn-rsvp-accept');
+  const btnDecline = document.getElementById('btn-rsvp-decline');
 
-      const nameVal = nameInput ? nameInput.value.trim() : '';
-      const btn = document.getElementById('btn-submit-rsvp');
-      const attendanceRadio = rsvpForm.querySelector('input[name="attendance"]:checked');
-      const isAttending = !attendanceRadio || attendanceRadio.value === 'Joyfully Accept';
+  async function processRsvp(isAttending) {
+    const nameVal = nameInput ? nameInput.value.trim() : '';
 
-      if (!nameVal) {
-        if (nameInput) {
-          nameInput.focus();
-          nameInput.style.borderColor = '#ef4444';
-        }
-        return;
+    if (!nameVal) {
+      if (nameInput) {
+        nameInput.focus();
+        nameInput.style.borderColor = '#ef4444';
+      }
+      return;
+    }
+
+    const payload = {
+      eventSlug: EVENT_SLUG,
+      clientName: CLIENT_NAME,
+      clientEmail: CLIENT_EMAIL,
+      submittedAt: new Date().toISOString(),
+      fullname: nameVal,
+      contact: 'Confirmado por Web',
+      attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
+      partySize: isAttending ? '1' : '0',
+      notes: isAttending ? '' : 'No podrá asistir',
+      guestName: nameVal,
+      name: nameVal,
+      phone: '',
+      email: '',
+      attendance_es: isAttending ? 'Sí, Asistirá' : 'No Podrá Asistir',
+      attending: isAttending ? 'Yes' : 'No',
+      guests: isAttending ? '1' : '0',
+      wishes: '',
+      song: '',
+      message: ''
+    };
+
+    const targetBtn = isAttending ? btnAccept : btnDecline;
+    const originalText = targetBtn ? targetBtn.innerHTML : '';
+
+    if (btnAccept) btnAccept.disabled = true;
+    if (btnDecline) btnDecline.disabled = true;
+
+    if (targetBtn) {
+      targetBtn.innerHTML = currentLang === 'en' ? '<span>Saving...</span>' : '<span>Guardando...</span>';
+    }
+
+    try {
+      if (GOOGLE_SHEETS_RSVP_URL && GOOGLE_SHEETS_RSVP_URL.trim() !== '') {
+        await fetch(GOOGLE_SHEETS_RSVP_URL.trim(), {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
       }
 
-      const payload = {
-        eventSlug: EVENT_SLUG,
-        clientName: CLIENT_NAME,
-        clientEmail: CLIENT_EMAIL,
-        submittedAt: new Date().toISOString(),
-        // Primary keys expected by Google Sheets
-        fullname: nameVal,
-        contact: 'Confirmado por Web',
-        attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
-        partySize: isAttending ? '1' : '0',
-        notes: isAttending ? '' : 'No podrá asistir',
-        // Fallback & descriptive aliases
-        guestName: nameVal,
-        name: nameVal,
-        phone: '',
-        email: '',
-        attendance_es: isAttending ? 'Sí, Asistirá' : 'No Podrá Asistir',
-        attending: isAttending ? 'Yes' : 'No',
-        guests: isAttending ? '1' : '0',
-        wishes: '',
-        song: '',
-        message: ''
-      };
-
-      const originalBtnText = btn ? btn.textContent : (currentLang === 'en' ? 'Submit RSVP' : 'Enviar Confirmación');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = currentLang === 'en' ? 'Saving RSVP...' : 'Guardando respuesta...';
+      // Confetti celebration if attending
+      if (isAttending) {
+        triggerConfetti();
       }
 
-      try {
-        if (GOOGLE_SHEETS_RSVP_URL && GOOGLE_SHEETS_RSVP_URL.trim() !== '') {
-          await fetch(GOOGLE_SHEETS_RSVP_URL.trim(), {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-              'Content-Type': 'text/plain;charset=utf-8'
-            },
-            body: JSON.stringify(payload)
-          });
+      // Tailored feedback display
+      if (successAlert) {
+        const dict = translations[currentLang] || translations.es;
+        const descP = successAlert.querySelector('p');
+        if (descP) {
+          descP.textContent = isAttending ? dict['modal-success-desc'] : dict['modal-decline-desc'];
         }
-
-        // Celebratory Confetti Burst only if attending
         if (isAttending) {
-          triggerConfetti();
+          successAlert.classList.remove('is-decline');
+        } else {
+          successAlert.classList.add('is-decline');
         }
-
-        // Show success feedback tailored to attendance
-        if (successAlert) {
-          const dict = translations[currentLang] || translations.es;
-          const descP = successAlert.querySelector('p');
-          if (descP) {
-            descP.textContent = isAttending ? dict['modal-success-desc'] : dict['modal-decline-desc'];
-          }
-          if (isAttending) {
-            successAlert.classList.remove('is-decline');
-          } else {
-            successAlert.classList.add('is-decline');
-          }
-          successAlert.hidden = false;
-          rsvpForm.reset();
-        }
-        if (btn) {
-          btn.textContent = currentLang === 'en' ? 'Response Saved! ✓' : '¡Respuesta Enviada! ✓';
-        }
-      } catch (err) {
-        console.error('[RSVP Error]:', err);
-        alert(currentLang === 'en'
-          ? 'There was an issue saving your response. Please check your connection and try again.'
-          : 'Hubo un problema al guardar su respuesta. Por favor verifique su conexión e intente nuevamente.');
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = originalBtnText;
-        }
+        successAlert.hidden = false;
+        if (rsvpForm) rsvpForm.reset();
       }
+
+      if (targetBtn) {
+        targetBtn.innerHTML = currentLang === 'en' ? '<span>✓ Saved!</span>' : '<span>✓ ¡Guardado!</span>';
+      }
+    } catch (err) {
+      console.error('[RSVP Error]:', err);
+      alert(currentLang === 'en'
+        ? 'There was an issue saving your response. Please check your connection and try again.'
+        : 'Hubo un problema al guardar su respuesta. Por favor verifique su conexión e intente nuevamente.');
+      if (btnAccept) {
+        btnAccept.disabled = false;
+        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || '✓ SÍ, ASISTIRÉ';
+      }
+      if (btnDecline) {
+        btnDecline.disabled = false;
+        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || '✕ NO PODRÉ ASISTIR';
+      }
+      if (targetBtn && originalText) {
+        targetBtn.innerHTML = originalText;
+      }
+    }
+  }
+
+  if (btnAccept) {
+    btnAccept.addEventListener('click', () => processRsvp(true));
+  }
+
+  if (btnDecline) {
+    btnDecline.addEventListener('click', () => processRsvp(false));
+  }
+
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      processRsvp(true);
     });
   }
 
