@@ -96,9 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'Confirmar Asistencia para Wendy',
       'modal-subtitle': 'Sábado, 10 de Octubre de 2026 • Denver, CO',
       'label-fullname': 'Nombre Completo o Familia *',
-      'btn-submit': 'Confirmar Asistencia',
+      'label-attendance': '¿Podrá Asistir? *',
+      'opt-accept': '✨ Sí, asistiré con gusto',
+      'opt-decline': '🤍 Lamentablemente no podré',
+      'btn-submit': 'Enviar Confirmación',
       'modal-success-title': '¡Muchas Gracias!',
-      'modal-success-desc': 'Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!'
+      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
+      'modal-decline-desc': 'Gracias por avisarnos. Lamentamos que no puedas acompañarnos, ¡recibiremos tus buenos deseos con mucho cariño!'
     },
     en: {
       'invite-16': 'Quinceañera',
@@ -145,9 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'RSVP for Wendy',
       'modal-subtitle': 'Saturday, October 10, 2026 • Denver, CO',
       'label-fullname': 'Full Name or Family Name *',
-      'btn-submit': 'Confirm RSVP',
+      'label-attendance': 'Will you be attending? *',
+      'opt-accept': '✨ Joyfully Accept',
+      'opt-decline': '🤍 Regretfully Decline',
+      'btn-submit': 'Submit RSVP',
       'modal-success-title': 'Thank You So Much!',
-      'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!'
+      'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!',
+      'modal-decline-desc': 'Thank you for letting us know! We will miss celebrating with you.'
     }
   };
 
@@ -684,6 +692,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const nameVal = nameInput ? nameInput.value.trim() : '';
       const btn = document.getElementById('btn-submit-rsvp');
+      const attendanceRadio = rsvpForm.querySelector('input[name="attendance"]:checked');
+      const isAttending = !attendanceRadio || attendanceRadio.value === 'Joyfully Accept';
 
       if (!nameVal) {
         if (nameInput) {
@@ -701,26 +711,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // Primary keys expected by Google Sheets
         fullname: nameVal,
         contact: 'Confirmado por Web',
-        attendance: 'Joyfully Accept',
-        partySize: '1',
-        notes: '',
+        attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
+        partySize: isAttending ? '1' : '0',
+        notes: isAttending ? '' : 'No podrá asistir',
         // Fallback & descriptive aliases
         guestName: nameVal,
         name: nameVal,
         phone: '',
         email: '',
-        attendance_es: 'Sí, Asistirá',
-        attending: 'Yes',
-        guests: '1',
+        attendance_es: isAttending ? 'Sí, Asistirá' : 'No Podrá Asistir',
+        attending: isAttending ? 'Yes' : 'No',
+        guests: isAttending ? '1' : '0',
         wishes: '',
         song: '',
         message: ''
       };
 
-      const originalBtnText = btn ? btn.textContent : (currentLang === 'en' ? 'Confirm RSVP' : 'Confirmar Asistencia');
+      const originalBtnText = btn ? btn.textContent : (currentLang === 'en' ? 'Submit RSVP' : 'Enviar Confirmación');
       if (btn) {
         btn.disabled = true;
-        btn.textContent = currentLang === 'en' ? 'Saving RSVP...' : 'Guardando confirmación...';
+        btn.textContent = currentLang === 'en' ? 'Saving RSVP...' : 'Guardando respuesta...';
       }
 
       try {
@@ -735,22 +745,33 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
 
-        // Celebratory Confetti Burst
-        triggerConfetti();
+        // Celebratory Confetti Burst only if attending
+        if (isAttending) {
+          triggerConfetti();
+        }
 
-        // Show success feedback
+        // Show success feedback tailored to attendance
         if (successAlert) {
+          const dict = translations[currentLang] || translations.es;
+          const descP = successAlert.querySelector('p');
+          const iconDiv = successAlert.querySelector('.success-icon');
+          if (descP) {
+            descP.textContent = isAttending ? dict['modal-success-desc'] : dict['modal-decline-desc'];
+          }
+          if (iconDiv) {
+            iconDiv.textContent = isAttending ? '👑 ✨ 💙' : '💌 🕊️ 🤍';
+          }
           successAlert.hidden = false;
           rsvpForm.reset();
         }
         if (btn) {
-          btn.textContent = currentLang === 'en' ? 'RSVP Confirmed! ✓' : '¡Confirmado con Éxito! ✓';
+          btn.textContent = currentLang === 'en' ? 'RSVP Submitted! ✓' : '¡Respuesta Enviada! ✓';
         }
       } catch (err) {
         console.error('[RSVP Error]:', err);
         alert(currentLang === 'en'
-          ? 'There was an issue saving your confirmation. Please check your connection and try again.'
-          : 'Hubo un problema al guardar su confirmación. Por favor verifique su conexión e intente nuevamente.');
+          ? 'There was an issue saving your response. Please check your connection and try again.'
+          : 'Hubo un problema al guardar su respuesta. Por favor verifique su conexión e intente nuevamente.');
         if (btn) {
           btn.disabled = false;
           btn.textContent = originalBtnText;

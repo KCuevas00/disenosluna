@@ -2228,6 +2228,76 @@ body.site-entered .lang-control-bar {
   background: #ffffff;
 }
 
+/* ── ATTENDANCE CHOICES (CONFIRM / DECLINE) ── */
+.attendance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.4rem;
+}
+
+.attendance-radio-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  background: #f8fafc;
+  border: 1.5px solid rgba(148, 163, 184, 0.35);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.attendance-radio-card:hover {
+  background: #f0f7fc;
+  border-color: var(--theme-primary);
+}
+
+.attendance-radio-card input[type="radio"] {
+  display: none;
+}
+
+.attendance-radio-card .radio-custom {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #94a3b8;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.attendance-radio-card input[type="radio"]:checked + .radio-custom {
+  border-color: var(--theme-primary);
+  background: var(--theme-primary);
+}
+
+.attendance-radio-card input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.attendance-radio-card:has(input[type="radio"]:checked) {
+  border-color: var(--theme-primary);
+  background: #edf6fd;
+  box-shadow: 0 2px 8px rgba(91, 163, 208, 0.2);
+}
+
+.attendance-radio-card .radio-text {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
 .btn-submit-rsvp {
   background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
   color: #ffffff;
