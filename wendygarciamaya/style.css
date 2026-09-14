@@ -499,11 +499,12 @@ body.site-entered .lang-control-bar {
 }
 
 .env-card-flower.top-right {
-  top: -24px;
-  right: -24px;
-  width: 105px;
-  height: 105px;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
   transform: rotate(90deg);
+  opacity: 0.7;
 }
 
 .env-card-flower.bottom-left {
@@ -2393,6 +2394,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   object-fit: contain;
   pointer-events: none;
   filter: none;
+  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .flower-top-right {
@@ -2410,6 +2412,16 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   width: 275px;
   height: 275px;
   z-index: 25;
+}
+
+/* Gracefully fade away top-right floral bouquet as envelope opens so letter text & crown remain unobstructed */
+.entry-overlay.is-opened .flower-top-right,
+.entry-stage-mount.is-opened .flower-top-right,
+.luxury-envelope-container.is-opened ~ .envelope-floral-frame .flower-top-right,
+:has(> .luxury-envelope-container.is-opened) .flower-top-right {
+  opacity: 0;
+  transform: scaleX(-1) translate(-28px, -28px) scale(0.92);
+  pointer-events: none;
 }
 
 /* 3D Envelope Container (Bespoke Baby Blue Stationery with Silver Accents) */

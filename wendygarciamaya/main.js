@@ -433,6 +433,9 @@ document.addEventListener('DOMContentLoaded', () => {
     envelopeOpened = true;
 
     // 1. Open envelope flap and glide up invitation card
+    if (overlay) {
+      overlay.classList.add('is-opened');
+    }
     if (envelope) {
       envelope.classList.add('is-opened');
     }
