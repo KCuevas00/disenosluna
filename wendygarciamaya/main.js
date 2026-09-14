@@ -95,15 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'rsvp-thankyou': '¡Muchas Gracias!',
       'modal-title': 'Confirmar Asistencia para Wendy',
       'modal-subtitle': 'Sábado, 10 de Octubre de 2026 • Denver, CO',
-      'label-fullname': 'Nombre Completo de los Invitados *',
-      'label-email': 'Teléfono o Correo Electrónico *',
-      'label-attend': '¿Asistirá al Evento? *',
-      'opt-select': 'Por favor seleccione...',
-      'opt-yes': 'Sí, asistiré con mucho gusto',
-      'opt-no': 'No podré asistir (los acompañaré en espíritu)',
-      'label-party': 'Número Total de Personas',
-      'label-notes': 'Mensaje de Felicitación o Canción para Wendy',
-      'btn-submit': 'Enviar Confirmación',
+      'label-fullname': 'Nombre Completo o Familia *',
+      'btn-submit': 'Confirmar Asistencia',
       'modal-success-title': '¡Muchas Gracias!',
       'modal-success-desc': 'Su confirmación ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!'
     },
@@ -151,15 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'rsvp-thankyou': 'Thank You So Much!',
       'modal-title': 'RSVP for Wendy',
       'modal-subtitle': 'Saturday, October 10, 2026 • Denver, CO',
-      'label-fullname': 'Full Name(s) of Guests *',
-      'label-email': 'Phone or Email Address *',
-      'label-attend': 'Will You Be Attending? *',
-      'opt-select': 'Please select...',
-      'opt-yes': 'Yes, joyfully accept',
-      'opt-no': 'No, regretfully decline',
-      'label-party': 'Total Number of Guests Attending',
-      'label-notes': 'Warm Wishes or Song Request for Wendy',
-      'btn-submit': 'Submit RSVP',
+      'label-fullname': 'Full Name or Family Name *',
+      'btn-submit': 'Confirm RSVP',
       'modal-success-title': 'Thank You So Much!',
       'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!'
     }
@@ -677,8 +663,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const attendInput = document.getElementById('guest-attend');
-  const partyGroup = document.getElementById('group-guests-count');
+  const nameInput = document.getElementById('guest-fullname');
+  if (nameInput) {
+    nameInput.addEventListener('input', () => { nameInput.style.borderColor = ''; });
+  }
 
   // Escape key closes modal
   document.addEventListener('keydown', (e) => {
@@ -687,61 +675,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Toggle party size visibility if declining
-  if (attendInput && partyGroup) {
-    attendInput.addEventListener('change', () => {
-      partyGroup.style.display = attendInput.value === 'no' ? 'none' : 'block';
-    });
-  }
-
-  [document.getElementById('guest-fullname'), document.getElementById('guest-email'), document.getElementById('guest-attend')].forEach(el => {
-    if (el) {
-      el.addEventListener('input', () => { el.style.borderColor = ''; });
-      el.addEventListener('change', () => { el.style.borderColor = ''; });
-    }
-  });
-
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const nameInput = document.getElementById('guest-fullname');
-      const contactInput = document.getElementById('guest-email');
-      const currentAttend = document.getElementById('guest-attend');
-      const partySizeInput = document.getElementById('guest-party-size');
-      const notesInput = document.getElementById('guest-notes');
+      const nameVal = nameInput ? nameInput.value.trim() : '';
       const btn = document.getElementById('btn-submit-rsvp');
 
-      [nameInput, contactInput, currentAttend].forEach(el => {
-        if (el) el.style.borderColor = '';
-      });
-
-      if (!nameInput || !nameInput.value.trim()) {
+      if (!nameVal) {
         if (nameInput) {
           nameInput.focus();
           nameInput.style.borderColor = '#ef4444';
         }
         return;
       }
-      if (!contactInput || !contactInput.value.trim()) {
-        if (contactInput) {
-          contactInput.focus();
-          contactInput.style.borderColor = '#ef4444';
-        }
-        return;
-      }
-      if (!currentAttend || !currentAttend.value) {
-        if (currentAttend) {
-          currentAttend.focus();
-          currentAttend.style.borderColor = '#ef4444';
-        }
-        return;
-      }
-
-      const isAttending = currentAttend.value === 'yes';
-      // Google Sheet summary dashboard formulas look specifically for 'Joyfully Accept' / 'Regretfully Decline'
-      const attendanceStandard = isAttending ? 'Joyfully Accept' : 'Regretfully Decline';
-      const cleanPartySize = isAttending ? (partySizeInput ? partySizeInput.value.replace('+', '') : '1') : '0';
 
       const payload = {
         eventSlug: EVENT_SLUG,
@@ -749,25 +696,25 @@ document.addEventListener('DOMContentLoaded', () => {
         clientEmail: CLIENT_EMAIL,
         submittedAt: new Date().toISOString(),
         // Primary keys expected by Google Sheets
-        fullname: nameInput.value.trim(),
-        contact: contactInput.value.trim(),
-        attendance: attendanceStandard,
-        partySize: cleanPartySize,
-        notes: notesInput ? notesInput.value.trim() : '',
+        fullname: nameVal,
+        contact: 'Confirmado por Web',
+        attendance: 'Joyfully Accept',
+        partySize: '1',
+        notes: '',
         // Fallback & descriptive aliases
-        guestName: nameInput.value.trim(),
-        name: nameInput.value.trim(),
-        phone: contactInput.value.trim(),
-        email: contactInput.value.trim(),
-        attendance_es: isAttending ? 'Sí, Asistirá' : 'No podré asistir',
-        attending: isAttending ? 'Yes' : 'No',
-        guests: cleanPartySize,
-        wishes: notesInput ? notesInput.value.trim() : '',
-        song: notesInput ? notesInput.value.trim() : '',
-        message: notesInput ? notesInput.value.trim() : ''
+        guestName: nameVal,
+        name: nameVal,
+        phone: '',
+        email: '',
+        attendance_es: 'Sí, Asistirá',
+        attending: 'Yes',
+        guests: '1',
+        wishes: '',
+        song: '',
+        message: ''
       };
 
-      const originalBtnText = btn ? btn.textContent : (currentLang === 'en' ? 'Submit RSVP' : 'Enviar Confirmación');
+      const originalBtnText = btn ? btn.textContent : (currentLang === 'en' ? 'Confirm RSVP' : 'Confirmar Asistencia');
       if (btn) {
         btn.disabled = true;
         btn.textContent = currentLang === 'en' ? 'Saving RSVP...' : 'Guardando confirmación...';
@@ -792,7 +739,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (successAlert) {
           successAlert.hidden = false;
           rsvpForm.reset();
-          if (partyGroup) partyGroup.style.display = 'block';
         }
         if (btn) {
           btn.textContent = currentLang === 'en' ? 'RSVP Confirmed! ✓' : '¡Confirmado con Éxito! ✓';

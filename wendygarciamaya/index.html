@@ -703,44 +703,12 @@
       <form id="rsvp-form" class="modal-form" novalidate>
 
         <div class="form-group">
-          <label for="guest-fullname" data-i18n="label-fullname">Nombre Completo de los Invitados *</label>
-          <input type="text" id="guest-fullname" name="fullname" placeholder="Ej. Familia García Maya" required />
-        </div>
-
-        <div class="form-group">
-          <label for="guest-email" data-i18n="label-email">Teléfono o Correo Electrónico *</label>
-          <input type="text" id="guest-email" name="contact" placeholder="(720) 555-0192 o correo@ejemplo.com"
-            required />
-        </div>
-
-        <div class="form-group">
-          <label for="guest-attend" data-i18n="label-attend">¿Asistirá al Evento? *</label>
-          <select id="guest-attend" name="attendance" required>
-            <option value="" disabled selected data-i18n="opt-select">Por favor seleccione...</option>
-            <option value="yes" data-i18n="opt-yes">Sí, asistiré con mucho gusto</option>
-            <option value="no" data-i18n="opt-no">No podré asistir (los acompañaré en espíritu)</option>
-          </select>
-        </div>
-
-        <div class="form-group" id="group-guests-count">
-          <label for="guest-party-size" data-i18n="label-party">Número Total de Personas</label>
-          <select id="guest-party-size" name="partySize">
-            <option value="1">1 Persona</option>
-            <option value="2" selected>2 Personas</option>
-            <option value="3">3 Personas</option>
-            <option value="4">4 Personas</option>
-            <option value="5+">5+ Personas (Familia)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="guest-notes" data-i18n="label-notes">Mensaje de Felicitación o Canción para Wendy</label>
-          <textarea id="guest-notes" name="notes" rows="2"
-            placeholder="Escribe un mensaje de bendición o una canción que te gustaría bailar..."></textarea>
+          <label for="guest-fullname" data-i18n="label-fullname">Nombre Completo o Familia *</label>
+          <input type="text" id="guest-fullname" name="fullname" placeholder="Ej. Familia García Maya" required autofocus />
         </div>
 
         <button type="submit" class="btn-submit-rsvp" id="btn-submit-rsvp" data-i18n="btn-submit">
-          Enviar Confirmación
+          Confirmar Asistencia
         </button>
 
         <!-- Feedback message -->
