@@ -457,6 +457,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: scaleX(-1) rotate(-8deg);
   transform-origin: center center;
+  opacity: 0.78;
 }
 
 .flower-card-top-right {
@@ -468,6 +469,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: rotate(-8deg);
   transform-origin: center center;
+  opacity: 0.78;
 }
 
 .flower-card-bottom-left {
@@ -804,8 +806,8 @@ body.site-entered .lang-control-bar {
   overflow: hidden;
   box-shadow:
     0 0 0 3px #ffffff,
-    0 0 0 5.5px var(--theme-primary),
-    0 16px 36px rgba(107, 33, 168, 0.22);
+    0 0 0 5px #a855f7,
+    0 16px 36px rgba(168, 85, 247, 0.22);
 }
 
 .celebrant-photo {
