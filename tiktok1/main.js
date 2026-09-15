@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   const translations = {
     es: {
-      'invite-16': 'Mis XV Años',
-      'invite-quince': 'Mis XV Años',
-      'invite-parents': 'MARIA GUADALUPE &amp; JUAN CARLOS CARRILLO',
-      'invite-preamble': 'MARIA &amp; JUAN CARLOS CORDIALMENTE LE INVITAN A CELEBRAR',
+      'invite-16': 'XV Años',
+      'invite-quince': 'XV Años',
+      'invite-parents': 'MARIA &amp; JUAN CARLOS',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-day': 'SÁBADO',
       'invite-date-full': '14 de Noviembre, 2026',
@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     en: {
       'invite-16': 'Quinceañera',
       'invite-quince': 'Quinceañera',
-      'invite-parents': 'MARIA GUADALUPE &amp; JUAN CARLOS CARRILLO',
-      'invite-preamble': 'MARIA &amp; JUAN CARLOS WARMLY INVITE YOU TO CELEBRATE THE',
+      'invite-parents': 'MARIA &amp; JUAN CARLOS',
+      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-day': 'SATURDAY',
       'invite-date-full': 'November 14, 2026',
@@ -141,12 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  let currentLang = 'es';
+  let currentLang = 'en';
 
   function applyLanguage(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
-    const dict = translations[lang] || translations.es;
+    const dict = translations[lang] || translations.en;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -168,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
   if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
 
-  // Default to Spanish on startup
-  applyLanguage('es');
+  // Default to English on startup
+  applyLanguage('en');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
   function initControlToggles() {

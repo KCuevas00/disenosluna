@@ -721,9 +721,9 @@ body.site-entered .lang-control-bar {
 
 .top-crown-container,
 .hero-crown-flourish {
-  width: 90px;
+  width: 140px;
   height: auto;
-  margin: 0 auto 0.9rem;
+  margin: 0 auto 1.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -731,10 +731,10 @@ body.site-entered .lang-control-bar {
 
 .crown-flourish-img,
 .crown-flourish-svg {
-  width: 30px;
+  width: 68px;
   height: auto;
-  opacity: 0.9;
-  filter: drop-shadow(0 2px 8px rgba(107, 33, 168, 0.25));
+  opacity: 1;
+  filter: drop-shadow(0 4px 12px rgba(107, 33, 168, 0.35));
 }
 
 /* ── CELEBRANT PORTRAIT: COUTURE EDITORIAL INTEGRATION ── */
@@ -862,15 +862,25 @@ body.site-entered .lang-control-bar {
   z-index: 1;
 }
 
-.invite-preamble {
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 2.2vw, 0.82rem);
+.parents-line {
+  font-family: var(--font-serif);
+  font-size: clamp(0.88rem, 2.7vw, 0.98rem);
   font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--text-dark);
   text-transform: uppercase;
   margin-bottom: 0.35rem;
-  max-width: 420px;
+}
+
+.invite-preamble {
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 2.1vw, 0.76rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--text-charcoal);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  max-width: 440px;
   line-height: 1.5;
 }
 
