@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   const translations = {
     es: {
-      'invite-16': 'Mis XV Años',
-      'invite-quince': 'Mis XV Años',
+      'invite-16': 'XV Años',
+      'invite-quince': 'XV Años',
       'invite-parents': 'MARIBEL MAYA &amp; JAVIER GARCIA',
-      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A LOS QUINCE AÑOS',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-day': 'SÁBADO',
       'invite-date-full': '10 de Octubre, 2026',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-16': 'Quinceañera',
       'invite-quince': 'Quinceañera',
       'invite-parents': 'MARIBEL MAYA &amp; JAVIER GARCIA',
-      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE QUINCEAÑERA OF THEIR DAUGHTER',
+      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-day': 'SATURDAY',
       'invite-date-full': 'October 10, 2026',
