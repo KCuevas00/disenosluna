@@ -1,41 +1,41 @@
 /* ═════════════════════════════════════════════════════════════════════
-   QUINCE INVITATION — VALENTINA MORALES
-   Bespoke Dark Purple, Sapphire Blue, Silver & White Design System
+   QUINCE INVITATION — CAMILA VALENTINA
+   Bespoke Pastel Yellow, Honey Amber, Sage Green & Warm Gold System
    ═════════════════════════════════════════════════════════════════════ */
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
-  /* Royal Dark Purple, Sapphire Blue, Crisp White & Sparkling Silver Scheme */
-  --bg-page: #e8dcf8;
-  --bg-page-gradient: radial-gradient(circle at 50% 15%, #f7f2fe 0%, #ede1fd 45%, #decefa 100%);
+  /* Warm Honey, Pastel Buttercup, Fresh Green & Sparkling Gold Scheme */
+  --bg-page: #fefce8;
+  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #fefce8 45%, #fef3c7 100%);
   --card-white: #ffffff;
 
   /* Typographic Contrast */
-  --text-dark: #1b0c36;
-  --text-charcoal: #2c1452;
-  --text-subtle: #4c2f75;
-  --text-muted: #72529c;
+  --text-dark: #291e10;
+  --text-charcoal: #3d2d18;
+  --text-subtle: #5e4726;
+  --text-muted: #856a42;
 
-  /* Royal Dark Purple & Sapphire Blue Accents */
-  --theme-primary: #6b21a8;
-  --theme-dark: #2e0854;
-  --theme-light: #f6f0fd;
-  --theme-soft: #9333ea;
-  --theme-blue: #1d4ed8;
-  --theme-blue-soft: #3b82f6;
+  /* Yellow, Honey & Green Accents */
+  --theme-primary: #d97706;
+  --theme-dark: #78350f;
+  --theme-light: #fefce8;
+  --theme-soft: #f59e0b;
+  --theme-green: #2d5a27;
+  --theme-green-soft: #4d7c0f;
   --rose-gold: var(--theme-primary);
   --rose-gold-dark: var(--theme-dark);
   --rose-gold-light: var(--theme-light);
 
   /* Ribbon & Buttons */
-  --ribbon-blush: linear-gradient(135deg, #4c1d95 0%, #1e40af 50%, #2563eb 100%);
-  --ribbon-blush-hover: linear-gradient(135deg, #581c87 0%, #1e3a8a 50%, #1d4ed8 100%);
+  --ribbon-blush: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+  --ribbon-blush-hover: linear-gradient(135deg, #92400e 0%, #b45309 50%, #d97706 100%);
 
-  /* Sparkling Silver Accents */
-  --metal-accent: #94a3b8;
-  --metal-light: #f8fafc;
-  --metal-dark: #475569;
-  --silver-glow: rgba(203, 213, 225, 0.65);
+  /* Warm Gold Accents */
+  --metal-accent: #c49658;
+  --metal-light: #fef9c3;
+  --metal-dark: #855829;
+  --silver-glow: rgba(245, 158, 11, 0.45);
   --gold-accent: var(--metal-accent);
   --gold-light: var(--metal-light);
   --gold-dark: var(--metal-dark);
@@ -132,7 +132,7 @@ body.site-entered {
   border: 1px solid rgba(148, 163, 184, 0.4);
   border-radius: 999px;
   padding: 4px 10px 4px 6px;
-  box-shadow: 0 4px 18px rgba(107, 33, 168, 0.16);
+  box-shadow: 0 4px 18px rgba(180, 83, 9, 0.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -147,7 +147,7 @@ body.site-entered .audio-control-bar {
 
 .audio-control-bar:hover {
   background: #ffffff;
-  box-shadow: 0 6px 22px rgba(107, 33, 168, 0.22);
+  box-shadow: 0 6px 22px rgba(180, 83, 9, 0.22);
 }
 
 .audio-btn {
@@ -293,7 +293,7 @@ body.site-entered .audio-control-bar {
   border: 1px solid rgba(148, 163, 184, 0.4);
   border-radius: 999px;
   padding: 4px 6px 4px 10px;
-  box-shadow: 0 4px 18px rgba(107, 33, 168, 0.16);
+  box-shadow: 0 4px 18px rgba(180, 83, 9, 0.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -332,7 +332,7 @@ body.site-entered .lang-control-bar {
 .lang-pill-btn.active {
   background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(107, 33, 168, 0.3);
+  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.3);
 }
 
 .lang-pill-btn:hover:not(.active) {
@@ -399,7 +399,7 @@ body.site-entered .lang-control-bar {
   justify-content: center !important;
   align-items: center !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 14px rgba(107, 33, 168, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.2) !important;
 }
 
 .audio-control-bar.collapsed .control-arrow-btn,
@@ -427,10 +427,10 @@ body.site-entered .lang-control-bar {
   border: 1px solid rgba(148, 163, 184, 0.32);
   border-radius: 24px;
   box-shadow:
-    0 25px 70px rgba(107, 33, 168, 0.14),
+    0 25px 70px rgba(180, 83, 9, 0.14),
     0 4px 20px rgba(0, 0, 0, 0.04),
     inset 0 0 0 1px rgba(255, 255, 255, 0.9),
-    inset 0 0 35px rgba(216, 180, 254, 0.18);
+    inset 0 0 35px rgba(254, 240, 138, 0.35);
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -445,7 +445,7 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 10px 22px rgba(76, 29, 149, 0.16));
+  filter: drop-shadow(0 10px 22px rgba(180, 83, 9, 0.16));
 }
 
 .flower-card-top-left {
@@ -668,7 +668,7 @@ body.site-entered .lang-control-bar {
   max-width: 380px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 6px 16px rgba(107, 33, 168, 0.14));
+  filter: drop-shadow(0 6px 16px rgba(180, 83, 9, 0.14));
 }
 
 .vignette-floral-divider {
@@ -693,7 +693,7 @@ body.site-entered .lang-control-bar {
   pointer-events: none;
   z-index: 1;
   opacity: 0.08;
-  filter: drop-shadow(0 8px 20px rgba(107, 33, 168, 0.12));
+  filter: drop-shadow(0 8px 20px rgba(180, 83, 9, 0.12));
 }
 
 .watermark-top-right {
@@ -736,7 +736,7 @@ body.site-entered .lang-control-bar {
   max-width: 75vw;
   height: auto;
   opacity: 1;
-  filter: drop-shadow(0 4px 14px rgba(107, 33, 168, 0.35));
+  filter: drop-shadow(0 4px 14px rgba(180, 83, 9, 0.35));
 }
 
 /* ── CELEBRANT PORTRAIT: COUTURE EDITORIAL INTEGRATION ── */
@@ -774,8 +774,8 @@ body.site-entered .lang-control-bar {
   overflow: hidden;
   box-shadow:
     0 0 0 3px #ffffff,
-    0 0 0 5px #a855f7,
-    0 16px 36px rgba(168, 85, 247, 0.22);
+    0 0 0 5px var(--gold-accent),
+    0 16px 36px rgba(180, 83, 9, 0.18);
 }
 
 .celebrant-photo {
@@ -858,7 +858,7 @@ body.site-entered .lang-control-bar {
   font-weight: 400;
   line-height: 0.95;
   color: var(--theme-dark);
-  text-shadow: 0 2px 12px rgba(107, 33, 168, 0.25);
+  text-shadow: 0 2px 12px rgba(180, 83, 9, 0.25);
   margin: 0.25rem 0;
 }
 
@@ -1269,15 +1269,15 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 4px 14px rgba(107, 33, 168, 0.15);
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.15);
   transition: var(--transition-smooth);
 }
 
 .timeline-row:hover .timeline-node {
-  border-color: #94a3b8;
-  color: #170a2f;
+  border-color: #c49658;
+  color: #2e1c17;
   transform: scale(1.12);
-  background: #f8fafc;
+  background: #fefce8;
 }
 
 .tl-icon {
@@ -1377,14 +1377,14 @@ body.site-entered .lang-control-bar {
   border-radius: 12px;
   overflow: hidden;
   border: 1.5px solid rgba(148, 163, 184, 0.48);
-  box-shadow: 0 6px 18px rgba(107, 33, 168, 0.16);
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.16);
   background: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-photo-card:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 24px rgba(107, 33, 168, 0.24);
+  box-shadow: 0 10px 24px rgba(180, 83, 9, 0.24);
 }
 
 .timeline-venue-img {
@@ -1408,7 +1408,7 @@ body.site-entered .lang-control-bar {
   border: 1.5px solid rgba(148, 163, 184, 0.48);
   border-radius: 20px;
   box-shadow:
-    0 16px 42px rgba(107, 33, 168, 0.13),
+    0 16px 42px rgba(180, 83, 9, 0.13),
     inset 0 0 0 5px #ffffff,
     inset 0 0 0 6.5px rgba(148, 163, 184, 0.28);
   padding: 2.2rem 1.6rem;
@@ -1428,7 +1428,7 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 6px 14px rgba(30, 10, 60, 0.15));
+  filter: drop-shadow(0 6px 14px rgba(180, 83, 9, 0.15));
   z-index: 3;
 }
 
@@ -1523,7 +1523,7 @@ body.site-entered .lang-control-bar {
   justify-content: center;
   background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
   border: 2px solid var(--gold-accent);
-  box-shadow: 0 6px 18px rgba(107, 33, 168, 0.18);
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.18);
   overflow: hidden;
 }
 
@@ -1629,7 +1629,7 @@ body.site-entered .lang-control-bar {
   font-size: clamp(1.35rem, 4.2vw, 1.75rem) !important;
   font-weight: 600 !important;
   letter-spacing: 0.12em !important;
-  color: #1e3a8a !important;
+  color: var(--theme-dark) !important;
   text-transform: uppercase !important;
   font-style: normal !important;
 }
@@ -1652,7 +1652,7 @@ body.site-entered .lang-control-bar {
   width: 115px;
   height: 115px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(30, 10, 60, 0.14));
+  filter: drop-shadow(0 6px 14px rgba(180, 83, 9, 0.14));
   z-index: 2;
 }
 
@@ -1728,7 +1728,7 @@ body.site-entered .lang-control-bar {
   font-weight: 700;
   font-size: 0.84rem;
   letter-spacing: 0.04em;
-  color: #1e3a8a;
+  color: var(--theme-dark);
 }
 
 .dresscode-vignette .vignette-prose strong {
@@ -1764,12 +1764,12 @@ body.site-entered .lang-control-bar {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #eff6ff 55%, #dbeafe 100%);
-  border: 1.5px solid rgba(148, 163, 184, 0.45);
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fefce8 55%, #fef08a 100%);
+  border: 1.5px solid rgba(212, 170, 99, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(107, 33, 168, 0.14);
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.14);
 }
 
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
@@ -1792,7 +1792,7 @@ body.site-entered .lang-control-bar {
   border-radius: 60px 60px 14px 14px;
   overflow: hidden;
   border: 2px solid var(--gold-accent);
-  box-shadow: 0 10px 24px rgba(107, 33, 168, 0.2);
+  box-shadow: 0 10px 24px rgba(180, 83, 9, 0.2);
   flex-shrink: 0;
 }
 
@@ -1905,13 +1905,13 @@ body.site-entered .lang-control-bar {
   font-size: 7.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #110524;
-  background: linear-gradient(135deg, #2e0854 0%, #581c87 35%, #7e22ce 60%, #4c1d95 85%, #9333ea 100%);
+  color: #78350f;
+  background: linear-gradient(135deg, #f5e4bd 0%, #d4aa63 35%, #ffffff 55%, #c89e50 75%, #ecd6a4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 4px 14px rgba(76, 29, 149, 0.35));
+  filter: drop-shadow(0 4px 14px rgba(180, 83, 9, 0.35));
 }
 
 .letter-floral {
@@ -1993,7 +1993,7 @@ body.site-entered .lang-control-bar {
   cursor: pointer;
   padding: 0 1.6rem;
   max-width: calc(100vw - 64px);
-  box-shadow: 0 4px 18px rgba(107, 33, 168, 0.28);
+  box-shadow: 0 4px 18px rgba(180, 83, 9, 0.28);
   transition: var(--transition-smooth);
 }
 
@@ -2008,7 +2008,7 @@ body.site-entered .lang-control-bar {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(30, 10, 60, 0.35);
+  text-shadow: 0 1px 2px rgba(180, 83, 9, 0.25);
   white-space: nowrap;
   text-transform: uppercase;
 }
@@ -2437,7 +2437,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   pointer-events: none;
 }
 
-/* 3D Envelope Container (Bespoke Royal Purple & Sapphire Velvet with Silver Accents) */
+/* 3D Envelope Container (Warm Ivory & Cream Linen with Warm Gold Accents) */
 .luxury-envelope-container {
   position: relative;
   width: 370px;
@@ -2447,37 +2447,37 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   user-select: none;
   transform-style: preserve-3d;
   border-radius: 6px;
-  background: #25124b;
-  border: 1px solid rgba(203, 213, 225, 0.65);
+  background: #fdfaf0;
+  border: 1.5px solid rgba(212, 170, 99, 0.6);
   box-shadow:
-    0 25px 55px rgba(15, 5, 35, 0.55),
-    0 8px 22px rgba(10, 2, 25, 0.35);
+    0 25px 55px rgba(120, 53, 15, 0.22),
+    0 8px 22px rgba(180, 83, 9, 0.15);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
 
 .luxury-envelope-container:hover {
   box-shadow:
-    0 32px 70px rgba(20, 65, 110, 0.28),
-    0 12px 30px rgba(15, 35, 58, 0.1);
+    0 32px 70px rgba(180, 83, 9, 0.28),
+    0 12px 30px rgba(120, 53, 15, 0.15);
 }
 
 /* Envelope Interior Back Wall */
 .env-back {
   position: absolute;
   inset: 0;
-  background: #3b146b;
+  background: #fef9c3;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(10, 2, 25, 0.6);
+  box-shadow: inset 0 0 35px rgba(217, 119, 6, 0.25);
 }
 
 .env-interior-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.45) 0, rgba(255, 255, 255, 0.45) 1px, transparent 0, transparent 20px),
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.45) 0, rgba(255, 255, 255, 0.45) 1px, transparent 0, transparent 20px);
+    repeating-linear-gradient(45deg, rgba(212, 170, 99, 0.35) 0, rgba(212, 170, 99, 0.35) 1px, transparent 0, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(212, 170, 99, 0.35) 0, rgba(212, 170, 99, 0.35) 1px, transparent 0, transparent 20px);
 }
 
 /* Inside Invitation Card */
@@ -2513,7 +2513,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   padding: 14px 12px 16px;
   text-align: center;
   background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 1) 0%, rgba(240, 246, 255, 0.85) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(107, 33, 168, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(180, 83, 9, 0.15);
 }
 
 .card-crown-flourish {
@@ -2529,7 +2529,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   border: 2.5px solid var(--gold-accent);
   box-shadow:
     0 0 0 3px rgba(255, 255, 255, 0.9),
-    0 6px 18px rgba(107, 33, 168, 0.25);
+    0 6px 18px rgba(180, 83, 9, 0.25);
   overflow: hidden;
 }
 
@@ -2571,11 +2571,11 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(175deg, #2e145c 0%, #1f0c3d 50%, #15062a 100%);
+  background: linear-gradient(175deg, #fffdf5 0%, #fef9c3 50%, #fde68a 100%);
   border-radius: 6px;
   z-index: 12;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
-  box-shadow: inset 0 -4px 15px rgba(10, 2, 25, 0.45), inset 0 1px 0 rgba(203, 213, 225, 0.5);
+  box-shadow: inset 0 -4px 15px rgba(180, 83, 9, 0.18), inset 0 1px 0 rgba(212, 170, 99, 0.6);
 }
 
 .env-pocket::before {
@@ -2583,8 +2583,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(20, 65, 110, 0.12) 0%, transparent 45%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(217, 119, 6, 0.08) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -2599,10 +2599,10 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform-style: preserve-3d;
   z-index: 15;
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
-  filter: drop-shadow(0 6px 14px rgba(10, 2, 25, 0.45));
+  filter: drop-shadow(0 6px 14px rgba(120, 53, 15, 0.2));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(160deg, #3b1d6e 0%, #25124b 50%, #170932 100%);
-  border-top: 2px solid #cbd5e1;
+  background: linear-gradient(160deg, #fffdf5 0%, #fef9c3 50%, #fef08a 100%);
+  border-top: 2px solid #d4aa63;
 }
 
 .luxury-envelope-container.is-opened .env-flap {
@@ -2630,65 +2630,9 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   pointer-events: none;
 }
 
-.seal-glow-halo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(216, 180, 254, 0.85) 0%, rgba(168, 85, 247, 0.5) 42%, rgba(148, 163, 184, 0.25) 62%, transparent 75%);
-  filter: blur(10px);
-  animation: sealHaloBreathe 3s infinite ease-in-out;
-  pointer-events: none;
-}
+.seal-glow-halo { display: none !important; }
+.seal-pulse-ring { display: none !important; }
 
-.seal-pulse-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
-  border: 2px solid rgba(168, 85, 247, 0.85);
-  pointer-events: none;
-  animation: sealRingRipple 3s infinite cubic-bezier(0.15, 0.85, 0.35, 1);
-}
-
-.seal-pulse-ring.ring-delayed {
-  animation-delay: 1.5s;
-}
-
-@keyframes sealHaloBreathe {
-  0%, 100% {
-    opacity: 0.55;
-    transform: translate(-50%, -50%) scale(0.92);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.22);
-  }
-}
-
-@keyframes sealRingRipple {
-  0% {
-    transform: translate(-50%, -50%) scale(0.85);
-    opacity: 0.95;
-    border-color: rgba(168, 85, 247, 0.85);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
-  }
-  60% {
-    opacity: 0.4;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.7);
-    opacity: 0;
-    border-color: rgba(148, 163, 184, 0);
-    box-shadow: 0 0 25px rgba(148, 163, 184, 0);
-  }
-}
 
 .wax-seal-btn {
   position: relative;
@@ -2712,20 +2656,13 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 @keyframes stampPulseGlow {
-  0%, 100% {
-    transform: scale(1);
-    filter: drop-shadow(0 4px 12px rgba(30, 10, 60, 0.35));
-  }
-  50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 6px 18px rgba(30, 10, 60, 0.5));
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .wax-seal-btn:hover {
   animation-play-state: paused;
   transform: scale(1.08);
-  filter: drop-shadow(0 8px 22px rgba(30, 10, 60, 0.55));
 }
 
 /* ── SCROLL REVEAL ANIMATIONS ── */

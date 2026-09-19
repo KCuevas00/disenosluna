@@ -1,6 +1,6 @@
 /**
  * ═════════════════════════════════════════════════════════════════════
- * QUINCE INVITATION — XIMENA GUADALUPE
+ * QUINCE INVITATION — CAMILA VALENTINA
  * Interactive Controller, Petals Cascade Engine, Photo Switcher & Audio
  * ═════════════════════════════════════════════════════════════════════
  */
@@ -12,8 +12,8 @@
  * dedicated private Google Sheet.
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
-const EVENT_SLUG = 'ximenaguadalupe';
-const CLIENT_NAME = "Ximena Guadalupe's Quinceañera";
+const EVENT_SLUG = 'camilavalentina';
+const CLIENT_NAME = "Camila Valentina's Quinceañera";
 const CLIENT_EMAIL = '';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     es: {
       'invite-16': 'XV Años',
       'invite-quince': 'XV Años',
-      'invite-parents': 'MARIA &amp; JUAN CARLOS',
+      'invite-parents': 'CARMEN &amp; ROBERTO',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-day': 'SÁBADO',
@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
       'court-role-chambelan': 'CHAMBELÁN DE HONOR',
       'court-chambelanes-title': 'CHAMBELANES',
       'registry-title': 'LLUVIA DE SOBRES',
-      'registry-desc': 'Lo más importante para nosotros es celebrar juntos. Si desea tener un detalle especial con Ximena, sus buenos deseos en sobre serán recibidos con mucho cariño.',
+      'registry-desc': 'Lo más importante para nosotros es celebrar juntos. Si desea tener un detalle especial con Camila, sus buenos deseos en sobre serán recibidos con mucho cariño.',
       'message-quote': 'Ayer era una niña soñando con crecer; hoy celebro mis quince años rodeada del amor de mi familia y amigos. Gracias a mis papás por su apoyo incondicional y por enseñarme el verdadero valor de la familia.',
       'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 20 DE OCTUBRE DE 2026',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
-      'modal-title': 'Confirmar Asistencia para Ximena',
+      'modal-title': 'Confirmar Asistencia para Camila',
       'modal-subtitle': 'Sábado, 14 de Noviembre de 2026 • Indianapolis, IN',
       'label-fullname': 'Nombre Completo o Familia *',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     en: {
       'invite-16': 'Quinceañera',
       'invite-quince': 'Quinceañera',
-      'invite-parents': 'MARIA &amp; JUAN CARLOS',
+      'invite-parents': 'CARMEN &amp; ROBERTO',
       'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-day': 'SATURDAY',
@@ -124,13 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
       'court-role-chambelan': 'MAIN CHAMBELÁN',
       'court-chambelanes-title': 'CHAMBELANES',
       'registry-title': 'WISHING WELL',
-      'registry-desc': 'Celebrating together is what matters most to us. If you wish to bless Ximena with a special token of love, an envelope wishing well will be available.',
+      'registry-desc': 'Celebrating together is what matters most to us. If you wish to bless Camila with a special token of love, an envelope wishing well will be available.',
       'message-quote': 'Yesterday I was a little girl dreaming of growing up; today I celebrate my fifteenth birthday surrounded by the love of my family and friends. Thank you to my parents for your endless support and for always being my greatest foundation.',
       'rsvp-deadline': 'PLEASE CONFIRM BY OCTOBER 20, 2026',
       'rsvp-btn': 'CONFIRM RSVP',
       'rsvp-instruction': 'CLICK THE BUTTON TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
-      'modal-title': 'RSVP for Ximena',
+      'modal-title': 'RSVP for Camila',
       'modal-subtitle': 'Saturday, November 14, 2026 • Indianapolis, IN',
       'label-fullname': 'Full Name or Family Name *',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
@@ -321,15 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(88, 28, 135, 0.92)',   // royal dark purple
-          'rgba(126, 34, 206, 0.90)',  // rich royal purple
-          'rgba(147, 51, 234, 0.92)',  // vivid violet
-          'rgba(29, 78, 216, 0.92)',   // royal sapphire blue
-          'rgba(59, 130, 246, 0.88)',  // celestial blue
-          'rgba(216, 180, 254, 0.90)', // soft lavender
-          'rgba(148, 163, 184, 0.88)', // metallic silver
-          'rgba(203, 213, 225, 0.90)', // silver pearl
-          'rgba(255, 255, 255, 0.96)'  // sparkling white
+          'rgba(254, 240, 138, 0.95)', // delicate buttercup pastel yellow
+          'rgba(250, 204, 21, 0.92)',  // sunny golden yellow
+          'rgba(245, 158, 11, 0.90)',  // warm honey amber
+          'rgba(217, 119, 6, 0.88)',   // rich honey bronze
+          'rgba(134, 182, 122, 0.88)', // fresh sage eucalyptus green
+          'rgba(74, 222, 128, 0.82)',  // pale mint leaf green
+          'rgba(245, 208, 137, 0.90)', // champagne honey gold
+          'rgba(254, 252, 232, 0.96)', // soft buttercream
+          'rgba(255, 255, 255, 0.96)'  // sparkling ivory white
         ][Math.floor(Math.random() * 9)],
         bend: Math.random() * 0.5 + 0.5
       };
@@ -569,7 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speedY: (Math.random() * 0.18 + 0.05),
         speedX: (Math.random() - 0.5) * 0.18,
         alpha: Math.random() * 0.28 + 0.08,
-        color: Math.random() > 0.5 ? '255, 255, 255' : (Math.random() > 0.5 ? '192, 132, 252' : '147, 197, 253')
+        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '245, 158, 11' : (Math.random() > 0.5 ? '250, 204, 21' : '134, 182, 122'))
       });
     }
 
@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerConfetti() {
-    const confettiColors = ['#581c87', '#7e22ce', '#1d4ed8', '#3b82f6', '#94a3b8', '#cbd5e1', '#ffffff', '#e2e8f0'];
+    const confettiColors = ['#eab308', '#f59e0b', '#d97706', '#22c55e', '#16a34a', '#fef08a', '#fde047', '#ffffff', '#c49658'];
     for (let i = 0; i < 60; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
