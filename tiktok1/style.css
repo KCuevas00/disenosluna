@@ -337,7 +337,7 @@ body.site-entered .lang-control-bar {
 
 .lang-pill-btn:hover:not(.active) {
   color: var(--theme-dark);
-  background: rgba(168, 85, 247, 0.15);
+  background: rgba(245, 158, 11, 0.15);
 }
 
 /* ── COLLAPSIBLE ARROW TOGGLE ── */
@@ -1340,8 +1340,8 @@ body.site-entered .lang-control-bar {
   letter-spacing: 0.1em;
   color: var(--theme-dark);
   text-decoration: none;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(212, 170, 99, 0.55);
   border-radius: 999px;
   padding: 3px 9px;
   transition: var(--transition-smooth);
@@ -2167,7 +2167,7 @@ body.site-entered .lang-control-bar {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--theme-primary);
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
   background: #ffffff;
 }
 
