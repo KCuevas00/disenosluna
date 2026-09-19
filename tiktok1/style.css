@@ -2437,7 +2437,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   pointer-events: none;
 }
 
-/* 3D Envelope Container (Warm Ivory & Cream Linen with Warm Gold Accents) */
+/* 3D Envelope Container (Warm Antique Honey Linen Parchment) */
 .luxury-envelope-container {
   position: relative;
   width: 370px;
@@ -2447,37 +2447,37 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   user-select: none;
   transform-style: preserve-3d;
   border-radius: 6px;
-  background: #fdfaf0;
-  border: 1.5px solid rgba(212, 170, 99, 0.6);
+  background: #eedcb7;
+  border: 1.8px solid #c4963d;
   box-shadow:
-    0 25px 55px rgba(120, 53, 15, 0.22),
-    0 8px 22px rgba(180, 83, 9, 0.15);
+    0 26px 58px rgba(85, 55, 12, 0.28),
+    0 8px 24px rgba(120, 75, 20, 0.18);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
 
 .luxury-envelope-container:hover {
   box-shadow:
-    0 32px 70px rgba(180, 83, 9, 0.28),
-    0 12px 30px rgba(120, 53, 15, 0.15);
+    0 34px 72px rgba(110, 70, 18, 0.32),
+    0 12px 30px rgba(85, 55, 12, 0.2);
 }
 
 /* Envelope Interior Back Wall */
 .env-back {
   position: absolute;
   inset: 0;
-  background: #fef9c3;
+  background: #e6d0a1;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(217, 119, 6, 0.25);
+  box-shadow: inset 0 0 35px rgba(120, 75, 20, 0.3);
 }
 
 .env-interior-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(45deg, rgba(212, 170, 99, 0.35) 0, rgba(212, 170, 99, 0.35) 1px, transparent 0, transparent 20px),
-    repeating-linear-gradient(-45deg, rgba(212, 170, 99, 0.35) 0, rgba(212, 170, 99, 0.35) 1px, transparent 0, transparent 20px);
+    repeating-linear-gradient(45deg, rgba(180, 130, 45, 0.35) 0, rgba(180, 130, 45, 0.35) 1px, transparent 0, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(180, 130, 45, 0.35) 0, rgba(180, 130, 45, 0.35) 1px, transparent 0, transparent 20px);
 }
 
 /* Inside Invitation Card */
@@ -2571,11 +2571,11 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(175deg, #fffdf5 0%, #fef9c3 50%, #fde68a 100%);
+  background: linear-gradient(175deg, #faf3e5 0%, #eee1c4 50%, #e0caa0 100%);
   border-radius: 6px;
   z-index: 12;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
-  box-shadow: inset 0 -4px 15px rgba(180, 83, 9, 0.18), inset 0 1px 0 rgba(212, 170, 99, 0.6);
+  box-shadow: inset 0 -4px 15px rgba(120, 75, 20, 0.25), inset 0 1px 0 rgba(196, 150, 61, 0.7);
 }
 
 .env-pocket::before {
@@ -2583,9 +2583,18 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(217, 119, 6, 0.08) 0%, transparent 45%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(140, 90, 25, 0.15) 0%, transparent 45%);
   pointer-events: none;
+}
+
+.env-folds-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 13;
 }
 
 /* Envelope 3D Triangular Top Flap */
@@ -2599,10 +2608,19 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform-style: preserve-3d;
   z-index: 15;
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
-  filter: drop-shadow(0 6px 14px rgba(120, 53, 15, 0.2));
+  filter: drop-shadow(0 8px 14px rgba(85, 50, 10, 0.38));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(160deg, #fffdf5 0%, #fef9c3 50%, #fef08a 100%);
-  border-top: 2px solid #d4aa63;
+  background: linear-gradient(160deg, #fcf7eb 0%, #f1e4c7 50%, #e6d3a6 100%);
+  border-top: 2px solid #b88a38;
+}
+
+.env-flap-edge-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 16;
 }
 
 .luxury-envelope-container.is-opened .env-flap {

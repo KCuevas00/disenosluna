@@ -103,11 +103,26 @@
         </div>
 
         <!-- Envelope Front Pocket (V-cut front facing) -->
-        <div class="env-pocket"></div>
+        <div class="env-pocket">
+          <!-- Visible Crease Folds -->
+          <svg class="env-folds-svg" viewBox="0 0 370 250" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="250" x2="185" y2="125" stroke="#b28230" stroke-width="2.5" stroke-opacity="0.8" />
+            <line x1="370" y1="250" x2="185" y2="125" stroke="#b28230" stroke-width="2.5" stroke-opacity="0.8" />
+            <line x1="0" y1="0" x2="185" y2="125" stroke="#b28230" stroke-width="1.8" stroke-opacity="0.6" />
+            <line x1="370" y1="0" x2="185" y2="125" stroke="#b28230" stroke-width="1.8" stroke-opacity="0.6" />
+            <line x1="0" y1="249" x2="185" y2="124" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.55" />
+            <line x1="370" y1="249" x2="185" y2="124" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.55" />
+          </svg>
+        </div>
 
         <!-- Envelope Triangular Top Flap -->
         <div class="env-flap" id="env-flap">
           <div class="env-flap-inner"></div>
+          <!-- Flap edge fold trim -->
+          <svg class="env-flap-edge-svg" viewBox="0 0 370 155" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="0,0 185,155 370,0" fill="none" stroke="#b28230" stroke-width="3" stroke-opacity="0.85" />
+            <polyline points="0,0 185,154 370,0" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6" />
+          </svg>
         </div>
 
         <!-- Ornate Purple & Silver Wax Seal Stamp -->
@@ -117,15 +132,15 @@
             <svg class="wax-seal-svg" viewBox="0 0 100 100" width="80" height="80">
               <defs>
                 <radialGradient id="waxGradient" cx="40%" cy="36%" r="65%">
-                  <stop offset="0%" stop-color="#fde047" />
-                  <stop offset="45%" stop-color="#f59e0b" />
-                  <stop offset="85%" stop-color="#d97706" />
-                  <stop offset="100%" stop-color="#78350f" />
+                  <stop offset="0%" stop-color="#dfbd6f" />
+                  <stop offset="35%" stop-color="#c4963d" />
+                  <stop offset="70%" stop-color="#9a6c1e" />
+                  <stop offset="100%" stop-color="#5a3908" />
                 </radialGradient>
                 <radialGradient id="waxRim" cx="35%" cy="30%" r="70%">
-                  <stop offset="0%" stop-color="#fef08a" />
-                  <stop offset="60%" stop-color="#eab308" />
-                  <stop offset="100%" stop-color="#92400e" />
+                  <stop offset="0%" stop-color="#e8cd88" />
+                  <stop offset="60%" stop-color="#b88a38" />
+                  <stop offset="100%" stop-color="#6f4710" />
                 </radialGradient>
               </defs>
               <!-- Organic hand-pressed wax puddle edge with subtle seal lip -->
