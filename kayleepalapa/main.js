@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-mass-title': 'SANTA MISA',
       'program-mass-desc': 'IGLESIA INMACULADA CONCEPCIÓN,<br />1433 JAMES M. WOOD BLVD, LOS ANGELES, CA 90015',
       'program-reception-title': 'ENTRADA',
-      'program-reception-desc': '[1437 OAK ST],<br />1437 OAK ST, LOS ANGELES, CA 90015',
+      'program-reception-desc': '1437 OAK ST,<br />1437 OAK ST, LOS ANGELES, CA 90015',
       'program-dinner-title': 'COMIDA',
       'program-waltz-title': 'VALS',
       'program-party-title': 'BAILE &amp; FIESTA',
@@ -83,10 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'court-madrina-cake': 'MADRINA DE PASTEL',
       'court-madrinas-toast': 'MADRINAS DE BRINDIS',
       'court-chambelanes-title': 'CHAMBELANES',
-      'registry-title': '[LLUVIA DE SOBRES]',
-      'registry-desc': '[Lo más importante para nosotros es celebrar juntos. Si desea tener un detalle especial con Kaylee, sus buenos deseos en sobre serán recibidos con mucho cariño.]',
+      'court-chambelan-badge': 'CHAMBELÁN',
+      'registry-title': 'LLUVIA DE SOBRES',
+      'registry-desc': 'Lo más importante para nosotros es celebrar juntos. Si desea tener un detalle especial con Kaylee, sus buenos deseos en sobre serán recibidos con mucho cariño.',
       'message-quote': 'Hay momentos en la vida que son inolvidables, y cumplir 16 años es uno de ellos. Por eso quiero celebrar este día tan especial rodeada de las personas que más quiero. Gracias a mi familia y an mis amigos por ser parte de mi vida!',
-      'rsvp-deadline': '[FAVOR DE CONFIRMAR ANTES DEL 21 DE OCTUBRE DE 2026]',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 21 DE OCTUBRE DE 2026',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-mass-title': 'HOLY MASS',
       'program-mass-desc': 'IMMACULATE CONCEPTION CATHOLIC CHURCH,<br />1433 JAMES M. WOOD BLVD, LOS ANGELES, CA 90015',
       'program-reception-title': 'ENTRANCE',
-      'program-reception-desc': '[1437 OAK ST],<br />1437 OAK ST, LOS ANGELES, CA 90015',
+      'program-reception-desc': '1437 OAK ST,<br />1437 OAK ST, LOS ANGELES, CA 90015',
       'program-dinner-title': 'DINNER',
       'program-waltz-title': 'WALTZ',
       'program-party-title': 'PARTY &amp; DANCING',
@@ -131,10 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'court-madrina-cake': 'CAKE GODMOTHER',
       'court-madrinas-toast': 'TOAST GODMOTHERS',
       'court-chambelanes-title': 'CHAMBELANES',
-      'registry-title': '[WISHING WELL]',
-      'registry-desc': '[Celebrating together is what matters most to us. If you wish to bless Kaylee with a special token of love, an envelope wishing well will be available.]',
+      'court-chambelan-badge': 'CHAMBELÁN',
+      'registry-title': 'WISHING WELL',
+      'registry-desc': 'Celebrating together is what matters most to us. If you wish to bless Kaylee with a special token of love, an envelope wishing well will be available.',
       'message-quote': 'There are moments in life that are unforgettable, and turning 16 is one of them. That’s why I want to celebrate this special day surrounded by the people I love most. Thank you to my family and friends for being part of my life!',
-      'rsvp-deadline': '[PLEASE CONFIRM BY OCTOBER 21, 2026]',
+      'rsvp-deadline': 'PLEASE CONFIRM BY OCTOBER 21, 2026',
       'rsvp-btn': 'CONFIRM RSVP',
       'rsvp-instruction': 'CLICK THE BUTTON TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
@@ -825,5 +827,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 16);
     }
   }
-
 });

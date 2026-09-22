@@ -722,9 +722,9 @@ body.site-entered .lang-control-bar {
 .top-crown-container,
 .hero-crown-flourish {
   width: 100%;
-  max-width: 280px;
+  max-width: 320px;
   height: auto;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 1.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -732,11 +732,11 @@ body.site-entered .lang-control-bar {
 
 .crown-flourish-img,
 .crown-flourish-svg {
-  width: 240px;
-  max-width: 75vw;
+  width: 290px;
+  max-width: 85vw;
   height: auto;
   opacity: 1;
-  filter: drop-shadow(0 4px 14px rgba(180, 83, 9, 0.35));
+  filter: drop-shadow(0 5px 16px rgba(180, 83, 9, 0.38));
 }
 
 /* ── CELEBRANT PORTRAIT: COUTURE EDITORIAL INTEGRATION ── */
@@ -760,54 +760,96 @@ body.site-entered .lang-control-bar {
   align-items: center;
 }
 
+/* Soft ambient gradient watercolor wash behind */
+.portrait-celestial-halo {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  max-width: 70vw;
+  max-height: 70vw;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 50% 50%, rgba(253, 240, 242, 0.88) 0%, rgba(254, 243, 199, 0.42) 50%, rgba(253, 245, 246, 0.1) 70%, transparent 80%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ultra-fine dual concentric celestial stationery ring */
+.portrait-celestial-ring {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 232px;
+  height: 232px;
+  max-width: 68vw;
+  max-height: 68vw;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid rgba(212, 170, 99, 0.55);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 4.5px transparent,
+    inset 0 0 0 6px rgba(212, 136, 150, 0.4);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.9;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.celebrant-portrait-container:hover .portrait-celestial-ring {
+  transform: translate(-50%, -50%) scale(1.03);
+  opacity: 1;
+}
+
 .portrait-card,
 .photo-viewport {
   width: 100%;
-  max-width: 330px;
+  max-width: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 3;
   padding: 0;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 3px #ffffff,
-    0 0 0 5px var(--gold-accent),
-    0 16px 36px rgba(180, 83, 9, 0.18);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .celebrant-photo {
   position: relative;
   z-index: 3;
   width: 100%;
+  max-width: 340px;
   height: auto;
-  max-height: 480px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  border-radius: 19px;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 14px 28px rgba(180, 83, 9, 0.12));
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 93%, rgba(0, 0, 0, 0.7) 97%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 93%, rgba(0, 0, 0, 0.7) 97%, transparent 100%);
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
 }
 
 /* Grounding soft shadow under the dress hem */
 .portrait-ground-shadow {
   position: absolute;
-  bottom: 8px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  width: 65%;
-  height: 16px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(30, 58, 138, 0.16) 0%, rgba(148, 163, 184, 0.06) 50%, transparent 75%);
-  filter: blur(6px);
+  width: 70%;
+  height: 18px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(180, 83, 9, 0.15) 0%, rgba(212, 136, 150, 0.08) 50%, transparent 75%);
+  filter: blur(8px);
   pointer-events: none;
   z-index: 2;
 }
 
 .photo-stage:hover .celebrant-photo,
 .celebrant-portrait-container:hover .celebrant-photo {
-  transform: scale(1.02) translateY(-2px);
+  transform: scale(1.025) translateY(-3px);
+  filter: drop-shadow(0 18px 36px rgba(180, 83, 9, 0.18));
 }
 
 /* Invitation Typography Matching Flyer */
@@ -1372,14 +1414,24 @@ body.site-entered .lang-control-bar {
 }
 
 .timeline-photo-card {
+  display: block;
+  text-decoration: none;
   width: 100%;
-  max-width: 135px;
+  max-width: 140px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1.5px solid rgba(148, 163, 184, 0.48);
-  box-shadow: 0 6px 18px rgba(184, 98, 115, 0.16);
+  border: 1.5px solid rgba(212, 170, 99, 0.45);
+  box-shadow: 0 8px 22px rgba(180, 83, 9, 0.16);
   background: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* ── PORTRAIT CARD (IGLESIA / CATHEDRAL) ── */
+.timeline-photo-card.card-portrait {
+  max-width: 114px;
+  aspect-ratio: 4 / 5;
+  height: auto;
 }
 
 .timeline-photo-card.empty-placeholder,
@@ -1393,15 +1445,31 @@ body.site-entered .lang-control-bar {
 }
 
 .timeline-photo-card:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 24px rgba(180, 83, 9, 0.24);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(180, 83, 9, 0.26);
+  border-color: #d4aa63;
 }
 
 .timeline-venue-img {
   width: 100%;
-  height: 84px;
+  height: 88px;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Portrait Venue Image */
+.timeline-photo-card.card-portrait .timeline-venue-img,
+.timeline-venue-img.venue-portrait {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.timeline-photo-card:hover .timeline-venue-img {
+  transform: scale(1.08);
 }
 
 /* ── SECTION 3: PADRINOS & COURT OF HONOR ── */
@@ -1608,11 +1676,100 @@ body.site-entered .lang-control-bar {
   }
 }
 
-.court-member-card {
+/* ── COURT OF HONOR (REGAL MEDALLIONS - BORDERLESS & ORGANIC) ── */
+.court-opt2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem 1.2rem;
+  max-width: 440px;
+  margin: 0 auto 1.5rem;
+}
+
+.court-opt2-item {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0.4rem 0.2rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.court-opt2-item:hover {
+  transform: translateY(-3px);
+}
+
+.opt2-medallion {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #fffdf8 55%, #fbedd8 100%);
+  border: 1.8px solid #d4aa63;
+  box-shadow:
+    0 6px 18px rgba(180, 83, 9, 0.14),
+    inset 0 0 0 3px #ffffff,
+    inset 0 0 0 4.5px rgba(212, 170, 99, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b45309;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.court-opt2-item:hover .opt2-medallion {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow:
+    0 10px 24px rgba(180, 83, 9, 0.22),
+    inset 0 0 0 3px #ffffff,
+    inset 0 0 0 5px rgba(212, 170, 99, 0.38);
+}
+
+.opt2-medallion svg {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+.opt2-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #2c1e21;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+}
+
+.opt2-role {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #b45309;
+  text-transform: uppercase;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 3px 9px;
+  border-radius: 999px;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.opt3-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #2c1e21;
+  line-height: 1.25;
 }
 
 /* ── SECTION 4: EVENT GUIDELINES (BOTANICAL VIGNETTES) ── */
@@ -2541,6 +2698,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     0 0 0 3px rgba(255, 255, 255, 0.9),
     0 6px 18px rgba(180, 83, 9, 0.25);
   overflow: hidden;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fffbf5 55%, #faedd9 100%);
 }
 
 .card-portrait-img {
