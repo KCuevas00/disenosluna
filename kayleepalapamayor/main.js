@@ -11,7 +11,7 @@
  * ═════════════════════════════════════════════════════════════════════
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
-const EVENT_SLUG = 'kayleepalapa';
+const EVENT_SLUG = 'kayleepalapamayor';
 const CLIENT_NAME = "Kaylee Janeth Palapa Mayor's Sweet 16";
 const CLIENT_EMAIL = 'yeseniapalapa@yahoo.com';
 const ORDER_REFERENCE = 'DL-2026-8V45N';
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'Confirmar Asistencia para Kaylee',
       'modal-subtitle': 'Sábado, 21 de Noviembre de 2026 • Los Angeles, CA',
       'label-fullname': 'Nombre Completo o Familia *',
+      'label-party': 'Número de Personas o Pases *',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
       'modal-success-title': '¡Muchas Gracias!',
@@ -143,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'RSVP for Kaylee',
       'modal-subtitle': 'Saturday, November 21, 2026 • Los Angeles, CA',
       'label-fullname': 'Full Name or Family Name *',
+      'label-party': 'Number of Guests *',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
       'modal-success-title': 'Thank You So Much!',
@@ -673,6 +675,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function processRsvp(isAttending) {
     const nameInput = document.getElementById('guest-fullname');
     const nameVal = nameInput ? nameInput.value.trim() : '';
+    const partySelect = document.getElementById('guest-party-size');
+    const partyVal = partySelect ? partySelect.value : '1';
 
     if (!nameVal) {
       if (nameInput) {
@@ -692,15 +696,15 @@ document.addEventListener('DOMContentLoaded', () => {
       fullname: nameVal,
       contact: 'Confirmado por Web',
       attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
-      partySize: isAttending ? '1' : '0',
-      notes: isAttending ? '' : 'No podrá asistir',
+      partySize: isAttending ? partyVal : '0',
+      notes: isAttending ? `Party size: ${partyVal}` : 'No podrá asistir',
       guestName: nameVal,
       name: nameVal,
       phone: '',
       email: '',
       attendance_es: isAttending ? 'Sí, Asistirá' : 'No Podrá Asistir',
       attending: isAttending ? 'Yes' : 'No',
-      guests: isAttending ? '1' : '0',
+      guests: isAttending ? partyVal : '0',
       wishes: '',
       song: '',
       message: ''
