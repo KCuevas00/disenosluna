@@ -1228,10 +1228,12 @@ body.site-entered .lang-control-bar {
   margin: 0 auto 2.2rem;
 }
 
+.padrinos-section,
 .court-section {
   padding-top: 1.6rem;
 }
 
+.padrinos-section > .floral-divider-container,
 .court-section > .floral-divider-container {
   margin: 0 auto 2.2rem;
 }
@@ -1472,10 +1474,19 @@ body.site-entered .lang-control-bar {
   transform: scale(1.08);
 }
 
-/* ── SECTION 3: PADRINOS & COURT OF HONOR ── */
+/* ── SECTION 3: PADRINOS DE HONOR & COURT OF HONOR ── */
+.padrinos-section,
 .court-section {
   background: #ffffff;
   border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.padrinos-section {
+  padding-bottom: 0.5rem;
+}
+
+.court-section {
+  padding-bottom: 3.5rem;
 }
 
 .padrinos-royal-plaque {
