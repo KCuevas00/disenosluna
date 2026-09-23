@@ -1494,6 +1494,7 @@ body.site-entered .lang-control-bar {
 
 .celebration-section {
   padding-bottom: 4rem;
+  overflow: hidden;
 }
 
 .padrinos-royal-plaque {
@@ -2044,19 +2045,22 @@ body.site-entered .lang-control-bar {
     align-items: flex-start;
     text-align: left;
   }
+}
+
 /* ── SECTION 5: CELEBRATION & FAMILY SIGN-OFF (XVI MONOGRAM) ── */
 .giant-numeral-stage {
   width: 100%;
-  max-width: 380px;
-  margin: 1rem auto 1.8rem;
+  max-width: 360px;
+  margin: 1rem auto 1.6rem;
   padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 
 .numeral-letters-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.5rem, 3vw, 1.4rem);
+  gap: clamp(0.3rem, 2.5vw, 1.2rem);
 }
 
 .numeral-char-box {
@@ -2064,13 +2068,13 @@ body.site-entered .lang-control-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(88px, 24vw, 114px);
-  height: clamp(96px, 26vw, 124px);
+  width: clamp(75px, 22vw, 105px);
+  height: clamp(85px, 24vw, 115px);
 }
 
 .numeral-char {
   font-family: var(--font-serif);
-  font-size: clamp(4.6rem, 15vw, 6.8rem);
+  font-size: clamp(3.8rem, 13vw, 6.2rem);
   font-weight: 700;
   line-height: 1;
   color: #7a3543;
@@ -2083,23 +2087,23 @@ body.site-entered .lang-control-bar {
 }
 
 .floral-num-x {
-  width: clamp(100px, 26vw, 130px);
-  top: -16px;
-  left: -22px;
+  width: clamp(85px, 22vw, 120px);
+  top: -14px;
+  left: -16px;
   transform: rotate(-18deg);
 }
 
 .floral-num-v {
-  width: clamp(95px, 24vw, 120px);
-  bottom: -16px;
+  width: clamp(80px, 20vw, 110px);
+  bottom: -14px;
   left: 50%;
   transform: translateX(-50%) rotate(8deg);
 }
 
 .floral-num-i {
-  width: clamp(100px, 26vw, 130px);
-  top: -14px;
-  right: -24px;
+  width: clamp(85px, 22vw, 120px);
+  top: -12px;
+  right: -16px;
   transform: rotate(15deg);
 }
 
@@ -2107,9 +2111,10 @@ body.site-entered .lang-control-bar {
 .celebration-editorial {
   max-width: 440px;
   margin: 0 auto;
-  padding: 1rem 1rem 2rem;
+  padding: 0.8rem 1rem 2rem;
   text-align: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .editorial-flourish {
@@ -2121,9 +2126,9 @@ body.site-entered .lang-control-bar {
 
 .editorial-headline {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.2rem, 3.8vw, 1.55rem);
+  font-size: clamp(1.15rem, 3.8vw, 1.5rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--theme-dark);
   text-transform: uppercase;
   line-height: 1.35;
@@ -2139,7 +2144,7 @@ body.site-entered .lang-control-bar {
 
 .editorial-quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.28rem;
+  font-size: clamp(1.1rem, 3.4vw, 1.28rem);
   font-style: italic;
   line-height: 1.65;
   color: #334155;
@@ -2149,7 +2154,7 @@ body.site-entered .lang-control-bar {
 
 .editorial-signature {
   font-family: 'Alex Brush', cursive;
-  font-size: clamp(2.8rem, 7.5vw, 3.4rem);
+  font-size: clamp(2.6rem, 7.5vw, 3.4rem);
   color: var(--theme-dark);
   line-height: 1;
   margin-bottom: 1.1rem;
@@ -2157,12 +2162,13 @@ body.site-entered .lang-control-bar {
 
 .editorial-date-row {
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: clamp(0.66rem, 2vw, 0.74rem);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
   color: #8a662e;
   text-transform: uppercase;
   margin-top: 0.3rem;
+  line-height: 1.5;
 }
 
 /* ── SECTION 5: RSVP & DETAILS ── */
