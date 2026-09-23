@@ -100,7 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
       'modal-success-title': '¡Muchas Gracias!',
       'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
-      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.'
+      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.',
+      'celebration-title': '¡ESPERAMOS CELEBRAR ESTE GRAN DÍA CON USTEDES!',
+      'celebration-quote': '“Su presencia, cariño y bendiciones significan el mundo para nosotros al celebrar los 16 años de Kaylee.”',
+      'celebration-signature': 'Familia Palapa Mayor',
+      'celebration-date': 'SÁBADO, 21 DE NOVIEMBRE DE 2026 • LOS ANGELES, CA'
     },
     en: {
       'invite-16': 'Sweet 16',
@@ -151,7 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
       'modal-success-title': 'Thank You So Much!',
       'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!',
-      'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.'
+      'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.',
+      'celebration-title': "WE CAN'T WAIT TO CELEBRATE WITH YOU!",
+      'celebration-quote': '“Your presence, love, and blessings mean the world to us as we celebrate Kaylee’s 16th birthday.”',
+      'celebration-signature': 'Familia Palapa Mayor',
+      'celebration-date': 'SATURDAY, NOVEMBER 21, 2026 • LOS ANGELES, CA'
     }
   };
 
