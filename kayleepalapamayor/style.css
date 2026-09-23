@@ -2103,90 +2103,66 @@ body.site-entered .lang-control-bar {
   transform: rotate(15deg);
 }
 
-/* Celebration Royal Plaque */
-.celebration-royal-plaque {
+/* ── SECTION 5: ORGANIC EDITORIAL CELEBRATION (BORDERLESS) ── */
+.celebration-editorial {
   max-width: 440px;
   margin: 0 auto;
-  background: #ffffff;
-  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #fffdfa 60%, #faf1e3 100%);
-  border: 1.5px solid rgba(212, 170, 99, 0.48);
-  border-radius: 20px;
-  box-shadow:
-    0 16px 42px rgba(180, 83, 9, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.95);
-  padding: 2.2rem 1.6rem 2rem;
-  position: relative;
-  overflow: hidden;
+  padding: 1rem 1rem 2rem;
   text-align: center;
-}
-
-.celebration-inner-content {
   position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.celebration-crown-motif {
+.editorial-flourish {
   color: #cba368;
-  margin-bottom: 0.75rem;
-  filter: drop-shadow(0 1px 2px rgba(203, 163, 104, 0.3));
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: center;
 }
 
-.celebration-headline {
+.editorial-headline {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.2rem, 3.8vw, 1.55rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--theme-dark);
   text-transform: uppercase;
   line-height: 1.35;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
-.celebration-divider-ornament {
+.editorial-ornament {
   color: #d4aa63;
   font-size: 0.85rem;
-  letter-spacing: 0.3em;
-  margin: 0.4rem 0 0.8rem;
+  letter-spacing: 0.35em;
+  margin: 0.3rem 0 0.8rem;
 }
 
-.celebration-quote {
+.editorial-quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.22rem;
+  font-size: 1.28rem;
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #334155;
-  max-width: 360px;
-  margin: 0 auto 1.2rem;
+  max-width: 380px;
+  margin: 0 auto 1.3rem;
 }
 
-.celebration-signature {
+.editorial-signature {
   font-family: 'Alex Brush', cursive;
-  font-size: clamp(2.6rem, 7vw, 3.2rem);
+  font-size: clamp(2.8rem, 7.5vw, 3.4rem);
   color: var(--theme-dark);
   line-height: 1;
-  margin-bottom: 1.2rem;
-  filter: drop-shadow(0 2px 4px rgba(125, 56, 70, 0.15));
+  margin-bottom: 1.1rem;
 }
 
-.celebration-date-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.editorial-date-row {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: #b45309;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #8a662e;
   text-transform: uppercase;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(212, 170, 99, 0.35);
-  border-radius: 999px;
-  padding: 6px 16px;
-  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.08);
+  margin-top: 0.3rem;
 }
 
 /* ── SECTION 5: RSVP & DETAILS ── */
