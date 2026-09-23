@@ -763,12 +763,12 @@ body.site-entered .lang-control-bar {
 /* Soft ambient gradient watercolor wash behind */
 .portrait-celestial-halo {
   position: absolute;
-  top: 52%;
+  top: 51%;
   left: 50%;
-  width: 240px;
-  height: 240px;
-  max-width: 70vw;
-  max-height: 70vw;
+  width: 226px;
+  height: 226px;
+  max-width: 66vw;
+  max-height: 66vw;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle at 50% 50%, rgba(253, 240, 242, 0.88) 0%, rgba(254, 243, 199, 0.42) 50%, rgba(253, 245, 246, 0.1) 70%, transparent 80%);
   filter: blur(18px);
@@ -779,12 +779,12 @@ body.site-entered .lang-control-bar {
 /* Ultra-fine dual concentric celestial stationery ring */
 .portrait-celestial-ring {
   position: absolute;
-  top: 52%;
+  top: 51%;
   left: 50%;
-  width: 232px;
-  height: 232px;
-  max-width: 68vw;
-  max-height: 68vw;
+  width: 216px;
+  height: 216px;
+  max-width: 64vw;
+  max-height: 64vw;
   transform: translate(-50%, -50%);
   border: 1.5px solid rgba(212, 170, 99, 0.55);
   border-radius: 50%;
@@ -1480,15 +1480,15 @@ body.site-entered .lang-control-bar {
 
 .padrinos-royal-plaque {
   max-width: 440px;
-  margin: 0 auto 2.8rem;
+  margin: 0 auto 2.2rem;
   background: #ffffff;
-  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #f8fafc 65%, #f1f5f9 100%);
-  border: 1.5px solid rgba(148, 163, 184, 0.48);
+  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #fffdfa 60%, #faf1e3 100%);
+  border: 1.5px solid rgba(212, 170, 99, 0.48);
   border-radius: 20px;
   box-shadow:
-    0 16px 42px rgba(180, 83, 9, 0.13),
+    0 16px 42px rgba(180, 83, 9, 0.12),
     inset 0 0 0 5px #ffffff,
-    inset 0 0 0 6.5px rgba(148, 163, 184, 0.28);
+    inset 0 0 0 6.5px rgba(212, 170, 99, 0.25);
   padding: 2.2rem 1.6rem;
   position: relative;
   overflow: visible;
@@ -1535,9 +1535,9 @@ body.site-entered .lang-control-bar {
 }
 
 .padrinos-crown-motif {
-  color: #94a3b8;
+  color: #cba368;
   margin-bottom: 0.5rem;
-  filter: drop-shadow(0 1px 2px rgba(148, 163, 184, 0.3));
+  filter: drop-shadow(0 1px 2px rgba(203, 163, 104, 0.3));
 }
 
 .padrinos-role-badge {
@@ -1564,14 +1564,14 @@ body.site-entered .lang-control-bar {
 .gold-amp {
   font-family: 'Alex Brush', cursive;
   font-size: 2.3rem;
-  color: #94a3b8;
+  color: #cba368;
   font-weight: normal;
   margin: 0 0.15rem;
   vertical-align: -2px;
 }
 
 .padrinos-divider-ornament {
-  color: #94a3b8;
+  color: #d4aa63;
   font-size: 0.85rem;
   letter-spacing: 0.3em;
   margin: 0.4rem 0 0.7rem;
@@ -1682,7 +1682,7 @@ body.site-entered .lang-control-bar {
   grid-template-columns: repeat(2, 1fr);
   gap: 2.2rem 1.2rem;
   max-width: 440px;
-  margin: 0 auto 1.5rem;
+  margin: 1.2rem auto 2.8rem;
 }
 
 .court-opt2-item {
@@ -3082,12 +3082,38 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     padding-bottom: 2rem;
   }
 
-  /* Main Celebrant Photo Centerpiece: Clean 75% Screen Width with Balanced Breathing Room */
+  /* Main Celebrant Photo & Celestial Ring: Scaled & Positioned for Flawless Mobile Framing */
   .photo-stage,
   .celebrant-portrait-container {
-    width: 80%;
-    max-width: 300px;
-    margin: 0.6rem auto 3.8rem;
+    width: 82%;
+    max-width: 280px;
+    margin: 0.4rem auto 2.4rem;
+  }
+
+  .celebrant-photo {
+    max-width: 280px;
+  }
+
+  .portrait-celestial-halo {
+    width: 184px;
+    height: 184px;
+    top: 51%;
+  }
+
+  .portrait-celestial-ring {
+    width: 176px;
+    height: 176px;
+    top: 51%;
+  }
+
+  .hero-crown-flourish {
+    max-width: 240px;
+    margin: 0 auto 0.9rem;
+  }
+
+  .crown-flourish-svg {
+    width: 220px;
+    max-width: 75vw;
   }
 
   .quince-script-title {
@@ -3328,6 +3354,40 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     left: -12px;
     width: 160px;
     height: 160px;
+  }
+
+  /* Main Celebrant Photo & Celestial Ring: Compact Phone Fitting */
+  .photo-stage,
+  .celebrant-portrait-container {
+    width: 84%;
+    max-width: 250px;
+    margin: 0.3rem auto 1.8rem;
+  }
+
+  .celebrant-photo {
+    max-width: 250px;
+  }
+
+  .portrait-celestial-halo {
+    width: 164px;
+    height: 164px;
+    top: 51%;
+  }
+
+  .portrait-celestial-ring {
+    width: 156px;
+    height: 156px;
+    top: 51%;
+  }
+
+  .hero-crown-flourish {
+    max-width: 210px;
+    margin: 0 auto 0.75rem;
+  }
+
+  .crown-flourish-svg {
+    width: 190px;
+    max-width: 70vw;
   }
 
   .pt-numbers-row {
