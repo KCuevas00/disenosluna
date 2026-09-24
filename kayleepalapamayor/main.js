@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     es: {
       'invite-16': '16 Años',
       'invite-quince': '16 Años',
-      'invite-parents': 'JUAN PALAPA &amp; ROSA MAYOR',
+      'invite-parents': 'JUAN PALAPA &amp; ROSA ISELA MAYOR',
       'invite-preamble': 'TIENEN EL PLACER DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-day': 'SÁBADO',
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     en: {
       'invite-16': 'Sweet 16',
       'invite-quince': 'Sweet 16',
-      'invite-parents': 'JUAN PALAPA &amp; ROSA MAYOR',
+      'invite-parents': 'JUAN PALAPA &amp; ROSA ISELA MAYOR',
       'invite-preamble': 'HAVE THE PLEASURE OF INVITING YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-day': 'SATURDAY',
