@@ -1,6 +1,6 @@
 /**
  * ═════════════════════════════════════════════════════════════════════
- * QUINCE INVITATION — CAMILA VALENTINA
+ * QUINCE INVITATION — XIMENA GUADALUPE
  * Interactive Controller, Petals Cascade Engine, Photo Switcher & Audio
  * ═════════════════════════════════════════════════════════════════════
  */
@@ -8,12 +8,12 @@
 /* ═════════════════════════════════════════════════════════════════════
  * 1. GOOGLE SHEETS RSVP ENDPOINT CONFIGURATION
  * ═════════════════════════════════════════════════════════════════════
- * Master Webhook URL automatically syncs RSVP entries into Valentina's
+ * Master Webhook URL automatically syncs RSVP entries into Ximena's
  * dedicated private Google Sheet.
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
-const EVENT_SLUG = 'camilavalentina';
-const CLIENT_NAME = "Camila Valentina's Quinceañera";
+const EVENT_SLUG = 'ximenaguadalupe';
+const CLIENT_NAME = "Ximena Guadalupe's Quinceañera";
 const CLIENT_EMAIL = '';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     es: {
       'invite-16': 'XV Años',
       'invite-quince': 'XV Años',
-      'invite-parents': 'CARMEN &amp; ROBERTO',
+      'invite-parents': 'JUAN CARLOS &amp; MARÍA ELENA',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-day': 'SÁBADO',
-      'invite-date-full': '14 de Noviembre, 2026',
+      'invite-date-full': '17 de Octubre, 2026',
       'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
       'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
@@ -66,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-hours': 'Horas',
       'cd-mins': 'Minutos',
       'cd-secs': 'Segundos',
-      'invite-venue': 'INDIANAPOLIS • INDIANA',
+      'invite-venue': 'LOS ANGELES • CALIFORNIA',
       'program-title': 'PROGRAMA',
       'program-mass-title': 'SANTA MISA',
-      'program-mass-desc': 'ST. JOHN THE EVANGELIST CATHOLIC CHURCH,<br />126 W GEORGIA ST, INDIANAPOLIS, IN 46225',
+      'program-mass-desc': 'PARROQUIA NUESTRA SEÑORA DE GUADALUPE,<br />4533 E CÉSAR E CHÁVEZ AVE, LOS ANGELES, CA 90022',
       'program-reception-title': 'ENTRADA AL SALÓN &amp; FIESTA',
-      'program-reception-desc': 'THE CRANE BAY EVENT CENTER,<br />551 W MERRILL ST, INDIANAPOLIS, IN 46225',
+      'program-reception-desc': 'SALÓN REAL DE LOS ÁNGELES,<br />3500 WHITTIER BLVD, LOS ANGELES, CA 90023',
       'program-dinner-title': 'COMIDA',
       'tl-btn-location': 'UBICACIÓN',
       'court-title': 'CORTE DE HONOR',
@@ -80,14 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
       'court-role-chambelan': 'CHAMBELÁN DE HONOR',
       'court-chambelanes-title': 'CHAMBELANES',
       'registry-title': 'LLUVIA DE SOBRES',
-      'registry-desc': 'Lo más importante para nosotros es celebrar juntos. Si desea tener un detalle especial con Camila, sus buenos deseos en sobre serán recibidos con mucho cariño.',
-      'message-quote': 'Ayer era una niña soñando con crecer; hoy celebro mis quince años rodeada del amor de mi familia y amigos. Gracias a mis papás por su apoyo incondicional y por enseñarme el verdadero valor de la familia.',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 20 DE OCTUBRE DE 2026',
+      'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un lindo detalle con Ximena, nuestra lluvia de sobres estará disponible con mucho cariño.',
+      'message-quote': 'Ayer era una niña soñando con este momento; hoy celebro mis quince años rodeada del amor de Dios, de mi familia y de mis mejores amigos. Gracias infinitas a mis amados padres por su apoyo incondicional y por hacer posible este día inolvidable.',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 20 DE SEPTIEMBRE DE 2026',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
-      'modal-title': 'Confirmar Asistencia para Camila',
-      'modal-subtitle': 'Sábado, 14 de Noviembre de 2026 • Indianapolis, IN',
+      'modal-title': 'Confirmar Asistencia para Ximena Guadalupe',
+      'modal-subtitle': 'Sábado, 17 de Octubre de 2026 • Los Angeles, CA',
       'label-fullname': 'Nombre Completo o Familia *',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
@@ -98,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
     en: {
       'invite-16': 'Quinceañera',
       'invite-quince': 'Quinceañera',
-      'invite-parents': 'CARMEN &amp; ROBERTO',
+      'invite-parents': 'JUAN CARLOS &amp; MARÍA ELENA',
       'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-day': 'SATURDAY',
-      'invite-date-full': 'November 14, 2026',
+      'invite-date-full': 'October 17, 2026',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
       'countdown-today': '🎉 Today Is the Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
@@ -110,12 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-hours': 'Hours',
       'cd-mins': 'Minutes',
       'cd-secs': 'Seconds',
-      'invite-venue': 'INDIANAPOLIS • INDIANA',
+      'invite-venue': 'LOS ANGELES • CALIFORNIA',
       'program-title': 'PROGRAM',
       'program-mass-title': 'HOLY MASS',
-      'program-mass-desc': 'ST. JOHN THE EVANGELIST CATHOLIC CHURCH,<br />126 W GEORGIA ST, INDIANAPOLIS, IN 46225',
+      'program-mass-desc': 'OUR LADY OF GUADALUPE CHURCH,<br />4533 E CÉSAR E CHÁVEZ AVE, LOS ANGELES, CA 90022',
       'program-reception-title': 'BALLROOM ARRIVAL &amp; PARTY',
-      'program-reception-desc': 'THE CRANE BAY EVENT CENTER,<br />551 W MERRILL ST, INDIANAPOLIS, IN 46225',
+      'program-reception-desc': 'SALÓN REAL DE LOS ÁNGELES,<br />3500 WHITTIER BLVD, LOS ANGELES, CA 90023',
       'program-dinner-title': 'DINNER',
       'tl-btn-location': 'LOCATION',
       'court-title': 'COURT OF HONOR',
@@ -124,14 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
       'court-role-chambelan': 'MAIN CHAMBELÁN',
       'court-chambelanes-title': 'CHAMBELANES',
       'registry-title': 'WISHING WELL',
-      'registry-desc': 'Celebrating together is what matters most to us. If you wish to bless Camila with a special token of love, an envelope wishing well will be available.',
-      'message-quote': 'Yesterday I was a little girl dreaming of growing up; today I celebrate my fifteenth birthday surrounded by the love of my family and friends. Thank you to my parents for your endless support and for always being my greatest foundation.',
-      'rsvp-deadline': 'PLEASE CONFIRM BY OCTOBER 20, 2026',
+      'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Ximena with a token of love, an envelope wishing well will be available.',
+      'message-quote': 'Yesterday I was a little girl dreaming of this day; today I celebrate my fifteenth birthday surrounded by God\'s blessings, my family, and wonderful friends. Thank you to my parents for your endless love and for making this dream come true.',
+      'rsvp-deadline': 'PLEASE CONFIRM BY SEPTEMBER 20, 2026',
       'rsvp-btn': 'CONFIRM RSVP',
       'rsvp-instruction': 'CLICK THE BUTTON TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
-      'modal-title': 'RSVP for Camila',
-      'modal-subtitle': 'Saturday, November 14, 2026 • Indianapolis, IN',
+      'modal-title': 'RSVP for Ximena Guadalupe',
+      'modal-subtitle': 'Saturday, October 17, 2026 • Los Angeles, CA',
       'label-fullname': 'Full Name or Family Name *',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
@@ -321,16 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(254, 240, 138, 0.95)', // delicate buttercup pastel yellow
-          'rgba(250, 204, 21, 0.92)',  // sunny golden yellow
-          'rgba(245, 158, 11, 0.90)',  // warm honey amber
-          'rgba(217, 119, 6, 0.88)',   // rich honey bronze
-          'rgba(134, 182, 122, 0.88)', // fresh sage eucalyptus green
-          'rgba(74, 222, 128, 0.82)',  // pale mint leaf green
-          'rgba(245, 208, 137, 0.90)', // champagne honey gold
-          'rgba(254, 252, 232, 0.96)', // soft buttercream
-          'rgba(255, 255, 255, 0.96)'  // sparkling ivory white
-        ][Math.floor(Math.random() * 9)],
+          'rgba(233, 213, 255, 0.95)', // pale lilac
+          'rgba(216, 180, 254, 0.92)', // delicate lavender
+          'rgba(192, 132, 252, 0.90)', // soft wisteria
+          'rgba(168, 85, 247, 0.88)', // radiant orchid
+          'rgba(147, 51, 234, 0.85)', // royal amethyst
+          'rgba(196, 181, 253, 0.90)', // periwinkle lilac
+          'rgba(243, 232, 255, 0.96)', // soft lavender cream
+          'rgba(255, 255, 255, 0.96)'  // sparkling crystalline pearl
+        ][Math.floor(Math.random() * 8)],
         bend: Math.random() * 0.5 + 0.5
       };
     }
@@ -486,10 +485,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SATURDAY, NOV 14, 2026 AT 1:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, OCT 17, 2026 AT 1:00 PM)
      ───────────────────────────────────────────────────────────── */
-  // JavaScript Date: Month is 0-indexed (10 = November)
-  const TARGET_DATE = new Date(2026, 10, 14, 13, 0, 0).getTime();
+  // JavaScript Date: Month is 0-indexed (9 = October)
+  const TARGET_DATE = new Date(2026, 9, 17, 13, 0, 0).getTime();
   const AFTER_EVENT_MS = 5 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');
