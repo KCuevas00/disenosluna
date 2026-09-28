@@ -650,6 +650,7 @@ body.site-entered .lang-control-bar {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(4deg);
+  opacity: 0.05 !important;
 }
 
 .floral-divider-container {
@@ -1903,6 +1904,8 @@ body.site-entered .lang-control-bar {
 }
 
 .rsvp-char {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-serif);
   font-size: 7.5rem;
   font-weight: 700;
@@ -1913,13 +1916,15 @@ body.site-entered .lang-control-bar {
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 4px 14px rgba(126, 34, 206, 0.35));
+  filter: drop-shadow(0 4px 14px rgba(126, 34, 206, 0.45));
 }
 
 .letter-floral {
   position: absolute;
-  mix-blend-mode: multiply;
+  z-index: 1;
+  opacity: 0.32;
   pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(126, 34, 206, 0.12));
 }
 
 .floral-r {
