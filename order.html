@@ -479,13 +479,13 @@
         <!-- Step 2 Submission Alert / Error Box (Hidden by default) -->
         <div id="step-2-error" class="order-notice-banner notice-error is-hidden"></div>
 
-        <form id="step-2-details-form" action="https://formsubmit.co/disenosluna815@gmail.com" method="POST" enctype="multipart/form-data">
-          <!-- FormSubmit Controls -->
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_subject" id="fs-subject" value="NEW INVITATION ORDER — Diseños Luna" />
-          <input type="hidden" name="_autoresponse" value="Thank you for choosing Diseños Luna! We have received your custom invitation order and celebration specifications. We will review your details and reach out to you directly regarding payment and next steps before design begins!" />
-          <input type="hidden" name="_replyto" id="fs-replyto" value="" />
+        <form id="step-2-details-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Controls -->
+          <input type="hidden" name="access_key" id="w3-access-key" value="f0bc481d-ecc4-412f-8216-b9498c5c4650" />
+          <input type="hidden" name="subject" id="w3-subject" value="NEW INVITATION ORDER — Diseños Luna" />
+          <input type="hidden" name="from_name" value="Diseños Luna" />
+          <input type="hidden" name="replyto" id="w3-replyto" value="" />
+          <input type="checkbox" name="botcheck" id="w3-botcheck" style="display: none;" />
           
           <!-- Hidden tracking & Step 1 values submitted to FormSubmit -->
           <input type="hidden" id="field-order-ref" name="Order_Reference" value="" />

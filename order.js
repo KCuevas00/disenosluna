@@ -14,6 +14,9 @@ let currentSelectedPackage = 'Premium ($70)';
 let currentPackagePrice = '$70.00';
 let currentOrderSummary = '';
 
+// Web3Forms Access Key for disenosluna815@gmail.com
+const WEB3FORMS_ACCESS_KEY = 'f0bc481d-ecc4-412f-8216-b9498c5c4650';
+
 document.addEventListener('DOMContentLoaded', () => {
   initOrderReference();
   initPackageSelector();
@@ -173,6 +176,7 @@ function initStep1Form() {
     setHiddenVal('field-event-type', eventType);
     setHiddenVal('field-celebrant-name', celebrantName);
     setHiddenVal('field-event-date', eventDate);
+    setHiddenVal('w3-replyto', clientEmail);
     setHiddenVal('fs-replyto', clientEmail);
 
     // Populate Read-Only Recap Card in Step 2
@@ -490,7 +494,7 @@ function initCloudLinkFeedback() {
 }
 
 /**
- * Step 2: Final Details Form Submission via FormSubmit
+ * Step 2: Final Details Form Submission via Web3Forms
  */
 function initStep2Form() {
   const form = document.getElementById('step-2-details-form');
@@ -659,19 +663,22 @@ function initStep2Form() {
       submitBtn.disabled = true;
     }
 
-    // Build localized FormData for FormSubmit email table
+    // Build localized FormData for Web3Forms email
     const formData = new FormData();
-    formData.append('_captcha', 'false');
-    formData.append('_template', 'table');
-    formData.append('_subject', isSpanish
+    const accessKeyInput = document.getElementById('w3-access-key');
+    const accessKey = (accessKeyInput && accessKeyInput.value && accessKeyInput.value !== 'YOUR_ACCESS_KEY_HERE')
+      ? accessKeyInput.value
+      : (WEB3FORMS_ACCESS_KEY !== 'YOUR_ACCESS_KEY_HERE' ? WEB3FORMS_ACCESS_KEY : (accessKeyInput?.value || ''));
+
+    formData.append('access_key', accessKey);
+    formData.append('subject', isSpanish
       ? `NUEVO PEDIDO [ESPAÑOL 🇲🇽] — ${currentSelectedPackage.toUpperCase()} — ${currentOrderRef} — ${clientName}`
       : `NEW ORDER [ENGLISH 🇺🇸] — ${currentSelectedPackage.toUpperCase()} — ${currentOrderRef} — ${clientName}`);
+    formData.append('from_name', isSpanish ? 'Diseños Luna — Pedidos' : 'Diseños Luna — Orders');
     if (clientEmail) {
-      formData.append('_replyto', clientEmail);
+      formData.append('replyto', clientEmail);
     }
-    formData.append('_autoresponse', isSpanish
-      ? `¡Gracias por elegir a Diseños Luna! Hemos recibido los datos de tu invitación digital personalizada. Revisaremos todos tus detalles y te contactaremos directamente por mensaje de texto o WhatsApp para coordinar el pago y los siguientes pasos antes de comenzar el diseño.`
-      : `Thank you for choosing Diseños Luna! We have received your custom invitation order and celebration specifications. We will review your details and reach out to you directly regarding payment and next steps before design begins!`);
+    formData.append('botcheck', '');
 
     if (isSpanish) {
       // Spanish field names & values
@@ -731,21 +738,26 @@ function initStep2Form() {
       formData.append('Special_Notes', notes);
     }
 
-    // FormSubmit AJAX endpoint requires /ajax/
-    const ajaxEndpoint = form.action.includes('/ajax/') 
-      ? form.action 
-      : form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+    const submissionEndpoint = form.action || 'https://api.web3forms.com/submit';
 
-    fetch(ajaxEndpoint, {
+    fetch(submissionEndpoint, {
       method: 'POST',
       body: formData,
       headers: {
         'Accept': 'application/json'
       }
-    }).then(() => {
+    }).then(async (response) => {
+      try {
+        const res = await response.json();
+        if (!res.success) {
+          console.warn('Web3Forms response notice:', res);
+        }
+      } catch (e) {
+        // Ignored if JSON parsing fails
+      }
       activateStep3(clientName, celebrantName, currentSelectedPackage, currentOrderRef, cloudLink);
     }).catch(err => {
-      console.warn('FormSubmit async notification:', err);
+      console.warn('Web3Forms async notification:', err);
       // Still show Step 3 confirmation so customer is never blocked
       activateStep3(clientName, celebrantName, currentSelectedPackage, currentOrderRef, cloudLink);
     });
