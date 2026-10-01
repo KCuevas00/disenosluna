@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const translations = {
     en: {
       'invite-quince': 'Quinceañera',
-      'invite-parents': 'JESSICA &amp; ROBERT DE LA ROSA',
+      'invite-parents': 'ROBERT &amp; JESSICA DE LA ROSA',
       'invite-preamble': 'WARMLY INVITE YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
       'invite-date-month': 'OCT',
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     es: {
       'invite-quince': 'XV Años',
-      'invite-parents': 'JESSICA Y ROBERT DE LA ROSA',
+      'invite-parents': 'ROBERT Y JESSICA DE LA ROSA',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-month': 'OCT',
