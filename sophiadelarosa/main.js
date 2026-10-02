@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-title': 'WISHING WELL',
       'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Sophia with a token of love, an envelope wishing well will be warmly provided.',
       'message-quote': 'Growing up with all of you has been the best part of my life. To my parents, thank you for your endless love and for making tonight so special. I can’t wait to celebrate with everyone I love.',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY OCTOBER 3, 2026',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY OCTOBER 24, 2026',
       'rsvp-btn': 'CONFIRM RSVP',
       'rsvp-instruction': 'CLICK THE BUTTON ABOVE TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-title': 'LLUVIA DE SOBRES',
       'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un lindo detalle con Sophia, nuestra lluvia de sobres estará disponible con mucho cariño.',
       'message-quote': 'Crecer rodeada de todos ustedes ha sido lo mejor de mi vida. A mis papás, gracias por su amor incondicional y por hacer esta noche tan especial. ¡Qué emoción celebrar con todos ustedes!',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 3 DE OCTUBRE DE 2026',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 24 DE OCTUBRE DE 2026',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
   let isAudioPlaying = false;
+  let wasAudioPlayingBeforeHide = false;
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -266,9 +267,43 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePlayState(false);
   }
 
+  if (bgAudio) {
+    bgAudio.addEventListener('play', () => updatePlayState(true));
+    bgAudio.addEventListener('pause', () => updatePlayState(false));
+    bgAudio.addEventListener('ended', () => updatePlayState(false));
+  }
+
+  // Automatically pause music when leaving Safari, switching tabs, or locking phone
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (isAudioPlaying) {
+        wasAudioPlayingBeforeHide = true;
+        pauseAudio();
+      }
+    } else {
+      if (wasAudioPlayingBeforeHide && envelopeOpened) {
+        playAudio();
+        wasAudioPlayingBeforeHide = false;
+      }
+    }
+  });
+
+  window.addEventListener('pagehide', () => {
+    pauseAudio();
+  });
+
+  window.addEventListener('beforeunload', () => {
+    pauseAudio();
+  });
+
+  window.addEventListener('freeze', () => {
+    pauseAudio();
+  });
+
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', () => {
       if (isAudioPlaying) {
+        wasAudioPlayingBeforeHide = false;
         pauseAudio();
       } else {
         playAudio();
