@@ -2722,16 +2722,25 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .card-portrait-ring {
-  width: 84px;
-  height: 84px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12px;
   margin: 0 auto 10px;
-  border-radius: 50%;
-  border: none;
-  box-shadow:
-    0 0 0 2.5px rgba(255, 255, 255, 0.95),
-    0 0 0 4.5px rgba(168, 85, 247, 0.45),
-    0 8px 20px rgba(147, 83, 211, 0.22);
+}
+
+.card-portrait-arch {
+  display: block;
+  width: 66px;
+  height: 84px;
+  border-radius: 999px 999px 8px 8px;
   overflow: hidden;
+  background: #f3e8ff;
+  box-shadow: 0 0 0 2px #ffffff, 0 6px 14px rgba(107, 33, 168, 0.18);
+}
+
+.card-portrait-arch:last-child {
+  margin-bottom: -6px;
 }
 
 .card-portrait-img {
@@ -3930,4 +3939,143 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 
 .duo-grid[hidden] {
   display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CELEBRANT PORTRAITS: FLOWERS + BUTTERFLIES AROUND EACH FRAME
+   ══════════════════════════════════════════════════════════════ */
+.duo-grid {
+  max-width: 360px;
+  padding: 0 14px;
+}
+
+.duo-frame-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.duo-flower {
+  position: absolute;
+  z-index: 3;
+  width: 66px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 3px 5px rgba(60, 20, 100, 0.2));
+}
+
+/* Left portrait: flowers on the outer top corner and the inner bottom corner */
+.duo-flower-top {
+  top: -10px;
+  left: -12px;
+  transform: scaleX(-1) rotate(-8deg);
+}
+
+.duo-flower-bottom {
+  bottom: -12px;
+  right: -12px;
+  transform: scaleX(-1);
+}
+
+/* Right portrait: mirrored */
+.duo-right .duo-flower-top {
+  left: auto;
+  right: -12px;
+  transform: rotate(8deg);
+}
+
+.duo-right .duo-flower-bottom {
+  right: auto;
+  left: -12px;
+  transform: none;
+}
+
+/* Butterflies hover over the empty corner beside each arch, facing inward */
+.slot-duo {
+  top: -56px;
+  right: -42px;
+  z-index: 4;
+}
+
+.slot-duo .inv-butterfly {
+  transform: scale(0.42) scaleX(-1);
+}
+
+.duo-right .slot-duo {
+  right: auto;
+  left: -42px;
+}
+
+.duo-right .slot-duo .inv-butterfly {
+  transform: scale(0.42);
+}
+
+.duo-right .slot-duo .butterfly-wing-wrap,
+.duo-right .slot-duo .butterfly-flight-wrap {
+  animation-delay: -3.4s;
+}
+
+@media (min-width: 481px) {
+  .duo-flower {
+    width: 84px;
+  }
+
+  .duo-flower-top {
+    top: -12px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE: KEEP THE PAGE CENTERED (NO SIDEWAYS SHIFT)
+   The corner flower sprays hang a few px past the card edge. On a phone the
+   card IS the screen width, so that overhang made the page wider than the
+   screen and Safari let it slide left. Clip the overhang sideways only.
+   ══════════════════════════════════════════════════════════════ */
+.invitation-wrapper {
+  overflow-x: clip;
+}
+
+html.site-entered,
+body.site-entered {
+  max-width: 100%;
+  overflow-x: clip !important;
+}
+
+html.site-entered {
+  overflow-y: auto !important;
+}
+
+.rsvp-modal-overlay {
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
+   ══════════════════════════════════════════════════════════════ */
+/* Paint the same lilac sky on the page itself, so anything the overlay doesn't
+   reach (behind the status bar / URL bar) matches instead of flat lavender */
+html:not(.site-entered) {
+  background: linear-gradient(180deg, #e4d2fa 0%, #d2b6f2 45%, #b890e6 100%) !important;
+  background-color: #b890e6 !important;
+}
+
+body:not(.site-entered) {
+  background: transparent !important;
+}
+
+/* Make the cloud overlay as tall as the FULL screen (under the URL bar and the
+   home-indicator area), then pad the bottom so the envelope stays centered in
+   the part you can actually see */
+@supports (height: 100lvh) {
+  .entry-overlay {
+    inset: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100lvh;
+    padding-bottom: calc(100lvh - 100svh);
+  }
 }

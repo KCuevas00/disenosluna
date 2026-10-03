@@ -497,6 +497,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', '#f3e9fc');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
