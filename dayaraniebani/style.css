@@ -3819,17 +3819,12 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 /* ── CELEBRANT DUO PORTRAITS ── */
-.celebrants-section {
-  padding-top: 0.6rem;
-  padding-bottom: 1rem;
-}
-
 .duo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.1rem;
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 330px;
+  margin: 2.6rem auto 0;
   align-items: start;
 }
 
@@ -3862,14 +3857,6 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   height: 100%;
   object-fit: cover;
   object-position: center 22%;
-}
-
-.duo-name {
-  font-family: var(--font-script);
-  font-size: 2.4rem;
-  line-height: 1;
-  color: var(--theme-dark);
-  margin-top: 1rem;
 }
 
 /* ── FOOTER CROWN ── */
@@ -3939,4 +3926,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   .rsvp-section {
     padding-bottom: 9.5rem;
   }
+}
+
+.duo-grid[hidden] {
+  display: none;
 }
