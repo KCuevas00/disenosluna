@@ -416,7 +416,7 @@ body.site-entered .lang-control-bar {
   transform: rotate(180deg);
 }
 
-/* ── MAIN INVITATION CARD CONTAINER (CONTINUOUS LIGHT PURPLE THROUGHOUT) ── */
+/* ── MAIN INVITATION CARD CONTAINER (PURPLE TO TEAL GRADIENT BORDER & GLOWING HALO) ── */
 .invitation-wrapper {
   position: relative;
   width: 100%;
@@ -425,14 +425,21 @@ body.site-entered .lang-control-bar {
   background-color: #faf6fe;
   background-image:
     linear-gradient(180deg, #fdfaff 0%, #f9f3fe 15%, #f5ebfd 35%, #f9f3fe 60%, #f4e9fc 85%, #f8f0fd 100%),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23a855f7' stroke-width='0.4' stroke-opacity='0.16'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23a855f7' fill-opacity='0.16'/%3E%3C/svg%3E");
-  border: 1.5px solid rgba(168, 85, 247, 0.3);
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23a855f7' stroke-width='0.4' stroke-opacity='0.16'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23a855f7' fill-opacity='0.16'/%3E%3C/svg%3E"),
+    linear-gradient(160deg, #9353d3 0%, #b87cf8 28%, #5ed6ce 72%, #14a3a1 100%);
+  background-origin: padding-box, padding-box, border-box;
+  background-clip: padding-box, padding-box, border-box;
+  border: 2px solid transparent;
   border-radius: 28px;
   box-shadow:
-    0 25px 70px rgba(107, 33, 168, 0.18),
-    0 6px 24px rgba(124, 58, 237, 0.1),
+    0 -6px 36px rgba(147, 83, 211, 0.32),
+    0 26px 75px rgba(20, 163, 161, 0.35),
+    0 10px 32px rgba(94, 214, 206, 0.26),
+    0 0 28px rgba(147, 83, 211, 0.35),
+    0 0 38px rgba(20, 163, 161, 0.38),
     inset 0 0 0 1px rgba(255, 255, 255, 0.95),
-    inset 0 0 35px rgba(216, 180, 254, 0.28);
+    inset 0 6px 32px rgba(216, 180, 254, 0.32),
+    inset 0 -16px 32px rgba(94, 214, 206, 0.25);
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -2013,12 +2020,12 @@ body.site-entered .lang-control-bar {
   font-weight: 700;
   line-height: 1;
   color: #9353d3;
-  background: linear-gradient(135deg, #f6f4fa 0%, #b9b5c8 24%, #9353d3 52%, #c4c0d2 76%, #6b21a8 100%);
+  background: linear-gradient(165deg, #fdfcff 0%, #d8b4fe 16%, #9353d3 40%, #5ed6ce 72%, #14a3a1 90%, #0b6b70 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 2px 2px rgba(60, 20, 100, 0.28));
+  filter: drop-shadow(0 3px 5px rgba(60, 20, 100, 0.22)) drop-shadow(0 1px 2px rgba(8, 74, 79, 0.18));
 }
 
 .letter-floral {
@@ -3790,14 +3797,17 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 
-/* ── MAIN CARD: SILVER & PURPLE DOUBLE FRAME + CORNER FLOURISHES ── */
+/* ── MAIN CARD: PURPLE & TEAL INNER FRAME GLOW + CORNER FLOURISHES ── */
 .invitation-wrapper::before {
   content: '';
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(168, 160, 196, 0.6);
+  border: 1px solid rgba(168, 160, 196, 0.45);
   border-radius: 18px;
-  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0), inset 0 0 0 5px rgba(147, 83, 211, 0.2);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0),
+    inset 0 6px 16px rgba(147, 83, 211, 0.22),
+    inset 0 -8px 16px rgba(20, 163, 161, 0.22);
   pointer-events: none;
   z-index: 1;
 }
@@ -4024,7 +4034,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   .duo-flower-top {
     top: -12px;
   }
-}
+
+}
 
 
 /* ══════════════════════════════════════════════════════════════
@@ -4055,3 +4066,248 @@ body:not(.site-entered) {
     padding-bottom: calc(100lvh - 100svh);
   }
 }
+
+
+/* ═════════════════════════════════════════════════════════════════════
+   TEAL + LAVENDER BALANCE
+   Everything teal lives in this block. Delete it (and revert main.js petal
+   colors) to go back to the all-purple look.
+   ═════════════════════════════════════════════════════════════════════ */
+:root {
+  --teal: #14a3a1;
+  --teal-dark: #0b6b70;
+  --teal-soft: #5ed6ce;
+  --teal-pale: #e3f6f4;
+
+  /* the old champagne-gold accent becomes teal everywhere it was used */
+  --gold-accent: var(--teal);
+
+  /* RSVP ribbon button */
+  --ribbon-blush: linear-gradient(135deg, #0b5e63 0%, #14a3a1 55%, #3cc0b8 100%);
+  --ribbon-blush-hover: linear-gradient(135deg, #084a4f 0%, #0e8a88 55%, #23a9a2 100%);
+
+  /* page behind the card: lavender center easing to pale aqua edges */
+  --bg-page-gradient: radial-gradient(circle at 50% 12%, #f5eefc 0%, #ece3fa 45%, #d6eef0 100%);
+}
+
+.blush-ribbon-btn { box-shadow: 0 4px 18px rgba(20, 163, 161, 0.32); }
+
+/* ── Butterfly wings: deep teal at the body fading into lavender at the tips ── */
+[id^="rusticWingGrad"] stop:nth-child(1) { stop-color: #0a4f55; }
+[id^="rusticWingGrad"] stop:nth-child(2) { stop-color: #0e7a80; }
+[id^="rusticWingGrad"] stop:nth-child(3) { stop-color: #25b3ae; }
+[id^="rusticWingGrad"] stop:nth-child(4) { stop-color: #a99af0; }
+[id^="rusticWingGrad"] stop:nth-child(5) { stop-color: #e4d4fb; }
+.wing-cell-discal { fill: #0e7a80; }
+.butterfly-body-wrap path[fill="#2e0854"] { fill: #0b3b44; }
+.dust-sparkle { text-shadow: 0 0 6px #5ed6ce, 0 0 12px #c084fc; }
+
+/* ── Wax seal: teal on the cream envelope ── */
+#purpleWaxBase stop:nth-child(1) { stop-color: #f0fdfa; }
+#purpleWaxBase stop:nth-child(2) { stop-color: #ccfbf1; }
+#purpleWaxBase stop:nth-child(3) { stop-color: #5eead4; }
+#purpleWaxBase stop:nth-child(4) { stop-color: #1fb8ab; }
+#purpleWaxBase stop:nth-child(5) { stop-color: #0f9690; }
+#purpleWaxBase stop:nth-child(6) { stop-color: #0b6b70; }
+#purpleInnerBed stop:nth-child(1) { stop-color: #f0fdfa; }
+#purpleInnerBed stop:nth-child(2) { stop-color: #7ee8d8; }
+#purpleInnerBed stop:nth-child(3) { stop-color: #14a3a1; }
+#purpleInnerBed stop:nth-child(4) { stop-color: #0b6b70; }
+#purpleRimHighlight stop:nth-child(3) { stop-color: #0a4a4f; }
+.wax-seal-svg g path, .wax-seal-svg g rect, .wax-seal-svg g circle { stroke: #0b6b70; }
+.wax-seal-svg g circle[fill="#d8b4fe"] { fill: #8fe3d9; }
+.wax-seal-svg circle[stroke="#581c87"] { stroke: #0a4a4f; }
+.wax-seal-btn::before { box-shadow: 0 6px 14px rgba(8, 74, 79, 0.4); }
+.wax-seal-btn:hover::before { box-shadow: 0 8px 20px rgba(20, 163, 161, 0.5), 0 0 16px rgba(204, 251, 241, 0.8); }
+
+/* ── Landing sky: soft aqua glow tucked into the lilac clouds ── */
+.entry-overlay {
+  background-image:
+    radial-gradient(ellipse 60% 48% at 50% 48%, rgba(255, 252, 255, 0.85) 0%, rgba(240, 226, 255, 0.5) 45%, transparent 78%),
+    radial-gradient(ellipse 80% 38% at 10% 100%, rgba(94, 214, 206, 0.5) 0%, transparent 72%),
+    radial-gradient(ellipse 70% 32% at 95% 0%, rgba(94, 214, 206, 0.32) 0%, transparent 72%),
+    linear-gradient(180deg, #e4d2fa 0%, #d2b6f2 45%, #b890e6 100%) !important;
+}
+
+/* ── Countdown ── */
+.pt-sublabel,
+.pt-style-italic .pt-sublabel { color: var(--teal-dark); }
+.pt-style-italic .italic-fleuron { color: var(--teal); }
+
+/* ── Program timeline ── */
+.program-section {
+  background: linear-gradient(180deg, rgba(94, 214, 206, 0) 0%, rgba(94, 214, 206, 0.13) 14%, rgba(94, 214, 206, 0.13) 86%, rgba(94, 214, 206, 0) 100%);
+}
+.time-stamp { color: var(--teal-dark); }
+.timeline-node { border-color: rgba(20, 163, 161, 0.55); color: var(--teal-dark); box-shadow: 0 4px 14px rgba(20, 163, 161, 0.18); }
+.timeline-row:hover .timeline-node { border-color: var(--teal); background: var(--teal-pale); color: var(--teal-dark); }
+.timeline-line { background: rgba(20, 163, 161, 0.3); }
+.timeline-row:first-child .timeline-line { background: linear-gradient(to bottom, rgba(20, 163, 161, 0) 0%, rgba(20, 163, 161, 0.3) 50%); }
+.timeline-row:last-child .timeline-line { background: linear-gradient(to bottom, rgba(20, 163, 161, 0.3) 50%, rgba(20, 163, 161, 0) 100%); }
+.timeline-loc-btn { color: var(--teal-dark); background: rgba(20, 163, 161, 0.1); border-color: rgba(20, 163, 161, 0.45); }
+.timeline-loc-btn:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+.timeline-photo-card { border-color: rgba(20, 163, 161, 0.35); box-shadow: 0 6px 18px rgba(20, 163, 161, 0.16); }
+.title-accent-line { background: linear-gradient(90deg, var(--teal-soft), var(--teal), var(--theme-primary)); }
+
+/* ── Dress code (soft teal / light blue) & Wishing well (elegant royal purple) ── */
+.dress-vignette .vignette-subtitle { color: var(--teal-dark); }
+.dress-vignette .vignette-ornament { color: var(--teal); opacity: 0.85; }
+.dress-vignette .vignette-wishing-emblem svg { stroke: var(--teal); fill: rgba(20, 163, 161, 0.08); }
+
+.padrinos-divider-ornament { color: var(--teal); opacity: 0.8; }
+
+/* Wishing well: elegant royal purple (Ebani lavender/purple palette) */
+.registry-vignette .vignette-headline { color: #3b1464; }
+.registry-vignette .vignette-subtitle { color: #6b21a8; }
+.registry-vignette .vignette-ornament { color: #9353d3; opacity: 0.85; }
+.registry-vignette .vignette-wishing-emblem svg path { stroke: #9333ea; fill: rgba(147, 83, 211, 0.08); }
+.registry-vignette .vignette-wishing-emblem svg circle { fill: #9333ea; }
+
+/* ── Giant RSVP letters: all 4 letters share the unified purple-to-teal gradient defined in .rsvp-char ── */
+
+/* ── Two celebrants, two colors: Dayanari teal, Ebani lavender ── */
+.duo-left .duo-frame {
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px rgba(20, 163, 161, 0.75), 0 14px 28px rgba(11, 107, 112, 0.22);
+}
+.duo-right .duo-frame {
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px rgba(147, 83, 211, 0.75), 0 14px 28px rgba(107, 33, 168, 0.22);
+}
+
+/* ── Form focus ring ── */
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(20, 163, 161, 0.22);
+}
+
+/* ── Footer crown ── */
+.footer-crown svg { stroke: var(--teal); }
+.fc-line { background: linear-gradient(90deg, rgba(20, 163, 161, 0), rgba(20, 163, 161, 0.5)); }
+.fc-line:last-child { background: linear-gradient(270deg, rgba(20, 163, 161, 0), rgba(20, 163, 161, 0.5)); }
+
+
+/* ── Stamp image + tealer homepage clouds ── */
+.wax-seal-btn::before { display: none; }
+.wax-seal-img { width: 92px; height: 92px; filter: drop-shadow(0 6px 10px rgba(8, 74, 79, 0.4)); }
+.wax-seal-btn:hover .wax-seal-img { filter: drop-shadow(0 8px 14px rgba(20, 163, 161, 0.55)); }
+
+/* Clouds stay lavender; just a light teal layer and a hint of aqua low in the sky */
+.entry-overlay::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0050 0.0090' numOctaves='5' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.52 0 0 0 0 0.3 0 0 0 0 0.8 0 0 0 2.4 -0.8'/%3E%3C/filter%3E%3Crect width='1000' height='1000' filter='url(%23c)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0070 0.0120' numOctaves='5' seed='17'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.70 0 0 0 0 0.68 0 0 0 1.7 -0.78'/%3E%3C/filter%3E%3Crect width='1000' height='1000' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-size: cover, cover;
+  background-position: center, 70% 35%;
+  opacity: 0.75;
+}
+
+.entry-overlay {
+  background-image:
+    radial-gradient(ellipse 60% 48% at 50% 48%, rgba(255, 252, 255, 0.85) 0%, rgba(240, 226, 255, 0.5) 45%, transparent 78%),
+    radial-gradient(ellipse 80% 38% at 10% 100%, rgba(94, 214, 206, 0.35) 0%, transparent 72%),
+    radial-gradient(ellipse 70% 32% at 95% 0%, rgba(94, 214, 206, 0.2) 0%, transparent 72%),
+    linear-gradient(180deg, #e4d2fa 0%, #d2b6f2 48%, #b79be9 80%, #a5c9e8 100%) !important;
+}
+
+html:not(.site-entered) {
+  background: linear-gradient(180deg, #e4d2fa 0%, #d2b6f2 48%, #b79be9 80%, #a5c9e8 100%) !important;
+  background-color: #a5c9e8 !important;
+}
+
+
+/* ── Language picker under the envelope ── */
+.entry-lang-picker {
+  position: relative;
+  z-index: 2;
+  margin-top: 3.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  animation: entryHeaderFadeDown 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.entry-lang-caption {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #3b1464;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.entry-lang-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 6px 22px rgba(107, 33, 168, 0.2), inset 0 0 0 1px rgba(147, 83, 211, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.entry-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 40px;
+  padding: 0.5rem 1.15rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-subtle);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--transition-smooth);
+}
+
+.entry-lang-btn:hover:not(.active) {
+  color: var(--theme-dark);
+  background: rgba(20, 163, 161, 0.12);
+}
+
+.entry-lang-btn.active {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(147, 83, 211, 0.35);
+}
+
+.entry-lang-btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* Fade away once the envelope opens */
+.entry-overlay.is-opened .entry-lang-picker {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .entry-lang-picker { margin-top: 2.8rem; }
+  .entry-lang-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+}
+
+
+/* ── Program timeline: line and nodes shift from teal (top) to purple (bottom) ── */
+.program-timeline .timeline-line { width: 2px; }
+.program-timeline .timeline-row:nth-child(1) .timeline-line { background: linear-gradient(to bottom, rgba(20, 163, 161, 0) 0%, #14a3a1 45%, #348fad 100%); }
+.program-timeline .timeline-row:nth-child(2) .timeline-line { background: linear-gradient(to bottom, #348fad 0%, #547bba 100%); }
+.program-timeline .timeline-row:nth-child(3) .timeline-line { background: linear-gradient(to bottom, #547bba 0%, #7367c7 100%); }
+.program-timeline .timeline-row:nth-child(4) .timeline-line { background: linear-gradient(to bottom, #7367c7 0%, #9353d3 55%, rgba(147, 83, 211, 0) 100%); }
+
+.program-timeline .timeline-row:nth-child(1) .timeline-node { border-color: #2499a7; color: #1b7f8c; }
+.program-timeline .timeline-row:nth-child(2) .timeline-node { border-color: #4485b4; color: #346a99; }
+.program-timeline .timeline-row:nth-child(3) .timeline-node { border-color: #6471c1; color: #4f5aa8; }
+.program-timeline .timeline-row:nth-child(4) .timeline-node { border-color: #835dcd; color: #6b3fb5; }
+.program-timeline .timeline-row:nth-child(1) .time-stamp { color: #1b7f8c; }
+.program-timeline .timeline-row:nth-child(2) .time-stamp { color: #346a99; }
+.program-timeline .timeline-row:nth-child(3) .time-stamp { color: #4f5aa8; }
+.program-timeline .timeline-row:nth-child(4) .time-stamp { color: #6b3fb5; }

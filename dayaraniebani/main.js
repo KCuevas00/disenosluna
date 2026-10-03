@@ -196,12 +196,26 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEs.classList.toggle('active', lang === 'es');
       btnEn.classList.toggle('active', lang === 'en');
     }
+
+    document.querySelectorAll('.entry-lang-btn').forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
   }
 
   const btnEs = document.getElementById('btn-lang-es');
   const btnEn = document.getElementById('btn-lang-en');
   if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
   if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+
+  // Language picker under the envelope (before the invitation is opened)
+  document.querySelectorAll('.entry-lang-btn').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLanguage(b.dataset.lang);
+    });
+  });
 
   // Default to English on startup
   applyLanguage('en');
@@ -382,12 +396,12 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: Math.random() * 0.35 + 0.65,
         color: [
           'rgba(147, 83, 211, 0.95)',  // dreamy lavender
-          'rgba(107, 33, 168, 0.92)',  // deep royal violet
-          'rgba(168, 85, 247, 0.90)',  // vivid purple
-          'rgba(192, 132, 252, 0.88)', // soft lilac
+          'rgba(192, 132, 252, 0.90)', // soft lilac
+          'rgba(20, 163, 161, 0.92)',  // teal
+          'rgba(94, 214, 206, 0.92)',  // soft aqua teal
+          'rgba(11, 107, 112, 0.90)',  // deep teal
           'rgba(212, 170, 99, 0.92)',  // sparkling gold leaf
-          'rgba(254, 240, 138, 0.95)', // warm gold glitter
-          'rgba(247, 241, 252, 0.96)', // pale lavender pearl
+          'rgba(204, 244, 240, 0.96)', // pale teal pearl
           'rgba(255, 255, 255, 0.96)'  // crystalline pearl
         ][Math.floor(Math.random() * 8)],
         bend: Math.random() * 0.5 + 0.5
@@ -457,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.ctx.fillStyle = p.color;
         this.ctx.globalAlpha = p.opacity;
         this.ctx.shadowBlur = 6;
-        this.ctx.shadowColor = 'rgba(147, 83, 211, 0.35)';
+        this.ctx.shadowColor = 'rgba(20, 163, 161, 0.3)';
         this.ctx.fill();
         this.ctx.restore();
 
@@ -625,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speedY: (Math.random() * 0.18 + 0.05),
         speedX: (Math.random() - 0.5) * 0.18,
         alpha: Math.random() * 0.28 + 0.08,
-        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '147, 83, 211' : (Math.random() > 0.5 ? '192, 132, 252' : '254, 240, 138'))
+        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '20, 184, 176' : (Math.random() > 0.5 ? '192, 132, 252' : '94, 214, 206'))
       });
     }
 
@@ -850,7 +864,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerConfetti() {
-    const confettiColors = ['#9353d3', '#b784f4', '#a855f7', '#c084fc', '#d4aa63', '#fef08a', '#ffffff', '#7c3aed'];
+    const confettiColors = ['#9353d3', '#c084fc', '#14a3a1', '#5ed6ce', '#0b6b70', '#d4aa63', '#ffffff', '#b9a3f0'];
     for (let i = 0; i < 48; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
