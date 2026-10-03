@@ -10,20 +10,20 @@
   --bg-page-gradient: radial-gradient(circle at 50% 12%, #f5eefc 0%, #eee2fa 48%, #e6d6f7 100%);
   --card-white: #f7f1fc;
 
-  /* Typographic Contrast */
-  --text-dark: #2c1642;
-  --text-charcoal: #3b1d5c;
-  --text-subtle: #57317d;
-  --text-muted: #7952a3;
+  /* Typographic Contrast (Pastel Purple System #C48AFF) */
+  --text-dark: #C48AFF;
+  --text-charcoal: #C48AFF;
+  --text-subtle: #C48AFF;
+  --text-muted: #C48AFF;
 
-  /* Dreamy Lavender & Vibrant Lilac Accents */
-  --theme-primary: #9353d3;
-  --theme-dark: #6b21a8;
+  /* Dreamy Lavender & Vibrant Pastel Purple Accents */
+  --theme-primary: #C48AFF;
+  --theme-dark: #C48AFF;
   --theme-light: #f7f1fc;
-  --theme-soft: #b784f4;
-  --theme-lavender: #9353d3;
+  --theme-soft: #d8b4fe;
+  --theme-lavender: #C48AFF;
   --theme-lilac: #c084fc;
-  --theme-green: #7c3aed;
+  --theme-green: #C48AFF;
   --theme-green-soft: #d8b4fe;
   --rose-gold: var(--theme-primary);
   --rose-gold-dark: var(--theme-dark);
@@ -416,30 +416,74 @@ body.site-entered .lang-control-bar {
   transform: rotate(180deg);
 }
 
-/* ── MAIN INVITATION CARD CONTAINER (PURPLE TO TEAL GRADIENT BORDER & GLOWING HALO) ── */
-.invitation-wrapper {
+/* ── INVITATION CARD STAGE WITH MULTI-STAGE PURPLE-TEAL GRADIENT GLOW ── */
+.invitation-card-stage {
   position: relative;
   width: 100%;
   max-width: 520px;
   margin: 3.6rem auto 3rem;
+}
+
+/* Radiant aura that transitions: Purple (top) → Teal → Purple → Teal (bottom) */
+.invitation-gradient-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 32px;
+  background: linear-gradient(180deg,
+    #C48AFF 0%,
+    #C48AFF 14%,
+    #5ed6ce 28%,
+    #14a3a1 42%,
+    #C48AFF 58%,
+    #C48AFF 72%,
+    #5ed6ce 88%,
+    #14a3a1 100%
+  );
+  filter: blur(16px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.invitation-gradient-glow::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 36px;
+  background: inherit;
+  filter: blur(28px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* ── MAIN INVITATION CARD CONTAINER (PURPLE → TEAL → PURPLE → TEAL BORDER) ── */
+.invitation-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   background-color: #faf6fe;
   background-image:
     linear-gradient(180deg, #fdfaff 0%, #f9f3fe 15%, #f5ebfd 35%, #f9f3fe 60%, #f4e9fc 85%, #f8f0fd 100%),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23a855f7' stroke-width='0.4' stroke-opacity='0.16'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23a855f7' fill-opacity='0.16'/%3E%3C/svg%3E"),
-    linear-gradient(160deg, #9353d3 0%, #b87cf8 28%, #5ed6ce 72%, #14a3a1 100%);
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23C48AFF' stroke-width='0.4' stroke-opacity='0.18'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C48AFF' fill-opacity='0.18'/%3E%3C/svg%3E"),
+    linear-gradient(180deg,
+      #C48AFF 0%,
+      #C48AFF 14%,
+      #5ed6ce 28%,
+      #14a3a1 42%,
+      #C48AFF 58%,
+      #C48AFF 72%,
+      #5ed6ce 88%,
+      #14a3a1 100%
+    );
   background-origin: padding-box, padding-box, border-box;
   background-clip: padding-box, padding-box, border-box;
-  border: 2px solid transparent;
+  border: 2.5px solid transparent;
   border-radius: 28px;
   box-shadow:
-    0 -6px 36px rgba(147, 83, 211, 0.32),
-    0 26px 75px rgba(20, 163, 161, 0.35),
-    0 10px 32px rgba(94, 214, 206, 0.26),
-    0 0 28px rgba(147, 83, 211, 0.35),
-    0 0 38px rgba(20, 163, 161, 0.38),
     inset 0 0 0 1px rgba(255, 255, 255, 0.95),
-    inset 0 6px 32px rgba(216, 180, 254, 0.32),
-    inset 0 -16px 32px rgba(94, 214, 206, 0.25);
+    0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -854,7 +898,7 @@ body.site-entered .lang-control-bar {
   font-size: clamp(0.88rem, 2.7vw, 0.98rem);
   font-weight: 600;
   letter-spacing: 0.16em;
-  color: var(--text-dark);
+  color: #000000;
   text-transform: uppercase;
   margin-bottom: 0.35rem;
 }
@@ -1096,7 +1140,7 @@ body.site-entered .lang-control-bar {
   line-height: 0.92;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  color: #170a2f;
+  color: #C48AFF;
   user-select: none;
   background: none;
   border: none;
@@ -1151,7 +1195,7 @@ body.site-entered .lang-control-bar {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
-  color: #170a2f;
+  color: #C48AFF;
   letter-spacing: 0.02em;
 }
 
@@ -1177,7 +1221,7 @@ body.site-entered .lang-control-bar {
   font-style: italic;
   font-size: clamp(1.5rem, 5.5vw, 2.4rem);
   font-weight: 600;
-  color: #170a2f;
+  color: #C48AFF;
   text-align: center;
   letter-spacing: 0.04em;
   line-height: 1.3;
@@ -2548,15 +2592,15 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   font-family: var(--font-script);
   font-size: clamp(2.6rem, 6.8vw, 4rem);
   line-height: 1.05;
-  color: #1e0638 !important;
+  color: #C48AFF !important;
   text-shadow:
-    0 2px 14px rgba(30, 6, 56, 0.22),
+    0 2px 14px rgba(30, 6, 56, 0.28),
     0 1px 2px rgba(255, 255, 255, 0.9);
   margin: 0;
   letter-spacing: 0.02em;
   background: none !important;
   -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: #1e0638 !important;
+  -webkit-text-fill-color: #C48AFF !important;
 }
 
 .entry-invited-sub {
@@ -2565,7 +2609,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #3b1464;
+  color: #C48AFF;
   margin-top: 0.35rem;
   opacity: 0.95;
 }
@@ -2761,7 +2805,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   font-family: var(--font-script);
   font-size: 2.4rem;
   line-height: 1.05;
-  color: var(--theme-dark);
+  color: #C48AFF;
+  text-shadow: 0 1px 2px rgba(107, 33, 168, 0.15);
 }
 
 .card-celebrant-name {
@@ -2770,16 +2815,25 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-dark);
+  color: #C48AFF;
   margin-top: 2px;
   margin-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(107, 33, 168, 0.15);
 }
 
 .card-flourish-accent {
   font-size: 0.72rem;
-  color: var(--gold-accent);
+  color: #C48AFF;
   letter-spacing: 0.25em;
-  opacity: 0.85;
+  opacity: 0.9;
+}
+
+.card-crown-flourish svg {
+  stroke: #C48AFF;
+}
+
+.card-crown-flourish svg circle {
+  fill: #C48AFF;
 }
 
 /* Envelope Front Pocket (Beige / Offset White Cotton Paper) */
@@ -3338,10 +3392,29 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
     top: 104px;
   }
 
-  /* Mobile Invitation Card Container */
-  .invitation-wrapper {
+  /* Mobile Invitation Card Container & Glowing Stage */
+  .invitation-card-stage {
     margin: 3.2rem auto 2rem;
     width: calc(100% - 24px);
+  }
+
+  .invitation-gradient-glow {
+    inset: -5px;
+    border-radius: 24px;
+    filter: blur(12px);
+    opacity: 0.30;
+  }
+
+  .invitation-gradient-glow::after {
+    inset: -6px;
+    border-radius: 26px;
+    filter: blur(20px);
+    opacity: 0.16;
+  }
+
+  .invitation-wrapper {
+    margin: 0 auto;
+    width: 100%;
     border-radius: 20px;
   }
 
@@ -3802,12 +3875,12 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   content: '';
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(168, 160, 196, 0.45);
+  border: 1px solid rgba(196, 138, 255, 0.35);
   border-radius: 18px;
   box-shadow:
     inset 0 0 0 4px rgba(255, 255, 255, 0),
-    inset 0 6px 16px rgba(147, 83, 211, 0.22),
-    inset 0 -8px 16px rgba(20, 163, 161, 0.22);
+    inset 0 4px 10px rgba(196, 138, 255, 0.14),
+    inset 0 -5px 10px rgba(20, 163, 161, 0.12);
   pointer-events: none;
   z-index: 1;
 }
@@ -4156,12 +4229,12 @@ body:not(.site-entered) {
 
 .padrinos-divider-ornament { color: var(--teal); opacity: 0.8; }
 
-/* Wishing well: elegant royal purple (Ebani lavender/purple palette) */
-.registry-vignette .vignette-headline { color: #3b1464; }
-.registry-vignette .vignette-subtitle { color: #6b21a8; }
-.registry-vignette .vignette-ornament { color: #9353d3; opacity: 0.85; }
-.registry-vignette .vignette-wishing-emblem svg path { stroke: #9333ea; fill: rgba(147, 83, 211, 0.08); }
-.registry-vignette .vignette-wishing-emblem svg circle { fill: #9333ea; }
+/* Wishing well: pastel purple #C48AFF */
+.registry-vignette .vignette-headline { color: #C48AFF; }
+.registry-vignette .vignette-subtitle { color: #C48AFF; }
+.registry-vignette .vignette-ornament { color: #C48AFF; opacity: 0.95; }
+.registry-vignette .vignette-wishing-emblem svg path { stroke: #C48AFF; fill: rgba(196, 138, 255, 0.12); }
+.registry-vignette .vignette-wishing-emblem svg circle { fill: #C48AFF; }
 
 /* ── Giant RSVP letters: all 4 letters share the unified purple-to-teal gradient defined in .rsvp-char ── */
 
@@ -4170,7 +4243,7 @@ body:not(.site-entered) {
   box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px rgba(20, 163, 161, 0.75), 0 14px 28px rgba(11, 107, 112, 0.22);
 }
 .duo-right .duo-frame {
-  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px rgba(147, 83, 211, 0.75), 0 14px 28px rgba(107, 33, 168, 0.22);
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px #C48AFF, 0 14px 28px rgba(196, 138, 255, 0.28);
 }
 
 /* ── Form focus ring ── */
@@ -4231,8 +4304,8 @@ html:not(.site-entered) {
   font-weight: 700;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: #3b1464;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #C48AFF;
+  text-shadow: 0 1px 3px rgba(30, 6, 56, 0.4);
 }
 
 .entry-lang-pills {
@@ -4240,10 +4313,10 @@ html:not(.site-entered) {
   align-items: center;
   gap: 4px;
   padding: 4px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 999px;
-  box-shadow: 0 6px 22px rgba(107, 33, 168, 0.2), inset 0 0 0 1px rgba(147, 83, 211, 0.12);
+  box-shadow: 0 6px 22px rgba(196, 138, 255, 0.25), inset 0 0 0 1px rgba(196, 138, 255, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -4261,21 +4334,21 @@ html:not(.site-entered) {
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--text-subtle);
+  color: #C48AFF;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: var(--transition-smooth);
 }
 
 .entry-lang-btn:hover:not(.active) {
-  color: var(--theme-dark);
-  background: rgba(20, 163, 161, 0.12);
+  color: #C48AFF;
+  background: rgba(196, 138, 255, 0.15);
 }
 
 .entry-lang-btn.active {
-  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
+  background: linear-gradient(135deg, #C48AFF 0%, #9353d3 100%);
   color: #ffffff;
-  box-shadow: 0 3px 10px rgba(147, 83, 211, 0.35);
+  box-shadow: 0 3px 12px rgba(196, 138, 255, 0.45);
 }
 
 .entry-lang-btn:focus-visible {
@@ -4301,13 +4374,13 @@ html:not(.site-entered) {
 .program-timeline .timeline-row:nth-child(1) .timeline-line { background: linear-gradient(to bottom, rgba(20, 163, 161, 0) 0%, #14a3a1 45%, #348fad 100%); }
 .program-timeline .timeline-row:nth-child(2) .timeline-line { background: linear-gradient(to bottom, #348fad 0%, #547bba 100%); }
 .program-timeline .timeline-row:nth-child(3) .timeline-line { background: linear-gradient(to bottom, #547bba 0%, #7367c7 100%); }
-.program-timeline .timeline-row:nth-child(4) .timeline-line { background: linear-gradient(to bottom, #7367c7 0%, #9353d3 55%, rgba(147, 83, 211, 0) 100%); }
+.program-timeline .timeline-row:nth-child(4) .timeline-line { background: linear-gradient(to bottom, #7367c7 0%, #C48AFF 55%, rgba(196, 138, 255, 0) 100%); }
 
 .program-timeline .timeline-row:nth-child(1) .timeline-node { border-color: #2499a7; color: #1b7f8c; }
 .program-timeline .timeline-row:nth-child(2) .timeline-node { border-color: #4485b4; color: #346a99; }
 .program-timeline .timeline-row:nth-child(3) .timeline-node { border-color: #6471c1; color: #4f5aa8; }
-.program-timeline .timeline-row:nth-child(4) .timeline-node { border-color: #835dcd; color: #6b3fb5; }
+.program-timeline .timeline-row:nth-child(4) .timeline-node { border-color: #C48AFF; color: #C48AFF; }
 .program-timeline .timeline-row:nth-child(1) .time-stamp { color: #1b7f8c; }
 .program-timeline .timeline-row:nth-child(2) .time-stamp { color: #346a99; }
 .program-timeline .timeline-row:nth-child(3) .time-stamp { color: #4f5aa8; }
-.program-timeline .timeline-row:nth-child(4) .time-stamp { color: #6b3fb5; }
+.program-timeline .timeline-row:nth-child(4) .time-stamp { color: #C48AFF; }
