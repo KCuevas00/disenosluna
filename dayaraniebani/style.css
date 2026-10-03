@@ -4028,30 +4028,6 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 
 
 /* ══════════════════════════════════════════════════════════════
-   MOBILE: KEEP THE PAGE CENTERED (NO SIDEWAYS SHIFT)
-   The corner flower sprays hang a few px past the card edge. On a phone the
-   card IS the screen width, so that overhang made the page wider than the
-   screen and Safari let it slide left. Clip the overhang sideways only.
-   ══════════════════════════════════════════════════════════════ */
-.invitation-wrapper {
-  overflow-x: clip;
-}
-
-html.site-entered,
-body.site-entered {
-  max-width: 100%;
-  overflow-x: clip !important;
-}
-
-html.site-entered {
-  overflow-y: auto !important;
-}
-
-.rsvp-modal-overlay {
-  overflow-x: hidden;
-}
-
-/* ══════════════════════════════════════════════════════════════
    LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
    ══════════════════════════════════════════════════════════════ */
 /* Paint the same lilac sky on the page itself, so anything the overlay doesn't
