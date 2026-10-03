@@ -1,37 +1,37 @@
 /* ═════════════════════════════════════════════════════════════════════
    QUINCEAÑERA INVITATION — DAYANARI RETANA & EBANI GURROLA
-   Bespoke Teal, Light Purple Lavender, Butterfly & Gold System
+   Bespoke Dreamy Lavender, Lilac, Butterfly & Gold System
    ═════════════════════════════════════════════════════════════════════ */
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
-  /* Teal, Light Purple & Crisp White Scheme */
-  --bg-page: #f5fcfb;
-  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #f4fbf9 50%, #e8f7f4 100%);
+  /* Lavender Lilac & Crisp White Scheme */
+  --bg-page: #f9f5fd;
+  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #f7f0fd 50%, #eddff8 100%);
   --card-white: #ffffff;
 
   /* Typographic Contrast */
-  --text-dark: #0f2d29;
-  --text-charcoal: #1a423d;
-  --text-subtle: #2d635c;
-  --text-muted: #4e867f;
+  --text-dark: #2c1642;
+  --text-charcoal: #3b1d5c;
+  --text-subtle: #57317d;
+  --text-muted: #7952a3;
 
-  /* Teal Turquoise & Light Purple Accents */
-  --theme-primary: #0d9488;
-  --theme-dark: #115e59;
-  --theme-light: #f0fdfa;
-  --theme-soft: #14b8a6;
-  --theme-lavender: #a855f7;
+  /* Dreamy Lavender & Vibrant Lilac Accents */
+  --theme-primary: #9353d3;
+  --theme-dark: #6b21a8;
+  --theme-light: #f7f1fc;
+  --theme-soft: #b784f4;
+  --theme-lavender: #9353d3;
   --theme-lilac: #c084fc;
-  --theme-green: #0f766e;
-  --theme-green-soft: #2dd4bf;
+  --theme-green: #7c3aed;
+  --theme-green-soft: #d8b4fe;
   --rose-gold: var(--theme-primary);
   --rose-gold-dark: var(--theme-dark);
   --rose-gold-light: var(--theme-light);
 
   /* Ribbon & Buttons */
-  --ribbon-blush: linear-gradient(135deg, #115e59 0%, #0d9488 50%, #9333ea 100%);
-  --ribbon-blush-hover: linear-gradient(135deg, #0f4d49 0%, #0b7c72 50%, #7e22ce 100%);
+  --ribbon-blush: linear-gradient(135deg, #581c87 0%, #9353d3 50%, #c084fc 100%);
+  --ribbon-blush-hover: linear-gradient(135deg, #3b0764 0%, #7e22ce 50%, #a855f7 100%);
 
   /* Warm Champagne Gold Accents */
   --metal-accent: #c49658;
@@ -83,7 +83,7 @@ body {
 /* Before envelope is opened: lock scrolling on root html only & pure white background */
 html:not(.site-entered),
 body:not(.site-entered) {
-  background: #ffffff !important;
+  background: #ede0f7 !important;
   overflow: hidden !important;
   height: 100% !important;
   touch-action: none !important;
@@ -134,7 +134,7 @@ body.site-entered {
   border: 1px solid rgba(148, 163, 184, 0.4);
   border-radius: 999px;
   padding: 4px 10px 4px 6px;
-  box-shadow: 0 4px 18px rgba(136, 19, 55, 0.16);
+  box-shadow: 0 4px 18px rgba(147, 83, 211, 0.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -149,7 +149,7 @@ body.site-entered .audio-control-bar {
 
 .audio-control-bar:hover {
   background: #ffffff;
-  box-shadow: 0 6px 22px rgba(136, 19, 55, 0.22);
+  box-shadow: 0 6px 22px rgba(147, 83, 211, 0.22);
 }
 
 .audio-btn {
@@ -295,7 +295,7 @@ body.site-entered .audio-control-bar {
   border: 1px solid rgba(148, 163, 184, 0.4);
   border-radius: 999px;
   padding: 4px 6px 4px 10px;
-  box-shadow: 0 4px 18px rgba(136, 19, 55, 0.16);
+  box-shadow: 0 4px 18px rgba(147, 83, 211, 0.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -334,7 +334,7 @@ body.site-entered .lang-control-bar {
 .lang-pill-btn.active {
   background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(136, 19, 55, 0.3);
+  box-shadow: 0 2px 8px rgba(147, 83, 211, 0.3);
 }
 
 .lang-pill-btn:hover:not(.active) {
@@ -401,7 +401,7 @@ body.site-entered .lang-control-bar {
   justify-content: center !important;
   align-items: center !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 14px rgba(136, 19, 55, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(147, 83, 211, 0.2) !important;
 }
 
 .audio-control-bar.collapsed .control-arrow-btn,
@@ -429,7 +429,7 @@ body.site-entered .lang-control-bar {
   border: 1px solid rgba(148, 163, 184, 0.32);
   border-radius: 24px;
   box-shadow:
-    0 25px 70px rgba(136, 19, 55, 0.12),
+    0 25px 70px rgba(147, 83, 211, 0.12),
     0 4px 20px rgba(0, 0, 0, 0.04),
     inset 0 0 0 1px rgba(255, 255, 255, 0.9),
     inset 0 0 35px rgba(254, 240, 138, 0.45);
@@ -447,7 +447,7 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 10px 22px rgba(136, 19, 55, 0.16));
+  filter: drop-shadow(0 10px 22px rgba(147, 83, 211, 0.16));
 }
 
 .flower-card-top-left {
@@ -671,7 +671,7 @@ body.site-entered .lang-control-bar {
   max-width: 380px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 6px 16px rgba(136, 19, 55, 0.14));
+  filter: drop-shadow(0 6px 16px rgba(147, 83, 211, 0.14));
 }
 
 .vignette-floral-divider {
@@ -696,7 +696,7 @@ body.site-entered .lang-control-bar {
   pointer-events: none;
   z-index: 1;
   opacity: 0.08;
-  filter: drop-shadow(0 8px 20px rgba(136, 19, 55, 0.12));
+  filter: drop-shadow(0 8px 20px rgba(147, 83, 211, 0.12));
 }
 
 .watermark-top-right {
@@ -739,7 +739,7 @@ body.site-entered .lang-control-bar {
   max-width: 75vw;
   height: auto;
   opacity: 1;
-  filter: drop-shadow(0 4px 14px rgba(136, 19, 55, 0.35));
+  filter: drop-shadow(0 4px 14px rgba(147, 83, 211, 0.35));
 }
 
 /* ── CELEBRANT PORTRAIT: COUTURE EDITORIAL INTEGRATION ── */
@@ -766,19 +766,20 @@ body.site-entered .lang-control-bar {
 .portrait-card,
 .photo-viewport {
   width: 100%;
-  max-width: 330px;
+  max-width: 340px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 3;
   padding: 0;
-  border-radius: 22px;
+  border-radius: 26px;
   overflow: hidden;
+  border: none !important;
   box-shadow:
-    0 0 0 3px #ffffff,
-    0 0 0 5px var(--gold-accent),
-    0 16px 36px rgba(136, 19, 55, 0.18);
+    0 24px 55px -8px rgba(107, 33, 168, 0.22),
+    0 10px 24px -4px rgba(147, 83, 211, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
 }
 
 .celebrant-photo {
@@ -786,10 +787,10 @@ body.site-entered .lang-control-bar {
   z-index: 3;
   width: 100%;
   height: auto;
-  max-height: 480px;
+  max-height: 560px;
   object-fit: cover;
   display: block;
-  border-radius: 19px;
+  border-radius: 26px;
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
 }
@@ -861,7 +862,7 @@ body.site-entered .lang-control-bar {
   font-weight: 400;
   line-height: 0.95;
   color: var(--theme-dark);
-  text-shadow: 0 2px 12px rgba(136, 19, 55, 0.25);
+  text-shadow: 0 2px 12px rgba(147, 83, 211, 0.25);
   margin: 0.25rem 0;
 }
 
@@ -1308,7 +1309,7 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 4px 14px rgba(136, 19, 55, 0.15);
+  box-shadow: 0 4px 14px rgba(147, 83, 211, 0.15);
   transition: var(--transition-smooth);
 }
 
@@ -1416,14 +1417,14 @@ body.site-entered .lang-control-bar {
   border-radius: 12px;
   overflow: hidden;
   border: 1.5px solid rgba(148, 163, 184, 0.48);
-  box-shadow: 0 6px 18px rgba(136, 19, 55, 0.16);
+  box-shadow: 0 6px 18px rgba(147, 83, 211, 0.16);
   background: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-photo-card:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 24px rgba(136, 19, 55, 0.24);
+  box-shadow: 0 10px 24px rgba(147, 83, 211, 0.24);
 }
 
 .timeline-venue-img {
@@ -1447,7 +1448,7 @@ body.site-entered .lang-control-bar {
   border: 1.5px solid rgba(148, 163, 184, 0.48);
   border-radius: 20px;
   box-shadow:
-    0 16px 42px rgba(136, 19, 55, 0.13),
+    0 16px 42px rgba(147, 83, 211, 0.13),
     inset 0 0 0 5px #ffffff,
     inset 0 0 0 6.5px rgba(148, 163, 184, 0.28);
   padding: 2.2rem 1.6rem;
@@ -1467,7 +1468,7 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 6px 14px rgba(136, 19, 55, 0.15));
+  filter: drop-shadow(0 6px 14px rgba(147, 83, 211, 0.15));
   z-index: 3;
 }
 
@@ -1562,7 +1563,7 @@ body.site-entered .lang-control-bar {
   justify-content: center;
   background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
   border: 2px solid var(--gold-accent);
-  box-shadow: 0 6px 18px rgba(136, 19, 55, 0.18);
+  box-shadow: 0 6px 18px rgba(147, 83, 211, 0.18);
   overflow: hidden;
 }
 
@@ -1691,7 +1692,7 @@ body.site-entered .lang-control-bar {
   width: 115px;
   height: 115px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(136, 19, 55, 0.14));
+  filter: drop-shadow(0 6px 14px rgba(147, 83, 211, 0.14));
   z-index: 2;
 }
 
@@ -1808,7 +1809,7 @@ body.site-entered .lang-control-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(136, 19, 55, 0.14);
+  box-shadow: 0 6px 18px rgba(147, 83, 211, 0.14);
 }
 
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
@@ -1828,10 +1829,10 @@ body.site-entered .lang-control-bar {
 .message-portrait-wrap {
   width: 120px;
   height: 150px;
-  border-radius: 60px 60px 14px 14px;
+  border-radius: 60px 60px 18px 18px;
   overflow: hidden;
-  border: 2px solid var(--gold-accent);
-  box-shadow: 0 10px 24px rgba(136, 19, 55, 0.2);
+  border: none;
+  box-shadow: 0 10px 24px rgba(147, 83, 211, 0.22), 0 0 0 2px rgba(255, 255, 255, 0.85);
   flex-shrink: 0;
 }
 
@@ -1946,13 +1947,13 @@ body.site-entered .lang-control-bar {
   font-size: 7.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #0d9488;
-  background: linear-gradient(135deg, #fef9c3 0%, #d4aa63 35%, #ffffff 55%, #0d9488 75%, #115e59 100%);
+  color: #9353d3;
+  background: linear-gradient(135deg, #fef9c3 0%, #d4aa63 35%, #ffffff 55%, #9353d3 75%, #6b21a8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 4px 14px rgba(13, 148, 136, 0.45));
+  filter: drop-shadow(0 4px 14px rgba(147, 83, 211, 0.45));
 }
 
 .letter-floral {
@@ -1960,7 +1961,7 @@ body.site-entered .lang-control-bar {
   z-index: 1;
   opacity: 0.32;
   pointer-events: none;
-  filter: drop-shadow(0 2px 6px rgba(13, 148, 136, 0.12));
+  filter: drop-shadow(0 2px 6px rgba(147, 83, 211, 0.12));
 }
 
 .floral-r {
@@ -2036,7 +2037,7 @@ body.site-entered .lang-control-bar {
   cursor: pointer;
   padding: 0 1.6rem;
   max-width: calc(100vw - 64px);
-  box-shadow: 0 4px 18px rgba(136, 19, 55, 0.28);
+  box-shadow: 0 4px 18px rgba(147, 83, 211, 0.28);
   transition: var(--transition-smooth);
 }
 
@@ -2051,7 +2052,7 @@ body.site-entered .lang-control-bar {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(136, 19, 55, 0.25);
+  text-shadow: 0 1px 2px rgba(147, 83, 211, 0.25);
   white-space: nowrap;
   text-transform: uppercase;
 }
@@ -2374,7 +2375,8 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #ffffff !important;
+  background-color: #ede0f7;
+  background-image: radial-gradient(circle at 50% 40%, #fbf7ff 0%, #ece0f8 48%, #decbf3 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s;
 }
 
@@ -2431,56 +2433,111 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transition: transform 0.3s ease;
 }
 
-/* Diagonal Corner Floral Sprays Framing Envelope */
+/* ── "YOU'VE BEEN INVITED!" HEADLINE ABOVE ENVELOPE ── */
+.envelope-entry-header {
+  text-align: center;
+  margin-bottom: 1.4rem;
+  z-index: 30;
+  pointer-events: none;
+  animation: entryHeaderFadeDown 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.entry-invited-script {
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 6.8vw, 4rem);
+  line-height: 1.05;
+  color: #581c87;
+  text-shadow:
+    0 3px 18px rgba(107, 33, 168, 0.28),
+    0 1px 2px rgba(255, 255, 255, 0.95);
+  margin: 0;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #4c0f77 0%, #6b21a8 45%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.entry-invited-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.7rem, 1.8vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7952a3;
+  margin-top: 0.35rem;
+  opacity: 0.95;
+}
+
+@keyframes entryHeaderFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gracefully hide header when envelope opens and card glides up */
+.entry-overlay.is-opened .envelope-entry-header,
+.entry-stage-mount.is-opened .envelope-entry-header,
+:has(> .luxury-envelope-container.is-opened) .envelope-entry-header {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+
+/* Corner Floral Sprays Framing Envelope (Anchored to Envelope Corners) */
 .envelope-floral-frame {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  height: 290px;
-  max-width: 95vw;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 25;
+  z-index: 24;
+  opacity: 1 !important;
 }
 
 .envelope-flower-spray {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: none;
+  opacity: 1 !important;
+  filter: drop-shadow(0 8px 18px rgba(124, 58, 237, 0.28)) drop-shadow(0 2px 8px rgba(168, 85, 247, 0.25)) brightness(1.04) saturate(1.05);
   transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .flower-top-right {
-  top: -32px;
-  right: -28px;
-  width: 275px;
-  height: 275px;
-  z-index: 25;
+  top: -48px;
+  right: -42px;
+  width: 250px;
+  height: 250px;
+  z-index: 24;
+  opacity: 1 !important;
   transform: rotate(-6deg);
   transform-origin: top right;
 }
 
 .flower-bottom-left {
-  bottom: -32px;
-  left: -28px;
-  width: 275px;
-  height: 275px;
-  z-index: 25;
+  bottom: -48px;
+  left: -42px;
+  width: 250px;
+  height: 250px;
+  z-index: 24;
+  opacity: 1 !important;
 }
 
 /* Gracefully fade away top-right floral bouquet as envelope opens so letter text & crown remain unobstructed */
-.entry-overlay.is-opened .flower-top-right,
-.entry-stage-mount.is-opened .flower-top-right,
-.luxury-envelope-container.is-opened ~ .envelope-floral-frame .flower-top-right,
-:has(> .luxury-envelope-container.is-opened) .flower-top-right {
-  opacity: 0;
+.luxury-envelope-container.is-opened .flower-top-right,
+.entry-overlay.is-opened .flower-top-right {
+  opacity: 0 !important;
   transform: translate(28px, -28px) scale(0.92);
   pointer-events: none;
 }
 
-/* 3D Envelope Container (Bespoke Teal & Lavender Parchment) */
+/* 3D Envelope Container (Bespoke Light Pastel Orchid & Lavender Purple System) */
 .luxury-envelope-container {
   position: relative;
   width: 370px;
@@ -2490,37 +2547,41 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   user-select: none;
   transform-style: preserve-3d;
   border-radius: 6px;
-  background: #f0fdfa;
-  border: 1.8px solid #d4aa63;
+  background: linear-gradient(140deg, #e5d5f8 0%, #d6bef3 45%, #be9be8 100%);
+  border: 2px solid #b794e6;
   box-shadow:
-    0 26px 58px rgba(13, 148, 136, 0.22),
-    0 8px 24px rgba(168, 85, 247, 0.14);
+    0 22px 50px rgba(147, 83, 211, 0.22),
+    0 8px 20px rgba(168, 85, 247, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    inset 0 0 20px rgba(255, 255, 255, 0.55);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
 
 .luxury-envelope-container:hover {
   box-shadow:
-    0 34px 72px rgba(13, 148, 136, 0.28),
-    0 12px 30px rgba(168, 85, 247, 0.18);
+    0 28px 60px rgba(147, 83, 211, 0.32),
+    0 10px 24px rgba(168, 85, 247, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 0 24px rgba(255, 255, 255, 0.7);
 }
 
 /* Envelope Interior Back Wall */
 .env-back {
   position: absolute;
   inset: 0;
-  background: #f5f3ff;
+  background: linear-gradient(180deg, #b893e6 0%, #a275da 100%);
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(13, 148, 136, 0.22);
+  box-shadow: inset 0 0 35px rgba(109, 40, 217, 0.28);
 }
 
 .env-interior-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(45deg, rgba(13, 148, 136, 0.18) 0, rgba(13, 148, 136, 0.18) 1px, transparent 0, transparent 20px),
-    repeating-linear-gradient(-45deg, rgba(168, 85, 247, 0.18) 0, rgba(168, 85, 247, 0.18) 1px, transparent 0, transparent 20px);
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0.35) 1px, transparent 0, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(233, 213, 255, 0.28) 0, rgba(233, 213, 255, 0.28) 1px, transparent 0, transparent 20px);
 }
 
 /* Inside Invitation Card */
@@ -2535,7 +2596,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   border-radius: 8px;
   padding: 16px 18px;
   z-index: 10;
-  box-shadow: 0 10px 30px rgba(17, 94, 89, 0.2);
+  box-shadow: 0 10px 30px rgba(88, 28, 135, 0.2);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
@@ -2555,8 +2616,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   border-radius: 6px;
   padding: 14px 12px 16px;
   text-align: center;
-  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 1) 0%, rgba(240, 253, 250, 0.9) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(13, 148, 136, 0.12);
+  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 1) 0%, rgba(247, 241, 252, 0.95) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(147, 83, 211, 0.12);
 }
 
 .card-crown-flourish {
@@ -2565,14 +2626,15 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .card-portrait-ring {
-  width: 82px;
-  height: 82px;
+  width: 84px;
+  height: 84px;
   margin: 0 auto 10px;
   border-radius: 50%;
-  border: 2.5px solid var(--gold-accent);
+  border: none;
   box-shadow:
-    0 0 0 3px rgba(255, 255, 255, 0.9),
-    0 6px 18px rgba(13, 148, 136, 0.22);
+    0 0 0 2.5px rgba(255, 255, 255, 0.95),
+    0 0 0 4.5px rgba(168, 85, 247, 0.45),
+    0 8px 20px rgba(147, 83, 211, 0.22);
   overflow: hidden;
 }
 
@@ -2614,11 +2676,14 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(175deg, #ffffff 0%, #f0fdfa 50%, #f5f3ff 100%);
+  background: linear-gradient(168deg, #d8bff6 0%, #caa7f2 35%, #b98dee 70%, #a977e5 100%);
   border-radius: 6px;
   z-index: 12;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
-  box-shadow: inset 0 -4px 15px rgba(13, 148, 136, 0.2), inset 0 1px 0 rgba(212, 170, 99, 0.7);
+  box-shadow:
+    inset 0 -6px 18px rgba(124, 58, 237, 0.22),
+    inset 0 1.8px 0 rgba(255, 255, 255, 0.85),
+    inset 0 3px 0 rgba(192, 132, 252, 0.45);
 }
 
 .env-pocket::before {
@@ -2626,8 +2691,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(13, 148, 136, 0.12) 0%, transparent 45%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(255, 255, 255, 0.35) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -2651,10 +2716,10 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform-style: preserve-3d;
   z-index: 15;
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
-  filter: drop-shadow(0 8px 14px rgba(13, 148, 136, 0.25));
+  filter: drop-shadow(0 10px 20px rgba(109, 40, 217, 0.25));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(160deg, #ffffff 0%, #f0fdfa 50%, #ede9fe 100%);
-  border-top: 2px solid #0d9488;
+  background: linear-gradient(160deg, #ede0fa 0%, #ddc4f6 35%, #c8a3f0 70%, #b78ae8 100%);
+  border-top: 2.5px solid #b794e6;
 }
 
 .env-flap-edge-svg {
@@ -2669,7 +2734,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 .luxury-envelope-container.is-opened .env-flap {
   transform: rotateX(180deg);
   z-index: 15;
-  filter: drop-shadow(0 -4px 10px rgba(20, 65, 110, 0.15));
+  filter: drop-shadow(0 -6px 14px rgba(124, 58, 237, 0.22));
+  background: linear-gradient(160deg, #b78ae8 0%, #a574dc 60%, #905bc9 100%);
 }
 
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
@@ -2682,6 +2748,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none !important;
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
@@ -2704,10 +2771,19 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: none;
+  outline: none !important;
   border-radius: 50%;
-  animation: stampPulseGlow 3s infinite ease-in-out;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.28s ease;
+  filter: drop-shadow(0 6px 14px rgba(124, 58, 237, 0.38));
+}
+
+.wax-seal-btn:hover {
+  transform: scale(1.07);
+  filter: drop-shadow(0 8px 22px rgba(147, 83, 211, 0.55)) drop-shadow(0 0 16px rgba(233, 213, 255, 0.75));
+}
+
+.wax-seal-btn:active {
+  transform: scale(0.96);
 }
 
 .wax-seal-svg {
@@ -2716,14 +2792,211 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   pointer-events: none;
 }
 
-@keyframes stampPulseGlow {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+/* ══════════════════════════════════════════════════════════
+   BESPOKE RUSTIC FLAPPING BUTTERFLY ON ENVELOPE (BOTTOM-RIGHT)
+   ══════════════════════════════════════════════════════════ */
+.env-rustic-butterfly {
+  position: absolute;
+  bottom: -32px;
+  right: -36px;
+  width: 124px;
+  height: 104px;
+  z-index: 28;
+  cursor: pointer;
+  perspective: 750px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: drop-shadow(0 10px 18px rgba(44, 8, 77, 0.45));
 }
 
-.wax-seal-btn:hover {
-  animation-play-state: paused;
-  transform: scale(1.08);
+.butterfly-flight-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotate(-12deg) translateZ(10px);
+  animation: butterflyFloat 4.8s ease-in-out infinite;
+}
+
+/* Dynamic 3D ground drop-shadow directly on envelope */
+.butterfly-ground-shadow {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 76px;
+  height: 22px;
+  transform: translate(-50%, -50%) translateZ(-8px);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(30, 4, 52, 0.6) 0%, rgba(30, 4, 52, 0.25) 45%, transparent 75%);
+  filter: blur(3px);
+  pointer-events: none;
+  animation: butterflyShadowBreath 4.5s ease-in-out infinite;
+}
+
+/* Left & Right Wing 3D Wrappers */
+.butterfly-wing-wrap {
+  position: absolute;
+  top: 4px;
+  width: 62px;
+  height: 94px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.wing-wrap-left {
+  right: 50%;
+  margin-right: -1px;
+  transform-origin: 100% 48%;
+  animation: rusticWingFlapLeft 4.5s ease-in-out infinite;
+}
+
+.wing-wrap-right {
+  left: 50%;
+  margin-left: -1px;
+  transform-origin: 0% 48%;
+  animation: rusticWingFlapRight 4.5s ease-in-out infinite;
+}
+
+.butterfly-wing-wrap .wing-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+}
+
+/* Central Segmented Body */
+.butterfly-body-wrap {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 22px;
+  height: 94px;
+  transform: translateX(-50%) translateZ(6px);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.butterfly-body-wrap .body-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+}
+
+/* Golden Aurora Dust / Sparkles */
+.butterfly-aurora {
+  position: absolute;
+  inset: -10px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.dust-sparkle {
+  position: absolute;
+  color: #fef08a;
+  text-shadow: 0 0 6px #d4aa63, 0 0 12px #c084fc;
+  animation: sparkleTwinkle 2.4s ease-in-out infinite;
+  opacity: 0;
+}
+
+.dust-sparkle.d1 { top: 4px; right: 8px; font-size: 0.85rem; animation-delay: 0.2s; }
+.dust-sparkle.d2 { bottom: 12px; left: 10px; font-size: 0.65rem; animation-delay: 1.1s; }
+.dust-sparkle.d3 { top: 45%; right: -6px; font-size: 0.75rem; animation-delay: 1.8s; }
+
+/* ── FLAPPING KEYFRAMES ── */
+@keyframes rusticWingFlapLeft {
+  0% { transform: rotateY(0deg) rotateZ(0deg); }
+  3% { transform: rotateY(56deg) rotateZ(-7deg); }
+  6% { transform: rotateY(-16deg) rotateZ(2deg); }
+  9% { transform: rotateY(64deg) rotateZ(-8deg); }
+  12% { transform: rotateY(-12deg) rotateZ(2deg); }
+  15% { transform: rotateY(60deg) rotateZ(-7deg); }
+  18% { transform: rotateY(-6deg) rotateZ(1deg); }
+  22% { transform: rotateY(34deg) rotateZ(-4deg); }
+  27% { transform: rotateY(4deg) rotateZ(0deg); }
+  32% { transform: rotateY(16deg) rotateZ(-2deg); }
+  45% { transform: rotateY(6deg) rotateZ(-1deg); }
+  52% { transform: rotateY(20deg) rotateZ(-2deg); }
+  58% { transform: rotateY(2deg) rotateZ(0deg); }
+  68% { transform: rotateY(50deg) rotateZ(-6deg); }
+  72% { transform: rotateY(-14deg) rotateZ(2deg); }
+  76% { transform: rotateY(55deg) rotateZ(-7deg); }
+  80% { transform: rotateY(-4deg) rotateZ(1deg); }
+  84% { transform: rotateY(18deg) rotateZ(-2deg); }
+  90% { transform: rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateY(0deg) rotateZ(0deg); }
+}
+
+@keyframes rusticWingFlapRight {
+  0% { transform: rotateY(0deg) rotateZ(0deg); }
+  3% { transform: rotateY(-56deg) rotateZ(7deg); }
+  6% { transform: rotateY(16deg) rotateZ(-2deg); }
+  9% { transform: rotateY(-64deg) rotateZ(8deg); }
+  12% { transform: rotateY(12deg) rotateZ(-2deg); }
+  15% { transform: rotateY(-60deg) rotateZ(7deg); }
+  18% { transform: rotateY(6deg) rotateZ(-1deg); }
+  22% { transform: rotateY(-34deg) rotateZ(4deg); }
+  27% { transform: rotateY(-4deg) rotateZ(0deg); }
+  32% { transform: rotateY(-16deg) rotateZ(2deg); }
+  45% { transform: rotateY(-6deg) rotateZ(1deg); }
+  52% { transform: rotateY(-20deg) rotateZ(2deg); }
+  58% { transform: rotateY(-2deg) rotateZ(0deg); }
+  68% { transform: rotateY(-50deg) rotateZ(6deg); }
+  72% { transform: rotateY(14deg) rotateZ(-2deg); }
+  76% { transform: rotateY(-55deg) rotateZ(7deg); }
+  80% { transform: rotateY(4deg) rotateZ(-1deg); }
+  84% { transform: rotateY(-18deg) rotateZ(2deg); }
+  90% { transform: rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateY(0deg) rotateZ(0deg); }
+}
+
+@keyframes rusticWingFlapLeftFast {
+  0% { transform: rotateY(0deg) rotateZ(0deg); }
+  25% { transform: rotateY(62deg) rotateZ(-8deg); }
+  50% { transform: rotateY(-16deg) rotateZ(2deg); }
+  75% { transform: rotateY(58deg) rotateZ(-7deg); }
+  100% { transform: rotateY(0deg) rotateZ(0deg); }
+}
+
+@keyframes rusticWingFlapRightFast {
+  0% { transform: rotateY(0deg) rotateZ(0deg); }
+  25% { transform: rotateY(-62deg) rotateZ(8deg); }
+  50% { transform: rotateY(16deg) rotateZ(-2deg); }
+  75% { transform: rotateY(-58deg) rotateZ(7deg); }
+  100% { transform: rotateY(0deg) rotateZ(0deg); }
+}
+
+@keyframes butterflyShadowBreath {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
+  9%, 15%, 72%, 76% { transform: translate(-50%, -50%) scale(0.68); opacity: 0.25; filter: blur(5px); }
+  6%, 12%, 18% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.65; filter: blur(2.5px); }
+  32%, 52% { transform: translate(-50%, -50%) scale(0.88); opacity: 0.45; }
+}
+
+@keyframes butterflyFloat {
+  0%, 100% { transform: rotate(-12deg) translate3d(0, 0, 10px); }
+  50% { transform: rotate(-10deg) translate3d(-3px, -5px, 16px); }
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  50% { opacity: 0.95; transform: scale(1.25) rotate(45deg); }
+}
+
+/* Hover Interaction: Excitement on Hover */
+.env-rustic-butterfly:hover .wing-wrap-left,
+.luxury-envelope-container:hover .wing-wrap-left {
+  animation: rusticWingFlapLeftFast 0.6s ease-in-out infinite;
+}
+.env-rustic-butterfly:hover .wing-wrap-right,
+.luxury-envelope-container:hover .wing-wrap-right {
+  animation: rusticWingFlapRightFast 0.6s ease-in-out infinite;
+}
+.env-rustic-butterfly:hover {
+  transform: scale(1.06) translateY(-4px);
 }
 
 /* ── SCROLL REVEAL ANIMATIONS ── */
@@ -2759,27 +3032,56 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 @media (max-width: 480px) {
   /* Envelope & Flower Sprays: Scaled & Positioned to Never Clip */
   .envelope-floral-frame {
-    width: 360px;
-    height: 280px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .flower-top-right {
-    top: -26px;
-    right: -18px;
-    width: 190px;
-    height: 190px;
+    top: -36px;
+    right: -30px;
+    width: 185px;
+    height: 185px;
+    opacity: 1 !important;
   }
 
   .flower-bottom-left {
-    bottom: -26px;
-    left: -18px;
-    width: 190px;
-    height: 190px;
+    bottom: -36px;
+    left: -30px;
+    width: 185px;
+    height: 185px;
+    opacity: 1 !important;
+  }
+
+  .envelope-entry-header {
+    margin-bottom: 0.9rem;
+  }
+
+  .entry-invited-script {
+    font-size: 2.45rem;
   }
 
   .luxury-envelope-container {
     width: 320px;
     height: 220px;
+  }
+
+  /* Mobile Rustic Flapping Butterfly */
+  .env-rustic-butterfly {
+    width: 102px;
+    height: 86px;
+    bottom: -24px;
+    right: -26px;
+  }
+
+  .butterfly-wing-wrap {
+    width: 51px;
+    height: 78px;
+  }
+
+  .butterfly-body-wrap {
+    width: 18px;
+    height: 78px;
   }
 
   .env-pocket {
@@ -3176,17 +3478,19 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .flower-top-right {
-    top: -20px;
-    right: -12px;
+    top: -24px;
+    right: -18px;
     width: 160px;
     height: 160px;
+    opacity: 1 !important;
   }
 
   .flower-bottom-left {
-    bottom: -20px;
-    left: -12px;
+    bottom: -24px;
+    left: -18px;
     width: 160px;
     height: 160px;
+    opacity: 1 !important;
   }
 
   .pt-numbers-row {

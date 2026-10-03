@@ -40,7 +40,7 @@ Time: 5:00 PM – 10:00 PM (Guest Departure: 10:45 PM)
 - **10:45 PM** – Guest Departure
 
 ### Details & Preferences
-- **Background Song Request:** Moonlight by Ariana Grande
+- **Background Song Request:** Moonlight by Ariana Grande (pull from merelinnunez directory)
 - **Live Countdown Enabled:** Yes, include live countdown (September 4, 2027 at 5:00 PM)
 - **Dedication Message:** None
 - **Court of Honor:** Sasha, Chloe, Natalie, Avery

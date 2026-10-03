@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   const translations = {
     en: {
+      'entry-invited': "You've Been Invited!",
+      'entry-subtitle': 'DAYANARI &amp; EBANI • QUINCEAÑERA',
       'invite-quince': 'Quinceañera',
       'invite-parents': 'CINTHIA CAMACHO, JESSICA CAMACHO &amp; URIEL GURROLA',
       'invite-preamble': 'WARMLY INVITE YOU TO CELEBRATE THE',
@@ -103,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.'
     },
     es: {
+      'entry-invited': '¡Estás Invitado!',
+      'entry-subtitle': 'DAYANARI Y EBANI • XV AÑOS',
       'invite-quince': 'XV Años',
       'invite-parents': 'CINTHIA CAMACHO, JESSICA CAMACHO Y URIEL GURROLA',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
@@ -362,13 +366,13 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(13, 148, 136, 0.95)',  // bright teal
-          'rgba(17, 94, 89, 0.92)',   // rich dark teal
-          'rgba(168, 85, 247, 0.90)',  // vivid lavender
+          'rgba(147, 83, 211, 0.95)',  // dreamy lavender
+          'rgba(107, 33, 168, 0.92)',  // deep royal violet
+          'rgba(168, 85, 247, 0.90)',  // vivid purple
           'rgba(192, 132, 252, 0.88)', // soft lilac
           'rgba(212, 170, 99, 0.92)',  // sparkling gold leaf
           'rgba(254, 240, 138, 0.95)', // warm gold glitter
-          'rgba(240, 253, 250, 0.96)', // pale aqua pearl
+          'rgba(247, 241, 252, 0.96)', // pale lavender pearl
           'rgba(255, 255, 255, 0.96)'  // crystalline pearl
         ][Math.floor(Math.random() * 8)],
         bend: Math.random() * 0.5 + 0.5
@@ -438,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.ctx.fillStyle = p.color;
         this.ctx.globalAlpha = p.opacity;
         this.ctx.shadowBlur = 6;
-        this.ctx.shadowColor = 'rgba(13, 148, 136, 0.35)';
+        this.ctx.shadowColor = 'rgba(147, 83, 211, 0.35)';
         this.ctx.fill();
         this.ctx.restore();
 
@@ -605,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speedY: (Math.random() * 0.18 + 0.05),
         speedX: (Math.random() - 0.5) * 0.18,
         alpha: Math.random() * 0.28 + 0.08,
-        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '13, 148, 136' : (Math.random() > 0.5 ? '168, 85, 247' : '254, 240, 138'))
+        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '147, 83, 211' : (Math.random() > 0.5 ? '192, 132, 252' : '254, 240, 138'))
       });
     }
 
@@ -817,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerConfetti() {
-    const confettiColors = ['#0d9488', '#14b8a6', '#a855f7', '#c084fc', '#d4aa63', '#fef08a', '#ffffff', '#2dd4bf'];
+    const confettiColors = ['#9353d3', '#b784f4', '#a855f7', '#c084fc', '#d4aa63', '#fef08a', '#ffffff', '#7c3aed'];
     for (let i = 0; i < 60; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';

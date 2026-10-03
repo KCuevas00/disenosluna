@@ -1,18 +1,16 @@
 /**
  * ═════════════════════════════════════════════════════════════════════
  * SWEET 16 INVITATION — DENISE TORRESRIVERA
- * Interactive Controller, Falling Powder Blue Petals Engine, Audio & RSVP
+ * Interactive Controller, Falling Powder Blue & Gold Petals, Audio & RSVP
  * ═════════════════════════════════════════════════════════════════════
  */
 
 /* ═════════════════════════════════════════════════════════════════════
  * 1. GOOGLE SHEETS RSVP ENDPOINT CONFIGURATION
  * ═════════════════════════════════════════════════════════════════════
- * Master Webhook URL automatically syncs RSVP entries into Denise's
- * dedicated private Google Sheet.
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
-const EVENT_SLUG = 'denise-torresrivera-sweet16';
+const EVENT_SLUG = 'denisetorresrivera';
 const CLIENT_NAME = 'Whitney Jackson';
 const CLIENT_EMAIL = 'marcsmom09@gmail.com';
 
@@ -56,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-parents': 'WHITNEY JACKSON',
       'invite-preamble': 'WARMLY INVITES YOU TO CELEBRATE THE',
       'invite-daughter': 'OF HER DAUGHTER',
-      'invite-date-month': 'SEP',
+      'invite-date-month': 'SEPT',
       'invite-date-day': 'SATURDAY',
       'invite-date-time': 'AT 5:00 PM',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
@@ -70,39 +68,41 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-title': 'PROGRAM',
       'program-arrival-title': 'GUEST ARRIVAL &amp; CHECK-IN',
       'program-arrival-desc': 'LA BELLA EVENT CENTER,<br />6701 W WILSHIRE BLVD, OKLAHOMA CITY, OK 73132',
-      'program-entrance-title': 'GRAND ENTRANCE',
-      'program-entrance-desc': 'WELCOME &amp; GRAND ENTRANCE OF DENISE',
-      'program-court-intro-title': 'SWEET 16 COURT',
-      'program-court-intro-desc': 'INTRODUCTION OF THE COURT OF HONOR',
-      'program-family-dance-title': 'FAMILY DANCE',
-      'program-family-dance-desc': 'BIRTHDAY GIRL &amp; PARENT / FAMILY DANCE',
-      'program-court-dance-title': 'COURT DANCE',
-      'program-court-dance-desc': 'SPECIAL COURT OF HONOR CHOREOGRAPHY',
-      'program-dinner-title': 'DINNER / BUFFET',
-      'program-dinner-desc': 'BANQUET IN HONOR OF DENISE',
-      'program-cake-title': 'CAKE CUTTING',
-      'program-cake-desc': 'CAKE CUTTING &amp; BIRTHDAY SONG',
-      'program-toast-title': 'SPEECHES &amp; TOASTS',
-      'program-toast-desc': 'SPECIAL MESSAGES &amp; WORDS OF LOVE',
-      'program-party-title': 'OPEN DANCE FLOOR',
-      'program-party-desc': 'CELEBRATION, MUSIC &amp; FIESTA',
-      'program-games-title': 'PARTY GAMES',
-      'program-games-desc': 'FUN ACTIVITIES &amp; CELEBRATION GAMES',
-      'program-final-dance-title': 'FINAL DANCE SET',
-      'program-final-dance-desc': 'LATE NIGHT CELEBRATION &amp; ENERGY',
-      'program-photos-title': 'FINAL PHOTOS',
-      'program-photos-desc': 'CHERISHED MEMORIES &amp; GROUP PICTURES',
-      'program-cinderella-title': 'CINDERELLA MOMENT',
-      'program-cinderella-desc': 'LAST DANCE &amp; MAGICAL SEND-OFF',
-      'program-departure-title': 'GUEST DEPARTURE',
-      'program-departure-desc': 'FAREWELL &amp; THANK YOU FOR CELEBRATING',
       'tl-btn-location': 'LOCATION',
+      'program-photos-title': 'PHOTOS &amp; GUEST MINGLING',
+      'program-photos-desc': 'WELCOME DRINKS, PHOTO OPS &amp; GREETINGS',
+      'program-entrance-title': 'GRAND ENTRANCE',
+      'program-entrance-desc': 'HONORING THE BIRTHDAY GIRL DENISE',
+      'program-court-intro-title': 'SWEET 16 COURT INTRODUCTION',
+      'program-court-intro-desc': 'INTRODUCING SASHA, CHLOE, NATALIE &amp; AVERY',
+      'program-family-dance-title': 'BIRTHDAY GIRL &amp; PARENT DANCE',
+      'program-family-dance-desc': 'SPECIAL MOMENT WITH WHITNEY &amp; FAMILY',
+      'program-court-dance-title': 'COURT DANCE',
+      'program-court-dance-desc': 'PRESENTATION PERFORMANCE BY THE COURT',
+      'program-dinner-title': 'DINNER / BUFFET OPENS',
+      'program-dinner-desc': 'CELEBRATORY BANQUET IN HONOR OF DENISE',
+      'program-cake-title': 'CAKE CUTTING &amp; BIRTHDAY SONG',
+      'program-cake-desc': 'HAPPY 16TH BIRTHDAY WISHES &amp; CAKE',
+      'program-speeches-title': 'SPEECHES &amp; SPECIAL MESSAGES',
+      'program-speeches-desc': 'HEARTFELT WORDS FROM FAMILY &amp; FRIENDS',
+      'program-party-title': 'OPEN DANCE FLOOR',
+      'program-party-desc': 'LET THE CELEBRATION BEGIN!',
+      'program-games-title': 'PARTY GAMES &amp; SPECIAL ACTIVITY',
+      'program-games-desc': 'FUN INTERACTIVE SURPRISES WITH GUESTS',
+      'program-final-dance-title': 'FINAL DANCE SET',
+      'program-final-dance-desc': 'HIGH-ENERGY DANCE MUSIC &amp; FIESTA',
+      'program-final-photos-title': 'FINAL PHOTOS',
+      'program-final-photos-desc': 'CHERISHED MOMENTS &amp; GROUP PORTRAITS',
+      'program-cinderella-title': 'LAST DANCE / CINDERELLA MOMENT',
+      'program-cinderella-desc': 'A MAGICAL &amp; UNFORGETTABLE FAREWELL DANCE',
+      'program-departure-title': 'GUEST DEPARTURE',
+      'program-departure-desc': 'THANK YOU FOR CELEBRATING WITH US!',
       'court-title': 'COURT OF HONOR',
       'court-damas-title': 'SWEET 16 COURT',
       'registry-title': 'WISHING WELL',
       'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Denise with a token of love, an envelope wishing well will be warmly provided.',
-      'message-quote': 'I’m so grateful for all the love and support from my family and friends as I celebrate this milestone. Thank you for being part of my life and making tonight unforgettable. Let’s dance and celebrate!',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY AUGUST 14, 2027',
+      'message-quote': 'Celebrating sixteen wonderful years and stepping into this new chapter is a dream come true. Thank you to my mom, my family, and my friends for all your love and encouragement. I can’t wait to celebrate tonight with everyone I love!',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY SEPTEMBER 4, 2027',
       'rsvp-btn': 'CONFIRM RSVP',
       'rsvp-instruction': 'CLICK THE BUTTON ABOVE TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
@@ -123,9 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.'
     },
     es: {
-      'invite-quince': 'Sweet 16',
+      'invite-quince': 'Dulces 16',
       'invite-parents': 'WHITNEY JACKSON',
-      'invite-preamble': 'TIENE EL HONOR DE INVITARLE A CELEBRAR EL',
+      'invite-preamble': 'TIENE EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-month': 'SEP',
       'invite-date-day': 'SÁBADO',
@@ -139,41 +139,43 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-secs': 'Segundos',
       'invite-venue': 'OKLAHOMA CITY • OKLAHOMA',
       'program-title': 'PROGRAMA',
-      'program-arrival-title': 'ENTRADA Y REGISTRO DE INVITADOS',
+      'program-arrival-title': 'LLEGADA DE INVITADOS',
       'program-arrival-desc': 'LA BELLA EVENT CENTER,<br />6701 W WILSHIRE BLVD, OKLAHOMA CITY, OK 73132',
-      'program-entrance-title': 'ENTRADA TRIUNFAL',
-      'program-entrance-desc': 'BIENVENIDA Y ENTRADA DE DENISE',
-      'program-court-intro-title': 'CORTE DE HONOR',
-      'program-court-intro-desc': 'PRESENTACIÓN DE LA CORTE DE HONOR',
-      'program-family-dance-title': 'BAILE FAMILIAR',
-      'program-family-dance-desc': 'BAILE DE DENISE CON SU FAMILIA',
-      'program-court-dance-title': 'BAILE DE LA CORTE',
-      'program-court-dance-desc': 'COREOGRAFÍA DE LA CORTE DE HONOR',
-      'program-dinner-title': 'CENA BUFFET',
-      'program-dinner-desc': 'BANQUETE EN HONOR A DENISE',
-      'program-cake-title': 'CORTE DE PASTEL',
-      'program-cake-desc': 'CORTE DE PASTEL Y MAÑANITAS',
-      'program-toast-title': 'BRINDIS Y DISCURSOS',
-      'program-toast-desc': 'MENSAJES ESPECIALES Y PALABRAS DE CARIÑO',
-      'program-party-title': 'MÚSICA Y BAILE',
-      'program-party-desc': 'CELEBRACIÓN, MÚSICA Y FIESTA',
-      'program-games-title': 'JUEGOS Y DINÁMICAS',
-      'program-games-desc': 'ACTIVIDADES DIVERTIDAS Y JUEGOS',
-      'program-final-dance-title': 'ÚLTIMO SET DE BAILE',
-      'program-final-dance-desc': 'MÁXIMA ENERGÍA Y FIESTA',
-      'program-photos-title': 'FOTOGRAFÍAS FINALES',
-      'program-photos-desc': 'RECUERDOS INOLVIDABLES Y FOTOS GRUPALES',
-      'program-cinderella-title': 'MOMENTO CENICIENTA',
-      'program-cinderella-desc': 'ÚLTIMO BAILE Y DESPEDIDA MÁGICA',
-      'program-departure-title': 'DESPEDIDA DE INVITADOS',
-      'program-departure-desc': 'AGRADECIMIENTO Y DESPEDIDA',
       'tl-btn-location': 'UBICACIÓN',
+      'program-photos-title': 'FOTOS Y BIENVENIDA',
+      'program-photos-desc': 'BEBIDAS DE BIENVENIDA Y FOTOS DE RECUERDO',
+      'program-entrance-title': 'GRAN ENTRADA',
+      'program-entrance-desc': 'EN HONOR A LA QUINCEAÑERA DENISE',
+      'program-court-intro-title': 'PRESENTACIÓN DE LA CORTE DE HONOR',
+      'program-court-intro-desc': 'PRESENTANDO A SASHA, CHLOE, NATALIE Y AVERY',
+      'program-family-dance-title': 'BAILE DE DENISE Y MAMÁ',
+      'program-family-dance-desc': 'MOMENTO ESPECIAL CON WHITNEY Y FAMILIA',
+      'program-court-dance-title': 'BAILE DE LA CORTE',
+      'program-court-dance-desc': 'COREOGRAFÍA ESPECIAL DE LA CORTE DE HONOR',
+      'program-dinner-title': 'CENA Y BUFFET',
+      'program-dinner-desc': 'BANQUETE DE CELEBRACIÓN EN HONOR A DENISE',
+      'program-cake-title': 'CORTE DE PASTEL Y MAÑANITAS',
+      'program-cake-desc': 'FELICES 16 AÑOS Y TRADICIONAL PASTEL',
+      'program-speeches-title': 'BRINDIS Y PALABRAS DE DEDICATORIA',
+      'program-speeches-desc': 'EMOTIVAS PALABRAS DE FAMILIARES Y AMIGOS',
+      'program-party-title': 'MÚSICA Y BAILE GENERAL',
+      'program-party-desc': '¡QUE EMPIECE LA FIESTA!',
+      'program-games-title': 'JUEGOS Y ACTIVIDADES ESPECIALES',
+      'program-games-desc': 'DINÁMICAS DIVERTIDAS CON LOS INVITADOS',
+      'program-final-dance-title': 'ÚLTIMO SET DE BAILE',
+      'program-final-dance-desc': 'MÚSICA Y FIESTA CON MÁXIMA ENERGÍA',
+      'program-final-photos-title': 'FOTOS FINALES DE RECUERDO',
+      'program-final-photos-desc': 'MOMENTOS INOLVIDABLES Y FOTOS GRUPALES',
+      'program-cinderella-title': 'ÚLTIMO BAILE / MOMENTO CENICIENTA',
+      'program-cinderella-desc': 'UN MÁGICO BAILE DE DESPEDIDA INOLVIDABLE',
+      'program-departure-title': 'DESPEDIDA DE INVITADOS',
+      'program-departure-desc': '¡MUCHAS GRACIAS POR ACOMPAÑARNOS!',
       'court-title': 'CORTE DE HONOR',
       'court-damas-title': 'CORTE DE HONOR',
       'registry-title': 'LLUVIA DE SOBRES',
       'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un lindo detalle con Denise, nuestra lluvia de sobres estará disponible con mucho cariño.',
-      'message-quote': 'Estoy muy agradecida por todo el amor y apoyo de mi familia y amigos al celebrar este momento tan especial. Gracias por ser parte de mi vida y hacer esta noche inolvidable. ¡A celebrar y bailar!',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 14 DE AGOSTO DE 2027',
+      'message-quote': 'Celebrar dieciséis maravillosos años y comenzar este nuevo capítulo es un sueño hecho realidad. Gracias a mi mamá, a mi familia y amigos por su infinito amor y apoyo. ¡No puedo esperar para celebrar esta noche con todos ustedes!',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 4 DE SEPTIEMBRE DE 2027',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
@@ -190,18 +192,19 @@ document.addEventListener('DOMContentLoaded', () => {
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
       'modal-success-title': '¡Muchas Gracias!',
-      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
-      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.'
+      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos!',
+      'modal-decline-desc': '¡Gracias por avisarnos! Su respuesta ha sido guardada.'
     }
   };
 
   let currentLang = 'en';
 
   function applyLanguage(lang) {
+    if (!translations[lang]) return;
     currentLang = lang;
     document.documentElement.lang = lang;
-    const dict = translations[lang] || translations.en;
 
+    const dict = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) {
@@ -209,53 +212,49 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const btnEs = document.getElementById('btn-lang-es');
     const btnEn = document.getElementById('btn-lang-en');
-    if (btnEs && btnEn) {
-      btnEs.classList.toggle('active', lang === 'es');
-      btnEn.classList.toggle('active', lang === 'en');
+    const btnEs = document.getElementById('btn-lang-es');
+    if (btnEn && btnEs) {
+      if (lang === 'en') {
+        btnEn.classList.add('active');
+        btnEs.classList.remove('active');
+      } else {
+        btnEs.classList.add('active');
+        btnEn.classList.remove('active');
+      }
     }
   }
 
-  const btnEs = document.getElementById('btn-lang-es');
-  const btnEn = document.getElementById('btn-lang-en');
-  if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
-  if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+  const btnLangEn = document.getElementById('btn-lang-en');
+  const btnLangEs = document.getElementById('btn-lang-es');
+  if (btnLangEn) btnLangEn.addEventListener('click', () => applyLanguage('en'));
+  if (btnLangEs) btnLangEs.addEventListener('click', () => applyLanguage('es'));
 
-  // Default to English on startup
-  applyLanguage('en');
-
-  // Collapsible utility tabs (Language bar top-left, audio bar top-right)
+  // Collapsible Language & Audio Bars
   function initControlToggles() {
     const langBar = document.getElementById('lang-control-bar');
     const langToggle = document.getElementById('lang-collapse-toggle');
     const audioBar = document.getElementById('audio-control-bar');
     const audioToggle = document.getElementById('audio-collapse-toggle');
 
-    function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
-      if (!bar || !btn) return;
-      bar.classList.toggle('collapsed', collapsed);
-      btn.setAttribute('aria-expanded', String(!collapsed));
-      btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
-    }
-
-    function bindToggle(bar, btn, hiddenLabel, shownLabel) {
-      if (!bar || !btn) return;
-      btn.addEventListener('click', (e) => {
+    if (langToggle && langBar) {
+      langToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        bar.dataset.userToggled = 'true';
-        setCollapsed(bar, btn, !bar.classList.contains('collapsed'), hiddenLabel, shownLabel);
+        const isCollapsed = langBar.classList.toggle('collapsed');
+        langToggle.setAttribute('aria-expanded', !isCollapsed);
+        const icon = langToggle.querySelector('.arrow-icon');
+        if (icon) icon.textContent = isCollapsed ? '‹' : '›';
       });
     }
 
-    bindToggle(langBar, langToggle, 'Hide language selector', 'Show language selector');
-    bindToggle(audioBar, audioToggle, 'Hide music player', 'Show music player');
-
-    if (langBar && langToggle && langBar.dataset.userToggled !== 'true') {
-      setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
-    }
-    if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
-      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
+    if (audioToggle && audioBar) {
+      audioToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isCollapsed = audioBar.classList.toggle('collapsed');
+        audioToggle.setAttribute('aria-expanded', !isCollapsed);
+        const icon = audioToggle.querySelector('.arrow-icon');
+        if (icon) icon.textContent = isCollapsed ? '›' : '‹';
+      });
     }
   }
 
@@ -313,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bgAudio.addEventListener('ended', () => updatePlayState(false));
   }
 
-  // Automatically pause music when leaving Safari, switching tabs, or locking phone
+  // Automatically pause music when leaving tab or locking screen
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (isAudioPlaying) {
@@ -328,17 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  window.addEventListener('pagehide', () => {
-    pauseAudio();
-  });
-
-  window.addEventListener('beforeunload', () => {
-    pauseAudio();
-  });
-
-  window.addEventListener('freeze', () => {
-    pauseAudio();
-  });
+  window.addEventListener('pagehide', () => pauseAudio());
+  window.addEventListener('beforeunload', () => pauseAudio());
+  window.addEventListener('freeze', () => pauseAudio());
 
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', () => {
@@ -376,8 +367,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const waxSealBtn = document.getElementById('wax-seal-btn');
   let envelopeOpened = false;
 
-  // Falling Petal Engine in Powder Blue, Crisp Pure White & Warm Gold Sparkles
-  class PowderBluePetalEngine {
+  // Falling Petal Engine in Powder Blue, Soft Sky, Pure Ivory & Gold Glitter
+  class PowderBlueGoldPetalEngine {
     constructor(canvasId) {
       this.canvas = document.getElementById(canvasId);
       if (!this.canvas) return;
@@ -410,10 +401,10 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(91, 150, 194, 0.92)',  // powder blue
-          'rgba(125, 177, 216, 0.90)', // soft baby blue
-          'rgba(191, 224, 247, 0.88)', // ice blue
-          'rgba(36, 87, 128, 0.85)',   // deep azure blue
+          'rgba(123, 174, 217, 0.95)', // powder blue
+          'rgba(91, 155, 213, 0.92)',  // soft cornflower blue
+          'rgba(166, 207, 240, 0.90)', // light sky blue
+          'rgba(195, 224, 247, 0.88)', // airy pastel blue
           'rgba(212, 170, 99, 0.92)',  // sparkling gold leaf
           'rgba(254, 240, 138, 0.95)', // warm gold glitter
           'rgba(255, 253, 245, 0.96)', // ivory cream
@@ -486,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.ctx.fillStyle = p.color;
         this.ctx.globalAlpha = p.opacity;
         this.ctx.shadowBlur = 6;
-        this.ctx.shadowColor = 'rgba(36, 87, 128, 0.35)';
+        this.ctx.shadowColor = 'rgba(36, 81, 120, 0.35)';
         this.ctx.fill();
         this.ctx.restore();
 
@@ -504,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const powderBluePetals = new PowderBluePetalEngine('entry-canvas');
+  const powderPetals = new PowderBlueGoldPetalEngine('entry-canvas');
 
   function openEnvelope() {
     if (envelopeOpened) return;
@@ -519,24 +510,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Start petals cascade
-    powderBluePetals.start();
+    powderPetals.start();
 
     // 3. Start audio soundtrack
     playAudio();
 
-    // 4. Reveal root body scroll & background after envelope sequence
-    setTimeout(() => {
-      document.documentElement.classList.add('site-entered');
-      document.body.classList.add('site-entered');
-    }, 700);
-
-    // 5. Fade out and unmount overlay
+    // 4. Smoothly fade out envelope overlay and unveil main site
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
       }
-    }, 1800);
+      document.body.classList.add('site-entered');
+      document.documentElement.classList.add('site-entered');
+      window.removeEventListener('wheel', blockScrollUntilEntered);
+      window.removeEventListener('touchmove', blockScrollUntilEntered);
+      window.removeEventListener('keydown', blockKeysUntilEntered);
+    }, 1500);
 
+    // 5. Final cleanup of overlay
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -574,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SATURDAY, SEP 4, 2027 AT 5:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, SEPTEMBER 4, 2027 AT 5:00 PM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (8 = September)
   const TARGET_DATE = new Date(2027, 8, 4, 17, 0, 0).getTime();
@@ -618,12 +609,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const secs  = Math.floor((diff % (1000 * 60)) / 1000);
-
       if (elDays)  elDays.textContent  = String(days).padStart(2, '0');
       if (elHours) elHours.textContent = String(hours).padStart(2, '0');
       if (elMins)  elMins.textContent  = String(mins).padStart(2, '0');
       if (elSecs)  elSecs.textContent  = String(secs).padStart(2, '0');
-    } else if (diff > -AFTER_EVENT_MS) {
+    } else if (diff > 0 || -diff < AFTER_EVENT_MS) {
       showMessage('countdown-today');
     } else {
       showMessage('countdown-thankyou');
@@ -634,35 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateCountdown, 1000);
 
   /* ─────────────────────────────────────────────────────────────
-     5. SCROLL INTERSECTION OBSERVER REVEAL SYSTEM
-     ───────────────────────────────────────────────────────────── */
-  function triggerScrollReveals() {
-    const revealElements = document.querySelectorAll('.scroll-fade-in, .scroll-fade-scale');
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
-      revealElements.forEach(el => observer.observe(el));
-    } else {
-      revealElements.forEach(el => el.classList.add('revealed'));
-    }
-  }
-
-  // Initialize observer
-  triggerScrollReveals();
-
-  /* ─────────────────────────────────────────────────────────────
-     6. AMBIENT BACKGROUND CANVAS (SUBTLE BOKEH SPARKLE FLOATING)
+     5. AMBIENT BOKEH BACKGROUND CANVAS
      ───────────────────────────────────────────────────────────── */
   const ambCanvas = document.getElementById('ambient-canvas');
   if (ambCanvas) {
@@ -675,43 +637,73 @@ document.addEventListener('DOMContentLoaded', () => {
       ambHeight = ambCanvas.height = window.innerHeight;
     });
 
-    const sparkles = Array.from({ length: 28 }, () => ({
-      x: Math.random() * ambWidth,
-      y: Math.random() * ambHeight,
-      r: Math.random() * 2 + 1,
-      alpha: Math.random() * 0.4 + 0.15,
-      speedY: Math.random() * 0.4 + 0.15,
-      speedX: (Math.random() - 0.5) * 0.2,
-      pulse: Math.random() * Math.PI
-    }));
+    const bokehs = [];
+    const count = window.innerWidth < 600 ? 16 : 30;
 
-    function drawAmbient() {
-      ambCtx.clearRect(0, 0, ambWidth, ambHeight);
-      sparkles.forEach(s => {
-        s.y -= s.speedY;
-        s.x += s.speedX;
-        s.pulse += 0.025;
-
-        if (s.y < -10) {
-          s.y = ambHeight + 10;
-          s.x = Math.random() * ambWidth;
-        }
-
-        const currentAlpha = Math.max(0, s.alpha + Math.sin(s.pulse) * 0.12);
-        ambCtx.fillStyle = `rgba(212, 170, 99, ${currentAlpha})`;
-        ambCtx.beginPath();
-        ambCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ambCtx.fill();
+    for (let i = 0; i < count; i++) {
+      bokehs.push({
+        x: Math.random() * ambWidth,
+        y: Math.random() * ambHeight,
+        radius: Math.random() * 20 + 6,
+        speedY: (Math.random() * 0.18 + 0.05),
+        speedX: (Math.random() - 0.5) * 0.18,
+        alpha: Math.random() * 0.28 + 0.08,
+        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '123, 174, 217' : (Math.random() > 0.5 ? '212, 170, 99' : '254, 240, 138'))
       });
-
-      requestAnimationFrame(drawAmbient);
     }
 
-    drawAmbient();
+    function renderBokeh() {
+      ambCtx.clearRect(0, 0, ambWidth, ambHeight);
+
+      for (let i = 0; i < bokehs.length; i++) {
+        const b = bokehs[i];
+        b.y += b.speedY;
+        b.x += b.speedX;
+
+        if (b.y > ambHeight + 30) b.y = -30;
+        if (b.x > ambWidth + 30) b.x = -30;
+        if (b.x < -30) b.x = ambWidth + 30;
+
+        ambCtx.save();
+        ambCtx.beginPath();
+        ambCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+        ambCtx.fillStyle = `rgba(${b.color}, ${b.alpha})`;
+        ambCtx.shadowBlur = 12;
+        ambCtx.shadowColor = `rgba(${b.color}, 0.5)`;
+        ambCtx.fill();
+        ambCtx.restore();
+      }
+
+      requestAnimationFrame(renderBokeh);
+    }
+
+    renderBokeh();
   }
 
   /* ─────────────────────────────────────────────────────────────
-     7. INTERACTIVE RSVP MODAL & SUBMISSION DISPATCH
+     6. SCROLL REVEAL OBSERVER
+     ───────────────────────────────────────────────────────────── */
+  function triggerScrollReveals() {
+    const reveals = document.querySelectorAll('.scroll-fade-in, .scroll-fade-scale');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  triggerScrollReveals();
+
+  /* ─────────────────────────────────────────────────────────────
+     7. RSVP MODAL & SUBMISSION SYSTEM
      ───────────────────────────────────────────────────────────── */
   const rsvpModal = document.getElementById('rsvp-modal');
   const openModalBtn = document.getElementById('open-rsvp-modal-btn');
@@ -868,7 +860,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerConfetti() {
-    const confettiColors = ['#5b96c2', '#7db1d8', '#245780', '#d4aa63', '#fef08a', '#c49658', '#ffffff', '#9ec4e5'];
+    const confettiColors = ['#5b9bd5', '#7baed9', '#a6cff0', '#d4aa63', '#fef08a', '#c49658', '#ffffff', '#e0eef8'];
     for (let i = 0; i < 60; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';

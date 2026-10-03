@@ -1,39 +1,40 @@
 /* ═════════════════════════════════════════════════════════════════════
    SWEET 16 INVITATION — DENISE TORRESRIVERA
-   Bespoke Powder Blue, Crisp Pure White & Warm Champagne Gold System
+   Bespoke Powder Blue, Crisp White & Warm Gold Design System
    ═════════════════════════════════════════════════════════════════════ */
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
-  /* Powder Blue, Crisp Pure White & Warm Champagne Gold */
-  --bg-page: #f4f8fd;
-  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #f4f8fd 50%, #e2effa 100%);
-  --card-white: #ffffff;
+  /* Powder Blue & Crisp White Luxury Scheme with Gold Accents */
+  --bg-page: #e2edf6;
+  --bg-page-gradient: radial-gradient(circle at 50% 15%, #f0f6fb 0%, #dfeaf4 50%, #cee0ee 100%);
+  --card-white: #f0f6fb;
+  --card-paper-bg: radial-gradient(circle at 50% 0%, #f9fcff 0%, #edf5fc 40%, #e3effa 100%);
 
   /* Typographic Contrast */
-  --text-dark: #102a43;
-  --text-charcoal: #1f3d5c;
-  --text-subtle: #33597d;
-  --text-muted: #577f9e;
+  --text-dark: #274868;
+  --text-charcoal: #3b5f82;
+  --text-subtle: #567b9e;
+  --text-muted: #7899b8;
 
-  /* Powder Blue & Ice Azure Accents */
-  --theme-primary: #5b96c2;
-  --theme-dark: #245780;
-  --theme-light: #edf5fc;
-  --theme-soft: #7db1d8;
-  --theme-lavender: #d4aa63;
-  --theme-lilac: #fef08a;
-  --theme-green: #3d6b52;
-  --theme-green-soft: #639c79;
+  /* Powder Blue, Sky Pastel & Gold Accents */
+  --theme-primary: #5fa2dc;
+  --theme-dark: #4a8ec9;
+  --theme-light: #eff6fc;
+  --theme-soft: #97c5ee;
+  --theme-lavender: #5fa2dc;
+  --theme-lilac: #b3d7f7;
+  --theme-green: #488ec9;
+  --theme-green-soft: #97c5ee;
   --rose-gold: var(--theme-primary);
   --rose-gold-dark: var(--theme-dark);
   --rose-gold-light: var(--theme-light);
 
   /* Ribbon & Buttons */
-  --ribbon-blush: linear-gradient(135deg, #245780 0%, #4682b4 50%, #68a0cb 100%);
-  --ribbon-blush-hover: linear-gradient(135deg, #1c476a 0%, #3a719e 50%, #5790bb 100%);
+  --ribbon-blush: linear-gradient(135deg, #468bc7 0%, #5fa2dc 50%, #97c5ee 100%);
+  --ribbon-blush-hover: linear-gradient(135deg, #387bb5 0%, #4f92cc 50%, #83b6e3 100%);
 
-  /* Warm Champagne Gold Accents */
+  /* Soft Platinum Silver & Lilac Accents */
   --metal-accent: #c49658;
   --metal-light: #fef08a;
   --metal-dark: #854d0e;
@@ -134,7 +135,7 @@ body.site-entered {
   border: 1px solid rgba(148, 163, 184, 0.4);
   border-radius: 999px;
   padding: 4px 10px 4px 6px;
-  box-shadow: 0 4px 18px rgba(136, 19, 55, 0.16);
+  box-shadow: 0 4px 18px rgba(43, 102, 154, 0.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -149,7 +150,7 @@ body.site-entered .audio-control-bar {
 
 .audio-control-bar:hover {
   background: #ffffff;
-  box-shadow: 0 6px 22px rgba(136, 19, 55, 0.22);
+  box-shadow: 0 6px 22px rgba(43, 102, 154, 0.22);
 }
 
 .audio-btn {
@@ -295,7 +296,7 @@ body.site-entered .audio-control-bar {
   border: 1px solid rgba(148, 163, 184, 0.4);
   border-radius: 999px;
   padding: 4px 6px 4px 10px;
-  box-shadow: 0 4px 18px rgba(136, 19, 55, 0.16);
+  box-shadow: 0 4px 18px rgba(43, 102, 154, 0.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -334,7 +335,7 @@ body.site-entered .lang-control-bar {
 .lang-pill-btn.active {
   background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(136, 19, 55, 0.3);
+  box-shadow: 0 2px 8px rgba(43, 102, 154, 0.3);
 }
 
 .lang-pill-btn:hover:not(.active) {
@@ -401,7 +402,7 @@ body.site-entered .lang-control-bar {
   justify-content: center !important;
   align-items: center !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 14px rgba(136, 19, 55, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(43, 102, 154, 0.2) !important;
 }
 
 .audio-control-bar.collapsed .control-arrow-btn,
@@ -424,15 +425,16 @@ body.site-entered .lang-control-bar {
   margin: 3.6rem auto 3rem;
   background-color: var(--card-white);
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.7) 100%),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23cbd5e1' stroke-width='0.4' stroke-opacity='0.35'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%2394a3b8' fill-opacity='0.22'/%3E%3C/svg%3E");
-  border: 1px solid rgba(148, 163, 184, 0.32);
+    var(--card-paper-bg),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23b8d1e5' stroke-width='0.4' stroke-opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%2390b5d4' fill-opacity='0.25'/%3E%3C/svg%3E");
+  border: 1px solid rgba(148, 185, 214, 0.45);
   border-radius: 24px;
   box-shadow:
-    0 25px 70px rgba(136, 19, 55, 0.12),
+    0 25px 70px rgba(39, 72, 104, 0.16),
     0 4px 20px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
-    inset 0 0 35px rgba(254, 240, 138, 0.45);
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.95),
+    inset 0 0 25px rgba(255, 255, 255, 0.9),
+    inset 0 0 45px rgba(215, 232, 248, 0.55);
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -447,7 +449,8 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 10px 22px rgba(136, 19, 55, 0.16));
+  opacity: 1;
+  filter: drop-shadow(0 10px 24px rgba(39, 72, 104, 0.2)) contrast(1.04) saturate(1.06);
 }
 
 .flower-card-top-left {
@@ -459,7 +462,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: scaleX(-1) rotate(-8deg);
   transform-origin: center center;
-  opacity: 0.78;
+  opacity: 1;
 }
 
 .flower-card-top-right {
@@ -471,7 +474,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: rotate(-8deg);
   transform-origin: center center;
-  opacity: 0.78;
+  opacity: 1;
 }
 
 .flower-card-bottom-left {
@@ -483,6 +486,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: none;
   transform-origin: center center;
+  opacity: 1;
 }
 
 .flower-card-bottom-right {
@@ -494,6 +498,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: scaleX(-1);
   transform-origin: center center;
+  opacity: 1;
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -614,7 +619,7 @@ body.site-entered .lang-control-bar {
 .text-bg-flower-watermark {
   position: absolute;
   object-fit: contain;
-  opacity: 0.13;
+  opacity: 0.28;
   pointer-events: none;
   filter: saturate(1.15) brightness(1.05);
   user-select: none;
@@ -671,7 +676,7 @@ body.site-entered .lang-control-bar {
   max-width: 380px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 6px 16px rgba(136, 19, 55, 0.14));
+  filter: drop-shadow(0 6px 16px rgba(43, 102, 154, 0.14));
 }
 
 .vignette-floral-divider {
@@ -696,7 +701,7 @@ body.site-entered .lang-control-bar {
   pointer-events: none;
   z-index: 1;
   opacity: 0.08;
-  filter: drop-shadow(0 8px 20px rgba(136, 19, 55, 0.12));
+  filter: drop-shadow(0 8px 20px rgba(43, 102, 154, 0.12));
 }
 
 .watermark-top-right {
@@ -739,7 +744,7 @@ body.site-entered .lang-control-bar {
   max-width: 75vw;
   height: auto;
   opacity: 1;
-  filter: drop-shadow(0 4px 14px rgba(136, 19, 55, 0.35));
+  filter: drop-shadow(0 4px 14px rgba(43, 102, 154, 0.35));
 }
 
 /* ── CELEBRANT PORTRAIT: COUTURE EDITORIAL INTEGRATION ── */
@@ -766,19 +771,18 @@ body.site-entered .lang-control-bar {
 .portrait-card,
 .photo-viewport {
   width: 100%;
-  max-width: 330px;
+  max-width: 380px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   z-index: 3;
   padding: 0;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 3px #ffffff,
-    0 0 0 5px var(--gold-accent),
-    0 16px 36px rgba(136, 19, 55, 0.18);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
 }
 
 .celebrant-photo {
@@ -787,25 +791,19 @@ body.site-entered .lang-control-bar {
   width: 100%;
   height: auto;
   max-height: 480px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  border-radius: 19px;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
+  border: none;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 24px rgba(74, 142, 201, 0.16));
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 76%, rgba(0, 0, 0, 0.4) 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 76%, rgba(0, 0, 0, 0.4) 90%, transparent 100%);
 }
 
 /* Grounding soft shadow under the dress hem */
 .portrait-ground-shadow {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 65%;
-  height: 16px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(30, 58, 138, 0.16) 0%, rgba(148, 163, 184, 0.06) 50%, transparent 75%);
-  filter: blur(6px);
-  pointer-events: none;
-  z-index: 2;
+  display: none;
 }
 
 .photo-stage:hover .celebrant-photo,
@@ -861,7 +859,7 @@ body.site-entered .lang-control-bar {
   font-weight: 400;
   line-height: 0.95;
   color: var(--theme-dark);
-  text-shadow: 0 2px 12px rgba(136, 19, 55, 0.25);
+  text-shadow: 0 2px 12px rgba(43, 102, 154, 0.25);
   margin: 0.25rem 0;
 }
 
@@ -1217,7 +1215,7 @@ body.site-entered .lang-control-bar {
 }
 
 .program-section {
-  background: #ffffff;
+  background: transparent;
   padding-top: 1.4rem;
 }
 
@@ -1308,13 +1306,13 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 4px 14px rgba(136, 19, 55, 0.15);
+  box-shadow: 0 4px 14px rgba(43, 102, 154, 0.15);
   transition: var(--transition-smooth);
 }
 
 .timeline-row:hover .timeline-node {
-  border-color: #be123c;
-  color: #700c2a;
+  border-color: #c49658;
+  color: #4a8ec9;
   transform: scale(1.12);
   background: #fef9c3;
 }
@@ -1416,14 +1414,14 @@ body.site-entered .lang-control-bar {
   border-radius: 12px;
   overflow: hidden;
   border: 1.5px solid rgba(148, 163, 184, 0.48);
-  box-shadow: 0 6px 18px rgba(136, 19, 55, 0.16);
+  box-shadow: 0 6px 18px rgba(43, 102, 154, 0.16);
   background: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-photo-card:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 24px rgba(136, 19, 55, 0.24);
+  box-shadow: 0 10px 24px rgba(43, 102, 154, 0.24);
 }
 
 .timeline-venue-img {
@@ -1435,21 +1433,21 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 3: PADRINOS & COURT OF HONOR ── */
 .court-section {
-  background: #ffffff;
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background: transparent;
+  border-top: 1px solid rgba(148, 185, 214, 0.28);
 }
 
 .padrinos-royal-plaque {
   max-width: 440px;
   margin: 0 auto 2.8rem;
-  background: #ffffff;
-  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #f8fafc 65%, #f1f5f9 100%);
-  border: 1.5px solid rgba(148, 163, 184, 0.48);
+  background: #f4f9fd;
+  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #edf5fc 65%, #e1eef8 100%);
+  border: 1.5px solid rgba(148, 185, 214, 0.48);
   border-radius: 20px;
   box-shadow:
-    0 16px 42px rgba(136, 19, 55, 0.13),
-    inset 0 0 0 5px #ffffff,
-    inset 0 0 0 6.5px rgba(148, 163, 184, 0.28);
+    0 16px 42px rgba(43, 102, 154, 0.13),
+    inset 0 0 0 5px #f8fbfe,
+    inset 0 0 0 6.5px rgba(148, 185, 214, 0.35);
   padding: 2.2rem 1.6rem;
   position: relative;
   overflow: visible;
@@ -1467,7 +1465,7 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 6px 14px rgba(136, 19, 55, 0.15));
+  filter: drop-shadow(0 6px 14px rgba(43, 102, 154, 0.15));
   z-index: 3;
 }
 
@@ -1562,7 +1560,7 @@ body.site-entered .lang-control-bar {
   justify-content: center;
   background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
   border: 2px solid var(--gold-accent);
-  box-shadow: 0 6px 18px rgba(136, 19, 55, 0.18);
+  box-shadow: 0 6px 18px rgba(43, 102, 154, 0.18);
   overflow: hidden;
 }
 
@@ -1646,8 +1644,8 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 4: EVENT GUIDELINES (BOTANICAL VIGNETTES) ── */
 .guidelines-section {
-  background: #ffffff;
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background: transparent;
+  border-top: 1px solid rgba(148, 185, 214, 0.28);
   overflow: visible;
   padding: 1.2rem 1.6rem 0.6rem;
 }
@@ -1668,7 +1666,7 @@ body.site-entered .lang-control-bar {
   font-size: clamp(1.35rem, 4.2vw, 1.75rem) !important;
   font-weight: 600 !important;
   letter-spacing: 0.12em !important;
-  color: var(--theme-dark) !important;
+  color: #4a8ec9 !important;
   text-transform: uppercase !important;
   font-style: normal !important;
 }
@@ -1691,7 +1689,7 @@ body.site-entered .lang-control-bar {
   width: 115px;
   height: 115px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(136, 19, 55, 0.14));
+  filter: drop-shadow(0 6px 14px rgba(43, 102, 154, 0.14));
   z-index: 2;
 }
 
@@ -1756,7 +1754,7 @@ body.site-entered .lang-control-bar {
   font-size: 1.14rem;
   font-style: italic;
   line-height: 1.62;
-  color: #334155;
+  color: #45627e;
   max-width: 340px;
   margin: 0 auto;
 }
@@ -1796,24 +1794,20 @@ body.site-entered .lang-control-bar {
 }
 
 .vignette-wishing-emblem {
-  margin: 0.4rem 0 0.6rem;
-}
-
-.vignette-seal-disc {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fff1f2 55%, #fef08a 100%);
-  border: 1.5px solid rgba(190, 18, 60, 0.5);
+  margin: 0.4rem 0 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(136, 19, 55, 0.14);
+  filter: drop-shadow(0 4px 10px rgba(74, 142, 201, 0.2));
+}
+
+.vignette-seal-disc {
+  display: contents;
 }
 
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
 .message-section {
-  background: #ffffff;
+  background: transparent;
 }
 
 .message-stage {
@@ -1831,7 +1825,7 @@ body.site-entered .lang-control-bar {
   border-radius: 60px 60px 14px 14px;
   overflow: hidden;
   border: 2px solid var(--gold-accent);
-  box-shadow: 0 10px 24px rgba(136, 19, 55, 0.2);
+  box-shadow: 0 10px 24px rgba(43, 102, 154, 0.2);
   flex-shrink: 0;
 }
 
@@ -1902,7 +1896,7 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 5: RSVP & DETAILS ── */
 .rsvp-section {
-  background: #ffffff;
+  background: transparent;
   padding-top: 1.2rem;
   padding-bottom: 3.2rem;
 }
@@ -1946,49 +1940,59 @@ body.site-entered .lang-control-bar {
   font-size: 7.5rem;
   font-weight: 700;
   line-height: 1;
-  color: #245780;
-  background: linear-gradient(135deg, #fef9c3 0%, #d4aa63 35%, #ffffff 55%, #5b96c2 75%, #245780 100%);
+  color: #4a8ec9;
+  background: linear-gradient(135deg, 
+    #2c699d 0%, 
+    #3c81bc 22%, 
+    #5c9fd6 38%, 
+    #e3eff9 46%, 
+    #ffffff 50%, 
+    #d4e7f6 54%, 
+    #5c9fd6 62%, 
+    #3c81bc 78%, 
+    #235b8c 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 4px 14px rgba(36, 87, 128, 0.35));
+  filter: drop-shadow(0 4px 14px rgba(60, 129, 188, 0.3));
 }
 
 .letter-floral {
   position: absolute;
   z-index: 1;
-  opacity: 0.32;
+  opacity: 0.95;
   pointer-events: none;
-  filter: drop-shadow(0 2px 6px rgba(136, 19, 55, 0.12));
+  filter: drop-shadow(0 4px 12px rgba(74, 142, 201, 0.22));
 }
 
 .floral-r {
-  width: 120px;
-  top: -16px;
-  left: -24px;
-  transform: rotate(-15deg);
+  width: 160px;
+  top: -30px;
+  left: -38px;
+  transform: rotate(-18deg);
 }
 
 .floral-s {
-  width: 130px;
-  top: -18px;
-  right: -28px;
-  transform: rotate(15deg);
+  width: 165px;
+  top: -32px;
+  right: -42px;
+  transform: rotate(18deg);
 }
 
 .floral-v {
-  width: 110px;
-  bottom: -18px;
-  left: -24px;
+  width: 155px;
+  bottom: -30px;
+  left: -38px;
   transform: rotate(-25deg);
 }
 
 .floral-p {
-  width: 125px;
-  top: -12px;
-  right: -24px;
-  transform: rotate(5deg);
+  width: 160px;
+  top: -24px;
+  right: -38px;
+  transform: rotate(8deg);
 }
 
 .rsvp-callout-block {
@@ -2036,7 +2040,7 @@ body.site-entered .lang-control-bar {
   cursor: pointer;
   padding: 0 1.6rem;
   max-width: calc(100vw - 64px);
-  box-shadow: 0 4px 18px rgba(136, 19, 55, 0.28);
+  box-shadow: 0 4px 18px rgba(43, 102, 154, 0.28);
   transition: var(--transition-smooth);
 }
 
@@ -2051,7 +2055,7 @@ body.site-entered .lang-control-bar {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(136, 19, 55, 0.25);
+  text-shadow: 0 1px 2px rgba(43, 102, 154, 0.25);
   white-space: nowrap;
   text-transform: uppercase;
 }
@@ -2480,7 +2484,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   pointer-events: none;
 }
 
-/* 3D Envelope Container (Bespoke Powder Blue & Pearl Linen Parchment) */
+/* 3D Envelope Container (Bespoke Lilac & Pearl Lavender Parchment) */
 .luxury-envelope-container {
   position: relative;
   width: 370px;
@@ -2490,37 +2494,37 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   user-select: none;
   transform-style: preserve-3d;
   border-radius: 6px;
-  background: #ebf4fc;
+  background: #f5edfd;
   border: 1.8px solid #d4aa63;
   box-shadow:
-    0 26px 58px rgba(36, 87, 128, 0.22),
-    0 8px 24px rgba(16, 42, 67, 0.14);
+    0 26px 58px rgba(33, 76, 115, 0.22),
+    0 8px 24px rgba(43, 102, 154, 0.14);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
 
 .luxury-envelope-container:hover {
   box-shadow:
-    0 34px 72px rgba(36, 87, 128, 0.28),
-    0 12px 30px rgba(16, 42, 67, 0.18);
+    0 34px 72px rgba(33, 76, 115, 0.28),
+    0 12px 30px rgba(43, 102, 154, 0.18);
 }
 
 /* Envelope Interior Back Wall */
 .env-back {
   position: absolute;
   inset: 0;
-  background: #e1effa;
+  background: #ede0fa;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(36, 87, 128, 0.22);
+  box-shadow: inset 0 0 35px rgba(43, 102, 154, 0.22);
 }
 
 .env-interior-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(45deg, rgba(91, 150, 194, 0.22) 0, rgba(91, 150, 194, 0.22) 1px, transparent 0, transparent 20px),
-    repeating-linear-gradient(-45deg, rgba(91, 150, 194, 0.22) 0, rgba(91, 150, 194, 0.22) 1px, transparent 0, transparent 20px);
+    repeating-linear-gradient(45deg, rgba(91, 155, 213, 0.22) 0, rgba(91, 155, 213, 0.22) 1px, transparent 0, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(91, 155, 213, 0.22) 0, rgba(91, 155, 213, 0.22) 1px, transparent 0, transparent 20px);
 }
 
 /* Inside Invitation Card */
@@ -2531,11 +2535,11 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform: translateX(-50%) translateY(20px) translateZ(4px) scale(0.96);
   width: 335px;
   max-width: 84vw;
-  background: #ffffff;
+  background: #f0f6fb;
   border-radius: 8px;
   padding: 16px 18px;
   z-index: 10;
-  box-shadow: 0 10px 30px rgba(16, 42, 67, 0.2);
+  box-shadow: 0 10px 30px rgba(18, 45, 75, 0.2);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
@@ -2555,8 +2559,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   border-radius: 6px;
   padding: 14px 12px 16px;
   text-align: center;
-  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 1) 0%, rgba(244, 248, 253, 0.95) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(36, 87, 128, 0.12);
+  background: radial-gradient(circle at 50% 10%, #ffffff 0%, #edf5fc 55%, #e1eef8 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(43, 102, 154, 0.12);
 }
 
 .card-crown-flourish {
@@ -2572,7 +2576,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   border: 2.5px solid var(--gold-accent);
   box-shadow:
     0 0 0 3px rgba(255, 255, 255, 0.9),
-    0 6px 18px rgba(36, 87, 128, 0.22);
+    0 6px 18px rgba(43, 102, 154, 0.22);
   overflow: hidden;
 }
 
@@ -2614,11 +2618,11 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(175deg, #fdfaff 0%, #eef6fc 50%, #e1effa 100%);
+  background: linear-gradient(175deg, #ffffff 0%, #f0f7fc 50%, #dbeaf7 100%);
   border-radius: 6px;
   z-index: 12;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
-  box-shadow: inset 0 -4px 15px rgba(36, 87, 128, 0.2), inset 0 1px 0 rgba(212, 170, 99, 0.7);
+  box-shadow: inset 0 -4px 15px rgba(43, 102, 154, 0.2), inset 0 1px 0 rgba(212, 170, 99, 0.7);
 }
 
 .env-pocket::before {
@@ -2627,7 +2631,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   inset: 0;
   background-image:
     linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(36, 87, 128, 0.12) 0%, transparent 45%);
+    linear-gradient(-135deg, rgba(43, 102, 154, 0.12) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -2651,10 +2655,10 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform-style: preserve-3d;
   z-index: 15;
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
-  filter: drop-shadow(0 8px 14px rgba(36, 87, 128, 0.25));
+  filter: drop-shadow(0 8px 14px rgba(33, 76, 115, 0.25));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(160deg, #fdfaff 0%, #edf5fc 50%, #e1effa 100%);
-  border-top: 2px solid #5b96c2;
+  background: linear-gradient(160deg, #ffffff 0%, #f0f7fc 50%, #dbeaf7 100%);
+  border-top: 2px solid #5b9bd5;
 }
 
 .env-flap-edge-svg {
