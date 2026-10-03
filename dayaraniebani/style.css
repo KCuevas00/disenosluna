@@ -248,7 +248,7 @@ body.site-entered .audio-control-bar {
 
 .song-note-icon {
   font-size: 0.72rem;
-  color: var(--gold-accent);
+  color: var(--teal);
   line-height: 1;
   display: inline-flex;
   align-items: center;
@@ -273,9 +273,9 @@ body.site-entered .audio-control-bar {
   display: inline-block;
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.03em;
-  color: var(--text-dark);
+  color: var(--teal);
   white-space: nowrap;
   will-change: transform;
   animation: songTickerPingPong 7.5s ease-in-out infinite;
@@ -4219,6 +4219,8 @@ body:not(.site-entered) {
 .pt-sublabel,
 .pt-style-italic .pt-sublabel { color: var(--teal-dark); }
 .pt-style-italic .italic-fleuron { color: var(--teal); }
+.song-title-ticker,
+.song-note-icon { color: var(--teal); }
 
 /* ── Program timeline ── */
 .program-section {
