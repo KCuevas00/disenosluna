@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=7.0.0" />
+  <link rel="stylesheet" href="style.css?v=7.1.0" />
 </head>
 
 <body>
@@ -111,8 +111,8 @@
         <div class="env-pocket">
           <!-- Visible Crease Folds -->
           <svg class="env-folds-svg" viewBox="0 0 370 250" preserveAspectRatio="none" aria-hidden="true">
-            <line x1="0" y1="0" x2="185" y2="125" stroke="#d5c4b1" stroke-width="1.8" stroke-opacity="0.85" />
-            <line x1="370" y1="0" x2="185" y2="125" stroke="#d5c4b1" stroke-width="1.8" stroke-opacity="0.85" />
+            <line x1="0" y1="0" x2="185" y2="125" stroke="#a88f74" stroke-width="2" stroke-opacity="0.9" />
+            <line x1="370" y1="0" x2="185" y2="125" stroke="#a88f74" stroke-width="2" stroke-opacity="0.9" />
             <line x1="0" y1="1" x2="185" y2="126" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9" />
             <line x1="370" y1="1" x2="185" y2="126" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9" />
           </svg>
@@ -123,8 +123,8 @@
           <div class="env-flap-inner"></div>
           <!-- Flap edge fold trim (Warm Sand & Crisp Ivory Accent) -->
           <svg class="env-flap-edge-svg" viewBox="0 0 370 155" preserveAspectRatio="none" aria-hidden="true">
-            <polyline points="0,0 185,155 370,0" fill="none" stroke="#d5c4b1" stroke-width="2" stroke-opacity="0.85" />
-            <polyline points="0,0 185,154 370,0" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9" />
+            <polyline points="0,0 185,155 370,0" fill="none" stroke="#9c8368" stroke-width="4.5" stroke-opacity="0.8" stroke-linejoin="round" />
+            <polyline points="0,-3 185,151 370,-3" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.85" stroke-linejoin="round" />
           </svg>
         </div>
 
@@ -159,8 +159,7 @@
               </defs>
 
               <!-- Outer Wax Pressed Lip -->
-              <circle cx="50" cy="50" r="46" fill="url(#purpleWaxBase)"
-                filter="drop-shadow(0 4px 10px rgba(88, 28, 135, 0.45))" />
+              <circle cx="50" cy="50" r="46" fill="url(#purpleWaxBase)" />
               <!-- Raised Bevel Lip -->
               <circle cx="50" cy="50" r="42.5" fill="none" stroke="url(#purpleRimHighlight)" stroke-width="1.8" />
 
@@ -171,7 +170,7 @@
               <circle cx="50" cy="50" r="33.5" fill="none" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.75" />
 
               <!-- Embossed Royal Tiara Centerpiece (No Text) -->
-              <g filter="drop-shadow(0 1.5px 2px rgba(88, 28, 135, 0.4))">
+              <g>
                 <path d="M35 55 L38 43 L44 47 L50 37 L56 47 L62 43 L65 55 Z"
                   fill="#ffffff" stroke="#7e22ce" stroke-width="1.2" stroke-linejoin="round" />
                 <circle cx="50" cy="35" r="2.2" fill="#ffffff" stroke="#7e22ce" stroke-width="0.9" />
@@ -187,6 +186,7 @@
               <path d="M 22 28 A 38 38 0 0 1 50 14" fill="none" stroke="#ffffff" stroke-width="2.2"
                 stroke-linecap="round" opacity="0.55" />
             </svg>
+            <img class="wax-seal-img" src="photos/wax-seal.png" alt="" aria-hidden="true" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()" />
           </button>
         </div>
 
@@ -427,6 +427,7 @@
 
       <!-- Celebrant Portrait Centerpiece -->
       <div class="photo-stage scroll-fade-scale">
+        <div class="inv-butterfly-slot slot-hero" data-butterfly aria-hidden="true"></div>
         <div class="photo-viewport">
           <img id="main-celebrant-img" src="photos/celebrant2.jpg" alt="Dayanari Retana y Ebani Gurrola Quinceañera Portrait" class="celebrant-photo" />
         </div>
@@ -498,6 +499,26 @@
 
       </div><!-- /.invitation-body-content -->
 
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         THE QUINCEAÑERAS: one portrait each (stays hidden until both photos exist)
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="celebrants" class="invite-section celebrants-section" aria-label="Dayanari and Ebani" hidden>
+      <div class="duo-grid">
+        <figure class="duo-card duo-left scroll-fade-in">
+          <div class="duo-frame">
+            <img src="photos/dayanari.jpg" alt="Dayanari Retana" class="duo-img" />
+          </div>
+          <figcaption class="duo-name">Dayanari</figcaption>
+        </figure>
+        <figure class="duo-card duo-right scroll-fade-in delay-1">
+          <div class="duo-frame">
+            <img src="photos/ebani.jpg" alt="Ebani Gurrola" class="duo-img" />
+          </div>
+          <figcaption class="duo-name">Ebani</figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════════════
@@ -644,22 +665,28 @@
             </div>
 
             <h3 class="vignette-headline" data-i18n="dresscode-title">DRESS CODE</h3>
-            <p class="vignette-subtitle" data-i18n="dresscode-subtitle">SOFT NEUTRAL COLORS</p>
+            <p class="vignette-subtitle" data-i18n="dresscode-subtitle">SOFT NEUTRALS &amp; MUTED TONES</p>
 
             <!-- Soft Neutral Color Palette Swatches (Wedding Invitation Style) -->
-            <div class="dress-code-palette" aria-label="Soft neutral color palette">
+            <div class="dress-code-palette" aria-label="Soft neutral and muted color palette">
               <span class="palette-swatch" style="--swatch-color: #FAF6F0;" title="Soft Linen / Lino Suave" aria-label="Soft Linen"></span>
               <span class="palette-swatch" style="--swatch-color: #EADBC8;" title="Champagne Sand / Arena Champán" aria-label="Champagne Sand"></span>
               <span class="palette-swatch" style="--swatch-color: #DAC0A3;" title="Warm Biscuit / Almendra Cálido" aria-label="Warm Biscuit"></span>
               <span class="palette-swatch" style="--swatch-color: #CBB2A6;" title="Muted Rose Taupe / Topo Rosado" aria-label="Muted Rose Taupe"></span>
               <span class="palette-swatch" style="--swatch-color: #A28B79;" title="Warm Mocha / Moca Cálido" aria-label="Warm Mocha"></span>
               <span class="palette-swatch" style="--swatch-color: #5C5248;" title="Deep Charcoal / Pizarra Cálida" aria-label="Deep Charcoal"></span>
+              <span class="palette-swatch" style="--swatch-color: #E8CDD0;" title="Blush / Rubor" aria-label="Blush"></span>
+              <span class="palette-swatch" style="--swatch-color: #D1A3AB;" title="Dusty Rose / Rosa Palo" aria-label="Dusty Rose"></span>
+              <span class="palette-swatch" style="--swatch-color: #B5C4AB;" title="Sage Green / Verde Salvia" aria-label="Sage Green"></span>
+              <span class="palette-swatch" style="--swatch-color: #A9BCD0;" title="Dusty Blue / Azul Grisáceo" aria-label="Dusty Blue"></span>
+              <span class="palette-swatch" style="--swatch-color: #C9B8DC;" title="Soft Lavender / Lavanda Suave" aria-label="Soft Lavender"></span>
+              <span class="palette-swatch" style="--swatch-color: #9E88B5;" title="Muted Mauve / Malva Suave" aria-label="Muted Mauve"></span>
             </div>
 
             <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
 
             <p class="vignette-prose" data-i18n="dresscode-desc">
-              We kindly request our guests wear formal attire in soft neutral tones to complement our celebration.
+              We kindly request our guests wear formal attire in soft neutral and muted tones, such as cream, dusty rose, sage, dusty blue and lavender.
             </p>
           </div>
 
@@ -706,6 +733,7 @@
           <img src="photos/celebrant.png" alt="Dayanari &amp; Ebani" class="message-portrait-img" />
         </div>
         <div class="message-copy">
+          <div class="inv-butterfly-slot slot-message" data-butterfly aria-hidden="true"></div>
           <span class="message-quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="message-quote-text" data-i18n="message-quote">
             Butterflies taught us that change can be beautiful… Today, as we celebrate our Quinceañera, we begin to spread our wings into a new chapter of our lives. We would love to share this special moment with you.
@@ -793,6 +821,8 @@
   <div id="rsvp-modal" class="rsvp-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true"
     aria-label="Confirm Attendance">
     <div class="modal-card">
+      <img src="photos/envelope-flowers-top.png" alt="" class="modal-flower modal-flower-tl" aria-hidden="true" />
+      <img src="photos/envelope-flowers-bottom.png" alt="" class="modal-flower modal-flower-br" aria-hidden="true" />
       <button id="close-modal-btn" class="close-modal" aria-label="Close modal">&times;</button>
 
       <div class="modal-header">
@@ -850,11 +880,21 @@
   </div>
 
   <footer class="site-footer scroll-fade-in">
-    <p class="footer-names">Dayanari Retana &amp; Ebani Gurrola • Quinceañera</p>
+    <div class="footer-crown" aria-hidden="true">
+    <span class="fc-line"></span>
+    <svg viewBox="0 0 48 24" width="34" height="17" fill="none" stroke="#9353d3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 20h36M10 20l-4-12 10 5 8-9 8 9 10-5-4 12H10z" />
+      <circle cx="6" cy="7" r="1.4" fill="#b9b5c8" stroke="none" />
+      <circle cx="24" cy="4" r="1.7" fill="#b9b5c8" stroke="none" />
+      <circle cx="42" cy="7" r="1.4" fill="#b9b5c8" stroke="none" />
+    </svg>
+    <span class="fc-line"></span>
+  </div>
+  <p class="footer-names">Dayanari Retana &amp; Ebani Gurrola • Quinceañera</p>
     <p class="footer-date">Friday, October 23, 2026 • Glendale, Arizona</p>
   </footer>
 
-  <script src="main.js?v=6.6.0"></script>
+  <script src="main.js?v=6.8.0"></script>
 </body>
 
 </html>

@@ -45,6 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', blockScrollUntilEntered, { passive: false });
   window.addEventListener('keydown', blockKeysUntilEntered, { passive: false });
 
+
+  /* Reuse the envelope butterfly on the opened invitation (cloned before the overlay is removed) */
+  (function placeInvitationButterflies() {
+    const src = document.getElementById('env-rustic-butterfly');
+    if (!src) return;
+    document.querySelectorAll('[data-butterfly]').forEach((slot, i) => {
+      const holder = document.createElement('div');
+      holder.className = 'inv-butterfly';
+      holder.innerHTML = src.innerHTML
+        .replace(/(rusticWingGrad|goldVeinGrad)(Left|Right)/g, '$1$2_inv' + i)
+        .replace(/<div class="butterfly-ground-shadow"><\/div>/, '');
+      slot.appendChild(holder);
+    });
+  })();
+
   /* ─────────────────────────────────────────────────────────────
      1. BILINGUAL TRANSLATION DICTIONARY (EN / ES)
      ───────────────────────────────────────────────────────────── */
@@ -78,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-party-desc': 'CELEBRATION, MUSIC &amp; FIESTA',
       'tl-btn-location': 'LOCATION',
       'dresscode-title': 'DRESS CODE',
-      'dresscode-subtitle': 'SOFT NEUTRAL COLORS',
-      'dresscode-desc': 'We kindly request our guests wear formal attire in soft neutral tones to complement our celebration.',
+      'dresscode-subtitle': 'SOFT NEUTRALS &amp; MUTED TONES',
+      'dresscode-desc': 'We kindly request our guests wear formal attire in soft neutral and muted tones, such as cream, dusty rose, sage, dusty blue and lavender.',
       'registry-title': 'WISHING WELL',
       'registry-subtitle': 'CASH / LLUVIA DE SOBRES',
       'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Dayanari &amp; Ebani with a monetary gift, a cash wishing well box will be warmly provided.',
@@ -133,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-party-desc': 'CELEBRACIÓN, MÚSICA Y FIESTA',
       'tl-btn-location': 'UBICACIÓN',
       'dresscode-title': 'CÓDIGO DE VESTIR',
-      'dresscode-subtitle': 'COLORES NEUTROS SUAVES',
-      'dresscode-desc': 'Agradecemos a nuestros invitados vestir atuendo formal en tonos neutros suaves para acompañarnos en esta hermosa ocasión.',
+      'dresscode-subtitle': 'NEUTROS Y TONOS SUAVES',
+      'dresscode-desc': 'Agradecemos a nuestros invitados vestir atuendo formal en tonos neutros y suaves, como crema, rosa palo, verde salvia, azul grisáceo y lavanda.',
       'registry-title': 'LLUVIA DE SOBRES',
       'registry-subtitle': 'LLUVIA DE SOBRES',
       'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un detalle en efectivo con Dayanari y Ebani, nuestra lluvia de sobres estará disponible con mucho cariño.',
@@ -639,6 +654,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderBokeh();
   }
+
+
+  /* Reveal the celebrant portraits section only once both photos have loaded */
+  (function initCelebrantDuo() {
+    const section = document.getElementById('celebrants');
+    if (!section) return;
+    const imgs = Array.from(section.querySelectorAll('img.duo-img'));
+    const check = () => {
+      if (imgs.every(i => i.complete && i.naturalWidth > 0)) section.hidden = false;
+    };
+    imgs.forEach(i => i.addEventListener('load', check));
+    check();
+  })();
 
   /* ─────────────────────────────────────────────────────────────
      6. SCROLL REVEAL OBSERVER
