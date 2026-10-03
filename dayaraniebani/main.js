@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     triggerCelebratoryBurst() {
       if (this.hasTriggeredBurst) return;
       this.hasTriggeredBurst = true;
-      const burstCount = window.innerWidth < 600 ? 55 : 85;
+      const burstCount = window.innerWidth < 600 ? 44 : 68;
 
       for (let i = 0; i < burstCount; i++) {
         const startY = (Math.random() * -0.6 * this.height) - 10;
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Radial burst around envelope
       const originX = this.width / 2;
       const originY = this.height / 2;
-      const ringCount = window.innerWidth < 600 ? 25 : 40;
+      const ringCount = window.innerWidth < 600 ? 20 : 32;
 
       for (let j = 0; j < ringCount; j++) {
         const p = this.createPetal(originY);
@@ -461,34 +461,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (envelopeOpened) return;
     envelopeOpened = true;
 
-    // Start background music
-    playAudio();
-
-    // Trigger falling petals burst
-    petalEngine.start();
-
-    // Animate envelope opening
+    // 1. Open envelope flap and glide up invitation card
+    if (overlay) {
+      overlay.classList.add('is-opened');
+    }
     if (envelope) {
       envelope.classList.add('is-opened');
     }
 
-    // Unlock page scroll & reveal main content
-    setTimeout(() => {
-      document.documentElement.classList.add('site-entered');
-      document.body.classList.add('site-entered');
-      document.removeEventListener('wheel', blockScrollUntilEntered);
-      document.removeEventListener('touchmove', blockScrollUntilEntered);
-      document.removeEventListener('keydown', blockKeysUntilEntered);
-    }, 450);
+    // 2. Trigger falling petals burst
+    petalEngine.start();
 
-    // Fade out entry overlay smoothly
+    // 3. Start audio soundtrack
+    playAudio();
+
+    // 4. Smoothly fade out envelope overlay and unveil main site (1500ms matching denisetorresrivera)
     setTimeout(() => {
       if (overlay) {
-        overlay.classList.add('overlay-fadeout');
+        overlay.classList.add('fade-out');
       }
-    }, 1800);
+      document.body.classList.add('site-entered');
+      document.documentElement.classList.add('site-entered');
+      window.removeEventListener('wheel', blockScrollUntilEntered);
+      window.removeEventListener('touchmove', blockScrollUntilEntered);
+      window.removeEventListener('keydown', blockKeysUntilEntered);
+    }, 1500);
 
-    // Fully remove entry overlay DOM
+    // 5. Final cleanup of overlay (2350ms matching denisetorresrivera)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -822,7 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function triggerConfetti() {
     const confettiColors = ['#9353d3', '#b784f4', '#a855f7', '#c084fc', '#d4aa63', '#fef08a', '#ffffff', '#7c3aed'];
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 48; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
       conf.style.zIndex = '9999';

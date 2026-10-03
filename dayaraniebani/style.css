@@ -5,10 +5,10 @@
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
-  /* Lavender Lilac & Crisp White Scheme */
-  --bg-page: #f9f5fd;
-  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #f7f0fd 50%, #eddff8 100%);
-  --card-white: #ffffff;
+  /* Lavender Lilac & Complementary Light Purple Scheme */
+  --bg-page: #ede0f9;
+  --bg-page-gradient: radial-gradient(circle at 50% 12%, #ede0f9 0%, #e2cdf7 48%, #d5bcf3 100%);
+  --card-white: #f7f1fc;
 
   /* Typographic Contrast */
   --text-dark: #2c1642;
@@ -416,23 +416,23 @@ body.site-entered .lang-control-bar {
   transform: rotate(180deg);
 }
 
-/* ── MAIN INVITATION CARD CONTAINER ── */
+/* ── MAIN INVITATION CARD CONTAINER (CONTINUOUS LIGHT PURPLE THROUGHOUT) ── */
 .invitation-wrapper {
   position: relative;
   width: 100%;
   max-width: 520px;
   margin: 3.6rem auto 3rem;
-  background-color: var(--card-white);
+  background-color: #f6effc;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.7) 100%),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23cbd5e1' stroke-width='0.4' stroke-opacity='0.35'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%2394a3b8' fill-opacity='0.22'/%3E%3C/svg%3E");
-  border: 1px solid rgba(148, 163, 184, 0.32);
-  border-radius: 24px;
+    linear-gradient(180deg, #fbf7ff 0%, #f4eafd 15%, #eeddfb 35%, #f4eafd 60%, #ecdafa 85%, #f3e6fc 100%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23a855f7' stroke-width='0.4' stroke-opacity='0.16'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23a855f7' fill-opacity='0.16'/%3E%3C/svg%3E");
+  border: 1.5px solid rgba(168, 85, 247, 0.38);
+  border-radius: 28px;
   box-shadow:
-    0 25px 70px rgba(147, 83, 211, 0.12),
-    0 4px 20px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
-    inset 0 0 35px rgba(254, 240, 138, 0.45);
+    0 25px 70px rgba(107, 33, 168, 0.18),
+    0 6px 24px rgba(124, 58, 237, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 35px rgba(216, 180, 254, 0.45);
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -447,7 +447,8 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 10px 22px rgba(147, 83, 211, 0.16));
+  opacity: 1 !important;
+  filter: drop-shadow(0 10px 22px rgba(107, 33, 168, 0.24));
 }
 
 .flower-card-top-left {
@@ -459,7 +460,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: scaleX(-1) rotate(-8deg);
   transform-origin: center center;
-  opacity: 0.78;
+  opacity: 1 !important;
 }
 
 .flower-card-top-right {
@@ -471,7 +472,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: rotate(-8deg);
   transform-origin: center center;
-  opacity: 0.78;
+  opacity: 1 !important;
 }
 
 .flower-card-bottom-left {
@@ -483,6 +484,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: none;
   transform-origin: center center;
+  opacity: 1 !important;
 }
 
 .flower-card-bottom-right {
@@ -494,6 +496,7 @@ body.site-entered .lang-control-bar {
   max-height: 48vw;
   transform: scaleX(-1);
   transform-origin: center center;
+  opacity: 1 !important;
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -773,13 +776,15 @@ body.site-entered .lang-control-bar {
   position: relative;
   z-index: 3;
   padding: 0;
-  border-radius: 26px;
+  border-radius: 28px;
   overflow: hidden;
   border: none !important;
+  background: #fbf8fe;
   box-shadow:
-    0 24px 55px -8px rgba(107, 33, 168, 0.22),
+    0 24px 60px -8px rgba(107, 33, 168, 0.22),
     0 10px 24px -4px rgba(147, 83, 211, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    0 0 0 1px rgba(168, 85, 247, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95);
 }
 
 .celebrant-photo {
@@ -787,11 +792,14 @@ body.site-entered .lang-control-bar {
   z-index: 3;
   width: 100%;
   height: auto;
-  max-height: 560px;
+  aspect-ratio: 750 / 1333;
   object-fit: cover;
+  object-position: center center;
   display: block;
-  border-radius: 26px;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
+  border-radius: 28px;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.06));
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
 }
 
@@ -1218,7 +1226,7 @@ body.site-entered .lang-control-bar {
 }
 
 .program-section {
-  background: #ffffff;
+  background: transparent;
   padding-top: 1.4rem;
 }
 
@@ -1436,21 +1444,21 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 3: PADRINOS & COURT OF HONOR ── */
 .court-section {
-  background: #ffffff;
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background: transparent;
+  border-top: none;
 }
 
 .padrinos-royal-plaque {
   max-width: 440px;
   margin: 0 auto 2.8rem;
-  background: #ffffff;
-  background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #f8fafc 65%, #f1f5f9 100%);
-  border: 1.5px solid rgba(148, 163, 184, 0.48);
+  background: rgba(255, 255, 255, 0.65);
+  background-image: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.9) 0%, rgba(246, 239, 252, 0.75) 65%, rgba(237, 224, 249, 0.55) 100%);
+  border: 1.5px solid rgba(168, 85, 247, 0.35);
   border-radius: 20px;
   box-shadow:
     0 16px 42px rgba(147, 83, 211, 0.13),
-    inset 0 0 0 5px #ffffff,
-    inset 0 0 0 6.5px rgba(148, 163, 184, 0.28);
+    inset 0 0 0 5px rgba(255, 255, 255, 0.75),
+    inset 0 0 0 6.5px rgba(168, 85, 247, 0.2);
   padding: 2.2rem 1.6rem;
   position: relative;
   overflow: visible;
@@ -1647,8 +1655,8 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 4: EVENT GUIDELINES (BOTANICAL VIGNETTES) ── */
 .guidelines-section {
-  background: #ffffff;
-  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background: transparent;
+  border-top: none;
   overflow: visible;
   padding: 1.2rem 1.6rem 0.6rem;
 }
@@ -1681,7 +1689,7 @@ body.site-entered .lang-control-bar {
   max-width: 440px;
   margin: 0 auto;
   padding: 0.8rem 1.4rem;
-  background: radial-gradient(circle at 50% 50%, rgba(239, 246, 255, 0.85) 0%, rgba(248, 250, 252, 0.35) 65%, transparent 100%);
+  background: transparent;
   overflow: visible;
   border-radius: 20px;
 }
@@ -1798,23 +1806,78 @@ body.site-entered .lang-control-bar {
 
 .vignette-wishing-emblem {
   margin: 0.4rem 0 0.6rem;
-}
-
-.vignette-seal-disc {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fff1f2 55%, #fef08a 100%);
-  border: 1.5px solid rgba(190, 18, 60, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(147, 83, 211, 0.14);
+  background: transparent !important;
+  border: none !important;
+}
+
+.vignette-seal-disc {
+  width: auto;
+  height: auto;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vignette-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--theme-dark, #9333ea);
+  text-transform: uppercase;
+  margin: 0 0 0.4rem;
+  display: block;
+}
+
+/* ── DRESS CODE SOFT NEUTRAL PALETTE (WEDDING INVITATION STYLE) ── */
+.dress-code-palette {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0.7rem auto 0.4rem;
+  padding: 3px 6px;
+}
+
+.palette-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--swatch-color);
+  border: 2px solid #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14), inset 0 1px 2px rgba(255, 255, 255, 0.45);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.palette-swatch:hover {
+  transform: translateY(-3px) scale(1.18);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+  .palette-swatch {
+    width: 24px;
+    height: 24px;
+  }
+  .dress-code-palette {
+    gap: 8px;
+    margin: 0.6rem auto 0.3rem;
+  }
 }
 
 /* ── SECTION 5: MESSAGE FROM CELEBRANT ── */
 .message-section {
-  background: #ffffff;
+  background: transparent;
 }
 
 .message-stage {
@@ -1840,7 +1903,7 @@ body.site-entered .lang-control-bar {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 36%;
 }
 
 .message-copy {
@@ -1903,7 +1966,7 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 5: RSVP & DETAILS ── */
 .rsvp-section {
-  background: #ffffff;
+  background: transparent;
   padding-top: 1.2rem;
   padding-bottom: 3.2rem;
 }
@@ -2375,9 +2438,71 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #ede0f7;
-  background-image: radial-gradient(circle at 50% 40%, #fbf7ff 0%, #ece0f8 48%, #decbf3 100%) !important;
+  background-color: #c9aee8;
+  background-image:
+    /* Luminous sunlit cloud clearing at center framing the envelope */
+    radial-gradient(ellipse 65% 55% at 50% 48%, rgba(252, 246, 255, 0.9) 0%, rgba(230, 210, 252, 0.65) 42%, transparent 75%),
+    /* Upper-left billowing purple cloud bank */
+    radial-gradient(ellipse 60% 50% at 16% 20%, rgba(198, 155, 238, 0.9) 0%, rgba(175, 128, 224, 0.55) 45%, transparent 75%),
+    /* Upper-right billowy lavender-violet cloud */
+    radial-gradient(ellipse 62% 52% at 84% 18%, rgba(212, 174, 246, 0.88) 0%, rgba(170, 120, 222, 0.5) 50%, transparent 80%),
+    /* Mid-left rolling orchid cloud */
+    radial-gradient(ellipse 55% 45% at 6% 62%, rgba(184, 138, 230, 0.85) 0%, rgba(156, 106, 212, 0.5) 50%, transparent 75%),
+    /* Mid-right soft violet cloud bank */
+    radial-gradient(ellipse 55% 45% at 94% 56%, rgba(195, 150, 238, 0.85) 0%, rgba(162, 112, 218, 0.5) 48%, transparent 75%),
+    /* Bottom billowing deep lilac cloud floor */
+    radial-gradient(ellipse 80% 55% at 50% 95%, rgba(174, 126, 224, 0.92) 0%, rgba(146, 94, 204, 0.65) 45%, transparent 85%),
+    /* Atmospheric twilight sky gradient */
+    linear-gradient(175deg, #dfc8f7 0%, #cfb0f2 35%, #be97e8 70%, #ac7edd 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s;
+}
+
+/* Atmospheric animated drifting cloud layers */
+.entry-overlay::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.5) 0%, rgba(235, 210, 255, 0.35) 28%, transparent 55%),
+    radial-gradient(circle at 78% 30%, rgba(200, 150, 245, 0.55) 0%, rgba(165, 110, 225, 0.28) 38%, transparent 60%),
+    radial-gradient(circle at 30% 75%, rgba(185, 130, 235, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 72% 70%, rgba(220, 175, 255, 0.5) 0%, transparent 52%);
+  filter: blur(50px);
+  animation: cloudyDrift 20s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.entry-overlay::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 60% 20%, rgba(245, 230, 255, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 15% 70%, rgba(190, 140, 238, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(175, 120, 228, 0.5) 0%, transparent 48%);
+  filter: blur(65px);
+  animation: cloudyDriftReverse 26s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes cloudyDrift {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.85; }
+  50% { transform: scale(1.08) translate(18px, -12px); opacity: 1; }
+  100% { transform: scale(0.96) translate(-14px, 10px); opacity: 0.88; }
+}
+
+@keyframes cloudyDriftReverse {
+  0% { transform: scale(1.02) translate(0, 0); opacity: 0.8; }
+  50% { transform: scale(0.95) translate(-16px, 14px); opacity: 0.95; }
+  100% { transform: scale(1.05) translate(14px, -10px); opacity: 0.82; }
 }
 
 .entry-overlay.fade-out {
@@ -2446,15 +2571,15 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   font-family: var(--font-script);
   font-size: clamp(2.6rem, 6.8vw, 4rem);
   line-height: 1.05;
-  color: #581c87;
+  color: #1e0638 !important;
   text-shadow:
-    0 3px 18px rgba(107, 33, 168, 0.28),
-    0 1px 2px rgba(255, 255, 255, 0.95);
+    0 2px 14px rgba(30, 6, 56, 0.22),
+    0 1px 2px rgba(255, 255, 255, 0.9);
   margin: 0;
   letter-spacing: 0.02em;
-  background: linear-gradient(135deg, #4c0f77 0%, #6b21a8 45%, #9333ea 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #1e0638 !important;
 }
 
 .entry-invited-sub {
@@ -2463,7 +2588,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #7952a3;
+  color: #3b1464;
   margin-top: 0.35rem;
   opacity: 0.95;
 }
@@ -2505,24 +2630,23 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   object-fit: contain;
   pointer-events: none;
   opacity: 1 !important;
-  filter: drop-shadow(0 8px 18px rgba(124, 58, 237, 0.28)) drop-shadow(0 2px 8px rgba(168, 85, 247, 0.25)) brightness(1.04) saturate(1.05);
+  filter: drop-shadow(0 8px 18px rgba(107, 33, 168, 0.28)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.14));
   transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .flower-top-right {
-  top: -48px;
-  right: -42px;
+  top: -46px;
+  right: -40px;
   width: 250px;
   height: 250px;
   z-index: 24;
   opacity: 1 !important;
-  transform: rotate(-6deg);
-  transform-origin: top right;
+  transform: none;
 }
 
 .flower-bottom-left {
-  bottom: -48px;
-  left: -42px;
+  bottom: -46px;
+  left: -40px;
   width: 250px;
   height: 250px;
   z-index: 24;
@@ -2537,7 +2661,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   pointer-events: none;
 }
 
-/* 3D Envelope Container (Bespoke Light Pastel Orchid & Lavender Purple System) */
+/* 3D Envelope Container (Warm Luxury Beige & Offset White System) */
 .luxury-envelope-container {
   position: relative;
   width: 370px;
@@ -2547,44 +2671,45 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   user-select: none;
   transform-style: preserve-3d;
   border-radius: 6px;
-  background: linear-gradient(140deg, #e5d5f8 0%, #d6bef3 45%, #be9be8 100%);
-  border: 2px solid #b794e6;
+  background: linear-gradient(145deg, #fdfbf7 0%, #f7f2ea 45%, #eee5d7 100%);
+  border: 2px solid #ded0ba;
   box-shadow:
-    0 22px 50px rgba(147, 83, 211, 0.22),
-    0 8px 20px rgba(168, 85, 247, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
-    inset 0 0 20px rgba(255, 255, 255, 0.55);
+    0 24px 55px rgba(90, 60, 130, 0.28),
+    0 8px 22px rgba(120, 80, 160, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 20px rgba(245, 235, 220, 0.6);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
 
 .luxury-envelope-container:hover {
   box-shadow:
-    0 28px 60px rgba(147, 83, 211, 0.32),
-    0 10px 24px rgba(168, 85, 247, 0.24),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
-    inset 0 0 24px rgba(255, 255, 255, 0.7);
+    0 30px 65px rgba(90, 60, 130, 0.35),
+    0 12px 28px rgba(120, 80, 160, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 1),
+    inset 0 0 24px rgba(255, 245, 230, 0.7);
 }
 
-/* Envelope Interior Back Wall */
+/* Envelope Interior Back Wall (Warm Beige Letterpress) */
 .env-back {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #b893e6 0%, #a275da 100%);
+  background: linear-gradient(180deg, #ede3d2 0%, #dfd3bf 100%);
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(109, 40, 217, 0.28);
+  box-shadow: inset 0 0 35px rgba(120, 95, 70, 0.2);
 }
 
-.env-interior-pattern {
+.env-interior-pattern,
+.env-liner-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0.35) 1px, transparent 0, transparent 20px),
-    repeating-linear-gradient(-45deg, rgba(233, 213, 255, 0.28) 0, rgba(233, 213, 255, 0.28) 1px, transparent 0, transparent 20px);
+    repeating-linear-gradient(45deg, rgba(212, 170, 99, 0.22) 0, rgba(212, 170, 99, 0.22) 1px, transparent 0, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.45) 0, rgba(255, 255, 255, 0.45) 1px, transparent 0, transparent 20px);
 }
 
-/* Inside Invitation Card */
+/* Inside Invitation Letter Card (Bespoke Light Purple Paper) */
 .env-invitation-card {
   position: absolute;
   top: 15px;
@@ -2592,11 +2717,12 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform: translateX(-50%) translateY(20px) translateZ(4px) scale(0.96);
   width: 335px;
   max-width: 84vw;
-  background: #ffffff;
-  border-radius: 8px;
+  background: linear-gradient(165deg, #faf5ff 0%, #f3e8ff 45%, #e9d5ff 100%);
+  border: 1.5px solid rgba(192, 132, 252, 0.5);
+  border-radius: 10px;
   padding: 16px 18px;
   z-index: 10;
-  box-shadow: 0 10px 30px rgba(88, 28, 135, 0.2);
+  box-shadow: 0 14px 38px rgba(76, 29, 149, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.85);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
@@ -2612,16 +2738,16 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 }
 
 .card-gold-frame {
-  border: 1px solid rgba(212, 170, 99, 0.55);
-  border-radius: 6px;
+  border: 1.5px solid rgba(168, 85, 247, 0.45);
+  border-radius: 8px;
   padding: 14px 12px 16px;
   text-align: center;
-  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 1) 0%, rgba(247, 241, 252, 0.95) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(147, 83, 211, 0.12);
+  background: linear-gradient(180deg, #ffffff 0%, #f6effc 50%, #ede0f9 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.95), 0 2px 14px rgba(147, 83, 211, 0.15);
 }
 
 .card-crown-flourish {
-  color: var(--gold-accent);
+  color: #a855f7;
   margin-bottom: 8px;
 }
 
@@ -2642,7 +2768,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 20%;
 }
 
 .card-quince-script {
@@ -2670,20 +2796,20 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   opacity: 0.85;
 }
 
-/* Envelope Front Pocket */
+/* Envelope Front Pocket (Beige / Offset White Cotton Paper) */
 .env-pocket {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(168deg, #d8bff6 0%, #caa7f2 35%, #b98dee 70%, #a977e5 100%);
+  background: linear-gradient(168deg, #faf6ee 0%, #f4ece0 35%, #ebdcc9 70%, #e2d1bc 100%);
   border-radius: 6px;
   z-index: 12;
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
   box-shadow:
-    inset 0 -6px 18px rgba(124, 58, 237, 0.22),
-    inset 0 1.8px 0 rgba(255, 255, 255, 0.85),
-    inset 0 3px 0 rgba(192, 132, 252, 0.45);
+    inset 0 -6px 18px rgba(130, 105, 80, 0.15),
+    inset 0 1.8px 0 rgba(255, 255, 255, 0.95),
+    inset 0 3px 0 rgba(220, 205, 185, 0.5);
 }
 
 .env-pocket::before {
@@ -2691,8 +2817,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(255, 255, 255, 0.35) 0%, transparent 45%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(255, 255, 255, 0.4) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -2705,7 +2831,7 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   z-index: 13;
 }
 
-/* Envelope 3D Triangular Top Flap */
+/* Envelope 3D Triangular Top Flap (Beige / Offset White) */
 .env-flap {
   position: absolute;
   top: 0;
@@ -2716,10 +2842,10 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   transform-style: preserve-3d;
   z-index: 15;
   transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
-  filter: drop-shadow(0 10px 20px rgba(109, 40, 217, 0.25));
+  filter: drop-shadow(0 10px 18px rgba(120, 90, 60, 0.18));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: linear-gradient(160deg, #ede0fa 0%, #ddc4f6 35%, #c8a3f0 70%, #b78ae8 100%);
-  border-top: 2.5px solid #b794e6;
+  background: linear-gradient(160deg, #fbf7ef 0%, #f5eee2 35%, #ebded0 70%, #e0cebe 100%);
+  border-top: 2.5px solid #dfcfbe;
 }
 
 .env-flap-edge-svg {
@@ -2734,8 +2860,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 .luxury-envelope-container.is-opened .env-flap {
   transform: rotateX(180deg);
   z-index: 15;
-  filter: drop-shadow(0 -6px 14px rgba(124, 58, 237, 0.22));
-  background: linear-gradient(160deg, #b78ae8 0%, #a574dc 60%, #905bc9 100%);
+  filter: drop-shadow(0 -6px 14px rgba(120, 90, 60, 0.2));
+  background: linear-gradient(160deg, #ebdcc9 0%, #decbb5 60%, #ceb9a0 100%);
 }
 
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
