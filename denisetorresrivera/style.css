@@ -4385,7 +4385,7 @@ body:not(.site-entered) {
 
 /* ── Program timeline ── */
 .program-section {
-  background: linear-gradient(180deg, rgba(158, 197, 232, 0) 0%, rgba(158, 197, 232, 0.12) 14%, rgba(158, 197, 232, 0.12) 86%, rgba(158, 197, 232, 0) 100%);
+  background: transparent;
 }
 .time-stamp { color: #245785; font-weight: 700; }
 .timeline-node { border-color: rgba(85, 147, 201, 0.6); color: #245785; box-shadow: 0 4px 14px rgba(85, 147, 201, 0.2); }
