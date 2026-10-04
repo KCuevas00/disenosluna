@@ -464,6 +464,9 @@
     <div class="invitation-gradient-glow" aria-hidden="true"></div>
     <main class="invitation-wrapper">
 
+    <!-- Interactive Draggable Butterflies Layer -->
+    <div id="butterflies-interactive-layer" class="butterflies-interactive-layer"></div>
+
     <!-- Transparent Botanical Floral Sprays Overlapping the Invitation Corners -->
     <div class="invitation-floral-frame" aria-hidden="true">
       <div style="position:relative; width:100%; height:100%;">
@@ -490,7 +493,7 @@
 
       <!-- Celebrant Portrait Centerpiece -->
       <div class="photo-stage scroll-fade-scale">
-        <div class="inv-butterfly-slot slot-hero" data-butterfly aria-hidden="true"></div>
+        <div class="inv-butterfly-slot slot-hero" aria-hidden="true"></div>
         <div class="photo-viewport">
           <img id="main-celebrant-img" src="photos/celebrant.png"
             alt="Denise Torres Rivera Sweet 16 Portrait" class="celebrant-photo" />
@@ -531,7 +534,7 @@
         <!-- Pure Elegant Typographic Countdown Directly Below Date Box -->
         <div class="pure-countdown-section scroll-fade-in" role="timer"
           aria-label="Countdown to Denise's Sweet 16">
-          <div class="inv-butterfly-slot slot-countdown" data-butterfly aria-hidden="true"></div>
+          <div class="inv-butterfly-slot slot-countdown" aria-hidden="true"></div>
           <div class="pt-header">
             <h3 class="pt-caption" data-i18n="countdown-title">COUNTING DOWN TO THE BIG DAY</h3>
           </div>
@@ -576,7 +579,7 @@
       </div>
 
       <div class="program-header scroll-fade-in">
-        <div class="inv-butterfly-slot slot-program" data-butterfly aria-hidden="true"></div>
+        <div class="inv-butterfly-slot slot-program" aria-hidden="true"></div>
         <h2 class="program-title" data-i18n="program-title">PROGRAM</h2>
         <div class="title-accent-line"></div>
       </div>
@@ -912,7 +915,7 @@
       </div>
 
       <div class="court-header scroll-fade-in">
-        <div class="inv-butterfly-slot slot-court" data-butterfly aria-hidden="true"></div>
+        <div class="inv-butterfly-slot slot-court" aria-hidden="true"></div>
         <!-- Light blue court of honor crown / tiara motif icon -->
         <div class="court-crown-motif" aria-hidden="true">
           <svg viewBox="0 0 36 20" width="38" height="20" fill="none" stroke="#5593c9" stroke-width="1.8">
@@ -986,7 +989,7 @@
 
           <!-- Wishing Well / Lluvia de Sobres Vignette -->
           <div class="vignette-item registry-vignette scroll-fade-in">
-            <div class="inv-butterfly-slot slot-registry" data-butterfly aria-hidden="true"></div>
+            <div class="inv-butterfly-slot slot-registry" aria-hidden="true"></div>
             <div class="vignette-wishing-emblem" aria-hidden="true">
               <svg viewBox="0 0 54 44" width="46" height="38" fill="none">
                 <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z"
@@ -1028,7 +1031,7 @@
           <img src="photos/celebrant.png" alt="Denise Torres Rivera" class="message-portrait-img" />
         </div>
         <div class="message-copy">
-          <div class="inv-butterfly-slot slot-message" data-butterfly aria-hidden="true"></div>
+          <div class="inv-butterfly-slot slot-message" aria-hidden="true"></div>
           <span class="message-quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="message-quote-text" data-i18n="message-quote">
             Like the stars that illuminate the night sky, every moment leading to this day has filled my heart with wonder. As I celebrate my Sweet 16, I begin a beautiful new chapter surrounded by the people I love most. Having you celebrate with me will make this night truly unforgettable.
@@ -1050,7 +1053,7 @@
 
       <!-- Giant Floral Intertwined RSVP Letters -->
       <div class="giant-rsvp-stage scroll-fade-scale">
-        <div class="inv-butterfly-slot slot-rsvp" data-butterfly aria-hidden="true"></div>
+        <div class="inv-butterfly-slot slot-rsvp" aria-hidden="true"></div>
         <div class="rsvp-letters-grid">
 
           <!-- Top Row: R and S with floral cluster -->
@@ -1197,7 +1200,52 @@
     <p class="footer-date">Saturday, September 4, 2027 • Oklahoma City, Oklahoma</p>
   </footer>
 
-  <script src="main.js?v=7.0.0"></script>
+  <!-- ══════════════════════════════════════════════════════════════
+       INTERACTIVE BUTTERFLY STUDIO DOCK
+  ══════════════════════════════════════════════════════════════ -->
+  <div id="butterfly-studio-dock" class="butterfly-studio-dock collapsed" role="region" aria-label="Butterfly Studio">
+    <!-- Collapsed Toggle Button -->
+    <button type="button" id="studio-toggle-btn" class="studio-toggle-btn" aria-label="Open Butterfly Studio">
+      <span>🦋</span>
+      <span>Butterfly Studio</span>
+    </button>
+
+    <!-- Expanded Studio Panel -->
+    <div class="studio-panel-content">
+      <div class="studio-header">
+        <span class="studio-title">🦋 Butterfly Studio</span>
+        <button type="button" id="studio-close-btn" class="studio-close-btn" aria-label="Minimize Studio">✕</button>
+      </div>
+
+      <div class="studio-tip">
+        Drag butterflies anywhere! Click to select one to scale, rotate, flip or delete.
+      </div>
+
+      <div class="studio-controls-row">
+        <div class="studio-control-group">
+          <label for="bf-scale-slider">Scale: <span id="bf-scale-val">0.50x</span></label>
+          <input type="range" id="bf-scale-slider" min="0.25" max="1.20" step="0.02" value="0.50">
+        </div>
+        <div class="studio-control-group">
+          <label for="bf-rotate-slider">Rotate: <span id="bf-rotate-val">0°</span></label>
+          <input type="range" id="bf-rotate-slider" min="-180" max="180" step="2" value="0">
+        </div>
+        <div class="studio-toggle-group">
+          <button type="button" id="bf-flip-btn" class="studio-mini-btn" title="Flip wings horizontally">⇄ Flip Wings</button>
+          <button type="button" id="bf-delete-btn" class="studio-mini-btn btn-danger" title="Remove selected butterfly">✕ Remove</button>
+        </div>
+      </div>
+
+      <div class="studio-actions-row">
+        <button type="button" id="bf-add-btn" class="studio-action-btn btn-add">＋ Add Butterfly</button>
+        <button type="button" id="bf-copy-btn" class="studio-action-btn btn-copy">📋 Copy Positions</button>
+      </div>
+
+      <textarea id="bf-output-box" class="studio-output-box" readonly placeholder="Click 'Copy Positions' to view & copy coordinate data..."></textarea>
+    </div>
+  </div>
+
+  <script src="main.js?v=7.1.0"></script>
 </body>
 
 </html>
