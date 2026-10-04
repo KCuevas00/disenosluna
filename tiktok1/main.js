@@ -1,20 +1,18 @@
 /**
  * ═════════════════════════════════════════════════════════════════════
- * QUINCE INVITATION — XIMENA GUADALUPE
- * Interactive Controller, Petals Cascade Engine, Photo Switcher & Audio
+ * QUINCEAÑERA INVITATION — XIMENA GUADALUPE
+ * Interactive Controller, Falling Petals Engine, Audio & RSVP
  * ═════════════════════════════════════════════════════════════════════
  */
 
 /* ═════════════════════════════════════════════════════════════════════
  * 1. GOOGLE SHEETS RSVP ENDPOINT CONFIGURATION
  * ═════════════════════════════════════════════════════════════════════
- * Master Webhook URL automatically syncs RSVP entries into Ximena's
- * dedicated private Google Sheet.
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
-const EVENT_SLUG = 'ximenaguadalupe';
-const CLIENT_NAME = "Ximena Guadalupe's Quinceañera";
-const CLIENT_EMAIL = '';
+const EVENT_SLUG = 'tiktok1';
+const CLIENT_NAME = "Ximena Guadalupe's Quinceañera (Juan Carlos & María Elena)";
+const CLIENT_EMAIL = 'marcsmom09@gmail.com';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Prevent browser from restoring a previous scroll position
@@ -25,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.scrollTo(0, 0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
+
+  if (new URLSearchParams(window.location.search).get('og') === 'true') {
+    document.documentElement.classList.add('og-mode');
+  }
 
   // Strictly block any scrolling, wheeling or touchmove while envelope is unopened
   const blockScrollUntilEntered = (e) => {
@@ -47,62 +49,44 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', blockScrollUntilEntered, { passive: false });
   window.addEventListener('keydown', blockKeysUntilEntered, { passive: false });
 
+
+  /* ══════════════════════════════════════════════════════════════
+     OPENED INVITATION BUTTERFLIES
+     Renders the 7 decorative butterflies at Denise's exact
+     custom coordinates with gentle 3D wing fluttering.
+     ══════════════════════════════════════════════════════════════ */
+  (function placeInvitationButterflies() {
+    const srcButterfly = document.getElementById('env-rustic-butterfly');
+    if (!srcButterfly) return;
+
+    const slots = document.querySelectorAll('.inv-butterfly-slot');
+    slots.forEach((slot, index) => {
+      slot.innerHTML = '';
+      const holder = document.createElement('div');
+      holder.className = 'inv-butterfly';
+      holder.innerHTML = srcButterfly.innerHTML
+        .replace(/(rusticWingGrad|goldVeinGrad)(Left|Right)/g, '$1$2_bf_' + (index + 1))
+        .replace(/<div class="butterfly-ground-shadow"><\/div>/, '');
+      slot.appendChild(holder);
+    });
+  })();
+
   /* ─────────────────────────────────────────────────────────────
      1. BILINGUAL TRANSLATION DICTIONARY (EN / ES)
      ───────────────────────────────────────────────────────────── */
   const translations = {
-    es: {
-      'invite-16': 'XV Años',
-      'invite-quince': 'XV Años',
-      'invite-parents': 'JUAN CARLOS &amp; MARÍA ELENA',
-      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
-      'invite-daughter': 'DE SU HIJA',
-      'invite-date-day': 'SÁBADO',
-      'invite-date-full': '17 de Octubre, 2026',
-      'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
-      'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
-      'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
-      'cd-days': 'Días',
-      'cd-hours': 'Horas',
-      'cd-mins': 'Minutos',
-      'cd-secs': 'Segundos',
-      'invite-venue': 'LOS ANGELES • CALIFORNIA',
-      'program-title': 'PROGRAMA',
-      'program-mass-title': 'SANTA MISA',
-      'program-mass-desc': 'PARROQUIA NUESTRA SEÑORA DE GUADALUPE,<br />4533 E CÉSAR E CHÁVEZ AVE, LOS ANGELES, CA 90022',
-      'program-reception-title': 'ENTRADA AL SALÓN &amp; FIESTA',
-      'program-reception-desc': 'SALÓN REAL DE LOS ÁNGELES,<br />3500 WHITTIER BLVD, LOS ANGELES, CA 90023',
-      'program-dinner-title': 'COMIDA',
-      'tl-btn-location': 'UBICACIÓN',
-      'court-title': 'CORTE DE HONOR',
-      'padrinos-role': 'PADRINOS DE HONOR',
-      'padrinos-subtext': '“Con profundo agradecimiento por su amor, guía y bendiciones”',
-      'court-role-chambelan': 'CHAMBELÁN DE HONOR',
-      'court-chambelanes-title': 'CHAMBELANES',
-      'registry-title': 'LLUVIA DE SOBRES',
-      'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un lindo detalle con Ximena, nuestra lluvia de sobres estará disponible con mucho cariño.',
-      'message-quote': 'Ayer era una niña soñando con este momento; hoy celebro mis quince años rodeada del amor de Dios, de mi familia y de mis mejores amigos. Gracias infinitas a mis amados padres por su apoyo incondicional y por hacer posible este día inolvidable.',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 20 DE SEPTIEMBRE DE 2026',
-      'rsvp-btn': 'CONFIRMAR ASISTENCIA',
-      'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
-      'rsvp-thankyou': '¡Muchas Gracias!',
-      'modal-title': 'Confirmar Asistencia para Ximena Guadalupe',
-      'modal-subtitle': 'Sábado, 17 de Octubre de 2026 • Los Angeles, CA',
-      'label-fullname': 'Nombre Completo o Familia *',
-      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
-      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
-      'modal-success-title': '¡Muchas Gracias!',
-      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
-      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.'
-    },
     en: {
-      'invite-16': 'Quinceañera',
+      'entry-invited': "You've Been Invited!",
+      'entry-subtitle': 'XIMENA GUADALUPE • QUINCEAÑERA',
+      'seal-hint-desktop': '✦ CLICK TO OPEN ✦',
+      'seal-hint-mobile': '✦ TAP TO OPEN ✦',
       'invite-quince': 'Quinceañera',
       'invite-parents': 'JUAN CARLOS &amp; MARÍA ELENA',
       'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
       'invite-daughter': 'OF THEIR DAUGHTER',
+      'invite-date-month': 'OCT',
       'invite-date-day': 'SATURDAY',
-      'invite-date-full': 'October 17, 2026',
+      'invite-date-time': 'AT 1:00 PM',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
       'countdown-today': '🎉 Today Is the Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
@@ -113,18 +97,25 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'LOS ANGELES • CALIFORNIA',
       'program-title': 'PROGRAM',
       'program-mass-title': 'HOLY MASS',
-      'program-mass-desc': 'OUR LADY OF GUADALUPE CHURCH,<br />4533 E CÉSAR E CHÁVEZ AVE, LOS ANGELES, CA 90022',
-      'program-reception-title': 'BALLROOM ARRIVAL &amp; PARTY',
-      'program-reception-desc': 'SALÓN REAL DE LOS ÁNGELES,<br />3500 WHITTIER BLVD, LOS ANGELES, CA 90023',
+      'program-mass-desc': 'OUR LADY OF GUADALUPE CHURCH<br />4533 E CÉSAR E CHÁVEZ AVE, LOS ANGELES, CA 90022',
+      'program-ballroom-title': 'BALLROOM ARRIVAL &amp; PARTY',
+      'program-ballroom-desc': 'SALÓN REAL DE LOS ÁNGELES<br />3500 WHITTIER BLVD, LOS ANGELES, CA 90023',
       'program-dinner-title': 'DINNER',
-      'tl-btn-location': 'LOCATION',
+      'program-dinner-desc': 'DELICIOUS BANQUET IN HONOR OF XIMENA',
+      'tl-btn-location': 'DIRECTIONS',
+      'tl-btn-directions': 'DIRECTIONS',
+      'tl-btn-copy': 'COPY ADDRESS',
       'court-title': 'COURT OF HONOR',
       'padrinos-role': 'GODPARENTS OF HONOR',
       'padrinos-subtext': '“With heartfelt gratitude for their love, guidance, and blessings”',
       'court-role-chambelan': 'MAIN CHAMBELÁN',
       'court-chambelanes-title': 'CHAMBELANES',
       'registry-title': 'WISHING WELL',
+      'registry-subtitle': 'CASH / LLUVIA DE SOBRES',
       'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Ximena with a token of love, an envelope wishing well will be available.',
+      'dresscode-title': 'DRESS CODE',
+      'dresscode-subtitle': 'SOFT NEUTRALS &amp; MUTED TONES',
+      'dresscode-desc': 'We kindly request our guests wear formal attire in soft neutral and muted tones.',
       'message-quote': 'Yesterday I was a little girl dreaming of this day; today I celebrate my fifteenth birthday surrounded by God\'s blessings, my family, and wonderful friends. Thank you to my parents for your endless love and for making this dream come true.',
       'rsvp-deadline': 'PLEASE CONFIRM BY SEPTEMBER 20, 2026',
       'rsvp-btn': 'CONFIRM RSVP',
@@ -133,11 +124,84 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-title': 'RSVP for Ximena Guadalupe',
       'modal-subtitle': 'Saturday, October 17, 2026 • Los Angeles, CA',
       'label-fullname': 'Full Name or Family Name *',
+      'label-phone': 'Phone Number (Optional)',
+      'label-party': 'Number of Attendees (Optional)',
+      'opt-party-1': '1 Person',
+      'opt-party-2': '2 People',
+      'opt-party-3': '3 People',
+      'opt-party-4': '4 People',
+      'opt-party-5': '5+ People (Family)',
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
       'modal-success-title': 'Thank You So Much!',
       'modal-success-desc': 'Your RSVP has been saved. We cannot wait to celebrate together!',
-      'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.'
+      'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.',
+      'footer-names': 'Ximena Guadalupe • Mis XV Años',
+      'footer-date': 'Saturday, October 17, 2026 • Los Angeles, California'
+    },
+    es: {
+      'entry-invited': '¡Estás Invitado!',
+      'entry-subtitle': 'XIMENA GUADALUPE • MIS XV AÑOS',
+      'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
+      'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
+      'invite-quince': 'Quinceañera',
+      'invite-parents': 'JUAN CARLOS Y MARÍA ELENA',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
+      'invite-daughter': 'DE SU HIJA',
+      'invite-date-month': 'OCT',
+      'invite-date-day': 'SÁBADO',
+      'invite-date-time': 'A LA 1:00 PM',
+      'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
+      'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
+      'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
+      'cd-days': 'Días',
+      'cd-hours': 'Horas',
+      'cd-mins': 'Minutos',
+      'cd-secs': 'Segundos',
+      'invite-venue': 'LOS ÁNGELES • CALIFORNIA',
+      'program-title': 'PROGRAMA',
+      'program-mass-title': 'MISA DE ACCIÓN DE GRACIAS',
+      'program-mass-desc': 'PARROQUIA NUESTRA SEÑORA DE GUADALUPE<br />4533 E CÉSAR E CHÁVEZ AVE, LOS ANGELES, CA 90022',
+      'program-ballroom-title': 'RECEPCIÓN Y FIESTA',
+      'program-ballroom-desc': 'SALÓN REAL DE LOS ÁNGELES<br />3500 WHITTIER BLVD, LOS ANGELES, CA 90023',
+      'program-dinner-title': 'CENA',
+      'program-dinner-desc': 'DELICIOSO BANQUETE EN HONOR A XIMENA',
+      'tl-btn-location': 'CÓMO LLEGAR',
+      'tl-btn-directions': 'CÓMO LLEGAR',
+      'tl-btn-copy': 'COPIAR DIRECCIÓN',
+      'court-title': 'CORTE DE HONOR',
+      'padrinos-role': 'PADRINOS DE HONOR',
+      'padrinos-subtext': '“Con sincera gratitud por su amor, guía y bendiciones”',
+      'court-role-chambelan': 'CHAMBELÁN DE HONOR',
+      'court-chambelanes-title': 'CHAMBELANES',
+      'registry-title': 'LLUVIA DE SOBRES',
+      'registry-subtitle': 'LLUVIA DE SOBRES',
+      'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un detalle con Ximena, nuestra lluvia de sobres estará disponible con mucho cariño.',
+      'dresscode-title': 'CÓDIGO DE VESTIR',
+      'dresscode-subtitle': 'NEUTROS Y TONOS SUAVES',
+      'dresscode-desc': 'Agradecemos a nuestros invitados vestir atuendo formal en tonos neutros y suaves.',
+      'message-quote': 'Ayer era una niña soñando con este día; hoy celebro mis quince años rodeada de las bendiciones de Dios, mi familia y maravillosos amigos. Gracias a mis padres por su amor infinito y por hacer este sueño realidad.',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 20 DE SEPTIEMBRE DE 2026',
+      'rsvp-btn': 'CONFIRMAR ASISTENCIA',
+      'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
+      'rsvp-thankyou': '¡Muchas Gracias!',
+      'modal-title': 'Confirmar Asistencia para Ximena Guadalupe',
+      'modal-subtitle': 'Sábado, 17 de Octubre de 2026 • Los Angeles, CA',
+      'label-fullname': 'Nombre Completo o Familia *',
+      'label-phone': 'Número de Teléfono (Opcional)',
+      'label-party': 'Número de Asistentes (Opcional)',
+      'opt-party-1': '1 Persona',
+      'opt-party-2': '2 Personas',
+      'opt-party-3': '3 Personas',
+      'opt-party-4': '4 Personas',
+      'opt-party-5': '5+ Personas (Familia)',
+      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
+      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
+      'modal-success-title': '¡Muchas Gracias!',
+      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
+      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.',
+      'footer-names': 'Ximena Guadalupe • Mis XV Años',
+      'footer-date': 'Sábado, 17 de Octubre de 2026 • Los Angeles, California'
     }
   };
 
@@ -161,12 +225,26 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEs.classList.toggle('active', lang === 'es');
       btnEn.classList.toggle('active', lang === 'en');
     }
+
+    document.querySelectorAll('.entry-lang-btn').forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
   }
 
   const btnEs = document.getElementById('btn-lang-es');
   const btnEn = document.getElementById('btn-lang-en');
   if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
   if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+
+  // Language picker under the envelope (before the invitation is opened)
+  document.querySelectorAll('.entry-lang-btn').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLanguage(b.dataset.lang);
+    });
+  });
 
   // Default to English on startup
   applyLanguage('en');
@@ -194,14 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    bindToggle(langBar, langToggle, 'Ocultar selector de idioma', 'Mostrar selector de idioma');
-    bindToggle(audioBar, audioToggle, 'Ocultar reproductor', 'Mostrar reproductor de música');
+    bindToggle(langBar, langToggle, 'Hide language selector', 'Show language selector');
+    bindToggle(audioBar, audioToggle, 'Hide music player', 'Show music player');
 
     if (langBar && langToggle && langBar.dataset.userToggled !== 'true') {
-      setCollapsed(langBar, langToggle, true, 'Ocultar selector de idioma', 'Mostrar selector de idioma');
+      setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
     }
     if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
-      setCollapsed(audioBar, audioToggle, true, 'Ocultar reproductor', 'Mostrar reproductor de música');
+      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
     }
   }
 
@@ -216,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
   let isAudioPlaying = false;
+  let wasAudioPlayingBeforeHide = false;
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -223,25 +302,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (playing) {
         audioToggleBtn.classList.add('playing');
         if (audioPlayIcon) audioPlayIcon.style.display = 'none';
-        if (audioPauseIcon) audioPauseIcon.style.display = 'inline-flex';
+        if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
+        audioToggleBtn.setAttribute('aria-label', 'Pause music');
       } else {
         audioToggleBtn.classList.remove('playing');
-        if (audioPlayIcon) audioPlayIcon.style.display = 'inline-flex';
+        if (audioPlayIcon) audioPlayIcon.style.display = 'inline';
         if (audioPauseIcon) audioPauseIcon.style.display = 'none';
+        audioToggleBtn.setAttribute('aria-label', 'Play music');
       }
     }
   }
 
   function playAudio() {
     if (!bgAudio) return;
+    bgAudio.volume = 0.85;
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           updatePlayState(true);
         })
-        .catch(err => {
-          console.warn('Audio play interrupted or restricted:', err);
+        .catch((err) => {
+          console.warn('[Audio autoplay notice]:', err);
+          updatePlayState(false);
         });
     }
   }
@@ -252,9 +335,29 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePlayState(false);
   }
 
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (isAudioPlaying) {
+        wasAudioPlayingBeforeHide = true;
+        pauseAudio();
+      }
+    } else {
+      if (wasAudioPlayingBeforeHide) {
+        playAudio();
+        wasAudioPlayingBeforeHide = false;
+      }
+    }
+  });
+
+  window.addEventListener('pagehide', () => {
+    wasAudioPlayingBeforeHide = false;
+    pauseAudio();
+  });
+
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', () => {
       if (isAudioPlaying) {
+        wasAudioPlayingBeforeHide = false;
         pauseAudio();
       } else {
         playAudio();
@@ -284,11 +387,11 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   const overlay = document.getElementById('entry-popup-overlay');
   const envelope = document.getElementById('luxury-envelope');
-  const waxSealTrigger = document.getElementById('wax-seal-trigger');
+  const waxSealBtn = document.getElementById('wax-seal-btn');
   let envelopeOpened = false;
 
-  // Falling Petal Engine in Dark Purple, Sapphire Blue, Lavender & Silver Sparkles
-  class PurpleBluePetalEngine {
+  // Falling Petal Engine in Powder Blue, White, Frost & Gold Sparkles
+  class PowderBluePetalEngine {
     constructor(canvasId) {
       this.canvas = document.getElementById(canvasId);
       if (!this.canvas) return;
@@ -321,14 +424,14 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(233, 213, 255, 0.95)', // pale lilac
-          'rgba(216, 180, 254, 0.92)', // delicate lavender
-          'rgba(192, 132, 252, 0.90)', // soft wisteria
-          'rgba(168, 85, 247, 0.88)', // radiant orchid
-          'rgba(147, 51, 234, 0.85)', // royal amethyst
-          'rgba(196, 181, 253, 0.90)', // periwinkle lilac
-          'rgba(243, 232, 255, 0.96)', // soft lavender cream
-          'rgba(255, 255, 255, 0.96)'  // sparkling crystalline pearl
+          'rgba(160, 116, 180, 0.95)', // pastel purple
+          'rgba(217, 191, 236, 0.92)', // soft lilac
+          'rgba(197, 161, 216, 0.90)', // pastel lavender
+          'rgba(240, 226, 245, 0.95)', // pale lilac frost
+          'rgba(201, 155, 66, 0.92)',  // sparkling gold leaf
+          'rgba(254, 240, 138, 0.90)', // shimmering light gold
+          'rgba(255, 255, 255, 0.98)', // crystalline white pearl
+          'rgba(251, 245, 253, 0.96)'  // soft white-lilac frost
         ][Math.floor(Math.random() * 8)],
         bend: Math.random() * 0.5 + 0.5
       };
@@ -337,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
     triggerCelebratoryBurst() {
       if (this.hasTriggeredBurst) return;
       this.hasTriggeredBurst = true;
-      const burstCount = window.innerWidth < 600 ? 55 : 85;
+      const burstCount = window.innerWidth < 600 ? 44 : 68;
 
       for (let i = 0; i < burstCount; i++) {
         const startY = (Math.random() * -0.6 * this.height) - 10;
@@ -351,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Radial burst around envelope
       const originX = this.width / 2;
       const originY = this.height / 2;
-      const ringCount = window.innerWidth < 600 ? 25 : 40;
+      const ringCount = window.innerWidth < 600 ? 20 : 32;
 
       for (let j = 0; j < ringCount; j++) {
         const p = this.createPetal(originY);
@@ -397,17 +500,12 @@ document.addEventListener('DOMContentLoaded', () => {
         this.ctx.fillStyle = p.color;
         this.ctx.globalAlpha = p.opacity;
         this.ctx.shadowBlur = 6;
-        this.ctx.shadowColor = 'rgba(126, 34, 206, 0.35)';
+        this.ctx.shadowColor = 'rgba(160, 116, 180, 0.35)';
         this.ctx.fill();
         this.ctx.restore();
 
-        if (p.y > this.height + 40) {
-          if (this.particles.length > (window.innerWidth < 600 ? 30 : 50)) {
-            this.particles.splice(i, 1);
-            i--;
-          } else {
-            this.particles[i] = this.createPetal(-25);
-          }
+        if (p.y > this.height + 25) {
+          this.particles[i] = this.createPetal(-25);
         }
       }
 
@@ -415,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const purplePetals = new PurpleBluePetalEngine('entry-canvas');
+  const petalEngine = new PowderBluePetalEngine('entry-canvas');
 
   function openEnvelope() {
     if (envelopeOpened) return;
@@ -429,25 +527,27 @@ document.addEventListener('DOMContentLoaded', () => {
       envelope.classList.add('is-opened');
     }
 
-    // 2. Start petals cascade
-    purplePetals.start();
+    // 2. Trigger falling petals burst
+    petalEngine.start();
 
     // 3. Start audio soundtrack
     playAudio();
 
-    // 4. Smoothly fade out envelope overlay and unveil main site
+    // 4. Smoothly fade out envelope overlay and unveil main site (1500ms matching denisetorresrivera)
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
       }
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', '#f0e2f5');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
     }, 1500);
 
-    // 5. Final cleanup of overlay
+    // 5. Final cleanup of overlay (2350ms matching denisetorresrivera)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -467,8 +567,8 @@ document.addEventListener('DOMContentLoaded', () => {
     triggerScrollReveals();
   }
 
-  if (waxSealTrigger) {
-    waxSealTrigger.addEventListener('click', (e) => {
+  if (waxSealBtn) {
+    waxSealBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       openEnvelope();
     });
@@ -489,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (9 = October)
   const TARGET_DATE = new Date(2026, 9, 17, 13, 0, 0).getTime();
-  const AFTER_EVENT_MS = 5 * 60 * 60 * 1000;
+  const AFTER_EVENT_MS = 6 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');
   const elHours = document.getElementById('cd-hours');
@@ -514,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showMessage(key) {
     if (numbersRow) numbersRow.style.display = 'none';
-    const dict = translations[currentLang] || translations.es;
+    const dict = translations[currentLang] || translations.en;
     cdMsgEl.textContent = dict[key] || '';
     cdMsgEl.style.display = '';
   }
@@ -568,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speedY: (Math.random() * 0.18 + 0.05),
         speedX: (Math.random() - 0.5) * 0.18,
         alpha: Math.random() * 0.28 + 0.08,
-        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '245, 158, 11' : (Math.random() > 0.5 ? '250, 204, 21' : '134, 182, 122'))
+        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '160, 116, 180' : (Math.random() > 0.5 ? '201, 155, 66' : '217, 191, 236'))
       });
     }
 
@@ -603,7 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────────────────────────
-     7. SCROLL REVEAL OBSERVER
+     6. SCROLL REVEAL OBSERVER
      ───────────────────────────────────────────────────────────── */
   function triggerScrollReveals() {
     const reveals = document.querySelectorAll('.scroll-fade-in, .scroll-fade-scale');
@@ -625,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
   triggerScrollReveals();
 
   /* ─────────────────────────────────────────────────────────────
-     8. RSVP MODAL & SUBMISSION SYSTEM
+     7. RSVP MODAL & SUBMISSION SYSTEM
      ───────────────────────────────────────────────────────────── */
   const rsvpModal = document.getElementById('rsvp-modal');
   const openModalBtn = document.getElementById('open-rsvp-modal-btn');
@@ -663,7 +763,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function processRsvp(isAttending) {
     const nameInput = document.getElementById('guest-fullname');
+    const phoneInput = document.getElementById('guest-phone');
+    const partySelect = document.getElementById('guest-party-size');
+
     const nameVal = nameInput ? nameInput.value.trim() : '';
+    const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+    const partyVal = partySelect ? partySelect.value : (isAttending ? '1' : '0');
 
     if (!nameVal) {
       if (nameInput) {
@@ -680,17 +785,17 @@ document.addEventListener('DOMContentLoaded', () => {
       clientEmail: CLIENT_EMAIL,
       submittedAt: new Date().toISOString(),
       fullname: nameVal,
-      contact: 'Confirmado por Web',
+      contact: phoneVal || 'Confirmed via Web',
+      phone: phoneVal,
+      email: '',
       attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
-      partySize: isAttending ? '1' : '0',
-      notes: isAttending ? '' : 'No podrá asistir',
+      partySize: isAttending ? partyVal : '0',
+      guests: isAttending ? partyVal : '0',
+      notes: isAttending ? '' : 'Cannot attend',
       guestName: nameVal,
       name: nameVal,
-      phone: '',
-      email: '',
       attendance_es: isAttending ? 'Sí, Asistirá' : 'No Podrá Asistir',
       attending: isAttending ? 'Yes' : 'No',
-      guests: isAttending ? '1' : '0',
       wishes: '',
       song: '',
       message: ''
@@ -725,7 +830,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Tailored feedback display
       if (successAlert) {
-        const dict = translations[currentLang] || translations.es;
+        const dict = translations[currentLang] || translations.en;
         const descP = successAlert.querySelector('p');
         if (descP) {
           descP.textContent = isAttending ? dict['modal-success-desc'] : dict['modal-decline-desc'];
@@ -749,11 +854,11 @@ document.addEventListener('DOMContentLoaded', () => {
         : 'Hubo un problema al guardar su respuesta. Por favor verifique su conexión e intente nuevamente.');
       if (btnAccept) {
         btnAccept.disabled = false;
-        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || '✓ SÍ, ASISTIRÉ';
+        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || '✓ YES, ATTENDING';
       }
       if (btnDecline) {
         btnDecline.disabled = false;
-        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || '✕ NO PODRÉ ASISTIR';
+        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || '✕ CANNOT ATTEND';
       }
       if (targetBtn && originalText) {
         targetBtn.innerHTML = originalText;
@@ -777,8 +882,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerConfetti() {
-    const confettiColors = ['#eab308', '#f59e0b', '#d97706', '#22c55e', '#16a34a', '#fef08a', '#fde047', '#ffffff', '#c49658'];
-    for (let i = 0; i < 60; i++) {
+    const confettiColors = ['#a074b4', '#d9bfec', '#643977', '#c99b42', '#fef08a', '#ffffff', '#c5a1d8', '#f0e2f5'];
+    for (let i = 0; i < 48; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
       conf.style.zIndex = '9999';
@@ -816,6 +921,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 16);
     }
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     COPY VENUE ADDRESS FUNCTIONALITY
+     ───────────────────────────────────────────────────────────── */
+  document.querySelectorAll('.timeline-copy-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const address = btn.getAttribute('data-address') || '';
+      const textSpan = btn.querySelector('.copy-btn-text');
+      const isEs = document.documentElement.lang === 'es';
+
+      const showSuccess = () => {
+        btn.classList.add('copied');
+        if (textSpan) textSpan.textContent = isEs ? '¡COPIADO! ✓' : 'COPIED! ✓';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          if (textSpan) textSpan.textContent = isEs ? 'COPIAR DIRECCIÓN' : 'COPY ADDRESS';
+        }, 2200);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(address).then(showSuccess).catch(() => {
+          fallbackCopy(address, showSuccess);
+        });
+      } else {
+        fallbackCopy(address, showSuccess);
+      }
+    });
+  });
+
+  function fallbackCopy(text, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      cb();
+    } catch (e) {}
+    document.body.removeChild(ta);
   }
 
 });
