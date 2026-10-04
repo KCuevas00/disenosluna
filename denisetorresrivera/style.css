@@ -467,15 +467,15 @@ body.site-entered .lang-control-bar {
   margin: 3.6rem auto 3rem;
 }
 
-/* Radiant warm gold aura surrounding the outer invitation card */
+/* Luminous celestial powder blue aura surrounding the outer invitation card */
 .invitation-gradient-glow {
   position: absolute;
   inset: -6px;
   border-radius: 32px;
-  background: radial-gradient(circle at 50% 50%, rgba(201, 155, 66, 0.48) 0%, rgba(201, 155, 66, 0.24) 65%, transparent 100%),
-    linear-gradient(180deg, rgba(201, 155, 66, 0.38) 0%, rgba(212, 170, 99, 0.48) 50%, rgba(201, 155, 66, 0.38) 100%);
+  background: radial-gradient(circle at 50% 50%, rgba(85, 147, 201, 0.45) 0%, rgba(158, 197, 232, 0.25) 65%, transparent 100%),
+    linear-gradient(180deg, rgba(85, 147, 201, 0.32) 0%, rgba(158, 197, 232, 0.45) 50%, rgba(85, 147, 201, 0.32) 100%);
   filter: blur(16px);
-  opacity: 0.60;
+  opacity: 0.65;
   pointer-events: none;
   z-index: 0;
 }
@@ -487,11 +487,11 @@ body.site-entered .lang-control-bar {
   border-radius: 36px;
   background: inherit;
   filter: blur(28px);
-  opacity: 0.32;
+  opacity: 0.35;
   pointer-events: none;
 }
 
-/* ── MAIN INVITATION CARD CONTAINER (LUXURY LIGHT BLUE BORDER & GOLD GLOW) ── */
+/* ── MAIN INVITATION CARD CONTAINER (LUXURY SOLID GOLD BORDER & POWDER BLUE GLOW) ── */
 .invitation-wrapper {
   position: relative;
   z-index: 1;
@@ -504,13 +504,13 @@ body.site-entered .lang-control-bar {
     url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%239ec5e8' stroke-width='0.4' stroke-opacity='0.22'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23c99b42' fill-opacity='0.25'/%3E%3C/svg%3E");
   background-origin: padding-box, padding-box;
   background-clip: padding-box, padding-box;
-  border: 2px solid #5593c9;
+  border: 2px solid #c99b42;
   border-radius: 28px;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.95),
-    0 0 18px rgba(201, 155, 66, 0.35),
-    0 12px 36px rgba(44, 95, 142, 0.12),
-    0 24px 55px rgba(201, 155, 66, 0.25);
+    0 0 18px rgba(85, 147, 201, 0.35),
+    0 12px 36px rgba(44, 95, 142, 0.16),
+    0 24px 55px rgba(85, 147, 201, 0.25);
 }
 
 /* ── OVERLAPPING FLORAL CORNER SPRAYS ── */
@@ -4728,7 +4728,6 @@ body:not(.site-entered) {
   background-image:
     radial-gradient(ellipse 60% 48% at 50% 48%, rgba(255, 255, 255, 0.92) 0%, rgba(235, 246, 255, 0.6) 45%, transparent 78%),
     radial-gradient(ellipse 80% 38% at 10% 100%, rgba(158, 197, 232, 0.45) 0%, transparent 72%),
-    radial-gradient(ellipse 70% 32% at 95% 0%, rgba(201, 155, 66, 0.22) 0%, transparent 72%),
     linear-gradient(180deg, #f0f7fd 0%, #dceefb 48%, #c5e1f7 80%, #a8d0f2 100%) !important;
 }
 
@@ -4753,7 +4752,7 @@ body:not(.site-entered) {
 }
 
 .time-stamp {
-  color: #245785;
+  color: #8c6320;
   font-weight: 700;
 }
 
@@ -4764,9 +4763,9 @@ body:not(.site-entered) {
 }
 
 .timeline-row:hover .timeline-node {
-  border-color: #c99b42;
+  border-color: #5593c9;
   background: #edf5fb;
-  color: #8c6320;
+  color: #245785;
 }
 
 .timeline-line {
@@ -5083,8 +5082,8 @@ html:not(.site-entered) {
   height: 14px;
   align-self: center;
   background: #ffffff;
-  border: 1.5px solid rgba(85, 147, 201, 0.6);
-  box-shadow: none;
+  border: 2px solid #5593c9;
+  box-shadow: 0 0 6px rgba(85, 147, 201, 0.25);
 }
 
 .program-timeline .tl-icon {
@@ -5092,10 +5091,10 @@ html:not(.site-entered) {
 }
 
 .program-timeline .time-stamp {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
-  font-weight: 600;
+  color: var(--gold-dark);
+  font-weight: 700;
 }
 
 .program-timeline .event-title {
@@ -5105,7 +5104,7 @@ html:not(.site-entered) {
   color: var(--text-subtle);
 }
 
-/* ── MAJOR: big gold node + icon, bold title ──
+/* ── MAJOR: big light blue node + icon, bold title, gold time ──
    Edit these numbers to change which rows are major
    (1 = Arrival, 3 = Grand Entrance, 4 = Court Intro, 5 = Parent Dance,
     7 = Dinner, 8 = Cake, 14 = Cinderella) */
@@ -5118,15 +5117,15 @@ html:not(.site-entered) {
   :nth-child(5), :nth-child(7), :nth-child(8), :nth-child(14)) .timeline-node {
   width: 38px;
   height: 38px;
-  border: 2px solid var(--gold-accent);
-  background: #fffdf6;
-  box-shadow: 0 4px 14px rgba(201, 155, 66, 0.28);
+  border: 2px solid #5593c9;
+  background: #edf5fb;
+  box-shadow: 0 4px 14px rgba(85, 147, 201, 0.25);
 }
 
 .program-timeline>.timeline-row:is(:nth-child(1), :nth-child(3), :nth-child(4),
   :nth-child(5), :nth-child(7), :nth-child(8), :nth-child(14)) .tl-icon {
   display: block;
-  color: var(--gold-dark);
+  color: #245785;
 }
 
 .program-timeline>.timeline-row:is(:nth-child(1), :nth-child(3), :nth-child(4),
