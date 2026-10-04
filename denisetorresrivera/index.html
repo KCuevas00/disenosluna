@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=7.5.0" />
+  <link rel="stylesheet" href="style.css?v=8.0.0" />
 </head>
 
 <body>
@@ -85,13 +85,13 @@
           <div class="card-gold-frame">
             <!-- Top Gold Tiara Flourish -->
             <div class="card-crown-flourish">
-              <svg viewBox="0 0 48 24" width="36" height="18" fill="none" stroke="#a855f7" stroke-width="1.6">
+              <svg viewBox="0 0 48 24" width="36" height="18" fill="none" stroke="#c99b42" stroke-width="1.6">
                 <path d="M6 20h36M10 20l-4-12 10 5 8-9 8 9 10-5-4 12H10z" />
-                <circle cx="6" cy="7" r="1.5" fill="#c084fc" />
-                <circle cx="16" cy="12" r="1.5" fill="#c084fc" />
-                <circle cx="24" cy="4" r="1.8" fill="#c084fc" />
-                <circle cx="32" cy="12" r="1.5" fill="#c084fc" />
-                <circle cx="42" cy="7" r="1.5" fill="#c084fc" />
+                <circle cx="6" cy="7" r="1.5" fill="#fef08a" />
+                <circle cx="16" cy="12" r="1.5" fill="#fef08a" />
+                <circle cx="24" cy="4" r="1.8" fill="#fef08a" />
+                <circle cx="32" cy="12" r="1.5" fill="#fef08a" />
+                <circle cx="42" cy="7" r="1.5" fill="#fef08a" />
               </svg>
             </div>
 
@@ -1187,12 +1187,12 @@
   <footer class="site-footer scroll-fade-in">
     <div class="footer-crown" aria-hidden="true">
       <span class="fc-line"></span>
-      <svg viewBox="0 0 48 24" width="34" height="17" fill="none" stroke="#9353d3" stroke-width="1.5"
+      <svg viewBox="0 0 48 24" width="34" height="17" fill="none" stroke="#c99b42" stroke-width="1.5"
         stroke-linecap="round" stroke-linejoin="round">
         <path d="M6 20h36M10 20l-4-12 10 5 8-9 8 9 10-5-4 12H10z" />
-        <circle cx="6" cy="7" r="1.4" fill="#b9b5c8" stroke="none" />
-        <circle cx="24" cy="4" r="1.7" fill="#b9b5c8" stroke="none" />
-        <circle cx="42" cy="7" r="1.4" fill="#b9b5c8" stroke="none" />
+        <circle cx="6" cy="7" r="1.4" fill="#fef08a" stroke="none" />
+        <circle cx="24" cy="4" r="1.7" fill="#fef08a" stroke="none" />
+        <circle cx="42" cy="7" r="1.4" fill="#fef08a" stroke="none" />
       </svg>
       <span class="fc-line"></span>
     </div>
@@ -1200,52 +1200,7 @@
     <p class="footer-date">Saturday, September 4, 2027 • Oklahoma City, Oklahoma</p>
   </footer>
 
-  <!-- ══════════════════════════════════════════════════════════════
-       INTERACTIVE BUTTERFLY STUDIO DOCK
-  ══════════════════════════════════════════════════════════════ -->
-  <div id="butterfly-studio-dock" class="butterfly-studio-dock collapsed" role="region" aria-label="Butterfly Studio">
-    <!-- Collapsed Toggle Button -->
-    <button type="button" id="studio-toggle-btn" class="studio-toggle-btn" aria-label="Open Butterfly Studio">
-      <span>🦋</span>
-      <span>Butterfly Studio</span>
-    </button>
-
-    <!-- Expanded Studio Panel -->
-    <div class="studio-panel-content">
-      <div class="studio-header">
-        <span class="studio-title">🦋 Butterfly Studio</span>
-        <button type="button" id="studio-close-btn" class="studio-close-btn" aria-label="Minimize Studio">✕</button>
-      </div>
-
-      <div class="studio-tip">
-        Drag butterflies anywhere! Click to select one to scale, rotate, flip or delete.
-      </div>
-
-      <div class="studio-controls-row">
-        <div class="studio-control-group">
-          <label for="bf-scale-slider">Scale: <span id="bf-scale-val">0.50x</span></label>
-          <input type="range" id="bf-scale-slider" min="0.25" max="1.20" step="0.02" value="0.50">
-        </div>
-        <div class="studio-control-group">
-          <label for="bf-rotate-slider">Rotate: <span id="bf-rotate-val">0°</span></label>
-          <input type="range" id="bf-rotate-slider" min="-180" max="180" step="2" value="0">
-        </div>
-        <div class="studio-toggle-group">
-          <button type="button" id="bf-flip-btn" class="studio-mini-btn" title="Flip wings horizontally">⇄ Flip Wings</button>
-          <button type="button" id="bf-delete-btn" class="studio-mini-btn btn-danger" title="Remove selected butterfly">✕ Remove</button>
-        </div>
-      </div>
-
-      <div class="studio-actions-row">
-        <button type="button" id="bf-add-btn" class="studio-action-btn btn-add">＋ Add Butterfly</button>
-        <button type="button" id="bf-copy-btn" class="studio-action-btn btn-copy">📋 Copy Positions</button>
-      </div>
-
-      <textarea id="bf-output-box" class="studio-output-box" readonly placeholder="Click 'Copy Positions' to view & copy coordinate data..."></textarea>
-    </div>
-  </div>
-
-  <script src="main.js?v=7.1.0"></script>
+  <script src="main.js?v=8.0.0"></script>
 </body>
 
 </html>
