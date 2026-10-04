@@ -1,7 +1,7 @@
 /**
  * ═════════════════════════════════════════════════════════════════════
- * SWEET 16 INVITATION — DENISE TORRESRIVERA
- * Interactive Controller, Falling Powder Blue & Gold Petals, Audio & RSVP
+ * SWEET 16 INVITATION — DENISE TORRES RIVERA
+ * Interactive Controller, Falling Petals Engine, Audio & RSVP
  * ═════════════════════════════════════════════════════════════════════
  */
 
@@ -11,7 +11,7 @@
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
 const EVENT_SLUG = 'denisetorresrivera';
-const CLIENT_NAME = 'Whitney Jackson';
+const CLIENT_NAME = "Denise Torres Rivera's Sweet 16 (Whitney Jackson)";
 const CLIENT_EMAIL = 'marcsmom09@gmail.com';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,16 +45,35 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', blockScrollUntilEntered, { passive: false });
   window.addEventListener('keydown', blockKeysUntilEntered, { passive: false });
 
+
+  /* Reuse the envelope butterfly on the opened invitation (cloned before the overlay is removed) */
+  (function placeInvitationButterflies() {
+    const src = document.getElementById('env-rustic-butterfly');
+    if (!src) return;
+    document.querySelectorAll('[data-butterfly]').forEach((slot, i) => {
+      const holder = document.createElement('div');
+      holder.className = 'inv-butterfly';
+      holder.innerHTML = src.innerHTML
+        .replace(/(rusticWingGrad|goldVeinGrad)(Left|Right)/g, '$1$2_inv' + i)
+        .replace(/<div class="butterfly-ground-shadow"><\/div>/, '');
+      slot.appendChild(holder);
+    });
+  })();
+
   /* ─────────────────────────────────────────────────────────────
      1. BILINGUAL TRANSLATION DICTIONARY (EN / ES)
      ───────────────────────────────────────────────────────────── */
   const translations = {
     en: {
+      'entry-invited': "You've Been Invited!",
+      'entry-subtitle': 'DENISE TORRES RIVERA • SWEET 16',
+      'seal-hint-desktop': '✦ CLICK TO OPEN ✦',
+      'seal-hint-mobile': '✦ TAP TO OPEN ✦',
       'invite-quince': 'Sweet 16',
       'invite-parents': 'WHITNEY JACKSON',
       'invite-preamble': 'WARMLY INVITES YOU TO CELEBRATE THE',
       'invite-daughter': 'OF HER DAUGHTER',
-      'invite-date-month': 'SEPT',
+      'invite-date-month': 'SEP',
       'invite-date-day': 'SATURDAY',
       'invite-date-time': 'AT 5:00 PM',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
@@ -67,46 +86,52 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'OKLAHOMA CITY • OKLAHOMA',
       'program-title': 'PROGRAM',
       'program-arrival-title': 'GUEST ARRIVAL &amp; CHECK-IN',
-      'program-arrival-desc': 'LA BELLA EVENT CENTER,<br />6701 W WILSHIRE BLVD, OKLAHOMA CITY, OK 73132',
-      'tl-btn-location': 'LOCATION',
+      'program-arrival-desc': 'LA BELLA EVENT CENTER<br />6701 W WILSHIRE BLVD, OKLAHOMA CITY, OK 73132',
       'program-photos-title': 'PHOTOS &amp; GUEST MINGLING',
-      'program-photos-desc': 'WELCOME DRINKS, PHOTO OPS &amp; GREETINGS',
+      'program-photos-desc': 'WELCOME RECEPTION &amp; KEEPSAKE PHOTOS',
       'program-entrance-title': 'GRAND ENTRANCE',
-      'program-entrance-desc': 'HONORING THE BIRTHDAY GIRL DENISE',
+      'program-entrance-desc': 'GRAND ENTRANCE OF DENISE TORRES RIVERA',
       'program-court-intro-title': 'SWEET 16 COURT INTRODUCTION',
-      'program-court-intro-desc': 'INTRODUCING SASHA, CHLOE, NATALIE &amp; AVERY',
-      'program-family-dance-title': 'BIRTHDAY GIRL &amp; PARENT DANCE',
-      'program-family-dance-desc': 'SPECIAL MOMENT WITH WHITNEY &amp; FAMILY',
+      'program-court-intro-desc': 'PRESENTATION OF THE COURT OF HONOR:<br />SASHA, CHLOE, NATALIE &amp; AVERY',
+      'program-parent-dance-title': 'BIRTHDAY GIRL &amp; PARENT DANCE',
+      'program-parent-dance-desc': 'SPECIAL DANCE WITH WHITNEY JACKSON &amp; FAMILY',
       'program-court-dance-title': 'COURT DANCE',
-      'program-court-dance-desc': 'PRESENTATION PERFORMANCE BY THE COURT',
+      'program-court-dance-desc': 'SPECIAL PERFORMANCE WITH THE COURT OF HONOR',
       'program-dinner-title': 'DINNER / BUFFET OPENS',
-      'program-dinner-desc': 'CELEBRATORY BANQUET IN HONOR OF DENISE',
+      'program-dinner-desc': 'DELICIOUS BANQUET IN HONOR OF DENISE',
       'program-cake-title': 'CAKE CUTTING &amp; BIRTHDAY SONG',
-      'program-cake-desc': 'HAPPY 16TH BIRTHDAY WISHES &amp; CAKE',
+      'program-cake-desc': 'CELEBRATION, TOAST &amp; BIRTHDAY WISHES',
       'program-speeches-title': 'SPEECHES &amp; SPECIAL MESSAGES',
-      'program-speeches-desc': 'HEARTFELT WORDS FROM FAMILY &amp; FRIENDS',
-      'program-party-title': 'OPEN DANCE FLOOR',
-      'program-party-desc': 'LET THE CELEBRATION BEGIN!',
+      'program-speeches-desc': 'WORDS OF LOVE &amp; BLESSINGS FROM FAMILY &amp; FRIENDS',
+      'program-dance-floor-title': 'OPEN DANCE FLOOR',
+      'program-dance-floor-desc': 'MUSIC, DANCING &amp; CELEBRATION',
       'program-games-title': 'PARTY GAMES &amp; SPECIAL ACTIVITY',
-      'program-games-desc': 'FUN INTERACTIVE SURPRISES WITH GUESTS',
+      'program-games-desc': 'FUN CELEBRATION GAMES WITH GUESTS',
       'program-final-dance-title': 'FINAL DANCE SET',
-      'program-final-dance-desc': 'HIGH-ENERGY DANCE MUSIC &amp; FIESTA',
+      'program-final-dance-desc': 'HIGH ENERGY CELEBRATION &amp; MUSIC',
       'program-final-photos-title': 'FINAL PHOTOS',
-      'program-final-photos-desc': 'CHERISHED MOMENTS &amp; GROUP PORTRAITS',
+      'program-final-photos-desc': 'LAST CHANCE FOR COMMEMORATIVE PHOTOS',
       'program-cinderella-title': 'LAST DANCE / CINDERELLA MOMENT',
-      'program-cinderella-desc': 'A MAGICAL &amp; UNFORGETTABLE FAREWELL DANCE',
+      'program-cinderella-desc': 'THE ENCHANTED CINDERELLA MOMENT',
       'program-departure-title': 'GUEST DEPARTURE',
-      'program-departure-desc': 'THANK YOU FOR CELEBRATING WITH US!',
+      'program-departure-desc': 'FAREWELL &amp; THANK YOU FOR JOINING US!',
+      'tl-btn-location': 'LOCATION',
+      'dresscode-title': 'DRESS CODE &amp; THEME',
+      'dresscode-subtitle': 'POWDER BLUE, WHITE &amp; GOLD ACCENTS',
+      'dresscode-desc': 'We kindly request our guests wear formal or cocktail attire complementing our celebration palette of powder blue, white, and gold accents.',
       'court-title': 'COURT OF HONOR',
-      'court-damas-title': 'SWEET 16 COURT',
+      'court-damas-title': 'DAMAS',
+      'court-subtitle': 'HONORING OUR SPECIAL DAMAS',
+      'court-desc': 'Sasha • Chloe • Natalie • Avery',
       'registry-title': 'WISHING WELL',
-      'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Denise with a token of love, an envelope wishing well will be warmly provided.',
-      'message-quote': 'Celebrating sixteen wonderful years and stepping into this new chapter is a dream come true. Thank you to my mom, my family, and my friends for all your love and encouragement. I can’t wait to celebrate tonight with everyone I love!',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY SEPTEMBER 4, 2027',
+      'registry-subtitle': 'CASH / LLUVIA DE SOBRES',
+      'registry-desc': 'Your love and presence on our special day is the greatest gift of all. If you wish to honor Denise with a gift, a cash wishing well box will be warmly provided.',
+      'message-quote': 'Like the stars that illuminate the night sky, every moment leading to this day has filled my heart with wonder. As I celebrate my Sweet 16, I begin a beautiful new chapter surrounded by the people I love most. Having you celebrate with me will make this night truly unforgettable.',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY AUGUST 15, 2027',
       'rsvp-btn': 'CONFIRM RSVP',
       'rsvp-instruction': 'CLICK THE BUTTON ABOVE TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
-      'modal-title': 'RSVP for Denise TorresRivera',
+      'modal-title': 'RSVP for Denise Torres Rivera',
       'modal-subtitle': 'Saturday, September 4, 2027 • Oklahoma City, OK',
       'label-fullname': 'Full Name or Family Name *',
       'label-phone': 'Phone Number (Optional)',
@@ -123,6 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-decline-desc': 'Thank you for letting us know! Your response has been saved.'
     },
     es: {
+      'entry-invited': '¡Estás Invitado!',
+      'entry-subtitle': 'DENISE TORRES RIVERA • DULCES 16',
+      'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
+      'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
       'invite-quince': 'Dulces 16',
       'invite-parents': 'WHITNEY JACKSON',
       'invite-preamble': 'TIENE EL HONOR DE INVITARLE A CELEBRAR LOS',
@@ -139,47 +168,53 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-secs': 'Segundos',
       'invite-venue': 'OKLAHOMA CITY • OKLAHOMA',
       'program-title': 'PROGRAMA',
-      'program-arrival-title': 'LLEGADA DE INVITADOS',
-      'program-arrival-desc': 'LA BELLA EVENT CENTER,<br />6701 W WILSHIRE BLVD, OKLAHOMA CITY, OK 73132',
-      'tl-btn-location': 'UBICACIÓN',
-      'program-photos-title': 'FOTOS Y BIENVENIDA',
-      'program-photos-desc': 'BEBIDAS DE BIENVENIDA Y FOTOS DE RECUERDO',
-      'program-entrance-title': 'GRAN ENTRADA',
-      'program-entrance-desc': 'EN HONOR A LA QUINCEAÑERA DENISE',
+      'program-arrival-title': 'LLEGADA DE INVITADOS Y REGISTRO',
+      'program-arrival-desc': 'LA BELLA EVENT CENTER<br />6701 W WILSHIRE BLVD, OKLAHOMA CITY, OK 73132',
+      'program-photos-title': 'FOTOGRAFÍAS Y CONVIVENCIA',
+      'program-photos-desc': 'RECEPCIÓN DE BIENVENIDA Y FOTOS DE RECUERDO',
+      'program-entrance-title': 'ENTRADA TRIUNFAL',
+      'program-entrance-desc': 'ENTRADA TRIUNFAL DE DENISE TORRES RIVERA',
       'program-court-intro-title': 'PRESENTACIÓN DE LA CORTE DE HONOR',
-      'program-court-intro-desc': 'PRESENTANDO A SASHA, CHLOE, NATALIE Y AVERY',
-      'program-family-dance-title': 'BAILE DE DENISE Y MAMÁ',
-      'program-family-dance-desc': 'MOMENTO ESPECIAL CON WHITNEY Y FAMILIA',
+      'program-court-intro-desc': 'PRESENTACIÓN DE LA CORTE DE HONOR:<br />SASHA, CHLOE, NATALIE Y AVERY',
+      'program-parent-dance-title': 'BAILE CON LOS PADRES',
+      'program-parent-dance-desc': 'BAILE ESPECIAL CON WHITNEY JACKSON Y FAMILIA',
       'program-court-dance-title': 'BAILE DE LA CORTE',
-      'program-court-dance-desc': 'COREOGRAFÍA ESPECIAL DE LA CORTE DE HONOR',
-      'program-dinner-title': 'CENA Y BUFFET',
-      'program-dinner-desc': 'BANQUETE DE CELEBRACIÓN EN HONOR A DENISE',
+      'program-court-dance-desc': 'PRESENTACIÓN COREOGRÁFICA DE LA CORTE DE HONOR',
+      'program-dinner-title': 'CENA / APERTURA DE BUFFET',
+      'program-dinner-desc': 'DELICIOSO BANQUETE EN HONOR A DENISE',
       'program-cake-title': 'CORTE DE PASTEL Y MAÑANITAS',
-      'program-cake-desc': 'FELICES 16 AÑOS Y TRADICIONAL PASTEL',
+      'program-cake-desc': 'CELEBRACIÓN, BRINDIS Y CANTO DE CUMPLEAÑOS',
       'program-speeches-title': 'BRINDIS Y PALABRAS DE DEDICATORIA',
-      'program-speeches-desc': 'EMOTIVAS PALABRAS DE FAMILIARES Y AMIGOS',
-      'program-party-title': 'MÚSICA Y BAILE GENERAL',
-      'program-party-desc': '¡QUE EMPIECE LA FIESTA!',
-      'program-games-title': 'JUEGOS Y ACTIVIDADES ESPECIALES',
+      'program-speeches-desc': 'PALABRAS DE AMOR Y BENDICIONES DE FAMILIARES Y AMIGOS',
+      'program-dance-floor-title': 'PISTA DE BAILE ABIERTA',
+      'program-dance-floor-desc': 'MÚSICA, BAILE Y FIESTA',
+      'program-games-title': 'JUEGOS Y ACTIVIDAD ESPECIAL',
       'program-games-desc': 'DINÁMICAS DIVERTIDAS CON LOS INVITADOS',
-      'program-final-dance-title': 'ÚLTIMO SET DE BAILE',
-      'program-final-dance-desc': 'MÚSICA Y FIESTA CON MÁXIMA ENERGÍA',
-      'program-final-photos-title': 'FOTOS FINALES DE RECUERDO',
-      'program-final-photos-desc': 'MOMENTOS INOLVIDABLES Y FOTOS GRUPALES',
+      'program-final-dance-title': 'ÚLTIMA TANDA DE BAILE',
+      'program-final-dance-desc': 'MÚSICA Y DIVERSIÓN EN SU MÁXIMO ESPLENDOR',
+      'program-final-photos-title': 'FOTOGRAFÍAS FINALES',
+      'program-final-photos-desc': 'ÚLTIMA OPORTUNIDAD PARA FOTOS DE RECUERDO',
       'program-cinderella-title': 'ÚLTIMO BAILE / MOMENTO CENICIENTA',
-      'program-cinderella-desc': 'UN MÁGICO BAILE DE DESPEDIDA INOLVIDABLE',
+      'program-cinderella-desc': 'EL MÁGICO MOMENTO CENICIENTA',
       'program-departure-title': 'DESPEDIDA DE INVITADOS',
-      'program-departure-desc': '¡MUCHAS GRACIAS POR ACOMPAÑARNOS!',
+      'program-departure-desc': '¡AGRADECIMIENTO Y DESPEDIDA A NUESTROS INVITADOS!',
+      'tl-btn-location': 'UBICACIÓN',
+      'dresscode-title': 'CÓDIGO DE VESTIR Y COLORES',
+      'dresscode-subtitle': 'AZUL PASTEL, BLANCO Y DETALLES EN ORO',
+      'dresscode-desc': 'Agradecemos a nuestros invitados vestir atuendo formal o de cóctel en tonos que complementen nuestra paleta de azul pastel, blanco y detalles dorados.',
       'court-title': 'CORTE DE HONOR',
-      'court-damas-title': 'CORTE DE HONOR',
+      'court-damas-title': 'DAMAS',
+      'court-subtitle': 'NUESTRAS DAMAS DE HONOR',
+      'court-desc': 'Sasha • Chloe • Natalie • Avery',
       'registry-title': 'LLUVIA DE SOBRES',
-      'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un lindo detalle con Denise, nuestra lluvia de sobres estará disponible con mucho cariño.',
-      'message-quote': 'Celebrar dieciséis maravillosos años y comenzar este nuevo capítulo es un sueño hecho realidad. Gracias a mi mamá, a mi familia y amigos por su infinito amor y apoyo. ¡No puedo esperar para celebrar esta noche con todos ustedes!',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR ANTES DEL 4 DE SEPTIEMBRE DE 2027',
+      'registry-subtitle': 'LLUVIA DE SOBRES',
+      'registry-desc': 'El mejor regalo es contar con su valiosa presencia. Si desea tener un detalle con Denise, nuestra lluvia de sobres estará disponible con mucho cariño.',
+      'message-quote': 'Como las estrellas que iluminan el cielo nocturno, cada momento que me ha traído hasta aquí ha llenado mi corazón de dicha. Al celebrar mis Dulces 16, comienzo un hermoso nuevo capítulo rodeada de las personas que más quiero. Compartir esta noche mágica contigo será inolvidable.',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR SU ASISTENCIA ANTES DEL 15 DE AGOSTO DE 2027',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
-      'modal-title': 'Confirmar Asistencia para Denise TorresRivera',
+      'modal-title': 'Confirmar Asistencia para Denise Torres Rivera',
       'modal-subtitle': 'Sábado, 4 de Septiembre de 2027 • Oklahoma City, OK',
       'label-fullname': 'Nombre Completo o Familia *',
       'label-phone': 'Número de Teléfono (Opcional)',
@@ -192,19 +227,18 @@ document.addEventListener('DOMContentLoaded', () => {
       'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
       'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
       'modal-success-title': '¡Muchas Gracias!',
-      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos!',
-      'modal-decline-desc': '¡Gracias por avisarnos! Su respuesta ha sido guardada.'
+      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
+      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.'
     }
   };
 
   let currentLang = 'en';
 
   function applyLanguage(lang) {
-    if (!translations[lang]) return;
     currentLang = lang;
     document.documentElement.lang = lang;
+    const dict = translations[lang] || translations.en;
 
-    const dict = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) {
@@ -212,49 +246,67 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const btnEn = document.getElementById('btn-lang-en');
     const btnEs = document.getElementById('btn-lang-es');
-    if (btnEn && btnEs) {
-      if (lang === 'en') {
-        btnEn.classList.add('active');
-        btnEs.classList.remove('active');
-      } else {
-        btnEs.classList.add('active');
-        btnEn.classList.remove('active');
-      }
+    const btnEn = document.getElementById('btn-lang-en');
+    if (btnEs && btnEn) {
+      btnEs.classList.toggle('active', lang === 'es');
+      btnEn.classList.toggle('active', lang === 'en');
     }
+
+    document.querySelectorAll('.entry-lang-btn').forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
   }
 
-  const btnLangEn = document.getElementById('btn-lang-en');
-  const btnLangEs = document.getElementById('btn-lang-es');
-  if (btnLangEn) btnLangEn.addEventListener('click', () => applyLanguage('en'));
-  if (btnLangEs) btnLangEs.addEventListener('click', () => applyLanguage('es'));
+  const btnEs = document.getElementById('btn-lang-es');
+  const btnEn = document.getElementById('btn-lang-en');
+  if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
+  if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
 
-  // Collapsible Language & Audio Bars
+  // Language picker under the envelope (before the invitation is opened)
+  document.querySelectorAll('.entry-lang-btn').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLanguage(b.dataset.lang);
+    });
+  });
+
+  // Default to English on startup
+  applyLanguage('en');
+
+  // Collapsible utility tabs (Language bar top-left, audio bar top-right)
   function initControlToggles() {
     const langBar = document.getElementById('lang-control-bar');
     const langToggle = document.getElementById('lang-collapse-toggle');
     const audioBar = document.getElementById('audio-control-bar');
     const audioToggle = document.getElementById('audio-collapse-toggle');
 
-    if (langToggle && langBar) {
-      langToggle.addEventListener('click', (e) => {
+    function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      bar.classList.toggle('collapsed', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
+    }
+
+    function bindToggle(bar, btn, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const isCollapsed = langBar.classList.toggle('collapsed');
-        langToggle.setAttribute('aria-expanded', !isCollapsed);
-        const icon = langToggle.querySelector('.arrow-icon');
-        if (icon) icon.textContent = isCollapsed ? '‹' : '›';
+        bar.dataset.userToggled = 'true';
+        setCollapsed(bar, btn, !bar.classList.contains('collapsed'), hiddenLabel, shownLabel);
       });
     }
 
-    if (audioToggle && audioBar) {
-      audioToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isCollapsed = audioBar.classList.toggle('collapsed');
-        audioToggle.setAttribute('aria-expanded', !isCollapsed);
-        const icon = audioToggle.querySelector('.arrow-icon');
-        if (icon) icon.textContent = isCollapsed ? '›' : '‹';
-      });
+    bindToggle(langBar, langToggle, 'Hide language selector', 'Show language selector');
+    bindToggle(audioBar, audioToggle, 'Hide music player', 'Show music player');
+
+    if (langBar && langToggle && langBar.dataset.userToggled !== 'true') {
+      setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
+    }
+    if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
+      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
     }
   }
 
@@ -277,25 +329,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (playing) {
         audioToggleBtn.classList.add('playing');
         if (audioPlayIcon) audioPlayIcon.style.display = 'none';
-        if (audioPauseIcon) audioPauseIcon.style.display = 'inline-flex';
+        if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
+        audioToggleBtn.setAttribute('aria-label', 'Pause music');
       } else {
         audioToggleBtn.classList.remove('playing');
-        if (audioPlayIcon) audioPlayIcon.style.display = 'inline-flex';
+        if (audioPlayIcon) audioPlayIcon.style.display = 'inline';
         if (audioPauseIcon) audioPauseIcon.style.display = 'none';
+        audioToggleBtn.setAttribute('aria-label', 'Play music');
       }
     }
   }
 
   function playAudio() {
     if (!bgAudio) return;
+    bgAudio.volume = 0.85;
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           updatePlayState(true);
         })
-        .catch(err => {
-          console.warn('Audio play interrupted or restricted:', err);
+        .catch((err) => {
+          console.warn('[Audio autoplay notice]:', err);
+          updatePlayState(false);
         });
     }
   }
@@ -306,13 +362,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePlayState(false);
   }
 
-  if (bgAudio) {
-    bgAudio.addEventListener('play', () => updatePlayState(true));
-    bgAudio.addEventListener('pause', () => updatePlayState(false));
-    bgAudio.addEventListener('ended', () => updatePlayState(false));
-  }
-
-  // Automatically pause music when leaving tab or locking screen
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (isAudioPlaying) {
@@ -320,16 +369,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseAudio();
       }
     } else {
-      if (wasAudioPlayingBeforeHide && envelopeOpened) {
+      if (wasAudioPlayingBeforeHide) {
         playAudio();
         wasAudioPlayingBeforeHide = false;
       }
     }
   });
 
-  window.addEventListener('pagehide', () => pauseAudio());
-  window.addEventListener('beforeunload', () => pauseAudio());
-  window.addEventListener('freeze', () => pauseAudio());
+  window.addEventListener('pagehide', () => {
+    wasAudioPlayingBeforeHide = false;
+    pauseAudio();
+  });
 
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', () => {
@@ -367,8 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const waxSealBtn = document.getElementById('wax-seal-btn');
   let envelopeOpened = false;
 
-  // Falling Petal Engine in Powder Blue, Soft Sky, Pure Ivory & Gold Glitter
-  class PowderBlueGoldPetalEngine {
+  // Falling Petal Engine in Powder Blue, White, Frost & Gold Sparkles
+  class PowderBluePetalEngine {
     constructor(canvasId) {
       this.canvas = document.getElementById(canvasId);
       if (!this.canvas) return;
@@ -401,14 +451,14 @@ document.addEventListener('DOMContentLoaded', () => {
         time: Math.random() * 100,
         opacity: Math.random() * 0.35 + 0.65,
         color: [
-          'rgba(123, 174, 217, 0.95)', // powder blue
-          'rgba(91, 155, 213, 0.92)',  // soft cornflower blue
-          'rgba(166, 207, 240, 0.90)', // light sky blue
-          'rgba(195, 224, 247, 0.88)', // airy pastel blue
-          'rgba(212, 170, 99, 0.92)',  // sparkling gold leaf
-          'rgba(254, 240, 138, 0.95)', // warm gold glitter
-          'rgba(255, 253, 245, 0.96)', // ivory cream
-          'rgba(255, 255, 255, 0.96)'  // crystalline pearl
+          'rgba(85, 147, 201, 0.95)',  // celestial powder blue
+          'rgba(158, 197, 232, 0.92)', // soft powder blue
+          'rgba(123, 181, 226, 0.90)', // baby blue
+          'rgba(220, 238, 251, 0.95)', // pale ice blue
+          'rgba(201, 155, 66, 0.92)',  // sparkling gold leaf
+          'rgba(254, 240, 138, 0.90)', // shimmering light gold
+          'rgba(255, 255, 255, 0.98)', // crystalline white pearl
+          'rgba(240, 247, 252, 0.96)'  // soft white-blue frost
         ][Math.floor(Math.random() * 8)],
         bend: Math.random() * 0.5 + 0.5
       };
@@ -417,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
     triggerCelebratoryBurst() {
       if (this.hasTriggeredBurst) return;
       this.hasTriggeredBurst = true;
-      const burstCount = window.innerWidth < 600 ? 55 : 85;
+      const burstCount = window.innerWidth < 600 ? 44 : 68;
 
       for (let i = 0; i < burstCount; i++) {
         const startY = (Math.random() * -0.6 * this.height) - 10;
@@ -431,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Radial burst around envelope
       const originX = this.width / 2;
       const originY = this.height / 2;
-      const ringCount = window.innerWidth < 600 ? 25 : 40;
+      const ringCount = window.innerWidth < 600 ? 20 : 32;
 
       for (let j = 0; j < ringCount; j++) {
         const p = this.createPetal(originY);
@@ -477,17 +527,12 @@ document.addEventListener('DOMContentLoaded', () => {
         this.ctx.fillStyle = p.color;
         this.ctx.globalAlpha = p.opacity;
         this.ctx.shadowBlur = 6;
-        this.ctx.shadowColor = 'rgba(36, 81, 120, 0.35)';
+        this.ctx.shadowColor = 'rgba(85, 147, 201, 0.35)';
         this.ctx.fill();
         this.ctx.restore();
 
-        if (p.y > this.height + 40) {
-          if (this.particles.length > (window.innerWidth < 600 ? 30 : 50)) {
-            this.particles.splice(i, 1);
-            i--;
-          } else {
-            this.particles[i] = this.createPetal(-25);
-          }
+        if (p.y > this.height + 25) {
+          this.particles[i] = this.createPetal(-25);
         }
       }
 
@@ -495,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const powderPetals = new PowderBlueGoldPetalEngine('entry-canvas');
+  const petalEngine = new PowderBluePetalEngine('entry-canvas');
 
   function openEnvelope() {
     if (envelopeOpened) return;
@@ -509,25 +554,27 @@ document.addEventListener('DOMContentLoaded', () => {
       envelope.classList.add('is-opened');
     }
 
-    // 2. Start petals cascade
-    powderPetals.start();
+    // 2. Trigger falling petals burst
+    petalEngine.start();
 
     // 3. Start audio soundtrack
     playAudio();
 
-    // 4. Smoothly fade out envelope overlay and unveil main site
+    // 4. Smoothly fade out envelope overlay and unveil main site (1500ms matching denisetorresrivera)
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
       }
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', '#dceefb');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
     }, 1500);
 
-    // 5. Final cleanup of overlay
+    // 5. Final cleanup of overlay (2350ms matching denisetorresrivera)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -565,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SATURDAY, SEPTEMBER 4, 2027 AT 5:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, SEP 4, 2027 AT 5:00 PM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (8 = September)
   const TARGET_DATE = new Date(2027, 8, 4, 17, 0, 0).getTime();
@@ -648,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speedY: (Math.random() * 0.18 + 0.05),
         speedX: (Math.random() - 0.5) * 0.18,
         alpha: Math.random() * 0.28 + 0.08,
-        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '123, 174, 217' : (Math.random() > 0.5 ? '212, 170, 99' : '254, 240, 138'))
+        color: Math.random() > 0.4 ? '255, 255, 255' : (Math.random() > 0.6 ? '85, 147, 201' : (Math.random() > 0.5 ? '201, 155, 66' : '158, 197, 232'))
       });
     }
 
@@ -679,6 +726,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderBokeh();
   }
+
+
 
   /* ─────────────────────────────────────────────────────────────
      6. SCROLL REVEAL OBSERVER
@@ -860,8 +909,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerConfetti() {
-    const confettiColors = ['#5b9bd5', '#7baed9', '#a6cff0', '#d4aa63', '#fef08a', '#c49658', '#ffffff', '#e0eef8'];
-    for (let i = 0; i < 60; i++) {
+    const confettiColors = ['#5593c9', '#9ec5e8', '#245785', '#c99b42', '#fef08a', '#ffffff', '#7bb5e2', '#dceefb'];
+    for (let i = 0; i < 48; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
       conf.style.zIndex = '9999';
