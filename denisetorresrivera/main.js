@@ -59,15 +59,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!container || !wrapper || !srcButterfly) return;
 
-    const STORAGE_KEY = 'denise_butterfly_positions_v1';
+    const STORAGE_KEY = 'denise_butterfly_positions_v2';
     const DEFAULT_BUTTERFLIES = [
-      { id: 1, top: 410, left: 82, scale: 0.52, rotate: 10, flip: false, note: "Hero Portrait Top-Right" },
-      { id: 2, top: 760, left: 10, scale: 0.42, rotate: -12, flip: false, note: "Countdown Left" },
-      { id: 3, top: 940, left: 86, scale: 0.44, rotate: 14, flip: true, note: "Program Header Right" },
-      { id: 4, top: 2020, left: 10, scale: 0.44, rotate: -8, flip: false, note: "Court of Honor Left" },
-      { id: 5, top: 2470, left: 88, scale: 0.40, rotate: 10, flip: true, note: "Wishing Well Right" },
-      { id: 6, top: 2880, left: 84, scale: 0.46, rotate: 0, flip: true, note: "Dedication Quote Right" },
-      { id: 7, top: 3220, left: 14, scale: 0.45, rotate: -15, flip: false, note: "RSVP Stage Left" }
+      {
+        id: 1,
+        top: 133,
+        left: 84.5,
+        scale: 0.52,
+        rotate: 40,
+        flip: false,
+        note: "Hero Portrait Top-Right"
+      },
+      {
+        id: 2,
+        top: 590,
+        left: 15,
+        scale: 0.49,
+        rotate: -12,
+        flip: false,
+        note: "Countdown Left"
+      },
+      {
+        id: 3,
+        top: 4292,
+        left: 80.5,
+        scale: 0.44,
+        rotate: 14,
+        flip: true,
+        note: "Program Header Right"
+      },
+      {
+        id: 4,
+        top: 2165,
+        left: 77.7,
+        scale: 0.44,
+        rotate: 38,
+        flip: false,
+        note: "Court of Honor Left"
+      },
+      {
+        id: 5,
+        top: 4969,
+        left: 63.4,
+        scale: 0.45,
+        rotate: 2,
+        flip: false,
+        note: "Wishing Well Right"
+      },
+      {
+        id: 6,
+        top: 2942,
+        left: 74.2,
+        scale: 0.46,
+        rotate: 0,
+        flip: true,
+        note: "Dedication Quote Right"
+      },
+      {
+        id: 7,
+        top: 3668,
+        left: 16.3,
+        scale: 0.45,
+        rotate: -15,
+        flip: false,
+        note: "RSVP Stage Left"
+      }
     ];
 
     let butterflies = [];
