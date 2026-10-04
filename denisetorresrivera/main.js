@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!container || !wrapper || !srcButterfly) return;
 
-    const STORAGE_KEY = 'denise_butterfly_positions_v2';
+    const STORAGE_KEY = 'denise_butterfly_positions_v3';
     const DEFAULT_BUTTERFLIES = [
       {
         id: 1,
-        top: 133,
-        left: 84.5,
+        top: 116,
+        left: 85.8,
         scale: 0.52,
         rotate: 40,
         flip: false,
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         id: 2,
-        top: 590,
-        left: 15,
+        top: 435,
+        left: 14.7,
         scale: 0.49,
         rotate: -12,
         flip: false,
@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         id: 3,
-        top: 4292,
-        left: 80.5,
+        top: 4111,
+        left: 77.1,
         scale: 0.44,
         rotate: 14,
         flip: true,
@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         id: 4,
-        top: 2165,
-        left: 77.7,
+        top: 2152,
+        left: 74.1,
         scale: 0.44,
         rotate: 38,
         flip: false,
@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         id: 5,
-        top: 4969,
-        left: 63.4,
+        top: 4857,
+        left: 50.9,
         scale: 0.45,
         rotate: 2,
         flip: false,
@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         id: 6,
-        top: 2942,
-        left: 74.2,
+        top: 2768,
+        left: 77.6,
         scale: 0.46,
         rotate: 0,
         flip: true,
@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         id: 7,
-        top: 3668,
-        left: 16.3,
+        top: 3511,
+        left: 20.9,
         scale: 0.45,
         rotate: -15,
         flip: false,
