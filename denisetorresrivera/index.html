@@ -531,6 +531,7 @@
         <!-- Pure Elegant Typographic Countdown Directly Below Date Box -->
         <div class="pure-countdown-section scroll-fade-in" role="timer"
           aria-label="Countdown to Denise's Sweet 16">
+          <div class="inv-butterfly-slot slot-countdown" data-butterfly aria-hidden="true"></div>
           <div class="pt-header">
             <h3 class="pt-caption" data-i18n="countdown-title">COUNTING DOWN TO THE BIG DAY</h3>
           </div>
@@ -575,6 +576,7 @@
       </div>
 
       <div class="program-header scroll-fade-in">
+        <div class="inv-butterfly-slot slot-program" data-butterfly aria-hidden="true"></div>
         <h2 class="program-title" data-i18n="program-title">PROGRAM</h2>
         <div class="title-accent-line"></div>
       </div>
@@ -606,12 +608,20 @@
               <a href="https://maps.google.com/?q=La+Bella+Event+Center,+6701+W+Wilshire+Blvd,+Oklahoma+City,+OK+73132"
                 data-apple-url="https://maps.apple.com/?q=La+Bella+Event+Center,+6701+W+Wilshire+Blvd,+Oklahoma+City,+OK+73132" target="_blank"
                 rel="noopener noreferrer" class="timeline-loc-btn" aria-label="Venue Location on Google Maps">
-                <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                <svg class="tl-loc-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
                 </svg>
-                <span data-i18n="tl-btn-location">LOCATION</span>
+                <span data-i18n="tl-btn-directions">DIRECTIONS</span>
               </a>
+              <button type="button" class="timeline-copy-btn" id="copy-address-btn" aria-label="Copy venue address"
+                data-address="La Bella Event Center, 6701 W Wilshire Blvd, Oklahoma City, OK 73132">
+                <svg class="tl-copy-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <span class="copy-btn-text" data-i18n="tl-btn-copy">COPY ADDRESS</span>
+              </button>
             </div>
           </div>
         </div>
@@ -902,6 +912,7 @@
       </div>
 
       <div class="court-header scroll-fade-in">
+        <div class="inv-butterfly-slot slot-court" data-butterfly aria-hidden="true"></div>
         <!-- Light blue court of honor crown / tiara motif icon -->
         <div class="court-crown-motif" aria-hidden="true">
           <svg viewBox="0 0 36 20" width="38" height="20" fill="none" stroke="#5593c9" stroke-width="1.8">
@@ -975,6 +986,7 @@
 
           <!-- Wishing Well / Lluvia de Sobres Vignette -->
           <div class="vignette-item registry-vignette scroll-fade-in">
+            <div class="inv-butterfly-slot slot-registry" data-butterfly aria-hidden="true"></div>
             <div class="vignette-wishing-emblem" aria-hidden="true">
               <svg viewBox="0 0 54 44" width="46" height="38" fill="none">
                 <path d="M4 8a3 3 0 0 1 3-3h40a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8z"
@@ -1038,6 +1050,7 @@
 
       <!-- Giant Floral Intertwined RSVP Letters -->
       <div class="giant-rsvp-stage scroll-fade-scale">
+        <div class="inv-butterfly-slot slot-rsvp" data-butterfly aria-hidden="true"></div>
         <div class="rsvp-letters-grid">
 
           <!-- Top Row: R and S with floral cluster -->

@@ -115,7 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-cinderella-desc': 'THE ENCHANTED CINDERELLA MOMENT',
       'program-departure-title': 'GUEST DEPARTURE',
       'program-departure-desc': 'FAREWELL &amp; THANK YOU FOR JOINING US!',
-      'tl-btn-location': 'LOCATION',
+      'tl-btn-location': 'DIRECTIONS',
+      'tl-btn-directions': 'DIRECTIONS',
+      'tl-btn-copy': 'COPY ADDRESS',
       'dresscode-title': 'DRESS CODE &amp; THEME',
       'dresscode-subtitle': 'POWDER BLUE, WHITE &amp; GOLD ACCENTS',
       'dresscode-desc': 'We kindly request our guests wear formal or cocktail attire complementing our celebration palette of powder blue, white, and gold accents.',
@@ -198,7 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'program-cinderella-desc': 'EL MÁGICO MOMENTO CENICIENTA',
       'program-departure-title': 'DESPEDIDA DE INVITADOS',
       'program-departure-desc': '¡AGRADECIMIENTO Y DESPEDIDA A NUESTROS INVITADOS!',
-      'tl-btn-location': 'UBICACIÓN',
+      'tl-btn-location': 'CÓMO LLEGAR',
+      'tl-btn-directions': 'CÓMO LLEGAR',
+      'tl-btn-copy': 'COPIAR DIRECCIÓN',
       'dresscode-title': 'CÓDIGO DE VESTIR Y COLORES',
       'dresscode-subtitle': 'AZUL PASTEL, BLANCO Y DETALLES EN ORO',
       'dresscode-desc': 'Agradecemos a nuestros invitados vestir atuendo formal o de cóctel en tonos que complementen nuestra paleta de azul pastel, blanco y detalles dorados.',
@@ -947,6 +951,51 @@ document.addEventListener('DOMContentLoaded', () => {
           conf.remove();
         }
       }, 16);
+    }
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     COPY VENUE ADDRESS FUNCTIONALITY
+     ───────────────────────────────────────────────────────────── */
+  const copyBtn = document.getElementById('copy-address-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const address = copyBtn.getAttribute('data-address') || 'La Bella Event Center, 6701 W Wilshire Blvd, Oklahoma City, OK 73132';
+      const textSpan = copyBtn.querySelector('.copy-btn-text');
+      const isEs = document.documentElement.lang === 'es';
+
+      const showSuccess = () => {
+        copyBtn.classList.add('copied');
+        if (textSpan) textSpan.textContent = isEs ? '¡COPIADO! ✓' : 'COPIED! ✓';
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          if (textSpan) textSpan.textContent = isEs ? 'COPIAR DIRECCIÓN' : 'COPY ADDRESS';
+        }, 2200);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(address).then(showSuccess).catch(() => {
+          // Fallback via textarea
+          fallbackCopy(address, showSuccess);
+        });
+      } else {
+        fallbackCopy(address, showSuccess);
+      }
+    });
+
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        cb();
+      } catch (e) {}
+      document.body.removeChild(ta);
     }
   }
 
