@@ -2711,6 +2711,17 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   z-index: 1050;
 }
 
+html.og-mode #entry-lang-picker,
+html.og-mode #lang-control-bar,
+html.og-mode #audio-control-bar {
+  display: none !important;
+}
+
+html.og-mode .entry-stage-mount {
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
 .entry-stage-mount {
   position: relative;
   z-index: 10;

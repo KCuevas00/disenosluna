@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 
+  if (new URLSearchParams(window.location.search).get('og') === 'true') {
+    document.documentElement.classList.add('og-mode');
+  }
+
   // Strictly block any scrolling, wheeling or touchmove while envelope is unopened
   const blockScrollUntilEntered = (e) => {
     if (!document.body.classList.contains('site-entered')) {
