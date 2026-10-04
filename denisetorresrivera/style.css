@@ -1326,20 +1326,20 @@ body.site-entered .lang-control-bar {
   display: flex;
   flex-direction: column;
   position: relative;
-  max-width: 440px;
+  max-width: 480px;
   margin: 0 auto;
 }
 
 .timeline-row {
   display: grid;
-  grid-template-columns: 1fr 48px 1fr;
+  grid-template-columns: 1fr 44px 1fr;
   align-items: center;
   position: relative;
-  min-height: 58px;
+  min-height: 54px;
 }
 
 .timeline-row.timeline-row-hero {
-  min-height: 120px;
+  min-height: 110px;
   margin-bottom: 0.6rem;
 }
 
@@ -1362,8 +1362,8 @@ body.site-entered .lang-control-bar {
 }
 
 .timeline-node {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #ffffff;
   border: 1.5px solid rgba(85, 147, 201, 0.45);
@@ -1384,33 +1384,33 @@ body.site-entered .lang-control-bar {
 }
 
 .tl-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .time-block {
-  padding: 0.35rem 0.8rem;
+  padding: 0.25rem 0.4rem;
 }
 
 .time-block.time-block-hero {
-  padding: 0.6rem 0.8rem;
+  padding: 0.5rem 0.6rem;
 }
 
 .row-left .time-block {
   text-align: right;
-  padding-right: 1.2rem;
+  padding-right: 0.5rem;
 }
 
 .row-right .time-block {
   text-align: left;
-  padding-left: 1.2rem;
+  padding-left: 0.5rem;
 }
 
 .time-stamp {
   font-family: var(--font-sans);
   font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
   color: var(--theme-dark);
   display: block;
   margin-bottom: 2px;
@@ -1418,11 +1418,19 @@ body.site-entered .lang-control-bar {
 
 .event-title {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.025em;
+  line-height: 1.25;
   color: var(--text-dark);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
+}
+
+.event-title-hero {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
 }
 
 .event-desc {
@@ -3027,8 +3035,8 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 146px;
-  height: 146px;
+  width: 156px;
+  height: 156px;
   pointer-events: none;
   z-index: 18;
   overflow: visible;
@@ -3037,13 +3045,13 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
 
 .seal-hint-text {
   font-family: var(--font-sans);
-  font-size: 6.8px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  fill: #9a6f27;
+  font-size: 8.8px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  fill: #8c5e1c;
   text-transform: uppercase;
-  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.9));
-  opacity: 0.92;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  opacity: 0.95;
   transition: opacity 0.3s ease, fill 0.3s ease;
 }
 
@@ -3627,39 +3635,55 @@ body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
   }
 
   .timeline-row {
-    grid-template-columns: 1fr 42px 1fr;
-    min-height: 70px;
-    padding: 0.25rem 0;
+    grid-template-columns: 1fr 36px 1fr;
+    min-height: 52px;
+    padding: 0.2rem 0;
+  }
+
+  .timeline-row.timeline-row-hero {
+    min-height: 100px;
+    margin-bottom: 0.5rem;
   }
 
   .row-left .time-block {
-    padding-right: 0.65rem;
+    padding-right: 0.35rem;
   }
 
   .row-right .time-block {
-    padding-left: 0.65rem;
+    padding-left: 0.35rem;
   }
 
   .timeline-node {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .tl-icon {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
   }
 
   .time-stamp {
-    font-size: 0.96rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
   }
 
   .event-title {
-    font-size: 0.78rem;
+    font-size: 0.70rem;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 1px;
+  }
+
+  .event-title-hero {
+    font-size: 0.94rem;
+    letter-spacing: 0.04em;
+    line-height: 1.22;
   }
 
   .event-desc {
     font-size: 0.64rem;
+    line-height: 1.35;
   }
 
   .timeline-loc-btn {
