@@ -526,7 +526,7 @@ body.site-entered .lang-control-bar {
   object-fit: contain;
   pointer-events: none;
   opacity: 1 !important;
-  filter: drop-shadow(0 10px 22px rgba(22, 19, 28, 0.16));
+  filter: none;
 }
 
 .flower-card-top-left {
@@ -589,7 +589,7 @@ body.site-entered .lang-control-bar {
   position: absolute;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 4px 10px rgba(70, 45, 30, 0.12));
+  filter: none;
 }
 
 .env-card-flower.top-right {
@@ -2887,7 +2887,7 @@ html.og-mode .entry-stage-mount {
   object-fit: contain;
   pointer-events: none;
   opacity: 1 !important;
-  filter: drop-shadow(0 8px 18px rgba(22, 19, 28, 0.20)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+  filter: none;
   transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
