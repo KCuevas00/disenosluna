@@ -2748,29 +2748,27 @@ body.site-entered .lang-control-bar {
 }
 
 .entry-overlay.fade-out {
-  opacity: 0;
-  transform: scale(1.05);
+  opacity: 0 !important;
+  transform: scale(1.04);
   pointer-events: none !important;
-  visibility: hidden !important;
+  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 .entry-overlay.fade-out * {
   pointer-events: none !important;
 }
 
-/* Hard fail-safe: When site is entered, completely disable and hide the entire overlay hierarchy */
-body.site-entered .entry-overlay,
-body.site-entered #entry-popup-overlay {
+/* When site is entered, allow fading overlay to complete its transition, but hide if not fading */
+body.site-entered .entry-overlay:not(.fade-out),
+body.site-entered #entry-popup-overlay:not(.fade-out) {
   display: none !important;
   pointer-events: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
 }
 
-body.site-entered .entry-overlay *,
-body.site-entered #entry-popup-overlay *,
-body.site-entered .env-invitation-card,
-body.site-entered .luxury-envelope-container.is-opened .env-invitation-card {
+body.site-entered .entry-overlay:not(.fade-out) *,
+body.site-entered #entry-popup-overlay:not(.fade-out) * {
   pointer-events: none !important;
   visibility: hidden !important;
 }
@@ -2984,6 +2982,8 @@ html.og-mode .entry-stage-mount {
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
   pointer-events: none;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .luxury-envelope-container.is-opened .env-invitation-card {
@@ -3117,11 +3117,12 @@ html.og-mode .entry-stage-mount {
   transform-origin: top center;
   transform-style: preserve-3d;
   z-index: 15;
-  transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
+  transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1), filter 0.52s ease;
   filter: drop-shadow(0 10px 18px rgba(120, 90, 60, 0.18));
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   background: linear-gradient(160deg, #f9fafd 0%, #eff1f7 35%, #e6e8ee 70%, #d5dae5 100%);
   border-top: 2.5px solid #bcc1ce;
+  will-change: transform;
 }
 
 .env-flap-edge-svg {
