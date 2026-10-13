@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Tu presencia en este día tan especial es el regalo más hermoso. Si deseas obsequiarme un detalle adicional, habrá una lluvia de sobres durante la celebración. Gracias por acompañar y ser parte de un recuerdo que guardaré siempre en mi corazón.',
       'message-quote': 'Con mucha alegría y con el corazón lleno de amor, tenemos el honor de invitarles a celebrar los XV años de nuestra querida hija, Michelle Martinez.<br /><br />Este día tan especial marca una etapa hermosa en su vida, y nos llena de felicidad poder compartir este momento tan importante con nuestros familiares y amigos.<br /><br />Será un honor contar con su presencia para celebrar juntos esta ocasión inolvidable, llena de amor, alegría y bendiciones.',
       'message-signature': 'Herasmo y Griselda Martinez',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR SU ASISTENCIA ANTES DEL 15 DE OCTUBRE DE 2026',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR SU ASISTENCIA ANTES DEL 13 DE NOVIEMBRE DE 2026',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Your presence on this special day is our greatest gift. If you wish to bless Michelle with an additional token of love, an envelope shower will take place during the celebration. Thank you for being part of a memory she will cherish forever in her heart.',
       'message-quote': 'With great joy and our hearts full of love, we have the honor of inviting you to celebrate the XV years of our beloved daughter, Michelle Martinez.<br /><br />This special day marks a beautiful milestone in her life, and it brings us immense happiness to share this momentous celebration with our dear family and friends.<br /><br />It will be an absolute honor to celebrate together this unforgettable occasion, filled with love, joy, and blessings.',
       'message-signature': 'Herasmo &amp; Griselda Martinez',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE OCTOBER 15, 2026',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE NOVEMBER 13, 2026',
       'rsvp-btn': 'CONFIRM ATTENDANCE',
       'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
@@ -200,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let currentLang = 'es';
+  let userSelectedLang = false;
 
   function applyLanguage(lang = 'es') {
     currentLang = lang;
@@ -229,18 +230,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnEs = document.getElementById('btn-lang-es');
   const btnEn = document.getElementById('btn-lang-en');
-  if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
-  if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+  if (btnEs) btnEs.addEventListener('click', () => { userSelectedLang = true; applyLanguage('es'); });
+  if (btnEn) btnEn.addEventListener('click', () => { userSelectedLang = true; applyLanguage('en'); });
 
   // Language picker under the envelope (before the invitation is opened)
   document.querySelectorAll('.entry-lang-btn').forEach(b => {
     b.addEventListener('click', (e) => {
       e.stopPropagation();
+      userSelectedLang = true;
       applyLanguage(b.dataset.lang);
     });
   });
 
-  // Default to Spanish on startup
+  // Default strictly to Spanish on startup
   applyLanguage('es');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
@@ -376,12 +378,205 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateSongTickerOffset);
 
   /* ─────────────────────────────────────────────────────────────
-     3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER & CONFETTI EXPLOSION
+     3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER, CONFETTI & PETALS ENGINE
      ───────────────────────────────────────────────────────────── */
-  function triggerConfetti() {
+
+  // Canvas Petal & Multi-Shape Confetti Engine (Masquerade Theme)
+  class MasqueradePetalConfettiEngine {
+    constructor(canvasId) {
+      this.canvas = document.getElementById(canvasId);
+      if (!this.canvas) return;
+      this.ctx = this.canvas.getContext('2d');
+      this.particles = [];
+      this.isRunning = false;
+      this.hasTriggeredBurst = false;
+
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+    }
+
+    resize() {
+      if (!this.canvas) return;
+      this.width = (this.canvas.width = window.innerWidth);
+      this.height = (this.canvas.height = window.innerHeight);
+    }
+
+    createParticle(initialY = -25) {
+      const isMobile = this.width < 600;
+      const shapes = ['petal', 'ribbon', 'glitter', 'sequin', 'star'];
+      const shape = shapes[Math.floor(Math.random() * shapes.length)];
+
+      const colors = [
+        'rgba(133, 83, 186, 0.95)', // Regal royal lavender
+        'rgba(71, 38, 110, 0.95)',  // Deep masquerade amethyst
+        'rgba(192, 132, 252, 0.92)',// Soft radiant lilac
+        'rgba(147, 83, 211, 0.95)', // Dreamy orchid purple
+        'rgba(212, 170, 99, 0.95)', // Champagne gold leaf
+        'rgba(245, 228, 189, 0.96)',// Shimmering warm gold
+        'rgba(176, 180, 196, 0.95)',// Sterling platinum silver
+        'rgba(255, 255, 255, 0.98)',// Crystalline pearl white
+        'rgba(93, 57, 134, 0.92)'   // Midnight velvet royal purple
+      ];
+
+      return {
+        x: Math.random() * this.width,
+        y: initialY,
+        shape: shape,
+        size: isMobile ? (Math.random() * 7 + 7) : (Math.random() * 10 + 8),
+        aspectRatio: Math.random() * 1.4 + 1.2,
+        speedY: Math.random() * 1.6 + 0.9,
+        speedX: Math.sin(Math.random() * Math.PI * 2) * 1.1,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 2.2,
+        swaySpeed: Math.random() * 0.025 + 0.012,
+        swayAmplitude: Math.random() * 32 + 16,
+        time: Math.random() * 100,
+        opacity: Math.random() * 0.35 + 0.65,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        bend: Math.random() * 0.5 + 0.5
+      };
+    }
+
+    triggerCelebratoryBurst() {
+      if (this.hasTriggeredBurst) return;
+      this.hasTriggeredBurst = true;
+      const isMobile = this.width < 600;
+
+      // 1. High-volume top shower cascading across screen
+      const topCount = isMobile ? 55 : 85;
+      for (let i = 0; i < topCount; i++) {
+        const startY = (Math.random() * -0.65 * this.height) - 10;
+        const p = this.createParticle(startY);
+        p.speedY = Math.random() * 3.2 + 1.8;
+        p.speedX = (Math.random() - 0.5) * 3.0;
+        p.rotationSpeed = (Math.random() - 0.5) * 4.5;
+        this.particles.push(p);
+      }
+
+      // 2. 360-degree radial blast exploding directly from envelope wax seal
+      const seal = document.getElementById('wax-seal-btn');
+      let originX = this.width / 2;
+      let originY = this.height / 2;
+      if (seal) {
+        const rect = seal.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+          originX = rect.left + rect.width / 2;
+          originY = rect.top + rect.height / 2;
+        }
+      }
+
+      const ringCount = isMobile ? 32 : 50;
+      for (let j = 0; j < ringCount; j++) {
+        const p = this.createParticle(originY);
+        p.x = originX + (Math.random() - 0.5) * 70;
+        p.y = originY + (Math.random() - 0.5) * 50;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 4.5 + 2.0;
+        p.speedX = Math.cos(angle) * speed;
+        p.speedY = Math.sin(angle) * speed - 1.2;
+        p.rotationSpeed = (Math.random() - 0.5) * 5.5;
+        this.particles.push(p);
+      }
+    }
+
+    start() {
+      if (this.isRunning) return;
+      this.isRunning = true;
+      this.triggerCelebratoryBurst();
+      this.animate();
+    }
+
+    animate() {
+      if (!this.isRunning) return;
+      this.ctx.clearRect(0, 0, this.width, this.height);
+      const isMobile = this.width < 600;
+
+      for (let i = 0; i < this.particles.length; i++) {
+        const p = this.particles[i];
+        p.time += p.swaySpeed;
+        p.x += Math.sin(p.time) * (p.swayAmplitude * 0.04) + p.speedX * 0.5;
+        p.y += p.speedY;
+        p.rotation += p.rotationSpeed;
+
+        this.ctx.save();
+        this.ctx.translate(p.x, p.y);
+        this.ctx.rotate((p.rotation * Math.PI) / 180);
+
+        this.ctx.fillStyle = p.color;
+        this.ctx.globalAlpha = p.opacity;
+        this.ctx.shadowBlur = 6;
+        this.ctx.shadowColor = 'rgba(133, 83, 186, 0.35)';
+
+        if (p.shape === 'petal') {
+          this.ctx.scale(Math.cos(p.time * 0.8), p.bend);
+          this.ctx.beginPath();
+          this.ctx.moveTo(0, 0);
+          this.ctx.bezierCurveTo(-p.size * 0.7, -p.size * 0.5, -p.size * 0.8, p.size * 0.8, 0, p.size);
+          this.ctx.bezierCurveTo(p.size * 0.8, p.size * 0.8, p.size * 0.7, -p.size * 0.5, 0, 0);
+          this.ctx.closePath();
+          this.ctx.fill();
+        } else if (p.shape === 'ribbon') {
+          this.ctx.scale(Math.cos(p.time * 1.5), Math.sin(p.time * 0.8));
+          this.ctx.beginPath();
+          const w = p.size;
+          const h = p.size * p.aspectRatio;
+          this.ctx.rect(-w / 2, -h / 2, w, h);
+          this.ctx.fill();
+        } else if (p.shape === 'star') {
+          this.ctx.scale(Math.cos(p.time * 1.2), Math.cos(p.time * 1.2));
+          this.ctx.beginPath();
+          const s = p.size * 0.7;
+          this.ctx.moveTo(0, -s);
+          this.ctx.quadraticCurveTo(0, 0, s, 0);
+          this.ctx.quadraticCurveTo(0, 0, 0, s);
+          this.ctx.quadraticCurveTo(0, 0, -s, 0);
+          this.ctx.quadraticCurveTo(0, 0, 0, -s);
+          this.ctx.closePath();
+          this.ctx.fill();
+        } else if (p.shape === 'sequin') {
+          this.ctx.scale(Math.cos(p.time * 1.6), 1);
+          this.ctx.beginPath();
+          this.ctx.arc(0, 0, p.size * 0.45, 0, Math.PI * 2);
+          this.ctx.closePath();
+          this.ctx.fill();
+        } else {
+          // 'glitter' diamond
+          this.ctx.scale(Math.cos(p.time * 1.4), Math.sin(p.time * 1.4));
+          this.ctx.beginPath();
+          const d = p.size * 0.6;
+          this.ctx.moveTo(0, -d);
+          this.ctx.lineTo(d, 0);
+          this.ctx.lineTo(0, d);
+          this.ctx.lineTo(-d, 0);
+          this.ctx.closePath();
+          this.ctx.fill();
+        }
+
+        this.ctx.restore();
+
+        // Check if fallen below viewport
+        if (p.y > this.height + 30 || p.x < -40 || p.x > this.width + 40) {
+          const targetContinuousCount = isMobile ? 32 : 54;
+          if (this.particles.length > targetContinuousCount) {
+            this.particles.splice(i, 1);
+            i--;
+          } else {
+            this.particles[i] = this.createParticle(-25);
+          }
+        }
+      }
+
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  const confettiPetalEngine = new MasqueradePetalConfettiEngine('entry-canvas');
+
+  // DOM Physical Confetti Burst from Wax Seal
+  function triggerSealConfetti() {
     const confettiColors = [
       '#8e54e9', '#9353d3', '#b0b7c6', '#c084fc', '#d8b4e2',
-      '#7d4ac7', '#e6e6fa', '#ffffff', '#e9edf5', '#5d3986'
+      '#7d4ac7', '#e6e6fa', '#ffffff', '#e9edf5', '#5d3986', '#d4aa63', '#f5e4bd'
     ];
     let originX = window.innerWidth / 2;
     let originY = window.innerHeight / 2;
@@ -394,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    const count = 70;
+    const count = window.innerWidth < 600 ? 55 : 80;
     for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
       conf.className = 'luxury-confetti-particle';
@@ -408,15 +603,15 @@ document.addEventListener('DOMContentLoaded', () => {
       conf.style.height = height + 'px';
       conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
       conf.style.borderRadius = Math.random() > 0.4 ? '2px' : '50%';
-      conf.style.boxShadow = '0 2px 6px rgba(93, 57, 134, 0.25)';
+      conf.style.boxShadow = '0 2px 6px rgba(93, 57, 134, 0.3)';
       conf.style.pointerEvents = 'none';
 
       const angle = Math.random() * Math.PI * 2;
-      const velocity = 7 + Math.random() * 16;
+      const velocity = 8 + Math.random() * 18;
       let vx = Math.cos(angle) * velocity;
-      let vy = Math.sin(angle) * velocity - 2.5;
+      let vy = Math.sin(angle) * velocity - 2.8;
       let rotation = Math.random() * 360;
-      let rotSpeed = (Math.random() - 0.5) * 15;
+      let rotSpeed = (Math.random() - 0.5) * 16;
 
       document.body.appendChild(conf);
 
@@ -429,11 +624,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const elapsed = (now - startTime) / 1000;
         posX += vx * 0.98;
         posY += vy;
-        vy += 0.38; // gravity
+        vy += 0.4; // gravity
         rotation += rotSpeed;
-        opacity -= 0.016;
+        opacity -= 0.015;
 
-        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg) scale(${Math.max(0, 1 - elapsed * 0.25)})`;
+        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg) scale(${Math.max(0, 1 - elapsed * 0.22)})`;
         conf.style.opacity = Math.max(0, opacity);
 
         if (opacity > 0 && posY < window.innerHeight + 100) {
@@ -455,11 +650,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (envelopeOpened) return;
     envelopeOpened = true;
 
-    // Trigger luxury confetti celebration burst
-    triggerConfetti();
-
-    // Start background music automatically
-    playAudio();
+    // Default to Spanish upon opening the invite unless English was explicitly chosen
+    if (!userSelectedLang || currentLang !== 'en') {
+      applyLanguage('es');
+    }
 
     // 1. Open envelope flap and glide up invitation card
     if (overlay) {
@@ -469,7 +663,14 @@ document.addEventListener('DOMContentLoaded', () => {
       envelope.classList.add('is-opened');
     }
 
-    // 2. Smoothly fade out envelope overlay and unveil main site (1500ms)
+    // 2. Trigger rich celebratory confetti & petals explosion
+    confettiPetalEngine.start();
+    triggerSealConfetti();
+
+    // 3. Start background music automatically
+    playAudio();
+
+    // 4. Smoothly fade out envelope overlay and unveil main site (1500ms)
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
@@ -550,7 +751,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showMessage(key) {
     if (numbersRow) numbersRow.style.display = 'none';
-    const dict = translations[currentLang] || translations.en;
+    const dict = translations[currentLang] || translations.es;
     cdMsgEl.textContent = dict[key] || '';
     cdMsgEl.style.display = '';
   }
@@ -589,6 +790,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   triggerScrollReveals();
+
+  /* ─────────────────────────────────────────────────────────────
+     6. AMBIENT BOKEH BACKGROUND CANVAS
+     ───────────────────────────────────────────────────────────── */
+  const ambCanvas = document.getElementById('ambient-canvas');
+  if (ambCanvas) {
+    const ambCtx = ambCanvas.getContext('2d');
+    let ambWidth = (ambCanvas.width = window.innerWidth);
+    let ambHeight = (ambCanvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      ambWidth = ambCanvas.width = window.innerWidth;
+      ambHeight = ambCanvas.height = window.innerHeight;
+    });
+
+    const bokehs = [];
+    const count = window.innerWidth < 600 ? 16 : 28;
+
+    for (let i = 0; i < count; i++) {
+      bokehs.push({
+        x: Math.random() * ambWidth,
+        y: Math.random() * ambHeight,
+        radius: Math.random() * 22 + 6,
+        speedY: (Math.random() * 0.18 + 0.05),
+        speedX: (Math.random() - 0.5) * 0.18,
+        alpha: Math.random() * 0.28 + 0.08,
+        color: Math.random() > 0.4
+          ? '255, 255, 255'
+          : (Math.random() > 0.6
+            ? '133, 83, 186'
+            : (Math.random() > 0.5 ? '192, 132, 252' : '212, 170, 99'))
+      });
+    }
+
+    function renderBokeh() {
+      ambCtx.clearRect(0, 0, ambWidth, ambHeight);
+
+      for (let i = 0; i < bokehs.length; i++) {
+        const b = bokehs[i];
+        b.y += b.speedY;
+        b.x += b.speedX;
+
+        if (b.y > ambHeight + 30) b.y = -30;
+        if (b.x > ambWidth + 30) b.x = -30;
+        if (b.x < -30) b.x = ambWidth + 30;
+
+        ambCtx.save();
+        ambCtx.beginPath();
+        ambCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+        ambCtx.fillStyle = `rgba(${b.color}, ${b.alpha})`;
+        ambCtx.shadowBlur = 12;
+        ambCtx.shadowColor = `rgba(${b.color}, 0.5)`;
+        ambCtx.fill();
+        ambCtx.restore();
+      }
+
+      requestAnimationFrame(renderBokeh);
+    }
+
+    renderBokeh();
+  }
 
   /* ─────────────────────────────────────────────────────────────
      7. RSVP MODAL & SUBMISSION SYSTEM
@@ -691,12 +953,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Confetti celebration if attending
       if (isAttending) {
-        triggerConfetti();
+        triggerRsvpConfetti();
       }
 
       // Tailored feedback display
       if (successAlert) {
-        const dict = translations[currentLang] || translations.en;
+        const dict = translations[currentLang] || translations.es;
         const descP = successAlert.querySelector('p');
         if (descP) {
           descP.textContent = isAttending ? dict['modal-success-desc'] : dict['modal-decline-desc'];
@@ -720,11 +982,11 @@ document.addEventListener('DOMContentLoaded', () => {
         : 'Hubo un problema al guardar su respuesta. Por favor verifique su conexión e intente nuevamente.');
       if (btnAccept) {
         btnAccept.disabled = false;
-        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || '✓ YES, ATTENDING';
+        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || translations.es['btn-accept'];
       }
       if (btnDecline) {
         btnDecline.disabled = false;
-        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || '✕ CANNOT ATTEND';
+        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || translations.es['btn-decline'];
       }
       if (targetBtn && originalText) {
         targetBtn.innerHTML = originalText;
@@ -747,24 +1009,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function triggerConfetti() {
-    const confettiColors = ['#d3d3ff', '#e6e6fa', '#8c8cd0', '#b4b8c8', '#eff0f8', '#ffffff', '#c4c4f8', '#161622'];
-    for (let i = 0; i < 48; i++) {
+  function triggerRsvpConfetti() {
+    const confettiColors = [
+      '#8e54e9', '#9353d3', '#b0b7c6', '#c084fc', '#d8b4e2',
+      '#7d4ac7', '#e6e6fa', '#ffffff', '#e9edf5', '#5d3986', '#d4aa63', '#f5e4bd'
+    ];
+    const count = window.innerWidth < 600 ? 55 : 80;
+    for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
+      conf.className = 'luxury-confetti-particle';
       conf.style.position = 'fixed';
       conf.style.zIndex = '9999';
       conf.style.left = '50%';
       conf.style.top = '50%';
-      conf.style.width = (6 + Math.random() * 8) + 'px';
-      conf.style.height = (8 + Math.random() * 12) + 'px';
+      const width = 6 + Math.random() * 8;
+      const height = 8 + Math.random() * 12;
+      conf.style.width = width + 'px';
+      conf.style.height = height + 'px';
       conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-      conf.style.borderRadius = '2px';
+      conf.style.borderRadius = Math.random() > 0.4 ? '2px' : '50%';
       conf.style.pointerEvents = 'none';
+      conf.style.boxShadow = '0 2px 6px rgba(71, 38, 110, 0.3)';
 
       const angle = Math.random() * Math.PI * 2;
-      const velocity = 8 + Math.random() * 14;
+      const velocity = 8 + Math.random() * 16;
       let vx = Math.cos(angle) * velocity;
-      let vy = Math.sin(angle) * velocity;
+      let vy = Math.sin(angle) * velocity - 2.5;
 
       document.body.appendChild(conf);
 
@@ -773,12 +1043,12 @@ document.addEventListener('DOMContentLoaded', () => {
       let opacity = 1;
 
       const anim = setInterval(() => {
-        posX += vx;
+        posX += vx * 0.98;
         posY += vy;
         vy += 0.4; // gravity
-        opacity -= 0.02;
+        opacity -= 0.016;
 
-        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 4}deg)`;
+        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 5}deg)`;
         conf.style.opacity = opacity;
 
         if (opacity <= 0) {
