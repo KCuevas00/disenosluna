@@ -858,15 +858,11 @@ body.site-entered .lang-control-bar {
   position: relative;
   z-index: 3;
   padding: 0;
-  border-radius: 28px;
-  overflow: hidden;
+  border-radius: 0;
+  overflow: visible;
   border: none !important;
-  background: #faf7fc;
-  box-shadow:
-    0 24px 60px -8px rgba(93, 57, 134, 0.20),
-    0 10px 24px -4px rgba(159, 125, 200, 0.15),
-    0 0 0 1.5px rgba(176, 183, 198, 0.35),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.95);
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .celebrant-photo {
@@ -874,17 +870,54 @@ body.site-entered .lang-control-bar {
   z-index: 3;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: 52% 4%;
-  transform: scale(1.03);
-  transform-origin: 52% 16%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
   display: block;
-  border-radius: 28px;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.06));
+  border-radius: 0;
+  filter: drop-shadow(0 14px 28px rgba(93, 57, 134, 0.22));
   mask-image: none !important;
   -webkit-mask-image: none !important;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+}
+
+.celebrant-photo.masq-feather-hero-img {
+  object-fit: contain;
+  padding: 0;
+  background: transparent !important;
+  border-radius: 0;
+  filter: drop-shadow(0 16px 32px rgba(71, 38, 110, 0.28));
+}
+
+/* ── ORNATE MASQUERADE FEATHER SPRAYS FRAMING HERO ── */
+.hero-feather-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.hero-feather-spray {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: drop-shadow(0 6px 14px rgba(93, 57, 134, 0.14));
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-feather-spray.feather-top-left {
+  top: 15px;
+  left: 6px;
+  transform: rotate(-10deg);
+}
+
+.hero-feather-spray.feather-bottom-right {
+  bottom: 25px;
+  right: 6px;
+  transform: scaleX(-1) scaleY(-1) rotate(-10deg);
 }
 
 /* Grounding soft shadow under the dress hem */
@@ -2169,20 +2202,22 @@ body.site-entered .lang-control-bar {
 }
 
 .message-portrait-wrap {
-  width: 120px;
-  height: 150px;
+  width: 125px;
+  height: 165px;
   border-radius: 60px 60px 18px 18px;
   overflow: hidden;
   border: none;
-  box-shadow: 0 10px 24px rgba(159, 125, 200, 0.22), 0 0 0 2px rgba(255, 255, 255, 0.85);
+  background: #faf7fc;
+  box-shadow: 0 10px 24px rgba(159, 125, 200, 0.22), 0 0 0 2px rgba(255, 255, 255, 0.95);
   flex-shrink: 0;
 }
 
 .message-portrait-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 36%;
+  object-fit: contain;
+  object-position: center top;
+  padding: 4px;
 }
 
 .message-copy {
@@ -2307,31 +2342,31 @@ body.site-entered .lang-control-bar {
 }
 
 .floral-r {
-  width: 120px;
-  top: -16px;
-  left: -24px;
-  transform: rotate(-15deg);
+  width: 110px;
+  top: -14px;
+  left: -20px;
+  transform: scaleX(-1) rotate(12deg);
 }
 
 .floral-s {
-  width: 130px;
-  top: -18px;
-  right: -28px;
-  transform: rotate(15deg);
+  width: 110px;
+  top: -14px;
+  right: -20px;
+  transform: rotate(12deg);
 }
 
 .floral-v {
   width: 110px;
-  bottom: -18px;
-  left: -24px;
-  transform: rotate(-25deg);
+  bottom: -14px;
+  left: -20px;
+  transform: rotate(-12deg);
 }
 
 .floral-p {
-  width: 125px;
+  width: 110px;
   top: -12px;
-  right: -24px;
-  transform: rotate(5deg);
+  right: -18px;
+  transform: rotate(10deg);
 }
 
 .rsvp-callout-block {
