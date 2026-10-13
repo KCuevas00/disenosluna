@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', blockScrollUntilEntered, { passive: false });
   window.addEventListener('keydown', blockKeysUntilEntered, { passive: false });
 
-
-
   /* ─────────────────────────────────────────────────────────────
      1. BILINGUAL TRANSLATION DICTIONARY (EN / ES)
      ───────────────────────────────────────────────────────────── */
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'entry-subtitle': 'MICHELLE MARTINEZ • MIS XV AÑOS',
       'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
       'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
-      'invite-quince': 'XV Años',
+      'invite-quince': 'Mis XV Años',
       'invite-parents': 'HERASMO Y GRISELDA MARTINEZ',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
       'invite-daughter': 'DE SU HIJA',
@@ -126,15 +124,87 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-title': '¡Muchas Gracias!',
       'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
       'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.'
+    },
+    en: {
+      'entry-invited': "You've Been Invited!",
+      'entry-subtitle': 'MICHELLE MARTINEZ • QUINCEAÑERA',
+      'seal-hint-desktop': '✦ CLICK TO OPEN ✦',
+      'seal-hint-mobile': '✦ TAP TO OPEN ✦',
+      'invite-quince': 'Quinceañera',
+      'invite-parents': 'HERASMO &amp; GRISELDA MARTINEZ',
+      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
+      'invite-daughter': 'OF THEIR DAUGHTER',
+      'invite-date-month': 'NOV',
+      'invite-date-day': 'FRIDAY',
+      'invite-date-time': 'AT 5:30 PM',
+      'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
+      'countdown-today': '🎉 Today Is the Big Day! 🎉',
+      'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
+      'cd-days': 'Days',
+      'cd-hours': 'Hours',
+      'cd-mins': 'Minutes',
+      'cd-secs': 'Seconds',
+      'invite-venue': 'TUCSON • ARIZONA',
+      'program-title': 'EVENT SCHEDULE',
+      'program-arrival-title': 'GUEST ARRIVAL',
+      'program-arrival-desc': 'CRYSTAL EVENT CENTER<br />610 W PRINCE RD, TUCSON, AZ 85705',
+      'program-dinner-title': 'DINNER',
+      'program-dinner-desc': 'BANQUET IN HONOR OF MICHELLE MARTINEZ',
+      'program-entrance-title': 'GRAND ENTRANCE',
+      'program-entrance-desc': '',
+      'program-waltz-title': 'WALTZ',
+      'program-waltz-desc': 'TRADITIONAL QUINCEAÑERA WALTZ',
+      'program-toast-title': 'TOAST',
+      'program-toast-desc': 'HONOR TOAST',
+      'program-surprise-title': 'SURPRISE DANCE',
+      'program-surprise-desc': 'SPECIAL CHOREOGRAPHED DANCE PERFORMANCE',
+      'program-cake-title': 'CAKE CUTTING',
+      'program-cake-desc': 'CAKE CUTTING &amp; CELEBRATION',
+      'program-dance-title': 'DANCE PARTY',
+      'program-dance-desc': 'OPEN DANCE FLOOR &amp; MUSIC',
+      'program-end-title': 'FAREWELL',
+      'program-end-desc': 'THANK YOU AND FAREWELL TO OUR GUESTS!',
+      'tl-btn-location': 'GET DIRECTIONS',
+      'tl-btn-directions': 'GET DIRECTIONS',
+      'tl-btn-copy': 'COPY ADDRESS',
+      'court-title': 'COURT OF HONOR &amp; GODPARENTS',
+      'court-chambelan-title': 'CHAMBELÁN OF HONOR',
+      'court-parejas-title': 'HONOR COUPLES',
+      'court-mini-title': 'MINI QUINCEAÑERA',
+      'padrinos-title': 'GODPARENTS',
+      'registry-title': 'WISHING WELL',
+      'registry-subtitle': 'CASH / ENVELOPE SHOWER',
+      'registry-desc': 'Your presence on this special day is our greatest gift. If you wish to bless Michelle with an additional token of love, an envelope shower will take place during the celebration. Thank you for being part of a memory she will cherish forever in her heart.',
+      'message-quote': 'With great joy and our hearts full of love, we have the honor of inviting you to celebrate the XV years of our beloved daughter, Michelle Martinez.<br /><br />This special day marks a beautiful milestone in her life, and it brings us immense happiness to share this momentous celebration with our dear family and friends.<br /><br />It will be an absolute honor to celebrate together this unforgettable occasion, filled with love, joy, and blessings.',
+      'message-signature': 'Herasmo &amp; Griselda Martinez',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE OCTOBER 15, 2026',
+      'rsvp-btn': 'CONFIRM ATTENDANCE',
+      'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
+      'rsvp-thankyou': 'Thank You So Much!',
+      'modal-title': 'Confirm Attendance for Michelle Martinez',
+      'modal-subtitle': 'Friday, November 13, 2026 • Tucson, AZ',
+      'label-fullname': 'Full Name or Family *',
+      'label-phone': 'Phone Number (Optional)',
+      'label-party': 'Number of Attendees (Optional)',
+      'opt-party-1': '1 Guest',
+      'opt-party-2': '2 Guests',
+      'opt-party-3': '3 Guests',
+      'opt-party-4': '4 Guests',
+      'opt-party-5': '5+ Guests (Family)',
+      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
+      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
+      'modal-success-title': 'Thank You So Much!',
+      'modal-success-desc': 'Your response has been saved successfully. We look forward to celebrating together!',
+      'modal-decline-desc': 'Thank you for letting us know. Your response has been saved.'
     }
   };
 
   let currentLang = 'es';
 
   function applyLanguage(lang = 'es') {
-    currentLang = 'es';
-    document.documentElement.lang = 'es';
-    const dict = translations.es || {};
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    const dict = translations[lang] || translations.es;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -142,14 +212,240 @@ document.addEventListener('DOMContentLoaded', () => {
         el.innerHTML = dict[key];
       }
     });
+
+    const btnEs = document.getElementById('btn-lang-es');
+    const btnEn = document.getElementById('btn-lang-en');
+    if (btnEs && btnEn) {
+      btnEs.classList.toggle('active', lang === 'es');
+      btnEn.classList.toggle('active', lang === 'en');
+    }
+
+    document.querySelectorAll('.entry-lang-btn').forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
   }
 
-  // Set to Spanish on startup
+  const btnEs = document.getElementById('btn-lang-es');
+  const btnEn = document.getElementById('btn-lang-en');
+  if (btnEs) btnEs.addEventListener('click', () => applyLanguage('es'));
+  if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+
+  // Language picker under the envelope (before the invitation is opened)
+  document.querySelectorAll('.entry-lang-btn').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLanguage(b.dataset.lang);
+    });
+  });
+
+  // Default to Spanish on startup
   applyLanguage('es');
 
+  // Collapsible utility tabs (Language bar top-left, audio bar top-right)
+  function initControlToggles() {
+    const langBar = document.getElementById('lang-control-bar');
+    const langToggle = document.getElementById('lang-collapse-toggle');
+    const audioBar = document.getElementById('audio-control-bar');
+    const audioToggle = document.getElementById('audio-collapse-toggle');
+
+    function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      bar.classList.toggle('collapsed', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
+    }
+
+    function bindToggle(bar, btn, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        bar.dataset.userToggled = 'true';
+        setCollapsed(bar, btn, !bar.classList.contains('collapsed'), hiddenLabel, shownLabel);
+      });
+    }
+
+    bindToggle(langBar, langToggle, 'Hide language selector', 'Show language selector');
+    bindToggle(audioBar, audioToggle, 'Hide music player', 'Show music player');
+
+    if (langBar && langToggle && langBar.dataset.userToggled !== 'true') {
+      setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
+    }
+    if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
+      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
+    }
+  }
+
+  initControlToggles();
+
   /* ─────────────────────────────────────────────────────────────
-     3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER & PETALS CASCADE
+     2. AUDIO CONTROLLER & SONG PREVIEW TICKER (Selena - Dreaming of You)
      ───────────────────────────────────────────────────────────── */
+  const bgAudio = document.getElementById('bg-audio');
+  const audioToggleBtn = document.getElementById('audio-toggle-btn');
+  const audioPlayIcon = document.getElementById('audio-play-icon');
+  const audioPauseIcon = document.getElementById('audio-pause-icon');
+
+  let isAudioPlaying = false;
+  let wasAudioPlayingBeforeHide = false;
+
+  function updatePlayState(playing) {
+    isAudioPlaying = playing;
+    if (audioToggleBtn) {
+      if (playing) {
+        audioToggleBtn.classList.add('playing');
+        if (audioPlayIcon) audioPlayIcon.style.display = 'none';
+        if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
+        audioToggleBtn.setAttribute('aria-label', 'Pause music');
+      } else {
+        audioToggleBtn.classList.remove('playing');
+        if (audioPlayIcon) audioPlayIcon.style.display = 'inline';
+        if (audioPauseIcon) audioPauseIcon.style.display = 'none';
+        audioToggleBtn.setAttribute('aria-label', 'Play music');
+      }
+    }
+  }
+
+  function playAudio() {
+    if (!bgAudio) return;
+    bgAudio.volume = 0.85;
+    const playPromise = bgAudio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          updatePlayState(true);
+        })
+        .catch((err) => {
+          console.warn('[Audio autoplay notice]:', err);
+          updatePlayState(false);
+        });
+    }
+  }
+
+  function pauseAudio() {
+    if (!bgAudio) return;
+    bgAudio.pause();
+    updatePlayState(false);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (isAudioPlaying) {
+        wasAudioPlayingBeforeHide = true;
+        pauseAudio();
+      }
+    } else {
+      if (wasAudioPlayingBeforeHide) {
+        playAudio();
+        wasAudioPlayingBeforeHide = false;
+      }
+    }
+  });
+
+  window.addEventListener('pagehide', () => {
+    wasAudioPlayingBeforeHide = false;
+    pauseAudio();
+  });
+
+  if (audioToggleBtn) {
+    audioToggleBtn.addEventListener('click', () => {
+      if (isAudioPlaying) {
+        wasAudioPlayingBeforeHide = false;
+        pauseAudio();
+      } else {
+        playAudio();
+      }
+    });
+  }
+
+  function updateSongTickerOffset() {
+    const ticker = document.querySelector('.song-title-ticker');
+    const viewport = document.querySelector('.song-marquee-viewport');
+    if (!ticker || !viewport) return;
+
+    const overflow = ticker.scrollWidth - viewport.clientWidth;
+    if (overflow > 1) {
+      ticker.style.setProperty('--scroll-offset', `-${Math.ceil(overflow) + 8}px`);
+    } else {
+      ticker.style.setProperty('--scroll-offset', '0px');
+    }
+  }
+
+  updateSongTickerOffset();
+  window.addEventListener('resize', updateSongTickerOffset);
+
+  /* ─────────────────────────────────────────────────────────────
+     3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER & CONFETTI EXPLOSION
+     ───────────────────────────────────────────────────────────── */
+  function triggerConfetti() {
+    const confettiColors = [
+      '#8e54e9', '#9353d3', '#b0b7c6', '#c084fc', '#d8b4e2',
+      '#7d4ac7', '#e6e6fa', '#ffffff', '#e9edf5', '#5d3986'
+    ];
+    let originX = window.innerWidth / 2;
+    let originY = window.innerHeight / 2;
+    const seal = document.getElementById('wax-seal-btn');
+    if (seal) {
+      const rect = seal.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        originX = rect.left + rect.width / 2;
+        originY = rect.top + rect.height / 2;
+      }
+    }
+
+    const count = 70;
+    for (let i = 0; i < count; i++) {
+      const conf = document.createElement('div');
+      conf.className = 'luxury-confetti-particle';
+      conf.style.position = 'fixed';
+      conf.style.zIndex = '99999';
+      conf.style.left = originX + 'px';
+      conf.style.top = originY + 'px';
+      const width = (5 + Math.random() * 8);
+      const height = (7 + Math.random() * 12);
+      conf.style.width = width + 'px';
+      conf.style.height = height + 'px';
+      conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      conf.style.borderRadius = Math.random() > 0.4 ? '2px' : '50%';
+      conf.style.boxShadow = '0 2px 6px rgba(93, 57, 134, 0.25)';
+      conf.style.pointerEvents = 'none';
+
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 7 + Math.random() * 16;
+      let vx = Math.cos(angle) * velocity;
+      let vy = Math.sin(angle) * velocity - 2.5;
+      let rotation = Math.random() * 360;
+      let rotSpeed = (Math.random() - 0.5) * 15;
+
+      document.body.appendChild(conf);
+
+      let posX = 0;
+      let posY = 0;
+      let opacity = 1;
+
+      const startTime = performance.now();
+      function stepAnim(now) {
+        const elapsed = (now - startTime) / 1000;
+        posX += vx * 0.98;
+        posY += vy;
+        vy += 0.38; // gravity
+        rotation += rotSpeed;
+        opacity -= 0.016;
+
+        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg) scale(${Math.max(0, 1 - elapsed * 0.25)})`;
+        conf.style.opacity = Math.max(0, opacity);
+
+        if (opacity > 0 && posY < window.innerHeight + 100) {
+          requestAnimationFrame(stepAnim);
+        } else {
+          conf.remove();
+        }
+      }
+      requestAnimationFrame(stepAnim);
+    }
+  }
+
   const overlay = document.getElementById('entry-popup-overlay');
   const envelope = document.getElementById('luxury-envelope');
   const waxSealBtn = document.getElementById('wax-seal-btn');
@@ -158,6 +454,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function openEnvelope() {
     if (envelopeOpened) return;
     envelopeOpened = true;
+
+    // Trigger luxury confetti celebration burst
+    triggerConfetti();
+
+    // Start background music automatically
+    playAudio();
 
     // 1. Open envelope flap and glide up invitation card
     if (overlay) {
