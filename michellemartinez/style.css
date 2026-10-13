@@ -833,7 +833,7 @@ body.site-entered .lang-control-bar {
   position: relative;
   width: 95%;
   max-width: 440px;
-  margin: 0.6rem auto 2.2rem;
+  margin: 0.6rem auto -1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4042,7 +4042,7 @@ html.og-mode .entry-stage-mount {
   .celebrant-portrait-container {
     width: 80%;
     max-width: 300px;
-    margin: 0.6rem auto 3.8rem;
+    margin: 0.6rem auto -1.8rem;
   }
 
   .quince-script-title {
