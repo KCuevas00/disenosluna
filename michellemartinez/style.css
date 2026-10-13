@@ -61,6 +61,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 html {
@@ -2924,7 +2925,13 @@ html.og-mode .entry-stage-mount {
   max-width: 88vw;
   cursor: pointer;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent !important;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
   border-radius: 6px;
   background: linear-gradient(145deg, #fbfbfe 0%, #f5f6fa 45%, #e7e9f0 100%);
   border: 2px solid #bec3cf;
@@ -2981,15 +2988,18 @@ html.og-mode .entry-stage-mount {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
+  -webkit-transition: opacity 0.4s ease 0.1s, -webkit-transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
   pointer-events: none;
   will-change: transform, opacity;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .luxury-envelope-container.is-opened .env-invitation-card {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(-120px) translateZ(12px) scale(1.02);
+  -webkit-transform: translateX(-50%) translateY(-120px) translateZ(12px) scale(1.02);
   z-index: 35;
   pointer-events: auto;
 }
@@ -3081,7 +3091,10 @@ html.og-mode .entry-stage-mount {
   background: linear-gradient(168deg, #f8f9fc 0%, #eeeff5 35%, #e3e6ed 70%, #d5dae4 100%);
   border-radius: 6px;
   z-index: 12;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
   clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   box-shadow:
     inset 0 -6px 18px rgba(130, 105, 80, 0.15),
     inset 0 1.8px 0 rgba(255, 255, 255, 0.95),
@@ -3115,14 +3128,21 @@ html.og-mode .entry-stage-mount {
   right: 0;
   height: 155px;
   transform-origin: top center;
+  -webkit-transform-origin: top center;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   z-index: 15;
-  transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1), filter 0.52s ease;
-  filter: drop-shadow(0 10px 18px rgba(120, 90, 60, 0.18));
+  transition: transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
+  -webkit-transition: -webkit-transform 0.52s cubic-bezier(0.25, 1, 0.4, 1);
+  filter: none !important;
+  -webkit-filter: none !important;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   background: linear-gradient(160deg, #f9fafd 0%, #eff1f7 35%, #e6e8ee 70%, #d5dae5 100%);
   border-top: 2.5px solid #bcc1ce;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .env-flap-edge-svg {
@@ -3136,8 +3156,10 @@ html.og-mode .entry-stage-mount {
 
 .luxury-envelope-container.is-opened .env-flap {
   transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
   z-index: 15;
-  filter: drop-shadow(0 -6px 14px rgba(120, 90, 60, 0.2));
+  filter: none !important;
+  -webkit-filter: none !important;
   background: linear-gradient(160deg, #e3e6ed 0%, #d2d7e2 60%, #bfc4cf 100%);
 }
 
@@ -3805,6 +3827,7 @@ html.og-mode .entry-stage-mount {
     inset: 0;
     width: 100%;
     height: 100%;
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 112px);
     clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 112px);
   }
 
@@ -3897,6 +3920,7 @@ html.og-mode .entry-stage-mount {
     inset: 0;
     width: 100%;
     height: 100%;
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 112px);
     clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 112px);
   }
 
