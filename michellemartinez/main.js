@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'entry-subtitle': 'MICHELLE MARTINEZ • XV AÑOS',
       'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
       'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
-      'invite-quince': 'XV Años',
+      'invite-quince': 'Los XV Años',
       'invite-parents': 'HERASMO Y GRISELDA MARTINEZ',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR',
       'invite-daughter': 'DE SU HIJA',
