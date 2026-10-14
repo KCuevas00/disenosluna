@@ -29,6 +29,12 @@ function init() {
   if (new URLSearchParams(window.location.search).get('og') === 'true') {
     document.documentElement.classList.add('og-mode');
   }
+  if (new URLSearchParams(window.location.search).get('landing') === 'true') {
+    document.documentElement.classList.add('site-entered');
+    document.body.classList.add('site-entered');
+    const ov = document.getElementById('entry-popup-overlay');
+    if (ov) ov.style.display = 'none';
+  }
 
   // Strictly block background scrolling/wheeling while envelope is unopened,
   // but allow touch/pointer interactions on the envelope overlay so taps are not cancelled by mobile browsers
@@ -304,6 +310,7 @@ function init() {
 
   let isAudioPlaying = false;
   let wasAudioPlayingBeforeHide = false;
+  let audioUnlocked = false;
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -322,18 +329,52 @@ function init() {
     }
   }
 
+  // Synchronize state with native HTML5 audio events (e.g. stalled, paused by OS)
+  if (bgAudio) {
+    bgAudio.addEventListener('play', () => updatePlayState(true));
+    bgAudio.addEventListener('playing', () => updatePlayState(true));
+    bgAudio.addEventListener('pause', () => updatePlayState(false));
+    bgAudio.addEventListener('ended', () => updatePlayState(false));
+    bgAudio.addEventListener('error', (e) => {
+      console.warn('[Audio element error]:', bgAudio.error || e);
+      updatePlayState(false);
+    });
+  }
+
   function playAudio() {
     if (!bgAudio) return;
     bgAudio.volume = 0.85;
+
+    // Call load() once if not yet ready
+    if (bgAudio.readyState === 0) {
+      bgAudio.load();
+    }
+
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
+          audioUnlocked = true;
           updatePlayState(true);
         })
         .catch((err) => {
           console.warn('[Audio autoplay notice]:', err);
           updatePlayState(false);
+          // If browser rejected on initial tap, unlock on the very next user gesture anywhere
+          if (!audioUnlocked) {
+            const unlockOnNextTouch = () => {
+              bgAudio.play().then(() => {
+                audioUnlocked = true;
+                updatePlayState(true);
+              }).catch(() => {});
+              ['touchend', 'click', 'pointerup'].forEach(evt => {
+                window.removeEventListener(evt, unlockOnNextTouch);
+              });
+            };
+            ['touchend', 'click', 'pointerup'].forEach(evt => {
+              window.addEventListener(evt, unlockOnNextTouch, { once: true, passive: true });
+            });
+          }
         });
     }
   }
@@ -364,15 +405,20 @@ function init() {
   });
 
   if (audioToggleBtn) {
-    audioToggleBtn.addEventListener('click', (e) => {
+    const handleToggle = (e) => {
       e.stopPropagation();
+      if (e.cancelable && e.type !== 'click') {
+        e.preventDefault();
+      }
       if (isAudioPlaying) {
         wasAudioPlayingBeforeHide = false;
         pauseAudio();
       } else {
         playAudio();
       }
-    });
+    };
+    audioToggleBtn.addEventListener('click', handleToggle);
+    audioToggleBtn.addEventListener('touchend', handleToggle, { passive: false });
   }
 
   function updateSongTickerOffset() {
@@ -730,7 +776,7 @@ function init() {
         originY = rect.top + rect.height / 2;
       }
     }
-    const count = 56;
+    const count = 50; // Reduced ~10% (from 56)
     for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
@@ -773,7 +819,7 @@ function init() {
 
   function triggerTopConfettiRain() {
     const confettiColors = ['#d4af37', '#e5c378', '#f9e79f', '#c9a86a', '#a31d24', '#7d181c', '#c0392b', '#ffffff', '#fff8ea'];
-    const count = 75;
+    const count = 67; // Reduced ~10% (from 75)
     for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
@@ -838,9 +884,9 @@ function init() {
 
     ambientConfettiRunning = true;
 
-    // Respect reduced motion
+    // Respect reduced motion - particle counts reduced by 10%
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const particleCount = prefersReducedMotion ? 32 : 80;
+    const particleCount = prefersReducedMotion ? 29 : 72; // Reduced ~10% (from 32 / 80)
 
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;

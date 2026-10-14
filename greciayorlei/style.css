@@ -2960,6 +2960,12 @@ html.og-mode #audio-control-bar {
 html.og-mode .entry-stage-mount {
   padding: 0 !important;
   margin: 0 auto !important;
+  transform: scale(1.08) !important;
+}
+
+html.og-mode .envelope-entry-header {
+  white-space: nowrap;
+  margin-bottom: 1.4rem;
 }
 
 .entry-stage-mount {
