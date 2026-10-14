@@ -757,7 +757,195 @@ function init() {
     });
   }
 
+  /* ─────────────────────────────────────────────────────────────
+     CELEBRATION ENGINE CONFIGURATION
+     Options: 'petals' (Option 1: Velvet Crimson Rose Petals & Gold Leaf)
+              'confetti' (Original party confetti)
+              'embers' (Option 2: Warm Golden Hour Embers)
+              'sparkles' (Option 3: Stardust Sparkles)
+              'none' (No continuous animation)
+     ───────────────────────────────────────────────────────────── */
+  const CELEBRATION_MODE = 'petals';
+  window.CELEBRATION_MODE = CELEBRATION_MODE;
+
+  /* ─────────────────────────────────────────────────────────────
+     BURST & RAIN EFFECTS (WAX SEAL OPENING & RSVP CELEBRATION)
+     ───────────────────────────────────────────────────────────── */
   function triggerConfetti(originEl) {
+    if (CELEBRATION_MODE === 'none') return;
+    if (CELEBRATION_MODE === 'petals') {
+      triggerPetalBurst(originEl);
+    } else {
+      triggerOriginalConfetti(originEl);
+    }
+  }
+
+  function triggerTopConfettiRain() {
+    if (CELEBRATION_MODE === 'none') return;
+    if (CELEBRATION_MODE === 'petals') {
+      triggerTopPetalShower();
+    } else {
+      triggerOriginalTopRain();
+    }
+  }
+
+  // Option 1: Romantic Velvet Crimson Rose Petal & Gold Leaf Burst from Wax Seal
+  function triggerPetalBurst(originEl) {
+    let originX = window.innerWidth / 2;
+    let originY = window.innerHeight / 2;
+    if (originEl && originEl.getBoundingClientRect) {
+      const rect = originEl.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        originX = rect.left + rect.width / 2;
+        originY = rect.top + rect.height / 2;
+      }
+    }
+
+    const count = 42;
+    for (let i = 0; i < count; i++) {
+      const petal = document.createElement('div');
+      petal.style.position = 'fixed';
+      petal.style.zIndex = '99999';
+      petal.style.left = originX + 'px';
+      petal.style.top = originY + 'px';
+      petal.style.pointerEvents = 'none';
+
+      const isGold = Math.random() < 0.22;
+      const sizeW = isGold ? (7 + Math.random() * 6) : (11 + Math.random() * 9);
+      const sizeH = isGold ? (8 + Math.random() * 8) : (14 + Math.random() * 11);
+      petal.style.width = sizeW + 'px';
+      petal.style.height = sizeH + 'px';
+
+      if (isGold) {
+        petal.style.background = 'radial-gradient(ellipse at 30% 30%, #fef3c7 0%, #d4af37 60%, #92400e 100%)';
+        petal.style.borderRadius = Math.random() < 0.5 ? '50%' : '3px';
+        petal.style.boxShadow = '0 1px 4px rgba(212, 175, 55, 0.4)';
+      } else {
+        const isDarkWine = Math.random() < 0.35;
+        if (isDarkWine) {
+          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #991b1b 0%, #681014 65%, #3a0609 100%)';
+        } else {
+          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #dc2626 0%, #a31d24 55%, #5c0c10 100%)';
+        }
+        // Asymmetrical organic petal curvature
+        petal.style.borderRadius = Math.random() < 0.5
+          ? '65% 35% 60% 40% / 70% 35% 65% 30%'
+          : '35% 65% 40% 60% / 35% 70% 30% 65%';
+        petal.style.boxShadow = '0 2px 7px rgba(80, 10, 15, 0.28)';
+      }
+
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 5 + Math.random() * 11;
+      let vx = Math.cos(angle) * velocity;
+      let vy = Math.sin(angle) * velocity - 2.5; // slight upward pop
+      let rot = Math.random() * 360;
+      let rotSpeed = (Math.random() - 0.5) * 8;
+      let tilt = Math.random() * Math.PI * 2;
+      let tiltSpeed = 0.05 + Math.random() * 0.08;
+
+      document.body.appendChild(petal);
+
+      let posX = 0;
+      let posY = 0;
+      let opacity = 1;
+
+      const anim = setInterval(() => {
+        posX += vx;
+        posY += vy;
+        vx *= 0.96; // air resistance
+        vy += 0.22; // gentle petal gravity
+        rot += rotSpeed;
+        tilt += tiltSpeed;
+        opacity -= 0.016;
+
+        const flipX = Math.cos(tilt);
+        petal.style.transform = `translate(${posX}px, ${posY}px) rotate(${rot}deg) scaleX(${flipX})`;
+        petal.style.opacity = Math.max(0, opacity);
+
+        if (opacity <= 0) {
+          clearInterval(anim);
+          petal.remove();
+        }
+      }, 16);
+    }
+  }
+
+  // Option 1: Top Petal Shower Cascading Upon Envelope Open
+  function triggerTopPetalShower() {
+    const count = 38;
+    for (let i = 0; i < count; i++) {
+      const petal = document.createElement('div');
+      petal.style.position = 'fixed';
+      petal.style.zIndex = '99999';
+      petal.style.left = (Math.random() * window.innerWidth) + 'px';
+      petal.style.top = (-25 - Math.random() * 80) + 'px';
+      petal.style.pointerEvents = 'none';
+
+      const isGold = Math.random() < 0.20;
+      const sizeW = isGold ? (7 + Math.random() * 6) : (12 + Math.random() * 8);
+      const sizeH = isGold ? (8 + Math.random() * 7) : (15 + Math.random() * 10);
+      petal.style.width = sizeW + 'px';
+      petal.style.height = sizeH + 'px';
+
+      if (isGold) {
+        petal.style.background = 'radial-gradient(ellipse at 30% 30%, #fef3c7 0%, #d4af37 60%, #92400e 100%)';
+        petal.style.borderRadius = Math.random() < 0.5 ? '50%' : '3px';
+        petal.style.boxShadow = '0 1px 4px rgba(212, 175, 55, 0.35)';
+      } else {
+        const isDarkWine = Math.random() < 0.35;
+        if (isDarkWine) {
+          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #991b1b 0%, #681014 65%, #3a0609 100%)';
+        } else {
+          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #dc2626 0%, #a31d24 55%, #5c0c10 100%)';
+        }
+        petal.style.borderRadius = Math.random() < 0.5
+          ? '65% 35% 60% 40% / 70% 35% 65% 30%'
+          : '35% 65% 40% 60% / 35% 70% 30% 65%';
+        petal.style.boxShadow = '0 2px 6px rgba(80, 10, 15, 0.22)';
+      }
+
+      let vx = (Math.random() - 0.5) * 2.0;
+      let vy = 1.8 + Math.random() * 3.2; // graceful drifting fall
+      let rot = Math.random() * 360;
+      let rotSpeed = (Math.random() - 0.5) * 5;
+      let tilt = Math.random() * Math.PI * 2;
+      let tiltSpeed = 0.035 + Math.random() * 0.05;
+      let sway = Math.random() * Math.PI * 2;
+
+      document.body.appendChild(petal);
+
+      let posX = 0;
+      let posY = 0;
+      let opacity = 1;
+
+      const startDelay = Math.random() * 450;
+      setTimeout(() => {
+        const anim = setInterval(() => {
+          sway += 0.04;
+          posX += vx + Math.sin(sway) * 0.9;
+          posY += vy;
+          rot += rotSpeed;
+          tilt += tiltSpeed;
+
+          if (posY > window.innerHeight * 0.72) {
+            opacity -= 0.02;
+          }
+
+          const flipX = Math.cos(tilt);
+          petal.style.transform = `translate(${posX}px, ${posY}px) rotate(${rot}deg) scaleX(${flipX})`;
+          petal.style.opacity = Math.max(0, opacity);
+
+          if (opacity <= 0 || posY > window.innerHeight + 50) {
+            clearInterval(anim);
+            petal.remove();
+          }
+        }, 16);
+      }, startDelay);
+    }
+  }
+
+  // Backup Original Confetti Functions (Quickly accessible if user chooses to revert)
+  function triggerOriginalConfetti(originEl) {
     const confettiColors = ['#a31d24', '#7d181c', '#d4af37', '#f3e5ab', '#ffffff', '#c9a86a', '#fdfbf7', '#e5c378'];
     let originX = window.innerWidth / 2;
     let originY = window.innerHeight / 2;
@@ -768,21 +956,21 @@ function init() {
         originY = rect.top + rect.height / 2;
       }
     }
-    const count = 50; // Reduced ~10% (from 56)
+    const count = 45;
     for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
       conf.style.zIndex = '99999';
       conf.style.left = originX + 'px';
       conf.style.top = originY + 'px';
-      conf.style.width = (6 + Math.random() * 8) + 'px';
-      conf.style.height = (8 + Math.random() * 12) + 'px';
+      conf.style.width = (6 + Math.random() * 7) + 'px';
+      conf.style.height = (8 + Math.random() * 10) + 'px';
       conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
       conf.style.borderRadius = '2px';
       conf.style.pointerEvents = 'none';
 
       const angle = Math.random() * Math.PI * 2;
-      const velocity = 8 + Math.random() * 14;
+      const velocity = 8 + Math.random() * 12;
       let vx = Math.cos(angle) * velocity;
       let vy = Math.sin(angle) * velocity;
 
@@ -795,7 +983,7 @@ function init() {
       const anim = setInterval(() => {
         posX += vx;
         posY += vy;
-        vy += 0.4; // gravity
+        vy += 0.4;
         opacity -= 0.02;
 
         conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 4}deg)`;
@@ -809,25 +997,23 @@ function init() {
     }
   }
 
-  function triggerTopConfettiRain() {
+  function triggerOriginalTopRain() {
     const confettiColors = ['#d4af37', '#e5c378', '#f9e79f', '#c9a86a', '#a31d24', '#7d181c', '#c0392b', '#ffffff', '#fff8ea'];
-    const count = 67; // Reduced ~10% (from 75)
+    const count = 55;
     for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
       conf.style.zIndex = '99999';
       conf.style.left = (Math.random() * window.innerWidth) + 'px';
       conf.style.top = (-20 - Math.random() * 60) + 'px';
-      const w = 6 + Math.random() * 9;
-      const h = 8 + Math.random() * 14;
-      conf.style.width = w + 'px';
-      conf.style.height = h + 'px';
+      conf.style.width = (6 + Math.random() * 8) + 'px';
+      conf.style.height = (8 + Math.random() * 12) + 'px';
       conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
       conf.style.borderRadius = Math.random() < 0.25 ? '50%' : '2px';
       conf.style.pointerEvents = 'none';
 
-      let vx = (Math.random() - 0.5) * 3.2;
-      let vy = 3.5 + Math.random() * 6.0;
+      let vx = (Math.random() - 0.5) * 3.0;
+      let vy = 3.5 + Math.random() * 5.5;
       let rot = Math.random() * 360;
       let rotSpeed = (Math.random() - 0.5) * 12;
 
@@ -837,14 +1023,13 @@ function init() {
       let posY = 0;
       let opacity = 1;
 
-      // Random delay up to 400ms for natural cascading arrival
-      const startDelay = Math.random() * 420;
+      const startDelay = Math.random() * 400;
       setTimeout(() => {
         const anim = setInterval(() => {
           posX += vx;
           posY += vy;
           rot += rotSpeed;
-          vy += 0.12; // gentle gravity
+          vy += 0.12;
           if (posY > window.innerHeight * 0.75) {
             opacity -= 0.025;
           }
@@ -862,23 +1047,27 @@ function init() {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     CONTINUOUS AMBIENT FALLING CONFETTI & TWINKLE SPARKLES ENGINE
+     CONTINUOUS AMBIENT DRIFTING PETALS & GOLD LEAF ENGINE
      ───────────────────────────────────────────────────────────── */
-  let ambientConfettiRunning = false;
-  let ambientConfettiAnimId = null;
+  let ambientAnimationRunning = false;
+  let ambientAnimationAnimId = null;
 
   function startAmbientConfetti() {
-    if (ambientConfettiRunning) return;
+    if (CELEBRATION_MODE === 'none') return;
+    if (ambientAnimationRunning) return;
+
     const canvas = document.getElementById('ambient-confetti-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    ambientConfettiRunning = true;
+    ambientAnimationRunning = true;
 
-    // Respect reduced motion - particle counts reduced by 10%
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const particleCount = prefersReducedMotion ? 29 : 72; // Reduced ~10% (from 32 / 80)
+    const isMobile = window.innerWidth <= 768;
+
+    // Elegant, tranquil density: ~34 on desktop, ~20 on mobile/reduced motion
+    const particleCount = prefersReducedMotion ? 18 : (isMobile ? 22 : 36);
 
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
@@ -890,48 +1079,38 @@ function init() {
     }
     window.addEventListener('resize', handleResize);
 
-    // Luxury Western Quince Palette: Rich Champagne Gold, Warm Amber, Velvet Crimson, Shimmer Ivory
-    const palette = [
-      '#d4af37', // metallic gold
-      '#e5c378', // bright champagne gold
-      '#f9e79f', // pale shimmer gold
-      '#c9a86a', // antique gold
-      '#b8860b', // dark goldenrod
-      '#a31d24', // velvet crimson
-      '#7d181c', // deep burgundy
-      '#c0392b', // classic fiesta crimson
-      '#ffffff', // diamond star sparkle
-      '#fff8ea'  // warm ivory pearl
-    ];
+    function createPetal(initialY) {
+      const rand = Math.random();
+      const isGoldLeaf = rand < 0.18;
+      const isTwinkleStar = !isGoldLeaf && rand < 0.28;
+      const isBurgundy = !isGoldLeaf && !isTwinkleStar && rand < 0.65;
+      const size = isGoldLeaf ? (7 + Math.random() * 6) : (10 + Math.random() * 8);
 
-    function createParticle(initialY) {
-      const isStar = Math.random() < 0.22;
-      const isCircle = !isStar && Math.random() < 0.26;
-      const size = 6 + Math.random() * 8;
       return {
         x: Math.random() * width,
-        y: initialY !== undefined ? initialY : -15 - Math.random() * 30,
+        y: initialY !== undefined ? initialY : -20 - Math.random() * 40,
         size: size,
-        color: palette[Math.floor(Math.random() * palette.length)],
-        isStar: isStar,
-        isCircle: isCircle,
-        vy: 0.75 + Math.random() * 1.25,
-        vx: (Math.random() - 0.5) * 0.4,
-        wobble: Math.random() * Math.PI * 2,
-        wobbleSpeed: 0.018 + Math.random() * 0.025,
+        isGoldLeaf: isGoldLeaf,
+        isTwinkleStar: isTwinkleStar,
+        isBurgundy: isBurgundy,
+        vy: 0.55 + Math.random() * 0.75, // slow, peaceful descent
+        sway: Math.random() * Math.PI * 2,
+        swaySpeed: 0.012 + Math.random() * 0.018,
+        swayAmp: 0.65 + Math.random() * 0.85,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.015,
         tilt: Math.random() * Math.PI * 2,
-        tiltSpeed: 0.025 + Math.random() * 0.045,
-        opacity: 0.65 + Math.random() * 0.35,
+        tiltSpeed: 0.018 + Math.random() * 0.032,
+        opacity: 0.55 + Math.random() * 0.35,
         starPoints: 4,
-        starInner: size * 0.32,
-        starOuter: size * 0.88
+        starInner: size * 0.28,
+        starOuter: size * 0.85
       };
     }
 
-    // Populate initial particles across the viewport so celebration is immediately visible
     const particles = [];
     for (let i = 0; i < particleCount; i++) {
-      particles.push(createParticle(Math.random() * height));
+      particles.push(createPetal(Math.random() * height));
     }
 
     function drawStar(c, cx, cy, spikes, outerRadius, innerRadius) {
@@ -956,12 +1135,65 @@ function init() {
       c.fill();
     }
 
-    function render() {
-      if (!ambientConfettiRunning) return;
+    function drawOrganicPetal(c, p) {
+      c.save();
+      c.translate(p.x, p.y);
+      c.rotate(p.rotation);
 
-      // Pause rendering if tab is in the background to save CPU & battery
+      // 3D tumble flip along horizontal axis
+      const flipX = Math.cos(p.tilt);
+      c.scale(flipX, 1);
+
+      const s = p.size;
+      c.beginPath();
+      // Organic rose petal contour: narrow base, billowing soft rounded lobes, gentle tip
+      c.moveTo(0, -s * 0.85);
+      c.bezierCurveTo(s * 0.72, -s * 0.65, s * 0.88, s * 0.55, 0, s * 0.95);
+      c.bezierCurveTo(-s * 0.88, s * 0.55, -s * 0.72, -s * 0.65, 0, -s * 0.85);
+      c.closePath();
+
+      // Velvety radial gradient with soft directional lighting
+      const grad = c.createRadialGradient(-s * 0.15, -s * 0.25, s * 0.1, 0, 0, s);
+      if (p.isGoldLeaf) {
+        grad.addColorStop(0, '#fef08a');
+        grad.addColorStop(0.45, '#d4af37');
+        grad.addColorStop(0.85, '#b45309');
+        grad.addColorStop(1, '#78350f');
+      } else if (p.isBurgundy) {
+        grad.addColorStop(0, '#991b1b');
+        grad.addColorStop(0.5, '#681014');
+        grad.addColorStop(0.9, '#42070a');
+        grad.addColorStop(1, '#250304');
+      } else {
+        // Classic velvet crimson
+        grad.addColorStop(0, '#dc2626');
+        grad.addColorStop(0.4, '#a31d24');
+        grad.addColorStop(0.8, '#701015');
+        grad.addColorStop(1, '#450608');
+      }
+
+      c.globalAlpha = p.opacity;
+      c.fillStyle = grad;
+      c.fill();
+
+      // Subtle delicate center crease on larger petals
+      if (!p.isGoldLeaf && s > 11) {
+        c.beginPath();
+        c.moveTo(0, -s * 0.7);
+        c.quadraticCurveTo(s * 0.08, 0, 0, s * 0.75);
+        c.strokeStyle = 'rgba(255, 210, 215, 0.16)';
+        c.lineWidth = 1;
+        c.stroke();
+      }
+
+      c.restore();
+    }
+
+    function render() {
+      if (!ambientAnimationRunning) return;
+
       if (document.hidden) {
-        ambientConfettiAnimId = requestAnimationFrame(render);
+        ambientAnimationAnimId = requestAnimationFrame(render);
         return;
       }
 
@@ -970,55 +1202,45 @@ function init() {
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        p.wobble += p.wobbleSpeed;
+        p.sway += p.swaySpeed;
         p.tilt += p.tiltSpeed;
+        p.rotation += p.rotationSpeed;
         p.y += p.vy;
-        p.x += Math.sin(p.wobble) * 0.75 + p.vx;
+        p.x += Math.sin(p.sway) * p.swayAmp;
 
-        // Reset particle when it glides past bottom
+        // Reset particle when it floats past screen bottom
         if (p.y > height + 25) {
-          particles[i] = createParticle(-15);
+          particles[i] = createPetal(-20);
           continue;
         }
-        if (p.x < -25) p.x = width + 25;
-        else if (p.x > width + 25) p.x = -25;
+        if (p.x < -30) p.x = width + 30;
+        else if (p.x > width + 30) p.x = -30;
 
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.wobble * 0.8);
-
-        if (p.isStar) {
-          const twinkle = 0.5 + 0.5 * Math.sin(p.wobble * 2.5);
+        if (p.isTwinkleStar) {
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation);
+          const twinkle = 0.4 + 0.6 * Math.sin(p.sway * 2.2);
           ctx.globalAlpha = p.opacity * twinkle;
-          ctx.fillStyle = p.color;
-          drawStar(ctx, 0, 0, p.starPoints, p.starOuter, p.starInner);
-        } else if (p.isCircle) {
-          ctx.globalAlpha = p.opacity;
-          ctx.fillStyle = p.color;
-          ctx.beginPath();
-          ctx.ellipse(0, 0, p.size * 0.45, p.size * 0.35, p.tilt, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.fillStyle = '#fef08a';
+          ctx.shadowColor = '#d4af37';
+          ctx.shadowBlur = 6;
+          drawStar(ctx, 0, 0, p.starPoints, p.starOuter * 0.65, p.starInner * 0.65);
+          ctx.restore();
         } else {
-          // 3D fluttering foil flake
-          const tiltWidth = Math.cos(p.tilt) * p.size;
-          ctx.globalAlpha = p.opacity;
-          ctx.fillStyle = p.color;
-          ctx.beginPath();
-          ctx.rect(-tiltWidth / 2, -p.size * 0.65, tiltWidth, p.size * 1.3);
-          ctx.fill();
+          drawOrganicPetal(ctx, p);
         }
-
-        ctx.restore();
       }
 
-      ambientConfettiAnimId = requestAnimationFrame(render);
+      ambientAnimationAnimId = requestAnimationFrame(render);
     }
 
-    ambientConfettiAnimId = requestAnimationFrame(render);
+    ambientAnimationAnimId = requestAnimationFrame(render);
   }
 
   // Expose on window for manual triggers or inspection
   window.startAmbientConfetti = startAmbientConfetti;
+  window.startAmbientPetals = startAmbientConfetti;
 
   /* ─────────────────────────────────────────────────────────────
      COPY VENUE ADDRESS FUNCTIONALITY
