@@ -143,7 +143,7 @@ function init() {
       'entry-subtitle': 'GRECIA YORLEI • MIS XV AÑOS',
       'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
       'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
-      'invite-quince': 'XV Años',
+      'invite-quince': 'Los XV Años',
       'card-celebrant': 'GRECIA YORLEI',
       'invite-parents': 'NANSI Y JOSÉ DUEÑAS',
       'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR',
