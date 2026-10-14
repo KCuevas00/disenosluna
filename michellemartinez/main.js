@@ -55,12 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const translations = {
     es: {
       'entry-invited': '¡Estás Invitada!',
-      'entry-subtitle': 'MICHELLE MARTINEZ • MIS XV AÑOS',
+      'entry-subtitle': 'MICHELLE MARTINEZ • XV AÑOS',
       'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
       'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
-      'invite-quince': 'Mis XV Años',
+      'invite-quince': 'XV Años',
       'invite-parents': 'HERASMO Y GRISELDA MARTINEZ',
-      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR',
       'invite-daughter': 'DE SU HIJA',
       'invite-date-month': 'NOV',
       'invite-date-day': 'VIERNES',
