@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 36" width="100%" height="100%">
+  <defs>
+    <linearGradient id="divSilver" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#cbd5e1" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#cbd5e1" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="divLilac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left horizontal filigree line -->
+  <line x1="20" y1="18" x2="160" y2="18" stroke="url(#divSilver)" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Left scroll detail -->
+  <path d="M 140,18 C 150,14 158,12 165,16 C 170,18 168,22 162,21" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="130" cy="18" r="1.5" fill="#c084fc"/>
+
+  <!-- Right horizontal filigree line -->
+  <line x1="240" y1="18" x2="380" y2="18" stroke="url(#divSilver)" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Right scroll detail -->
+  <path d="M 260,18 C 250,14 242,12 235,16 C 230,18 232,22 238,21" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="270" cy="18" r="1.5" fill="#c084fc"/>
+
+  <!-- Center Venetian Mini Masquerade Mask -->
+  <g transform="translate(182, 6)">
+    <!-- Mask Body -->
+    <path d="M 18,7
+             C 15,3 10,1 4,2
+             C 0,3 -3,8 -2,13
+             C -1,18 4,23 11,23
+             C 15,23 17,20 18,17
+             C 19,20 21,23 25,23
+             C 32,23 37,18 38,13
+             C 39,8 36,3 32,2
+             C 26,1 21,3 18,7 Z"
+          fill="#131118" stroke="url(#divSilver)" stroke-width="1.4" stroke-linejoin="round"/>
+    <!-- Left Eye -->
+    <ellipse cx="9" cy="12" rx="4" ry="2.2" fill="#ffffff" stroke="#94a3b8" stroke-width="0.8"/>
+    <!-- Right Eye -->
+    <ellipse cx="27" cy="12" rx="4" ry="2.2" fill="#ffffff" stroke="#94a3b8" stroke-width="0.8"/>
+    <!-- Center Top Jewel -->
+    <circle cx="18" cy="4" r="1.6" fill="url(#divLilac)" stroke="#ffffff" stroke-width="0.7"/>
+  </g>
+</svg>
