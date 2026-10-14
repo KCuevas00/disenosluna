@@ -345,11 +345,6 @@ function init() {
     if (!bgAudio) return;
     bgAudio.volume = 0.85;
 
-    // Call load() once if not yet ready
-    if (bgAudio.readyState === 0) {
-      bgAudio.load();
-    }
-
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
@@ -367,11 +362,8 @@ function init() {
                 audioUnlocked = true;
                 updatePlayState(true);
               }).catch(() => {});
-              ['touchend', 'click', 'pointerup'].forEach(evt => {
-                window.removeEventListener(evt, unlockOnNextTouch);
-              });
             };
-            ['touchend', 'click', 'pointerup'].forEach(evt => {
+            ['touchend', 'click'].forEach(evt => {
               window.addEventListener(evt, unlockOnNextTouch, { once: true, passive: true });
             });
           }
@@ -405,20 +397,15 @@ function init() {
   });
 
   if (audioToggleBtn) {
-    const handleToggle = (e) => {
+    audioToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (e.cancelable && e.type !== 'click') {
-        e.preventDefault();
-      }
       if (isAudioPlaying) {
         wasAudioPlayingBeforeHide = false;
         pauseAudio();
       } else {
         playAudio();
       }
-    };
-    audioToggleBtn.addEventListener('click', handleToggle);
-    audioToggleBtn.addEventListener('touchend', handleToggle, { passive: false });
+    });
   }
 
   function updateSongTickerOffset() {
@@ -514,29 +501,34 @@ function init() {
   // Expose on window for inline HTML onclick handlers & console accessibility
   window.openEnvelope = openEnvelope;
 
-  // Bind click, touch, and pointer events to all interactive envelope elements
-  function bindOpenTrigger(el) {
-    if (!el) return;
-    ['click', 'touchend', 'pointerup'].forEach(evt => {
-      el.addEventListener(evt, (e) => {
-        if (e.cancelable && evt !== 'click') {
-          e.preventDefault();
-        }
-        openEnvelope();
-      }, { passive: false });
+  // Bind click & key triggers to interactive envelope elements (preserving native user gesture context for audio)
+  if (waxSealBtn) {
+    waxSealBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openEnvelope();
     });
   }
 
-  bindOpenTrigger(waxSealBtn);
-  bindOpenTrigger(innerSealBtn);
-  bindOpenTrigger(envelope);
-  bindOpenTrigger(envFlap);
-  bindOpenTrigger(overlay);
+  if (innerSealBtn && innerSealBtn !== waxSealBtn) {
+    innerSealBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openEnvelope();
+    });
+  }
 
   if (envelope) {
+    envelope.addEventListener('click', openEnvelope);
     envelope.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
+        openEnvelope();
+      }
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
         openEnvelope();
       }
     });
