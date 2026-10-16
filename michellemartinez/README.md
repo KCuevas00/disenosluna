@@ -38,7 +38,7 @@
   > “Con mucha alegría y con el corazón lleno de amor, tenemos el honor de invitarles a celebrar los XV años de nuestra querida hija, Michelle Martinez. Este día tan especial marca una etapa hermosa en su vida, y nos llena de felicidad poder compartir este momento tan importante con nuestros familiares y amigos. Será un honor contar con su presencia para celebrar juntos esta ocasión inolvidable, llena de amor y alegria y bendiciones..”
 
 ## Guest Details & Registry
-- **Dress Code**: None provided
+- **Dress Code**: Traje Formal / Formal (No morado / No purple — reservado para la Quinceañera)
 - **Gift Registry / Wishing Well**:
   > “Tu presencia en este dia tan especial es el regalo mas hermoso. Si deseas obsequiarme un detalle aditional habra una lluvia de sonbres durante la celebracion. Gracias por acompañar y ser parte de un recuerdo que guardare siempre en mi corazon.”
 
