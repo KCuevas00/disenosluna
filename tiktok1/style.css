@@ -541,8 +541,8 @@ body.site-entered .lang-control-bar {
   height: 220px;
   max-width: 48vw;
   max-height: 48vw;
-  transform: scaleX(-1) rotate(-8deg);
-  transform-origin: center center;
+  transform: none;
+  transform-origin: top left;
   opacity: 1 !important;
 }
 
@@ -553,8 +553,8 @@ body.site-entered .lang-control-bar {
   height: 220px;
   max-width: 48vw;
   max-height: 48vw;
-  transform: rotate(-8deg);
-  transform-origin: center center;
+  transform: none;
+  transform-origin: top right;
   opacity: 1 !important;
 }
 
@@ -566,7 +566,7 @@ body.site-entered .lang-control-bar {
   max-width: 48vw;
   max-height: 48vw;
   transform: none;
-  transform-origin: center center;
+  transform-origin: bottom left;
   opacity: 1 !important;
 }
 
@@ -577,8 +577,8 @@ body.site-entered .lang-control-bar {
   height: 220px;
   max-width: 48vw;
   max-height: 48vw;
-  transform: scaleX(-1);
-  transform-origin: center center;
+  transform: none;
+  transform-origin: bottom right;
   opacity: 1 !important;
 }
 
@@ -2356,37 +2356,43 @@ body.site-entered .lang-control-bar {
 .letter-floral {
   position: absolute;
   z-index: 1;
-  opacity: 1;
+  opacity: 0.95;
   pointer-events: none;
-  filter: drop-shadow(0 2px 4px rgba(74, 55, 32, 0.18));
+  filter: drop-shadow(0 2px 4px rgba(74, 55, 32, 0.16));
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .floral-r {
-  width: 120px;
-  top: -16px;
-  left: -24px;
-  transform: rotate(-15deg);
+  width: 96px;
+  height: 96px;
+  top: -14px;
+  left: -20px;
+  transform: none;
 }
 
 .floral-s {
-  width: 130px;
-  top: -18px;
-  right: -28px;
-  transform: rotate(15deg);
+  width: 96px;
+  height: 96px;
+  top: -14px;
+  right: -20px;
+  transform: none;
 }
 
 .floral-v {
-  width: 110px;
-  bottom: -18px;
-  left: -24px;
-  transform: rotate(-10deg);
+  width: 96px;
+  height: 96px;
+  bottom: -14px;
+  left: -20px;
+  transform: none;
 }
 
 .floral-p {
-  width: 115px;
-  top: -16px;
+  width: 96px;
+  height: 96px;
+  bottom: -14px;
   right: -20px;
-  transform: rotate(12deg);
+  transform: none;
 }
 
 .rsvp-callout-block {
@@ -2772,22 +2778,23 @@ body.site-entered .lang-control-bar {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #eee5f6;
+  background-color: #fbf8f3;
   background-image:
     /* luminous clearing behind the envelope */
-    radial-gradient(ellipse 60% 48% at 50% 48%, rgba(255, 255, 255, 0.95) 0%, rgba(248, 240, 255, 0.6) 45%, transparent 78%),
-    /* soft lavender sky */
-    linear-gradient(180deg, #f8f4fc 0%, #eee5f6 45%, #dac5f0 100%) !important;
+    radial-gradient(ellipse 60% 48% at 50% 48%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 250, 242, 0.85) 45%, transparent 78%),
+    radial-gradient(ellipse 80% 38% at 10% 100%, rgba(229, 213, 170, 0.35) 0%, transparent 72%),
+    /* warm ivory champagne sky */
+    linear-gradient(180deg, #fffdfa 0%, #fbf5eb 48%, #f7ece0 80%, #edd8c2 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s;
 }
 
-/* Static cloud layers: lavender shading underneath, white cloud banks on top */
+/* Static cloud layers: warm champagne shading underneath, white cloud banks on top */
 .entry-overlay::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0050 0.0090' numOctaves='5' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.52 0 0 0 0 0.80 0 0 0 2.2 -0.8'/%3E%3C/filter%3E%3Crect width='1000' height='1000' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0050 0.0090' numOctaves='5' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.88 0 0 0 0 0.76 0 0 0 2.2 -0.8'/%3E%3C/filter%3E%3Crect width='1000' height='1000' filter='url(%23c)'/%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
   opacity: 0.75;
@@ -4104,8 +4111,8 @@ html.og-mode .entry-stage-mount {
     left: -8px;
     width: 140px;
     height: 140px;
-    transform: scaleX(-1) rotate(-8deg);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: top left;
   }
 
   .flower-card-top-right {
@@ -4113,8 +4120,8 @@ html.og-mode .entry-stage-mount {
     right: -8px;
     width: 140px;
     height: 140px;
-    transform: rotate(-8deg);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: top right;
   }
 
   .flower-card-bottom-left {
@@ -4123,7 +4130,7 @@ html.og-mode .entry-stage-mount {
     width: 140px;
     height: 140px;
     transform: none;
-    transform-origin: center center;
+    transform-origin: bottom left;
   }
 
   .flower-card-bottom-right {
@@ -4131,8 +4138,8 @@ html.og-mode .entry-stage-mount {
     right: -8px;
     width: 140px;
     height: 140px;
-    transform: scaleX(-1);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: bottom right;
   }
 
   /* Mobile Floating Utility Controls (Language Left, Music Right) */
@@ -4222,8 +4229,8 @@ html.og-mode .entry-stage-mount {
     left: -8px;
     width: 140px;
     height: 140px;
-    transform: scaleX(-1) rotate(-8deg);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: top left;
   }
 
   .flower-card-top-right {
@@ -4231,8 +4238,8 @@ html.og-mode .entry-stage-mount {
     right: -8px;
     width: 140px;
     height: 140px;
-    transform: rotate(-8deg);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: top right;
   }
 
   .flower-card-bottom-left {
@@ -4241,7 +4248,7 @@ html.og-mode .entry-stage-mount {
     width: 140px;
     height: 140px;
     transform: none;
-    transform-origin: center center;
+    transform-origin: bottom left;
   }
 
   .flower-card-bottom-right {
@@ -4249,8 +4256,8 @@ html.og-mode .entry-stage-mount {
     right: -8px;
     width: 140px;
     height: 140px;
-    transform: scaleX(-1);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: bottom right;
   }
 
   .cover-section {
@@ -4506,8 +4513,8 @@ html.og-mode .entry-stage-mount {
     left: -16px;
     width: 130px;
     height: 130px;
-    transform: scaleX(-1) rotate(-8deg);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: top left;
   }
 
   .flower-card-top-right {
@@ -4515,8 +4522,8 @@ html.og-mode .entry-stage-mount {
     right: -16px;
     width: 130px;
     height: 130px;
-    transform: rotate(-8deg);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: top right;
   }
 
   .flower-card-bottom-left {
@@ -4525,7 +4532,7 @@ html.og-mode .entry-stage-mount {
     width: 130px;
     height: 130px;
     transform: none;
-    transform-origin: center center;
+    transform-origin: bottom left;
   }
 
   .flower-card-bottom-right {
@@ -4533,8 +4540,8 @@ html.og-mode .entry-stage-mount {
     right: -16px;
     width: 130px;
     height: 130px;
-    transform: scaleX(-1);
-    transform-origin: center center;
+    transform: none;
+    transform-origin: bottom right;
   }
 
   .flower-top-right {
