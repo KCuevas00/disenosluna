@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" width="100%" height="100%">
+  <defs>
+    <radialGradient id="hatFeltGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fffdf7" />
+      <stop offset="60%" stop-color="#f5ede0" />
+      <stop offset="100%" stop-color="#ddceb7" />
+    </radialGradient>
+    <linearGradient id="goldBraid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd978" />
+      <stop offset="35%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#a87f1d" />
+      <stop offset="100%" stop-color="#ffd978" />
+    </linearGradient>
+    <linearGradient id="roseRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c41e3a" />
+      <stop offset="60%" stop-color="#8b0000" />
+      <stop offset="100%" stop-color="#5a0008" />
+    </linearGradient>
+    <filter id="hatShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4a2810" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <g filter="url(#hatShadow)">
+    <!-- Wide Charro Brim -->
+    <path d="M 12 70 C 18 54, 50 50, 80 50 C 110 50, 142 54, 148 70 C 142 84, 108 88, 80 88 C 52 88, 18 84, 12 70 Z"
+          fill="url(#hatFeltGrad)" stroke="#c59b27" stroke-width="2" />
+
+    <!-- Brim Under-roll / Rim Edge -->
+    <path d="M 16 69 C 30 57, 56 54, 80 54 C 104 54, 130 57, 144 69 C 136 81, 106 84, 80 84 C 54 84, 24 81, 16 69 Z"
+          fill="none" stroke="url(#goldBraid)" stroke-width="1.6" stroke-dasharray="3,2" />
+
+    <!-- Ornate Brim Embroidery (Mexican Charro Style) -->
+    <path d="M 28 69 Q 34 63, 42 67 Q 50 63, 58 67 Q 66 63, 74 67 Q 80 63, 86 67 Q 94 63, 102 67 Q 110 63, 118 67 Q 126 63, 132 69"
+          fill="none" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round" />
+
+    <!-- Crown Body -->
+    <path d="M 52 52 C 50 36, 56 22, 68 18 C 76 15, 84 15, 92 18 C 104 22, 110 36, 108 52 Z"
+          fill="url(#hatFeltGrad)" stroke="#c59b27" stroke-width="1.8" />
+
+    <!-- Crown Creases / Charro Indentations -->
+    <path d="M 72 17 C 76 22, 78 30, 80 44" fill="none" stroke="#b59a7a" stroke-width="1.8" opacity="0.6" stroke-linecap="round" />
+    <path d="M 88 17 C 84 22, 82 30, 80 44" fill="none" stroke="#d8c5aa" stroke-width="1.4" opacity="0.8" stroke-linecap="round" />
+
+    <!-- Toquilla / Hat Band in Gold & Crimson -->
+    <path d="M 51 51 C 60 48, 100 48, 109 51 L 109 56 C 100 53, 60 53, 51 56 Z"
+          fill="url(#roseRed)" stroke="url(#goldBraid)" stroke-width="1" />
+    <path d="M 53 53.5 C 62 50.5, 98 50.5, 107 53.5"
+          fill="none" stroke="url(#goldBraid)" stroke-width="1.4" stroke-dasharray="2,1.5" />
+
+    <!-- Central Gold Buckle / Brooch -->
+    <circle cx="80" cy="53.5" r="3.5" fill="url(#goldBraid)" stroke="#8b0000" stroke-width="0.8" />
+    <circle cx="80" cy="53.5" r="1.5" fill="#fffdf7" />
+
+    <!-- Delicate Charro Chin Cord Loop -->
+    <path d="M 50 56 C 56 74, 104 74, 110 56" fill="none" stroke="url(#goldBraid)" stroke-width="1.2" stroke-linecap="round" opacity="0.85" />
+  </g>
+</svg>

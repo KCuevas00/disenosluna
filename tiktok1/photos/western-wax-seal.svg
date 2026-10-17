@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <radialGradient id="redWaxBase" cx="35%" cy="30%" r="72%">
+      <stop offset="0%" stop-color="#e62e49" />
+      <stop offset="25%" stop-color="#b21a30" />
+      <stop offset="60%" stop-color="#800010" />
+      <stop offset="85%" stop-color="#4d0008" />
+      <stop offset="100%" stop-color="#260004" />
+    </radialGradient>
+    <radialGradient id="redInnerBed" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#d9233d" />
+      <stop offset="50%" stop-color="#8b0012" />
+      <stop offset="90%" stop-color="#54000a" />
+      <stop offset="100%" stop-color="#360005" />
+    </radialGradient>
+    <linearGradient id="goldSealEmboss" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2bd" />
+      <stop offset="40%" stop-color="#d4af37" />
+      <stop offset="80%" stop-color="#997214" />
+      <stop offset="100%" stop-color="#e6c25e" />
+    </linearGradient>
+    <filter id="sealShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1f0003" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <g filter="url(#sealShadow)">
+    <!-- Organic Pressed Wax Outer Rim -->
+    <path d="M 50 4 C 62 3, 72 7, 82 14 C 92 22, 97 34, 96 46 C 97 60, 92 74, 82 84 C 72 93, 58 97, 46 96 C 32 97, 18 90, 11 80 C 3 69, 3 55, 6 42 C 4 28, 14 14, 28 7 C 36 3, 44 4, 50 4 Z"
+          fill="url(#redWaxBase)" />
+
+    <!-- Raised Beveled Ridge -->
+    <circle cx="50" cy="50" r="41" fill="none" stroke="#ff4d67" stroke-width="1.2" stroke-opacity="0.4" />
+    <circle cx="50" cy="50" r="39.5" fill="none" stroke="#260004" stroke-width="1.5" stroke-opacity="0.6" />
+
+    <!-- Recessed Stamped Center Bed -->
+    <circle cx="50" cy="50" r="36" fill="url(#redInnerBed)" />
+
+    <!-- Engraved Concentric Rings -->
+    <circle cx="50" cy="50" r="33.5" fill="none" stroke="url(#goldSealEmboss)" stroke-width="1.2" stroke-opacity="0.8" />
+    <circle cx="50" cy="50" r="31.8" fill="none" stroke="#260004" stroke-width="0.8" stroke-opacity="0.5" />
+
+    <!-- Embossed Golden Horseshoe Centerpiece with Monogram 'A' -->
+    <g transform="translate(50, 48) scale(0.48)">
+      <!-- Horseshoe -->
+      <path d="M -30 -34 C -30 -44, -18 -44, -16 -34 L -16 6 C -16 30, -6 48, 8 48 C 22 48, 32 30, 32 6 L 32 -34 C 34 -44, 46 -44, 46 -34 L 46 6 C 46 40, 30 60, 8 60 C -14 60, -30 40, -30 6 Z"
+            fill="url(#goldSealEmboss)" stroke="#593b05" stroke-width="2" />
+
+      <!-- Center Script Letter A for Alondra -->
+      <text x="8" y="16" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="34" font-weight="bold" fill="url(#goldSealEmboss)" stroke="#4a2800" stroke-width="0.8">A</text>
+    </g>
+
+    <!-- Top-Left Subtle Specular Wax Highlight Arc -->
+    <path d="M 22 28 A 36 36 0 0 1 50 14" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.4" />
+  </g>
+</svg>
