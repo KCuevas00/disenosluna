@@ -209,13 +209,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  let currentLang = 'es';
+  let currentLang = 'en';
   let userSelectedLang = false;
 
-  function applyLanguage(lang = 'es') {
+  function applyLanguage(lang = 'en') {
     currentLang = lang;
     document.documentElement.lang = lang;
-    const dict = translations[lang] || translations.es;
+    const dict = translations[lang] || translations.en;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -252,8 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Default strictly to Spanish on startup
-  applyLanguage('es');
+  // Default strictly to English on startup
+  applyLanguage('en');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
   function initControlToggles() {
@@ -659,9 +659,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (envelopeOpened) return;
     envelopeOpened = true;
 
-    // Default to Spanish upon opening the invite unless English was explicitly chosen
-    if (!userSelectedLang || currentLang !== 'en') {
-      applyLanguage('es');
+    // Default to English upon opening the invite unless Spanish was explicitly chosen
+    if (!userSelectedLang || currentLang !== 'es') {
+      applyLanguage('en');
     }
 
     // 1. Open envelope flap and glide up invitation card
