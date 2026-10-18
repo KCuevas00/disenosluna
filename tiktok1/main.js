@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initControlToggles();
 
   /* ─────────────────────────────────────────────────────────────
-     2. AUDIO CONTROLLER & SONG PREVIEW TICKER (Selena - Dreaming of You)
+     2. AUDIO CONTROLLER & SONG PREVIEW TICKER (Peso Pluma & Tito Double P - Daño)
      ───────────────────────────────────────────────────────────── */
   const bgAudio = document.getElementById('bg-audio');
   const audioToggleBtn = document.getElementById('audio-toggle-btn');
