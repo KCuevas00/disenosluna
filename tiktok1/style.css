@@ -2573,12 +2573,14 @@ body.site-entered .lang-control-bar {
   justify-content: center;
   padding: 1rem;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .rsvp-modal-overlay.is-active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -3115,7 +3117,8 @@ body.site-entered #entry-popup-overlay:not(.fade-out) * {
 
 html.og-mode #entry-lang-picker,
 html.og-mode #lang-control-bar,
-html.og-mode #audio-control-bar {
+html.og-mode #audio-control-bar,
+html.og-mode #rsvp-modal {
   display: none !important;
 }
 

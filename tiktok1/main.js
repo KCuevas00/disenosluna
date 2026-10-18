@@ -252,8 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Default strictly to English on startup
-  applyLanguage('en');
+  // Default to English on startup unless specified by ?lang=
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  applyLanguage(urlLang === 'es' ? 'es' : 'en');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
   let expandAudioBarFn = null;
