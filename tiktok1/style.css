@@ -179,7 +179,7 @@ body.site-entered {
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease 0.2s, background 0.3s ease, box-shadow 0.3s ease;
+  transition: opacity 0.5s ease 0.2s, background 0.3s ease, box-shadow 0.3s ease, border-radius 0.35s ease, padding 0.35s ease, width 0.35s ease;
 }
 
 body.site-entered .audio-control-bar {
@@ -285,6 +285,24 @@ body.site-entered .audio-control-bar {
   align-items: center;
   opacity: 0.9;
   flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.audio-btn.playing ~ .song-preview-badge .song-note-icon {
+  animation: noteBounce 1.6s ease-in-out infinite;
+  color: var(--gold-accent, #c5a059);
+}
+
+@keyframes noteBounce {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  30% {
+    transform: scale(1.22) rotate(-8deg);
+  }
+  60% {
+    transform: scale(1.12) rotate(6deg);
+  }
 }
 
 .song-marquee-viewport {

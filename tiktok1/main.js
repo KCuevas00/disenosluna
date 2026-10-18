@@ -256,6 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLanguage('en');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
+  let expandAudioBarFn = null;
+
   function initControlToggles() {
     const langBar = document.getElementById('lang-control-bar');
     const langToggle = document.getElementById('lang-collapse-toggle');
@@ -269,12 +271,22 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
     }
 
+    expandAudioBarFn = () => {
+      setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+      setTimeout(updateSongTickerOffset, 60);
+      setTimeout(updateSongTickerOffset, 420);
+    };
+
     function bindToggle(bar, btn, hiddenLabel, shownLabel) {
       if (!bar || !btn) return;
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         bar.dataset.userToggled = 'true';
         setCollapsed(bar, btn, !bar.classList.contains('collapsed'), hiddenLabel, shownLabel);
+        if (bar === audioBar) {
+          setTimeout(updateSongTickerOffset, 60);
+          setTimeout(updateSongTickerOffset, 420);
+        }
       });
     }
 
@@ -676,8 +688,11 @@ document.addEventListener('DOMContentLoaded', () => {
     confettiPetalEngine.start();
     triggerSealConfetti();
 
-    // 3. Start background music automatically
+    // 3. Start background music automatically & auto-expand music player pill
     playAudio();
+    if (expandAudioBarFn) {
+      expandAudioBarFn();
+    }
 
     // 4. Smoothly fade out envelope overlay and unveil main site (1500ms)
     setTimeout(() => {
@@ -686,6 +701,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
+      if (expandAudioBarFn) {
+        expandAudioBarFn();
+      }
       var themeMeta = document.querySelector('meta[name="theme-color"]');
       if (themeMeta) themeMeta.setAttribute('content', '#fbf8f3');
       window.removeEventListener('wheel', blockScrollUntilEntered);
