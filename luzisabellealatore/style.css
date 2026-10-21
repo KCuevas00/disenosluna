@@ -2077,37 +2077,42 @@ body.site-entered .lang-control-bar {
   font-style: normal !important;
 }
 
-/* ── ORGANIC BOTANICAL VIGNETTES (ZERO BOXED BORDERS) ── */
+/* ── ORGANIC BOTANICAL VIGNETTES (ROYAL PLAQUE WITH STORYBOOK ATMOSPHERE) ── */
 .vignette-guidelines-wrap {
   position: relative;
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
-  padding: 0.8rem 1.4rem;
-  background: transparent;
+  padding: 2.2rem 1.6rem 2rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: 24px;
+  box-shadow: 0 16px 42px rgba(45, 79, 59, 0.09), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   overflow: visible;
-  border-radius: 20px;
 }
 
 .vignette-floral-accent {
   position: absolute;
   pointer-events: none;
-  width: 115px;
-  height: 115px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(74, 55, 32, 0.14));
-  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(45, 79, 59, 0.16));
+  z-index: 4;
 }
 
 .vignette-floral-accent.top-right {
-  top: -24px;
-  right: -20px;
-  transform: rotate(90deg);
+  top: -20px;
+  right: -16px;
+  transform: rotate(0deg);
 }
 
 .vignette-floral-accent.bottom-left {
-  bottom: -24px;
-  left: -20px;
+  bottom: -20px;
+  left: -16px;
+  transform: rotate(0deg);
 }
 
 .vignette-item {
@@ -5647,11 +5652,85 @@ body:not(.site-entered) {
   transform: rotate(-12deg);
 }
 
-/* 5. Lluvia de Sobres Hat */
+/* 5. Guidelines & Wishing Well / Registry Watermarks */
+.wm-wrap-guidelines {
+  position: absolute;
+  inset: -15px 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.wm-guidelines-willow {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.wm-guidelines-lily-tl {
+  position: absolute;
+  top: 8%;
+  left: -28px;
+  width: 135px;
+  height: auto;
+  opacity: 0.18;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.wm-guidelines-firefly-tr {
+  position: absolute;
+  top: 28%;
+  right: -12px;
+  width: 50px;
+  height: auto;
+  opacity: 0.38;
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+
+.wm-guidelines-firefly-bl {
+  position: absolute;
+  top: 56%;
+  left: -12px;
+  width: 46px;
+  height: auto;
+  opacity: 0.38;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.wm-guidelines-frog-br {
+  position: absolute;
+  bottom: 2%;
+  right: -20px;
+  width: 125px;
+  height: auto;
+  opacity: 0.24;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
 .wm-wrap-registry {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+}
+
+.wm-reg-frog {
+  width: 130px;
+  max-width: 80%;
+  height: auto;
+  opacity: 0.20;
 }
 
 .wm-reg-hat {
@@ -5768,6 +5847,37 @@ body:not(.site-entered) {
     width: 110px;
     height: 110px;
     opacity: 0.28;
+  }
+
+  .vignette-guidelines-wrap {
+    padding: 2rem 1.1rem 1.8rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .vignette-floral-accent {
+    width: 85px;
+    height: 85px;
+  }
+
+  .vignette-floral-accent.top-right {
+    top: -14px;
+    right: -10px;
+  }
+
+  .vignette-floral-accent.bottom-left {
+    bottom: -14px;
+    left: -10px;
+  }
+
+  .wm-guidelines-lily-tl {
+    width: 95px;
+    left: -16px;
+  }
+
+  .wm-guidelines-frog-br {
+    width: 90px;
+    right: -10px;
   }
 }
 
