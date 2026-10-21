@@ -1,11 +1,11 @@
-# Adriana Diaz — Celebration Submission Details
+# Adriana Diaz — 21st Birthday Celebration Details
 
 ## Order & Package Information
 - **Order Reference**: `DL-2026-HYLTT`
 - **Selected Package**: Basic ($55)
 - **Package Price**: $55.00
 - **Customer Language**: ENGLISH (Text customer in English)
-- **Status**: Live / Verified — English only, no audio track, no live countdown (Basic), all western elements replaced with crimson roses & velvet/satin bows.
+- **Status**: Verified — English only, 21st Birthday celebration, long apple red elegant dress, crimson roses & satin bows.
 
 ## Client & Contact Info
 - **Client Name**: Adriana Diaz
@@ -16,7 +16,7 @@
 - **Language Preference**: English Only
 
 ## Celebration Details
-- **Event Type**: Other Celebration
+- **Event Type**: 21st Birthday Celebration
 - **Celebrant Name**: Adriana
 - **Event Date**: Saturday, December 12, 2026 (`2026-12-12`)
 - **Theme & Colors**: Red / Red Bows ("I want invitation red with like a red bow idk something cute")

@@ -11,7 +11,7 @@
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
 const EVENT_SLUG = 'adrianadiaz';
-const CLIENT_NAME = "Adriana's Celebration (Adriana Diaz)";
+const CLIENT_NAME = "Adriana's 21st Birthday (Adriana Diaz)";
 const CLIENT_EMAIL = 'diazadriana2005@yahoo.com';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -55,17 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const translations = {
     en: {
       'entry-invited': "You're Invited!",
-      'entry-subtitle': 'THE CELEBRATION OF ADRIANA',
+      'entry-subtitle': "ADRIANA'S 21ST BIRTHDAY",
       'seal-hint-desktop': '✦ CLICK TO OPEN ✦',
       'seal-hint-mobile': '✦ TAP TO OPEN ✦',
-      'invite-quince': 'Celebration',
+      'invite-quince': '21st Birthday of',
       'invite-parents': '',
-      'invite-preamble': 'CORDIALLY INVITES YOU TO CELEBRATE',
-      'invite-daughter': 'THE CELEBRATION OF',
+      'invite-preamble': 'CORDIALLY INVITES YOU TO CELEBRATE THE',
+      'invite-daughter': "ADRIANA'S 21ST BIRTHDAY",
       'invite-date-month': 'DEC',
       'invite-date-day': 'SATURDAY',
       'invite-date-time': 'AT 6:00 PM',
-      'countdown-title': 'COUNTING DOWN TO THE CELEBRATION',
+      'countdown-title': 'COUNTING DOWN TO THE 21ST BIRTHDAY',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
       'cd-days': 'Days',
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'rsvp-btn': 'CONFIRM ATTENDANCE',
       'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
-      'modal-title': "Confirm Attendance for Adriana's Celebration",
+      'modal-title': "Confirm Attendance for Adriana's 21st Birthday",
       'modal-subtitle': 'Saturday, December 12, 2026',
       'label-fullname': 'Full Name or Family *',
       'label-phone': 'Phone Number (Optional)',
