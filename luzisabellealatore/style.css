@@ -5487,8 +5487,8 @@ body:not(.site-entered) {
   position: absolute;
   pointer-events: none;
   user-select: none;
-  opacity: 0.40;
-  filter: drop-shadow(0 3px 10px rgba(74, 55, 32, 0.24));
+  opacity: 0.35;
+  filter: drop-shadow(0 3px 12px rgba(45, 79, 59, 0.15));
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -5558,7 +5558,7 @@ body:not(.site-entered) {
   z-index: 2;
 }
 
-/* 1. Hero Title Cowboy Hat Watermark */
+/* 1. Hero Title Water Lily Watermark */
 .wm-wrap-hero-title {
   top: 10%;
   left: 0;
@@ -5573,9 +5573,9 @@ body:not(.site-entered) {
   width: 250px;
   max-width: 82%;
   height: auto;
-  opacity: 0.44;
-  transform: rotate(-6deg) translateY(20px);
-  filter: drop-shadow(0 4px 14px rgba(74, 55, 32, 0.28));
+  opacity: 0.28;
+  transform: rotate(-3deg) translateY(12px);
+  filter: drop-shadow(0 4px 14px rgba(45, 79, 59, 0.18));
 }
 
 /* 2. Countdown Boots & Saguaro Cactus Framing */
