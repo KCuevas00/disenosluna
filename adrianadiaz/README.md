@@ -37,7 +37,7 @@
 - **Dedication Message**: None requested
 - **Gift Registry / Wishing Well**: None requested
 - **Court of Honor / Padrinos**: None requested
-- **RSVP Deadline**: Saturday, November 28, 2026 (Two weeks prior to event)
+- **RSVP Deadline**: Saturday, December 5, 2026 (One week prior to event)
 
 ## Media & Assets
 - **Background Song Request**: None

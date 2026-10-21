@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Your presence is the greatest gift of all.',
       'message-quote': 'With much joy and love in our hearts, we cordially invite you to celebrate with us.',
       'message-signature': 'Adriana',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE NOVEMBER 28, 2026',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE DECEMBER 5, 2026',
       'rsvp-btn': 'CONFIRM ATTENDANCE',
       'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
