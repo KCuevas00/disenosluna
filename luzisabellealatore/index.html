@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9.2.0" />
+  <link rel="stylesheet" href="style.css?v=9.3.0" />
 </head>
 
 <body>
@@ -311,7 +311,7 @@
 
         <!-- Thematic Watermarks behind text -->
         <div class="card-bg-watermark-wrap wm-wrap-hero-title" aria-hidden="true">
-          <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-hero-hat-bg" style="opacity: 0.16;" />
+          <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-hero-hat-bg" style="opacity: 0.30;" />
         </div>
         <div class="text-bg-watermark-wrap" aria-hidden="true">
           <img src="photos/floral-divider.png" alt="" class="text-bg-flower-watermark watermark-hero" style="opacity: 0.22;" />
@@ -419,16 +419,21 @@
           <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark wm-msg-cactus" style="opacity: 0.35; width: 56px; height: auto; transform: rotate(-8deg);" />
         </div>
         <!-- Arch Portrait with Princess Tiara Crest -->
-        <div style="position: relative; display: inline-block; margin-top: 0.8rem;">
-          <div style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); z-index: 10;">
-            <img src="photos/crown-flourish.svg" alt="" width="48" height="34" style="filter: drop-shadow(0 3px 6px rgba(45,79,59,0.35));" />
+        <div style="position: relative; display: inline-block; margin-top: 1.1rem;">
+          <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); z-index: 10;">
+            <img src="photos/crown-flourish.svg" alt="" width="70" height="50" style="filter: drop-shadow(0 4px 10px rgba(45,79,59,0.4));" />
           </div>
           <div class="message-portrait-wrap" style="box-shadow: 0 12px 28px rgba(74, 55, 32, 0.2), 0 0 0 2px #d4af37, 0 0 0 4px #ffffff;">
             <img src="photos/celebrant.png?v=2" alt="Luz Isabella" class="message-portrait-img" style="object-position: center 25%;" />
           </div>
         </div>
 
-        <div class="message-copy">
+        <div class="message-copy" style="position: relative;">
+          <!-- Bayou Willow Garland in background of Luz Isabella's Quote -->
+          <div class="card-bg-watermark-wrap wm-wrap-quote" aria-hidden="true" style="position: absolute; inset: -15px -10px; pointer-events: none; z-index: 1; overflow: visible; display: flex; justify-content: center; align-items: center;">
+            <img src="photos/bayou-willow.png" alt="" class="card-inline-watermark" style="width: 100%; max-width: 460px; height: auto; opacity: 0.28; filter: drop-shadow(0 4px 14px rgba(45,79,59,0.15)); pointer-events: none;" />
+          </div>
+
           <span class="message-quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="message-quote-text" data-i18n="message-quote" style="text-align: center; max-width: 360px; margin: 0 auto 0.75rem;">
             Your love, laughter, and company are requested on this unforgettable evening as we celebrate Luz Isabella's Sweet 16. Let’s make beautiful memories together!
@@ -455,9 +460,8 @@
       </div>
 
       <div class="card-bg-watermark-wrap wm-wrap-program" aria-hidden="true" style="overflow: visible;">
-        <img src="photos/bayou-willow.png" alt="" class="card-inline-watermark" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 580px; height: auto; opacity: 0.22; pointer-events: none;" />
         <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark" style="position: absolute; top: 8%; right: 10%; width: 42px; height: auto; opacity: 0.35; transform: rotate(15deg); pointer-events: none;" />
-        <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-prog-cactus" style="opacity: 0.18;" />
+        <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-prog-cactus" style="opacity: 0.30;" />
       </div>
 
       <!-- Vertical Timeline -->
@@ -564,7 +568,12 @@
     </section>
 
     <!-- ─── ENRICHMENT MODULE 3: RECEPTION VENUE & NAVIGATION CARD ─── -->
-    <section id="reception-venue" class="invite-section venue-section" aria-label="Reception Venue">
+    <section id="reception-venue" class="invite-section venue-section" aria-label="Reception Venue" style="position: relative;">
+      <!-- Bayou Willow Garland in background of Blessing & Reception -->
+      <div class="card-bg-watermark-wrap wm-wrap-venue" aria-hidden="true" style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 580px; height: auto; pointer-events: none; z-index: 1; overflow: visible;">
+        <img src="photos/bayou-willow.png" alt="" class="card-inline-watermark" style="width: 100%; height: auto; opacity: 0.26; filter: drop-shadow(0 4px 14px rgba(45, 79, 59, 0.15));" />
+      </div>
+
       <div class="floral-divider-container scroll-fade-in" aria-hidden="true">
         <img src="photos/divider-gold-filigree.svg" alt="" class="floral-divider-img svg-divider" />
       </div>
@@ -739,8 +748,6 @@
 
       <!-- Atmospheric Theme Watermarks in the background of Dress Code through Wishing Well -->
       <div class="card-bg-watermark-wrap wm-wrap-guidelines" aria-hidden="true">
-        <img src="photos/bayou-willow.png" alt="" class="card-inline-watermark wm-guidelines-willow" />
-        <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-guidelines-lily-tl" />
         <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark wm-guidelines-firefly-tr" />
         <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark wm-guidelines-firefly-bl" />
         <img src="photos/frog-crowned.png" alt="" class="card-inline-watermark wm-guidelines-frog-br" />
@@ -757,7 +764,7 @@
           <!-- 1. DRESS CODE VIGNETTE -->
           <div class="vignette-item dress-vignette scroll-fade-in">
             <div class="card-bg-watermark-wrap" aria-hidden="true">
-              <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg); width: 140px; height: auto; opacity: 0.16;" />
+              <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg); width: 145px; height: auto; opacity: 0.28; filter: drop-shadow(0 4px 12px rgba(45,79,59,0.18));" />
             </div>
 
             <div class="vignette-wishing-emblem" aria-hidden="true">
@@ -781,17 +788,21 @@
             <span class="v-line"></span>
           </div>
 
-          <div class="vignette-item dinner-vignette scroll-fade-in">
-            <div class="vignette-wishing-emblem" aria-hidden="true">
+          <div class="vignette-item dinner-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
+            <div class="card-bg-watermark-wrap" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 0; display: flex; align-items: center; justify-content: center;">
+              <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark" style="width: 150px; height: auto; opacity: 0.28; transform: rotate(10deg); filter: drop-shadow(0 4px 12px rgba(45,79,59,0.18)); pointer-events: none;" />
+            </div>
+
+            <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
               <img src="photos/emblem-dinner-banquet.svg?v=2" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
             </div>
 
-            <h3 class="vignette-headline readable-registry-title">DINNER &amp; LIVE MARIACHI</h3>
-            <p class="vignette-subtitle">RECEPTION BANQUET</p>
+            <h3 class="vignette-headline readable-registry-title" style="position: relative; z-index: 2;">DINNER &amp; LIVE MARIACHI</h3>
+            <p class="vignette-subtitle" style="position: relative; z-index: 2;">RECEPTION BANQUET</p>
 
-            <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+            <div class="vignette-ornament" aria-hidden="true" style="position: relative; z-index: 2;">✦ &nbsp; ❦ &nbsp; ✦</div>
 
-            <p class="vignette-prose">
+            <p class="vignette-prose" style="position: relative; z-index: 2;">
               Dinner will be served from 6:30 PM – 7:30 PM accompanied by live Mariachi, followed by the Waltz and dancing to celebrate Luz Isabella's Sweet 16.
             </p>
           </div>
@@ -897,7 +908,7 @@
       <!-- Deadline Phrasing -->
       <div class="rsvp-callout-block">
         <div class="card-bg-watermark-wrap wm-wrap-rsvp" aria-hidden="true">
-          <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-rsvp-boots-bg" style="opacity: 0.18;" />
+          <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-rsvp-boots-bg" style="opacity: 0.30;" />
           <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark wm-rsvp-bottom-shoe" style="opacity: 0.35; width: 54px; height: auto;" />
         </div>
         <!-- Subtle Botanical Watermark behind RSVP deadline -->

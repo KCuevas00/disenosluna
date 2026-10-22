@@ -2948,8 +2948,8 @@ body.site-entered .lang-control-bar {
   left: 2%;
   width: 175px;
   max-width: 28vw;
-  opacity: 0.95;
-  filter: drop-shadow(0 10px 28px rgba(45, 79, 59, 0.32));
+  opacity: 1.0;
+  filter: drop-shadow(0 10px 28px rgba(45, 79, 59, 0.35));
   animation: pondFloatA 8s ease-in-out infinite alternate;
 }
 
@@ -2970,9 +2970,9 @@ body.site-entered .lang-control-bar {
   left: -15px;
   width: 115px;
   max-width: 18vw;
-  opacity: 0.88;
+  opacity: 0.98;
   transform: rotate(-15deg);
-  filter: drop-shadow(0 8px 22px rgba(45, 79, 59, 0.24));
+  filter: drop-shadow(0 8px 22px rgba(45, 79, 59, 0.28));
   animation: pondFloatC 10s ease-in-out infinite alternate 1.2s;
 }
 
@@ -5611,7 +5611,7 @@ body:not(.site-entered) {
   width: 250px;
   max-width: 82%;
   height: auto;
-  opacity: 0.28;
+  opacity: 0.35;
   transform: rotate(-3deg) translateY(12px);
   filter: drop-shadow(0 4px 14px rgba(45, 79, 59, 0.18));
 }
