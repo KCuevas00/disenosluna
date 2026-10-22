@@ -10,43 +10,83 @@
       <stop offset="0%" stop-color="#c92a39" stop-opacity="0.85"/>
       <stop offset="100%" stop-color="#7c0e18" stop-opacity="0.95"/>
     </linearGradient>
+    <linearGradient id="guitarWoodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2c57b"/>
+      <stop offset="50%" stop-color="#b68932"/>
+      <stop offset="100%" stop-color="#7a5518"/>
+    </linearGradient>
     <filter id="shadowGlass" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#3a1c0d" flood-opacity="0.22"/>
     </filter>
   </defs>
+
   <g filter="url(#shadowGlass)">
-    <!-- Celebration Sparkles at Clink -->
-    <path d="M 40 18 L 41.5 22.5 L 46 24 L 41.5 25.5 L 40 30 L 38.5 25.5 L 34 24 L 38.5 22.5 Z" fill="#d4af37"/>
-    <circle cx="34" cy="18" r="1.3" fill="#d4af37"/>
-    <circle cx="47" cy="19" r="1.5" fill="#d4af37"/>
-    <circle cx="40" cy="12" r="1.2" fill="#d4af37"/>
+    <!-- Celebration Sparkles & Musical Notes -->
+    <path d="M 40 10 L 41.5 13.5 L 45 15 L 41.5 16.5 L 40 20 L 38.5 16.5 L 35 15 L 38.5 13.5 Z" fill="#d4af37"/>
+    <circle cx="28" cy="14" r="1.2" fill="#d4af37"/>
+    <circle cx="52" cy="13" r="1.4" fill="#d4af37"/>
+    
+    <!-- Floating Musical Notes (Mariachi Melody) -->
+    <!-- Note 1 (Left) -->
+    <path d="M 20 18 L 24 16.5 L 24 23 M 20 18 L 20 25" stroke="url(#goldGradGlass)" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+    <circle cx="19" cy="25" r="1.8" fill="url(#goldGradGlass)"/>
+    <circle cx="23" cy="23" r="1.8" fill="url(#goldGradGlass)"/>
 
-    <!-- Left Glass (Tilted right ~12 deg) -->
-    <g transform="rotate(12 33 46)">
-      <!-- Bowl -->
-      <path d="M 23 25 C 23 37, 39 37, 39 25 Z" fill="url(#wineGrad)" stroke="url(#goldGradGlass)" stroke-width="1.6"/>
-      <!-- Liquid top surface -->
-      <ellipse cx="31" cy="27" rx="7" ry="1.5" fill="#e8616f" fill-opacity="0.8"/>
-      <!-- Stem -->
-      <line x1="31" y1="37" x2="31" y2="54" stroke="url(#goldGradGlass)" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Base -->
-      <ellipse cx="31" cy="54" rx="9" ry="2.2" fill="url(#goldGradGlass)"/>
+    <!-- Note 2 (Right) -->
+    <path d="M 58 16 L 58 24" stroke="url(#goldGradGlass)" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="56.5" cy="24" r="2.0" fill="url(#goldGradGlass)"/>
+    <path d="M 58 17 C 61 17, 63 19, 63 21" stroke="url(#goldGradGlass)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+
+    <!-- Mariachi Acoustic Guitar in Center / Background -->
+    <g transform="translate(0, 2)">
+      <!-- Headstock & Tuning Pegs -->
+      <path d="M 38 6 L 42 6 L 42 12 L 38 12 Z" fill="url(#goldGradGlass)" stroke="#7a5518" stroke-width="0.8"/>
+      <circle cx="36.5" cy="8" r="0.8" fill="#d4af37"/>
+      <circle cx="36.5" cy="10.5" r="0.8" fill="#d4af37"/>
+      <circle cx="43.5" cy="8" r="0.8" fill="#d4af37"/>
+      <circle cx="43.5" cy="10.5" r="0.8" fill="#d4af37"/>
+
+      <!-- Guitar Neck & Frets -->
+      <rect x="38.8" y="12" width="2.4" height="15" fill="url(#guitarWoodGrad)" stroke="#7a5518" stroke-width="0.5"/>
+      <line x1="38.8" y1="15" x2="41.2" y2="15" stroke="#fdf0cd" stroke-width="0.6"/>
+      <line x1="38.8" y1="19" x2="41.2" y2="19" stroke="#fdf0cd" stroke-width="0.6"/>
+      <line x1="38.8" y1="23" x2="41.2" y2="23" stroke="#fdf0cd" stroke-width="0.6"/>
+
+      <!-- Guitar Body (Figure-8 Classical Spanish Contour) -->
+      <path d="M 38 27 
+               C 32 27, 28 30, 28 35 
+               C 28 39, 31 41, 33 43 
+               C 30 45, 26 49, 26 56 
+               C 26 64, 33 68, 40 68 
+               C 47 68, 54 64, 54 56 
+               C 54 49, 50 45, 47 43 
+               C 49 41, 52 39, 52 35 
+               C 52 30, 48 27, 42 27 Z" 
+            fill="url(#guitarWoodGrad)" stroke="url(#goldGradGlass)" stroke-width="1.8"/>
+
+      <!-- Inner Soundboard Rosette & Soundhole -->
+      <circle cx="40" cy="37" r="4.2" fill="#321b0a" stroke="url(#goldGradGlass)" stroke-width="1.2"/>
+      <circle cx="40" cy="37" r="2.8" fill="#180b03"/>
+
+      <!-- Bridge & Tie Block -->
+      <rect x="35" y="55" width="10" height="2.6" rx="0.6" fill="#321b0a" stroke="url(#goldGradGlass)" stroke-width="0.8"/>
+
+      <!-- Strings -->
+      <line x1="39.4" y1="12" x2="39.4" y2="55" stroke="#fff8e7" stroke-width="0.5" stroke-opacity="0.85"/>
+      <line x1="40" y1="12" x2="40" y2="55" stroke="#fff8e7" stroke-width="0.5" stroke-opacity="0.85"/>
+      <line x1="40.6" y1="12" x2="40.6" y2="55" stroke="#fff8e7" stroke-width="0.5" stroke-opacity="0.85"/>
     </g>
 
-    <!-- Right Glass (Tilted left ~-12 deg) -->
-    <g transform="rotate(-12 47 46)">
-      <!-- Bowl -->
-      <path d="M 41 25 C 41 37, 57 37, 57 25 Z" fill="url(#wineGrad)" stroke="url(#goldGradGlass)" stroke-width="1.6"/>
-      <!-- Liquid top surface -->
-      <ellipse cx="49" cy="27" rx="7" ry="1.5" fill="#e8616f" fill-opacity="0.8"/>
-      <!-- Stem -->
-      <line x1="49" y1="37" x2="49" y2="54" stroke="url(#goldGradGlass)" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Base -->
-      <ellipse cx="49" cy="54" rx="9" ry="2.2" fill="url(#goldGradGlass)"/>
+    <!-- Elegant Crossed Silverware (Fork & Spoon/Knife) in Forefront -->
+    <!-- Fork (Diagonal /) -->
+    <g transform="translate(0, 2)">
+      <path d="M 23 48 L 33 58 M 22 47 C 20 45, 18 41, 21 38 C 22 37, 24 38, 25 40" stroke="url(#goldGradGlass)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <!-- Knife (Diagonal \) -->
+      <path d="M 57 48 L 47 58 M 58 47 C 60 45, 62 41, 59 38 C 58 37, 56 38, 55 40" stroke="url(#goldGradGlass)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
     </g>
 
-    <!-- Base Laurel Branch Flourish Below Glasses -->
-    <path d="M 22 66 C 31 63, 49 63, 58 66" fill="none" stroke="url(#goldGradGlass)" stroke-width="1.2" stroke-linecap="round"/>
-    <circle cx="40" cy="63.5" r="1.8" fill="#a31d24"/>
+    <!-- Base Laurel Branch Flourish Below -->
+    <path d="M 22 72 C 31 69, 49 69, 58 72" fill="none" stroke="url(#goldGradGlass)" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="40" cy="69.5" r="1.8" fill="#d4af37"/>
   </g>
 </svg>

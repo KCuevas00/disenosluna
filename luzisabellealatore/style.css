@@ -1558,6 +1558,11 @@ body.site-entered .lang-control-bar {
   height: 18px;
 }
 
+.tl-icon.tl-icon-dinner {
+  width: 22px;
+  height: 19px;
+}
+
 .time-block {
   padding: 0.25rem 0.4rem;
 }
@@ -4417,6 +4422,11 @@ html.og-mode .entry-stage-mount {
   .tl-icon {
     width: 16px;
     height: 16px;
+  }
+
+  .tl-icon.tl-icon-dinner {
+    width: 20px;
+    height: 17px;
   }
 
   .time-stamp {
