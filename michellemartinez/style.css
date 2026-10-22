@@ -2423,6 +2423,39 @@ body.site-entered .lang-control-bar {
   transform: scale(1.03);
 }
 
+.blush-ribbon-btn:disabled,
+.blush-ribbon-btn[disabled],
+.blush-ribbon-btn.is-disabled {
+  background: #8e8e93 !important;
+  color: #f2f2f7 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  opacity: 0.55 !important;
+  filter: grayscale(100%) !important;
+  transform: none !important;
+}
+
+.blush-ribbon-btn:disabled .ribbon-tail,
+.blush-ribbon-btn[disabled] .ribbon-tail,
+.blush-ribbon-btn.is-disabled .ribbon-tail {
+  background: #8e8e93 !important;
+}
+
+.blush-ribbon-btn:disabled .ribbon-center,
+.blush-ribbon-btn[disabled] .ribbon-center,
+.blush-ribbon-btn.is-disabled .ribbon-center {
+  color: #f2f2f7 !important;
+  text-shadow: none !important;
+}
+
+.blush-ribbon-btn:disabled:hover,
+.blush-ribbon-btn[disabled]:hover,
+.blush-ribbon-btn.is-disabled:hover {
+  background: #8e8e93 !important;
+  transform: none !important;
+}
+
 .ribbon-center {
   font-family: var(--font-serif);
   font-size: 1.05rem;

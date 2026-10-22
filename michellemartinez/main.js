@@ -871,6 +871,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openRsvpModal() {
     if (!rsvpModal) return;
+    if (openModalBtn && (openModalBtn.disabled || openModalBtn.hasAttribute('disabled') || openModalBtn.classList.contains('is-disabled'))) return;
     rsvpModal.classList.add('is-active');
     rsvpModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
@@ -886,7 +887,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('modal-open');
   }
 
-  if (openModalBtn) openModalBtn.addEventListener('click', openRsvpModal);
+  if (openModalBtn) {
+    openModalBtn.addEventListener('click', (e) => {
+      if (openModalBtn.disabled || openModalBtn.hasAttribute('disabled') || openModalBtn.classList.contains('is-disabled')) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      openRsvpModal();
+    });
+  }
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeRsvpModal);
 
   if (rsvpModal) {
