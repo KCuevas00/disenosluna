@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9.3.4" />
+  <link rel="stylesheet" href="style.css?v=9.3.5" />
 </head>
 
 <body>
@@ -309,12 +309,9 @@
       <!-- Invitation Text & Phrasing -->
       <div class="invitation-body-content">
 
-        <!-- Thematic Watermarks behind text -->
+        <!-- Thematic Watermark: Clean Water Lily on Lilypad behind Event Date -->
         <div class="card-bg-watermark-wrap wm-wrap-hero-title" aria-hidden="true">
           <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark wm-hero-hat-bg" style="opacity: 0.30;" />
-        </div>
-        <div class="text-bg-watermark-wrap" aria-hidden="true">
-          <img src="photos/floral-divider.png" alt="" class="text-bg-flower-watermark watermark-hero" style="opacity: 0.22;" />
         </div>
 
         <p class="parents-line" data-i18n="invite-parents" style="display: none;"></p>
@@ -418,8 +415,12 @@
         <div class="card-bg-watermark-wrap wm-wrap-message" aria-hidden="true">
           <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark wm-msg-cactus" style="opacity: 0.35; width: 56px; height: auto; transform: rotate(-8deg);" />
         </div>
-        <!-- Arch Portrait with Princess Tiara Crest -->
+        <!-- Arch Portrait with Princess Tiara Crest & Top-Left Lilypad -->
         <div style="position: relative; display: inline-block; margin-top: 1.1rem;">
+          <!-- Floating Lilypad Top-Left of Small Celebrant Image & Quote -->
+          <div style="position: absolute; top: -14px; left: -60px; z-index: 5; pointer-events: none;">
+            <img src="photos/lilypad-flower.png" alt="" style="width: 90px; height: auto; opacity: 0.34; transform: rotate(-16deg); filter: drop-shadow(0 4px 12px rgba(45,79,59,0.18)); display: block;" />
+          </div>
           <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); z-index: 10;">
             <img src="photos/crown-flourish.svg" alt="" width="70" height="50" style="filter: drop-shadow(0 4px 10px rgba(45,79,59,0.4));" />
           </div>
@@ -495,7 +496,10 @@
               </svg>
             </div>
           </div>
-          <div class="timeline-empty"></div>
+          <!-- Crowned Frog in bottom-right blank space of Schedule of Events (no overlap) -->
+          <div class="timeline-empty" style="display: flex; align-items: center; justify-content: center; position: relative;">
+            <img src="photos/frog-crowned.png" alt="" style="width: 65px; height: auto; opacity: 0.32; transform: rotate(10deg); filter: drop-shadow(0 4px 10px rgba(45,79,59,0.18)); pointer-events: none;" />
+          </div>
         </div>
 
         <!-- 2. 5:30 PM: COCKTAIL HOUR & GUEST ARRIVAL -->
@@ -582,7 +586,11 @@
           <img src="photos/rose-corner-tr.png" alt="" class="padrinos-flower flower-tr" />
           <img src="photos/rose-corner-bl.png" alt="" class="padrinos-flower flower-bl" />
         </div>
-        <div class="padrinos-inner-content">
+        <div class="padrinos-inner-content" style="position: relative;">
+          <!-- Crowned Frog on Lilypad Watermark inside Sweet 16 Venue Container -->
+          <div aria-hidden="true" style="position: absolute; bottom: 85px; right: 14px; pointer-events: none; z-index: 0; opacity: 0.28;">
+            <img src="photos/frog-crowned.png" alt="" style="width: 78px; height: auto; transform: rotate(12deg); filter: drop-shadow(0 3px 8px rgba(45,79,59,0.16)); display: block;" />
+          </div>
           <div class="court-crown-motif" aria-hidden="true">
             <img src="photos/emblem-venue-location.svg" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 6px rgba(74,40,16,0.25));" />
           </div>
