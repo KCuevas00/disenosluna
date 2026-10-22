@@ -2897,137 +2897,160 @@ body.site-entered .lang-control-bar {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   WESTERN CLOUD ELEMENTS (DRIFTING SOFTLY IN THE SKY BACKGROUND)
+/* ══════════════════════════════════════════════════════════════
+   FAIRYTALE BAYOU POND ELEMENTS (LANDING ENVELOPE SCREEN)
    ══════════════════════════════════════════════════════════════ */
-.entry-cloud-western-elements {
+.entry-pond-elements {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 3;
-}
-
-.cloud-western-item {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.84;
-  filter: drop-shadow(0 4px 16px rgba(163, 29, 36, 0.22)) drop-shadow(0 2px 10px rgba(212, 175, 55, 0.65));
-  transition: opacity 0.5s ease;
-  will-change: transform;
-}
-
-.cloud-western-item img {
-  display: block;
-  width: 100%;
-  height: auto;
+  z-index: 2;
   user-select: none;
 }
 
-/* Floating Animations for Gentle Sky Drift */
-@keyframes cloudFloatSoftA {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  50%  { transform: translateY(-12px) rotate(2.5deg); }
-  100% { transform: translateY(-4px) rotate(-1.5deg); }
+.pond-element {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+  transition: opacity 0.5s ease;
 }
 
-@keyframes cloudFloatSoftB {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  50%  { transform: translateY(-14px) rotate(-3deg); }
-  100% { transform: translateY(-3px) rotate(2deg); }
+.pond-element img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 }
 
-@keyframes cloudFloatSoftC {
-  0%   { transform: translateY(0px) scale(1); }
-  50%  { transform: translateY(-10px) scale(1.04); }
-  100% { transform: translateY(-2px) scale(0.98); }
-}
-
-@keyframes cloudSparkleTwinkle {
-  0%, 100% { opacity: 0.35; transform: scale(0.9); }
-  50%      { opacity: 1; transform: scale(1.25); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.95)); }
-}
-
-/* Individual Positioning & Sizing */
-.cloud-western-item.c-flourish-top {
-  top: 2%;
+/* 1. Weeping Willow Garland Canopy (Top) */
+.pond-element.pond-willow-top {
+  top: -15px;
   left: 50%;
-  width: 320px;
-  max-width: 46vw;
   transform: translateX(-50%);
-  opacity: 0.90;
-  animation: cloudFloatSoftC 8.5s ease-in-out infinite alternate;
+  width: 100%;
+  max-width: 660px;
+  opacity: 0.26;
+  filter: drop-shadow(0 4px 14px rgba(45, 79, 59, 0.15));
+  animation: pondWillowSway 10s ease-in-out infinite alternate;
 }
 
-.cloud-western-item.c-hat-left {
-  top: 9%;
-  left: 4.5%;
-  width: 145px;
-  max-width: 19vw;
-  transform: rotate(-14deg);
-  animation: cloudFloatSoftA 8s ease-in-out infinite alternate;
+/* 2. Water Lily Pad Flower (Bottom Left) */
+.pond-element.pond-lily-bl {
+  bottom: 2%;
+  left: 2%;
+  width: 155px;
+  max-width: 25vw;
+  opacity: 0.28;
+  filter: drop-shadow(0 6px 16px rgba(45, 79, 59, 0.18));
+  animation: pondFloatA 8s ease-in-out infinite alternate;
 }
 
-.cloud-western-item.c-horseshoe-left {
-  top: 31%;
-  left: 3%;
-  width: 115px;
-  max-width: 16vw;
+/* 3. Crowned Frog Prince on Lily Pad (Bottom Right) */
+.pond-element.pond-frog-br {
+  bottom: 2.5%;
+  right: 2.5%;
+  width: 135px;
+  max-width: 22vw;
+  opacity: 0.32;
+  filter: drop-shadow(0 6px 18px rgba(45, 79, 59, 0.20));
+  animation: pondFloatB 9s ease-in-out infinite alternate 0.6s;
+}
+
+/* 4. Secondary Water Lily (Mid Left) */
+.pond-element.pond-lily-ml {
+  top: 48%;
+  left: -15px;
+  width: 95px;
+  max-width: 15vw;
+  opacity: 0.20;
+  transform: rotate(-15deg);
+  filter: drop-shadow(0 4px 12px rgba(45, 79, 59, 0.14));
+  animation: pondFloatC 10s ease-in-out infinite alternate 1.2s;
+}
+
+/* 5. Glowing Botanical Fireflies */
+.pond-element.pond-firefly-tr {
+  top: 18%;
+  right: 12%;
+  width: 48px;
+  max-width: 10vw;
+  opacity: 0.48;
   transform: rotate(18deg);
-  animation: cloudFloatSoftB 9.5s ease-in-out infinite alternate 0.8s;
+  filter: drop-shadow(0 0 12px rgba(220, 180, 70, 0.85));
+  animation: fireflyHoverA 7s ease-in-out infinite alternate;
 }
 
-.cloud-western-item.c-boots-left {
-  bottom: 8%;
-  left: 4%;
-  width: 135px;
-  max-width: 18vw;
-  transform: rotate(-8deg);
-  animation: cloudFloatSoftB 10s ease-in-out infinite alternate 0.5s;
+.pond-element.pond-firefly-tl {
+  top: 26%;
+  left: 10%;
+  width: 42px;
+  max-width: 9vw;
+  opacity: 0.42;
+  transform: rotate(-14deg);
+  filter: drop-shadow(0 0 10px rgba(220, 180, 70, 0.75));
+  animation: fireflyHoverB 8.5s ease-in-out infinite alternate 0.8s;
 }
 
-.cloud-western-item.c-cactus-left {
-  bottom: 7%;
-  left: 17%;
-  width: 85px;
-  max-width: 12vw;
-  transform: rotate(4deg);
-  animation: cloudFloatSoftA 8.5s ease-in-out infinite alternate 1.8s;
-}
-
-.cloud-western-item.c-horseshoe-right {
-  top: 9%;
-  right: 5%;
-  width: 125px;
-  max-width: 17vw;
-  transform: rotate(15deg);
-  animation: cloudFloatSoftB 9s ease-in-out infinite alternate 1s;
-}
-
-.cloud-western-item.c-hat-right {
-  top: 30%;
-  right: 3%;
-  width: 135px;
-  max-width: 18vw;
-  transform: rotate(12deg);
-  animation: cloudFloatSoftA 8.5s ease-in-out infinite alternate 1.2s;
-}
-
-.cloud-western-item.c-cactus-right {
-  bottom: 7%;
-  right: 4.5%;
-  width: 105px;
-  max-width: 15vw;
-  transform: rotate(5deg);
-  animation: cloudFloatSoftA 8.5s ease-in-out infinite alternate 1.5s;
-}
-
-.cloud-western-item.c-boots-right {
-  bottom: 6%;
+.pond-element.pond-firefly-br {
+  bottom: 20%;
   right: 16%;
-  width: 115px;
-  max-width: 15vw;
+  width: 40px;
+  max-width: 8vw;
+  opacity: 0.45;
   transform: rotate(10deg);
-  animation: cloudFloatSoftB 9.5s ease-in-out infinite alternate 2.2s;
+  filter: drop-shadow(0 0 10px rgba(220, 180, 70, 0.8));
+  animation: fireflyHoverA 9s ease-in-out infinite alternate 1.5s;
+}
+
+.pond-element.pond-firefly-bl {
+  bottom: 16%;
+  left: 18%;
+  width: 36px;
+  max-width: 8vw;
+  opacity: 0.40;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 0 10px rgba(220, 180, 70, 0.75));
+  animation: fireflyHoverB 7.5s ease-in-out infinite alternate 2s;
+}
+
+/* Water float animations */
+@keyframes pondWillowSway {
+  0%   { transform: translateX(-50%) translateY(0px) rotate(0deg); }
+  50%  { transform: translateX(-50%) translateY(-6px) rotate(0.8deg); }
+  100% { transform: translateX(-50%) translateY(-2px) rotate(-0.6deg); }
+}
+
+@keyframes pondFloatA {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-8px) rotate(2deg); }
+  100% { transform: translateY(-2px) rotate(-1deg); }
+}
+
+@keyframes pondFloatB {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-10px) rotate(-2deg); }
+  100% { transform: translateY(-3px) rotate(1.5deg); }
+}
+
+@keyframes pondFloatC {
+  0%   { transform: translateY(0px) rotate(-15deg); }
+  50%  { transform: translateY(-6px) rotate(-12deg); }
+  100% { transform: translateY(-2px) rotate(-16deg); }
+}
+
+@keyframes fireflyHoverA {
+  0%   { transform: translateY(0px) translateX(0px) rotate(18deg) scale(0.95); opacity: 0.35; }
+  50%  { transform: translateY(-14px) translateX(8px) rotate(24deg) scale(1.08); opacity: 0.65; }
+  100% { transform: translateY(-4px) translateX(-6px) rotate(14deg) scale(0.98); opacity: 0.40; }
+}
+
+@keyframes fireflyHoverB {
+  0%   { transform: translateY(0px) translateX(0px) rotate(-14deg) scale(1); opacity: 0.32; }
+  50%  { transform: translateY(-12px) translateX(-8px) rotate(-8deg) scale(1.12); opacity: 0.60; }
+  100% { transform: translateY(-5px) translateX(5px) rotate(-18deg) scale(0.96); opacity: 0.38; }
 }
 
 /* Golden Twinkling Sparkle Stars in the Clouds */
@@ -5199,12 +5222,12 @@ body:not(.site-entered) {
   text-shadow: 0 0 6px #c99f57, 0 0 12px #8c6f23;
 }
 
-/* ── Landing sky: soft celestial glow tucked into warm ivory clouds ── */
+/* ── Landing bayou pond: serene water mist with subtle emerald & sage depth ── */
 .entry-overlay {
   background-image:
-    radial-gradient(ellipse 60% 48% at 50% 48%, rgba(255, 255, 255, 0.96) 0%, rgba(244, 248, 245, 0.75) 45%, transparent 78%),
-    radial-gradient(ellipse 80% 38% at 10% 100%, rgba(232, 243, 235, 0.6) 0%, transparent 72%),
-    linear-gradient(180deg, #fbfdfb 0%, #f3f8f5 48%, #e7f0e9 80%, #d8e5dc 100%) !important;
+    radial-gradient(ellipse 65% 50% at 50% 50%, rgba(255, 255, 255, 0.96) 0%, rgba(244, 250, 246, 0.85) 45%, rgba(220, 238, 226, 0.55) 75%, rgba(195, 222, 205, 0.40) 100%),
+    radial-gradient(ellipse 70% 35% at 50% 100%, rgba(188, 218, 198, 0.52) 0%, transparent 70%),
+    linear-gradient(180deg, #f7faf8 0%, #edf5f0 48%, #dcebe1 80%, #c9ded0 100%) !important;
 }
 
 /* ── Countdown ── */
@@ -5878,6 +5901,49 @@ body:not(.site-entered) {
   .wm-guidelines-frog-br {
     width: 90px;
     right: -10px;
+  }
+
+  /* Landing Screen Mobile Pond Elements */
+  .pond-element.pond-lily-bl {
+    width: 105px;
+    bottom: 1%;
+    left: 0;
+    opacity: 0.25;
+  }
+
+  .pond-element.pond-frog-br {
+    width: 95px;
+    bottom: 2%;
+    right: 0;
+    opacity: 0.28;
+  }
+
+  .pond-element.pond-lily-ml {
+    display: none;
+  }
+
+  .pond-element.pond-firefly-tr {
+    width: 36px;
+    top: 14%;
+    right: 6%;
+  }
+
+  .pond-element.pond-firefly-tl {
+    width: 32px;
+    top: 20%;
+    left: 5%;
+  }
+
+  .pond-element.pond-firefly-br {
+    width: 30px;
+    bottom: 14%;
+    right: 8%;
+  }
+
+  .pond-element.pond-firefly-bl {
+    width: 28px;
+    bottom: 12%;
+    left: 8%;
   }
 }
 
