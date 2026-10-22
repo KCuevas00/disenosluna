@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9.3.0" />
+  <link rel="stylesheet" href="style.css?v=9.3.2" />
 </head>
 
 <body>
@@ -563,18 +563,17 @@
 
     <!-- ─── ENRICHMENT MODULE 3: RECEPTION VENUE & NAVIGATION CARD ─── -->
     <section id="reception-venue" class="invite-section venue-section" aria-label="Reception Venue" style="position: relative;">
-      <!-- Bayou Willow Garland in background of Blessing & Reception -->
-      <div class="card-bg-watermark-wrap wm-wrap-venue" aria-hidden="true" style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 580px; height: auto; pointer-events: none; z-index: 1; overflow: visible;">
-        <img src="photos/bayou-willow.png" alt="" class="card-inline-watermark" style="width: 100%; height: auto; opacity: 0.26; filter: drop-shadow(0 4px 14px rgba(45, 79, 59, 0.15));" />
-      </div>
-
       <div class="floral-divider-container scroll-fade-in" aria-hidden="true">
         <img src="photos/divider-gold-filigree.svg" alt="" class="floral-divider-img svg-divider" />
       </div>
 
-      <div class="program-header scroll-fade-in">
-        <h2 class="program-title">BLESSING &amp; RECEPTION</h2>
-        <div class="title-accent-line"></div>
+      <div class="program-header scroll-fade-in" style="position: relative;">
+        <!-- Bayou Willow Garland Framing Blessing & Reception without clipping -->
+        <div class="card-bg-watermark-wrap wm-wrap-venue" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92%; max-width: 440px; pointer-events: none; z-index: 0; display: flex; justify-content: center; align-items: center;">
+          <img src="photos/bayou-willow.png" alt="" style="width: 100%; height: auto; opacity: 0.26; filter: drop-shadow(0 4px 14px rgba(45, 79, 59, 0.15)); display: block;" />
+        </div>
+        <h2 class="program-title" style="position: relative; z-index: 2;">BLESSING &amp; RECEPTION</h2>
+        <div class="title-accent-line" style="position: relative; z-index: 2;"></div>
       </div>
 
       <div class="padrinos-royal-plaque scroll-fade-scale">
@@ -783,8 +782,8 @@
           </div>
 
           <div class="vignette-item dinner-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
-            <div class="card-bg-watermark-wrap" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 0; display: flex; align-items: center; justify-content: center;">
-              <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark" style="width: 150px; height: auto; opacity: 0.28; transform: rotate(10deg); filter: drop-shadow(0 4px 12px rgba(45,79,59,0.18)); pointer-events: none;" />
+            <div class="card-bg-watermark-wrap" aria-hidden="true" style="position: absolute; top: 48%; right: -12px; transform: translateY(-50%) rotate(18deg); pointer-events: none; z-index: 0;">
+              <img src="photos/lilypad-flower.png" alt="" class="card-inline-watermark" style="position: static; width: 145px; height: auto; opacity: 0.28; filter: drop-shadow(0 4px 12px rgba(45,79,59,0.18)); pointer-events: none;" />
             </div>
 
             <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
@@ -809,17 +808,22 @@
             <span class="v-line"></span>
           </div>
 
-          <div class="vignette-item photos-vignette scroll-fade-in">
-            <div class="vignette-wishing-emblem" aria-hidden="true">
+          <div class="vignette-item photos-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
+            <!-- Crowned Frog Prince Watermark Accent behind Photos & Memories -->
+            <div class="card-bg-watermark-wrap" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 0; display: flex; align-items: center; justify-content: center;">
+              <img src="photos/frog-crowned.png" alt="" class="card-inline-watermark" style="position: static; width: 130px; height: auto; opacity: 0.22; transform: rotate(-6deg); filter: drop-shadow(0 4px 12px rgba(45,79,59,0.18)); pointer-events: none;" />
+            </div>
+
+            <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
               <img src="photos/emblem-photos-memories.svg" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
             </div>
 
-            <h3 class="vignette-headline readable-registry-title">PHOTOS &amp; MEMORIES</h3>
-            <p class="vignette-subtitle">CAPTURE THE NIGHT</p>
+            <h3 class="vignette-headline readable-registry-title" style="position: relative; z-index: 2;">PHOTOS &amp; MEMORIES</h3>
+            <p class="vignette-subtitle" style="position: relative; z-index: 2;">CAPTURE THE NIGHT</p>
 
-            <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+            <div class="vignette-ornament" aria-hidden="true" style="position: relative; z-index: 2;">✦ &nbsp; ❦ &nbsp; ✦</div>
 
-            <p class="vignette-prose">
+            <p class="vignette-prose" style="position: relative; z-index: 2;">
               We invite you to take photos throughout the evening and share your favorite moments with Luz Isabella!
             </p>
           </div>
@@ -832,22 +836,22 @@
             <span class="v-line"></span>
           </div>
 
-          <div class="vignette-item registry-vignette scroll-fade-in">
-            <!-- Crowned Frog Watermark Accent behind Wishing Well -->
-            <div class="card-bg-watermark-wrap wm-wrap-registry" aria-hidden="true">
-              <img src="photos/frog-crowned.png" alt="" class="card-inline-watermark wm-reg-frog" style="opacity: 0.20;" />
+          <div class="vignette-item registry-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
+            <!-- Golden Firefly Watermark Accent behind Gifts note (replaces duplicated frog) -->
+            <div class="card-bg-watermark-wrap wm-wrap-registry" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; z-index: 0; display: flex; align-items: center; justify-content: center;">
+              <img src="photos/firefly-glow.png" alt="" class="card-inline-watermark" style="position: static; width: 75px; height: auto; opacity: 0.32; transform: rotate(12deg); filter: drop-shadow(0 4px 14px rgba(212,175,55,0.22)); pointer-events: none;" />
             </div>
 
-            <div class="vignette-wishing-emblem" aria-hidden="true">
+            <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
               <img src="photos/emblem-wishing-well.svg" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
             </div>
 
-            <h3 class="vignette-headline readable-registry-title" data-i18n="registry-title">A NOTE ON GIFTS</h3>
-            <p class="vignette-subtitle" data-i18n="registry-subtitle">YOUR PRESENCE IS OUR GIFT</p>
+            <h3 class="vignette-headline readable-registry-title" data-i18n="registry-title" style="position: relative; z-index: 2;">A NOTE ON GIFTS</h3>
+            <p class="vignette-subtitle" data-i18n="registry-subtitle" style="position: relative; z-index: 2;">YOUR PRESENCE IS OUR GIFT</p>
 
-            <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+            <div class="vignette-ornament" aria-hidden="true" style="position: relative; z-index: 2;">✦ &nbsp; ❦ &nbsp; ✦</div>
 
-            <p class="vignette-prose" data-i18n="registry-desc">
+            <p class="vignette-prose" data-i18n="registry-desc" style="position: relative; z-index: 2;">
               Your presence at our celebration is the greatest gift of all. Should you wish to honor Luz Isabella with a gift, your love and thoughtfulness are warmly appreciated.
             </p>
           </div>
