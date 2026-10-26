@@ -6,6 +6,22 @@
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
+  /* ═════════════════════════════════════════════════════════════════════
+     5-COLOR LUXURY PALETTE (CHAMPAGNE, IVORY, FRENCH BLUE, GOLD, NAVY)
+     Blended in the signature Quinceañera Welcome Easel Aesthetic
+     ═════════════════════════════════════════════════════════════════════ */
+  --palette-ivory: #faf6ee;
+  --palette-ivory-warm: #f3ede1;
+  --palette-champagne: #dbc7ac;
+  --palette-champagne-light: #ede2d3;
+  --palette-french-blue: #7993ac;
+  --palette-french-blue-soft: #dbe5ee;
+  --palette-gold: #c69239;
+  --palette-gold-metallic: #d4af37;
+  --palette-gold-light: #fff8ea;
+  --palette-navy: #16233b;
+  --palette-navy-deep: #0d192e;
+
   /* Royal Blue (#4169E1 / RGB: 65, 105, 225) & Polished Gold Tokens */
   --royal-blue: #4169E1;
   --royal-blue-rgb: 65, 105, 225;
@@ -6402,503 +6418,577 @@ body.site-entered .ambient-confetti-canvas {
 
 
 /* ═════════════════════════════════════════════════════════════════════
-   COLOR BALANCE: ROYAL BLUE BANDS + IVORY BANDS, GOLD ON BOTH
-   The gold western art (hats, boots, cactus, flourishes) pops most on
-   deep blue, so the card now alternates:
-     HERO (blue) → PROGRAM (ivory) → COURT (blue) → DETAILS (ivory)
-     → MESSAGE (blue) → RSVP (ivory)
-   The blue panels use #4169E1 as the glowing center of a deeper gradient.
+   SOPHIA QUINCEAÑERA WELCOME EASEL AESTHETIC (IMAGE #2 HARMONY)
+   ─────────────────────────────────────────────────────────────────
+   1. Ivory Canvas (#FAF6EE / #FBF8F2) for the pure inner invitation board
+   2. Gilded Baroque Gold Frame (#D4AF37) with regal crown & filigree
+   3. Deep Royal Blue (#4169E1) & Midnight Navy (#16233B) Calligraphy
+   4. French Blue (#7993AC) & Champagne (#DBC7AC) Ambient Accents
+   5. Lush Royal Blue & Navy Velvet Roses with Gold Baroque Leaves
+   6. Deep Royal Velvet Gala Environment (#09132C to #1E45AA) behind card
    ═════════════════════════════════════════════════════════════════════ */
 
-/* Page behind the card: deep navy so the gold-bordered card glows */
+/* Page Backdrop: Deep Royal Blue & Midnight Velvet Gala Atmosphere */
+html.site-entered {
+  background-color: #09132c !important;
+}
+
 body.site-entered {
-  background: radial-gradient(ellipse at 50% 0%, #1e45aa 0%, #112557 42%, #09132c 100%) !important;
+  background: radial-gradient(ellipse at 50% 10%, #1e45aa 0%, #132a68 40%, #09132c 100%) !important;
   background-attachment: fixed !important;
 }
 
-/* Blue panels */
-#hero,
-#court,
-#message {
-  color: #fff8ea;
-  background-color: #1b3fa6;
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.30'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23d4af37' fill-opacity='0.35'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 50% 16%, #4169E1 0%, #2f55c9 34%, #1b3fa6 66%, #0f2c78 100%);
-}
-
-/* Gold seam between bands */
-.invite-section + .invite-section {
-  border-top: 1.5px solid #d4af37;
-  box-shadow: inset 0 1px 0 rgba(255, 248, 234, 0.35);
-}
-
-/* Card's inner gold frame + corner flourishes now draw OVER the bands */
-.invitation-wrapper::before,
-.invitation-wrapper::after {
-  z-index: 8;
-}
-
-.invitation-wrapper::before {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: none;
-}
-
-/* ── HERO (blue): gold script, ivory + white type ── */
-#hero .parents-line {
-  color: #fff8ea;
-}
-
-#hero .invite-preamble,
-#hero .daughter-subtitle,
-#hero .venue-location-hint {
-  color: rgba(255, 248, 234, 0.94);
-}
-
-#hero .quince-script-title {
-  background: linear-gradient(180deg, #fff6d0 0%, #f0d98c 30%, #d4af37 62%, #b8942f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 10px rgba(5, 15, 50, 0.55));
-}
-
-#hero .celebrant-name {
-  color: #ffffff;
-  text-shadow: 0 2px 14px rgba(5, 15, 50, 0.5), 0 0 26px rgba(212, 175, 55, 0.25);
-}
-
-#hero .date-month,
-#hero .date-year,
-#hero .date-day-name,
-#hero .date-time {
-  color: #fff8ea;
-}
-
-#hero .date-day-num {
-  background: linear-gradient(180deg, #fff6d0 0%, #f0d98c 30%, #d4af37 62%, #b8942f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 6px rgba(5, 15, 50, 0.5));
-}
-
-#hero .pt-caption {
-  color: #fff8ea;
-}
-
-#hero .pt-style-italic .pt-big-num {
-  background: linear-gradient(180deg, #ffffff 0%, #e6eeff 55%, #bcd0ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 6px rgba(5, 15, 50, 0.5));
-}
-
-#hero .pt-sublabel,
-#hero .pt-style-italic .pt-sublabel {
-  color: #e8cd7e;
-}
-
-#hero .pt-style-italic .italic-fleuron {
-  color: #e5c378;
-}
-
-#hero .cd-special-message {
-  color: #fff8ea;
-}
-
-#hero .photo-viewport {
-  box-shadow:
-    0 24px 60px -8px rgba(3, 10, 40, 0.65),
-    0 0 0 2px #d4af37,
-    0 0 0 6px rgba(212, 175, 55, 0.25);
-}
-
-/* ── PROGRAM (ivory): slate-blue body text instead of brown ── */
-#program .event-desc {
-  color: #4a5878;
-}
-
-#program .event-title {
-  color: #0d2b5c;
-}
-
-/* ── COURT (blue): gold initials, ivory names ── */
-#court .court-title {
-  color: #fff8ea !important;
-}
-
-#court .padrinos-role-badge,
-#court .court-subgroup-title {
-  color: #e8cd7e;
-}
-
-#court .court-member-name {
-  color: #fff8ea;
-}
-
-#court .name-main {
-  color: #ffffff;
-}
-
-#court .court-amp,
-#court .court-char-dual .c-amp {
-  color: #e8cd7e;
-  filter: none;
-}
-
-#court .court-char,
-#court .court-char-dual .c-initial {
-  background: linear-gradient(165deg, #fff6d0 0%, #f0d98c 30%, #d4af37 62%, #b8942f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 5px rgba(3, 10, 40, 0.55));
-}
-
-/* ── MESSAGE (blue): ivory quote, gold-light signature, gold-ringed portrait ── */
-#message .message-quote-text {
-  color: #fff8ea;
-}
-
-#message .message-signature {
-  color: #e8cd7e !important;
-  text-shadow: 0 2px 10px rgba(5, 15, 50, 0.45);
-}
-
-#message .message-quote-mark {
-  color: #d4af37 !important;
+/* Outer Aura surrounding the Ivory Invitation Board */
+.invitation-gradient-glow {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.45) 0%, rgba(219, 199, 172, 0.30) 50%, transparent 75%),
+    linear-gradient(180deg, rgba(65, 105, 225, 0.35) 0%, rgba(212, 175, 55, 0.25) 50%, rgba(22, 35, 59, 0.40) 100%) !important;
+  filter: blur(22px) !important;
   opacity: 0.85 !important;
 }
 
-#message .message-portrait-wrap {
+/* The Main Invitation Board: Luminous High-Gloss Ivory with Baroque Gold Frame */
+.invitation-wrapper {
+  background-color: #faf6ee !important;
+  background-image:
+    linear-gradient(180deg, #ffffff 0%, #faf6ee 14%, #f7f2e6 45%, #faf6ee 75%, #f4ede0 100%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.45' stroke-opacity='0.20'/%3E%3Ccircle cx='20' cy='20' r='1.2' fill='%23d4af37' fill-opacity='0.22'/%3E%3C/svg%3E") !important;
+  border: 2.5px solid #d4af37 !important;
+  border-radius: 28px !important;
   box-shadow:
-    0 12px 28px rgba(3, 10, 40, 0.55),
-    0 0 0 2px #d4af37,
-    0 0 0 5px rgba(212, 175, 55, 0.25);
+    inset 0 0 0 4px #faf6ee,
+    inset 0 0 0 5.5px rgba(212, 175, 55, 0.55),
+    0 0 25px rgba(212, 175, 55, 0.35),
+    0 16px 45px rgba(9, 19, 44, 0.45),
+    0 28px 65px rgba(212, 175, 55, 0.22) !important;
 }
 
-/* ── RSVP (ivory): navy copy so the blue ribbon + gold letters carry the color ── */
-#rsvp .rsvp-deadline-text,
-#rsvp .rsvp-instruction-text {
-  color: #0d2b5c;
-}
-
-/* ── Footer sits on navy now ── */
-.footer-names {
-  color: #fff8ea;
-}
-
-.footer-date {
-  color: #b9c8f2;
-}
-
-.footer-crown svg circle {
-  fill: #e5c378;
-}
-
-/* Gold art on the blue panels: translucent gold over blue goes muddy gray,
-   so run it more opaque with a soft navy shadow to keep it reading as gold */
-#hero .card-inline-watermark,
-#court .card-inline-watermark,
-#message .card-inline-watermark {
-  opacity: 0.68;
-  filter: drop-shadow(0 3px 8px rgba(3, 10, 40, 0.45));
-}
-
-/* Scrollbar gutter on desktop picks up the page navy instead of a pale strip */
-html.site-entered {
-  background-color: #09132c;
-}
-
-/* Hero art: sit beside the text, not behind the gold title / time */
-#hero .card-inline-watermark {
-  opacity: 0.55;
-}
-
-#hero .wm-hero-shoe-bg {
-  top: 60%;
-}
-
-#hero .wm-hero-cactus-bg {
-  top: 58%;
-}
-
-@media (max-width: 600px) {
-  #hero .wm-hero-hat-bg {
-    width: 96px;
-    top: 1%;
-    left: 2%;
-  }
-}
-
-#hero .wm-hero-disco-bg {
-  top: 1%;
-  right: 3%;
-  width: 56px;
-}
-
-
-/* ═════════════════════════════════════════════════════════════════════
-   ALL-BLUE CARD: PROGRAM, DETAILS & RSVP JOIN THE BLUE PANELS
-   Panels alternate bright blue (hero / court / message) and deeper blue
-   (program / details / rsvp) so there's still a rhythm, divided by gold seams.
-   ═════════════════════════════════════════════════════════════════════ */
-.invitation-wrapper {
-  background: #17389a;
-}
-
-#program,
-#guidelines,
-#rsvp {
-  color: #fff8ea;
-  background-color: #17389a;
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.30'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23d4af37' fill-opacity='0.35'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 50% 14%, #2f55c9 0%, #234bbb 30%, #17389a 62%, #0d2b6e 100%);
-}
-
-/* Gold art on every panel */
-#program .card-inline-watermark,
-#guidelines .card-inline-watermark,
-#rsvp .card-inline-watermark {
-  opacity: 0.6;
-  filter: drop-shadow(0 3px 8px rgba(3, 10, 40, 0.45));
-}
-
-/* ── PROGRAM ── */
-#program .program-title {
-  color: #fff8ea !important;
-}
-
-#program .time-stamp,
-#program .program-timeline .time-stamp {
-  color: #e8cd7e !important;
-}
-
-#program .event-title {
-  color: #ffffff;
-}
-
-#program .event-desc {
-  color: rgba(255, 248, 234, 0.82);
-}
-
-#program .timeline-loc-btn {
-  color: #fff8ea;
-  background: rgba(255, 248, 234, 0.1);
-  border-color: rgba(212, 175, 55, 0.7);
-}
-
-#program .timeline-loc-btn:hover {
-  background: linear-gradient(135deg, #f0d98c 0%, #d4af37 100%);
-  border-color: #fff3c4;
-  color: #0d2b5c;
-  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
-}
-
-/* ivory node discs read well on blue; hover turns them gold */
-#program .timeline-node,
-#program .program-timeline .timeline-node {
-  background: #fffdf5;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 4px 14px rgba(3, 10, 40, 0.4) !important;
-}
-
-#program .timeline-row:hover .timeline-node,
-#program .program-timeline .timeline-row:hover .timeline-node {
-  background: linear-gradient(135deg, #fff3c4 0%, #d4af37 100%) !important;
-  border-color: #fff8ea !important;
-  color: #0d2b5c !important;
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5), 0 0 0 3px rgba(255, 248, 234, 0.3) !important;
-}
-
-#program .timeline-photo-card {
-  border-color: #d4af37;
-  box-shadow: 0 8px 20px rgba(3, 10, 40, 0.45);
-}
-
-/* ── DETAILS (dress code + lluvia de sobres) ── */
-#guidelines .readable-registry-title,
-#guidelines .dress-vignette .vignette-headline,
-#guidelines .registry-vignette .vignette-headline {
-  color: #fff8ea !important;
-}
-
-#guidelines .registry-vignette .vignette-subtitle {
-  color: #e8cd7e;
-}
-
-#guidelines .vignette-prose {
-  color: rgba(255, 248, 234, 0.92);
-}
-
-#guidelines .vignette-prose strong {
-  color: #f0d98c;
-}
-
-/* ivory pill so the royal-blue swatch it's warning about actually stands out */
-#guidelines .dress-code-swatch-badge {
-  background: #fffdf5;
-  border: 1.5px solid #d4af37;
-  box-shadow: 0 4px 14px rgba(3, 10, 40, 0.35);
-}
-
-#guidelines .color-prohibit-swatch {
-  width: 18px;
-  height: 18px;
-}
-
-/* ── RSVP ── */
-#rsvp .rsvp-char {
-  background: linear-gradient(165deg, #fff6d0 0%, #f0d98c 30%, #d4af37 62%, #b8942f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 7px rgba(3, 10, 40, 0.55));
-}
-
-#rsvp .rsvp-deadline-text,
-#rsvp .rsvp-instruction-text {
-  color: #fff8ea;
-}
-
-#rsvp .rsvp-thank-you {
-  background: linear-gradient(180deg, #fff6d0 0%, #f0d98c 35%, #d4af37 70%, #b8942f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 8px rgba(3, 10, 40, 0.5));
-}
-
-/* Ribbon button flips to gold-with-navy-text (blue-on-blue would vanish) */
-#rsvp .blush-ribbon-btn {
-  --ribbon-blush: linear-gradient(135deg, #fff3c4 0%, #e5c378 38%, #d4af37 70%, #b8942f 100%);
-  --ribbon-blush-hover: linear-gradient(135deg, #fffbe8 0%, #f0d98c 38%, #e0b93f 70%, #c9a43a 100%);
-  border: 1.5px solid #fff3c4;
-  box-shadow: 0 6px 20px rgba(3, 10, 40, 0.45), 0 0 16px rgba(212, 175, 55, 0.45);
-}
-
-#rsvp .blush-ribbon-btn:hover {
-  box-shadow: 0 8px 26px rgba(3, 10, 40, 0.5), 0 0 24px rgba(212, 175, 55, 0.65);
-}
-
-#rsvp .ribbon-center {
-  color: #0d2b5c;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-/* ── RSVP MODAL: blue panel to match ── */
-.modal-card {
-  background-color: #1b3fa6;
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.30'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23d4af37' fill-opacity='0.35'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 50% 0%, #4169E1 0%, #2f55c9 38%, #1b3fa6 70%, #0f2c78 100%);
-  border: 1.5px solid #d4af37;
-}
-
-.modal-title {
-  color: #fff8ea;
-}
-
-.modal-subtitle {
-  color: rgba(255, 248, 234, 0.78);
-}
-
-.form-group label {
-  color: #e8cd7e;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  color: #0d2b5c;
-}
-
-.close-modal {
-  color: rgba(255, 248, 234, 0.8);
-  z-index: 3;
-}
-
-.close-modal:hover {
-  color: #f0d98c;
-}
-
-.btn-rsvp-accept {
-  background: linear-gradient(135deg, #fff3c4 0%, #e5c378 38%, #d4af37 70%, #b8942f 100%);
-  color: #0d2b5c;
-  border: 1.5px solid #fff3c4;
-  box-shadow: 0 6px 18px rgba(3, 10, 40, 0.4), 0 0 14px rgba(212, 175, 55, 0.4);
-}
-
-.btn-rsvp-accept:hover {
-  background: linear-gradient(135deg, #fffbe8 0%, #f0d98c 38%, #e0b93f 70%, #c9a43a 100%);
-  box-shadow: 0 8px 22px rgba(3, 10, 40, 0.45), 0 0 22px rgba(212, 175, 55, 0.6);
-}
-
-/* keep the art behind the dress-code / lluvia paragraphs quiet so the text stays crisp */
-#guidelines .card-inline-watermark {
-  opacity: 0.4;
-}
-
-/* ═════════════════════════════════════════════════════════════════════
-   ONE CONTINUOUS, DARKER BLUE SURFACE (no seams between panels)
-   The card itself carries the blue; every section is transparent.
-   A soft royal-blue glow repeats down the card and fades to the base
-   color at each tile edge, so there is never a visible line or step.
-   ═════════════════════════════════════════════════════════════════════ */
-.invitation-wrapper {
-  background-color: #0c2563;
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.26'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23d4af37' fill-opacity='0.30'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 95% 50% at 50% 50%, rgba(47, 85, 201, 0.62) 0%, rgba(30, 64, 175, 0.30) 48%, rgba(12, 37, 99, 0) 100%);
-  background-size: 40px 40px, 100% 1300px;
-  background-repeat: repeat, repeat-y;
-  background-position: 0 0, center top;
-}
-
+/* Sections sit seamlessly on the luminous Ivory canvas */
 #hero,
 #program,
 #court,
 #guidelines,
 #message,
 #rsvp {
-  background: none;
+  background: none !important;
+  color: #16233b !important;
 }
 
 .invite-section + .invite-section {
-  border-top: none;
-  box-shadow: none;
+  border-top: none !important;
+  box-shadow: none !important;
 }
 
-/* RSVP popup: same darker blue */
+/* ── HERO TYPOGRAPHY (MATCHING SOPHIA QUINCEAÑERA SIGN) ── */
+#hero .parents-line {
+  color: #16233b !important;
+  letter-spacing: 0.18em !important;
+  font-weight: 700 !important;
+}
+
+#hero .invite-preamble {
+  color: #7993ac !important;
+  letter-spacing: 0.20em !important;
+  font-weight: 600 !important;
+}
+
+#hero .quince-script-title {
+  color: #4169E1 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #4169E1 !important;
+  text-shadow: 0 2px 14px rgba(212, 175, 55, 0.40), 0 0 22px rgba(65, 105, 225, 0.25) !important;
+}
+
+#hero .daughter-subtitle {
+  color: #7993ac !important;
+  letter-spacing: 0.22em !important;
+  font-weight: 600 !important;
+}
+
+/* Celebrant Name: Rich Royal Blue Calligraphy matching "Sophia's" in Image #2 */
+#hero .celebrant-name {
+  color: #1e45aa !important;
+  background: linear-gradient(135deg, #0d2b5c 0%, #1e45aa 45%, #4169E1 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35)) drop-shadow(0 1px 3px rgba(13, 43, 92, 0.2)) !important;
+}
+
+/* Celebrant Portrait Frame */
+#hero .photo-viewport {
+  background: #ffffff !important;
+  border-radius: 28px !important;
+  box-shadow:
+    0 20px 50px -8px rgba(13, 25, 46, 0.35),
+    0 8px 24px -4px rgba(212, 175, 55, 0.30),
+    0 0 0 2px #d4af37,
+    0 0 0 5.5px rgba(255, 255, 255, 0.95),
+    0 0 0 7.5px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* Editorial Date & Time Box */
+#hero .editorial-date-box {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+}
+
+#hero .date-middle-row {
+  border-top: 1.5px solid #d4af37 !important;
+  border-bottom: 1.5px solid #d4af37 !important;
+}
+
+#hero .date-month,
+#hero .date-year,
+#hero .date-day-name,
+#hero .date-time {
+  color: #16233b !important;
+  font-weight: 700 !important;
+}
+
+#hero .date-day-num {
+  color: #4169E1 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #4169E1 !important;
+  text-shadow: 0 2px 8px rgba(65, 105, 225, 0.25) !important;
+}
+
+#hero .venue-location-hint {
+  color: #16233b !important;
+  font-weight: 700 !important;
+}
+
+/* Countdown: Royal Blue Digits, Gold Fleurons, French Blue Sublabels */
+#hero .pt-caption {
+  color: #16233b !important;
+}
+
+#hero .pt-style-italic .pt-big-num {
+  color: #4169E1 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #4169E1 !important;
+  text-shadow: 0 2px 8px rgba(65, 105, 225, 0.25) !important;
+}
+
+#hero .pt-style-italic .italic-fleuron {
+  color: #d4af37 !important;
+}
+
+#hero .pt-sublabel,
+#hero .pt-style-italic .pt-sublabel {
+  color: #7993ac !important;
+  font-weight: 700 !important;
+}
+
+/* ── PROGRAM (ITINERARIO) ── */
+#program .program-title {
+  color: #16233b !important;
+}
+
+#program .title-accent-line {
+  background: linear-gradient(90deg, transparent, #d4af37, transparent) !important;
+}
+
+#program .time-stamp,
+#program .program-timeline .time-stamp {
+  color: #4169E1 !important;
+  font-weight: 700 !important;
+}
+
+#program .event-title {
+  color: #16233b !important;
+}
+
+#program .event-desc {
+  color: #4a5878 !important;
+}
+
+#program .timeline-node,
+#program .program-timeline .timeline-node {
+  background: #ffffff !important;
+  border: 2px solid #4169E1 !important;
+  color: #4169E1 !important;
+  box-shadow: 0 4px 14px rgba(65, 105, 225, 0.25) !important;
+}
+
+#program .timeline-row:hover .timeline-node,
+#program .program-timeline .timeline-row:hover .timeline-node {
+  background: #fffdf5 !important;
+  border-color: #d4af37 !important;
+  color: #d4af37 !important;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45) !important;
+}
+
+#program .timeline-loc-btn {
+  color: #16233b !important;
+  background: rgba(121, 147, 172, 0.12) !important;
+  border-color: rgba(212, 175, 55, 0.6) !important;
+}
+
+#program .timeline-loc-btn:hover {
+  background: linear-gradient(135deg, #1e45aa 0%, #4169E1 100%) !important;
+  border-color: #4169E1 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(65, 105, 225, 0.35) !important;
+}
+
+#program .timeline-photo-card {
+  border: 1.5px solid #d4af37 !important;
+  box-shadow: 0 6px 18px rgba(22, 35, 59, 0.15) !important;
+}
+
+/* ── COURT OF HONOR ── */
+#court .court-title {
+  color: #16233b !important;
+}
+
+#court .padrinos-royal-plaque {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.8rem 0 !important;
+}
+
+#court .padrinos-role-badge,
+#court .court-subgroup-title {
+  color: #4169E1 !important;
+  font-weight: 700 !important;
+}
+
+#court .padrinos-names,
+#court .court-member-name,
+#court .name-main {
+  color: #16233b !important;
+}
+
+#court .court-char,
+#court .court-char-dual .c-initial {
+  background: linear-gradient(165deg, #fff7e6 0%, #e5c378 28%, #d4af37 55%, #1e45aa 90%, #0d2b5c 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 4px rgba(74, 55, 32, 0.22)) !important;
+}
+
+#court .court-amp,
+#court .court-char-dual .c-amp {
+  color: #d4af37 !important;
+}
+
+/* ── DETAILS (DRESS CODE & WISHING WELL) ── */
+#guidelines .vignette-item {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 1rem 0 !important;
+}
+
+#guidelines .readable-registry-title,
+#guidelines .dress-vignette .vignette-headline,
+#guidelines .registry-vignette .vignette-headline {
+  color: #16233b !important;
+}
+
+#guidelines .dress-code-swatch-badge {
+  background: #ffffff !important;
+  border: 1.5px solid #d4af37 !important;
+  box-shadow: 0 4px 14px rgba(65, 105, 225, 0.20) !important;
+}
+
+#guidelines .dress-code-swatch-badge .vignette-subtitle {
+  color: #4169E1 !important;
+  font-weight: 700 !important;
+}
+
+#guidelines .color-prohibit-swatch {
+  background: #4169E1 !important;
+  border: 1.5px solid #d4af37 !important;
+}
+
+#guidelines .registry-vignette .vignette-subtitle {
+  color: #7993ac !important;
+  font-weight: 700 !important;
+}
+
+#guidelines .vignette-prose {
+  color: #3b4b66 !important;
+}
+
+#guidelines .vignette-prose strong {
+  color: #16233b !important;
+}
+
+/* ── DEDICATION MESSAGE ── */
+#message .message-stage {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+}
+
+#message .message-quote-text {
+  color: #16233b !important;
+  font-style: italic !important;
+}
+
+#message .message-quote-mark {
+  color: #4169E1 !important;
+  opacity: 0.50 !important;
+}
+
+#message .message-signature {
+  color: #1e45aa !important;
+}
+
+#message .message-portrait-wrap {
+  box-shadow:
+    0 12px 28px rgba(13, 25, 46, 0.25),
+    0 0 0 2px #d4af37,
+    0 0 0 5px rgba(255, 255, 255, 0.95),
+    0 0 0 7px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* ── RSVP SECTION ── */
+#rsvp .rsvp-char {
+  background: linear-gradient(165deg, #fff7e6 0%, #e5c378 28%, #d4af37 55%, #1e45aa 90%, #0d2b5c 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 3px 6px rgba(74, 55, 32, 0.25)) !important;
+}
+
+#rsvp .letter-floral {
+  filter: drop-shadow(0 4px 10px rgba(9, 19, 44, 0.25)) !important;
+}
+
+#rsvp .rsvp-deadline-text {
+  color: #16233b !important;
+  font-weight: 700 !important;
+}
+
+#rsvp .rsvp-instruction-text {
+  color: #4a5878 !important;
+}
+
+#rsvp .rsvp-thank-you {
+  color: #1e45aa !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #1e45aa !important;
+  text-shadow: 0 2px 10px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* RSVP Ribbon Button: Deep Navy Velvet into Royal Blue with Gold Border */
+#rsvp .blush-ribbon-btn {
+  background: linear-gradient(135deg, #091b38 0%, #1e40af 50%, #4169E1 100%) !important;
+  border: 1.5px solid #d4af37 !important;
+  box-shadow: 0 6px 22px rgba(65, 105, 225, 0.40), 0 0 14px rgba(212, 175, 55, 0.35) !important;
+}
+
+#rsvp .blush-ribbon-btn:hover {
+  background: linear-gradient(135deg, #051024 0%, #153285 50%, #2f54c9 100%) !important;
+  box-shadow: 0 8px 28px rgba(65, 105, 225, 0.55), 0 0 20px rgba(212, 175, 55, 0.50) !important;
+}
+
+#rsvp .ribbon-center {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(9, 19, 44, 0.8) !important;
+}
+
+/* ── RSVP MODAL ── */
 .modal-card {
-  background-color: #0c2563;
+  background-color: #faf6ee !important;
   background-image:
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.26'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23d4af37' fill-opacity='0.30'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 50% 0%, #1f4ab8 0%, #153690 45%, #0c2563 100%);
+    linear-gradient(180deg, #ffffff 0%, #faf6ee 40%, #f4ede0 100%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L40 20 L20 40 L0 20 Z' fill='none' stroke='%23d4af37' stroke-width='0.45' stroke-opacity='0.20'/%3E%3Ccircle cx='20' cy='20' r='1.2' fill='%23d4af37' fill-opacity='0.22'/%3E%3C/svg%3E") !important;
+  border: 2px solid #d4af37 !important;
+  box-shadow: 0 20px 60px rgba(9, 19, 44, 0.45) !important;
 }
 
-/* ═════════════════════════════════════════════════════════════════════
-   PAGE BEHIND THE CARD: BACK TO LIGHT IVORY / GOLD
-   ═════════════════════════════════════════════════════════════════════ */
-body.site-entered {
-  background: var(--bg-page-gradient) !important;
-  background-attachment: fixed !important;
+.modal-title {
+  color: #16233b !important;
 }
 
-html.site-entered {
-  background-color: #f3eadb;
+.modal-subtitle {
+  color: #7993ac !important;
 }
 
+.form-group label {
+  color: #16233b !important;
+  font-weight: 700 !important;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #ffffff !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+  color: #16233b !important;
+}
+
+.close-modal {
+  color: #16233b !important;
+}
+
+.close-modal:hover {
+  color: #4169E1 !important;
+}
+
+.btn-rsvp-accept {
+  background: linear-gradient(135deg, #091b38 0%, #1e40af 50%, #4169E1 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #d4af37 !important;
+  box-shadow: 0 6px 18px rgba(65, 105, 225, 0.35) !important;
+}
+
+.btn-rsvp-accept:hover {
+  background: linear-gradient(135deg, #051024 0%, #153285 50%, #2f54c9 100%) !important;
+  box-shadow: 0 8px 24px rgba(65, 105, 225, 0.50) !important;
+}
+
+/* Footer Sitting on Deep Velvet Gala Backdrop */
 .footer-names {
-  color: var(--text-charcoal);
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(9, 19, 44, 0.8) !important;
 }
 
 .footer-date {
-  color: var(--text-muted);
+  color: #7993ac !important;
 }
 
 .footer-crown svg circle {
-  fill: #d4af37;
+  fill: #d4af37 !important;
+}
+
+/* Floral Corner Sprays Layering: Drop Shadow with Gold Luster */
+.invitation-flower-spray,
+.envelope-flower-spray,
+.env-card-flower {
+  filter: drop-shadow(0 8px 18px rgba(9, 19, 44, 0.35)) drop-shadow(0 2px 8px rgba(212, 175, 55, 0.25)) !important;
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   CORNER FLORAL SPRAYS: ZERO CLIPPING & NATURAL CORNER PLACEMENT
+   ═════════════════════════════════════════════════════════════════════ */
+.invitation-card-stage {
+  overflow: visible !important;
+}
+
+.invitation-floral-frame {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 25 !important;
+  overflow: visible !important;
+}
+
+.invitation-flower-spray {
+  position: absolute !important;
+  object-fit: contain !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 8px 18px rgba(9, 19, 44, 0.35)) drop-shadow(0 2px 8px rgba(212, 175, 55, 0.25)) !important;
+}
+
+.flower-card-top-left {
+  top: -10px !important;
+  left: -10px !important;
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 44vw !important;
+  max-height: 44vw !important;
+  transform: none !important;
+}
+
+.flower-card-top-right {
+  top: -10px !important;
+  right: -10px !important;
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 44vw !important;
+  max-height: 44vw !important;
+  transform: none !important;
+}
+
+.flower-card-bottom-left {
+  bottom: -10px !important;
+  left: -10px !important;
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 44vw !important;
+  max-height: 44vw !important;
+  transform: none !important;
+}
+
+.flower-card-bottom-right {
+  bottom: -10px !important;
+  right: -10px !important;
+  width: 180px !important;
+  height: 180px !important;
+  max-width: 44vw !important;
+  max-height: 44vw !important;
+  transform: none !important;
+}
+
+@media (max-width: 480px) {
+  .flower-card-top-left,
+  .flower-card-top-right,
+  .flower-card-bottom-left,
+  .flower-card-bottom-right {
+    width: 135px !important;
+    height: 135px !important;
+    top: -6px !important;
+  }
+  .flower-card-top-left,
+  .flower-card-bottom-left {
+    left: -6px !important;
+  }
+  .flower-card-top-right,
+  .flower-card-bottom-right {
+    right: -6px !important;
+  }
+  .flower-card-bottom-left,
+  .flower-card-bottom-right {
+    bottom: -6px !important;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   CLEAN SEAMLESS CANVAS: ZERO CONTAINER BOXES FOR DATE & MESSAGE
+   ═════════════════════════════════════════════════════════════════════ */
+.editorial-date-box,
+#hero .editorial-date-box {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+}
+
+.message-stage,
+#message .message-stage {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
 }
