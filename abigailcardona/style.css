@@ -2916,7 +2916,7 @@ body.site-entered .lang-control-bar {
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background-color: #071228 !important;
+  background-color: #0e2a6d !important;
   background-image:
     /* Luminous warm champagne & candle glow halo behind the envelope */
     radial-gradient(ellipse 62% 48% at 50% 50%, rgba(255, 252, 245, 0.96) 0%, rgba(247, 238, 222, 0.88) 32%, rgba(212, 175, 55, 0.30) 60%, transparent 82%),
@@ -2925,8 +2925,8 @@ body.site-entered .lang-control-bar {
     radial-gradient(circle 320px at 85% 22%, rgba(229, 199, 148, 0.25) 0%, transparent 70%),
     radial-gradient(circle 240px at 18% 82%, rgba(65, 105, 225, 0.38) 0%, transparent 70%),
     radial-gradient(circle 340px at 82% 80%, rgba(212, 175, 55, 0.24) 0%, transparent 70%),
-    /* Deep Royal Blue Velvet & Midnight Navy Gala Drapery */
-    radial-gradient(ellipse 95% 75% at 50% 48%, #163a8e 0%, #0d2562 42%, #071228 100%) !important;
+    /* Rich Royal Sapphire Blue gradient extending from top to bottom */
+    linear-gradient(180deg, #0e2a6d 0%, #153c98 25%, #1d4ec8 50%, #153c98 75%, #0e2a6d 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
 
@@ -5244,11 +5244,11 @@ html.og-mode .envelope-entry-header {
 /* ══════════════════════════════════════════════════════════════
    LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
    ══════════════════════════════════════════════════════════════ */
-/* Paint the same lilac sky on the page itself, so anything the overlay doesn't
-   reach (behind the status bar / URL bar) matches instead of flat lavender */
+/* Paint the same royal blue on the page itself, so anything the overlay doesn't
+   reach (behind the status bar / URL bar) matches seamlessly */
 html:not(.site-entered) {
-  background: radial-gradient(ellipse at 50% 50%, #163a8e 0%, #0d2562 45%, #071228 100%) !important;
-  background-color: #071228 !important;
+  background: linear-gradient(180deg, #0e2a6d 0%, #153c98 25%, #1d4ec8 50%, #153c98 75%, #0e2a6d 100%) !important;
+  background-color: #0e2a6d !important;
 }
 
 body:not(.site-entered) {
@@ -5265,12 +5265,8 @@ body:not(.site-entered) {
   bottom: 0 !important;
   width: 100% !important;
   height: 100% !important;
-}
-
-@supports (height: 100dvh) {
-  .entry-overlay {
-    height: 100dvh !important;
-  }
+  min-height: 100vh !important;
+  min-height: -webkit-fill-available !important;
 }
 
 
