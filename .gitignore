@@ -13,3 +13,6 @@ Thumbs.db
 # Chrome temp data
 .chrome_temp/
 .chrome-profile/
+
+# Temporary scratch directories
+temp/
