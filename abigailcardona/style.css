@@ -5265,11 +5265,6 @@ body:not(.site-entered) {
   bottom: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background-color: #0b1736 !important;
-  background-image:
-    radial-gradient(ellipse 65% 52% at 50% 48%, rgba(255, 255, 255, 0.96) 0%, rgba(224, 237, 255, 0.90) 36%, rgba(65, 105, 225, 0.38) 68%, transparent 88%),
-    radial-gradient(ellipse 90% 35% at 50% 100%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
-    linear-gradient(180deg, #09132c 0%, #112557 18%, #1e45aa 38%, #4169E1 60%, #5d88f4 80%, #9cbefb 94%, #cde1fc 100%) !important;
 }
 
 @supports (height: 100dvh) {
