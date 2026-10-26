@@ -6499,23 +6499,24 @@ body.site-entered {
 }
 
 #hero .invite-preamble {
-  color: #7993ac !important;
+  color: #16233b !important;
   letter-spacing: 0.20em !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
 #hero .quince-script-title {
-  color: #4169E1 !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: #4169E1 !important;
-  text-shadow: 0 2px 14px rgba(212, 175, 55, 0.40), 0 0 22px rgba(65, 105, 225, 0.25) !important;
+  color: #1e45aa !important;
+  background: linear-gradient(135deg, #0d2b5c 0%, #1e45aa 45%, #4169E1 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35)) drop-shadow(0 1px 3px rgba(13, 43, 92, 0.2)) !important;
 }
 
 #hero .daughter-subtitle {
-  color: #7993ac !important;
+  color: #1e45aa !important;
   letter-spacing: 0.22em !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
 /* Celebrant Name: Rich Royal Blue Calligraphy matching "Sophia's" in Image #2 */
@@ -6565,11 +6566,13 @@ body.site-entered {
 }
 
 #hero .date-day-num {
-  color: #4169E1 !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: #4169E1 !important;
-  text-shadow: 0 2px 8px rgba(65, 105, 225, 0.25) !important;
+  color: #1e45aa !important;
+  background: linear-gradient(135deg, #0d2b5c 0%, #1e45aa 60%, #2a55c7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 5px rgba(13, 43, 92, 0.22)) !important;
+  text-shadow: none !important;
 }
 
 #hero .venue-location-hint {
@@ -6583,11 +6586,13 @@ body.site-entered {
 }
 
 #hero .pt-style-italic .pt-big-num {
-  color: #4169E1 !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: #4169E1 !important;
-  text-shadow: 0 2px 8px rgba(65, 105, 225, 0.25) !important;
+  color: #1e45aa !important;
+  background: linear-gradient(135deg, #0d2b5c 0%, #1e45aa 65%, #2a55c7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 5px rgba(13, 43, 92, 0.22)) !important;
+  text-shadow: none !important;
 }
 
 #hero .pt-style-italic .italic-fleuron {
@@ -6611,7 +6616,7 @@ body.site-entered {
 
 #program .time-stamp,
 #program .program-timeline .time-stamp {
-  color: #4169E1 !important;
+  color: #1e45aa !important;
   font-weight: 700 !important;
 }
 
@@ -6626,9 +6631,9 @@ body.site-entered {
 #program .timeline-node,
 #program .program-timeline .timeline-node {
   background: #ffffff !important;
-  border: 2px solid #4169E1 !important;
-  color: #4169E1 !important;
-  box-shadow: 0 4px 14px rgba(65, 105, 225, 0.25) !important;
+  border: 2px solid #1e45aa !important;
+  color: #1e45aa !important;
+  box-shadow: 0 4px 14px rgba(30, 69, 170, 0.25) !important;
 }
 
 #program .timeline-row:hover .timeline-node,
@@ -6672,7 +6677,7 @@ body.site-entered {
 
 #court .padrinos-role-badge,
 #court .court-subgroup-title {
-  color: #4169E1 !important;
+  color: #1e45aa !important;
   font-weight: 700 !important;
 }
 
@@ -6718,7 +6723,7 @@ body.site-entered {
 }
 
 #guidelines .dress-code-swatch-badge .vignette-subtitle {
-  color: #4169E1 !important;
+  color: #1e45aa !important;
   font-weight: 700 !important;
 }
 
@@ -6757,8 +6762,8 @@ body.site-entered {
 }
 
 #message .message-quote-mark {
-  color: #4169E1 !important;
-  opacity: 0.50 !important;
+  color: #1e45aa !important;
+  opacity: 0.65 !important;
 }
 
 #message .message-signature {
@@ -6856,7 +6861,7 @@ body.site-entered {
 }
 
 .close-modal:hover {
-  color: #4169E1 !important;
+  color: #1e45aa !important;
 }
 
 .btn-rsvp-accept {
