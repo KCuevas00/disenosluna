@@ -8,7 +8,7 @@
 - **Celebrant**: Abigail Cardona
 - **Event Type**: Quinceañera (XV Años)
 - **Event Date**: Friday, November 20, 2026
-- **RSVP Deadline**: November 13, 2026 (1 week prior)
+- **RSVP Deadline**: November 20, 2026 (day of event)
 - **Parents / Hosts**: Marcos Cardona and Cristina Garcia
 - **Language Preference**: Bilingual (English & Spanish)
 - **Aesthetic**: Western Style
