@@ -4594,10 +4594,12 @@ html.og-mode .envelope-entry-header {
     
   }
 
-  .pt-big-num {
-    font-size: clamp(2.2rem, 7.5vw, 2.8rem);
-    line-height: 1.15;
-    padding: 0.08em 0.1em;
+  .pt-big-num,
+  #hero .pt-style-italic .pt-big-num {
+    font-size: clamp(2.45rem, 8.8vw, 3.2rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    padding: 0.06em 0.08em !important;
   }
 
   .pt-sublabel {
@@ -4779,10 +4781,12 @@ html.og-mode .envelope-entry-header {
     min-width: 0;
   }
 
-  .pt-big-num {
-    font-size: 1.9rem;
-    line-height: 1.15;
-    padding: 0.06em 0.08em;
+  .pt-big-num,
+  #hero .pt-style-italic .pt-big-num {
+    font-size: clamp(2.1rem, 7.5vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    padding: 0.05em 0.06em !important;
   }
 
   .pt-sublabel {
