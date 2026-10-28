@@ -103,13 +103,17 @@ function init() {
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
       var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', '#1e45aa');
+      if (themeMeta) themeMeta.setAttribute('content', '#fbf8f3');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
+
+      // Instantly trigger viewport recalculation so Safari undocks bottom address bar without delay
+      void document.body.offsetHeight;
+      window.dispatchEvent(new Event('resize'));
     }, 1500);
 
-    // 3. Final cleanup of overlay (2350ms)
+    // 3. Final cleanup of overlay (2050ms)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -124,7 +128,7 @@ function init() {
       setTimeout(() => {
         document.documentElement.style.scrollBehavior = '';
       }, 50);
-    }, 2350);
+    }, 2050);
 
     triggerScrollReveals();
   }

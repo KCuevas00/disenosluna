@@ -2985,10 +2985,19 @@ body.site-entered .lang-control-bar {
 }
 
 .entry-overlay.fade-out {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
   opacity: 0 !important;
   transform: scale(1.04);
   pointer-events: none !important;
-  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.entry-overlay.fade-out::before,
+.entry-overlay.fade-out::after {
+  display: none !important;
+  opacity: 0 !important;
 }
 
 .entry-overlay.fade-out * {
@@ -3234,6 +3243,20 @@ body.site-entered .lang-control-bar {
   }
 }
 
+
+/* When site is entered, instantly clear the overlay's solid background so Safari never paints a blue bar behind the URL toolbar */
+body.site-entered .entry-overlay,
+body.site-entered #entry-popup-overlay {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.site-entered .entry-overlay::before,
+body.site-entered .entry-overlay::after {
+  display: none !important;
+  opacity: 0 !important;
+}
 
 /* When site is entered, allow fading overlay to complete its transition, but hide if not fading */
 body.site-entered .entry-overlay:not(.fade-out),
