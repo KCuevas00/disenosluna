@@ -338,7 +338,7 @@ function init() {
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
-  const AUDIO_START_OFFSET = 72.5; // ~1:12.5 (Right before Grupo Frontera sings "Si supieran")
+  const AUDIO_START_OFFSET = 73.0; // 1:13.0 (Right before Grupo Frontera sings "Si supieran")
   let hasSetInitialStartTime = false;
   let lastAudioTime = 0;
 
@@ -408,7 +408,7 @@ function init() {
           hasSetInitialStartTime = true;
         } catch (e) {}
       } else if (hasSetInitialStartTime && lastAudioTime > (AUDIO_START_OFFSET + 10) && bgAudio.currentTime < 2) {
-        // Native loop rewound track back to 0:00 -> redirect to ~1:12.5 ("Si supieran")
+        // Native loop rewound track back to 0:00 -> redirect to 1:13.0 ("Si supieran")
         try {
           bgAudio.currentTime = AUDIO_START_OFFSET;
         } catch (e) {}
