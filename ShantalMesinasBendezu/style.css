@@ -1377,7 +1377,7 @@ body.site-entered .lang-control-bar {
   letter-spacing: 0.14em;
   color: var(--text-dark);
   font-weight: 600;
-  margin: 0.4rem auto 1.4rem;
+  margin: 0.25rem auto 0.6rem;
   text-align: center;
 }
 
@@ -1415,16 +1415,17 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 2: PROGRAM / TIMELINE ── */
 #hero {
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.2rem !important;
 }
 
 .program-section {
   background: transparent;
-  padding-top: 1.4rem;
+  padding-top: 0.4rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .program-section>.floral-divider-container {
-  margin: 0 auto 2.2rem;
+  margin: 0.6rem auto 1rem !important;
 }
 
 .court-section {
@@ -1445,7 +1446,7 @@ body.site-entered .lang-control-bar {
 
 .program-header,
 .court-header {
-  margin-bottom: 2.6rem;
+  margin-bottom: 1.2rem !important;
 }
 
 .program-title,
@@ -7129,7 +7130,7 @@ body.site-entered {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.8rem auto 2.2rem;
+  margin: 0.6rem auto 0.9rem !important;
   width: 100%;
   max-width: 440px;
   padding: 0 1rem;
@@ -7137,17 +7138,17 @@ body.site-entered {
 
 .floral-divider-img {
   width: 100%;
-  max-width: 290px;
+  max-width: 210px !important;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 3px 10px rgba(176, 183, 198, 0.35));
+  filter: drop-shadow(0 2px 8px rgba(176, 183, 198, 0.3));
 }
 
 /* ═════════════════════════════════════════════════════════════════════
    DEDICATED VENUE SECTION STYLING
    ═════════════════════════════════════════════════════════════════════ */
 .venue-section {
-  padding: 1.8rem 1rem 2.2rem;
+  padding: 0.5rem 1rem 1.2rem !important;
   position: relative;
 }
 
@@ -7444,7 +7445,7 @@ body.site-entered {
    CELEBRANT SPOTLIGHT WINDOW PORTRAIT (BETWEEN PROGRAM & RSVP)
    ═════════════════════════════════════════════════════════════════════ */
 .portrait-spotlight-section {
-  padding: 1.4rem 1rem 2rem;
+  padding: 0.5rem 1rem 1.2rem !important;
   position: relative;
 }
 
@@ -7554,4 +7555,45 @@ body.site-entered {
     align-items: flex-start;
     text-align: left;
   }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   CLOSING CELEBRANT PORTRAIT (ABOVE "THANK YOU SO MUCH")
+   ═════════════════════════════════════════════════════════════════════ */
+.rsvp-closing-portrait-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.4rem auto 0.8rem;
+}
+
+.closing-photo-frame {
+  width: 145px;
+  height: 205px;
+  border-radius: 72px 72px 20px 20px;
+  overflow: hidden;
+  border: none;
+  box-shadow:
+    0 14px 34px rgba(15, 36, 92, 0.22),
+    0 0 0 2px #d4af37,
+    0 0 0 5px rgba(255, 255, 255, 0.95),
+    0 0 0 7.5px rgba(176, 183, 198, 0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.closing-photo-frame:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 20px 42px rgba(15, 36, 92, 0.28),
+    0 0 0 2.5px #d4af37,
+    0 0 0 6px rgba(255, 255, 255, 0.98),
+    0 0 0 9px rgba(37, 99, 235, 0.4);
+}
+
+.closing-celebrant-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
 }
