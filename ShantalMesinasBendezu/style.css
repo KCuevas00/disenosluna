@@ -6472,13 +6472,15 @@ body.site-entered .ambient-confetti-canvas {
    ═════════════════════════════════════════════════════════════════════ */
 
 /* Page Backdrop: Deep Royal Blue & Midnight Velvet Gala Atmosphere */
-html.site-entered {
+html.site-entered,
+body.site-entered {
+  background: radial-gradient(ellipse at 50% 0%, #1e45aa 0%, #132a68 42%, #09132c 100%) !important;
   background-color: #09132c !important;
+  background-attachment: fixed !important;
 }
 
 body.site-entered {
-  background: radial-gradient(ellipse at 50% 10%, #1e45aa 0%, #132a68 40%, #09132c 100%) !important;
-  background-attachment: fixed !important;
+  padding-top: 0.1px !important; /* Prevents margin collapse from creating color seams at the top */
 }
 
 /* Outer Aura surrounding the Ivory Invitation Board */
