@@ -861,7 +861,7 @@ body.site-entered .lang-control-bar {
   position: relative;
   width: 95%;
   max-width: 440px;
-  margin: 0.6rem auto 2.2rem;
+  margin: 0.6rem auto 1.0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4480,12 +4480,12 @@ html.og-mode .envelope-entry-header {
     padding-bottom: 2rem;
   }
 
-  /* Main Celebrant Photo Centerpiece: Clean 75% Screen Width with Balanced Breathing Room */
+  /* Main Celebrant Photo Centerpiece: Clean balanced proportion close to celebrant name */
   .photo-stage,
   .celebrant-portrait-container {
     width: 80%;
     max-width: 300px;
-    margin: 0.6rem auto 3.8rem;
+    margin: 0.4rem auto 0.75rem;
   }
 
   .quince-script-title {
@@ -7075,13 +7075,17 @@ body.site-entered {
 /* ═════════════════════════════════════════════════════════════════════
    HERO CELEBRANT NAME HIERARCHY & BALANCED WRAPPING
    ═════════════════════════════════════════════════════════════════════ */
+#hero .photo-stage {
+  margin: 0.5rem auto 0.95rem !important;
+}
+
 #hero .celebrant-name {
   font-family: var(--font-script) !important;
   font-size: clamp(2.8rem, 7.6vw, 4.2rem) !important;
   font-weight: 400 !important;
-  line-height: 1.25 !important;
-  margin-top: 0.4rem !important;
-  margin-bottom: 0.85rem !important;
+  line-height: 1.22 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.6rem !important;
   color: #1e40af !important;
   background: none !important;
   -webkit-background-clip: unset !important;
@@ -7090,13 +7094,13 @@ body.site-entered {
   text-shadow: 0 2px 8px rgba(176, 183, 198, 0.4), 0 1px 3px rgba(15, 36, 92, 0.18) !important;
   text-align: center !important;
   overflow: visible !important;
-  padding: 0.2rem 0.4rem !important;
+  padding: 0 0.4rem !important;
 }
 
 #hero .celebrant-name .name-first {
   display: block;
   overflow: visible !important;
-  padding: 0.1rem 0;
+  padding: 0.05rem 0;
 }
 
 #hero .celebrant-name .name-last {
@@ -7105,7 +7109,7 @@ body.site-entered {
   font-size: 0.88em;
   letter-spacing: -0.01em;
   overflow: visible !important;
-  padding: 0.1rem 0;
+  padding: 0.05rem 0;
 }
 
 #hero .invite-preamble {
@@ -7115,7 +7119,7 @@ body.site-entered {
   letter-spacing: 0.22em !important;
   color: #4b5563 !important;
   text-transform: uppercase !important;
-  margin: 0.2rem 0 0.4rem !important;
+  margin: 0.15rem 0 0.35rem !important;
 }
 
 #hero .quince-script-title {
@@ -7123,8 +7127,56 @@ body.site-entered {
   font-size: clamp(3.2rem, 9vw, 4.4rem) !important;
   line-height: 1 !important;
   color: #2563eb !important;
-  margin: 0.15rem 0 0.85rem !important;
+  margin: 0.1rem 0 0.65rem !important;
   text-shadow: 0 2px 14px rgba(176, 183, 198, 0.4), 0 0 25px rgba(37, 99, 235, 0.2) !important;
+}
+
+#hero .editorial-date-box {
+  margin: 0.4rem auto 0.85rem !important;
+}
+
+#hero .hero-fleuron {
+  margin: 0.3rem auto 0.65rem !important;
+}
+
+#hero .venue-location-hint {
+  margin: 0.2rem auto 0.4rem !important;
+}
+
+@media (max-width: 480px) {
+  #hero .top-crown-container {
+    margin: 0 auto 0.75rem !important;
+  }
+
+  #hero .photo-stage {
+    margin: 0.35rem auto 0.65rem !important;
+  }
+
+  #hero .celebrant-name {
+    margin-top: 0 !important;
+    margin-bottom: 0.45rem !important;
+    padding: 0 0.2rem !important;
+  }
+
+  #hero .invite-preamble {
+    margin: 0.12rem 0 0.28rem !important;
+  }
+
+  #hero .quince-script-title {
+    margin: 0.08rem 0 0.55rem !important;
+  }
+
+  #hero .editorial-date-box {
+    margin: 0.3rem auto 0.7rem !important;
+  }
+
+  #hero .hero-fleuron {
+    margin: 0.2rem auto 0.5rem !important;
+  }
+
+  #hero .venue-location-hint {
+    margin: 0.15rem auto 0.35rem !important;
+  }
 }
 
 /* Silver Accent Crown Divider Flourishes */
