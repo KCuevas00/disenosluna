@@ -338,9 +338,27 @@ function init() {
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
+  const AUDIO_START_OFFSET = 74; // 1:14 (Where Grupo Frontera starts singing)
+  let hasSetInitialStartTime = false;
+  let lastAudioTime = 0;
+
   let isAudioPlaying = false;
   let wasAudioPlayingBeforeHide = false;
   let audioUnlocked = false;
+
+  function ensureAudioStartTime() {
+    if (!bgAudio || hasSetInitialStartTime) return;
+    try {
+      if (bgAudio.readyState >= 1) { // HAVE_METADATA or higher
+        if (Math.abs(bgAudio.currentTime - AUDIO_START_OFFSET) > 1 && bgAudio.currentTime < AUDIO_START_OFFSET) {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+        }
+        hasSetInitialStartTime = true;
+      }
+    } catch (e) {
+      // Defer until loadedmetadata / canplay fires
+    }
+  }
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -361,10 +379,43 @@ function init() {
 
   // Synchronize state with native HTML5 audio events (e.g. stalled, paused by OS)
   if (bgAudio) {
-    bgAudio.addEventListener('play', () => updatePlayState(true));
-    bgAudio.addEventListener('playing', () => updatePlayState(true));
+    bgAudio.addEventListener('loadedmetadata', ensureAudioStartTime);
+    bgAudio.addEventListener('canplay', ensureAudioStartTime);
+
+    bgAudio.addEventListener('play', () => {
+      ensureAudioStartTime();
+      updatePlayState(true);
+    });
+    bgAudio.addEventListener('playing', () => {
+      ensureAudioStartTime();
+      updatePlayState(true);
+    });
     bgAudio.addEventListener('pause', () => updatePlayState(false));
-    bgAudio.addEventListener('ended', () => updatePlayState(false));
+    bgAudio.addEventListener('ended', () => {
+      // Seamlessly loop back to Grupo Frontera's verse
+      try {
+        bgAudio.currentTime = AUDIO_START_OFFSET;
+        bgAudio.play().catch(() => {});
+      } catch (e) {}
+      updatePlayState(false);
+    });
+
+    // Guard against playing from 0:00 before initial seek AND handle native loop rewind
+    bgAudio.addEventListener('timeupdate', () => {
+      if (!hasSetInitialStartTime && bgAudio.currentTime < AUDIO_START_OFFSET) {
+        try {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+          hasSetInitialStartTime = true;
+        } catch (e) {}
+      } else if (hasSetInitialStartTime && lastAudioTime > (AUDIO_START_OFFSET + 10) && bgAudio.currentTime < 2) {
+        // Native loop rewound track back to 0:00 -> redirect to 1:14
+        try {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+        } catch (e) {}
+      }
+      lastAudioTime = bgAudio.currentTime;
+    });
+
     bgAudio.addEventListener('error', (e) => {
       console.warn('[Audio element error]:', bgAudio.error || e);
       updatePlayState(false);
@@ -373,12 +424,14 @@ function init() {
 
   function playAudio() {
     if (!bgAudio) return;
+    ensureAudioStartTime();
     bgAudio.volume = 0.85;
 
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
+          ensureAudioStartTime();
           audioUnlocked = true;
           updatePlayState(true);
         })
@@ -388,7 +441,9 @@ function init() {
           // If browser rejected on initial tap, unlock on the very next user gesture anywhere
           if (!audioUnlocked) {
             const unlockOnNextTouch = () => {
+              ensureAudioStartTime();
               bgAudio.play().then(() => {
+                ensureAudioStartTime();
                 audioUnlocked = true;
                 updatePlayState(true);
               }).catch(() => {});
