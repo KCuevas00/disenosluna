@@ -7161,7 +7161,7 @@ body.site-entered {
 .venue-plaque {
   max-width: 440px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   background-image: radial-gradient(circle at 50% 15%, #ffffff 0%, #f4f8fc 65%, #edf3fa 100%);
   border: 1.5px solid rgba(176, 183, 198, 0.45);
   border-radius: 22px;
@@ -7169,9 +7169,26 @@ body.site-entered {
     0 16px 42px rgba(30, 64, 175, 0.10),
     0 4px 16px rgba(176, 183, 198, 0.20),
     inset 0 0 0 4px rgba(255, 255, 255, 0.95);
-  padding: 2.2rem 1.6rem;
+  padding: 1.8rem 1.4rem 1.6rem;
   position: relative;
   text-align: center;
+}
+
+.venue-event-badge {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #1e40af;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.38rem 0.95rem;
+  background: rgba(30, 64, 175, 0.08);
+  border: 1px solid rgba(30, 64, 175, 0.22);
+  border-radius: 20px;
+  margin-bottom: 0.7rem;
 }
 
 .venue-crown-crest {
@@ -7186,16 +7203,16 @@ body.site-entered {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.85rem auto 0.75rem auto;
+  margin: 0.2rem auto 0.65rem auto;
 }
 
 .venue-hero-logo {
   width: auto;
-  height: clamp(80px, 18vw, 115px);
-  max-width: 230px;
+  height: clamp(65px, 15vw, 85px);
+  max-width: 190px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 4px 14px rgba(15, 36, 92, 0.18));
+  filter: drop-shadow(0 3px 10px rgba(15, 36, 92, 0.16));
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -7337,82 +7354,60 @@ body.site-entered {
 .venue-map-mount {
   width: 100%;
   max-width: 380px;
-  margin: 0.6rem auto 1.2rem;
-  border-radius: 18px;
+  margin: 0 auto 1.1rem;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1.5px solid rgba(176, 183, 198, 0.55);
+  border: 1.5px solid rgba(176, 183, 198, 0.45);
   box-shadow:
-    0 12px 30px rgba(15, 36, 92, 0.14),
-    0 0 0 1px rgba(212, 175, 55, 0.35);
+    0 10px 24px rgba(15, 36, 92, 0.10),
+    0 0 0 1px rgba(212, 175, 55, 0.25);
   position: relative;
   background: #f1f5f9;
 }
 
 .venue-map-iframe {
   width: 100%;
-  height: 220px;
+  height: 200px;
   border: none;
   display: block;
 }
 
-.venue-map-pin-pill {
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.32rem 0.75rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(176, 183, 198, 0.45);
-  border-radius: 20px;
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #0f245c;
-  box-shadow: 0 4px 12px rgba(15, 36, 92, 0.12);
-  pointer-events: none;
-}
-
-.venue-description-prose {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 400;
-  line-height: 1.55;
-  color: #475569;
-  max-width: 340px;
-  margin: 0 auto 1.35rem;
-}
-
 .venue-nav-buttons {
   display: flex;
+  flex-direction: row;
   gap: 0.65rem;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 .venue-btn {
-  padding: 0.65rem 1.15rem;
+  flex: 1;
+  max-width: 180px;
+  padding: 0.65rem 0.85rem;
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   color: #ffffff !important;
   border: 1px solid #1e3a8a;
-  border-radius: 22px;
-  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.22);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
 }
 
 .venue-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(30, 64, 175, 0.35);
+  box-shadow: 0 6px 18px rgba(30, 64, 175, 0.32);
 }
 
 .venue-btn-apple {
@@ -7423,6 +7418,9 @@ body.site-entered {
 }
 
 .venue-btn-apple:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
   background: #f8fafc;
   border-color: #94a3b8;
 }
