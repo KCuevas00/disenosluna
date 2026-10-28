@@ -30,8 +30,8 @@
   --royal-blue-soft: #dbeafe;
   --royal-blue-light: #60a5fa;
 
-  --bg-page: #fbf8f3;
-  --bg-page-gradient: radial-gradient(circle at 50% 12%, #fffdfa 0%, #f7f0e6 48%, #ede2d2 100%);
+  --bg-page: #09132c;
+  --bg-page-gradient: radial-gradient(ellipse at 50% 0%, #1e45aa 0%, #132a68 42%, #09132c 100%);
   --card-white: #fdfbf7;
 
   /* Typographic Contrast */
@@ -91,11 +91,11 @@
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
-  scrollbar-gutter: stable both-edges;
+  scrollbar-gutter: auto;
 }
 
 body {
-  background: #ffffff;
+  background: #09132c;
   min-height: 100vh;
   color: var(--text-dark);
   font-family: var(--font-sans);
@@ -114,11 +114,13 @@ body {
 /* Before envelope is opened: lock scrolling on root html only & pure background */
 html:not(.site-entered),
 body:not(.site-entered) {
-  background: #fbf8f3 !important;
+  background: #09132c !important;
+  background-color: #09132c !important;
   overflow: hidden !important;
   height: 100% !important;
   touch-action: none !important;
   overscroll-behavior: none !important;
+  scrollbar-gutter: auto !important;
 }
 
 /* While envelope is unopened: strictly hide the invitation card, glow, and footer */
@@ -5341,7 +5343,7 @@ html.og-mode .envelope-entry-header {
   --ribbon-blush-hover: linear-gradient(135deg, #051024 0%, #153285 50%, #2f54c9 100%);
 
   /* Page background */
-  --bg-page-gradient: radial-gradient(circle at 50% 12%, #fffdfa 0%, #f7f0e6 48%, #ede2d2 100%);
+  --bg-page-gradient: radial-gradient(ellipse at 50% 0%, #1e45aa 0%, #132a68 42%, #09132c 100%);
 }
 
 .blush-ribbon-btn {
