@@ -1169,7 +1169,7 @@ body.site-entered .lang-control-bar {
    ═════════════════════════════════════════════════════════════════════ */
 .pure-countdown-section {
   width: 100%;
-  max-width: 340px;
+  max-width: 480px;
   margin: 0.8rem auto 1.8rem;
   padding: 0 0.5rem;
   display: flex;
@@ -1213,8 +1213,8 @@ body.site-entered .lang-control-bar {
 .pt-numbers-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(0.2rem, 1.5vw, 0.55rem);
+  justify-content: space-between;
+  gap: clamp(0.1rem, 1vw, 0.4rem);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -1229,9 +1229,8 @@ body.site-entered .lang-control-bar {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 0 1 auto;
-  min-width: 48px;
-  max-width: 64px;
+  flex: 1 1 0;
+  min-width: 0;
   background: none;
   border: none;
   box-shadow: none;
@@ -1243,7 +1242,7 @@ body.site-entered .lang-control-bar {
 .pt-big-num {
   display: inline-block;
   font-family: var(--font-editorial-num), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.8rem, 5.5vw, 2.4rem);
+  font-size: clamp(2.6rem, 8.5vw, 3.8rem);
   font-weight: 600;
   line-height: 1.15;
   font-variant-numeric: tabular-nums;
@@ -4592,11 +4591,11 @@ html.og-mode .envelope-entry-header {
   .pt-item {
     flex: 1 1 0;
     min-width: 0;
-    max-width: 24%;
+    
   }
 
   .pt-big-num {
-    font-size: clamp(1.55rem, 5.2vw, 1.95rem);
+    font-size: clamp(2.2rem, 7.5vw, 2.8rem);
     line-height: 1.15;
     padding: 0.08em 0.1em;
   }
@@ -4781,7 +4780,7 @@ html.og-mode .envelope-entry-header {
   }
 
   .pt-big-num {
-    font-size: 1.45rem;
+    font-size: 1.9rem;
     line-height: 1.15;
     padding: 0.06em 0.08em;
   }
