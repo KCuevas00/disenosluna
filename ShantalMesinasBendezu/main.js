@@ -95,7 +95,7 @@ function init() {
       envelope.classList.add('is-opened');
     }
 
-    // 2. Smoothly fade out envelope overlay and unveil main site (1500ms)
+    // 2. Smoothly fade out envelope overlay and unveil main site (1100ms)
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
@@ -111,9 +111,9 @@ function init() {
       // Instantly trigger viewport recalculation so Safari undocks bottom address bar without delay
       void document.body.offsetHeight;
       window.dispatchEvent(new Event('resize'));
-    }, 1500);
+    }, 1100);
 
-    // 3. Final cleanup of overlay (2050ms)
+    // 3. Final cleanup of overlay (1500ms)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -128,7 +128,7 @@ function init() {
       setTimeout(() => {
         document.documentElement.style.scrollBehavior = '';
       }, 50);
-    }, 2050);
+    }, 1500);
 
     triggerScrollReveals();
   }

@@ -905,14 +905,13 @@ body.site-entered .lang-control-bar {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center 26%;
-  transform: scale(1.01);
-  transform-origin: center top;
+  transform: none !important;
   display: block;
   border-radius: 28px;
   filter: drop-shadow(0 4px 14px rgba(74, 55, 32, 0.1));
   mask-image: none !important;
   -webkit-mask-image: none !important;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+  transition: none !important;
 }
 
 .celebrant-photo.celebrant-hero-photo {
@@ -967,9 +966,11 @@ body.site-entered .lang-control-bar {
   z-index: 2;
 }
 
-.photo-stage:hover .celebrant-photo,
-.celebrant-portrait-container:hover .celebrant-photo {
-  transform: scale(1.06) translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .photo-stage:hover .celebrant-photo,
+  .celebrant-portrait-container:hover .celebrant-photo {
+    transform: translateY(-2px);
+  }
 }
 
 /* Invitation Typography Matching Flyer */
@@ -2989,9 +2990,9 @@ body.site-entered .lang-control-bar {
   background-color: transparent !important;
   background-image: none !important;
   opacity: 0 !important;
-  transform: scale(1.04);
+  transform: none !important;
   pointer-events: none !important;
-  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transition: opacity 0.35s ease-out !important;
 }
 
 .entry-overlay.fade-out::before,
@@ -3479,7 +3480,7 @@ html.og-mode .envelope-entry-header {
   position: absolute;
   top: 15px;
   left: 50%;
-  transform: translateX(-50%) translateY(20px) translateZ(4px) scale(0.96);
+  transform: translateX(-50%) translateY(20px) translateZ(4px);
   width: 335px;
   max-width: 84vw;
   background: linear-gradient(165deg, #ffffff 0%, #fdfbf7 45%, #f7f1e6 100%);
@@ -3501,8 +3502,8 @@ html.og-mode .envelope-entry-header {
 .luxury-envelope-container.is-opened .env-invitation-card {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(-120px) translateZ(12px) scale(1.02);
-  -webkit-transform: translateX(-50%) translateY(-120px) translateZ(12px) scale(1.02);
+  transform: translateX(-50%) translateY(-120px) translateZ(12px);
+  -webkit-transform: translateX(-50%) translateY(-120px) translateZ(12px);
   z-index: 35;
   pointer-events: auto;
 }
@@ -4851,7 +4852,7 @@ html.og-mode .envelope-entry-header {
 
 
 .celebrant-photo {
-  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.3s ease;
 }
 
 /* Court Members 3-column Grid */
@@ -5304,19 +5305,7 @@ html.og-mode .envelope-entry-header {
 }
 
 
-/* ══════════════════════════════════════════════════════════════
-   LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
-   ══════════════════════════════════════════════════════════════ */
-/* Paint the same royal blue on the page itself, so anything the overlay doesn't
-   reach (behind the status bar / URL bar) matches seamlessly */
-html:not(.site-entered) {
-  background: linear-gradient(180deg, #0e2a6d 0%, #153c98 25%, #1d4ec8 50%, #153c98 75%, #0e2a6d 100%) !important;
-  background-color: #0e2a6d !important;
-}
 
-body:not(.site-entered) {
-  background: transparent !important;
-}
 
 /* Ensure the cloud overlay covers the entire viewport on mobile and desktop without gaps */
 .entry-overlay {
@@ -6183,8 +6172,8 @@ body.site-entered .ambient-confetti-canvas {
   backface-visibility: visible;
   -webkit-backface-visibility: visible;
   will-change: auto;
-  transform: translateX(-50%) translateY(20px) scale(0.96);
-  -webkit-transform: translateX(-50%) translateY(20px) scale(0.96);
+  transform: translateX(-50%) translateY(20px);
+  -webkit-transform: translateX(-50%) translateY(20px);
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s;
   -webkit-transition: opacity 0.4s ease 0.1s, -webkit-transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s;
 }
@@ -6192,8 +6181,8 @@ body.site-entered .ambient-confetti-canvas {
 .luxury-envelope-container.is-opened .env-invitation-card {
   visibility: visible;
   opacity: 1;
-  transform: translateX(-50%) translateY(-120px) scale(1.02);
-  -webkit-transform: translateX(-50%) translateY(-120px) scale(1.02);
+  transform: translateX(-50%) translateY(-120px);
+  -webkit-transform: translateX(-50%) translateY(-120px);
 }
 
 /* ═════════════════════════════════════════════════════════════════════
