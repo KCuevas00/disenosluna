@@ -154,3 +154,4 @@ if __name__ == "__main__":
         sys.exit(1)
     for c in sys.argv[1:]:
         migrate_client(c)
+
