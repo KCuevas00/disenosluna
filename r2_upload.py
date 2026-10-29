@@ -69,7 +69,7 @@ def upload_single_file(s3, bucket, public_domain, local_path, remote_key):
             CacheControl="public, max-age=31536000, immutable"
         )
     public_url = f"{public_domain.rstrip('/')}/{remote_key}"
-    print(f"  ✓ Live at: {public_url}")
+    print(f"  [OK] Live at: {public_url}")
     return public_url
 
 def main():
@@ -105,3 +105,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
