@@ -7643,40 +7643,17 @@ body.site-entered .entry-overlay::after {
   filter: drop-shadow(0 3px 8px rgba(74, 55, 32, 0.28)) !important;
 }
 
-/* Lower Margin Accents: Framing Fleuron & Location */
-.wm-hero-boots-bg {
-  position: absolute !important;
-  bottom: 4% !important;
-  left: 5% !important;
-  width: 58px !important;
-  height: auto !important;
-  opacity: 0.76 !important;
-  transform: rotate(-10deg) !important;
-  filter: drop-shadow(0 3px 8px rgba(74, 55, 32, 0.28)) !important;
+/* Natural Spacing & Clean Transition into Dedicated Venue Section */
+#hero {
+  padding-bottom: 0 !important;
 }
 
-.wm-hero-disco-lower-bg {
-  position: absolute !important;
-  bottom: 5% !important;
-  right: 6% !important;
-  width: 50px !important;
-  height: auto !important;
-  opacity: 0.76 !important;
-  transform: rotate(12deg) !important;
-  filter: drop-shadow(0 3px 8px rgba(74, 55, 32, 0.28)) !important;
+#hero .editorial-date-box {
+  margin: 0.8rem auto 0.4rem !important;
 }
 
-/* Subtle botanical accent at the lower right */
-.wm-hero-lower-flower {
-  position: absolute !important;
-  bottom: -15px !important;
-  right: -10px !important;
-  width: 140px !important;
-  height: 140px !important;
-  object-fit: contain !important;
-  opacity: 0.32 !important;
-  pointer-events: none !important;
-  filter: drop-shadow(0 2px 8px rgba(13, 25, 46, 0.15)) !important;
+#venue > .floral-divider-container {
+  margin: 1.0rem auto 1.8rem !important;
 }
 
 @media (max-width: 600px) {
@@ -7708,23 +7685,11 @@ body.site-entered .entry-overlay::after {
     opacity: 0.72 !important;
   }
 
-  .wm-hero-boots-bg {
-    width: 48px !important;
-    bottom: 3% !important;
-    left: 3% !important;
-    opacity: 0.72 !important;
+  #hero .editorial-date-box {
+    margin: 0.6rem auto 0.3rem !important;
   }
 
-  .wm-hero-disco-lower-bg {
-    width: 42px !important;
-    bottom: 4% !important;
-    right: 4% !important;
-    opacity: 0.72 !important;
-  }
-
-  .wm-hero-lower-flower {
-    width: 115px !important;
-    height: 115px !important;
-    opacity: 0.28 !important;
+  #venue > .floral-divider-container {
+    margin: 0.8rem auto 1.4rem !important;
   }
 }
