@@ -117,7 +117,7 @@
       faq_q4: 'How long does my invitation website stay active?',
       faq_a4: 'Your invitation website stays online and accessible throughout your event and for several weeks after your celebration.',
       faq_q5: 'How do I pay?',
-      faq_a5: 'We accept Zelle, Venmo, and card payments. You only finalize payment when we begin building your invitation.',
+      faq_a5: 'We accept Zelle, Venmo, and card payments. Once we review your order details, a deposit is required before we begin designing your custom website.',
 
       // Footer
       footer_tagline: 'Custom digital event invitations for weddings, quinceañeras, birthdays & celebrations.',
@@ -143,12 +143,12 @@
       step_ind_3: 'Submit Order',
       order_hero_eyebrow: 'ONLINE INVITATION ORDER FORM',
       order_hero_title: 'Let’s create your digital invitation.',
-      order_hero_sub: 'Fill out the details below. We will reach out via WhatsApp or email with your private preview link before finalizing payment.',
+      order_hero_sub: 'Fill out the details below. We will reach out via WhatsApp or email to confirm your event details and arrange your deposit before design work begins.',
 
       step1_card1_title: 'Select Your Package',
       step1_card1_sub: 'One flat fee. No subscriptions or hidden costs.',
       step1_card2_title: 'Your Contact Information',
-      step1_card2_sub: 'Where we will contact you regarding payment and send your private invitation preview link.',
+      step1_card2_sub: 'Where we will contact you to confirm details, arrange your deposit, and send your private invitation preview link.',
       lbl_client_name: 'Your Full Name',
       lbl_client_phone: 'Phone / WhatsApp Number',
       lbl_client_email: 'Email Address',
@@ -210,7 +210,7 @@
       btn_submit_order: 'Review & Submit Invitation Order',
 
       step3_title: 'Order Received!',
-      step3_sub: 'We have received your celebration details. Your order is secured!',
+      step3_sub: 'We have received your celebration details. We will contact you directly to confirm your order and arrange your deposit before design work begins.',
       step3_badge_next: 'Next Step',
       step3_photos_action_title: 'Send Your Celebration Photos',
       step3_photos_action_desc: 'Now send your favorite photos (cover photo, court of honor, and gallery) directly to us via WhatsApp or Facebook so our design team can begin your preview:',
@@ -333,7 +333,7 @@
        faq_q4: '¿Cuánto tiempo permanece activa mi página de invitación?',
        faq_a4: 'Tu página de invitación se mantiene activa en línea durante todo tu evento y varias semanas después de tu fiesta.',
        faq_q5: '¿Cuáles son las formas de pago?',
-       faq_a5: 'Aceptamos Zelle, Venmo y tarjetas. Realizas el pago al comenzar la creación de tu invitación.',
+       faq_a5: 'Aceptamos Zelle, Venmo y tarjetas. Una vez revisados los datos de tu evento, se requiere un depósito antes de comenzar el diseño de tu página web personalizada.',
  
        // Footer
        footer_tagline: 'Invitaciones digitales personalizadas para bodas, quinceañeras, cumpleaños y celebraciones especiales.',
@@ -359,12 +359,12 @@
       step_ind_3: 'Enviar Pedido',
       order_hero_eyebrow: 'FORMULARIO DE PEDIDO EN LÍNEA',
       order_hero_title: 'Creemos tu invitación digital.',
-      order_hero_sub: 'Completa los datos a continuación. Nos comunicaremos contigo por WhatsApp o correo con tu vista previa privada antes de finalizar el pago.',
+      order_hero_sub: 'Completa los datos a continuación. Nos comunicaremos contigo por WhatsApp o correo para confirmar tus datos y coordinar tu depósito antes de comenzar a diseñar.',
 
       step1_card1_title: 'Selecciona tu Paquete',
       step1_card1_sub: 'Un solo pago fijo. Sin suscripciones ni costos ocultos.',
       step1_card2_title: 'Tus Datos de Contacto',
-      step1_card2_sub: 'Donde nos comunicaremos contigo para coordinar detalles y enviarte tu enlace de vista previa.',
+      step1_card2_sub: 'Donde nos comunicaremos contigo para confirmar detalles, coordinar tu depósito y enviarte tu enlace de vista previa.',
       lbl_client_name: 'Tu Nombre Completo',
       lbl_client_phone: 'Teléfono / WhatsApp',
       lbl_client_email: 'Correo Electrónico',
@@ -426,7 +426,7 @@
       btn_submit_order: 'Revisar y Enviar Pedido de Invitación',
 
       step3_title: '¡Pedido Recibido!',
-      step3_sub: '¡Hemos recibido los datos de tu fiesta. Tu pedido está asegurado!',
+      step3_sub: 'Hemos recibido los datos de tu fiesta. Nos comunicaremos contigo directamente para confirmar tu pedido y coordinar tu depósito antes de comenzar el diseño.',
       step3_badge_next: 'Siguiente Paso',
       step3_photos_action_title: 'Envíanos tus Fotos del Evento',
       step3_photos_action_desc: 'Ahora envíanos tus fotos favoritas (portada, corte de honor y galería) directamente por WhatsApp o Facebook para que nuestro equipo comience con el diseño:',
