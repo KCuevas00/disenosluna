@@ -7693,3 +7693,8 @@ body.site-entered .entry-overlay::after {
     margin: 0.8rem auto 1.4rem !important;
   }
 }
+
+/* Hide bottom-left flower on venue plaque per client request */
+.padrinos-flower.flower-bl {
+  display: none !important;
+}
