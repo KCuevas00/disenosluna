@@ -6470,11 +6470,11 @@ body.site-entered .ambient-confetti-canvas {
    6. Deep Royal Velvet Gala Environment (#09132C to #1E45AA) behind card
    ═════════════════════════════════════════════════════════════════════ */
 
-/* Page Backdrop: Deep Royal Blue & Midnight Velvet Gala Atmosphere */
+/* Page Backdrop: Deep Midnight Velvet Gala Atmosphere (Matches Entire Page) */
 html.site-entered,
 body.site-entered {
-  background: radial-gradient(ellipse at 50% 0%, #1e45aa 0%, #132a68 42%, #09132c 100%) !important;
-  background-color: #1e45aa !important;
+  background: radial-gradient(ellipse at 50% 0%, #0d1e48 0%, #0a1636 45%, #09132c 100%) !important;
+  background-color: #09132c !important;
   background-attachment: fixed !important;
 }
 
