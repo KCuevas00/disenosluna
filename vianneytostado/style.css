@@ -6471,13 +6471,29 @@ body.site-entered .ambient-confetti-canvas {
    ═════════════════════════════════════════════════════════════════════ */
 
 /* Page Backdrop: Deep Royal Blue & Midnight Velvet Gala Atmosphere */
-html.site-entered {
-  background-color: #09132c !important;
+html.site-entered,
+body.site-entered {
+  background: radial-gradient(ellipse at 50% 0%, #1e45aa 0%, #132a68 42%, #09132c 100%) !important;
+  background-color: #1e45aa !important;
+  background-attachment: fixed !important;
 }
 
 body.site-entered {
-  background: radial-gradient(ellipse at 50% 10%, #1e45aa 0%, #132a68 40%, #09132c 100%) !important;
-  background-attachment: fixed !important;
+  padding-top: 0.1px !important; /* Prevents margin collapse from creating color seams at the top */
+}
+
+/* When site is entered, instantly clear the overlay's solid background so browser never paints a dark bar */
+body.site-entered .entry-overlay,
+body.site-entered #entry-popup-overlay {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.site-entered .entry-overlay::before,
+body.site-entered .entry-overlay::after {
+  display: none !important;
+  opacity: 0 !important;
 }
 
 /* Outer Aura surrounding the Ivory Invitation Board */
@@ -7452,4 +7468,9 @@ body.site-entered {
 .vignette-wishing-emblem img {
   opacity: 1 !important;
   filter: drop-shadow(0 3px 8px rgba(74, 55, 32, 0.30)) !important;
+}
+
+/* Explicitly hide top-left floral spray on main card per client request */
+.flower-card-top-left {
+  display: none !important;
 }

@@ -103,7 +103,7 @@ function init() {
       document.body.classList.add('site-entered');
       document.documentElement.classList.add('site-entered');
       var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', '#fbf8f3');
+      if (themeMeta) themeMeta.setAttribute('content', '#1e45aa');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
