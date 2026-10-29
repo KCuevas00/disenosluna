@@ -117,7 +117,7 @@
       faq_q4: 'How long does my invitation website stay active?',
       faq_a4: 'Your invitation website stays online and accessible throughout your event and for several weeks after your celebration.',
       faq_q5: 'How do I pay?',
-      faq_a5: 'We accept Zelle, Cash App, Venmo, and card payments. You only finalize payment when we begin building your invitation.',
+      faq_a5: 'We accept Zelle, Venmo, and card payments. You only finalize payment when we begin building your invitation.',
 
       // Footer
       footer_tagline: 'Custom digital event invitations for weddings, quinceañeras, birthdays & celebrations.',
@@ -333,7 +333,7 @@
        faq_q4: '¿Cuánto tiempo permanece activa mi página de invitación?',
        faq_a4: 'Tu página de invitación se mantiene activa en línea durante todo tu evento y varias semanas después de tu fiesta.',
        faq_q5: '¿Cuáles son las formas de pago?',
-       faq_a5: 'Aceptamos Zelle, Cash App, Venmo y tarjetas. Realizas el pago al comenzar la creación de tu invitación.',
+       faq_a5: 'Aceptamos Zelle, Venmo y tarjetas. Realizas el pago al comenzar la creación de tu invitación.',
  
        // Footer
        footer_tagline: 'Invitaciones digitales personalizadas para bodas, quinceañeras, cumpleaños y celebraciones especiales.',
