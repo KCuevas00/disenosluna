@@ -6470,14 +6470,30 @@ body.site-entered .ambient-confetti-canvas {
    6. Deep Royal Velvet Gala Environment (#09132C to #1E45AA) behind card
    ═════════════════════════════════════════════════════════════════════ */
 
-/* Page Backdrop: Deep Royal Blue & Midnight Velvet Gala Atmosphere */
-html.site-entered {
+/* Page Backdrop: Deep Midnight Velvet Gala Atmosphere (Matches Entire Page Seamlessly) */
+html.site-entered,
+body.site-entered {
+  background: radial-gradient(ellipse at 50% 0%, #0d1e48 0%, #0a1636 45%, #09132c 100%) !important;
   background-color: #09132c !important;
+  background-attachment: fixed !important;
 }
 
 body.site-entered {
-  background: radial-gradient(ellipse at 50% 10%, #1e45aa 0%, #132a68 40%, #09132c 100%) !important;
-  background-attachment: fixed !important;
+  padding-top: 0.1px !important; /* Prevents margin collapse from creating color seams at the top */
+}
+
+/* When site is entered, instantly clear the overlay's solid background so browser never paints a dark bar */
+body.site-entered .entry-overlay,
+body.site-entered #entry-popup-overlay {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.site-entered .entry-overlay::before,
+body.site-entered .entry-overlay::after {
+  display: none !important;
+  opacity: 0 !important;
 }
 
 /* Outer Aura surrounding the Ivory Invitation Board */
