@@ -7430,13 +7430,7 @@ body.site-entered .entry-overlay::after {
 .wm-prog-disco,
 .wm-reg-hat,
 .wm-msg-cactus,
-.wm-msg-hat,
-.wm-rsvp-disco-bg,
-.wm-rsvp-hat-bg,
-.wm-rsvp-cactus-bg,
-.wm-rsvp-boots-bg,
-.wm-rsvp-bottom-shoe,
-.wm-rsvp-bottom-disco {
+.wm-msg-hat {
   opacity: 0.78 !important;
   filter: drop-shadow(0 3px 10px rgba(74, 55, 32, 0.32)) !important;
 }
@@ -7453,18 +7447,11 @@ body.site-entered .entry-overlay::after {
   .wm-prog-disco,
   .wm-reg-hat,
   .wm-msg-cactus,
-  .wm-msg-hat,
-  .wm-rsvp-disco-bg,
-  .wm-rsvp-hat-bg,
-  .wm-rsvp-cactus-bg,
-  .wm-rsvp-boots-bg,
-  .wm-rsvp-bottom-shoe,
-  .wm-rsvp-bottom-disco {
+  .wm-msg-hat {
     opacity: 0.74 !important;
   }
 }
 
-.rsvp-bottom-western-vignette .vignette-asset-img,
 .vignette-wishing-emblem img {
   opacity: 1 !important;
   filter: drop-shadow(0 3px 8px rgba(74, 55, 32, 0.30)) !important;
