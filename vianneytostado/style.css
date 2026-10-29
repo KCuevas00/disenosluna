@@ -7556,3 +7556,30 @@ body.site-entered .entry-overlay::after {
     bottom: -8px !important;
   }
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   TOP-RIGHT CORNER FLORAL SPRAY: SLIGHTLY TRANSPARENT & SLIGHTLY BIGGER
+   ═════════════════════════════════════════════════════════════════════ */
+.flower-card-top-right {
+  opacity: 0.88 !important;
+  width: 205px !important;
+  height: 205px !important;
+  max-width: 46vw !important;
+  max-height: 46vw !important;
+  top: -12px !important;
+  right: -10px !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 600px) {
+  .flower-card-top-right {
+    opacity: 0.88 !important;
+    width: 155px !important;
+    height: 155px !important;
+    max-width: 44vw !important;
+    max-height: 44vw !important;
+    top: -8px !important;
+    right: -8px !important;
+  }
+}
