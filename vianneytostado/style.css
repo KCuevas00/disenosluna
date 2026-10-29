@@ -7323,20 +7323,48 @@ body.site-entered {
 #hero .quince-script-title,
 #hero .birthday-script {
   font-family: var(--font-script) !important;
-  font-size: clamp(2.6rem, 7.5vw, 3.8rem) !important;
+  font-size: clamp(2.5rem, 7.5vw, 3.7rem) !important;
   font-weight: 400 !important;
   line-height: 1.15 !important;
-  color: #1e45aa !important;
-  background: linear-gradient(135deg, #0d2b5c 0%, #1e45aa 55%, #4169E1 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35)) drop-shadow(0 1px 3px rgba(13, 43, 92, 0.2)) !important;
-  margin: 0.1rem 0 0.85rem !important;
-  padding: 0.1em 0.25em !important;
+  color: #111111 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #111111 !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08)) !important;
+  margin: 0.1rem 0 0.35rem !important;
+  padding: 0.05em 0.25em !important;
   overflow: visible !important;
   text-transform: none !important;
   letter-spacing: normal !important;
+}
+
+.card-quince-script {
+  color: #111111 !important;
+}
+
+.invite-date-intro {
+  font-family: var(--font-sans) !important;
+  font-size: clamp(0.72rem, 2.1vw, 0.8rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.26em !important;
+  color: #16233b !important;
+  margin: 0.35rem auto 0.75rem !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.invite-date-intro::before,
+.invite-date-intro::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #d4af37;
+  opacity: 0.8;
 }
 
 /* Fix Dec 05 Clipping: Generous glyph box and vertical clearance */
