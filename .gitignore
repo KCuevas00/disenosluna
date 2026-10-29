@@ -16,3 +16,6 @@ Thumbs.db
 
 # Temporary scratch directories
 temp/
+
+# Archived & unused invitations
+UNUSED/
