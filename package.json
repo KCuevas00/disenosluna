@@ -1,5 +1,8 @@
 {
   "name": "disenosluna",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "upload-media": "python r2_upload.py"
+  }
 }
