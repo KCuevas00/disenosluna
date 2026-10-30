@@ -2339,3 +2339,29 @@ details[open] .faq-question::after {
   border-color: #ffccd7;
   color: #e84d75;
 }
+
+/* Footer Legal Policy Links */
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+  color: #405646;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #1a2a1e;
+}
+
+.footer-legal-dot {
+  color: #a3b8a8;
+}

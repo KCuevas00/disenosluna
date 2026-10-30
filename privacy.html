@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Privacy Policy — Diseños Luna</title>
+  <meta name="description"
+    content="Privacy Policy for Diseños Luna. Learn how we collect, protect, and handle your event details, photos, and guest RSVP information." />
+  <link rel="canonical" href="https://disenosluna.com/privacy.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy — Diseños Luna" />
+  <meta property="og:description"
+    content="How Diseños Luna protects your event details, celebrant photos, and guest information." />
+  <meta property="og:image" content="photos/squarelogo.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --policy-bg: #fdfbf7;
+      --policy-card: #ffffff;
+      --policy-navy: #09132c;
+      --policy-gold: #c59b27;
+      --policy-gold-soft: #f4ece1;
+      --policy-text: #2d3748;
+      --policy-muted: #64748b;
+      --policy-border: #ebdcc9;
+    }
+
+    body {
+      background-color: var(--policy-bg);
+      color: var(--policy-text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    .policy-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--policy-border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .policy-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .policy-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--policy-navy);
+    }
+
+    .policy-logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .policy-brand-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .policy-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--policy-gold-soft);
+      color: var(--policy-navy);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .policy-back-btn:hover {
+      background: #eadbc8;
+      transform: translateY(-1px);
+    }
+
+    .policy-hero {
+      background: linear-gradient(180deg, #ffffff 0%, var(--policy-bg) 100%);
+      padding: 50px 20px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(235, 220, 201, 0.6);
+    }
+
+    .policy-hero-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      background: var(--policy-gold-soft);
+      color: #8c6812;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .policy-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--policy-navy);
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .policy-hero-sub {
+      color: var(--policy-muted);
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .policy-container {
+      max-width: 860px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    .policy-card {
+      background: var(--policy-card);
+      border-radius: 20px;
+      border: 1px solid var(--policy-border);
+      box-shadow: 0 8px 30px rgba(9, 19, 44, 0.04);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .policy-card {
+        padding: 44px 50px;
+      }
+    }
+
+    .policy-section {
+      margin-bottom: 34px;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--policy-navy);
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .policy-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--policy-gold-soft);
+      color: #8c6812;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .policy-text {
+      margin: 0 0 14px;
+      color: var(--policy-text);
+      font-size: 0.98rem;
+    }
+
+    .policy-list {
+      margin: 0 0 16px 20px;
+      padding: 0;
+      color: var(--policy-text);
+      font-size: 0.96rem;
+    }
+
+    .policy-list li {
+      margin-bottom: 8px;
+    }
+
+    .policy-callout {
+      background: #fdf8ef;
+      border-left: 4px solid var(--policy-gold);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+      color: #634a11;
+    }
+
+    .policy-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--policy-border);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--policy-muted);
+      font-size: 0.9rem;
+    }
+
+    .policy-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .policy-footer-links a {
+      color: var(--policy-navy);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .policy-footer-links a:hover {
+      color: var(--policy-gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="policy-header">
+    <div class="policy-header-inner">
+      <a href="index.html" class="policy-brand" aria-label="Diseños Luna Homepage">
+        <img src="photos/squarelogo.jpg" alt="Diseños Luna Logo" class="policy-logo-img" />
+        <span class="policy-brand-title">Diseños Luna</span>
+      </a>
+
+      <a href="index.html" class="policy-back-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Homepage</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="policy-hero">
+    <span class="policy-hero-badge">Trust & Data Protection</span>
+    <h1 class="policy-hero-title">Privacy Policy</h1>
+    <p class="policy-hero-sub">
+      Effective Date: October 2026 &bull; Last Updated: October 29, 2026
+    </p>
+  </section>
+
+  <!-- Content Container -->
+  <main class="policy-container">
+    <article class="policy-card">
+
+      <div class="policy-section">
+        <p class="policy-text">
+          At <strong>Diseños Luna</strong>, we celebrate life's most cherished milestones—Quinceañeras, Weddings, Sweet 16s, and private celebrations. We recognize the deeply personal nature of event planning and treat your personal data, celebrant portraits, and guest information with utmost integrity, confidentiality, and security.
+        </p>
+        <p class="policy-text">
+          This Privacy Policy explains what information we collect when you order or visit our custom digital invitation websites, how it is used, and how we protect your family's privacy.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">1</span> Information We Collect
+        </h2>
+        <p class="policy-text">To design and deliver your bespoke digital invitation website, we may collect:</p>
+        <ul class="policy-list">
+          <li><strong>Client Contact Details:</strong> Name, email address, phone number, and preferred contact platform (WhatsApp, Instagram, or Phone).</li>
+          <li><strong>Event Information:</strong> Celebrant names, event dates, ceremony and reception venue names, GPS addresses, schedules, and custom parent/padrino dedications.</li>
+          <li><strong>Event Media:</strong> Portrait photos, family photos, and audio soundtrack selections provided by you for inclusion in the invitation website.</li>
+          <li><strong>Guest RSVP Responses:</strong> Guest names, headcount, phone numbers, attendance confirmation, and dietary/song notes submitted through the invitation's RSVP form.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">2</span> How We Use Your Information
+        </h2>
+        <p class="policy-text">
+          We use your information solely for the purpose of creating, personalizing, and hosting your event invitation:
+        </p>
+        <ul class="policy-list">
+          <li>To design, code, and launch your private interactive digital invitation website.</li>
+          <li>To provide you with design proofs, draft previews, and milestone updates.</li>
+          <li>To deliver real-time RSVP confirmations and guest headcounts directly to you.</li>
+          <li>To process deposits and payments through secure, certified payment gateways.</li>
+        </ul>
+        <div class="policy-callout">
+          <strong>Our Commitment:</strong> We never sell, rent, monetize, or trade your personal information, photos, or guest contact lists to third-party advertisers or data brokers. Ever.
+        </div>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">3</span> Guest RSVP Data Confidentiality
+        </h2>
+        <p class="policy-text">
+          Guest RSVP confirmations submitted through your invitation website are collected exclusively for the event hosts. Guest phone numbers or emails collected during RSVP confirmation are used solely for attendance verification and important event reminders. They are never shared publicly or used for marketing.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">4</span> Secure Cloud Media Storage & CDN
+        </h2>
+        <p class="policy-text">
+          To ensure your invitation opens instantaneously on guests' smartphones anywhere in the world, photos and music provided for your website are hosted on secure enterprise cloud storage (Cloudflare R2 and Global Edge CDN) protected by SSL/TLS encryption.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">5</span> Payment Security
+        </h2>
+        <p class="policy-text">
+          All financial transactions (deposits and package balances) are conducted through certified, PCI-compliant payment processors such as Stripe, direct bank transfer (Zelle), or authorized debit/credit card gateways. Diseños Luna never collects, processes, or stores raw credit card numbers or banking passwords on our servers.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">6</span> Keepsake Duration & Data Removal
+        </h2>
+        <p class="policy-text">
+          Each digital invitation website remains actively hosted online for a minimum of <strong>1 full year (12 months)</strong> following your celebration date, allowing it to serve as an interactive digital keepsake for your family.
+        </p>
+        <p class="policy-text">
+          If at any point after your event you wish to take down the invitation, remove personal portraits, or delete RSVP records, simply contact us and we will promptly remove the files from live hosting.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">7</span> Third-Party Links & Map Services
+        </h2>
+        <p class="policy-text">
+          Our invitations include interactive navigation buttons that launch Google Maps, Apple Maps, or Waze to help guests navigate to church and reception halls. These external services operate under their respective privacy policies.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">8</span> Contact Us
+        </h2>
+        <p class="policy-text">
+          If you have questions regarding this Privacy Policy or wish to request data updates or removal, please reach out to us:
+        </p>
+        <ul class="policy-list">
+          <li><strong>Business:</strong> Diseños Luna</li>
+          <li><strong>Website:</strong> <a href="https://disenosluna.com" style="color:var(--policy-navy); font-weight:600;">disenosluna.com</a></li>
+          <li><strong>Online Contact:</strong> <a href="index.html#contact" style="color:var(--policy-navy); font-weight:600;">Contact Form & Speed Dial</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="policy-footer">
+    <div class="policy-footer-links">
+      <a href="index.html">Home</a>
+      <a href="order.html">Order Form</a>
+      <a href="terms.html">Terms & Deposit Policy</a>
+      <a href="privacy.html" style="color:var(--policy-gold);">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 Diseños Luna. All rights reserved. Handcrafted Digital Invitations.</p>
+  </footer>
+
+</body>
+
+</html>

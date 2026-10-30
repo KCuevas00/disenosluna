@@ -1607,3 +1607,30 @@
 
 
 
+
+/* Order Footer Legal Policy Links */
+.order-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.order-footer-links a {
+  color: #64748b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.order-footer-links a:hover {
+  color: #09132c;
+}
+
+.order-footer-dot {
+  color: #94a3b8;
+}

@@ -115,13 +115,15 @@
       faq_q3: 'Can the invitation be in both English and Spanish?',
       faq_a3: 'Yes! Full bilingual toggle (English and Spanish) is included with the Premium package ($70). Your guests can switch between languages with a single tap on the screen.',
       faq_q4: 'How long does my invitation website stay active?',
-      faq_a4: 'Your invitation website stays online and accessible throughout your event and for several weeks after your celebration.',
+      faq_a4: 'Your invitation website stays online and accessible throughout your event and for a full year (12 months) after your celebration as an interactive digital keepsake.',
       faq_q5: 'How do I pay?',
       faq_a5: 'We accept Zelle, Venmo, and card payments. Once we review your order details, a deposit is required before we begin designing your custom website.',
 
       // Footer
       footer_tagline: 'Custom digital event invitations for weddings, quinceañeras, birthdays & celebrations.',
       footer_rights: '© 2026 Diseños Luna. All rights reserved.',
+      footer_privacy: 'Privacy Policy',
+      footer_terms: 'Terms & Deposit Policy',
 
       // Chat Bubble Menu (Landing Page)
       chat_header: 'Get in Touch',
@@ -331,13 +333,15 @@
        faq_q3: '¿La invitación puede ser en Inglés y Español?',
        faq_a3: '¡Sí! La opción bilingüe completa (Inglés y Español) está incluida con el paquete Premium ($70). Tus invitados pueden alternar entre ambos idiomas con un solo toque en la pantalla.',
        faq_q4: '¿Cuánto tiempo permanece activa mi página de invitación?',
-       faq_a4: 'Tu página de invitación se mantiene activa en línea durante todo tu evento y varias semanas después de tu fiesta.',
+       faq_a4: 'Tu página de invitación se mantiene activa en línea durante todo tu evento y durante 1 año completo (12 meses) después de tu fiesta como un recuerdo digital interactivo.',
        faq_q5: '¿Cuáles son las formas de pago?',
        faq_a5: 'Aceptamos Zelle, Venmo y tarjetas. Una vez revisados los datos de tu evento, se requiere un depósito antes de comenzar el diseño de tu página web personalizada.',
  
        // Footer
        footer_tagline: 'Invitaciones digitales personalizadas para bodas, quinceañeras, cumpleaños y celebraciones especiales.',
        footer_rights: '© 2026 Diseños Luna. Todos los derechos reservados.',
+       footer_privacy: 'Política de Privacidad',
+       footer_terms: 'Términos y Política de Depósito',
  
        // Chat Bubble Menu (Landing Page)
        chat_header: 'Platica con Nosotros',

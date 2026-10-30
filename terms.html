@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Terms of Service & Deposit Policy — Diseños Luna</title>
+  <meta name="description"
+    content="Terms of Service, Deposit Policy, and Refund Guidelines for Diseños Luna. Clear, transparent guidelines for custom digital event invitations." />
+  <link rel="canonical" href="https://disenosluna.com/terms.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Terms of Service & Deposit Policy — Diseños Luna" />
+  <meta property="og:description"
+    content="Clear, transparent terms regarding deposits, revisions, turnaround times, and 1-year keepsake hosting." />
+  <meta property="og:image" content="photos/squarelogo.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --policy-bg: #fdfbf7;
+      --policy-card: #ffffff;
+      --policy-navy: #09132c;
+      --policy-gold: #c59b27;
+      --policy-gold-soft: #f4ece1;
+      --policy-text: #2d3748;
+      --policy-muted: #64748b;
+      --policy-border: #ebdcc9;
+    }
+
+    body {
+      background-color: var(--policy-bg);
+      color: var(--policy-text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    .policy-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--policy-border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .policy-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .policy-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--policy-navy);
+    }
+
+    .policy-logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .policy-brand-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .policy-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--policy-gold-soft);
+      color: var(--policy-navy);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .policy-back-btn:hover {
+      background: #eadbc8;
+      transform: translateY(-1px);
+    }
+
+    .policy-hero {
+      background: linear-gradient(180deg, #ffffff 0%, var(--policy-bg) 100%);
+      padding: 50px 20px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(235, 220, 201, 0.6);
+    }
+
+    .policy-hero-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      background: var(--policy-gold-soft);
+      color: #8c6812;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .policy-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--policy-navy);
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .policy-hero-sub {
+      color: var(--policy-muted);
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .policy-container {
+      max-width: 860px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    .policy-card {
+      background: var(--policy-card);
+      border-radius: 20px;
+      border: 1px solid var(--policy-border);
+      box-shadow: 0 8px 30px rgba(9, 19, 44, 0.04);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .policy-card {
+        padding: 44px 50px;
+      }
+    }
+
+    .policy-section {
+      margin-bottom: 34px;
+    }
+
+    .policy-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--policy-navy);
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .policy-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--policy-gold-soft);
+      color: #8c6812;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .policy-text {
+      margin: 0 0 14px;
+      color: var(--policy-text);
+      font-size: 0.98rem;
+    }
+
+    .policy-list {
+      margin: 0 0 16px 20px;
+      padding: 0;
+      color: var(--policy-text);
+      font-size: 0.96rem;
+    }
+
+    .policy-list li {
+      margin-bottom: 8px;
+    }
+
+    .policy-callout {
+      background: #fdf8ef;
+      border-left: 4px solid var(--policy-gold);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      margin: 18px 0;
+      font-size: 0.95rem;
+      color: #634a11;
+    }
+
+    .policy-callout strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #4a370b;
+      font-size: 1rem;
+    }
+
+    .policy-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--policy-border);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--policy-muted);
+      font-size: 0.9rem;
+    }
+
+    .policy-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .policy-footer-links a {
+      color: var(--policy-navy);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .policy-footer-links a:hover {
+      color: var(--policy-gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="policy-header">
+    <div class="policy-header-inner">
+      <a href="index.html" class="policy-brand" aria-label="Diseños Luna Homepage">
+        <img src="photos/squarelogo.jpg" alt="Diseños Luna Logo" class="policy-logo-img" />
+        <span class="policy-brand-title">Diseños Luna</span>
+      </a>
+
+      <a href="index.html" class="policy-back-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Homepage</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="policy-hero">
+    <span class="policy-hero-badge">Transparent Terms & Client Protection</span>
+    <h1 class="policy-hero-title">Terms of Service & Deposit Policy</h1>
+    <p class="policy-hero-sub">
+      Effective Date: October 2026 &bull; Last Updated: October 29, 2026
+    </p>
+  </section>
+
+  <!-- Content Container -->
+  <main class="policy-container">
+    <article class="policy-card">
+
+      <div class="policy-section">
+        <p class="policy-text">
+          Thank you for choosing <strong>Diseños Luna</strong> for your milestone event stationery! We take immense pride in handcrafting immersive, interactive digital invitation websites for Quinceañeras, Weddings, Sweet 16s, and milestone celebrations.
+        </p>
+        <p class="policy-text">
+          These Terms of Service outline our design process, payment policies, turnaround expectations, and revision rules to ensure a seamless and joyful experience.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">1</span> Custom Design Deposit Policy
+        </h2>
+        <div class="policy-callout">
+          <strong>Mandatory Deposit Requirement</strong>
+          To ensure dedicated studio time and immediate scheduling, a deposit is required before custom design drafting begins. Work will commence promptly once your initial deposit is confirmed.
+        </div>
+        <p class="policy-text">
+          Because each invitation is individually customized with bespoke color matching, custom animated wax seals, interactive envelopes, and typography layouts, the deposit covers initial designer hours, staging setup, and personalized assets.
+        </p>
+        <ul class="policy-list">
+          <li><strong>Deposit Amount:</strong> The required deposit is stated clearly on our pricing page and order form based on your selected package.</li>
+          <li><strong>Balance Payment:</strong> The remaining balance is due after you review and approve your live interactive design proof, before final release and broad sharing.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">2</span> Cancellation & Refund Policy
+        </h2>
+        <p class="policy-text">
+          We strive for 100% client delight on every project. Because our work involves custom creative labor and non-recoverable design hours:
+        </p>
+        <ul class="policy-list">
+          <li><strong>Before Work Begins:</strong> If you request a cancellation before any design work or draft setup has commenced, your deposit will be refunded in full.</li>
+          <li><strong>After Work Begins:</strong> Once custom drafting, asset cutting, and interactive prototyping have begun, the deposit is non-refundable.</li>
+          <li><strong>Final Publication:</strong> Once final proof approval is provided and the invitation link is fully published, payments are non-refundable.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">3</span> Turnaround Times & Delivery
+        </h2>
+        <p class="policy-text">
+          We pride ourselves on swift, reliable turnaround:
+        </p>
+        <ul class="policy-list">
+          <li><strong>Initial Interactive Draft:</strong> Typically delivered within <strong>24 to 48 business hours</strong> after receiving your complete event details, photos, and music selection.</li>
+          <li><strong>Draft Delivery Method:</strong> You receive a private, interactive staging link via text, WhatsApp, or email to test the envelope opening, audio playback, RSVP form, and navigation buttons directly on your smartphone.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">4</span> Revisions & Proofing Policy
+        </h2>
+        <p class="policy-text">
+          We want your invitation to be absolute perfection. We provide:
+        </p>
+        <ul class="policy-list">
+          <li><strong>Unlimited Minor Revisions:</strong> We happily fix spelling mistakes, update event times, swap out photos, update venue addresses, or refine wording at no extra charge during the proofing phase.</li>
+          <li><strong>Major Scope Changes:</strong> A complete theme redesign, color palette overhaul, or structural restructuring requested after initial draft approval may incur an additional design revision fee.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">5</span> 1-Year Hosting & Digital Keepsake
+        </h2>
+        <div class="policy-callout">
+          <strong>12 Months of Active Online Hosting Included</strong>
+          Your digital invitation website remains actively hosted, fully interactive, and accessible online for a minimum of <strong>1 full year (12 months)</strong> following your celebration date.
+        </div>
+        <p class="policy-text">
+          This allows your custom web link to serve as an interactive digital keepsake that you, your family, and friends can revisit to relive the celebration. If you ever wish to take down the site earlier or request extended multi-year hosting, simply notify our team.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">6</span> Client Media & Copyright
+        </h2>
+        <p class="policy-text">
+          By uploading or submitting photographs, audio files, and event graphics to Diseños Luna, you confirm that you hold the necessary rights or permissions to use those materials. Diseños Luna retains intellectual property rights to our proprietary code templates, animations, and website layout architecture.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">7</span> Service Availability & Uptime
+        </h2>
+        <p class="policy-text">
+          Your invitation is hosted on enterprise-grade global edge infrastructure with 99.9% uptime. While unexpected third-party network outages are rare, Diseños Luna is not liable for intermittent disruptions caused by external telecom carriers, internet outages, or third-party mapping services.
+        </p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="policy-heading">
+          <span class="policy-num">8</span> Questions & Support
+        </h2>
+        <p class="policy-text">
+          Have questions regarding an order, payment, or revision? We are here to help!
+        </p>
+        <ul class="policy-list">
+          <li><strong>Business:</strong> Diseños Luna</li>
+          <li><strong>Website:</strong> <a href="https://disenosluna.com" style="color:var(--policy-navy); font-weight:600;">disenosluna.com</a></li>
+          <li><strong>Direct Contact:</strong> <a href="index.html#contact" style="color:var(--policy-navy); font-weight:600;">Order & Inquiries Form</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="policy-footer">
+    <div class="policy-footer-links">
+      <a href="index.html">Home</a>
+      <a href="order.html">Order Form</a>
+      <a href="terms.html" style="color:var(--policy-gold);">Terms & Deposit Policy</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 Diseños Luna. All rights reserved. Handcrafted Digital Invitations.</p>
+  </footer>
+
+</body>
+
+</html>
