@@ -3301,19 +3301,20 @@ html.og-mode .envelope-entry-header {
 }
 
 .entry-invited-script {
-  font-family: var(--font-script);
-  font-size: clamp(2.9rem, 7.5vw, 4.4rem);
-  line-height: 1.08;
-  background: linear-gradient(135deg, #061533 0%, #0c2b6a 28%, #1643ab 60%, #1e3a8a 100%) !important;
+  font-family: var(--font-script) !important;
+  font-size: clamp(3.2rem, 8.5vw, 4.6rem) !important;
+  line-height: 1.15 !important;
+  color: #0c2b6a !important;
+  background: linear-gradient(145deg, #06163a 0%, #0c2b6a 45%, #1842a5 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  -webkit-text-stroke: 0.75px rgba(212, 175, 55, 0.85);
-  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.95))
-          drop-shadow(0 0 14px rgba(212, 175, 55, 0.60))
-          drop-shadow(0 4px 18px rgba(6, 21, 51, 0.50)) !important;
-  margin: 0;
-  letter-spacing: 0.02em;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+  filter: drop-shadow(0 2px 6px rgba(12, 43, 106, 0.25)) !important;
+  margin: 0 !important;
+  padding: 0 0.5rem !important;
+  letter-spacing: 0.01em !important;
 }
 
 .entry-invited-sub {
@@ -7182,4 +7183,37 @@ body.site-entered .entry-overlay::after {
 
 .wax-seal-btn:hover .wax-seal-svg {
   transform: scale(1.08) !important;
+}
+
+/* Single Centered Royal Crown Wax Seal Stamp */
+.wax-seal-btn {
+  position: relative !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 90px !important;
+  height: 90px !important;
+  margin: 0 auto !important;
+}
+
+.wax-seal-svg {
+  display: none !important;
+}
+
+.wax-seal-img {
+  display: block !important;
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 6px 14px rgba(10, 25, 65, 0.40)) drop-shadow(0 2px 6px rgba(212, 175, 55, 0.30)) !important;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease !important;
+}
+
+.wax-seal-btn:hover .wax-seal-img {
+  transform: scale(1.08) !important;
+  filter: drop-shadow(0 8px 20px rgba(10, 25, 65, 0.50)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.55)) !important;
 }
