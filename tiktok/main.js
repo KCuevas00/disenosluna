@@ -295,19 +295,19 @@ function init() {
   }
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
+  const langBar = document.getElementById('lang-control-bar');
+  const langToggle = document.getElementById('lang-collapse-toggle');
+  const audioBar = document.getElementById('audio-control-bar');
+  const audioToggle = document.getElementById('audio-collapse-toggle');
+
+  function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
+    if (!bar || !btn) return;
+    bar.classList.toggle('collapsed', collapsed);
+    btn.setAttribute('aria-expanded', String(!collapsed));
+    btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
+  }
+
   function initControlToggles() {
-    const langBar = document.getElementById('lang-control-bar');
-    const langToggle = document.getElementById('lang-collapse-toggle');
-    const audioBar = document.getElementById('audio-control-bar');
-    const audioToggle = document.getElementById('audio-collapse-toggle');
-
-    function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
-      if (!bar || !btn) return;
-      bar.classList.toggle('collapsed', collapsed);
-      btn.setAttribute('aria-expanded', String(!collapsed));
-      btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
-    }
-
     function bindToggle(bar, btn, hiddenLabel, shownLabel) {
       if (!bar || !btn) return;
       btn.addEventListener('click', (e) => {
@@ -523,13 +523,29 @@ function init() {
     if (envelopeOpened) return;
     envelopeOpened = true;
 
-    // Maintain user language or default English upon opening
-    applyLanguage(currentLang || 'en');
+    // 1. Immediately trigger envelope opening animation (bulletproof: runs first!)
+    if (overlay) {
+      overlay.classList.add('is-opened');
+    }
+    if (envelope) {
+      envelope.classList.add('is-opened');
+    }
+
+    // Maintain user language
+    try {
+      applyLanguage(currentLang || 'en');
+    } catch (e) {
+      console.warn('[Language error]:', e);
+    }
 
     // Start background music automatically and ensure music tab is open
-    playAudio();
-    if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
-      setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+    try {
+      playAudio();
+      if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
+        setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+      }
+    } catch (e) {
+      console.warn('[Audio play error]:', e);
     }
 
     // Trigger celebratory confetti burst radiating from wax seal / center AND top shower
@@ -539,14 +555,6 @@ function init() {
       triggerTopConfettiRain();
     } catch (e) {
       console.warn('[Confetti notice]:', e);
-    }
-
-    // 1. Open envelope flap and glide up invitation card
-    if (overlay) {
-      overlay.classList.add('is-opened');
-    }
-    if (envelope) {
-      envelope.classList.add('is-opened');
     }
 
     // 2. Smoothly fade out envelope overlay and unveil main site (1500ms)
