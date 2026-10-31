@@ -324,7 +324,7 @@ function init() {
       setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
     }
     if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
-      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
+      setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
     }
   }
 
@@ -526,8 +526,11 @@ function init() {
     // Maintain user language or default English upon opening
     applyLanguage(currentLang || 'en');
 
-    // Start background music automatically
+    // Start background music automatically and ensure music tab is open
     playAudio();
+    if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
+      setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+    }
 
     // Trigger celebratory confetti burst radiating from wax seal / center AND top shower
     try {
