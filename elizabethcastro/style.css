@@ -6,8 +6,8 @@
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
   /* Warm Ivory, Soft Champagne Gold, Sage Green & Blush Scheme */
-  --bg-page: #faf6f7;
-  --bg-page-gradient: radial-gradient(circle at 50% 12%, #ffffff 0%, #fcf2f5 48%, #f6e5ea 100%);
+  --bg-page: #ffffff;
+  --bg-page-gradient: #ffffff;
   --card-white: #fdfdfb;
 
   /* Typographic Contrast (Rich Forest Charcoal) */
@@ -73,12 +73,7 @@ html {
 
 body {
   background-color: #ffffff;
-  background-image:
-    radial-gradient(ellipse 70% 50% at 15% 18%, rgba(255, 235, 242, 0.35) 0%, rgba(255, 248, 250, 0.12) 45%, transparent 70%),
-    radial-gradient(ellipse 70% 50% at 85% 26%, rgba(255, 232, 240, 0.30) 0%, rgba(255, 248, 250, 0.10) 50%, transparent 72%),
-    radial-gradient(ellipse 75% 55% at 50% 65%, rgba(255, 235, 242, 0.25) 0%, rgba(255, 250, 252, 0.08) 55%, transparent 75%),
-    linear-gradient(180deg, #ffffff 0%, #ffffff 320px, #fdf5f8 850px, #ffffff 100%);
-  background-attachment: fixed;
+  background-image: none;
   min-height: 100vh;
   color: var(--text-dark);
   font-family: var(--font-sans);
@@ -124,10 +119,13 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — lavender & silver background behind opened invitation */
+html.site-entered {
+  background: #ffffff !important;
+}
+
+/* body must NOT independently scroll — clean white background behind opened invitation */
 body.site-entered {
-  background: var(--bg-page-gradient) !important;
-  background-attachment: fixed !important;
+  background: #ffffff !important;
   overflow-x: clip !important;
   overflow-y: visible !important;
   height: auto !important;
@@ -5330,7 +5328,7 @@ body:not(.site-entered) {
   --ribbon-blush-hover: linear-gradient(135deg, #782338 0%, #9e3d55 50%, #d48197 100%);
 
   /* Page background */
-  --bg-page-gradient: radial-gradient(circle at 50% 12%, #ffffff 0%, #fcf2f5 48%, #f6e5ea 100%);
+  --bg-page-gradient: #ffffff;
 }
 
 .blush-ribbon-btn {
