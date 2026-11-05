@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-date-month': 'ENE',
       'invite-date-day': 'SÁBADO',
       'invite-date-time': 'A LAS 5:30 PM',
-      'countdown-title': 'CUENTA REGRESIVA PARA EL GRAN DÍA',
+      'countdown-title': 'YA FALTA POCO',
       'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
       'cd-days': 'Días',
