@@ -1269,7 +1269,7 @@ body.site-entered .lang-control-bar {
 .pt-fleuron {
   font-size: 0.68rem;
   letter-spacing: 0.25em;
-  color: var(--gold-accent);
+  color: #b86b84;
   opacity: 0.85;
 }
 
@@ -1305,7 +1305,7 @@ body.site-entered .lang-control-bar {
   padding: 0;
 }
 
-/* Massive, statuesque, elegant numerals */
+/* Massive, statuesque, elegant numerals (Merelin Nunez Dark Charcoal) */
 .pt-big-num {
   font-family: var(--font-editorial-num), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   font-size: clamp(2.8rem, 9.2vw, 4.2rem);
@@ -1313,8 +1313,8 @@ body.site-entered .lang-control-bar {
   line-height: 0.92;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  color: #b86b84;
-  text-shadow: 0 2px 10px rgba(184, 107, 132, 0.15);
+  color: #231815;
+  text-shadow: none;
   user-select: none;
   background: none;
   border: none;
@@ -1371,23 +1371,24 @@ body.site-entered .lang-control-bar {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
-  color: #b86b84;
+  color: #231815;
   letter-spacing: 0.02em;
+  text-shadow: none;
 }
 
 .pt-style-italic .italic-fleuron {
   font-size: 0.95rem;
   margin-top: 0.8rem;
-  color: var(--gold-accent);
+  color: #e8a5b8;
   opacity: 0.85;
 }
 
 .pt-style-italic .pt-sublabel {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   letter-spacing: 0.12em;
-  color: var(--gold-dark);
+  color: #b86b84;
   text-transform: capitalize;
 }
 
@@ -5350,14 +5351,14 @@ body:not(.site-entered) {
     linear-gradient(180deg, #ffffff 0%, #ffffff 35%, #fff9fc 70%, #faedf3 100%) !important;
 }
 
-/* ── Countdown ── */
+/* ── Countdown (Merelin Nunez Palette: Charcoal Digits, Blush Labels, Rose Fleurons) ── */
 .pt-sublabel,
 .pt-style-italic .pt-sublabel {
-  color: #728aa3;
+  color: #b86b84;
 }
 
 .pt-style-italic .italic-fleuron {
-  color: #8ea3bc;
+  color: #e8a5b8;
 }
 
 .song-title-ticker,
