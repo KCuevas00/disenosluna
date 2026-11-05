@@ -3050,27 +3050,24 @@ body.site-entered .lang-control-bar {
   user-select: none;
 }
 
-/* 1. Cascading Pink & Silver Ceiling Garland (Edge-to-Edge Continuous Marquee Drape) */
-.pond-element.pond-willow-top {
-  top: -16px;
-  left: 0;
-  width: 100vw;
-  min-width: 100vw;
-  max-width: none;
-  transform: none;
-  opacity: 1;
-  filter: drop-shadow(0 16px 32px rgba(184, 107, 132, 0.30));
-  animation: pondWillowSway 14s ease-in-out infinite alternate;
-}
-
-.pond-element.pond-willow-top img {
-  display: block;
-  width: 100vw;
-  min-width: 100vw;
-  max-width: none;
+/* 1. Botanical Corner Floral Arrangement (Top Right Corner Spray) */
+.pond-element.pond-floral-corner-tr {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 320px;
+  max-width: 44vw;
   height: auto;
   pointer-events: none;
-  user-select: none;
+  filter: drop-shadow(0 14px 28px rgba(70, 35, 45, 0.16));
+  animation: pondFloatB 10s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+.pond-element.pond-floral-corner-tr img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* 2. Botanical Corner Floral Arrangement (Bottom Left Corner Spray) */
@@ -3105,15 +3102,22 @@ body.site-entered .lang-control-bar {
 }
 
 /* 3b. Secondary Dancing Crystal Butterfly (Mid Right - 100% Solid & Opaque) */
-.pond-element.pond-butterfly-tr {
-  top: 38%;
-  right: 4%;
+.pond-element.pond-butterfly-tl {
+  top: 14%;
+  left: 4%;
   width: 140px;
   max-width: 20vw;
   opacity: 1 !important;
-  transform: rotate(-14deg);
+  transform: rotate(14deg);
   filter: drop-shadow(0 12px 24px rgba(184, 70, 105, 0.40)) drop-shadow(0 2px 7px rgba(35, 20, 28, 0.22));
-  animation: pondButterflyHover2 9.5s ease-in-out infinite alternate 1s;
+  animation: pondButterflyHoverTL 9.5s ease-in-out infinite alternate 1s;
+}
+
+@keyframes pondButterflyHoverTL {
+  0%   { transform: translate(0, 0) rotate(14deg) scale(1); }
+  40%  { transform: translate(10px, -14px) rotate(18deg) scale(1.03); }
+  75%  { transform: translate(-8px, -5px) rotate(10deg) scale(0.98); }
+  100% { transform: translate(4px, -18px) rotate(15deg) scale(1.04); }
 }
 
 /* 4. Secondary Enchanted Bloom (Natural Cluster on Lower Left) */
@@ -6028,10 +6032,24 @@ body:not(.site-entered) {
     opacity: 0.98;
   }
 
+  .pond-element.pond-floral-corner-tr {
+    width: 175px;
+    top: -15px;
+    right: -15px;
+    opacity: 0.98;
+  }
+
   .pond-element.pond-frog-br {
     width: 110px;
     bottom: 2%;
     right: 0;
+    opacity: 1.0;
+  }
+
+  .pond-element.pond-butterfly-tl {
+    width: 105px;
+    top: 10%;
+    left: 2%;
     opacity: 1.0;
   }
 
