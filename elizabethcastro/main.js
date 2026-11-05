@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'card-quince': 'Quinceañera',
       'invite-parents': 'ELIZABETH CASTRO',
       'invite-preamble': 'CORDIALMENTE TE INVITA A CELEBRAR SUS',
-      'invite-quince': 'Mis XV Años',
+      'invite-quince': 'XV Años',
       'invite-daughter': '',
       'invite-celebrant': '',
       'invite-date-month': 'ENE',
