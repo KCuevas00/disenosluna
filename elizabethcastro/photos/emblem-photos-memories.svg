@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGradCam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5db"/>
+      <stop offset="35%" stop-color="#d4af37"/>
+      <stop offset="75%" stop-color="#aa8022"/>
+      <stop offset="100%" stop-color="#f5e19e"/>
+    </linearGradient>
+    <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="50%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#3d1417"/>
+    </linearGradient>
+    <filter id="shadowCam" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#3a1c0d" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadowCam)">
+    <!-- Flash / Viewfinder Turret -->
+    <path d="M 28 30 L 33 24 L 47 24 L 52 30 Z" fill="url(#goldGradCam)" stroke="#aa8022" stroke-width="0.8"/>
+    <!-- Shutter Button -->
+    <rect x="23" y="27" width="5" height="3" rx="1" fill="url(#goldGradCam)"/>
+    
+    <!-- Camera Body -->
+    <rect x="18" y="30" width="44" height="32" rx="6" fill="#fffdfa" stroke="url(#goldGradCam)" stroke-width="2"/>
+    <!-- Leather Accent Strip -->
+    <rect x="19" y="38" width="42" height="16" fill="#f8f4ec"/>
+    <line x1="19" y1="38" x2="61" y2="38" stroke="url(#goldGradCam)" stroke-width="0.8"/>
+    <line x1="19" y1="54" x2="61" y2="54" stroke="url(#goldGradCam)" stroke-width="0.8"/>
+
+    <!-- Outer Lens Ring -->
+    <circle cx="40" cy="46" r="13" fill="url(#lensGrad)" stroke="url(#goldGradCam)" stroke-width="1.8"/>
+    <!-- Inner Lens Ring -->
+    <circle cx="40" cy="46" r="9" fill="#111" stroke="#d4af37" stroke-width="1" stroke-dasharray="1 2"/>
+    <!-- Lens Glint / Heart reflection -->
+    <path d="M 40 43 C 41 41.5, 43 41.5, 44 42.5 C 45 43.5, 44 45, 40 48 C 36 45, 35 43.5, 36 42.5 C 37 41.5, 39 41.5, 40 43 Z" fill="#a31d24"/>
+    <circle cx="36" cy="42" r="1.2" fill="#ffffff"/>
+
+    <!-- Small Flash Window -->
+    <rect x="49" y="33" width="7" height="4.5" rx="1.5" fill="#fef0c7" stroke="url(#goldGradCam)" stroke-width="0.8"/>
+
+    <!-- Radiant Photo Sparkles -->
+    <path d="M 58 18 L 59.5 22.5 L 64 24 L 59.5 25.5 L 58 30 L 56.5 25.5 L 52 24 L 56.5 22.5 Z" fill="#d4af37"/>
+    <circle cx="64" cy="18" r="1.3" fill="#d4af37"/>
+    <circle cx="17" cy="22" r="1.5" fill="#d4af37"/>
+  </g>
+</svg>

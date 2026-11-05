@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" width="100%" height="100%">
+  <defs>
+    <!-- Sterling Silver & Platinum Luxury Gradient -->
+    <linearGradient id="tiaraSilver" x1="0%" y1="0%" x2="100%" y2="85%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="18%" stop-color="#f5f8fb"/>
+      <stop offset="38%" stop-color="#dce5ef"/>
+      <stop offset="60%" stop-color="#a8b9cc"/>
+      <stop offset="82%" stop-color="#75889e"/>
+      <stop offset="100%" stop-color="#4d5f75"/>
+    </linearGradient>
+
+    <!-- Diamond Brilliant Jewel Highlight -->
+    <radialGradient id="diamondShine" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#edf3fa"/>
+      <stop offset="80%" stop-color="#b4c6da"/>
+      <stop offset="100%" stop-color="#7e93a9"/>
+    </radialGradient>
+
+    <!-- Subtle Rose Crystal Accent -->
+    <radialGradient id="roseJewel" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="45%" stop-color="#fcdde7"/>
+      <stop offset="85%" stop-color="#e5a7bc"/>
+      <stop offset="100%" stop-color="#b86b84"/>
+    </radialGradient>
+
+    <!-- Platinum Highlight Stroke -->
+    <linearGradient id="platinumHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#d0dbe7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8ba0b8" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Drop Shadow for Dimensional Metal Depth -->
+    <filter id="silverDrop" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#8b9eb5" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#silverDrop)">
+    <!-- ══════════════════════════════════════════════════════════════
+         ORNAMENTAL SIDE FILIGREE SCROLLS (LEFT & RIGHT)
+         ══════════════════════════════════════════════════════════════ -->
+    <g stroke="url(#tiaraSilver)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Left Flourish Vine & Swirls -->
+      <path d="M 28,102 C 60,102 85,82 110,82 C 132,82 150,96 168,96 C 178,96 185,88 183,80 C 180,70 168,70 160,78 C 152,86 158,98 168,100 C 182,102 192,86 195,78" stroke-width="2.2"/>
+      <path d="M 52,102 C 80,102 108,68 142,70 C 160,72 170,84 165,92" stroke-width="1.4" opacity="0.8"/>
+      <path d="M 12,104 C 22,104 28,98 24,94 C 18,89 10,96 16,106 C 24,114 45,110 70,102" stroke-width="1.6"/>
+      <!-- Tiny leaf accents -->
+      <path d="M 98,82 Q 106,72 118,78 Q 110,88 98,82 Z" fill="url(#tiaraSilver)" opacity="0.65"/>
+      <path d="M 132,74 Q 138,64 148,70 Q 142,80 132,74 Z" fill="url(#tiaraSilver)" opacity="0.65"/>
+
+      <!-- Right Flourish Vine & Swirls (Symmetrical Mirror) -->
+      <path d="M 392,102 C 360,102 335,82 310,82 C 288,82 270,96 252,96 C 242,96 235,88 237,80 C 240,70 252,70 260,78 C 268,86 262,98 252,100 C 238,102 228,86 225,78" stroke-width="2.2"/>
+      <path d="M 368,102 C 340,102 312,68 278,70 C 260,72 250,84 255,92" stroke-width="1.4" opacity="0.8"/>
+      <path d="M 408,104 C 398,104 392,98 396,94 C 402,89 410,96 404,106 C 396,114 375,110 350,102" stroke-width="1.6"/>
+      <!-- Tiny leaf accents -->
+      <path d="M 322,82 Q 314,72 302,78 Q 310,88 322,82 Z" fill="url(#tiaraSilver)" opacity="0.65"/>
+      <path d="M 288,74 Q 282,64 272,70 Q 278,80 288,74 Z" fill="url(#tiaraSilver)" opacity="0.65"/>
+    </g>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         GRAND IMPERIAL TIARA (PROMINENT, TALL & REGAL)
+         ══════════════════════════════════════════════════════════════ -->
+    <!-- Tiara Base Arcs -->
+    <path d="M 172,104 Q 210,96 248,104" stroke="url(#tiaraSilver)" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+    <path d="M 175,110 Q 210,102 245,110" stroke="url(#platinumHighlight)" stroke-width="2.0" fill="none" stroke-linecap="round"/>
+
+    <!-- Tiara Base Gem Row -->
+    <circle cx="180" cy="107" r="2.2" fill="url(#diamondShine)"/>
+    <circle cx="192" cy="105" r="2.2" fill="url(#diamondShine)"/>
+    <circle cx="204" cy="103.5" r="2.5" fill="url(#roseJewel)"/>
+    <circle cx="210" cy="103" r="3.0" fill="url(#diamondShine)"/>
+    <circle cx="216" cy="103.5" r="2.5" fill="url(#roseJewel)"/>
+    <circle cx="228" cy="105" r="2.2" fill="url(#diamondShine)"/>
+    <circle cx="240" cy="107" r="2.2" fill="url(#diamondShine)"/>
+
+    <!-- Intricate Tiara Filigree Webbing -->
+    <g stroke="url(#tiaraSilver)" fill="none" stroke-linejoin="round">
+      <!-- Arched bridges between peaks -->
+      <path d="M 178,104 Q 192,80 204,98" stroke-width="1.8"/>
+      <path d="M 242,104 Q 228,80 216,98" stroke-width="1.8"/>
+      <path d="M 194,96 Q 210,75 226,96" stroke-width="2.0"/>
+
+      <!-- Inner filigree lace -->
+      <path d="M 198,103 Q 210,88 222,103" stroke-width="1.4"/>
+      <path d="M 204,98 L 210,88 L 216,98" stroke-width="1.5"/>
+
+      <!-- Heart / Marquise Flourish in center -->
+      <path d="M 210,70 C 203,60 196,72 210,86 C 224,72 217,60 210,70 Z" fill="url(#tiaraSilver)" fill-opacity="0.25" stroke-width="1.6"/>
+    </g>
+
+    <!-- ═══════════ TIARA PEAKS & DIAMOND FINIALS ═══════════ -->
+    <!-- 1. Center Grand Imperial Peak (Towering & Majestic) -->
+    <path d="M 210,24 L 202,68 Q 210,74 218,68 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.6"/>
+    <!-- Center Ridge Highlight -->
+    <line x1="210" y1="26" x2="210" y2="70" stroke="#ffffff" stroke-width="1.2" opacity="0.9"/>
+    <!-- Center Crest Jewels -->
+    <circle cx="210" cy="20" r="5.0" fill="url(#diamondShine)"/>
+    <circle cx="210" cy="20" r="2.2" fill="#ffffff"/>
+    <circle cx="210" cy="40" r="3.2" fill="url(#roseJewel)"/>
+    <circle cx="210" cy="56" r="2.5" fill="url(#diamondShine)"/>
+
+    <!-- 2. Intermediate Inner Peaks (Left & Right) -->
+    <!-- Left Inner Peak -->
+    <path d="M 193,36 L 187,74 Q 194,78 201,74 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.4"/>
+    <line x1="193" y1="38" x2="194" y2="74" stroke="#ffffff" stroke-width="1.0" opacity="0.85"/>
+    <circle cx="193" cy="32" r="3.8" fill="url(#diamondShine)"/>
+    <circle cx="193" cy="48" r="2.4" fill="url(#roseJewel)"/>
+
+    <!-- Right Inner Peak -->
+    <path d="M 227,36 L 219,74 Q 226,78 233,74 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.4"/>
+    <line x1="227" y1="38" x2="226" y2="74" stroke="#ffffff" stroke-width="1.0" opacity="0.85"/>
+    <circle cx="227" cy="32" r="3.8" fill="url(#diamondShine)"/>
+    <circle cx="227" cy="48" r="2.4" fill="url(#roseJewel)"/>
+
+    <!-- 3. Mid-Outer Peaks -->
+    <!-- Left Mid Peak -->
+    <path d="M 180,50 L 176,82 Q 182,86 188,82 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.2"/>
+    <circle cx="180" cy="46" r="3.0" fill="url(#diamondShine)"/>
+    <circle cx="180" cy="62" r="2.0" fill="url(#diamondShine)"/>
+
+    <!-- Right Mid Peak -->
+    <path d="M 240,50 L 232,82 Q 238,86 244,82 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.2"/>
+    <circle cx="240" cy="46" r="3.0" fill="url(#diamondShine)"/>
+    <circle cx="240" cy="62" r="2.0" fill="url(#diamondShine)"/>
+
+    <!-- 4. Outermost Spires -->
+    <!-- Left Outer Spire -->
+    <path d="M 170,66 L 168,90 Q 173,92 178,90 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.0"/>
+    <circle cx="170" cy="62" r="2.4" fill="url(#diamondShine)"/>
+
+    <!-- Right Outer Spire -->
+    <path d="M 250,66 L 242,90 Q 247,92 252,90 Z" fill="url(#tiaraSilver)" stroke="url(#platinumHighlight)" stroke-width="1.0"/>
+    <circle cx="250" cy="62" r="2.4" fill="url(#diamondShine)"/>
+
+    <!-- Diamond Sparkle Glints (4-pointed fairy light stars) -->
+    <!-- Top Center Sparkle -->
+    <path d="M 210,10 Q 210,16 216,16 Q 210,16 210,22 Q 210,16 204,16 Q 210,16 210,10 Z" fill="#ffffff"/>
+    <!-- Left Crest Sparkle -->
+    <path d="M 193,24 Q 193,28 197,28 Q 193,28 193,32 Q 193,28 189,28 Q 193,28 193,24 Z" fill="#ffffff" opacity="0.9"/>
+    <!-- Right Crest Sparkle -->
+    <path d="M 227,24 Q 227,28 231,28 Q 227,28 227,32 Q 227,28 223,28 Q 227,28 227,24 Z" fill="#ffffff" opacity="0.9"/>
+  </g>
+</svg>
