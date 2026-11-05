@@ -2450,6 +2450,13 @@ body.site-entered .lang-control-bar {
   pointer-events: none;
 }
 
+.floral-r {
+  width: 125px;
+  top: -16px;
+  left: -24px;
+  transform: scaleX(-1) rotate(15deg);
+}
+
 .floral-s {
   width: 130px;
   top: -18px;
