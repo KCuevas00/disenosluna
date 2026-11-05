@@ -2197,17 +2197,15 @@ body.site-entered .lang-control-bar {
   margin: 0 auto;
 }
 
-.vignette-prose strong {
-  font-family: var(--font-sans);
+.vignette-prose strong,
+.dress-vignette .vignette-prose strong,
+.dresscode-vignette .vignette-prose strong {
+  font-family: inherit;
   font-style: normal;
   font-weight: 700;
-  font-size: 0.84rem;
+  font-size: 1.05rem;
   letter-spacing: 0.04em;
-  color: var(--theme-dark);
-}
-
-.dresscode-vignette .vignette-prose strong {
-  color: #b91c1c;
+  color: #9e2338;
 }
 
 .vignette-inter-separator {
