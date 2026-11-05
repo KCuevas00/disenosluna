@@ -1549,7 +1549,7 @@ body.site-entered .lang-control-bar {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(212, 175, 55, 0.35);
+  background: rgba(160, 180, 205, 0.45);
   z-index: 1;
 }
 
@@ -1558,13 +1558,13 @@ body.site-entered .lang-control-bar {
   height: 38px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  border: 1.5px solid rgba(160, 180, 205, 0.75);
   color: var(--theme-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 4px 14px rgba(74, 55, 32, 0.15);
+  box-shadow: 0 4px 14px rgba(120, 140, 165, 0.18);
   transition: var(--transition-smooth);
 }
 
@@ -1572,7 +1572,7 @@ body.site-entered .lang-control-bar {
   border-color: var(--theme-primary);
   color: var(--theme-dark);
   transform: scale(1.12);
-  background: #fbf5eb;
+  background: #f4f7fb;
 }
 
 .tl-icon {
@@ -1652,8 +1652,8 @@ body.site-entered .lang-control-bar {
   letter-spacing: 0.1em;
   color: var(--theme-dark);
   text-decoration: none;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(160, 180, 205, 0.12);
+  border: 1px solid rgba(160, 180, 205, 0.65);
   border-radius: 999px;
   padding: 3px 9px;
   transition: var(--transition-smooth);
@@ -1688,7 +1688,7 @@ body.site-entered .lang-control-bar {
   max-width: 135px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border: 1.5px solid rgba(160, 180, 205, 0.65);
   box-shadow: 0 6px 18px rgba(74, 55, 32, 0.14);
   background: #ffffff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -3379,7 +3379,7 @@ html.og-mode .entry-stage-mount {
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #8c6f23;
+  color: #5c738a;
   margin-top: 0.35rem;
   opacity: 0.95;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
@@ -5057,11 +5057,11 @@ html.og-mode .entry-stage-mount {
 
 /* ── PROGRAM TIMELINE: line fades in at the first stop and out after the last ── */
 .timeline-row:first-child .timeline-line {
-  background: linear-gradient(to bottom, rgba(212, 175, 55, 0) 0%, rgba(212, 175, 55, 0.35) 50%);
+  background: linear-gradient(to bottom, rgba(160, 180, 205, 0) 0%, rgba(160, 180, 205, 0.45) 50%);
 }
 
 .timeline-row:last-child .timeline-line {
-  background: linear-gradient(to bottom, rgba(212, 175, 55, 0.35) 50%, rgba(212, 175, 55, 0) 100%);
+  background: linear-gradient(to bottom, rgba(160, 180, 205, 0.45) 50%, rgba(160, 180, 205, 0) 100%);
 }
 
 /* ── MOBILE: even 6 + 6 swatches, and no tiny gaps in the timeline line between rows ── */
@@ -5389,21 +5389,21 @@ body:not(.site-entered) {
 }
 
 .timeline-line {
-  background: rgba(201, 159, 87, 0.45);
+  background: rgba(160, 180, 205, 0.45);
 }
 
 .timeline-row:first-child .timeline-line {
-  background: linear-gradient(to bottom, rgba(201, 159, 87, 0) 0%, rgba(201, 159, 87, 0.55) 50%);
+  background: linear-gradient(to bottom, rgba(160, 180, 205, 0) 0%, rgba(160, 180, 205, 0.55) 50%);
 }
 
 .timeline-row:last-child .timeline-line {
-  background: linear-gradient(to bottom, rgba(201, 159, 87, 0.55) 50%, rgba(201, 159, 87, 0) 100%);
+  background: linear-gradient(to bottom, rgba(160, 180, 205, 0.55) 50%, rgba(160, 180, 205, 0) 100%);
 }
 
 .timeline-loc-btn {
   color: #b86b84;
   background: rgba(232, 165, 184, 0.08);
-  border-color: rgba(201, 159, 87, 0.6);
+  border-color: rgba(160, 180, 205, 0.7);
 }
 
 .timeline-loc-btn:hover {
@@ -5413,12 +5413,12 @@ body:not(.site-entered) {
 }
 
 .timeline-photo-card {
-  border-color: rgba(201, 159, 87, 0.5);
+  border-color: rgba(160, 180, 205, 0.65);
   box-shadow: 0 6px 18px rgba(232, 165, 184, 0.16);
 }
 
 .title-accent-line {
-  background: linear-gradient(90deg, #c99f57, #e8a5b8, #c99f57);
+  background: linear-gradient(90deg, #9bb2cb, #e8a5b8, #9bb2cb);
 }
 
 /* ── Dress code & Wishing well ── */
@@ -5431,7 +5431,7 @@ body:not(.site-entered) {
 }
 
 .dress-vignette .vignette-ornament {
-  color: #c99f57;
+  color: #7b94ad;
   opacity: 0.95;
 }
 
@@ -5441,13 +5441,13 @@ body:not(.site-entered) {
 }
 
 .padrinos-divider-ornament {
-  color: #c99f57;
+  color: #7b94ad;
   opacity: 0.95;
 }
 
 /* Wishing well: Warm Gold & Sage Green */
 .registry-vignette .vignette-headline {
-  color: #c99f57;
+  color: #7b94ad;
 }
 
 .registry-vignette .vignette-subtitle {
@@ -5455,23 +5455,23 @@ body:not(.site-entered) {
 }
 
 .registry-vignette .vignette-ornament {
-  color: #c99f57;
+  color: #7b94ad;
   opacity: 0.95;
 }
 
 .registry-vignette .vignette-wishing-emblem svg path {
-  stroke: #c99f57;
-  fill: rgba(201, 159, 87, 0.12);
+  stroke: #7b94ad;
+  fill: rgba(160, 180, 205, 0.12);
 }
 
 .registry-vignette .vignette-wishing-emblem svg circle {
-  fill: #c99f57;
+  fill: #7b94ad;
 }
 
 /* Celebrant portrait frame */
 .duo-left .duo-frame,
 .duo-right .duo-frame {
-  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px rgba(201, 159, 87, 0.8), 0 14px 28px rgba(184, 107, 132, 0.22);
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4.5px rgba(160, 180, 205, 0.8), 0 14px 28px rgba(184, 107, 132, 0.22);
 }
 
 /* ── Form focus ring ── */
@@ -5484,15 +5484,15 @@ body:not(.site-entered) {
 
 /* ── Footer crown ── */
 .footer-crown svg {
-  stroke: #c99f57;
+  stroke: #7b94ad;
 }
 
 .fc-line {
-  background: linear-gradient(90deg, rgba(201, 159, 87, 0), rgba(201, 159, 87, 0.6));
+  background: linear-gradient(90deg, rgba(160, 180, 205, 0), rgba(160, 180, 205, 0.6));
 }
 
 .fc-line:last-child {
-  background: linear-gradient(270deg, rgba(201, 159, 87, 0), rgba(201, 159, 87, 0.6));
+  background: linear-gradient(270deg, rgba(160, 180, 205, 0), rgba(160, 180, 205, 0.6));
 }
 
 /* ── Stamp image ── */
@@ -5539,7 +5539,7 @@ body:not(.site-entered) {
   gap: 4px;
   padding: 4px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(201, 159, 87, 0.4);
+  border: 1px solid rgba(160, 180, 205, 0.65);
   border-radius: 999px;
   box-shadow: 0 6px 22px rgba(184, 107, 132, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -5567,7 +5567,7 @@ body:not(.site-entered) {
 
 .entry-lang-btn:hover:not(.active) {
   color: #2b1d22;
-  background: rgba(201, 159, 87, 0.2);
+  background: rgba(160, 180, 205, 0.15);
 }
 
 .entry-lang-btn.active {
@@ -5577,7 +5577,7 @@ body:not(.site-entered) {
 }
 
 .entry-lang-btn:focus-visible {
-  outline: 2px solid #c99f57;
+  outline: 2px solid #7b94ad;
   outline-offset: 2px;
 }
 
@@ -5602,11 +5602,11 @@ body:not(.site-entered) {
 /* ── Program timeline continuous line and nodes ── */
 .program-timeline .timeline-line {
   width: 2px;
-  background: linear-gradient(to bottom, rgba(201, 159, 87, 0.3) 0%, rgba(201, 159, 87, 0.8) 50%, rgba(201, 159, 87, 0.3) 100%) !important;
+  background: linear-gradient(to bottom, rgba(160, 180, 205, 0.25) 0%, rgba(145, 170, 200, 0.85) 50%, rgba(160, 180, 205, 0.25) 100%) !important;
 }
 
 .program-timeline .timeline-node {
-  border-color: rgba(201, 159, 87, 0.75);
+  border-color: rgba(160, 180, 205, 0.8) !important;
   color: #b86b84;
 }
 
@@ -5617,7 +5617,7 @@ body:not(.site-entered) {
 }
 
 .program-timeline .time-stamp {
-  color: #8c6f23;
+  color: #5c738a;
 }
 
 /* ══════════════════════════════════════════════════════════════
