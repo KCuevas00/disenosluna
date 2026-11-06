@@ -35,7 +35,7 @@ Ceremony Venue and Address
 N/A
 Reception Venue and Address
 Bella Gala Event Hall
-1370 San Marcos Blvd Ste 102, San Marcos, CA 92078 - 5:30PM
+1370 San Marcos Blvd Ste 102, San Marcos, CA 92078 - 5:00PM
 Schedule Milestones
 6:00PM - Welcome
 6:30PM - Grand Entrance

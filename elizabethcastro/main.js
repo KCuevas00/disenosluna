@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': '',
       'invite-date-month': 'JAN',
       'invite-date-day': 'SATURDAY',
-      'invite-date-time': 'AT 5:30 PM',
+      'invite-date-time': 'AT 5:00 PM',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': '',
       'invite-date-month': 'ENE',
       'invite-date-day': 'SÁBADO',
-      'invite-date-time': 'A LAS 5:30 PM',
+      'invite-date-time': 'A LAS 5:00 PM',
       'countdown-title': 'YA FALTA POCO',
       'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
@@ -746,10 +746,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SATURDAY, JAN 30, 2027 AT 5:30 PM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, JAN 30, 2027 AT 5:00 PM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (0 = January)
-  const TARGET_DATE = new Date(2027, 0, 30, 17, 30, 0).getTime();
+  const TARGET_DATE = new Date(2027, 0, 30, 17, 0, 0).getTime();
   const AFTER_EVENT_MS = 6 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');
