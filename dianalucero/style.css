@@ -6035,6 +6035,16 @@ body:not(.site-entered) {
   /* Salón: Copy on left, map on right */
 }
 
+.venue-stage-reception .venue-copy {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.venue-stage-reception .venue-copy .venue-title,
+.venue-stage-reception .venue-copy .venue-address {
+  text-align: right;
+}
+
 .venue-arch-container {
   position: relative;
   display: inline-block;
@@ -6314,13 +6324,10 @@ body:not(.site-entered) {
 }
 
 .court-letter-floral {
-  position: absolute;
-  z-index: 1;
-  opacity: 1;
-  pointer-events: none;
-  filter: drop-shadow(0 2px 5px rgba(44, 62, 42, 0.20)) drop-shadow(0 1px 2px rgba(212, 175, 55, 0.18));
-  object-fit: contain;
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .floral-court-1 {
