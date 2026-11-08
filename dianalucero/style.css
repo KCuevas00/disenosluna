@@ -6154,3 +6154,17 @@ body:not(.site-entered) {
     font-size: 1.05rem;
   }
 }
+
+/* ── Completely Removed Corner Flowers ── */
+.invitation-floral-frame,
+.invitation-flower-spray,
+.envelope-floral-frame,
+.envelope-flower-spray,
+.env-card-floral-frame,
+.env-card-flower,
+.modal-flower {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
