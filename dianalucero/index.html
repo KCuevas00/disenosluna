@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9.4.3" />
+  <link rel="stylesheet" href="style.css?v=9.4.4" />
 </head>
 
 <body>
@@ -550,11 +550,13 @@
           <p class="venue-address">
             4 Richard Ave<br />Dover, NJ 07801
           </p>
-          <p class="venue-desc" data-i18n="ceremony-time-desc">
-            Ceremony begins promptly at 2:00 PM.
-          </p>
-
-          <div class="vignette-ornament" aria-hidden="true" style="margin: 0.25rem 0 0.85rem;">✦ &nbsp; ❦ &nbsp; ✦</div>
+          <div class="venue-time-tag">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span data-i18n="ceremony-time-desc">2:00 PM</span>
+          </div>
 
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Sacred+Heart+Roman+Catholic+Church,+4+Richard+Ave,+Dover,+NJ+07801"
             target="_blank" rel="noopener noreferrer" class="venue-elegant-map-btn">
@@ -581,11 +583,13 @@
           <p class="venue-address">
             5266 Berkshire Valley Rd<br />Oak Ridge, NJ 07438
           </p>
-          <p class="venue-desc" data-i18n="reception-time-desc">
-            Cocktail hour begins at 6:00 PM, followed by dinner, waltz, and dancing until 11:00 PM.
-          </p>
-
-          <div class="vignette-ornament" aria-hidden="true" style="margin: 0.25rem 0 0.85rem;">✦ &nbsp; ❦ &nbsp; ✦</div>
+          <div class="venue-time-tag">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span data-i18n="reception-time-desc">6:00 PM – 11:00 PM</span>
+          </div>
 
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Bianca+Banquets+and+Catering,+5266+Berkshire+Valley+Rd,+Oak+Ridge,+NJ+07438"
             target="_blank" rel="noopener noreferrer" class="venue-elegant-map-btn">
@@ -1035,7 +1039,7 @@
     <p class="footer-date" data-i18n="footer-date">Saturday, January 9, 2027</p>
   </footer>
 
-  <script src="main.js?v=9.3.8"></script>
+  <script src="main.js?v=9.3.9"></script>
 </body>
 
 </html>
