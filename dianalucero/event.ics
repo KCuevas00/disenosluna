@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Disenos Luna//Diana A. Lucero Quinceanera//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:diana-a-lucero-quinceanera-20270109@disenosluna.com
+DTSTAMP:20261108T150000Z
+DTSTART:20270109T190000Z
+DTEND:20270110T040000Z
+SUMMARY:Diana A. Lucero's Quinceañera
+DESCRIPTION:Join us to celebrate Diana A. Lucero's Quinceañera! Ceremony begins at 2:00 PM at Sacred Heart Roman Catholic Church (4 Richard Ave, Dover, NJ 07801), followed by reception at 6:00 PM at Casa Bianca Banquets and Catering (5266 Berkshire Valley Rd, Oak Ridge, NJ 07438).
+LOCATION:4 Richard Ave, Dover, NJ 07801, United States
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Diana A. Lucero's Quinceañera today!
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
