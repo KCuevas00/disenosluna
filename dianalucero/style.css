@@ -6066,18 +6066,41 @@ body:not(.site-entered) {
 }
 
 .venue-map-arch {
-  width: 125px;
-  height: 168px;
-  border-radius: 62px 62px 16px 16px;
+  width: 145px;
+  height: 175px;
+  border-radius: 72px 72px 18px 18px;
   overflow: hidden;
   background: #fdfbf7;
   box-shadow:
-    0 10px 24px rgba(45, 79, 59, 0.14),
+    0 10px 24px rgba(45, 79, 59, 0.16),
     0 0 0 1.5px #d4af37,
     0 0 0 3.5px #ffffff;
   position: relative;
   z-index: 3;
   flex-shrink: 0;
+  display: block;
+  text-decoration: none;
+}
+
+.venue-arch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+}
+
+.venue-arch-img.church-photo {
+  object-position: center 25%;
+}
+
+.venue-arch-img.reception-photo {
+  object-position: center 50%;
+}
+
+.venue-arch-container:hover .venue-arch-img,
+.venue-photo-arch:hover .venue-arch-img {
+  transform: scale(1.08);
 }
 
 .venue-map-arch iframe {
@@ -6200,11 +6223,11 @@ body:not(.site-entered) {
   }
 
   .venue-map-arch {
-    width: 105px;
-    height: 146px;
-    border-radius: 52px 52px 14px 14px;
+    width: 120px;
+    height: 154px;
+    border-radius: 60px 60px 14px 14px;
     box-shadow:
-      0 8px 18px rgba(45, 79, 59, 0.12),
+      0 8px 18px rgba(45, 79, 59, 0.14),
       0 0 0 1.2px #d4af37,
       0 0 0 2.8px #ffffff;
   }
@@ -6246,9 +6269,9 @@ body:not(.site-entered) {
   }
 
   .venue-map-arch {
-    width: 92px;
-    height: 130px;
-    border-radius: 46px 46px 12px 12px;
+    width: 104px;
+    height: 136px;
+    border-radius: 52px 52px 12px 12px;
   }
 
   .venue-title {
