@@ -1066,7 +1066,19 @@ body.site-entered .lang-control-bar {
   text-transform: uppercase;
   margin-bottom: 0.35rem;
   max-width: 440px;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.quince-lead-in {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 2.1vw, 0.76rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text-charcoal);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
 }
 
 .quince-script-title {
@@ -1075,7 +1087,7 @@ body.site-entered .lang-control-bar {
   font-weight: 400;
   line-height: 0.95;
   color: var(--theme-dark);
-  text-shadow: 0 2px 12px rgba(104, 16, 20, 0.22);
+  text-shadow: 0 2px 12px rgba(58, 99, 74, 0.18);
   margin: 0.25rem 0;
 }
 
@@ -1093,7 +1105,7 @@ body.site-entered .lang-control-bar {
   font-family: var(--font-script);
   font-size: clamp(3.8rem, 10vw, 4.8rem);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.05;
   color: #111111;
   margin-bottom: 0.8rem;
 }
@@ -4312,16 +4324,26 @@ html.og-mode .entry-stage-mount {
   }
 
   .invite-preamble {
-    letter-spacing: 0.10em;
-    padding: 0 0.5rem;
+    font-size: clamp(0.60rem, 2.3vw, 0.72rem);
+    letter-spacing: 0.08em;
+    padding: 0 0.25rem;
+    line-height: 1.5;
+  }
+
+  .quince-lead-in {
+    font-size: clamp(0.60rem, 2.3vw, 0.72rem);
+    letter-spacing: 0.12em;
+    margin-bottom: 0.2rem;
   }
 
   .quince-script-title {
-    font-size: 3.5rem;
+    font-size: clamp(3.1rem, 10.5vw, 3.6rem);
+    line-height: 0.95;
   }
 
   .celebrant-name {
-    font-size: clamp(2.8rem, 8.5vw, 3.8rem);
+    font-size: clamp(3.0rem, 9.5vw, 3.8rem);
+    line-height: 1.05;
   }
 
   /* Program Timeline Mobile Refinement (merelinnunez) */
