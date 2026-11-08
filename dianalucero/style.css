@@ -6104,7 +6104,7 @@ body:not(.site-entered) {
 }
 
 .venue-arch-img.reception-photo {
-  object-position: 30% center;
+  object-position: center 35%;
 }
 
 .venue-arch-container:hover .venue-arch-img,
