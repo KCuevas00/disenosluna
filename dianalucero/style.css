@@ -6168,3 +6168,12 @@ body:not(.site-entered) {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* ── Removed Landing Page Fireflies & Dress Code Floral Accents ── */
+.twilight-orb,
+.vignette-floral-accent {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
