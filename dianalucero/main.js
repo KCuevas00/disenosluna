@@ -854,21 +854,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const bokehs = [];
-    const count = window.innerWidth < 600 ? 16 : 28;
+    const count = window.innerWidth < 600 ? 20 : 36;
 
     for (let i = 0; i < count; i++) {
       bokehs.push({
         x: Math.random() * ambWidth,
         y: Math.random() * ambHeight,
-        radius: Math.random() * 22 + 6,
-        speedY: (Math.random() * 0.18 + 0.05),
-        speedX: (Math.random() - 0.5) * 0.18,
-        alpha: Math.random() * 0.28 + 0.08,
-        color: Math.random() > 0.4
-          ? '255, 255, 255'
-          : (Math.random() > 0.6
-            ? '92, 140, 111'
-            : (Math.random() > 0.5 ? '232, 182, 187' : '212, 175, 55'))
+        radius: Math.random() * 18 + 4,
+        speedY: (Math.random() * 0.22 + 0.06),
+        speedX: (Math.random() - 0.5) * 0.22,
+        baseAlpha: Math.random() * 0.35 + 0.12,
+        twinklePhase: Math.random() * Math.PI * 2,
+        twinkleSpeed: Math.random() * 0.04 + 0.015,
+        isStar: Math.random() > 0.65,
+        color: Math.random() > 0.5
+          ? '245, 215, 110' // Warm Champagne Gold
+          : (Math.random() > 0.5
+            ? '255, 245, 220' // Starlight White
+            : (Math.random() > 0.4 ? '212, 175, 55' : '92, 140, 111')) // Liquid Gold & Sage
       });
     }
 
@@ -879,18 +882,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const b = bokehs[i];
         b.y += b.speedY;
         b.x += b.speedX;
+        b.twinklePhase += b.twinkleSpeed;
 
         if (b.y > ambHeight + 30) b.y = -30;
         if (b.x > ambWidth + 30) b.x = -30;
         if (b.x < -30) b.x = ambWidth + 30;
 
+        const dynamicAlpha = Math.max(0.08, Math.min(0.75, b.baseAlpha + Math.sin(b.twinklePhase) * 0.18));
+
         ambCtx.save();
-        ambCtx.beginPath();
-        ambCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
-        ambCtx.fillStyle = `rgba(${b.color}, ${b.alpha})`;
-        ambCtx.shadowBlur = 12;
-        ambCtx.shadowColor = `rgba(${b.color}, 0.5)`;
-        ambCtx.fill();
+        ambCtx.fillStyle = `rgba(${b.color}, ${dynamicAlpha})`;
+        ambCtx.shadowBlur = b.isStar ? 14 : 8;
+        ambCtx.shadowColor = `rgba(${b.color}, 0.7)`;
+
+        if (b.isStar && b.radius > 6) {
+          // Render delicate 4-point star sparkle
+          const size = b.radius * 1.4;
+          ambCtx.translate(b.x, b.y);
+          ambCtx.beginPath();
+          ambCtx.moveTo(0, -size);
+          ambCtx.quadraticCurveTo(0, 0, size, 0);
+          ambCtx.quadraticCurveTo(0, 0, 0, size);
+          ambCtx.quadraticCurveTo(0, 0, -size, 0);
+          ambCtx.quadraticCurveTo(0, 0, 0, -size);
+          ambCtx.fill();
+        } else {
+          // Render soft bokeh sphere
+          ambCtx.beginPath();
+          ambCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+          ambCtx.fill();
+        }
         ambCtx.restore();
       }
 
