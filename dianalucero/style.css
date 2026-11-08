@@ -830,9 +830,9 @@ body.site-entered .lang-control-bar {
 .top-crown-container,
 .hero-crown-flourish {
   width: 100%;
-  max-width: 280px;
+  max-width: 320px;
   height: auto;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 0.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
