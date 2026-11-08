@@ -587,6 +587,7 @@ body.site-entered .lang-control-bar {
   transform: none;
   transform-origin: bottom left;
   opacity: 1 !important;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.35));
 }
 
 .flower-card-bottom-right {
@@ -599,6 +600,7 @@ body.site-entered .lang-control-bar {
   transform: none;
   transform-origin: bottom right;
   opacity: 1 !important;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.35));
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -5967,4 +5969,4 @@ body:not(.site-entered) {
 
 .vignette-wishing-emblem img:hover {
   transform: scale(1.08);
-}
+}
