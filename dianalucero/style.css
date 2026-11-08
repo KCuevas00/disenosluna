@@ -2084,17 +2084,17 @@ body.site-entered .lang-control-bar {
   font-style: normal !important;
 }
 
-/* ── ORGANIC BOTANICAL VIGNETTES (ROYAL PLAQUE WITH STORYBOOK ATMOSPHERE) ── */
+/* ── ORGANIC BOTANICAL VIGNETTES (CLEAN EDITORIAL MINIMALISM PLAQUE) ── */
 .vignette-guidelines-wrap {
   position: relative;
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
-  padding: 2.2rem 1.6rem 2rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
-  border-radius: 24px;
-  box-shadow: 0 16px 42px rgba(45, 79, 59, 0.09), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  padding: 2.4rem 1.8rem 2rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1.2px solid rgba(212, 175, 55, 0.55);
+  border-radius: 22px;
+  box-shadow: 0 16px 42px rgba(45, 79, 59, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   overflow: visible;
@@ -3291,13 +3291,23 @@ html.og-mode .entry-stage-mount {
   pointer-events: auto;
 }
 
+.card-gold-frame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 0.8px solid rgba(212, 175, 55, 0.4);
+  border-radius: 7px;
+  pointer-events: none;
+}
+
 .card-gold-frame {
-  border: 1.5px solid rgba(212, 175, 55, 0.6);
-  border-radius: 8px;
-  padding: 14px 12px 16px;
+  position: relative;
+  border: 1.2px solid rgba(212, 175, 55, 0.65);
+  border-radius: 10px;
+  padding: 16px 12px 18px;
   text-align: center;
   background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 50%, #f8f1e5 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.95), 0 2px 14px rgba(212, 175, 55, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.95), 0 4px 18px rgba(0, 0, 0, 0.12);
 }
 
 .card-crown-flourish {
@@ -4845,46 +4855,32 @@ html.og-mode .entry-stage-mount {
 }
 
 
-/* ── MAIN CARD: WARM GOLD & CRIMSON INNER FRAME GLOW + CORNER FLOURISHES ── */
+/* ── MAIN CARD: CLEAN EDITORIAL MINIMALISM (HIGH-FASHION FRENCH HOUSE DOUBLE HAIRLINE) ── */
 .invitation-wrapper::before {
   content: '';
   position: absolute;
-  inset: 12px;
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  inset: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.65);
   border-radius: 18px;
-  box-shadow:
-    inset 0 0 0 4px rgba(255, 255, 255, 0),
-    inset 0 4px 12px rgba(212, 175, 55, 0.16),
-    inset 0 -5px 12px rgba(163, 29, 36, 0.12);
+  box-shadow: inset 0 0 16px rgba(212, 175, 55, 0.08);
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .invitation-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cg transform='translate(0 0)'%3E%3Cpath d='M7 36 C7 18 18 7 36 7' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round' stroke-opacity='.85'/%3E%3Cpath d='M13 24 C13 17.500 17.500 13 24 13' fill='none' stroke='%23a31d24' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M7 3 L9.500 5.500 L7 8 L4.500 5.500 Z' fill='%23fef08a' stroke='%23d4af37' stroke-width='.6'/%3E%3Ccircle cx='7' cy='36' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='36' cy='7' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='41' cy='7' r='.8' fill='%23a31d24'/%3E%3Ccircle cx='7' cy='41' r='.8' fill='%23a31d24'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cg transform='translate(52 0) scale(-1 1)'%3E%3Cpath d='M7 36 C7 18 18 7 36 7' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round' stroke-opacity='.85'/%3E%3Cpath d='M13 24 C13 17.500 17.500 13 24 13' fill='none' stroke='%23a31d24' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M7 3 L9.500 5.500 L7 8 L4.500 5.500 Z' fill='%23fef08a' stroke='%23d4af37' stroke-width='.6'/%3E%3Ccircle cx='7' cy='36' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='36' cy='7' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='41' cy='7' r='.8' fill='%23a31d24'/%3E%3Ccircle cx='7' cy='41' r='.8' fill='%23a31d24'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cg transform='translate(0 52) scale(1 -1)'%3E%3Cpath d='M7 36 C7 18 18 7 36 7' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round' stroke-opacity='.85'/%3E%3Cpath d='M13 24 C13 17.500 17.500 13 24 13' fill='none' stroke='%23a31d24' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M7 3 L9.500 5.500 L7 8 L4.500 5.500 Z' fill='%23fef08a' stroke='%23d4af37' stroke-width='.6'/%3E%3Ccircle cx='7' cy='36' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='36' cy='7' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='41' cy='7' r='.8' fill='%23a31d24'/%3E%3Ccircle cx='7' cy='41' r='.8' fill='%23a31d24'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cg transform='translate(52 52) scale(-1 -1)'%3E%3Cpath d='M7 36 C7 18 18 7 36 7' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round' stroke-opacity='.85'/%3E%3Cpath d='M13 24 C13 17.500 17.500 13 24 13' fill='none' stroke='%23a31d24' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M7 3 L9.500 5.500 L7 8 L4.500 5.500 Z' fill='%23fef08a' stroke='%23d4af37' stroke-width='.6'/%3E%3Ccircle cx='7' cy='36' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='36' cy='7' r='1.300' fill='%23d4af37'/%3E%3Ccircle cx='41' cy='7' r='.8' fill='%23a31d24'/%3E%3Ccircle cx='7' cy='41' r='.8' fill='%23a31d24'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: top left, top right, bottom left, bottom right;
-  background-size: 52px 52px;
-  pointer-events: none;
-  z-index: 1;
+  display: none !important;
+  content: none !important;
 }
 
 @media (max-width: 480px) {
-
-  .invitation-wrapper::before,
-  .invitation-wrapper::after {
-    inset: 9px;
-  }
-
   .invitation-wrapper::before {
-    border-radius: 13px;
+    inset: 7px;
+    border-radius: 14px;
+    border: 0.8px solid rgba(212, 175, 55, 0.55);
   }
 
   .invitation-wrapper::after {
-    background-size: 44px 44px;
+    display: none !important;
   }
 }
 
