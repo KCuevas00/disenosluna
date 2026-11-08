@@ -2190,16 +2190,21 @@ body.site-entered .lang-control-bar {
 }
 
 .vignette-prose strong {
-  font-family: var(--font-sans);
+  font-family: inherit;
   font-style: normal;
   font-weight: 700;
-  font-size: 0.84rem;
-  letter-spacing: 0.04em;
-  color: var(--theme-dark);
+  font-size: inherit;
+  color: #111827;
 }
 
+.dress-vignette .vignette-prose strong,
 .dresscode-vignette .vignette-prose strong {
-  color: #b91c1c;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  font-size: inherit;
+  color: #0d2818;
+  letter-spacing: 0.01em;
 }
 
 .vignette-inter-separator {
