@@ -37,12 +37,12 @@ Reception Venue and Address
 Bella Gala Event Hall
 1370 San Marcos Blvd Ste 102, San Marcos, CA 92078 - 5:00PM
 Schedule Milestones
-6:00PM - Welcome
-6:30PM - Grand Entrance
-7:00PM - Dinner
+5:00PM - Doors Open
+5:30PM - Grand Entrance
+6:00PM - Dinner
 7:30PM - Waltz
 8:00PM - Surprise Dance
-8PM-12AM - Dance
+8PM-11PM - Dance
 Background Song Request
 If only by Dove Cameron, Disney
 Live Countdown Enabled
