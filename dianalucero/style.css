@@ -118,9 +118,15 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — lavender & silver background behind opened invitation */
+/* body must NOT independently scroll — moody Parisian twilight background matching celebrant image */
 body.site-entered {
-  background: var(--bg-page-gradient) !important;
+  background-color: #17151e !important;
+  background-image:
+    radial-gradient(ellipse at 50% 20%, rgba(45, 39, 52, 0.55) 0%, rgba(14, 13, 18, 0.88) 100%),
+    url('photos/paris-bg.jpg?v=1') !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
   background-attachment: fixed !important;
   overflow-x: clip !important;
   overflow-y: visible !important;
@@ -496,10 +502,10 @@ body.site-entered .lang-control-bar {
   inset: -8px;
   border-radius: 36px;
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.38) 0%, rgba(229, 213, 170, 0.22) 55%, transparent 80%),
-    linear-gradient(180deg, rgba(212, 175, 55, 0.25) 0%, rgba(163, 29, 36, 0.12) 50%, rgba(212, 175, 55, 0.22) 100%);
+    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.45) 0%, rgba(229, 213, 170, 0.28) 55%, transparent 80%),
+    linear-gradient(180deg, rgba(212, 175, 55, 0.35) 0%, rgba(92, 140, 111, 0.22) 50%, rgba(212, 175, 55, 0.30) 100%);
   filter: blur(18px);
-  opacity: 0.7;
+  opacity: 0.85;
   pointer-events: none;
   z-index: 0;
 }
@@ -553,16 +559,9 @@ body.site-entered .lang-control-bar {
   filter: none;
 }
 
-.flower-card-top-left {
-  top: -42px;
-  left: -40px;
-  width: 220px;
-  height: 220px;
-  max-width: 48vw;
-  max-height: 48vw;
-  transform: none;
-  transform-origin: top left;
-  opacity: 1 !important;
+.flower-card-top-left,
+.feather-top-left {
+  display: none !important;
 }
 
 .flower-card-top-right {
@@ -575,6 +574,7 @@ body.site-entered .lang-control-bar {
   transform: none;
   transform-origin: top right;
   opacity: 1 !important;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45)) drop-shadow(0 1px 6px rgba(255, 255, 255, 0.30));
 }
 
 .flower-card-bottom-left {
@@ -2853,6 +2853,20 @@ body.site-entered .lang-control-bar {
 .footer-date {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
+}
+
+body.site-entered .site-footer {
+  color: rgba(245, 240, 230, 0.72);
+}
+
+body.site-entered .footer-names {
+  color: #f7ecd5;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.site-entered .footer-date,
+body.site-entered .site-footer p {
+  color: rgba(245, 240, 230, 0.65);
 }
 
 /* ═════════════════════════════════════════════════════════════════════
