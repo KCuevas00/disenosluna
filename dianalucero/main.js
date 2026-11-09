@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Your presence at our celebration is the greatest gift of all. Should you wish to honor Diana with a gift, your love and thoughtfulness are warmly appreciated.',
       'message-quote': 'Your love, laughter, and company are requested on this unforgettable day as we celebrate my Quinceañera. Let’s make beautiful memories together!',
       'message-signature': 'Diana A. Lucero',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE DECEMBER 31, 2026',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE DECEMBER 21, 2026',
       'rsvp-btn': 'CONFIRM ATTENDANCE',
       'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You So Much!',
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Tu presencia en nuestra celebración es el mejor regalo de todos. Si deseas honrar a Diana con un detalle, será recibido con profundo cariño y agradecimiento.',
       'message-quote': 'Tu cariño, risas y compañía son nuestro mayor deseo en este día inolvidable mientras celebramos mis XV Años. ¡Hagamos hermosos recuerdos juntos!',
       'message-signature': 'Diana A. Lucero',
-      'rsvp-deadline': 'POR FAVOR CONFIRMAR ASISTENCIA ANTES DEL 31 DE DICIEMBRE, 2026',
+      'rsvp-deadline': 'POR FAVOR CONFIRMAR ASISTENCIA ANTES DEL 21 DE DICIEMBRE, 2026',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAZ CLIC EN EL BOTÓN PARA<br />CONFIRMAR TU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
@@ -790,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expandAudioBarFn();
       }
       var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', '#070b08');
+      if (themeMeta) themeMeta.setAttribute('content', '#fcfdfc');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
@@ -932,10 +932,10 @@ document.addEventListener('DOMContentLoaded', () => {
         twinkleSpeed: Math.random() * 0.04 + 0.015,
         isStar: Math.random() > 0.65,
         color: Math.random() > 0.45
-          ? '245, 215, 110' // Warm Champagne Gold
+          ? '212, 175, 55' // Liquid Antique Gold
           : (Math.random() > 0.5
-            ? '255, 248, 230' // Starlight Warm White
-            : (Math.random() > 0.35 ? '212, 175, 55' : '85, 115, 75')) // Liquid Gold & Muted Olive
+            ? '201, 159, 87' // Warm Champagne Gold
+            : (Math.random() > 0.35 ? '104, 138, 88' : '140, 111, 35')) // Sage Mist & Deep Gold
       });
     }
 
