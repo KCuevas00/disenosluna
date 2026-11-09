@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
      3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER, CONFETTI & PETALS ENGINE
      ───────────────────────────────────────────────────────────── */
 
-  // Canvas Petal & Multi-Shape Confetti Engine (Western Charra Theme)
+  // Canvas Petal & Multi-Shape Confetti Engine (Royal Sage Theme)
   class WesternPetalConfettiEngine {
     constructor(canvasId) {
       this.canvas = document.getElementById(canvasId);
