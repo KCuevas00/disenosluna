@@ -5429,9 +5429,10 @@ body:not(.site-entered) {
 }
 
 /* Fade away once the envelope opens */
-.entry-overlay.is-opened .entry-lang-picker {
+.entry-overlay.is-opened .entry-lang-picker,
+body.og-preview-mode .entry-lang-picker {
   opacity: 0;
-  transform: translateY(10px);
+  display: none !important;
   pointer-events: none;
 }
 

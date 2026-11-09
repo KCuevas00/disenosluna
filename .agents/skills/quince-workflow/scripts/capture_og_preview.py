@@ -29,7 +29,7 @@ def capture_og(project_dir, port=8099):
         "--force-device-scale-factor=2",
         "--window-size=1200,630",
         f"--screenshot={raw_shot}",
-        f"http://localhost:{port}/index.html"
+        f"http://localhost:{port}/index.html?og_preview=1"
     ]
 
     try:

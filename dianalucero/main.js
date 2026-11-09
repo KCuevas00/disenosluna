@@ -267,7 +267,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Default to English on startup unless specified by ?lang=
-  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlLang = urlParams.get('lang');
+  if (urlParams.has('og_preview')) {
+    document.body.classList.add('og-preview-mode');
+  }
   applyLanguage(urlLang === 'es' ? 'es' : 'en');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
