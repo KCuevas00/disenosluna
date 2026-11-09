@@ -157,15 +157,15 @@ body.site-entered {
   }
 }
 
-/* Background bokeh sparkle canvas */
+/* Background bokeh sparkle canvas inside entry overlay */
 #ambient-canvas {
-  position: fixed;
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
+  z-index: 1;
+  opacity: 0.85;
 }
 
 /* ── FLOATING AUDIO CONTROL BAR (PLAY/PAUSE & VOLUME SLIDER) ── */
@@ -2901,27 +2901,60 @@ body.site-entered .site-footer p {
    BESPOKE LUXURY ENVELOPE ENTRY POPUP STYLES
    ═════════════════════════════════════════════════════════════════════ */
 .entry-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #0d0a0b !important;
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background-color: #0c1810 !important;
   background-image:
-    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(20, 16, 18, 0.32) 0%, rgba(10, 8, 10, 0.75) 100%),
-    url('photos/landing-bokeh-bg.jpg?v=1') !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s;
+    /* Luminous warm champagne & candle glow halo behind the envelope */
+    radial-gradient(ellipse 65% 52% at 50% 48%, rgba(255, 250, 238, 0.95) 0%, rgba(247, 236, 215, 0.78) 28%, rgba(207, 223, 197, 0.40) 52%, transparent 75%),
+    /* Shimmering warm golden & sage gala bokeh spheres */
+    radial-gradient(circle 280px at 15% 18%, rgba(212, 175, 55, 0.38) 0%, transparent 70%),
+    radial-gradient(circle 320px at 85% 22%, rgba(207, 223, 197, 0.32) 0%, transparent 70%),
+    radial-gradient(circle 240px at 18% 82%, rgba(104, 138, 88, 0.35) 0%, transparent 70%),
+    radial-gradient(circle 340px at 82% 80%, rgba(212, 175, 55, 0.30) 0%, transparent 70%),
+    /* Deep rich emerald and forest velvet base gradient */
+    linear-gradient(180deg, #09120b 0%, #112015 25%, #182e1e 50%, #112015 75%, #09120b 100%) !important;
+  transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
 
-.entry-overlay::before,
+/* Ambient stardust shimmering dust veil */
+.entry-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle 1.5px at 20% 30%, rgba(255, 245, 220, 0.9) 0%, transparent 100%),
+    radial-gradient(circle 2px at 75% 25%, rgba(245, 215, 110, 0.85) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 40% 70%, rgba(207, 223, 197, 0.85) 0%, transparent 100%),
+    radial-gradient(circle 2.5px at 85% 65%, rgba(212, 175, 55, 0.8) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 12% 85%, rgba(255, 245, 220, 0.75) 0%, transparent 100%),
+    radial-gradient(circle 2px at 60% 15%, rgba(245, 215, 110, 0.8) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 30% 90%, rgba(207, 223, 197, 0.8) 0%, transparent 100%);
+  opacity: 0.85;
+  z-index: 1;
+}
+
 .entry-overlay::after {
-  display: none !important;
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 65%);
+  opacity: 0.9;
+  z-index: 2;
 }
 
 .entry-overlay.fade-out {
@@ -5184,17 +5217,6 @@ body:not(.site-entered) {
 
 .dust-sparkle {
   text-shadow: 0 0 6px #c99f57, 0 0 12px #8c6f23;
-}
-
-/* ── Landing page golden bokeh stardust aesthetic ── */
-.entry-overlay {
-  background-color: #0d0a0b !important;
-  background-image:
-    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(20, 16, 18, 0.32) 0%, rgba(10, 8, 10, 0.75) 100%),
-    url('photos/landing-bokeh-bg.jpg?v=1') !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
 }
 
 /* ── Countdown ── */

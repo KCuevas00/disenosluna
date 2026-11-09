@@ -918,28 +918,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const bokehs = [];
-    const count = window.innerWidth < 600 ? 20 : 36;
+    const count = window.innerWidth < 600 ? 24 : 40;
 
     for (let i = 0; i < count; i++) {
       bokehs.push({
         x: Math.random() * ambWidth,
         y: Math.random() * ambHeight,
-        radius: Math.random() * 18 + 4,
+        radius: Math.random() * 16 + 5,
         speedY: (Math.random() * 0.22 + 0.06),
         speedX: (Math.random() - 0.5) * 0.22,
-        baseAlpha: Math.random() * 0.35 + 0.12,
+        baseAlpha: Math.random() * 0.4 + 0.15,
         twinklePhase: Math.random() * Math.PI * 2,
         twinkleSpeed: Math.random() * 0.04 + 0.015,
         isStar: Math.random() > 0.65,
-        color: Math.random() > 0.5
+        color: Math.random() > 0.45
           ? '245, 215, 110' // Warm Champagne Gold
           : (Math.random() > 0.5
-            ? '255, 245, 220' // Starlight White
-            : (Math.random() > 0.4 ? '212, 175, 55' : '92, 140, 111')) // Liquid Gold & Sage
+            ? '255, 248, 230' // Starlight Warm White
+            : (Math.random() > 0.4 ? '212, 175, 55' : '104, 138, 88')) // Liquid Gold & Sage
       });
     }
 
     function renderBokeh() {
+      if (!ambCanvas.isConnected) return;
       ambCtx.clearRect(0, 0, ambWidth, ambHeight);
 
       for (let i = 0; i < bokehs.length; i++) {
