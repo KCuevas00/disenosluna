@@ -2915,17 +2915,17 @@ body.site-entered .site-footer p {
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background-color: #0c1810 !important;
+  background-color: #070b08 !important;
   background-image:
-    /* Luminous warm champagne & candle glow halo behind the envelope */
-    radial-gradient(ellipse 65% 52% at 50% 48%, rgba(255, 250, 238, 0.95) 0%, rgba(247, 236, 215, 0.78) 28%, rgba(207, 223, 197, 0.40) 52%, transparent 75%),
-    /* Shimmering warm golden & sage gala bokeh spheres */
-    radial-gradient(circle 280px at 15% 18%, rgba(212, 175, 55, 0.38) 0%, transparent 70%),
-    radial-gradient(circle 320px at 85% 22%, rgba(207, 223, 197, 0.32) 0%, transparent 70%),
-    radial-gradient(circle 240px at 18% 82%, rgba(104, 138, 88, 0.35) 0%, transparent 70%),
-    radial-gradient(circle 340px at 82% 80%, rgba(212, 175, 55, 0.30) 0%, transparent 70%),
-    /* Deep rich emerald and forest velvet base gradient */
-    linear-gradient(180deg, #09120b 0%, #112015 25%, #182e1e 50%, #112015 75%, #09120b 100%) !important;
+    /* Focused gentle warm champagne aura right behind the envelope */
+    radial-gradient(ellipse 52% 42% at 50% 48%, rgba(255, 248, 235, 0.28) 0%, rgba(245, 230, 205, 0.14) 38%, transparent 70%),
+    /* Subtle warm gold & very gentle dark sage bokeh accents */
+    radial-gradient(circle 240px at 15% 18%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
+    radial-gradient(circle 280px at 85% 22%, rgba(104, 138, 88, 0.10) 0%, transparent 65%),
+    radial-gradient(circle 220px at 18% 82%, rgba(212, 175, 55, 0.14) 0%, transparent 65%),
+    radial-gradient(circle 300px at 82% 80%, rgba(85, 114, 71, 0.08) 0%, transparent 65%),
+    /* Deep midnight black base with a subtle dark forest undertone */
+    linear-gradient(180deg, #050705 0%, #0a100c 30%, #0d150e 50%, #0a100c 70%, #050705 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
 
@@ -2943,7 +2943,7 @@ body.site-entered .site-footer p {
     radial-gradient(circle 1.5px at 12% 85%, rgba(255, 245, 220, 0.75) 0%, transparent 100%),
     radial-gradient(circle 2px at 60% 15%, rgba(245, 215, 110, 0.8) 0%, transparent 100%),
     radial-gradient(circle 1.5px at 30% 90%, rgba(207, 223, 197, 0.8) 0%, transparent 100%);
-  opacity: 0.85;
+  opacity: 0.65;
   z-index: 1;
 }
 

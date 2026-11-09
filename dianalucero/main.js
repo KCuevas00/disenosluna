@@ -924,10 +924,10 @@ document.addEventListener('DOMContentLoaded', () => {
       bokehs.push({
         x: Math.random() * ambWidth,
         y: Math.random() * ambHeight,
-        radius: Math.random() * 16 + 5,
-        speedY: (Math.random() * 0.22 + 0.06),
-        speedX: (Math.random() - 0.5) * 0.22,
-        baseAlpha: Math.random() * 0.4 + 0.15,
+        radius: Math.random() * 15 + 4,
+        speedY: (Math.random() * 0.20 + 0.05),
+        speedX: (Math.random() - 0.5) * 0.20,
+        baseAlpha: Math.random() * 0.28 + 0.10,
         twinklePhase: Math.random() * Math.PI * 2,
         twinkleSpeed: Math.random() * 0.04 + 0.015,
         isStar: Math.random() > 0.65,
@@ -935,7 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ? '245, 215, 110' // Warm Champagne Gold
           : (Math.random() > 0.5
             ? '255, 248, 230' // Starlight Warm White
-            : (Math.random() > 0.4 ? '212, 175, 55' : '104, 138, 88')) // Liquid Gold & Sage
+            : (Math.random() > 0.35 ? '212, 175, 55' : '85, 115, 75')) // Liquid Gold & Muted Olive
       });
     }
 
