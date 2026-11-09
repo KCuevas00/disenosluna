@@ -326,8 +326,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
+  const AUDIO_START_OFFSET = 35.5; // 0:35.5 (Iconic "Vogue" drop & signature piano groove)
+  let hasSetInitialStartTime = false;
+  let lastAudioTime = 0;
+
   let isAudioPlaying = false;
   let wasAudioPlayingBeforeHide = false;
+
+  function ensureAudioStartTime() {
+    if (!bgAudio || hasSetInitialStartTime) return;
+    try {
+      if (bgAudio.readyState >= 1) { // HAVE_METADATA or higher
+        if (Math.abs(bgAudio.currentTime - AUDIO_START_OFFSET) > 1 && bgAudio.currentTime < AUDIO_START_OFFSET) {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+        }
+        hasSetInitialStartTime = true;
+      }
+    } catch (e) {}
+  }
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -348,6 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function playAudio() {
     if (!bgAudio) return;
+    ensureAudioStartTime();
     bgAudio.volume = 0.85;
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
@@ -366,6 +383,47 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bgAudio) return;
     bgAudio.pause();
     updatePlayState(false);
+  }
+
+  if (bgAudio) {
+    bgAudio.addEventListener('loadedmetadata', ensureAudioStartTime);
+    bgAudio.addEventListener('canplay', ensureAudioStartTime);
+    bgAudio.addEventListener('play', () => {
+      ensureAudioStartTime();
+      updatePlayState(true);
+    });
+    bgAudio.addEventListener('playing', () => {
+      ensureAudioStartTime();
+      updatePlayState(true);
+    });
+    bgAudio.addEventListener('pause', () => updatePlayState(false));
+    bgAudio.addEventListener('ended', () => {
+      try {
+        bgAudio.currentTime = AUDIO_START_OFFSET;
+        bgAudio.play().catch(() => {});
+      } catch (e) {}
+      updatePlayState(false);
+    });
+
+    // Guard against playing from 0:00 before initial seek AND handle native loop rewind
+    bgAudio.addEventListener('timeupdate', () => {
+      if (!hasSetInitialStartTime && bgAudio.currentTime < AUDIO_START_OFFSET) {
+        try {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+          hasSetInitialStartTime = true;
+        } catch (e) {}
+      } else if (hasSetInitialStartTime && lastAudioTime > (AUDIO_START_OFFSET + 10) && bgAudio.currentTime < 2) {
+        try {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+        } catch (e) {}
+      }
+      lastAudioTime = bgAudio.currentTime;
+    });
+
+    bgAudio.addEventListener('error', (e) => {
+      console.warn('[Audio element error]:', bgAudio.error || e);
+      updatePlayState(false);
+    });
   }
 
   document.addEventListener('visibilitychange', () => {

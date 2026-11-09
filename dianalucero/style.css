@@ -5360,7 +5360,7 @@ body:not(.site-entered) {
 .entry-lang-picker {
   position: relative;
   z-index: 2;
-  margin-top: 2.2rem;
+  margin-top: 3.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -5375,8 +5375,8 @@ body:not(.site-entered) {
   font-weight: 700;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: #fae8be;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 12px rgba(104, 138, 88, 0.75);
 }
 
 .entry-lang-pills {
@@ -5384,12 +5384,12 @@ body:not(.site-entered) {
   align-items: center;
   gap: 4px;
   padding: 4px;
-  background: rgba(23, 21, 30, 0.75);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(212, 175, 55, 0.45);
   border-radius: 999px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 22px rgba(33, 51, 29, 0.18), inset 0 0 0 1px rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .entry-lang-btn {
@@ -5405,29 +5405,46 @@ body:not(.site-entered) {
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #fae8be;
+  color: #22331d;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: var(--transition-smooth);
 }
 
 .entry-lang-btn:hover:not(.active) {
-  color: #22331d;
-  background: rgba(201, 159, 87, 0.2);
+  color: #1f140e;
+  background: rgba(212, 175, 55, 0.18);
 }
 
 .entry-lang-btn.active {
   background: linear-gradient(135deg, #2d4526 0%, #688a58 100%);
   color: #ffffff;
-  box-shadow: 0 3px 12px rgba(45, 66, 38, 0.35);
+  box-shadow: 0 3px 14px rgba(45, 66, 38, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.5);
 }
 
 .entry-lang-btn:focus-visible {
-  outline: 2px solid #c99f57;
+  outline: 2px solid #d4af37;
   outline-offset: 2px;
 }
 
 /* Fade away once the envelope opens */
+.entry-overlay.is-opened .entry-lang-picker {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .entry-lang-picker {
+    margin-top: 2.8rem;
+  }
+
+  .entry-lang-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
 .entry-overlay.is-opened .entry-lang-picker {
   opacity: 0;
   transform: translateY(10px);
