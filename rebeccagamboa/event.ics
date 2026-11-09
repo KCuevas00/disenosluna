@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Disenos Luna//Rebecca Gamboa Cantu Quinceanera//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:rebecca-gamboa-cantu-quinceanera-20270313@disenosluna.com
+DTSTAMP:20261108T210000Z
+DTSTART:20270313T220000Z
+DTEND:20270314T040000Z
+SUMMARY:Rebecca Gamboa Cantú's Quinceañera
+DESCRIPTION:Join us to celebrate Rebecca Gamboa Cantú's Quinceañera! Celebration begins at 5:00 PM at Fiesta Fusion (745 Main St, Willimantic, CT 06226).
+LOCATION:745 Main St, Willimantic, CT 06226, United States
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rebecca Gamboa Cantú's Quinceañera today!
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

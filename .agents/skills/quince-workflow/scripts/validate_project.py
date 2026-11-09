@@ -97,6 +97,54 @@ def validate_project(project_dir):
     else:
         print("  ✓ Zero leftover template names found!")
 
+    # 4. Check Package Tier Conformity (Basic vs Premium)
+    print("\n--- 4. Checking Package Tier Conformity (Basic vs Premium) ---")
+    readme_path = os.path.join(abs_dir, "README.md")
+    pkg_tier = None
+    if os.path.exists(readme_path):
+        with open(readme_path, "r", encoding="utf-8", errors="ignore") as f:
+            content = f.read().lower()
+            if "basic" in content:
+                pkg_tier = "basic"
+            elif "premium" in content:
+                pkg_tier = "premium"
+
+    if os.path.exists(html_path):
+        with open(html_path, "r", encoding="utf-8", errors="ignore") as f:
+            html_content = f.read()
+
+        if pkg_tier == "basic":
+            print("  Detected Package: BASIC ($55)")
+            issues = []
+            if "<audio" in html_content or 'audio-control-bar' in html_content:
+                issues.append("Found <audio> or audio-control-bar (Music is Premium only)")
+            if 'class="countdown-section"' in html_content or 'id="countdown"' in html_content:
+                issues.append("Found countdown section (Live Countdown is Premium only)")
+            if 'class="floating-lang-bar"' in html_content:
+                issues.append("Found floating language switcher (Bilingual is Premium only)")
+            if 'class="court-section"' in html_content or 'id="court"' in html_content:
+                issues.append("Found court of honor section (Court is Premium only)")
+
+            if issues:
+                for issue in issues:
+                    print(f"  ⚠️ Package Mismatch: {issue}")
+            else:
+                print("  ✓ Basic package tier verified (No premium audio, countdown, court, or lang toggle).")
+        elif pkg_tier == "premium":
+            print("  Detected Package: PREMIUM ($70)")
+            missing = []
+            if "<audio" not in html_content and 'audio-control-bar' not in html_content:
+                missing.append("Missing <audio> or audio-control-bar (Required in Premium)")
+            if 'countdown' not in html_content:
+                missing.append("Missing countdown section (Expected in Premium)")
+            if missing:
+                for m in missing:
+                    print(f"  ⚠️ Package Missing Feature: {m}")
+            else:
+                print("  ✓ Premium package tier verified (Audio and interactive features present).")
+        else:
+            print("  (Package tier not specified in README.md — skipping tier-specific checks)")
+
     print("\n" + ("=" * 45))
     if all_passed:
         print("🎉 ALL PROJECT VALIDATIONS PASSED!")
