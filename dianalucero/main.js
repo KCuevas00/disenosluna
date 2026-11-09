@@ -790,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expandAudioBarFn();
       }
       var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', '#fbf8f3');
+      if (themeMeta) themeMeta.setAttribute('content', '#070b08');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);

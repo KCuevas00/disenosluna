@@ -91,7 +91,7 @@ body {
 /* Before envelope is opened: lock scrolling on root html only & pure background */
 html:not(.site-entered),
 body:not(.site-entered) {
-  background: #17151e !important;
+  background: #070b08 !important;
   overflow: hidden !important;
   height: 100% !important;
   touch-action: none !important;
@@ -118,12 +118,19 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — moody Parisian twilight background matching celebrant image */
+/* body must NOT independently scroll — luxurious midnight noir & warm gold bokeh matching landing screen */
 body.site-entered {
-  background-color: #17151e !important;
+  background-color: #070b08 !important;
   background-image:
-    radial-gradient(ellipse at 50% 20%, rgba(45, 39, 52, 0.55) 0%, rgba(14, 13, 18, 0.88) 100%),
-    url('photos/paris-bg.jpg?v=1') !important;
+    /* Focused gentle warm champagne aura right behind the invitation card */
+    radial-gradient(ellipse 65% 50% at 50% 25%, rgba(255, 248, 235, 0.28) 0%, rgba(245, 230, 205, 0.14) 38%, transparent 70%),
+    /* Subtle warm gold & very gentle dark sage bokeh accents */
+    radial-gradient(circle 240px at 15% 18%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
+    radial-gradient(circle 280px at 85% 22%, rgba(104, 138, 88, 0.10) 0%, transparent 65%),
+    radial-gradient(circle 220px at 18% 82%, rgba(212, 175, 55, 0.14) 0%, transparent 65%),
+    radial-gradient(circle 300px at 82% 80%, rgba(85, 114, 71, 0.08) 0%, transparent 65%),
+    /* Deep midnight black base with a subtle dark forest undertone */
+    linear-gradient(180deg, #050705 0%, #0a100c 30%, #0d150e 50%, #0a100c 70%, #050705 100%) !important;
   background-size: cover !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
@@ -3293,10 +3300,10 @@ html.og-mode .entry-stage-mount {
 .env-back {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #e6e8ef 0%, #cfd4df 100%);
+  background: linear-gradient(180deg, #f5f7f4 0%, #e8eee6 100%);
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(120, 95, 70, 0.2);
+  box-shadow: inset 0 0 35px rgba(60, 80, 50, 0.15);
 }
 
 .env-interior-pattern,
@@ -3507,7 +3514,7 @@ html.og-mode .entry-stage-mount {
   z-index: 15;
   filter: none !important;
   -webkit-filter: none !important;
-  background: linear-gradient(160deg, #e3e6ed 0%, #d2d7e2 60%, #bfc4cf 100%);
+  background: linear-gradient(160deg, #f7f9f6 0%, #e9efe7 60%, #d8e2d5 100%);
 }
 
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
@@ -5161,8 +5168,8 @@ html.og-mode .entry-stage-mount {
    ══════════════════════════════════════════════════════════════ */
 /* Twilight background continuing behind Safari bars */
 html:not(.site-entered) {
-  background: #17151e !important;
-  background-color: #17151e !important;
+  background: #070b08 !important;
+  background-color: #070b08 !important;
 }
 
 body:not(.site-entered) {
