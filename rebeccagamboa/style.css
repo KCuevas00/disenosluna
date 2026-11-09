@@ -1461,9 +1461,95 @@ body.site-entered .lang-control-bar {
   }
 }
 
-/* ── SECTION 2: PROGRAM / TIMELINE ── */
+/* ── SECTION 2: CELEBRATION HOURS ── */
 #hero {
   padding-bottom: 0.8rem;
+}
+
+.celebration-hours-section {
+  background: transparent;
+  padding: 1.6rem 1.2rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.celebration-hours-section > .floral-divider-container {
+  margin: 0 auto 1.8rem;
+}
+
+.celebration-hours-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hours-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--gold-accent);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.hours-columns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  margin: 0 auto;
+}
+
+.hours-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.hours-time-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--theme-dark);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.hours-time-val {
+  font-family: var(--font-editorial-num);
+  font-size: clamp(2rem, 5.5vw, 2.75rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-dark);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.hours-fleuron-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+  padding: 0 0.2rem;
+}
+
+.hours-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.70rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+  line-height: 1.5;
 }
 
 .program-section {
