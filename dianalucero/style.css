@@ -5457,33 +5457,25 @@ body:not(.site-entered) {
   outline-offset: 2px;
 }
 
-/* Fade away once the envelope opens */
-.entry-overlay.is-opened .entry-lang-picker,
-body.og-preview-mode .entry-lang-picker {
-  opacity: 0;
-  display: none !important;
-  pointer-events: none;
-}
-
-@media (max-width: 480px) {
-  .entry-lang-picker {
-    margin-top: 2.8rem;
-  }
-
-  .entry-lang-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
+/* Keep language picker in layout during opening animation so envelope position never shifts */
 .entry-overlay.is-opened .entry-lang-picker {
-  opacity: 0;
-  transform: translateY(10px);
   pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.5s ease 0.8s;
+}
+
+.entry-overlay.fade-out .entry-lang-picker {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.og-preview-mode .entry-lang-picker {
+  display: none !important;
 }
 
 @media (max-width: 480px) {
   .entry-lang-picker {
-    margin-top: 1.6rem;
+    margin-top: 2.2rem;
   }
 
   .entry-lang-btn {
