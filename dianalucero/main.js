@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
-  const AUDIO_START_OFFSET = 35.5; // 0:35.5 (Iconic "Vogue" drop & signature piano groove)
+  const AUDIO_START_OFFSET = 82.5; // 1:22.5 (Iconic "Come on, VOGUE! Let your body move to the music" Chorus Beat Drop)
   let hasSetInitialStartTime = false;
   let lastAudioTime = 0;
 
