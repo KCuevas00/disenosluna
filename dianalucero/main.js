@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-parents': 'FERNANDO &amp; ELVIA LUCERO',
       'invite-preamble': 'TIENEN EL HONOR Y LA ALEGRÍA DE INVITARLOS A<br>CELEBRAR JUNTO CON NOSOTROS LOS',
       'invite-quince': 'XV Años',
-      'invite-daughter': 'DE SU QUERIDA HIJA',
+      'invite-daughter': 'DE NUESTRA QUERIDA HIJA',
       'invite-celebrant': 'Diana A.<br>Lucero',
       'invite-date-month': 'ENE',
       'invite-date-day': 'SÁBADO',
