@@ -550,48 +550,26 @@ body.site-entered .lang-control-bar {
 }
 
 .flower-card-top-left,
-.feather-top-left {
+.feather-top-left,
+.flower-card-bottom-left,
+.flower-card-bottom-right {
   display: none !important;
 }
 
 .flower-card-top-right {
-  top: -24px;
-  right: -20px;
-  width: 210px;
-  height: 210px;
-  max-width: 48vw;
-  max-height: 48vw;
+  display: block !important;
+  visibility: visible !important;
+  top: -38px;
+  right: -32px;
+  width: 250px;
+  height: 250px;
+  max-width: 55vw;
+  max-height: 55vw;
   transform: none;
   transform-origin: top right;
   opacity: 1 !important;
   z-index: 30;
-  filter: drop-shadow(0 6px 16px rgba(0, 99, 133, 0.20)) drop-shadow(0 2px 6px rgba(212, 175, 55, 0.25));
-}
-
-.flower-card-bottom-left {
-  bottom: -42px;
-  left: -40px;
-  width: 220px;
-  height: 220px;
-  max-width: 48vw;
-  max-height: 48vw;
-  transform: none;
-  transform-origin: bottom left;
-  opacity: 1 !important;
-  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.35));
-}
-
-.flower-card-bottom-right {
-  bottom: -42px;
-  right: -40px;
-  width: 220px;
-  height: 220px;
-  max-width: 48vw;
-  max-height: 48vw;
-  transform: none;
-  transform-origin: bottom right;
-  opacity: 1 !important;
-  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 8px 20px rgba(0, 99, 133, 0.18)) drop-shadow(0 2px 8px rgba(212, 175, 55, 0.22));
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -4182,40 +4160,22 @@ html.og-mode .entry-stage-mount {
   }
 
   /* Invitation Card Corner Flowers: Contained within Viewport */
-  .flower-card-top-left {
-    top: -18px;
-    left: -8px;
-    width: 140px;
-    height: 140px;
-    transform: none;
-    transform-origin: top left;
+  .flower-card-top-left,
+  .flower-card-bottom-left,
+  .flower-card-bottom-right {
+    display: none !important;
   }
 
   .flower-card-top-right {
-    top: -18px;
-    right: -8px;
-    width: 140px;
-    height: 140px;
+    top: -26px;
+    right: -14px;
+    width: 175px;
+    height: 175px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     transform: none;
     transform-origin: top right;
-  }
-
-  .flower-card-bottom-left {
-    bottom: -18px;
-    left: -8px;
-    width: 140px;
-    height: 140px;
-    transform: none;
-    transform-origin: bottom left;
-  }
-
-  .flower-card-bottom-right {
-    bottom: -18px;
-    right: -8px;
-    width: 140px;
-    height: 140px;
-    transform: none;
-    transform-origin: bottom right;
   }
 
   /* Mobile Floating Utility Controls (Language Left, Music Right) */
@@ -4300,40 +4260,22 @@ html.og-mode .entry-stage-mount {
     border-radius: 20px;
   }
 
-  .flower-card-top-left {
-    top: -20px;
-    left: -8px;
-    width: 140px;
-    height: 140px;
-    transform: none;
-    transform-origin: top left;
+  .flower-card-top-left,
+  .flower-card-bottom-left,
+  .flower-card-bottom-right {
+    display: none !important;
   }
 
   .flower-card-top-right {
-    top: -20px;
-    right: -8px;
-    width: 140px;
-    height: 140px;
+    top: -26px;
+    right: -14px;
+    width: 175px;
+    height: 175px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     transform: none;
     transform-origin: top right;
-  }
-
-  .flower-card-bottom-left {
-    bottom: -20px;
-    left: -8px;
-    width: 140px;
-    height: 140px;
-    transform: none;
-    transform-origin: bottom left;
-  }
-
-  .flower-card-bottom-right {
-    bottom: -20px;
-    right: -8px;
-    width: 140px;
-    height: 140px;
-    transform: none;
-    transform-origin: bottom right;
   }
 
   .cover-section {
@@ -4607,40 +4549,22 @@ html.og-mode .entry-stage-mount {
 }
 
 @media (max-width: 380px) {
-  .flower-card-top-left {
-    top: -20px;
-    left: -16px;
-    width: 130px;
-    height: 130px;
-    transform: none;
-    transform-origin: top left;
+  .flower-card-top-left,
+  .flower-card-bottom-left,
+  .flower-card-bottom-right {
+    display: none !important;
   }
 
   .flower-card-top-right {
-    top: -20px;
-    right: -16px;
-    width: 130px;
-    height: 130px;
+    top: -24px;
+    right: -12px;
+    width: 155px;
+    height: 155px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     transform: none;
     transform-origin: top right;
-  }
-
-  .flower-card-bottom-left {
-    bottom: -20px;
-    left: -16px;
-    width: 130px;
-    height: 130px;
-    transform: none;
-    transform-origin: bottom left;
-  }
-
-  .flower-card-bottom-right {
-    bottom: -20px;
-    right: -16px;
-    width: 130px;
-    height: 130px;
-    transform: none;
-    transform-origin: bottom right;
   }
 
   .flower-top-right {
@@ -6368,9 +6292,7 @@ body.og-preview-mode .entry-lang-picker {
   }
 }
 
-/* ── Completely Removed Corner Flowers ── */
-.invitation-floral-frame,
-.invitation-flower-spray,
+/* ── Removed Unused Corner Flowers ── */
 .envelope-floral-frame,
 .envelope-flower-spray,
 .env-card-floral-frame,
