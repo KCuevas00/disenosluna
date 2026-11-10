@@ -5,10 +5,10 @@
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
-  /* Pure Translucent Teal Wash & Champagne Gold Scheme (Celebrant Gown Match: ~196° Hue) */
-  --bg-page: #edf7fa;
-  --bg-page-gradient: radial-gradient(circle at 50% 12%, #ffffff 0%, #e0f4f7 48%, #c5ecf3 100%);
-  --card-white: #fdfdfb;
+  /* Soft Translucent Mist & Liquid Gold Scheme (Matches Celebrant Gown ~196° Hue & Pure Airy Backdrop) */
+  --bg-page: #ffffff;
+  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #fcfefe 60%, #f4fafb 100%);
+  --card-white: #ffffff;
 
   /* Typographic Contrast (Deep Oceanic Peacock / Charcoal) */
   --text-dark: #072a35;
@@ -66,13 +66,14 @@
 }
 
 html {
+  background: #ffffff;
   scroll-behavior: smooth;
   overflow-x: clip;
   scrollbar-gutter: stable both-edges;
 }
 
 body {
-  background: #ffffff;
+  background: var(--bg-page-gradient);
   min-height: 100vh;
   color: var(--text-dark);
   font-family: var(--font-sans);
@@ -91,7 +92,7 @@ body {
 /* Before envelope is opened: lock scrolling on root html only & pure background */
 html:not(.site-entered),
 body:not(.site-entered) {
-  background: #fcfdfc !important;
+  background: #ffffff !important;
   overflow: hidden !important;
   height: 100% !important;
   touch-action: none !important;
@@ -120,23 +121,14 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — soft delicate light blue & champagne silk background */
+/* body must NOT independently scroll — pure airy white backdrop matching merelinnunez */
 body.site-entered {
   background-color: #ffffff !important;
-  background-image:
-    /* Luminous pure white halo centered behind the stage */
-    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.98) 35%, rgba(238, 248, 251, 0.35) 70%, transparent 100%),
-    /* Delicate whisper-soft golden and light teal mist bokeh spheres */
-    radial-gradient(circle 320px at 10% 15%, rgba(212, 175, 55, 0.06) 0%, transparent 70%),
-    radial-gradient(circle 340px at 90% 20%, rgba(175, 230, 240, 0.14) 0%, transparent 70%),
-    radial-gradient(circle 280px at 15% 80%, rgba(0, 142, 183, 0.05) 0%, transparent 70%),
-    radial-gradient(circle 360px at 85% 75%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
-    /* Pure white top and bottom wash so Safari status bar and toolbar render transparent frosted glass */
-    linear-gradient(180deg, #ffffff 0%, #ffffff 12%, #f8fcfe 35%, #edf7fa 65%, #ffffff 92%, #ffffff 100%) !important;
+  background-image: var(--bg-page-gradient) !important;
   background-size: cover !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
+  background-attachment: scroll !important;
   overflow-x: clip !important;
   overflow-y: visible !important;
   height: auto !important;
@@ -559,17 +551,17 @@ body.site-entered .lang-control-bar {
 .flower-card-top-right {
   display: block !important;
   visibility: visible !important;
-  top: -38px;
-  right: -32px;
-  width: 250px;
-  height: 250px;
+  top: -52px;
+  right: -52px;
+  width: 280px;
+  height: 280px;
   max-width: 55vw;
   max-height: 55vw;
   transform: none;
   transform-origin: top right;
   opacity: 1 !important;
   z-index: 30;
-  filter: drop-shadow(0 8px 20px rgba(0, 99, 133, 0.18)) drop-shadow(0 2px 8px rgba(212, 175, 55, 0.22));
+  filter: drop-shadow(0 10px 22px rgba(0, 99, 133, 0.16)) drop-shadow(0 2px 6px rgba(201, 159, 87, 0.18));
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -2884,18 +2876,10 @@ body.site-entered .site-footer p {
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background-color: #e2f1f5 !important;
+  background-color: #ffffff !important;
   background-image:
-    /* Luminous pure white & soft glow halo centered directly behind the envelope */
-    radial-gradient(ellipse 75% 62% at 50% 48%, rgba(255, 255, 255, 0.94) 0%, rgba(246, 252, 254, 0.88) 35%, rgba(216, 239, 244, 0.38) 75%, transparent 100%),
-    /* Soft subtle ambient bokeh orbs */
-    radial-gradient(circle 360px at 12% 16%, rgba(210, 237, 243, 0.28) 0%, transparent 70%),
-    radial-gradient(circle 380px at 88% 20%, rgba(210, 237, 243, 0.28) 0%, transparent 70%),
-    radial-gradient(circle 320px at 15% 82%, rgba(210, 237, 243, 0.28) 0%, transparent 70%),
-    radial-gradient(circle 400px at 84% 82%, rgba(212, 175, 55, 0.12) 0%, transparent 70%),
-    radial-gradient(circle 280px at 50% 8%, rgba(220, 242, 247, 0.22) 0%, transparent 70%),
-    /* Seamless uniform subtle light blue wash */
-    linear-gradient(180deg, #e4f2f6 0%, #d8ecf2 30%, #cee6ee 50%, #d8ecf2 70%, #e4f2f6 100%) !important;
+    radial-gradient(ellipse 75% 62% at 50% 48%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 35%, rgba(240, 250, 252, 0.45) 75%, transparent 100%),
+    radial-gradient(circle at 50% 15%, #ffffff 0%, #fcfefe 60%, #f4fafb 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
 
@@ -2929,9 +2913,10 @@ body.site-entered .site-footer p {
 
 .entry-overlay.fade-out {
   opacity: 0 !important;
+  visibility: hidden !important;
   transform: scale(1.04);
   pointer-events: none !important;
-  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.85s !important;
 }
 
 .entry-overlay.fade-out * {
@@ -4167,10 +4152,10 @@ html.og-mode .entry-stage-mount {
   }
 
   .flower-card-top-right {
-    top: -26px;
-    right: -14px;
-    width: 175px;
-    height: 175px;
+    top: -38px;
+    right: -25px;
+    width: 180px;
+    height: 180px;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -4267,10 +4252,10 @@ html.og-mode .entry-stage-mount {
   }
 
   .flower-card-top-right {
-    top: -26px;
-    right: -14px;
-    width: 175px;
-    height: 175px;
+    top: -38px;
+    right: -25px;
+    width: 180px;
+    height: 180px;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -4556,10 +4541,10 @@ html.og-mode .entry-stage-mount {
   }
 
   .flower-card-top-right {
-    top: -24px;
-    right: -12px;
-    width: 155px;
-    height: 155px;
+    top: -30px;
+    right: -15px;
+    width: 150px;
+    height: 150px;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
