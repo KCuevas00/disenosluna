@@ -2402,7 +2402,7 @@ body.site-entered .lang-control-bar {
 .rsvp-section {
   background: transparent;
   padding-top: 1.2rem;
-  padding-bottom: 3.2rem;
+  padding-bottom: 2.4rem;
 }
 
 .rsvp-section .floral-divider-container {
@@ -5063,16 +5063,16 @@ html.og-mode .entry-stage-mount {
   z-index: 2;
 }
 
-/* ── RSVP SECTION: keep "Thank You So Much!" clear of the bottom corner flowers ── */
+/* ── RSVP SECTION: balanced bottom padding ── */
 @media (max-width: 480px) {
   .rsvp-section {
-    padding-bottom: 7.5rem;
+    padding-bottom: 2.2rem;
   }
 }
 
 @media (min-width: 481px) {
   .rsvp-section {
-    padding-bottom: 9.5rem;
+    padding-bottom: 2.8rem;
   }
 }
 
