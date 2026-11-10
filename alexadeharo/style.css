@@ -2923,18 +2923,18 @@ body.site-entered .site-footer p {
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background-color: #bfe3eb !important;
+  background-color: #cbeaf0 !important;
   background-image:
     /* Luminous pure white & champagne glow halo centered directly behind the envelope so it pops */
-    radial-gradient(ellipse 68% 54% at 50% 48%, rgba(255, 255, 255, 0.85) 0%, rgba(224, 246, 250, 0.78) 32%, rgba(140, 215, 228, 0.52) 68%, transparent 100%),
-    /* Shimmering royal gold and vivid light blue / cyan ambient bokeh orbs */
-    radial-gradient(circle 360px at 12% 16%, rgba(0, 160, 200, 0.45) 0%, transparent 70%),
-    radial-gradient(circle 380px at 88% 20%, rgba(0, 142, 183, 0.40) 0%, transparent 70%),
-    radial-gradient(circle 320px at 15% 82%, rgba(0, 175, 215, 0.42) 0%, transparent 70%),
-    radial-gradient(circle 400px at 84% 82%, rgba(212, 175, 55, 0.22) 0%, transparent 70%),
-    radial-gradient(circle 280px at 50% 8%, rgba(0, 185, 225, 0.40) 0%, transparent 70%),
-    /* Luminous cascading silk light blue & cyan gradient */
-    linear-gradient(180deg, #bfe3eb 0%, #a8dbe6 25%, #92d1de 55%, #b2e0e9 80%, #ccebf1 100%) !important;
+    radial-gradient(ellipse 72% 58% at 50% 48%, rgba(255, 255, 255, 0.88) 0%, rgba(235, 248, 250, 0.82) 35%, rgba(182, 226, 233, 0.45) 75%, transparent 100%),
+    /* Soft ambient bokeh orbs matching the middle light blue tone */
+    radial-gradient(circle 360px at 12% 16%, rgba(182, 226, 233, 0.35) 0%, transparent 70%),
+    radial-gradient(circle 380px at 88% 20%, rgba(182, 226, 233, 0.35) 0%, transparent 70%),
+    radial-gradient(circle 320px at 15% 82%, rgba(182, 226, 233, 0.35) 0%, transparent 70%),
+    radial-gradient(circle 400px at 84% 82%, rgba(212, 175, 55, 0.16) 0%, transparent 70%),
+    radial-gradient(circle 280px at 50% 8%, rgba(195, 233, 239, 0.30) 0%, transparent 70%),
+    /* Seamless uniform soft light blue silk wash matching the middle */
+    linear-gradient(180deg, #cbeaf0 0%, #bde4eb 30%, #b2deea 50%, #bde4eb 70%, #cbeaf0 100%) !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
 
