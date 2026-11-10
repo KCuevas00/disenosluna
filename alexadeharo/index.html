@@ -44,7 +44,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9.25.0" />
+  <link rel="stylesheet" href="style.css?v=9.26.0" />
 </head>
 
 <body>
@@ -354,153 +354,86 @@
 
       
 
-      <!-- Vertical Timeline -->
-      <div class="program-timeline">
+      <!-- Editorial Itinerary -->
+      <div class="itinerary">
 
-        <!-- 1. CEREMONY -->
-        <div class="timeline-row row-left scroll-fade-in">
-          <div class="time-block">
-            <span class="time-stamp">11:30 AM – 1:00 PM</span>
-            <h3 class="event-title" data-i18n="program-ceremony-title">CEREMONY</h3>
-            <p class="event-desc" data-i18n="program-ceremony-desc">ST. SERRA CATHOLIC CHURCH<br />42121 60TH ST W, LANCASTER, CA</p>
-            <div class="timeline-loc-wrap">
-              <a href="https://www.google.com/maps/search/?api=1&query=St.+Serra+Catholic+Church,+42121+60th+St+W,+Lancaster,+CA+93536"
-                data-apple-url="https://maps.apple.com/?q=St.+Serra+Catholic+Church,+42121+60th+St+W,+Lancaster,+CA+93536"
-                target="_blank" rel="noopener noreferrer" class="timeline-loc-btn"
-                aria-label="Directions to St. Serra Catholic Church">
-                <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                </svg>
-                <span data-i18n="tl-btn-location">DIRECTIONS</span>
-              </a>
-            </div>
+        <div class="itin-row scroll-fade-in">
+          <div class="itin-time">
+            <span class="itin-start">11:30 AM</span>
+            <span class="itin-until"><span data-i18n="itin-to">to</span> 1:00 PM</span>
           </div>
-          <div class="timeline-connector">
-            <div class="timeline-line"></div>
-            <div class="timeline-node" title="Ceremony">
-              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-label="Ceremony Icon">
-                <path d="M12 2v20M5 8h14" />
-              </svg>
-            </div>
-          </div>
-          <div class="timeline-empty"></div>
-        </div>
-
-        <!-- 2. 4:00 PM: ARRIVAL & PIÑATA -->
-        <div class="timeline-row row-right scroll-fade-in">
-          <div class="timeline-empty"></div>
-          <div class="timeline-connector">
-            <div class="timeline-line"></div>
-            <div class="timeline-node" title="Arrival & Piñata">
-              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-label="Piñata Icon">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-          </div>
-          <div class="time-block">
-            <span class="time-stamp">4:00 PM</span>
-            <h3 class="event-title" data-i18n="program-pinata-title">ARRIVAL &amp; PIÑATA</h3>
-            <p class="event-desc" data-i18n="program-pinata-desc">RANCHO VISTA GOLF CLUB<br />3905 CLUB RANCHO DR, PALMDALE, CA</p>
-            <div class="timeline-loc-wrap">
-              <a href="https://www.google.com/maps/search/?api=1&query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
-                data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
-                target="_blank" rel="noopener noreferrer" class="timeline-loc-btn"
-                aria-label="Directions to Rancho Vista Golf Club">
-                <svg class="tl-loc-icon" viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 2.5 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                </svg>
-                <span data-i18n="tl-btn-location">DIRECTIONS</span>
-              </a>
-            </div>
+          <div class="itin-body">
+            <h3 class="itin-name" data-i18n="itin-ceremony">Ceremony</h3>
+            <p class="itin-desc" data-i18n="itin-ceremony-desc">St. Serra Catholic Church<br />42121 60th St W, Lancaster, CA</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=St.+Serra+Catholic+Church,+42121+60th+St+W,+Lancaster,+CA+93536"
+              data-apple-url="https://maps.apple.com/?q=St.+Serra+Catholic+Church,+42121+60th+St+W,+Lancaster,+CA+93536"
+              target="_blank" rel="noopener noreferrer" class="itin-link"
+              aria-label="Directions to St. Serra Catholic Church">
+              <span data-i18n="tl-btn-location">DIRECTIONS</span>
+            </a>
           </div>
         </div>
 
-        <!-- 3. 5:00 PM: DINNER -->
-        <div class="timeline-row row-left scroll-fade-in">
-          <div class="time-block">
-            <span class="time-stamp">5:00 PM</span>
-            <h3 class="event-title" data-i18n="program-dinner-title">DINNER</h3>
-            <p class="event-desc" data-i18n="program-dinner-desc">BANQUET DINNER (5:00 PM – 7:00 PM)</p>
+        <div class="itin-row scroll-fade-in">
+          <div class="itin-time">
+            <span class="itin-start">4:00 PM</span>
           </div>
-          <div class="timeline-connector">
-            <div class="timeline-line"></div>
-            <div class="timeline-node" title="Dinner">
-              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-label="Dinner Icon">
-                <path d="M3 18h18M4 18a8 8 0 0116 0" />
-                <path d="M12 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                <path d="M2 20h20" />
-              </svg>
-            </div>
-          </div>
-          <div class="timeline-empty"></div>
-        </div>
-
-        <!-- 4. 7:00 PM: VALZ / WALTZ -->
-        <div class="timeline-row row-right scroll-fade-in">
-          <div class="timeline-empty"></div>
-          <div class="timeline-connector">
-            <div class="timeline-line"></div>
-            <div class="timeline-node" title="Waltz">
-              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-label="Waltz Icon">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-          </div>
-          <div class="time-block">
-            <span class="time-stamp">7:00 PM</span>
-            <h3 class="event-title" data-i18n="program-waltz-title">VALZ / WALTZ</h3>
-            <p class="event-desc" data-i18n="program-waltz-desc">CELEBRATION WALTZ (7:00 PM – 8:00 PM)</p>
+          <div class="itin-body">
+            <h3 class="itin-name" data-i18n="itin-pinata">Arrival &amp; Piñata</h3>
+            <p class="itin-desc" data-i18n="itin-pinata-desc">Rancho Vista Golf Club<br />3905 Club Rancho Dr, Palmdale, CA</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+              data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+              target="_blank" rel="noopener noreferrer" class="itin-link"
+              aria-label="Directions to Rancho Vista Golf Club">
+              <span data-i18n="tl-btn-location">DIRECTIONS</span>
+            </a>
           </div>
         </div>
 
-        <!-- 5. 8:00 PM: PARTY TIME / A BAILAR -->
-        <div class="timeline-row row-left scroll-fade-in">
-          <div class="time-block">
-            <span class="time-stamp">8:00 PM</span>
-            <h3 class="event-title" data-i18n="program-party-title">PARTY TIME / A BAILAR</h3>
-            <p class="event-desc" data-i18n="program-party-desc">MUSIC, DANCING &amp; CELEBRATION (8:00 PM – 11:00 PM)</p>
+        <div class="itin-row scroll-fade-in">
+          <div class="itin-time">
+            <span class="itin-start">5:00 PM</span>
+            <span class="itin-until"><span data-i18n="itin-to">to</span> 7:00 PM</span>
           </div>
-          <div class="timeline-connector">
-            <div class="timeline-line"></div>
-            <div class="timeline-node" title="Party Time">
-              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-label="Music Icon">
-                <path d="M9 18V5l12-2v13" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="16" r="3" />
-              </svg>
-            </div>
-          </div>
-          <div class="timeline-empty"></div>
-        </div>
-
-        <!-- 6. 11:00 PM: FAREWELL -->
-        <div class="timeline-row row-right scroll-fade-in">
-          <div class="timeline-empty"></div>
-          <div class="timeline-connector">
-            <div class="timeline-line"></div>
-            <div class="timeline-node" title="Farewell">
-              <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" aria-label="End Icon">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-            </div>
-          </div>
-          <div class="time-block">
-            <span class="time-stamp">11:00 PM</span>
-            <h3 class="event-title" data-i18n="program-end-title">FAREWELL</h3>
-            <p class="event-desc" data-i18n="program-end-desc">THANK YOU FOR CELEBRATING WITH US!</p>
+          <div class="itin-body">
+            <h3 class="itin-name" data-i18n="itin-dinner">Dinner</h3>
+            <p class="itin-desc" data-i18n="itin-dinner-desc">A banquet dinner to share together</p>
           </div>
         </div>
 
-      </div><!-- /.program-timeline -->
+        <div class="itin-row scroll-fade-in">
+          <div class="itin-time">
+            <span class="itin-start">7:00 PM</span>
+            <span class="itin-until"><span data-i18n="itin-to">to</span> 8:00 PM</span>
+          </div>
+          <div class="itin-body">
+            <h3 class="itin-name" data-i18n="itin-waltz">Waltz of Honor</h3>
+            <p class="itin-desc" data-i18n="itin-waltz-desc">Alexa’s celebration waltz</p>
+          </div>
+        </div>
+
+        <div class="itin-row scroll-fade-in">
+          <div class="itin-time">
+            <span class="itin-start">8:00 PM</span>
+            <span class="itin-until"><span data-i18n="itin-to">to</span> 11:00 PM</span>
+          </div>
+          <div class="itin-body">
+            <h3 class="itin-name" data-i18n="itin-party">Party Time / A Bailar</h3>
+            <p class="itin-desc" data-i18n="itin-party-desc">Music, dancing &amp; celebration</p>
+          </div>
+        </div>
+
+        <div class="itin-row scroll-fade-in">
+          <div class="itin-time">
+            <span class="itin-start">11:00 PM</span>
+          </div>
+          <div class="itin-body">
+            <h3 class="itin-name" data-i18n="itin-farewell">Farewell</h3>
+            <p class="itin-desc" data-i18n="itin-farewell-desc">Thank you for celebrating with us</p>
+          </div>
+        </div>
+
+      </div><!-- /.itinerary -->
 
     </section>
 
@@ -610,119 +543,43 @@
         <img src="photos/divider-botanical-branch.svg" alt="" class="floral-divider-img svg-divider" />
       </div>
 
-      <!-- Atmospheric Theme Watermarks in the background of Dress Code through Wishing Well -->
-      <div class="card-bg-watermark-wrap wm-wrap-guidelines" aria-hidden="true">
-        
-        
-      </div>
-
       <div class="guidelines-wrapper">
+        <div class="details-grid">
 
-        <!-- BOTANICAL VIGNETTES -->
-        <div class="vignette-guidelines-wrap">
+          <article class="detail-item scroll-fade-in">
+            <img class="detail-emblem" src="photos/emblem-black-attire.svg" alt="" width="44" height="44" aria-hidden="true" />
+            <h3 class="detail-script" data-i18n="dresscode-script">Dress Code</h3>
+            <span class="detail-rule" aria-hidden="true"></span>
+            <p class="detail-prose" data-i18n="dresscode-desc">We invite our guests to wear formal attire and dress to impress for Alexa’s special night.</p>
+          </article>
 
+          <article class="detail-item scroll-fade-in delay-1">
+            <img class="detail-emblem" src="photos/emblem-dinner-banquet.svg?v=2" alt="" width="44" height="44" aria-hidden="true" />
+            <h3 class="detail-script" data-i18n="dinner-script">Dinner &amp; Banquet</h3>
+            <span class="detail-rule" aria-hidden="true"></span>
+            <p class="detail-prose" data-i18n="dinner-desc">Reception begins at 4:00 PM followed by dinner at 5:00 PM, waltz, and dancing to celebrate Alexa's Quinceañera.</p>
+          </article>
 
-          <!-- 1. DRESS CODE VIGNETTE -->
-          <div class="vignette-item dress-vignette scroll-fade-in">
-            <div class="card-bg-watermark-wrap" aria-hidden="true">
-              <img src="photos/gold-crest-flourish.svg" alt="" class="card-inline-watermark" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: auto; opacity: 0.12; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.25));" />
-            </div>
+          <article class="detail-item scroll-fade-in">
+            <img class="detail-emblem" src="photos/emblem-photos-memories.svg" alt="" width="44" height="44" aria-hidden="true" />
+            <h3 class="detail-script" data-i18n="photos-script">Photos &amp; Memories</h3>
+            <span class="detail-rule" aria-hidden="true"></span>
+            <p class="detail-prose" data-i18n="photos-desc">We invite you to take photos throughout the evening and share your favorite moments with Alexa!</p>
+          </article>
 
-            <div class="vignette-wishing-emblem" aria-hidden="true">
-              <img src="photos/emblem-black-attire.svg" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
-            </div>
-
-            <h3 class="vignette-headline readable-registry-title" data-i18n="dresscode-title">DRESS CODE</h3>
-
-            <div class="vignette-ornament" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
-
-            <p class="vignette-prose" data-i18n="dresscode-desc">
-              We invite our guests to wear formal attire and dress to impress for Alexa's special night.
-            </p>
-          </div>
-
-          <!-- ─── ENRICHMENT MODULE 4A: DINNER & BANQUET VIGNETTE ─── -->
-          <div class="vignette-inter-separator" aria-hidden="true">
-            <span class="v-line"></span>
-            <span class="v-leaf" style="font-size: 0.82rem; letter-spacing: 0.22em; color: var(--gold-accent);">✦ &nbsp; ✤ &nbsp; ✦</span>
-            <span class="v-line"></span>
-          </div>
-
-          <div class="vignette-item dinner-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
-            <div class="card-bg-watermark-wrap" aria-hidden="true" style="position: absolute; top: 48%; right: -12px; transform: translateY(-50%) rotate(18deg); pointer-events: none; z-index: 0;">
-              <img src="photos/gold-crest-flourish.svg" alt="" class="card-inline-watermark" style="position: static; width: 130px; height: auto; opacity: 0.12; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.22)); pointer-events: none;" />
-            </div>
-
-            <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
-              <img src="photos/emblem-dinner-banquet.svg?v=2" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
-            </div>
-
-            <h3 class="vignette-headline readable-registry-title" data-i18n="dinner-title" style="position: relative; z-index: 2;">DINNER &amp; BANQUET</h3>
-
-            <div class="vignette-ornament" aria-hidden="true" style="position: relative; z-index: 2;">✦ &nbsp; ❦ &nbsp; ✦</div>
-
-            <p class="vignette-prose" data-i18n="dinner-desc" style="position: relative; z-index: 2;">
-              Reception begins at 4:00 PM with the piñata, followed by dinner at 5:00 PM, waltz, and dancing to celebrate Alexa's Quinceañera.
-            </p>
-          </div>
-          <!-- ─── END ENRICHMENT MODULE 4A ─── -->
-
-          <!-- ─── ENRICHMENT MODULE 4B: PHOTOS & MEMORIES VIGNETTE ─── -->
-          <div class="vignette-inter-separator" aria-hidden="true">
-            <span class="v-line"></span>
-            <span class="v-leaf" style="font-size: 0.82rem; letter-spacing: 0.22em; color: var(--gold-accent);">❧ &nbsp; ❦ &nbsp; ❧</span>
-            <span class="v-line"></span>
-          </div>
-
-          <div class="vignette-item photos-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
-            
-
-            <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
-              <img src="photos/emblem-photos-memories.svg" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
-            </div>
-
-            <h3 class="vignette-headline readable-registry-title" data-i18n="photos-title" style="position: relative; z-index: 2;">PHOTOS &amp; MEMORIES</h3>
-
-            <div class="vignette-ornament" aria-hidden="true" style="position: relative; z-index: 2;">✦ &nbsp; ❦ &nbsp; ✦</div>
-
-            <p class="vignette-prose" data-i18n="photos-desc" style="position: relative; z-index: 2;">
-              We invite you to take photos throughout the evening and share your favorite moments with Alexa!
-            </p>
-          </div>
-          <!-- ─── END ENRICHMENT MODULE 4B ─── -->
-
-          <!-- ─── ENRICHMENT MODULE 4C: WISHING WELL VIGNETTE ─── -->
-          <div class="vignette-inter-separator" aria-hidden="true">
-            <span class="v-line"></span>
-            <span class="v-leaf" style="font-size: 0.82rem; letter-spacing: 0.22em; color: var(--gold-accent);">✦ &nbsp; ⚜ &nbsp; ✦</span>
-            <span class="v-line"></span>
-          </div>
-
-          <div class="vignette-item registry-vignette scroll-fade-in" style="position: relative; overflow: hidden;">
-            <!-- Golden Firefly Watermark Accent behind Gifts note (replaces duplicated frog) -->
-            
-
-            <div class="vignette-wishing-emblem" aria-hidden="true" style="position: relative; z-index: 2;">
-              <img src="photos/emblem-wishing-well.svg" alt="" width="56" height="56" style="filter: drop-shadow(0 2px 5px rgba(74,40,16,0.22));" />
-            </div>
-
-            <h3 class="vignette-headline readable-registry-title" data-i18n="registry-title" style="position: relative; z-index: 2;">A NOTE ON GIFTS</h3>
-
-            <div class="vignette-ornament" aria-hidden="true" style="position: relative; z-index: 2;">✦ &nbsp; ❦ &nbsp; ✦</div>
-
-            <p class="vignette-prose" data-i18n="registry-desc" style="position: relative; z-index: 2;">
-              Your presence at our celebration is the greatest gift of all. Should you wish to honor Alexa with a gift, your love and thoughtfulness are warmly appreciated.
-            </p>
-          </div>
-          <!-- ─── END ENRICHMENT MODULE 4C ─── -->
+          <article class="detail-item scroll-fade-in delay-1">
+            <img class="detail-emblem" src="photos/emblem-wishing-well.svg" alt="" width="44" height="44" aria-hidden="true" />
+            <h3 class="detail-script" data-i18n="registry-script">A Note on Gifts</h3>
+            <span class="detail-rule" aria-hidden="true"></span>
+            <p class="detail-prose" data-i18n="registry-desc">Your presence at our celebration is the greatest gift of all. Should you wish to honor Alexa with a gift, your love and thoughtfulness are warmly appreciated.</p>
+          </article>
 
         </div>
-
       </div>
 
     </section>
 
-<!-- ─── ENRICHMENT MODULE 2: CELEBRANT PORTRAIT & WELCOME NOTE ─── -->
+    <!-- ─── ENRICHMENT MODULE 2: CELEBRANT PORTRAIT & WELCOME NOTE ─── -->
     <section id="welcome-message" class="invite-section message-section" aria-label="A Note from Alexa S. Laco Deharo">
       <div class="floral-divider-container scroll-fade-in" aria-hidden="true">
         <img src="photos/divider-pearl-lace.svg" alt="" class="floral-divider-img svg-divider" />
@@ -907,7 +764,7 @@
     <p class="footer-date" data-i18n="footer-date">Sunday, January 30, 2028</p>
   </footer>
 
-  <script src="main.js?v=9.25.0"></script>
+  <script src="main.js?v=9.26.0"></script>
 </body>
 
 </html>

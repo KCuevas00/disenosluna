@@ -133,7 +133,24 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-title': 'Thank You So Much!',
       'modal-success-desc': 'Your response has been saved successfully. We look forward to celebrating together!',
       'modal-decline-desc': 'Thank you for letting us know. Your response has been saved.',
-      'footer-date': 'Sunday, January 30, 2028'
+      'footer-date': 'Sunday, January 30, 2028',
+      'itin-to': 'to',
+      'itin-ceremony': 'Ceremony',
+      'itin-ceremony-desc': 'St. Serra Catholic Church<br />42121 60th St W, Lancaster, CA',
+      'itin-pinata': 'Arrival &amp; Piñata',
+      'itin-pinata-desc': 'Rancho Vista Golf Club<br />3905 Club Rancho Dr, Palmdale, CA',
+      'itin-dinner': 'Dinner',
+      'itin-dinner-desc': 'A banquet dinner to share together',
+      'itin-waltz': 'Waltz of Honor',
+      'itin-waltz-desc': "Alexa’s celebration waltz",
+      'itin-party': 'Party Time / A Bailar',
+      'itin-party-desc': 'Music, dancing &amp; celebration',
+      'itin-farewell': 'Farewell',
+      'itin-farewell-desc': 'Thank you for celebrating with us',
+      'dresscode-script': 'Dress Code',
+      'dinner-script': 'Dinner &amp; Banquet',
+      'photos-script': 'Photos &amp; Memories',
+      'registry-script': 'A Note on Gifts'
     },
     es: {
       'entry-invited': '¡Estás Invitado!',
@@ -215,7 +232,24 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-title': '¡Muchas Gracias!',
       'modal-success-desc': 'Tu respuesta ha sido guardada exitosamente. ¡Esperamos celebrar juntos!',
       'modal-decline-desc': 'Gracias por avisarnos. Tu respuesta ha sido guardada.',
-      'footer-date': 'Domingo, 30 de Enero de 2028'
+      'footer-date': 'Domingo, 30 de Enero de 2028',
+      'itin-to': 'a',
+      'itin-ceremony': 'Ceremonia',
+      'itin-ceremony-desc': 'Parroquia St. Serra<br />42121 60th St W, Lancaster, CA',
+      'itin-pinata': 'Llegada y Piñata',
+      'itin-pinata-desc': 'Rancho Vista Golf Club<br />3905 Club Rancho Dr, Palmdale, CA',
+      'itin-dinner': 'Cena',
+      'itin-dinner-desc': 'Un banquete para compartir juntos',
+      'itin-waltz': 'Vals de Honor',
+      'itin-waltz-desc': 'El vals tradicional de Alexa',
+      'itin-party': 'A Bailar',
+      'itin-party-desc': 'Música, baile y celebración',
+      'itin-farewell': 'Fin del Evento',
+      'itin-farewell-desc': 'Gracias por acompañarnos',
+      'dresscode-script': 'Código de Vestimenta',
+      'dinner-script': 'Cena y Celebración',
+      'photos-script': 'Fotos y Recuerdos',
+      'registry-script': 'Un Detalle de Regalo'
     }
   };
 
