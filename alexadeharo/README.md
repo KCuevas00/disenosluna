@@ -43,7 +43,7 @@ Schedule Milestones
 4:00 PM Arrival & Piñata (Rancho Vista Golf Club)
 5:00 – 7:00 PM Dinner Banquet
 7:00 – 8:00 PM Vals de Honor
-8:00 – 11:00 PM Party Time / A Bailar
+8:00 – 11:00 PM Party Time / Dancing
 11:00 PM Farewell / Fin del Evento
 Background Song Request
 https://open.spotify.com/track/0bfvHnWWOeU1U5XeKyVLbW?si=bQtign9qTcaWuJmK77srFw&utm_source=sms

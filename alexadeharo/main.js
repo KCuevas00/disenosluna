@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'itin-dinner-desc': 'A banquet dinner to share together',
       'itin-waltz': 'Waltz of Honor',
       'itin-waltz-desc': "Alexa’s celebration waltz",
-      'itin-party': 'Party Time / A Bailar',
+      'itin-party': 'Party Time',
       'itin-party-desc': 'Music, dancing &amp; celebration',
       'itin-farewell': 'Farewell',
       'itin-farewell-desc': 'Thank you for celebrating with us',
