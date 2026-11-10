@@ -750,6 +750,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
+      triggerScrollReveals();
     }, 1500);
 
     // 5. Final cleanup of overlay (2350ms)
@@ -859,15 +860,29 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateCountdown, 1000);
 
   /* ─────────────────────────────────────────────────────────────
-     5. SCROLL REVEAL (ALL ELEMENTS VISIBLE IMMEDIATELY)
+     5. SCROLL REVEAL OBSERVER
      ───────────────────────────────────────────────────────────── */
+  let scrollObserver = null;
   function triggerScrollReveals() {
+    if (scrollObserver) {
+      scrollObserver.disconnect();
+    }
+    scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
     document.querySelectorAll('.scroll-fade-in, .scroll-fade-scale').forEach(el => {
-      el.classList.add('is-visible');
+      scrollObserver.observe(el);
     });
   }
 
-  triggerScrollReveals();
+  if (document.body.classList.contains('site-entered')) {
+    triggerScrollReveals();
+  }
 
   /* ─────────────────────────────────────────────────────────────
      6. AMBIENT BOKEH BACKGROUND CANVAS
