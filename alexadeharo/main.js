@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'card-quince': 'Quinceañera',
       'invite-parents': 'MARICARMEN DEHARO',
       'invite-preamble': 'CORDIALLY INVITES YOU TO CELEBRATE THE',
-      'invite-quince': 'The<br>Quinceañera',
+      'invite-quince': 'Quinceañera',
       'invite-daughter': 'OF HER BELOVED DAUGHTER',
       'invite-celebrant': 'Alexa S.<br>Laco Deharo',
       'invite-date-month': 'JAN',
