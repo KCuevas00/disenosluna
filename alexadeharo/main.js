@@ -745,8 +745,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (expandAudioBarFn) {
         expandAudioBarFn();
       }
-      var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', '#fcfdfc');
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);

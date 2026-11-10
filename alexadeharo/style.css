@@ -108,8 +108,10 @@ body:not(.site-entered) .site-footer {
   pointer-events: none !important;
 }
 
-/* Once envelope is opened: html is the ONE scroll container & lavender & silver background */
+/* Once envelope is opened: html is the ONE scroll container */
 html.site-entered {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
   overflow-x: clip !important;
   overflow-y: auto !important;
   height: auto !important;
@@ -120,17 +122,17 @@ html.site-entered {
 
 /* body must NOT independently scroll — soft delicate light blue & champagne silk background */
 body.site-entered {
-  background-color: #f8fcfe !important;
+  background-color: #ffffff !important;
   background-image:
     /* Luminous pure white halo centered behind the stage */
-    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255, 255, 255, 0.98) 0%, rgba(250, 253, 254, 0.95) 35%, rgba(238, 248, 251, 0.45) 70%, transparent 100%),
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.98) 35%, rgba(238, 248, 251, 0.35) 70%, transparent 100%),
     /* Delicate whisper-soft golden and light teal mist bokeh spheres */
-    radial-gradient(circle 320px at 10% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
-    radial-gradient(circle 340px at 90% 20%, rgba(175, 230, 240, 0.18) 0%, transparent 70%),
-    radial-gradient(circle 280px at 15% 80%, rgba(0, 142, 183, 0.07) 0%, transparent 70%),
-    radial-gradient(circle 360px at 85% 75%, rgba(212, 175, 55, 0.07) 0%, transparent 70%),
-    /* Pure white into subtle airy light blue wash */
-    linear-gradient(180deg, #ffffff 0%, #f7fcfe 30%, #eff7fa 60%, #f5fafb 100%) !important;
+    radial-gradient(circle 320px at 10% 15%, rgba(212, 175, 55, 0.06) 0%, transparent 70%),
+    radial-gradient(circle 340px at 90% 20%, rgba(175, 230, 240, 0.14) 0%, transparent 70%),
+    radial-gradient(circle 280px at 15% 80%, rgba(0, 142, 183, 0.05) 0%, transparent 70%),
+    radial-gradient(circle 360px at 85% 75%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+    /* Pure white top and bottom wash so Safari status bar and toolbar render transparent frosted glass */
+    linear-gradient(180deg, #ffffff 0%, #ffffff 12%, #f8fcfe 35%, #edf7fa 65%, #ffffff 92%, #ffffff 100%) !important;
   background-size: cover !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
@@ -5153,10 +5155,10 @@ html.og-mode .entry-stage-mount {
 /* ══════════════════════════════════════════════════════════════
    LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
    ══════════════════════════════════════════════════════════════ */
-/* Twilight background continuing behind Safari bars */
+/* Natural transparent background for root html */
 html:not(.site-entered) {
-  background: #e4f2f6 !important;
-  background-color: #e4f2f6 !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 body:not(.site-entered) {
