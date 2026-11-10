@@ -2311,8 +2311,8 @@ body.site-entered .lang-control-bar {
   border-radius: 60px 60px 18px 18px;
   overflow: hidden;
   border: none;
-  background: #fdfbf7;
-  box-shadow: 0 10px 24px rgba(74, 55, 32, 0.18), 0 0 0 2px rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(7, 42, 53, 0.14);
   flex-shrink: 0;
 }
 
