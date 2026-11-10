@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': 'Alexa S.<br>Laco Deharo',
       'invite-date-month': 'JAN',
       'invite-date-day': 'SUNDAY',
-      'invite-date-time': 'AT 4:00 PM',
+      'invite-date-time': 'AT 11:30 AM',
       'countdown-title': 'COUNTING DOWN TO THE QUINCEAÑERA',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'LANCASTER &amp; PALMDALE • CALIFORNIA',
       'venue-section-title': 'CEREMONY &amp; RECEPTION',
       'badge-ceremony': 'RELIGIOUS CEREMONY',
-      'ceremony-time-desc': 'ST. SERRA CATHOLIC CHURCH',
+      'ceremony-time-desc': '11:30 AM – 1:00 PM',
       'badge-reception': 'RECEPTION VENUE',
       'reception-time-desc': '4:00 PM – 11:00 PM',
       'venue-btn-open-maps': 'OPEN IN MAPS',
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': 'Alexa S.<br>Laco Deharo',
       'invite-date-month': 'ENE',
       'invite-date-day': 'DOMINGO',
-      'invite-date-time': 'A LAS 4:00 PM',
+      'invite-date-time': 'A LAS 11:30 AM',
       'countdown-title': 'CONTANDO LOS DÍAS PARA LOS XV AÑOS',
       'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'LANCASTER Y PALMDALE • CALIFORNIA',
       'venue-section-title': 'CEREMONIA Y RECEPCIÓN',
       'badge-ceremony': 'CEREMONIA RELIGIOSA',
-      'ceremony-time-desc': 'IGLESIA ST. SERRA',
+      'ceremony-time-desc': '11:30 AM – 1:00 PM',
       'badge-reception': 'SALÓN DE RECEPCIÓN',
       'reception-time-desc': '4:00 PM – 11:00 PM',
       'venue-btn-open-maps': 'ABRIR EN MAPS',
@@ -799,10 +799,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SUNDAY, JAN 30, 2028 AT 4:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SUNDAY, JAN 30, 2028 AT 11:30 AM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (0 = January)
-  const TARGET_DATE = new Date(2028, 0, 30, 16, 0, 0).getTime();
+  const TARGET_DATE = new Date(2028, 0, 30, 11, 30, 0).getTime();
   const AFTER_EVENT_MS = 10 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');

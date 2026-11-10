@@ -30,18 +30,21 @@ Teal, gold, transparent/white
 Language Preference
 Bilingual (English & Spanish)
 Ceremony Venue and Address
-Father seChurch: https://saintserra.org/
+St. Serra Catholic Church (Father Serra Parish): https://saintserra.org/
 42121 60th St W, Lancaster, CA 93536 United States
+Time: 11:30 AM – 1:00 PM
 Reception Venue and Address
 Rancho vista Club
 3905 Club Rancho Dr, Palmdale, CA 93551 United States
 ranchovistagolfclub.com
 Starts at 4pm
 Schedule Milestones
-4pm piñata
-5-7pm dinner
-7-8pm Valz
-8-11pm Party time a bailar
+11:30 AM – 1:00 PM Church Ceremony (St. Serra Catholic Church)
+4:00 PM Arrival & Piñata (Rancho Vista Golf Club)
+5:00 – 7:00 PM Dinner Banquet
+7:00 – 8:00 PM Vals de Honor
+8:00 – 11:00 PM Party Time / A Bailar
+11:00 PM Farewell / Fin del Evento
 Background Song Request
 https://open.spotify.com/track/0bfvHnWWOeU1U5XeKyVLbW?si=bQtign9qTcaWuJmK77srFw&utm_source=sms
 (Song: Can't Take My Eyes off You - Frankie Valli)
