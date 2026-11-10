@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-daughter': 'OF THEIR BELOVED DAUGHTER',
       'invite-celebrant': 'Alexa S.<br>Laco Deharo',
       'invite-date-month': 'JAN',
-      'invite-date-day': 'SUNDAY',
+      'invite-date-day': 'SATURDAY',
       'invite-date-time': 'AT 11:30 AM',
       'countdown-title': 'COUNTING DOWN TO THE QUINCEAÑERA',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
@@ -114,12 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Your presence at our celebration is the greatest gift of all. Should you wish to honor Alexa with a gift, your love and thoughtfulness are warmly appreciated.',
       'message-quote': 'With love and gratitude, we invite you to celebrate Alexa’s 15th birthday! Your presence will make this special milestone even more meaningful. Join us for an unforgettable evening filled with love, joy, and beautiful memories.',
       'message-signature': 'Alexa S. Laco Deharo',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE JANUARY 5, 2028',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE JANUARY 5, 2027',
       'rsvp-btn': 'CONFIRM ATTENDANCE',
       'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
       'rsvp-thankyou': 'Thank You!',
       'modal-title': "Confirm Attendance for Alexa S. Laco Deharo's Quinceañera",
-      'modal-subtitle': 'Sunday, January 30, 2028 • Lancaster &amp; Palmdale, CA',
+      'modal-subtitle': 'Saturday, January 30, 2027 • Lancaster &amp; Palmdale, CA',
       'label-fullname': 'Full Name or Family *',
       'label-phone': 'Phone Number (Optional)',
       'label-party': 'Number of Attendees (Optional)',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-title': 'Thank You So Much!',
       'modal-success-desc': 'Your response has been saved successfully. We look forward to celebrating together!',
       'modal-decline-desc': 'Thank you for letting us know. Your response has been saved.',
-      'footer-date': 'Sunday, January 30, 2028',
+      'footer-date': 'Saturday, January 30, 2027',
       'itin-to': 'to',
       'itin-ceremony': 'Ceremony',
       'itin-ceremony-desc': 'St. Serra Catholic Church<br />42121 60th St W, Lancaster, CA',
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-daughter': 'DE SU AMADA HIJA',
       'invite-celebrant': 'Alexa S.<br>Laco Deharo',
       'invite-date-month': 'ENE',
-      'invite-date-day': 'DOMINGO',
+      'invite-date-day': 'SÁBADO',
       'invite-date-time': 'A LAS 11:30 AM',
       'countdown-title': 'CONTANDO LOS DÍAS PARA LOS XV AÑOS',
       'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
@@ -213,12 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
       'registry-desc': 'Tu presencia en nuestra celebración es el mejor regalo de todos. Si deseas honrar a Alexa con un detalle, será recibido con profundo cariño y agradecimiento.',
       'message-quote': 'Con amor y gratitud, ¡te invitamos a celebrar los 15 años de Alexa! Tu presencia hará que este momento tan especial sea aún más significativo. Acompáñanos a una velada inolvidable llena de amor, alegría y hermosos recuerdos.',
       'message-signature': 'Alexa S. Laco Deharo',
-      'rsvp-deadline': 'POR FAVOR CONFIRMAR ASISTENCIA ANTES DEL 5 DE ENERO, 2028',
+      'rsvp-deadline': 'POR FAVOR CONFIRMAR ASISTENCIA ANTES DEL 5 DE ENERO, 2027',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAZ CLIC EN EL BOTÓN PARA<br />CONFIRMAR TU ASISTENCIA',
       'rsvp-thankyou': '¡Gracias!',
       'modal-title': 'Confirmar Asistencia - XV Años de Alexa S. Laco Deharo',
-      'modal-subtitle': 'Domingo, 30 de Enero de 2028 • Lancaster y Palmdale, CA',
+      'modal-subtitle': 'Sábado, 30 de Enero de 2027 • Lancaster y Palmdale, CA',
       'label-fullname': 'Nombre Completo o Familia *',
       'label-phone': 'Número de Teléfono (Opcional)',
       'label-party': 'Número de Asistentes (Opcional)',
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-title': '¡Muchas Gracias!',
       'modal-success-desc': 'Tu respuesta ha sido guardada exitosamente. ¡Esperamos celebrar juntos!',
       'modal-decline-desc': 'Gracias por avisarnos. Tu respuesta ha sido guardada.',
-      'footer-date': 'Domingo, 30 de Enero de 2028',
+      'footer-date': 'Sábado, 30 de Enero de 2027',
       'itin-to': 'a',
       'itin-ceremony': 'Ceremonia',
       'itin-ceremony-desc': 'Parroquia St. Serra<br />42121 60th St W, Lancaster, CA',
@@ -837,10 +837,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SUNDAY, JAN 30, 2028 AT 11:30 AM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, JAN 30, 2027 AT 11:30 AM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (0 = January)
-  const TARGET_DATE = new Date(2028, 0, 30, 11, 30, 0).getTime();
+  const TARGET_DATE = new Date(2027, 0, 30, 11, 30, 0).getTime();
   const AFTER_EVENT_MS = 10 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');

@@ -24,7 +24,7 @@ Quinceañera
 Celebrant Name
 Alexa S. Laco Deharo
 Event Date
-2028-01-30
+2027-01-30
 Theme and Colors
 Teal, gold, transparent/white
 Language Preference
@@ -64,3 +64,7 @@ Cloud Album Link
 None provided
 Special Notes
 None
+
+
+Update Note:
+- Event year corrected to 2027 (Saturday, January 30, 2027 per client confirmation).
