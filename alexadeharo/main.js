@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-secs': 'Seconds',
       'invite-venue': 'LANCASTER &amp; PALMDALE • CALIFORNIA',
       'venue-section-title': 'CEREMONY &amp; RECEPTION',
-      'badge-ceremony': 'RELIGIOUS CEREMONY',
+      'badge-ceremony': 'Religious Ceremony',
       'ceremony-time-desc': '11:30 AM – 1:00 PM',
-      'badge-reception': 'RECEPTION VENUE',
+      'badge-reception': 'Reception Venue',
       'reception-time-desc': '4:00 PM – 11:00 PM',
       'venue-btn-open-maps': 'OPEN IN MAPS',
       'program-title': 'SCHEDULE OF EVENTS',
@@ -158,9 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-secs': 'Segundos',
       'invite-venue': 'LANCASTER Y PALMDALE • CALIFORNIA',
       'venue-section-title': 'CEREMONIA Y RECEPCIÓN',
-      'badge-ceremony': 'CEREMONIA RELIGIOSA',
+      'badge-ceremony': 'Ceremonia Religiosa',
       'ceremony-time-desc': '11:30 AM – 1:00 PM',
-      'badge-reception': 'SALÓN DE RECEPCIÓN',
+      'badge-reception': 'Salón de Recepción',
       'reception-time-desc': '4:00 PM – 11:00 PM',
       'venue-btn-open-maps': 'ABRIR EN MAPS',
       'program-title': 'PROGRAMA DEL EVENTO',
@@ -749,6 +749,13 @@ document.addEventListener('DOMContentLoaded', () => {
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
       triggerScrollReveals();
+
+      // Stop the confetti loop and remove its full-screen canvas after the show
+      setTimeout(() => {
+        confettiPetalEngine.isRunning = false;
+        const c = document.getElementById('entry-canvas');
+        if (c) c.remove();
+      }, 9000);
     }, 1500);
 
     // 5. Final cleanup of overlay (2350ms)

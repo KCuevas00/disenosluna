@@ -6421,3 +6421,104 @@ body.og-preview-mode .entry-lang-picker {
     font-size: 0.92rem;
   }
 }
+
+
+/* ══════════════════════════════════════════════════════════════
+   SAFARI BARS: one flat color at the page edges, no gradient behind them
+   ══════════════════════════════════════════════════════════════ */
+html,
+html.site-entered,
+html:not(.site-entered) {
+  background-color: #f1f9fb !important;
+  background-image: none !important;
+}
+
+body,
+body.site-entered,
+body:not(.site-entered) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   VENUES: EDITORIAL RESTYLE
+   ══════════════════════════════════════════════════════════════ */
+.venue-role-badge {
+  font-family: var(--font-script);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #006385;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.venue-title {
+  font-family: var(--font-editorial-num);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin: 0.1rem 0 0.55rem;
+}
+
+.venue-address {
+  font-family: var(--font-editorial-num);
+  font-style: italic;
+  font-size: 1.08rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  line-height: 1.4;
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+/* time: pill becomes text between two gold hairlines, like the date box */
+.venue-time-tag {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid rgba(201, 159, 87, 0.75);
+  border-bottom: 1px solid rgba(201, 159, 87, 0.75);
+  padding: 0.35rem 0.5rem;
+  font-family: var(--font-editorial-num);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #8c6f23;
+  margin-bottom: 0.85rem;
+}
+.venue-time-tag svg { display: none; }
+
+/* button becomes a quiet underlined link */
+.venue-elegant-map-btn {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #c99f57;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0 3px;
+  color: #006385 !important;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+}
+.venue-elegant-map-btn svg { display: none; }
+.venue-elegant-map-btn::after { content: "→"; margin-left: 0.4em; }
+.venue-elegant-map-btn:hover {
+  background: none;
+  box-shadow: none;
+  transform: none;
+  color: #8c6f23 !important;
+}
+
+@media (max-width: 480px) {
+  .venue-role-badge { font-size: 1.5rem; }
+  .venue-title { font-size: 0.98rem; letter-spacing: 0.09em; }
+  .venue-address { font-size: 0.98rem; }
+  .venue-time-tag { font-size: 0.95rem; padding: 0.3rem 0.3rem; }
+}
