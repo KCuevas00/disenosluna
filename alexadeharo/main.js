@@ -749,13 +749,6 @@ document.addEventListener('DOMContentLoaded', () => {
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
       triggerScrollReveals();
-
-      // Stop the confetti loop and remove its full-screen canvas after the show
-      setTimeout(() => {
-        confettiPetalEngine.isRunning = false;
-        const c = document.getElementById('entry-canvas');
-        if (c) c.remove();
-      }, 9000);
     }, 1500);
 
     // 5. Final cleanup of overlay (2350ms)
