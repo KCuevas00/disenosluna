@@ -775,6 +775,10 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.add('fade-out');
       }
       document.body.classList.add('site-entered');
+      const themeMeta = document.getElementById('theme-color-meta') || document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.setAttribute('content', '#ffffff');
+      }
       document.documentElement.classList.add('site-entered');
       if (expandAudioBarFn) {
         expandAudioBarFn();
@@ -934,21 +938,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const count = window.innerWidth < 600 ? 24 : 40;
 
     for (let i = 0; i < count; i++) {
+      const isStarSparkle = Math.random() > 0.60;
+      let particleColor;
+      if (isStarSparkle) {
+        // Celestial stars: warm champagne gold or brilliant diamond white
+        particleColor = Math.random() > 0.35 ? '224, 186, 102' : '255, 255, 255';
+      } else {
+        // Soft cloudy bokeh orbs: luminous pearl white, frosted ice blue, or soft sky cyan
+        const r = Math.random();
+        particleColor = r > 0.55 ? '255, 255, 255' : (r > 0.28 ? '210, 242, 250' : '165, 228, 242');
+      }
+
       bokehs.push({
         x: Math.random() * ambWidth,
         y: Math.random() * ambHeight,
-        radius: Math.random() * 15 + 4,
+        radius: isStarSparkle ? (Math.random() * 8 + 4) : (Math.random() * 16 + 5),
         speedY: (Math.random() * 0.20 + 0.05),
         speedX: (Math.random() - 0.5) * 0.20,
-        baseAlpha: Math.random() * 0.28 + 0.10,
+        baseAlpha: isStarSparkle ? (Math.random() * 0.35 + 0.25) : (Math.random() * 0.22 + 0.08),
         twinklePhase: Math.random() * Math.PI * 2,
         twinkleSpeed: Math.random() * 0.04 + 0.015,
-        isStar: Math.random() > 0.65,
-        color: Math.random() > 0.45
-          ? '212, 175, 55' // Liquid Antique Gold
-          : (Math.random() > 0.5
-            ? '77, 182, 198' // Luminous Light Blue / Cyan
-            : (Math.random() > 0.35 ? '31, 122, 140' : '178, 224, 230')) // Oceanic Teal & Frosted Ice Blue
+        isStar: isStarSparkle,
+        color: particleColor
       });
     }
 
@@ -973,9 +984,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ambCtx.shadowBlur = b.isStar ? 14 : 8;
         ambCtx.shadowColor = `rgba(${b.color}, 0.7)`;
 
-        if (b.isStar && b.radius > 6) {
+        if (b.isStar) {
           // Render delicate 4-point star sparkle
-          const size = b.radius * 1.4;
+          const size = Math.max(5.5, b.radius * 1.25);
           ambCtx.translate(b.x, b.y);
           ambCtx.beginPath();
           ambCtx.moveTo(0, -size);
