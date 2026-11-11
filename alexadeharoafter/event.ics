@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Disenos Luna//Alexa S. Laco Deharo After Party//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:alexa-s-laco-deharo-afterparty-20270130@disenosluna.com
+DTSTAMP:20261110T063000Z
+DTSTART:20270131T023000Z
+DTEND:20270131T070000Z
+SUMMARY:Alexa S. Laco Deharo's Quinceañera After Party
+DESCRIPTION:Join us for Alexa S. Laco Deharo's Quinceañera After Party! Open invitation for friends from 6:30 PM to 11:00 PM on Saturday, January 30, 2027 at Rancho Vista Golf Club (3905 Club Rancho Dr, Palmdale, CA 93551).
+LOCATION:3905 Club Rancho Dr, Palmdale, CA 93551, United States
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Alexa S. Laco Deharo's After Party tonight!
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
