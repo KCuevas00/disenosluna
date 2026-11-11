@@ -14,10 +14,7 @@
   --font-script: 'Alex Brush', cursive;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-}
 
-/* ── Light Mode (Ivory & Cerulean Royal) ── */
-body.theme-light {
   --bg-page: #c5e4ee;
   --bg-page-gradient: linear-gradient(180deg, #c5e4ee 0%, #b8dfea 25%, #aedbe7 55%, #bfe2ed 100%);
   --bg-card: #ffffff;
@@ -34,46 +31,14 @@ body.theme-light {
   --card-shadow: 0 24px 60px -8px rgba(7, 42, 53, 0.22), 0 10px 24px -4px rgba(201, 159, 87, 0.2);
   --btn-primary-bg: linear-gradient(135deg, #006385 0%, #008eb7 50%, #00b0d8 100%);
   --btn-primary-text: #ffffff;
-  --btn-secondary-bg: #ffffff;
-  --btn-secondary-text: #072a35;
-  --btn-secondary-border: 1px solid rgba(201, 159, 87, 0.6);
-  --control-bg: rgba(255, 255, 255, 0.92);
-  --control-border: 1px solid rgba(201, 159, 87, 0.45);
-  --control-text: #072a35;
   --floral-filter: drop-shadow(0 8px 18px rgba(7, 42, 53, 0.16));
-}
-
-/* ── Dark Mode (Midnight Cerulean & Gold — Reference Style) ── */
-body.theme-dark {
-  --bg-page: #040e14;
-  --bg-page-gradient: linear-gradient(180deg, #030a0e 0%, #06151f 40%, #071924 100%);
-  --bg-card: #081a24;
-  --bg-card-gradient: radial-gradient(ellipse at 50% 30%, #0b2230 0%, #081a24 60%, #040e14 100%);
-  --text-dark: #f0f8fb;
-  --text-medium: #b6dce8;
-  --text-muted: #7ba2b0;
-  --text-script: #8de0f0;
-  --gold-primary: #e0b868;
-  --gold-light: #fff2cf;
-  --gold-dark: #b89342;
-  --card-border-outer: 1.5px solid rgba(224, 184, 104, 0.85);
-  --card-border-inner: 1px solid rgba(224, 184, 104, 0.5);
-  --card-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 142, 183, 0.25);
-  --btn-primary-bg: linear-gradient(135deg, #007a9e 0%, #00a2cc 50%, #20c1e6 100%);
-  --btn-primary-text: #ffffff;
-  --btn-secondary-bg: rgba(11, 34, 48, 0.85);
-  --btn-secondary-text: #f0f8fb;
-  --btn-secondary-border: 1px solid rgba(224, 184, 104, 0.6);
-  --control-bg: rgba(8, 26, 36, 0.92);
-  --control-border: 1px solid rgba(224, 184, 104, 0.5);
-  --control-text: #f0f8fb;
-  --floral-filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6)) brightness(1.05) contrast(1.08);
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   min-height: 100%;
+  background: var(--bg-page);
 }
 
 body {
@@ -84,12 +49,11 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 1rem 0.75rem 2.5rem;
+  padding: 1.6rem 0.75rem 2.5rem;
 }
 
 /* ── Ambient Canvas (Floating Stardust & Bokeh) ── */
@@ -100,83 +64,6 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
-
-/* ── Top Floating Utility Controls ── */
-.top-controls-bar {
-  position: relative;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 480px;
-  margin-bottom: 0.9rem;
-  padding: 0 0.5rem;
-}
-
-.pill-control-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.42rem 0.95rem;
-  background: var(--control-bg);
-  border: var(--control-border);
-  border-radius: 999px;
-  color: var(--control-text);
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: var(--transition-smooth);
-}
-
-.pill-control-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
-}
-
-body.theme-light .dark-icon { display: inline-block; }
-body.theme-light .light-icon { display: none; }
-body.theme-dark .light-icon { display: inline-block; }
-body.theme-dark .dark-icon { display: none; }
-
-.lang-pill-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: var(--control-bg);
-  border: var(--control-border);
-  border-radius: 999px;
-  padding: 3px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.pill-lang-btn {
-  border: none;
-  background: transparent;
-  padding: 0.28rem 0.75rem;
-  border-radius: 999px;
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--control-text);
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.pill-lang-btn.active {
-  background: var(--btn-primary-bg);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 142, 183, 0.4);
 }
 
 /* ── Main Page Container ── */
@@ -191,7 +78,7 @@ body.theme-dark .dark-icon { display: none; }
 }
 
 /* ═════════════════════════════════════════════════════════════════════
-   THE LUXURY INVITATION CARD (Matches Reference Image Layout)
+   THE LUXURY INVITATION CARD
    ═════════════════════════════════════════════════════════════════════ */
 .invitation-card {
   position: relative;
@@ -200,9 +87,8 @@ body.theme-dark .dark-icon { display: none; }
   background-image: var(--bg-card-gradient);
   border-radius: 18px;
   box-shadow: var(--card-shadow);
-  padding: 2.8rem 1.6rem 2.4rem;
+  padding: 3.0rem 1.6rem 2.2rem;
   overflow: hidden;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* ── Corner Floral Bouquets (Top-Left & Bottom-Right) ── */
@@ -232,7 +118,6 @@ body.theme-dark .dark-icon { display: none; }
   height: auto;
   display: block;
   filter: var(--floral-filter);
-  transition: filter 0.4s ease;
 }
 
 /* ── Double Gold Filigree Border ── */
@@ -253,7 +138,7 @@ body.theme-dark .dark-icon { display: none; }
   border-radius: 8px;
 }
 
-/* Corner filigree corner flourishes (Reference style) */
+/* Corner filigree corner flourishes */
 .corner-filigree {
   position: absolute;
   width: 24px;
@@ -292,15 +177,6 @@ body.theme-dark .dark-icon { display: none; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-/* Crown Flourish */
-.tiara-flourish {
-  margin-bottom: 0.6rem;
-  filter: drop-shadow(0 4px 10px rgba(201, 159, 87, 0.45));
-}
-.tiara-img {
-  display: block;
 }
 
 /* ── Typography & Header ── */
@@ -407,10 +283,6 @@ body.theme-dark .dark-icon { display: none; }
   background: #fdfbf7;
 }
 
-body.theme-dark .portrait-arch-frame {
-  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.65), 0 0 0 3px rgba(11, 34, 48, 0.85);
-}
-
 .portrait-img {
   width: 100%;
   height: 100%;
@@ -424,7 +296,7 @@ body.theme-dark .portrait-arch-frame {
   transform: scale(1.04);
 }
 
-/* ── Date & Time Section (Reference Badge Layout) ── */
+/* ── Date & Time Section ── */
 .details-section {
   width: 100%;
   max-width: 380px;
@@ -484,7 +356,7 @@ body.theme-dark .portrait-arch-frame {
 .venue-section {
   width: 100%;
   max-width: 380px;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 
 .venue-name {
@@ -511,16 +383,15 @@ body.theme-dark .portrait-arch-frame {
   line-height: 1.45;
   color: var(--text-muted);
   max-width: 320px;
-  margin: 0 auto 1.2rem;
+  margin: 0.5rem auto 1.2rem;
 }
 
-/* ── Action Buttons ── */
+/* ── Action Button ── */
 .action-buttons-group {
   display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+  justify-content: center;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   margin: 0 auto;
 }
 
@@ -529,11 +400,12 @@ body.theme-dark .portrait-arch-frame {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
+  width: 100%;
   min-height: 44px;
-  padding: 0.6rem 1.4rem;
+  padding: 0.65rem 1.6rem;
   border-radius: 999px;
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-decoration: none;
@@ -557,18 +429,6 @@ body.theme-dark .portrait-arch-frame {
   box-shadow: 0 8px 24px rgba(0, 142, 183, 0.5);
 }
 
-.secondary-btn {
-  background: var(--btn-secondary-bg);
-  color: var(--btn-secondary-text);
-  border: var(--btn-secondary-border);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.secondary-btn:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
 /* ── Footer ── */
 .card-footer {
   margin-top: 1.0rem;
@@ -576,14 +436,6 @@ body.theme-dark .portrait-arch-frame {
   border-top: 1px solid rgba(201, 159, 87, 0.35);
   width: 100%;
   max-width: 340px;
-}
-
-.host-line {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 0.65rem;
 }
 
 .back-quince-link {
@@ -613,14 +465,10 @@ body.theme-dark .portrait-arch-frame {
   z-index: 10;
 }
 
-body.theme-dark .site-credit {
-  color: rgba(182, 220, 232, 0.5);
-}
-
 /* ── Responsive Refinements ── */
 @media (max-width: 440px) {
   .invitation-card {
-    padding: 2.4rem 1.1rem 2.0rem;
+    padding: 2.6rem 1.1rem 1.8rem;
   }
   .card-frame-border {
     inset: 10px;
@@ -650,32 +498,4 @@ body.theme-dark .site-credit {
   .date-badge-num {
     font-size: 1.85rem;
   }
-}
-
-/* ── Open Invite Badge ── */
-.open-invite-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.95rem;
-  border-radius: 999px;
-  background: rgba(201, 159, 87, 0.12);
-  border: 1px solid rgba(201, 159, 87, 0.45);
-  color: var(--gold-primary);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin: 0.4rem auto 0.8rem;
-}
-
-body.theme-dark .open-invite-badge {
-  background: rgba(224, 184, 104, 0.14);
-  border-color: rgba(224, 184, 104, 0.55);
-}
-
-.badge-sparkle {
-  font-size: 0.75rem;
-  color: var(--gold-primary);
 }

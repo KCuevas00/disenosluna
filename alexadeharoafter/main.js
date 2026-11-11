@@ -6,128 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─────────────────────────────────────────────────────────────
-     1. BILINGUAL TRANSLATIONS (EN / ES)
-     ───────────────────────────────────────────────────────────── */
-  const translations = {
-    en: {
-      'card-supertitle': 'QUINCEAÑERA',
-      'title-script': 'Party',
-      'card-subtitle': 'CELEBRATION',
-      'card-honoring': 'HONORING',
-      'event-day': 'SATURDAY',
-      'event-month': 'JANUARY',
-      'event-time': '6:30 – 11 PM',
-      'open-invite-text': 'OPEN INVITATION FOR ALL FRIENDS',
-      'venue-note': 'Join us to celebrate with music, drinks, and dancing from 6:30 PM to 11:00 PM!',
-      'btn-maps': 'GET DIRECTIONS',
-      'btn-calendar': 'ADD TO CALENDAR',
-      'host-line': 'Hosted with love by the Deharo Family',
-      'link-main-quince': '‹ View Main Quinceañera Invitation',
-      'theme-midnight': 'Midnight Mode',
-      'theme-ivory': 'Ivory Mode'
-    },
-    es: {
-      'card-supertitle': 'XV AÑOS',
-      'title-script': 'Party',
-      'card-subtitle': 'CELEBRACIÓN',
-      'card-honoring': 'EN HONOR A',
-      'event-day': 'SÁBADO',
-      'event-month': 'ENERO',
-      'event-time': '6:30 – 11 PM',
-      'open-invite-text': 'INVITACIÓN ABIERTA PARA AMIGOS',
-      'venue-note': '¡Acompáñanos a celebrar con música, bebidas y baile de 6:30 PM a 11:00 PM!',
-      'btn-maps': 'CÓMO LLEGAR',
-      'btn-calendar': 'AGREGAR AL CALENDARIO',
-      'host-line': 'Con cariño, la Familia Deharo',
-      'link-main-quince': '‹ Ver Invitación Principal de Quinceañera',
-      'theme-midnight': 'Modo Medianoche',
-      'theme-ivory': 'Modo Marfil'
-    }
-  };
-
-  let currentLang = 'en';
-
-  function applyLanguage(lang) {
-    currentLang = lang;
-    const dict = translations[lang] || translations.en;
-
-    document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) {
-        el.innerHTML = dict[key];
-      }
-    });
-
-    // Update active pill button
-    const btnEn = document.getElementById('lang-en-btn');
-    const btnEs = document.getElementById('lang-es-btn');
-    if (btnEn && btnEs) {
-      btnEn.classList.toggle('active', lang === 'en');
-      btnEs.classList.toggle('active', lang === 'es');
-    }
-
-    updateThemeButtonLabel();
-    document.documentElement.lang = lang;
-  }
-
-  // URL query parameter ?lang=
-  const urlParams = new URLSearchParams(window.location.search);
-  const requestedLang = urlParams.get('lang');
-  if (requestedLang === 'es') {
-    applyLanguage('es');
-  } else {
-    applyLanguage('en');
-  }
-
-  document.getElementById('lang-en-btn')?.addEventListener('click', () => applyLanguage('en'));
-  document.getElementById('lang-es-btn')?.addEventListener('click', () => applyLanguage('es'));
-
-
-  /* ─────────────────────────────────────────────────────────────
-     2. THEME SWITCHER (IVORY ROYAL vs MIDNIGHT ROYAL)
-     ───────────────────────────────────────────────────────────── */
-  const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  const themeBtnLabel = document.getElementById('theme-btn-label');
-  const themeMeta = document.getElementById('theme-color-meta');
-
-  function updateThemeButtonLabel() {
-    if (!themeBtnLabel) return;
-    const isDark = document.body.classList.contains('theme-dark');
-    const dict = translations[currentLang] || translations.en;
-    themeBtnLabel.textContent = isDark ? dict['theme-ivory'] : dict['theme-midnight'];
-  }
-
-  function setTheme(theme) {
-    if (theme === 'dark') {
-      document.body.classList.remove('theme-light');
-      document.body.classList.add('theme-dark');
-      if (themeMeta) themeMeta.setAttribute('content', '#040e14');
-      localStorage.setItem('alexa-after-theme', 'dark');
-    } else {
-      document.body.classList.remove('theme-dark');
-      document.body.classList.add('theme-light');
-      if (themeMeta) themeMeta.setAttribute('content', '#c5e4ee');
-      localStorage.setItem('alexa-after-theme', 'light');
-    }
-    updateThemeButtonLabel();
-  }
-
-  // Check saved theme
-  const savedTheme = localStorage.getItem('alexa-after-theme');
-  if (savedTheme === 'dark') {
-    setTheme('dark');
-  } else {
-    setTheme('light');
-  }
-
-  themeToggleBtn?.addEventListener('click', () => {
-    const isDark = document.body.classList.contains('theme-dark');
-    setTheme(isDark ? 'light' : 'dark');
-  });
-
-
-  /* ─────────────────────────────────────────────────────────────
-     3. MAP PLATFORM DETECTION (APPLE MAPS FOR iOS / MACOS)
+     1. MAP PLATFORM DETECTION (APPLE MAPS FOR iOS / MACOS)
      ───────────────────────────────────────────────────────────── */
   const mapBtn = document.getElementById('map-link-btn');
   if (mapBtn) {
@@ -138,9 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
   /* ─────────────────────────────────────────────────────────────
-     4. AMBIENT BOKEH & STARDUST CANVAS
+     2. AMBIENT BOKEH & STARDUST CANVAS
      ───────────────────────────────────────────────────────────── */
   const canvas = document.getElementById('ambient-canvas');
   if (canvas) {
@@ -163,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Champagne gold or diamond white
         pColor = Math.random() > 0.35 ? '224, 186, 102' : '255, 255, 255';
       } else {
-        // Frosted ice blue, pearl white or cyan
+        // Frosted ice blue, pearl white or sky cyan
         const r = Math.random();
         pColor = r > 0.55 ? '255, 255, 255' : (r > 0.3 ? '210, 242, 250' : '165, 228, 242');
       }
