@@ -68,123 +68,158 @@ body {
   z-index: 1;
 }
 
-/* ── Page Container (Stretches Top-to-Bottom) ── */
+/* ── Page Container (Desktop Centers Card; Mobile is Full Bleed) ── */
 .page-container {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 500px;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 2vh, 2rem);
 }
 
 /* ═════════════════════════════════════════════════════════════════════
-   THE PAPER SHEET INVITATION CARD (No Gold Border, Stretched Full Height)
+   THE EDITORIAL CARD (Split-Screen Design from OG Preview)
    ═════════════════════════════════════════════════════════════════════ */
-.invitation-card.paper-sheet {
-  position: relative;
-  flex: 1;
+.editorial-card {
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  height: 100dvh;
-  background-color: var(--bg-paper);
-  background-image: var(--bg-paper-gradient);
-  border: none !important; /* NO gold border */
-  border-radius: 0; /* Stretches edge-to-edge top to bottom */
-  box-shadow: 0 0 60px rgba(7, 42, 53, 0.16);
-  padding: clamp(1.4rem, 3.2vh, 2.2rem) clamp(1.2rem, 4vw, 1.8rem);
+  max-width: 1080px;
+  height: clamp(560px, 86vh, 640px);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background: var(--bg-paper);
+  background-image: radial-gradient(ellipse at 70% 30%, #ffffff 0%, #fdfbf7 60%, #f4ede1 100%);
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 24px 60px rgba(7, 42, 53, 0.18), 0 0 0 1px rgba(201, 159, 87, 0.35);
+}
+
+/* ── LEFT / TOP: Media Panel with Full Bleed Portrait ── */
+.editorial-media-panel {
+  width: 44%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #072a35;
+}
+
+.editorial-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.editorial-card:hover .editorial-portrait-img {
+  transform: scale(1.02);
+}
+
+.editorial-portrait-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(7, 42, 53, 0.08) 0%, rgba(7, 42, 53, 0) 70%, rgba(253, 251, 247, 0.85) 98%, rgba(253, 251, 247, 1) 100%);
+  pointer-events: none;
+}
+
+.editorial-gold-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #fdf5e2 0%, #c99f57 30%, #8c6f23 70%, #c99f57 100%);
+  box-shadow: 0 0 12px rgba(201, 159, 87, 0.65);
+  z-index: 5;
+}
+
+/* ── RIGHT / BOTTOM: Stationery Content Panel ── */
+.editorial-content-panel {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(1.8rem, 3.5vh, 2.8rem) clamp(2.0rem, 3.5vw, 3.5rem);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.panel-inner {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 6;
 }
 
-@media (max-width: 600px) {
-  html {
-    background-color: var(--bg-page);
-    background-image: var(--bg-page-gradient);
-  }
-  body {
-    background-color: var(--bg-page);
-    background-image: var(--bg-page-gradient);
-  }
-  .invitation-card.paper-sheet {
-    box-shadow: none;
-  }
-}
-
-/* ── Light Blue Corner Floral Bouquets (Top Corners Only) ── */
-.card-floral {
+/* Corner Blue Roses */
+.panel-floral {
   position: absolute;
   pointer-events: none;
   z-index: 5;
   user-select: none;
 }
 
-.card-floral.floral-top-left {
-  top: 0;
-  left: 0;
-  width: clamp(115px, 26vw, 170px);
-}
-
-.card-floral.floral-top-right {
+.panel-floral.floral-tr {
   top: 0;
   right: 0;
-  width: clamp(115px, 26vw, 170px);
+  width: clamp(120px, 15vw, 175px);
+  filter: drop-shadow(0 6px 14px rgba(7, 42, 53, 0.12));
+}
+
+.panel-floral.floral-br {
+  bottom: 0;
+  right: 0;
+  width: clamp(125px, 16vw, 180px);
+  filter: drop-shadow(0 6px 14px rgba(7, 42, 53, 0.12));
 }
 
 .floral-img {
   width: 100%;
   height: auto;
   display: block;
-  filter: var(--floral-filter);
 }
 
-/* ── Inner Content ── */
-.card-inner-content {
-  position: relative;
-  z-index: 6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  justify-content: space-evenly;
+/* ── Header Typography ── */
+.panel-header {
+  margin-bottom: 0.2rem;
 }
 
-/* ── Typography & Header ── */
-.card-header {
-  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
-}
-
-.card-supertitle {
+.panel-supertitle {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
   color: var(--gold-primary);
   margin-bottom: 0.15rem;
 }
 
-.card-title-main {
+.panel-title-main {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   line-height: 1;
   margin-bottom: 0.1rem;
 }
 
 .title-bold {
   font-family: var(--font-serif);
-  font-size: clamp(2.0rem, 7vw, 2.7rem);
+  font-size: clamp(2.3rem, 4.2vw, 3.2rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--text-dark);
@@ -192,244 +227,134 @@ body {
 
 .title-script {
   font-family: var(--font-script);
-  font-size: clamp(2.6rem, 8.5vw, 3.4rem);
+  font-size: clamp(3.0rem, 5.2vw, 4.2rem);
   font-weight: 400;
   color: var(--text-script);
   transform: rotate(-3deg);
   display: inline-block;
-  margin-left: -0.2rem;
 }
 
-.card-subtitle {
+.panel-subtitle {
   font-family: var(--font-serif);
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--text-dark);
-  margin-top: 0.15rem;
-  margin-bottom: 0.3rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.25rem;
 }
 
-.fleuron-divider {
-  font-size: 0.85rem;
-  letter-spacing: 0.3em;
+.panel-fleuron {
+  font-size: 0.9rem;
+  letter-spacing: 0.35em;
   color: var(--gold-primary);
-  margin: 0.2rem 0 0.3rem;
-  opacity: 0.85;
+  margin: 0.25rem 0 0.1rem;
+  opacity: 0.9;
 }
 
-.fleuron-divider.small-fleuron {
-  margin: 0.35rem 0 0.15rem;
+/* ── Honoring & Name ── */
+.panel-honoring-block {
+  margin: 0.15rem 0 0.3rem;
 }
 
-/* ── Celebrant Portrait Arch (Archway Tile Floor Image) ── */
-.portrait-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: clamp(0.2rem, 0.8vh, 0.6rem) 0;
-}
-
-.portrait-arch-frame {
-  height: clamp(185px, 27vh, 290px);
-  aspect-ratio: 1 / 1.34;
-  width: auto;
-  border-radius: 999px 999px 18px 18px;
-  overflow: hidden;
-  position: relative;
-  border: 2px solid var(--gold-primary);
-  box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.18), 0 0 0 3px rgba(255, 255, 255, 0.95);
-  background: #fdfbf7;
-  display: flex;
-}
-
-.portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 32%;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.portrait-arch-frame:hover .portrait-img {
-  transform: scale(1.04);
-}
-
-/* ── Honoring / Celebrant Name Section (Below Portrait) ── */
-.name-section {
-  width: 100%;
-  text-align: center;
-  margin: clamp(0.15rem, 0.6vh, 0.4rem) 0 clamp(0.2rem, 0.8vh, 0.5rem);
-}
-
-.name-fleuron {
-  margin: 0 0 clamp(0.15rem, 0.5vh, 0.3rem);
-  font-size: 0.82rem;
-  letter-spacing: 0.3em;
-  color: var(--gold-primary);
-  opacity: 0.85;
-}
-
-.card-honoring {
+.panel-honoring-label {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.1rem;
 }
 
-.celebrant-name {
+.panel-celebrant-name {
   font-family: var(--font-script);
-  font-size: clamp(2.3rem, 7.5vw, 3.1rem);
+  font-size: clamp(2.6rem, 5.0vw, 3.6rem);
   font-weight: 400;
   line-height: 1.05;
   color: var(--text-script);
-  text-shadow: 0 2px 10px rgba(0, 142, 183, 0.25);
+  text-shadow: 0 2px 10px rgba(0, 142, 183, 0.22);
   margin: 0;
 }
 
-/* ── Date Section ── */
-.details-section {
+/* ── Date Badge Box ── */
+.panel-date-box {
   width: 100%;
-  max-width: 360px;
-  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
-}
-
-.event-day-name {
-  font-family: var(--font-serif);
-  font-size: 1.12rem;
-  font-weight: 700;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--gold-primary);
-  margin-bottom: 0.2rem;
-}
-
-.date-badge-row {
+  max-width: 440px;
+  border-top: 1.5px solid rgba(201, 159, 87, 0.65);
+  border-bottom: 1.5px solid rgba(201, 159, 87, 0.65);
+  padding: 0.55rem 0.8rem;
+  margin: 0.2rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.85rem;
-  padding: 0.4rem 0.5rem;
-  border-top: 1px solid rgba(201, 159, 87, 0.55);
-  border-bottom: 1px solid rgba(201, 159, 87, 0.55);
-  margin: 0.2rem 0;
 }
 
-.date-badge-month,
-.date-badge-year {
+.panel-date-item {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 2.0vw, 1.25rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-dark);
 }
 
-.date-badge-num {
+.panel-date-dot {
+  color: var(--gold-primary);
+  font-size: 0.85rem;
+}
+
+/* ── Obvious Big Bold Black Time ── */
+.panel-time-highlight {
+  margin: 0.2rem 0 0.35rem;
+}
+
+.panel-time-highlight span {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.8vw, 1.85rem);
   font-weight: 700;
-  line-height: 1;
-  color: var(--text-script);
-  padding: 0 0.3rem;
+  letter-spacing: 0.08em;
+  color: #000000; /* Solid bold black text */
+  line-height: 1.1;
 }
 
-/* ── Event Time Highlight (Circled Section: Black Text) ── */
-.event-time-highlight {
-  margin: clamp(0.2rem, 0.7vh, 0.45rem) 0 0.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.event-time-highlight span {
-  font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 3.8vw, 1.55rem);
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  color: #000000; /* Explicit black text as requested */
-  line-height: 1.15;
-}
-
-/* ── Venue Section (Matching Main Invitation Design / Attachment 1) ── */
-.venue-section {
-  width: 100%;
-  max-width: 440px;
-  margin-top: clamp(0.2rem, 1vh, 0.6rem);
-}
-
-.venue-stage-reception {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.1rem;
-  width: 100%;
-}
-
-/* Left: Venue details & Maps Link */
-.venue-copy {
-  flex: 1;
+/* ── Venue & Directions Footer ── */
+.panel-venue-footer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  min-width: 0;
+  align-items: center;
+  width: 100%;
 }
 
-.venue-header-row {
+.panel-venue-row {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  margin-bottom: 0.15rem;
-}
-
-.venue-role-badge {
-  font-family: var(--font-script);
-  font-size: 1.55rem;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--text-script);
-  display: inline-block;
-}
-
-.venue-sparkle {
-  color: var(--text-script);
-  font-size: 0.75rem;
-  opacity: 0.8;
-  transform: translateY(-2px);
-}
-
-.venue-title {
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: clamp(1.0rem, 1.8vw, 1.15rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  line-height: 1.18;
   color: var(--text-dark);
-  margin-bottom: 0.35rem;
+  line-height: 1.2;
 }
 
-.venue-address {
+.venue-separator {
+  color: var(--text-script);
+  font-size: 0.65rem;
+}
+
+.panel-venue-address {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.02rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.35;
-  color: #334155;
-  margin-bottom: clamp(0.65rem, 1.5vh, 1.0rem);
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  margin: 0.15rem 0 0.55rem;
 }
 
-/* ── Elegant Maps Link (Quiet underlined link like Attachment 1) ── */
-.venue-elegant-map-btn {
+.panel-map-btn {
   background: none;
   border: 0;
   border-bottom: 1.5px solid #c99f57;
@@ -447,123 +372,147 @@ body {
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.venue-elegant-map-btn:hover {
+.panel-map-btn:hover {
   color: #8c6f23 !important;
   border-bottom-color: #8c6f23;
 }
 
-.venue-elegant-map-btn .arrow-char {
+.panel-map-btn .arrow-char {
   font-size: 0.95rem;
   line-height: 1;
 }
 
-/* Right: Rancho Vista Golf Club Photo Arch with Crown Flourish */
-.venue-arch-container {
-  position: relative;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.6rem;
-}
-
-.venue-crown-accent {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.venue-crown-accent img {
-  display: block;
-  filter: drop-shadow(0 3px 8px rgba(14, 68, 80, 0.28));
-}
-
-.venue-map-arch.venue-photo-arch {
-  width: 140px;
-  height: 150px;
-  border-radius: 54px 54px 18px 18px;
-  overflow: hidden;
-  background: #fdfbf7;
-  box-shadow:
-    0 10px 24px rgba(0, 99, 133, 0.16),
-    0 0 0 1.5px #d4af37,
-    0 0 0 3.5px #ffffff;
-  position: relative;
-  z-index: 3;
-  display: block;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.venue-map-arch.venue-photo-arch:hover {
-  transform: scale(1.03);
-  box-shadow:
-    0 12px 28px rgba(0, 99, 133, 0.24),
-    0 0 0 1.5px #d4af37,
-    0 0 0 3.5px #ffffff;
-}
-
-.venue-arch-img.reception-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-}
-
-/* ── Responsive Refinements ── */
-@media (max-width: 440px) {
-  .invitation-card.paper-sheet {
-    padding: clamp(1.2rem, 2.5vh, 1.8rem) 1.1rem;
+/* ═════════════════════════════════════════════════════════════════════
+   MOBILE REFINEMENTS (Vertical Editorial Split for Phones)
+   ═════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
   }
-  .card-floral.floral-top-left,
-  .card-floral.floral-top-right {
-    width: 100px;
+
+  .editorial-card {
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
   }
-  .portrait-arch-frame {
-    width: clamp(120px, 18vh, 145px);
-    height: clamp(155px, 24vh, 190px);
+
+  /* Top 38% Height: Full-Bleed Portrait */
+  .editorial-media-panel {
+    width: 100%;
+    height: 38dvh;
+    min-height: 200px;
+    max-height: 39dvh;
   }
-  .venue-stage-reception {
-    gap: 0.85rem;
+
+  .editorial-portrait-img {
+    object-position: center 26%;
   }
-  .venue-role-badge {
-    font-size: 1.4rem;
+
+  .editorial-portrait-overlay {
+    background: linear-gradient(180deg, rgba(7, 42, 53, 0.05) 0%, rgba(7, 42, 53, 0) 65%, rgba(253, 251, 247, 0.8) 96%, rgba(253, 251, 247, 1) 100%);
   }
-  .venue-title {
-    font-size: 1.05rem;
+
+  .editorial-gold-seam {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #fdf5e2 0%, #c99f57 30%, #8c6f23 70%, #c99f57 100%);
   }
-  .venue-address {
+
+  /* Bottom 62% Height: Stationery Content Panel */
+  .editorial-content-panel {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    padding: clamp(0.7rem, 1.8vh, 1.3rem) 1.2rem clamp(0.9rem, 2.2vh, 1.5rem);
+  }
+
+  .panel-floral.floral-tr {
+    width: 90px;
+  }
+
+  .panel-floral.floral-br {
+    width: 95px;
+  }
+
+  .panel-supertitle {
+    font-size: 0.68rem;
+    letter-spacing: 0.32em;
+  }
+
+  .title-bold {
+    font-size: clamp(1.85rem, 6.5vw, 2.4rem);
+  }
+
+  .title-script {
+    font-size: clamp(2.4rem, 8.5vw, 3.2rem);
+  }
+
+  .panel-subtitle {
     font-size: 0.92rem;
+    letter-spacing: 0.26em;
   }
-  .venue-time-tag {
-    font-size: 1.15rem;
-    padding: 0.3rem 0;
+
+  .panel-celebrant-name {
+    font-size: clamp(2.1rem, 7.5vw, 2.8rem);
   }
-  .venue-map-arch.venue-photo-arch {
-    width: 122px;
-    height: 132px;
-    border-radius: 46px 46px 14px 14px;
+
+  .panel-date-box {
+    padding: 0.35rem 0.6rem;
+    max-width: 340px;
+  }
+
+  .panel-date-item {
+    font-size: 0.98rem;
+    letter-spacing: 0.12em;
+  }
+
+  .panel-time-highlight span {
+    font-size: clamp(1.25rem, 4.2vw, 1.55rem);
+  }
+
+  .panel-venue-row {
+    font-size: 0.96rem;
+  }
+
+  .panel-venue-address {
+    font-size: 0.88rem;
+    margin: 0.1rem 0 0.35rem;
   }
 }
 
 @media (max-width: 360px) {
-  .portrait-arch-frame {
-    width: 110px;
-    height: 145px;
+  .editorial-media-panel {
+    height: 34dvh;
+    min-height: 170px;
   }
-  .venue-map-arch.venue-photo-arch {
-    width: 105px;
-    height: 118px;
-    border-radius: 38px 38px 12px 12px;
+
+  .title-bold {
+    font-size: 1.7rem;
   }
-  .venue-title {
-    font-size: 0.95rem;
+
+  .title-script {
+    font-size: 2.2rem;
   }
-  .venue-time-tag {
-    font-size: 1.05rem;
+
+  .panel-celebrant-name {
+    font-size: 1.95rem;
+  }
+
+  .panel-date-item {
+    font-size: 0.88rem;
+  }
+
+  .panel-time-highlight span {
+    font-size: 1.15rem;
   }
 }
