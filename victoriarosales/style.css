@@ -1450,6 +1450,7 @@ body.site-entered .lang-control-bar {
   margin-bottom: 2.6rem;
 }
 
+.venue-script-header { font-family: var(--font-script) !important; font-size: clamp(2.4rem, 6.5vw, 3.2rem) !important; font-weight: 400 !important; letter-spacing: 0.02em !important; text-transform: none !important; color: #9d741a !important; line-height: 1.15 !important; margin: 0.2rem auto 0.4rem !important; text-shadow: 0 1px 4px rgba(212, 175, 55, 0.2); }
 .program-title,
 .court-title {
   font-family: var(--font-serif);
