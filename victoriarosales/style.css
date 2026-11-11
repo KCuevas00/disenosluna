@@ -6189,8 +6189,8 @@ body.og-preview-mode .entry-lang-picker {
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: #ffffff !important;
-  background: linear-gradient(135deg, #007ba6 0%, #00a4cc 100%);
-  border: 1px solid rgba(0, 91, 120, 0.45);
+  background: linear-gradient(135deg, #946f1b 0%, #c99f3b 100%);
+  border: 1px solid rgba(148, 111, 27, 0.45);
   border-radius: 999px;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(201, 159, 59, 0.35);
@@ -6202,7 +6202,7 @@ body.og-preview-mode .entry-lang-picker {
 
 .venue-elegant-map-btn:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #006b91 0%, #0093bc 100%);
+  background: linear-gradient(135deg, #7c5c14 0%, #b38b30 100%);
   box-shadow: 0 6px 18px rgba(201, 159, 59, 0.45);
 }
 
@@ -6450,7 +6450,7 @@ body.og-preview-mode .entry-lang-picker {
 html,
 html.site-entered,
 html:not(.site-entered) {
-  background-color: #f1f9fb !important;
+  background-color: #f4f4f6 !important;
   background-image: none !important;
 }
 
