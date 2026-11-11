@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Disenos Luna//Citlalli Covarrubias Quinceanera//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:citlalli-covarrubias-quinceanera-20270703@disenosluna.com
+DTSTAMP:20261111T120000Z
+DTSTART:20270703T210000Z
+DTEND:20270704T083000Z
+SUMMARY:Citlalli Covarrubias's Quinceañera
+DESCRIPTION:Join us to celebrate Citlalli Covarrubias's Quinceañera! Ceremony & Reception at Jardín Alma (Begonias 10, Atlacomulco, 62560 Jiutepec, Mor., Mexico). Mass at 4:00 PM, followed by reception, dinner, traditional waltzes, party, and live banda until 2:30 AM.
+LOCATION:Jardín Alma, Begonias 10, Atlacomulco, 62560 Jiutepec, Mor., Mexico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Citlalli Covarrubias's Quinceañera today!
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

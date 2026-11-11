@@ -1,7 +1,7 @@
 /**
  * ═════════════════════════════════════════════════════════════════════
- * QUINCEAÑERA INVITATION — ALONDRA GUADALUPE CÁRDENAS
- * Interactive Controller & RSVP (Bilingual EN/ES, Static Opened Invitation)
+ * QUINCEAÑERA INVITATION — CITLALLI COVARRUBIAS
+ * Interactive Controller & RSVP
  * ═════════════════════════════════════════════════════════════════════
  */
 
@@ -11,12 +11,10 @@
  */
 const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
 const EVENT_SLUG = 'tiktok';
-const CLIENT_NAME = "Alondra Guadalupe Cárdenas's Quinceañera (Marcos Cardona & Cristina Garcia)";
-const CLIENT_EMAIL = 'andy040306@gmail.com';
-const TARGET_DATE = new Date(2026, 10, 21, 15, 0, 0).getTime();
-const AFTER_EVENT_MS = 6 * 60 * 60 * 1000;
+const CLIENT_NAME = "Citlalli Covarrubias's Quinceañera (Mockup)";
+const CLIENT_EMAIL = 'mockup@disenosluna.com';
 
-function init() {
+document.addEventListener('DOMContentLoaded', () => {
   // Prevent browser from restoring a previous scroll position
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -29,20 +27,10 @@ function init() {
   if (new URLSearchParams(window.location.search).get('og') === 'true') {
     document.documentElement.classList.add('og-mode');
   }
-  if (new URLSearchParams(window.location.search).get('landing') === 'true') {
-    document.documentElement.classList.add('site-entered');
-    document.body.classList.add('site-entered');
-    const ov = document.getElementById('entry-popup-overlay');
-    if (ov) ov.style.display = 'none';
-  }
 
-  // Strictly block background scrolling/wheeling while envelope is unopened,
-  // but allow touch/pointer interactions on the envelope overlay so taps are not cancelled by mobile browsers
+  // Strictly block any scrolling, wheeling or touchmove while envelope is unopened
   const blockScrollUntilEntered = (e) => {
     if (!document.body.classList.contains('site-entered')) {
-      if (e.target && e.target.closest && e.target.closest('#entry-popup-overlay')) {
-        return;
-      }
       e.preventDefault();
       return false;
     }
@@ -50,12 +38,7 @@ function init() {
 
   const blockKeysUntilEntered = (e) => {
     if (!document.body.classList.contains('site-entered')) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openEnvelope();
-        return;
-      }
-      const blockedKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'];
+      const blockedKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Space', ' ', 'Home', 'End'];
       if (blockedKeys.includes(e.key)) {
         e.preventDefault();
       }
@@ -71,170 +54,184 @@ function init() {
      ───────────────────────────────────────────────────────────── */
   const translations = {
     en: {
-      'entry-invited': "You've Been Invited!",
-      'entry-subtitle': 'ALONDRA GUADALUPE CÁRDENAS • QUINCEAÑERA',
+      'entry-invited': "You're Invited!",
+      'entry-subtitle': "CITLALLI COVARRUBIAS'S QUINCEAÑERA",
       'seal-hint-desktop': '✦ CLICK TO OPEN ✦',
       'seal-hint-mobile': '✦ TAP TO OPEN ✦',
+      'card-quince': 'XV Años',
+      'invite-parents': 'THE COVARRUBIAS &amp; VILLASEÑOR FAMILY',
+      'invite-preamble': 'CORDIALLY INVITES YOU TO CELEBRATE THE',
       'invite-quince': 'Quinceañera',
-      'card-celebrant': 'ALONDRA GUADALUPE CÁRDENAS',
-      'invite-parents': 'GUSTAVO CÁRDENAS & MARCELA VILLARREAL',
-      'invite-preamble': 'CORDIALLY INVITE YOU TO CELEBRATE THE',
-      'invite-daughter': 'OF THEIR DAUGHTER',
-      'celebrant-name': 'Alondra Guadalupe Cárdenas',
-      'invite-date-month': 'NOV',
+      'invite-daughter': 'OF THEIR BELOVED DAUGHTER',
+      'invite-celebrant': 'Citlalli<br>Covarrubias',
+      'invite-date-month': 'JUL',
       'invite-date-day': 'SATURDAY',
       'invite-date-time': 'AT 3:00 PM',
-      'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
+      'countdown-title': 'COUNTING DOWN TO THE QUINCEAÑERA',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
       'cd-days': 'Days',
       'cd-hours': 'Hours',
       'cd-mins': 'Minutes',
       'cd-secs': 'Seconds',
-      'invite-venue': 'MCALLEN & MISSION • TEXAS',
-      'program-title': 'PROGRAM',
-      'program-mass-title': 'MASS',
-      'program-mass-desc': 'PARROQUIA DE SAN FELIPE DE JESÚS,<br />4900 LARK AVE, MCALLEN, TX 78504',
-      'program-food-title': 'DINNER',
-      'program-food-desc': 'HACIENDA EL CENTENARIO BALLROOM,<br />2800 E EXPRESSWAY 83, MISSION, TX 78572',
-      'program-entrance-title': 'ENTRANCE',
-      'program-entrance-desc': 'GRAND CELEBRATORY ENTRANCE OF THE QUINCEAÑERA',
-      'program-waltz-title': 'WALTZ',
-      'program-waltz-desc': 'TRADITIONAL QUINCEAÑERA WALTZ',
-      'program-party-title': 'PARTY',
-      'program-party-desc': 'DANCE FLOOR OPENS & CELEBRATION',
-      'program-surprise-title': 'SURPRISE DANCE',
-      'program-surprise-desc': 'SPECIAL CHOREOGRAPHED DANCE',
-      'program-dj-title': 'DJ',
-      'program-dj-desc': 'LIVE DJ & CONTINUOUS CELEBRATION',
-      'program-end-title': 'EVENT CONCLUSION',
-      'program-end-desc': 'FAREWELL & SPECIAL THANKS',
-      'badge-entrance': '✦ Grand Entrance',
-      'badge-waltz': '✦ Waltz Melody',
-      'badge-party': '✦ Party & Rhythm',
-      'badge-surprise': '✦ Surprise Dance',
-      'badge-dj': '✦ Live DJ',
-      'badge-end': '✦ Farewell',
+      'invite-venue': 'JARDÍN ALMA • JIUTEPEC, MORELOS, MEXICO',
+      'venue-section-title': 'CEREMONY &amp; RECEPTION',
+      'badge-ceremony': 'Ceremony &amp; Mass',
+      'ceremony-time-desc': '3:00 PM (Mass at 4:00 PM)',
+      'badge-reception': 'Reception Venue',
+      'reception-time-desc': '4:00 PM – 2:30 AM',
+      'venue-btn-open-maps': 'OPEN IN MAPS',
+      'program-title': 'SCHEDULE OF EVENTS',
+      'itin-mass': 'Religious Mass',
+      'itin-mass-desc': 'Jardín Alma • Begonias 10, Atlacomulco, Jiutepec, Mor.',
+      'itin-entrance': 'Grand Entrance',
+      'itin-entrance-desc': 'Welcoming the Quinceañera Citlalli',
+      'itin-dinner': 'Dinner',
+      'itin-dinner-desc': 'Delicious banquet dinner shared together',
+      'itin-waltz': 'Traditional Waltzes',
+      'itin-waltz-desc': 'Citlalli’s honorary dances with father &amp; chambelanes',
+      'itin-party': 'Party &amp; Open Dance Floor',
+      'itin-party-desc': 'Music, celebration &amp; dancing',
+      'itin-banda': 'Live Banda',
+      'itin-banda-desc': 'Live regional banda music celebration',
+      'itin-end': 'End of Celebration',
+      'itin-end-desc': 'Thank you for celebrating this unforgettable night!',
       'tl-btn-location': 'DIRECTIONS',
       'tl-btn-directions': 'DIRECTIONS',
       'tl-btn-copy': 'COPY ADDRESS',
-      'court-title': 'COURT OF HONOR & SPONSORS',
-      'court-chambelan-title': 'CHAMBELÁN OF HONOR',
-      'court-chambelanes-group-title': 'CHAMBELANES',
-      'court-padrinos-honor-title': 'PADRINOS OF HONOR',
-            'court-sponsors-title': 'SPONSORS',
-      'dress-code-title': 'DRESS CODE',
-      'dress-code-subtitle': 'SOFT NEUTRALS & MUTED TONES',
-      'dress-code-desc': 'We kindly request our guests wear formal attire in soft neutral and muted tones, such as cream, dusty rose, sage, dusty blue and lavender.',
-      'registry-title': 'GIFTS & WISHING WELL',
-      'registry-subtitle': 'TOKENS OF LOVE',
-      'registry-desc': 'Your presence on this special day is our greatest gift. If you wish to honor Alondra Guadalupe with a gift, a wishing well box will be available for cards and monetary contributions. Thank you for celebrating with us and creating memories to treasure forever.',
-      'message-quote': '“To my beloved family and friends: Thank you from the bottom of my heart for your unconditional love and for being with me on this dream day. Having you here makes my Quinceañera an unforgettable memory I will treasure forever.”',
-      'message-signature': 'Alondra Guadalupe Cárdenas',
-      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BY NOVEMBER 1, 2026',
+      'court-title': 'COURT OF HONOR',
+      'court-chambelanes-title': 'CHAMBELANES',
+      'dresscode-title': 'DRESS CODE',
+      'dresscode-subtitle': 'FORMAL ATTIRE',
+      'dresscode-script': 'Formal Attire',
+      'dresscode-desc': 'We invite our guests to wear formal attire for Citlalli’s special celebration.',
+      'dinner-title': 'DINNER &amp; BANQUET',
+      'dinner-subtitle': 'RECEPTION BANQUET',
+      'dinner-script': 'Dinner &amp; Banquet',
+      'dinner-desc': 'Reception begins at 4:00 PM followed by dinner at 6:10 PM, traditional waltzes, party, and live banda.',
+      'contact-title': 'QUESTIONS &amp; INFORMATION',
+      'contact-subtitle': 'CONTACT',
+      'contact-script': 'Questions &amp; Info',
+      'contact-desc': 'For any questions or more information regarding the celebration, please contact:<br /><strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); display: block; margin-top: 0.35rem;">Familia Covarrubias Villaseñor: (777) 314-8920</strong>',
+      'photos-title': 'PHOTOS &amp; MEMORIES',
+      'photos-subtitle': 'CAPTURE THE NIGHT',
+      'photos-script': 'Photos &amp; Memories',
+      'photos-desc': 'We invite you to take photos throughout the evening and share your favorite moments with Citlalli!',
+      'registry-title': 'A NOTE ON GIFTS',
+      'registry-subtitle': 'YOUR PRESENCE IS OUR GIFT',
+      'registry-script': 'A Note on Gifts',
+      'registry-desc': 'Your presence is the greatest gift I could ask for. However, if you wish to honor me with a gift, a monetary contribution would be greatly appreciated as I begin this new chapter of my life. Thank you for being part of my special day!',
+      'message-quote': 'With great joy and gratitude, I invite you to celebrate one of the most special moments of my life, my Quinceañera. As I begin this new chapter, I would love to share this unforgettable day surrounded by the people who mean the most to me. Your presence would make this celebration even more meaningful. I hope to celebrate this special day with you!',
+      'message-signature': 'Citlalli Covarrubias',
+      'rsvp-deadline': 'PLEASE CONFIRM YOUR ATTENDANCE BEFORE JUNE 5, 2027',
       'rsvp-btn': 'CONFIRM ATTENDANCE',
-      'rsvp-instruction': 'CLICK THE BUTTON ABOVE TO<br />CONFIRM YOUR ATTENDANCE',
-      'rsvp-thankyou': 'Thank You So Much!',
-      'modal-title': 'Confirm Attendance for Alondra Guadalupe Cárdenas',
-      'modal-subtitle': 'Saturday, November 21, 2026 • McAllen & Mission, TX',
-      'label-fullname': 'Full Name or Family *',
-      'label-phone': 'Phone Number (Optional)',
-      'label-party': 'Number of Guests (Optional)',
+      'rsvp-instruction': 'CLICK THE BUTTON BELOW TO<br />CONFIRM YOUR ATTENDANCE',
+      'rsvp-thankyou': 'Thank You!',
+      'btn-accept': 'Joyfully Accept',
+      'btn-decline': 'Regretfully Decline',
+      'label-fullname': 'Full Name',
+      'label-party': 'Total Guests (including you)',
+      'label-phone': 'Phone / WhatsApp',
       'opt-party-1': '1 Guest',
       'opt-party-2': '2 Guests',
       'opt-party-3': '3 Guests',
       'opt-party-4': '4 Guests',
-      'opt-party-5': '5+ Guests (Family)',
-      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">YES, ATTENDING</span>',
-      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">CANNOT ATTEND</span>',
-      'modal-success-title': 'Thank You So Much!',
-      'modal-success-desc': 'Your response has been saved successfully. We look forward to celebrating together!',
-      'modal-decline-desc': 'Thank you for letting us know. Your response has been saved.',
-      'footer-names': 'Alondra Guadalupe Cárdenas • Quinceañera',
-      'footer-date': 'Saturday, November 21, 2026 • McAllen & Mission, Texas'
+      'opt-party-5': '5 Guests',
+      'modal-title': 'RSVP',
+      'modal-subtitle': "CITLALLI COVARRUBIAS'S QUINCEAÑERA",
+      'modal-success-title': 'RSVP Received!',
+      'modal-success-desc': 'Thank you for confirming your attendance. We look forward to celebrating with you!',
+      'footer-date': 'Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico'
     },
     es: {
-      'entry-invited': '¡Estás Invitada!',
-      'entry-subtitle': 'ALONDRA GUADALUPE CÁRDENAS • MIS XV AÑOS',
+      'entry-invited': '¡Estás Invitado!',
+      'entry-subtitle': 'XV AÑOS DE CITLALLI COVARRUBIAS',
       'seal-hint-desktop': '✦ CLIC PARA ABRIR ✦',
       'seal-hint-mobile': '✦ TOCA PARA ABRIR ✦',
+      'card-quince': 'XV Años',
+      'invite-parents': 'LA FAMILIA COVARRUBIAS Y VILLASEÑOR',
+      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A LA CELEBRACIÓN DE LOS',
       'invite-quince': 'XV Años',
-      'card-celebrant': 'ALONDRA GUADALUPE CÁRDENAS',
-      'invite-parents': 'GUSTAVO CÁRDENAS Y MARCELA VILLARREAL',
-      'invite-preamble': 'TIENEN EL HONOR DE INVITARLE A CELEBRAR LOS',
-      'invite-daughter': 'DE SU HIJA',
-      'celebrant-name': 'Alondra Guadalupe Cárdenas',
-      'invite-date-month': 'NOV',
+      'invite-daughter': 'DE SU QUERIDA HIJA',
+      'invite-celebrant': 'Citlalli<br>Covarrubias',
+      'invite-date-month': 'JUL',
       'invite-date-day': 'SÁBADO',
       'invite-date-time': 'A LAS 3:00 PM',
-      'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
-      'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
+      'countdown-title': 'CUENTA REGRESIVA PARA LOS XV AÑOS',
+      'countdown-today': '🎉 ¡Hoy es el gran día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
       'cd-days': 'Días',
       'cd-hours': 'Horas',
       'cd-mins': 'Minutos',
       'cd-secs': 'Segundos',
-      'invite-venue': 'MCALLEN & MISSION • TEXAS',
-      'program-title': 'PROGRAMA',
-      'program-mass-title': 'MISA',
-      'program-mass-desc': 'PARROQUIA DE SAN FELIPE DE JESÚS,<br />4900 LARK AVE, MCALLEN, TX 78504',
-      'program-food-title': 'COMIDA',
-      'program-food-desc': 'HACIENDA EL CENTENARIO BALLROOM,<br />2800 E EXPRESSWAY 83, MISSION, TX 78572',
-      'program-entrance-title': 'ENTRADA',
-      'program-entrance-desc': 'GRAN ENTRADA TRIUNFAL DE LA QUINCEAÑERA',
-      'program-waltz-title': 'VALS',
-      'program-waltz-desc': 'TRADICIONAL VALS DE QUINCEAÑERA',
-      'program-party-title': 'BAILE',
-      'program-party-desc': 'APERTURA DE PISTA Y BAILE GENERAL',
-      'program-surprise-title': 'BAILE SORPRESA',
-      'program-surprise-desc': 'PRESENTACIÓN COREOGRÁFICA ESPECIAL',
-      'program-dj-title': 'DJ',
-      'program-dj-desc': 'MÚSICA EN VIVO Y CELEBRACIÓN CONTINUA',
-      'program-end-title': 'FIN DEL EVENTO',
-      'program-end-desc': 'AGRADECIMIENTOS Y DESPEDIDA',
-      'badge-entrance': '✦ Entrada',
-      'badge-waltz': '✦ Vals',
-      'badge-party': '✦ Fiesta',
-      'badge-surprise': '✦ Sorpresa',
-      'badge-dj': '✦ DJ Show',
-      'badge-end': '✦ Fin',
-      'tl-btn-location': 'CÓMO LLEGAR',
+      'invite-venue': 'JARDÍN ALMA • JIUTEPEC, MORELOS, MÉXICO',
+      'venue-section-title': 'CEREMONIA Y RECEPCIÓN',
+      'badge-ceremony': 'Ceremonia y Misa',
+      'ceremony-time-desc': '3:00 PM (Misa a las 4:00 PM)',
+      'badge-reception': 'Salón de Recepción',
+      'reception-time-desc': '4:00 PM – 2:30 AM',
+      'venue-btn-open-maps': 'ABRIR EN MAPAS',
+      'program-title': 'ITINERARIO DEL EVENTO',
+      'itin-mass': 'Misa Religiosa',
+      'itin-mass-desc': 'Jardín Alma • Begonias 10, Atlacomulco, Jiutepec, Mor.',
+      'itin-entrance': 'Entrada Triunfal',
+      'itin-entrance-desc': 'Bienvenida a Citlalli en sus XV Años',
+      'itin-dinner': 'Cena de Gala',
+      'itin-dinner-desc': 'Delicioso banquete para compartir juntos',
+      'itin-waltz': 'Valses Tradicionales',
+      'itin-waltz-desc': 'Los emotivos valses de honor con su padre y chambelanes',
+      'itin-party': 'Fiesta y Pista Abierta',
+      'itin-party-desc': 'Música, alegría y baile para todos',
+      'itin-banda': 'Música de Banda en Vivo',
+      'itin-banda-desc': 'Gran celebración con música de banda sinaloense en vivo',
+      'itin-end': 'Fin de la Celebración',
+      'itin-end-desc': '¡Gracias por celebrar esta noche inolvidable con nosotros!',
+      'tl-btn-location': 'DIRECCIÓN',
       'tl-btn-directions': 'CÓMO LLEGAR',
       'tl-btn-copy': 'COPIAR DIRECCIÓN',
-      'court-title': 'CORTE DE HONOR Y PADRINOS',
-      'court-chambelan-title': 'CHAMBELÁN DE HONOR',
-      'court-chambelanes-group-title': 'CHAMBELANES',
-      'court-padrinos-honor-title': 'PADRINOS DE HONOR',
-            'court-sponsors-title': 'PADRINOS Y PATROCINADORES',
-      'dress-code-title': 'CÓDIGO DE VESTIMENTA',
-      'dress-code-subtitle': 'TONOS NEUTROS Y PASTEL SUAVES',
-      'dress-code-desc': 'Les pedimos amablemente a nuestros invitados vestir con atuendo formal en tonos neutros suaves y apagados, tales como crema, rosa empolvado, verde salvia, azul empolvado y lavanda.',
-      'registry-title': 'MUESTRAS DE CARIÑO',
-      'registry-subtitle': 'LLUVIA DE SOBRES',
-      'registry-desc': 'Tu presencia en este día tan especial es nuestro mejor regalo. Si deseas tener un detalle u obsequio con Alondra Guadalupe, contaremos con un buzón para lluvia de sobres y muestras de cariño. ¡Gracias por acompañarnos y ser parte de recuerdos inolvidables!',
-      'message-quote': '«A mi querida familia y amigos: Gracias de todo corazón por su amor incondicional y por acompañarme en este día tan soñado y especial. Su presencia hace que mis XV años sean un recuerdo inolvidable que guardaré por siempre en mi corazón.»',
-      'message-signature': 'Alondra Guadalupe Cárdenas',
-      'rsvp-deadline': 'FAVOR DE CONFIRMAR SU ASISTENCIA ANTES DEL 1 DE NOVIEMBRE DE 2026',
+      'court-title': 'CORTE DE HONOR',
+      'court-chambelanes-title': 'CHAMBELANES',
+      'dresscode-title': 'CÓDIGO DE VESTIMENTA',
+      'dresscode-subtitle': 'VESTIMENTA FORMAL',
+      'dresscode-script': 'Vestimenta Formal',
+      'dresscode-desc': 'Invitamos cordialmente a nuestros invitados a vestir atuendo formal para la celebración de Citlalli.',
+      'dinner-title': 'CENA Y BANQUETE',
+      'dinner-subtitle': 'BANQUETE DE RECEPCIÓN',
+      'dinner-script': 'Cena y Banquete',
+      'dinner-desc': 'La recepción comienza a las 4:00 PM seguida de la cena a las 6:10 PM, valses de honor, fiesta y música de banda en vivo.',
+      'contact-title': 'PREGUNTAS E INFORMACIÓN',
+      'contact-subtitle': 'CONTACTO',
+      'contact-script': 'Preguntas e Información',
+      'contact-desc': 'Para cualquier pregunta o mayor información sobre la celebración, por favor contacte a:<br /><strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); display: block; margin-top: 0.35rem;">Familia Covarrubias Villaseñor: (777) 314-8920</strong>',
+      'photos-title': 'FOTOS Y RECUERDOS',
+      'photos-subtitle': 'CAPTURA LA NOCHE',
+      'photos-script': 'Fotos y Recuerdos',
+      'photos-desc': '¡Te invitamos a tomar fotos durante toda la noche y compartir tus momentos favoritos con Citlalli!',
+      'registry-title': 'NOTA SOBRE REGALOS',
+      'registry-subtitle': 'SU PRESENCIA ES NUESTRO MEJOR REGALO',
+      'registry-script': 'Nota sobre Regalos',
+      'registry-desc': 'Su presencia es el mayor regalo que podría pedir. Sin embargo, si desean honrarme con un detalle, una contribución monetaria será muy apreciada al iniciar este nuevo capítulo de mi vida. ¡Gracias por ser parte de mi día especial!',
+      'message-quote': 'Con gran alegría y gratitud, los invito a celebrar uno de los momentos más especiales de mi vida, mis XV Años. Al comenzar este nuevo capítulo, me encantaría compartir este día inolvidable rodeada de las personas que más significan para mí. Su presencia hará que esta celebración sea aún más significativa. ¡Espero celebrar este día tan especial con ustedes!',
+      'message-signature': 'Citlalli Covarrubias',
+      'rsvp-deadline': 'FAVOR DE CONFIRMAR SU ASISTENCIA ANTES DEL 5 DE JUNIO DE 2027',
       'rsvp-btn': 'CONFIRMAR ASISTENCIA',
       'rsvp-instruction': 'HAGA CLIC EN EL BOTÓN PARA<br />CONFIRMAR SU ASISTENCIA',
       'rsvp-thankyou': '¡Muchas Gracias!',
-      'modal-title': 'Confirmar Asistencia para Alondra Guadalupe Cárdenas',
-      'modal-subtitle': 'Sábado, 21 de Noviembre de 2026 • McAllen & Mission, TX',
-      'label-fullname': 'Nombre Completo o Familia *',
-      'label-phone': 'Número de Teléfono (Opcional)',
-      'label-party': 'Número de Asistentes (Opcional)',
+      'btn-accept': 'Acepto con gusto',
+      'btn-decline': 'Declino con pesar',
+      'label-fullname': 'Nombre Completo',
+      'label-party': 'Número de Personas (incluyéndote)',
+      'label-phone': 'Teléfono / WhatsApp',
       'opt-party-1': '1 Persona',
       'opt-party-2': '2 Personas',
       'opt-party-3': '3 Personas',
       'opt-party-4': '4 Personas',
-      'opt-party-5': '5+ Personas (Familia)',
-      'btn-accept': '<span class="btn-rsvp-icon">✓</span> <span class="btn-rsvp-text">SÍ, ASISTIRÉ</span>',
-      'btn-decline': '<span class="btn-rsvp-icon">✕</span> <span class="btn-rsvp-text">NO PODRÉ ASISTIR</span>',
-      'modal-success-title': '¡Muchas Gracias!',
-      'modal-success-desc': 'Su respuesta ha sido guardada con éxito. ¡Esperamos celebrar juntos este gran día!',
-      'modal-decline-desc': 'Gracias por avisarnos. Su respuesta ha sido guardada.',
-      'footer-names': 'Alondra Guadalupe Cárdenas • Mis XV Años',
-      'footer-date': 'Sábado, 21 de Noviembre de 2026 • McAllen & Mission, Texas'
+      'opt-party-5': '5 Personas',
+      'modal-title': 'CONFIRMAR ASISTENCIA',
+      'modal-subtitle': 'XV AÑOS DE CITLALLI COVARRUBIAS',
+      'modal-success-title': '¡Confirmación Recibida!',
+      'modal-success-desc': '¡Gracias por confirmar su asistencia! Esperamos celebrar este día tan especial con usted.',
+      'footer-date': 'Sábado, 3 de Julio de 2027 • Jiutepec, Morelos, México'
     }
   };
 
@@ -244,16 +241,12 @@ function init() {
   function applyLanguage(lang = 'en') {
     currentLang = lang;
     document.documentElement.lang = lang;
-    const dict = translations[lang] || translations.es;
+    const dict = translations[lang] || translations.en;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) {
-        if (el instanceof SVGElement && typeof el.textContent !== 'undefined') {
-          el.textContent = dict[key];
-        } else {
-          el.innerHTML = dict[key];
-        }
+        el.innerHTML = dict[key];
       }
     });
 
@@ -285,35 +278,46 @@ function init() {
     });
   });
 
-  // Default to English on startup (unless URL specifies ?lang=es)
-  const urlLang = new URLSearchParams(window.location.search).get('lang');
-  if (urlLang === 'es') {
-    userSelectedLang = true;
-    applyLanguage('es');
-  } else {
-    applyLanguage('en');
+  // Default to English on startup unless specified by ?lang=
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlLang = urlParams.get('lang');
+  if (urlParams.has('og_preview')) {
+    document.body.classList.add('og-preview-mode');
   }
+  applyLanguage(urlLang === 'es' ? 'es' : 'en');
 
   // Collapsible utility tabs (Language bar top-left, audio bar top-right)
-  const langBar = document.getElementById('lang-control-bar');
-  const langToggle = document.getElementById('lang-collapse-toggle');
-  const audioBar = document.getElementById('audio-control-bar');
-  const audioToggle = document.getElementById('audio-collapse-toggle');
-
-  function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
-    if (!bar || !btn) return;
-    bar.classList.toggle('collapsed', collapsed);
-    btn.setAttribute('aria-expanded', String(!collapsed));
-    btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
-  }
+  let expandAudioBarFn = null;
 
   function initControlToggles() {
+    const langBar = document.getElementById('lang-control-bar');
+    const langToggle = document.getElementById('lang-collapse-toggle');
+    const audioBar = document.getElementById('audio-control-bar');
+    const audioToggle = document.getElementById('audio-collapse-toggle');
+
+    function setCollapsed(bar, btn, collapsed, hiddenLabel, shownLabel) {
+      if (!bar || !btn) return;
+      bar.classList.toggle('collapsed', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.setAttribute('aria-label', collapsed ? shownLabel : hiddenLabel);
+    }
+
+    expandAudioBarFn = () => {
+      setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+      setTimeout(updateSongTickerOffset, 60);
+      setTimeout(updateSongTickerOffset, 420);
+    };
+
     function bindToggle(bar, btn, hiddenLabel, shownLabel) {
       if (!bar || !btn) return;
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         bar.dataset.userToggled = 'true';
         setCollapsed(bar, btn, !bar.classList.contains('collapsed'), hiddenLabel, shownLabel);
+        if (bar === audioBar) {
+          setTimeout(updateSongTickerOffset, 60);
+          setTimeout(updateSongTickerOffset, 420);
+        }
       });
     }
 
@@ -324,41 +328,22 @@ function init() {
       setCollapsed(langBar, langToggle, true, 'Hide language selector', 'Show language selector');
     }
     if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
-      setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+      setCollapsed(audioBar, audioToggle, true, 'Hide music player', 'Show music player');
     }
   }
 
   initControlToggles();
 
   /* ─────────────────────────────────────────────────────────────
-     2. AUDIO CONTROLLER & SONG PREVIEW TICKER (ME JALO - Fuerza Regida, Grupo Frontera)
+     2. AUDIO CONTROLLER & SONG PREVIEW TICKER (Madonna - Vogue)
      ───────────────────────────────────────────────────────────── */
   const bgAudio = document.getElementById('bg-audio');
   const audioToggleBtn = document.getElementById('audio-toggle-btn');
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
-  const AUDIO_START_OFFSET = 74.0; // 1:14.0 (When Grupo Frontera begins singing 'Si supieran') // 1:13.0 (Right before Grupo Frontera sings "Si supieran")
-  let hasSetInitialStartTime = false;
-  let lastAudioTime = 0;
-
   let isAudioPlaying = false;
   let wasAudioPlayingBeforeHide = false;
-  let audioUnlocked = false;
-
-  function ensureAudioStartTime() {
-    if (!bgAudio || hasSetInitialStartTime) return;
-    try {
-      if (bgAudio.readyState >= 1) { // HAVE_METADATA or higher
-        if (Math.abs(bgAudio.currentTime - AUDIO_START_OFFSET) > 1 && bgAudio.currentTime < AUDIO_START_OFFSET) {
-          bgAudio.currentTime = AUDIO_START_OFFSET;
-        }
-        hasSetInitialStartTime = true;
-      }
-    } catch (e) {
-      // Defer until loadedmetadata / canplay fires
-    }
-  }
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -377,81 +362,18 @@ function init() {
     }
   }
 
-  // Synchronize state with native HTML5 audio events (e.g. stalled, paused by OS)
-  if (bgAudio) {
-    bgAudio.addEventListener('loadedmetadata', ensureAudioStartTime);
-    bgAudio.addEventListener('canplay', ensureAudioStartTime);
-
-    bgAudio.addEventListener('play', () => {
-      ensureAudioStartTime();
-      updatePlayState(true);
-    });
-    bgAudio.addEventListener('playing', () => {
-      ensureAudioStartTime();
-      updatePlayState(true);
-    });
-    bgAudio.addEventListener('pause', () => updatePlayState(false));
-    bgAudio.addEventListener('ended', () => {
-      // Seamlessly loop back to Grupo Frontera's verse
-      try {
-        bgAudio.currentTime = AUDIO_START_OFFSET;
-        bgAudio.play().catch(() => {});
-      } catch (e) {}
-      updatePlayState(false);
-    });
-
-    // Guard against playing from 0:00 before initial seek AND handle native loop rewind
-    bgAudio.addEventListener('timeupdate', () => {
-      if (!hasSetInitialStartTime && bgAudio.currentTime < AUDIO_START_OFFSET) {
-        try {
-          bgAudio.currentTime = AUDIO_START_OFFSET;
-          hasSetInitialStartTime = true;
-        } catch (e) {}
-      } else if (hasSetInitialStartTime && lastAudioTime > (AUDIO_START_OFFSET + 10) && bgAudio.currentTime < 2) {
-        // Native loop rewound track back to 0:00 -> redirect to 1:13.0 ("Si supieran")
-        try {
-          bgAudio.currentTime = AUDIO_START_OFFSET;
-        } catch (e) {}
-      }
-      lastAudioTime = bgAudio.currentTime;
-    });
-
-    bgAudio.addEventListener('error', (e) => {
-      console.warn('[Audio element error]:', bgAudio.error || e);
-      updatePlayState(false);
-    });
-  }
-
   function playAudio() {
     if (!bgAudio) return;
-    ensureAudioStartTime();
     bgAudio.volume = 0.85;
-
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
-          ensureAudioStartTime();
-          audioUnlocked = true;
           updatePlayState(true);
         })
         .catch((err) => {
           console.warn('[Audio autoplay notice]:', err);
           updatePlayState(false);
-          // If browser rejected on initial tap, unlock on the very next user gesture anywhere
-          if (!audioUnlocked) {
-            const unlockOnNextTouch = () => {
-              ensureAudioStartTime();
-              bgAudio.play().then(() => {
-                ensureAudioStartTime();
-                audioUnlocked = true;
-                updatePlayState(true);
-              }).catch(() => {});
-            };
-            ['touchend', 'click'].forEach(evt => {
-              window.addEventListener(evt, unlockOnNextTouch, { once: true, passive: true });
-            });
-          }
         });
     }
   }
@@ -460,6 +382,24 @@ function init() {
     if (!bgAudio) return;
     bgAudio.pause();
     updatePlayState(false);
+  }
+
+  if (bgAudio) {
+    bgAudio.addEventListener('play', () => updatePlayState(true));
+    bgAudio.addEventListener('playing', () => updatePlayState(true));
+    bgAudio.addEventListener('pause', () => updatePlayState(false));
+    bgAudio.addEventListener('ended', () => {
+      try {
+        bgAudio.currentTime = 0;
+        bgAudio.play().catch(() => {});
+      } catch (e) {}
+      updatePlayState(false);
+    });
+
+    bgAudio.addEventListener('error', (e) => {
+      console.warn('[Audio element error]:', bgAudio.error || e);
+      updatePlayState(false);
+    });
   }
 
   document.addEventListener('visibilitychange', () => {
@@ -482,8 +422,7 @@ function init() {
   });
 
   if (audioToggleBtn) {
-    audioToggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
+    audioToggleBtn.addEventListener('click', () => {
       if (isAudioPlaying) {
         wasAudioPlayingBeforeHide = false;
         pauseAudio();
@@ -510,20 +449,282 @@ function init() {
   window.addEventListener('resize', updateSongTickerOffset);
 
   /* ─────────────────────────────────────────────────────────────
-     3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER & CONFETTI CASCADE
+     3. BESPOKE LUXURY ENVELOPE ENTRY CONTROLLER, CONFETTI & PETALS ENGINE
      ───────────────────────────────────────────────────────────── */
+
+  // Canvas Petal & Multi-Shape Confetti Engine (Royal Sage Theme)
+  class WesternPetalConfettiEngine {
+    constructor(canvasId) {
+      this.canvas = document.getElementById(canvasId);
+      if (!this.canvas) return;
+      this.ctx = this.canvas.getContext('2d');
+      this.particles = [];
+      this.isRunning = false;
+      this.hasTriggeredBurst = false;
+
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+    }
+
+    resize() {
+      if (!this.canvas) return;
+      this.width = (this.canvas.width = window.innerWidth);
+      this.height = (this.canvas.height = window.innerHeight);
+    }
+
+    createParticle(initialY = -25) {
+      const isMobile = this.width < 600;
+      const shapes = ['petal', 'ribbon', 'glitter', 'sequin', 'star'];
+      const shape = shapes[Math.floor(Math.random() * shapes.length)];
+
+            const colors = [
+        'rgba(212, 175, 55, 0.95)',  // Shimmering royal gold leaf
+        'rgba(201, 159, 87, 0.95)',  // Antique rich gold
+        'rgba(226, 190, 103, 0.95)', // Radiant bright champagne gold
+        'rgba(245, 228, 189, 0.96)', // Warm champagne gold
+        'rgba(255, 255, 255, 0.98)', // Pure translucent white silk
+        'rgba(237, 216, 155, 0.95)', // Soft warm honey gold
+        'rgba(250, 243, 225, 0.95)', // Warm ivory
+      ];
+
+      return {
+        x: Math.random() * this.width,
+        y: initialY,
+        shape: shape,
+        size: isMobile ? (Math.random() * 7 + 7) : (Math.random() * 10 + 8),
+        aspectRatio: Math.random() * 1.4 + 1.2,
+        speedY: Math.random() * 1.6 + 0.9,
+        speedX: Math.sin(Math.random() * Math.PI * 2) * 1.1,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 2.2,
+        swaySpeed: Math.random() * 0.025 + 0.012,
+        swayAmplitude: Math.random() * 32 + 16,
+        time: Math.random() * 100,
+        opacity: Math.random() * 0.35 + 0.65,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        bend: Math.random() * 0.5 + 0.5
+      };
+    }
+
+    triggerCelebratoryBurst() {
+      if (this.hasTriggeredBurst) return;
+      this.hasTriggeredBurst = true;
+      const isMobile = this.width < 600;
+
+      // 1. High-volume top shower cascading across screen
+      const topCount = isMobile ? 55 : 85;
+      for (let i = 0; i < topCount; i++) {
+        const startY = (Math.random() * -0.65 * this.height) - 10;
+        const p = this.createParticle(startY);
+        p.speedY = Math.random() * 3.2 + 1.8;
+        p.speedX = (Math.random() - 0.5) * 3.0;
+        p.rotationSpeed = (Math.random() - 0.5) * 4.5;
+        this.particles.push(p);
+      }
+
+      // 2. 360-degree radial blast exploding directly from envelope wax seal
+      const seal = document.getElementById('wax-seal-btn');
+      let originX = this.width / 2;
+      let originY = this.height / 2;
+      if (seal) {
+        const rect = seal.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+          originX = rect.left + rect.width / 2;
+          originY = rect.top + rect.height / 2;
+        }
+      }
+
+      const ringCount = isMobile ? 32 : 50;
+      for (let j = 0; j < ringCount; j++) {
+        const p = this.createParticle(originY);
+        p.x = originX + (Math.random() - 0.5) * 70;
+        p.y = originY + (Math.random() - 0.5) * 50;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 4.5 + 2.0;
+        p.speedX = Math.cos(angle) * speed;
+        p.speedY = Math.sin(angle) * speed - 1.2;
+        p.rotationSpeed = (Math.random() - 0.5) * 5.5;
+        this.particles.push(p);
+      }
+    }
+
+    start() {
+      if (!this.canvas || !this.ctx || this.isRunning) return;
+      this.isRunning = true;
+      this.triggerCelebratoryBurst();
+      this.animate();
+    }
+
+    animate() {
+      if (!this.isRunning || !this.canvas || !this.ctx) return;
+      this.ctx.clearRect(0, 0, this.width, this.height);
+      const isMobile = this.width < 600;
+
+      for (let i = 0; i < this.particles.length; i++) {
+        const p = this.particles[i];
+        p.time += p.swaySpeed;
+        p.x += Math.sin(p.time) * (p.swayAmplitude * 0.04) + p.speedX * 0.5;
+        p.y += p.speedY;
+        p.rotation += p.rotationSpeed;
+
+        this.ctx.save();
+        this.ctx.translate(p.x, p.y);
+        this.ctx.rotate((p.rotation * Math.PI) / 180);
+
+        this.ctx.fillStyle = p.color;
+        this.ctx.globalAlpha = p.opacity;
+        this.ctx.shadowBlur = 6;
+        this.ctx.shadowColor = 'rgba(92, 140, 111, 0.35)';
+
+        if (p.shape === 'petal') {
+          this.ctx.scale(Math.cos(p.time * 0.8), p.bend);
+          this.ctx.beginPath();
+          this.ctx.moveTo(0, 0);
+          this.ctx.bezierCurveTo(-p.size * 0.7, -p.size * 0.5, -p.size * 0.8, p.size * 0.8, 0, p.size);
+          this.ctx.bezierCurveTo(p.size * 0.8, p.size * 0.8, p.size * 0.7, -p.size * 0.5, 0, 0);
+          this.ctx.closePath();
+          this.ctx.fill();
+        } else if (p.shape === 'ribbon') {
+          this.ctx.scale(Math.cos(p.time * 1.5), Math.sin(p.time * 0.8));
+          this.ctx.beginPath();
+          const w = p.size;
+          const h = p.size * p.aspectRatio;
+          this.ctx.rect(-w / 2, -h / 2, w, h);
+          this.ctx.fill();
+        } else if (p.shape === 'star') {
+          this.ctx.scale(Math.cos(p.time * 1.2), Math.cos(p.time * 1.2));
+          this.ctx.beginPath();
+          const s = p.size * 0.7;
+          this.ctx.moveTo(0, -s);
+          this.ctx.quadraticCurveTo(0, 0, s, 0);
+          this.ctx.quadraticCurveTo(0, 0, 0, s);
+          this.ctx.quadraticCurveTo(0, 0, -s, 0);
+          this.ctx.quadraticCurveTo(0, 0, 0, -s);
+          this.ctx.closePath();
+          this.ctx.fill();
+        } else if (p.shape === 'sequin') {
+          this.ctx.scale(Math.cos(p.time * 1.6), 1);
+          this.ctx.beginPath();
+          this.ctx.arc(0, 0, p.size * 0.45, 0, Math.PI * 2);
+          this.ctx.closePath();
+          this.ctx.fill();
+        } else {
+          // 'glitter' diamond
+          this.ctx.scale(Math.cos(p.time * 1.4), Math.sin(p.time * 1.4));
+          this.ctx.beginPath();
+          const d = p.size * 0.6;
+          this.ctx.moveTo(0, -d);
+          this.ctx.lineTo(d, 0);
+          this.ctx.lineTo(0, d);
+          this.ctx.lineTo(-d, 0);
+          this.ctx.closePath();
+          this.ctx.fill();
+        }
+
+        this.ctx.restore();
+
+        // Check if fallen below viewport
+        if (p.y > this.height + 30 || p.x < -40 || p.x > this.width + 40) {
+          const targetContinuousCount = isMobile ? 32 : 54;
+          if (this.particles.length > targetContinuousCount) {
+            this.particles.splice(i, 1);
+            i--;
+          } else {
+            this.particles[i] = this.createParticle(-25);
+          }
+        }
+      }
+
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  const confettiPetalEngine = new WesternPetalConfettiEngine('entry-canvas');
+
+  // DOM Physical Confetti Burst from Wax Seal
+  function triggerSealConfetti() {
+    const confettiColors = [
+      '#5c8c6f', '#7eaf92', '#3a634a', '#d4af37', '#f5e4bd',
+      '#e8b6bb', '#ffffff', '#fff8ea', '#c99f57', '#f7d6d9', '#ffd700'
+    ];
+    let originX = window.innerWidth / 2;
+    let originY = window.innerHeight / 2;
+    const seal = document.getElementById('wax-seal-btn');
+    if (seal) {
+      const rect = seal.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        originX = rect.left + rect.width / 2;
+        originY = rect.top + rect.height / 2;
+      }
+    }
+
+    const count = window.innerWidth < 600 ? 55 : 80;
+    for (let i = 0; i < count; i++) {
+      const conf = document.createElement('div');
+      conf.className = 'luxury-confetti-particle';
+      conf.style.position = 'fixed';
+      conf.style.zIndex = '99999';
+      conf.style.left = originX + 'px';
+      conf.style.top = originY + 'px';
+      const width = (5 + Math.random() * 8);
+      const height = (7 + Math.random() * 12);
+      conf.style.width = width + 'px';
+      conf.style.height = height + 'px';
+      conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      conf.style.borderRadius = Math.random() > 0.4 ? '2px' : '50%';
+      conf.style.boxShadow = '0 2px 6px rgba(45, 79, 59, 0.3)';
+      conf.style.pointerEvents = 'none';
+
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 8 + Math.random() * 18;
+      let vx = Math.cos(angle) * velocity;
+      let vy = Math.sin(angle) * velocity - 2.8;
+      let rotation = Math.random() * 360;
+      let rotSpeed = (Math.random() - 0.5) * 16;
+
+      document.body.appendChild(conf);
+
+      let posX = 0;
+      let posY = 0;
+      let opacity = 1;
+
+      const startTime = performance.now();
+      function stepAnim(now) {
+        const elapsed = (now - startTime) / 1000;
+        posX += vx * 0.98;
+        posY += vy;
+        vy += 0.4; // gravity
+        rotation += rotSpeed;
+        opacity -= 0.015;
+
+        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg) scale(${Math.max(0, 1 - elapsed * 0.22)})`;
+        conf.style.opacity = Math.max(0, opacity);
+
+        if (opacity > 0 && posY < window.innerHeight + 100) {
+          requestAnimationFrame(stepAnim);
+        } else {
+          conf.remove();
+        }
+      }
+      requestAnimationFrame(stepAnim);
+    }
+  }
+
   const overlay = document.getElementById('entry-popup-overlay');
   const envelope = document.getElementById('luxury-envelope');
   const waxSealBtn = document.getElementById('wax-seal-btn');
-  const innerSealBtn = document.querySelector('.wax-seal-btn');
-  const envFlap = document.getElementById('env-flap');
   let envelopeOpened = false;
 
   function openEnvelope() {
     if (envelopeOpened) return;
     envelopeOpened = true;
 
-    // 1. Immediately trigger envelope opening animation (bulletproof: runs first!)
+    // Default to English upon opening the invite unless Spanish was explicitly chosen
+    if (!userSelectedLang || currentLang !== 'es') {
+      applyLanguage('en');
+    }
+
+    // 1. Open envelope flap and glide up invitation card
     if (overlay) {
       overlay.classList.add('is-opened');
     }
@@ -531,48 +732,45 @@ function init() {
       envelope.classList.add('is-opened');
     }
 
-    // Maintain user language
+    // 2. Trigger rich celebratory confetti & petals explosion
     try {
-      applyLanguage(currentLang || 'en');
-    } catch (e) {
-      console.warn('[Language error]:', e);
+      if (confettiPetalEngine && typeof confettiPetalEngine.start === 'function') {
+        confettiPetalEngine.start();
+      }
+      triggerSealConfetti();
+    } catch (err) {
+      console.warn('[Confetti notice]:', err);
     }
 
-    // Start background music automatically and ensure music tab is open
+    // 3. Start background music if available
     try {
       playAudio();
-      if (audioBar && audioToggle && audioBar.dataset.userToggled !== 'true') {
-        setCollapsed(audioBar, audioToggle, false, 'Hide music player', 'Show music player');
+      if (expandAudioBarFn) {
+        expandAudioBarFn();
       }
-    } catch (e) {
-      console.warn('[Audio play error]:', e);
-    }
+    } catch (err) {}
 
-    // Trigger celebratory confetti burst radiating from wax seal / center AND top shower
-    try {
-      const sealTarget = document.getElementById('wax-seal-btn') || envelope;
-      triggerConfetti(sealTarget);
-      triggerTopConfettiRain();
-    } catch (e) {
-      console.warn('[Confetti notice]:', e);
-    }
-
-    // 2. Smoothly fade out envelope overlay and unveil main site (1500ms)
+    // 4. Smoothly fade out envelope overlay and unveil main site (1500ms)
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
       }
       document.body.classList.add('site-entered');
+      const themeMeta = document.getElementById('theme-color-meta') || document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.setAttribute('content', '#ffffff');
+      }
       document.documentElement.classList.add('site-entered');
-      startAmbientConfetti();
-      var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', '#09132c');
+      if (expandAudioBarFn) {
+        expandAudioBarFn();
+      }
       window.removeEventListener('wheel', blockScrollUntilEntered);
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
+      triggerScrollReveals();
     }, 1500);
 
-    // 3. Final cleanup of overlay (2350ms)
+    // 5. Final cleanup of overlay (2350ms)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -592,26 +790,25 @@ function init() {
     triggerScrollReveals();
   }
 
-  // Expose on window for inline HTML onclick handlers & console accessibility
-  window.openEnvelope = openEnvelope;
-
-  // Bind click & key triggers to interactive envelope elements (preserving native user gesture context for audio)
   if (waxSealBtn) {
-    waxSealBtn.addEventListener('click', (e) => {
+    const handleSealOpen = (e) => {
       e.stopPropagation();
       openEnvelope();
-    });
-  }
-
-  if (innerSealBtn && innerSealBtn !== waxSealBtn) {
-    innerSealBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openEnvelope();
-    });
+    };
+    waxSealBtn.addEventListener('click', handleSealOpen);
+    waxSealBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      handleSealOpen(e);
+    }, { passive: false });
   }
 
   if (envelope) {
     envelope.addEventListener('click', openEnvelope);
+    envelope.addEventListener('touchend', (e) => {
+      if (!envelopeOpened) {
+        openEnvelope();
+      }
+    }, { passive: true });
     envelope.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -620,17 +817,13 @@ function init() {
     });
   }
 
-  if (overlay) {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        openEnvelope();
-      }
-    });
-  }
-
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SATURDAY, NOV 21, 2026 AT 5:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, JAN 30, 2027 AT 11:30 AM)
      ───────────────────────────────────────────────────────────── */
+  // JavaScript Date: Month is 0-indexed (0 = January)
+  const TARGET_DATE = new Date(2027, 6, 3, 15, 0, 0).getTime();
+  const AFTER_EVENT_MS = 10 * 60 * 60 * 1000;
+
   const elDays = document.getElementById('cd-days');
   const elHours = document.getElementById('cd-hours');
   const elMins = document.getElementById('cd-mins');
@@ -654,7 +847,7 @@ function init() {
 
   function showMessage(key) {
     if (numbersRow) numbersRow.style.display = 'none';
-    const dict = translations[currentLang] || translations.en;
+    const dict = translations[currentLang] || translations.es;
     cdMsgEl.textContent = dict[key] || '';
     cdMsgEl.style.display = '';
   }
@@ -684,15 +877,119 @@ function init() {
   setInterval(updateCountdown, 1000);
 
   /* ─────────────────────────────────────────────────────────────
-     5. SCROLL REVEAL (ALL ELEMENTS VISIBLE IMMEDIATELY)
+     5. SCROLL REVEAL OBSERVER
      ───────────────────────────────────────────────────────────── */
+  let scrollObserver = null;
   function triggerScrollReveals() {
+    if (scrollObserver) {
+      scrollObserver.disconnect();
+    }
+    scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
     document.querySelectorAll('.scroll-fade-in, .scroll-fade-scale').forEach(el => {
-      el.classList.add('is-visible');
+      scrollObserver.observe(el);
     });
   }
 
-  triggerScrollReveals();
+  if (document.body.classList.contains('site-entered')) {
+    triggerScrollReveals();
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     6. AMBIENT BOKEH BACKGROUND CANVAS
+     ───────────────────────────────────────────────────────────── */
+  const ambCanvas = document.getElementById('ambient-canvas');
+  if (ambCanvas) {
+    const ambCtx = ambCanvas.getContext('2d');
+    let ambWidth = (ambCanvas.width = window.innerWidth);
+    let ambHeight = (ambCanvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      ambWidth = ambCanvas.width = window.innerWidth;
+      ambHeight = ambCanvas.height = window.innerHeight;
+    });
+
+    const bokehs = [];
+    const count = window.innerWidth < 600 ? 24 : 40;
+
+    for (let i = 0; i < count; i++) {
+      const isStarSparkle = Math.random() > 0.60;
+      let particleColor;
+      if (isStarSparkle) {
+        // Celestial stars: warm champagne gold or brilliant diamond white
+        particleColor = Math.random() > 0.35 ? '224, 186, 102' : '255, 255, 255';
+      } else {
+        // Soft cloudy bokeh orbs: luminous pearl white, warm champagne, or liquid gold (ZERO BLUE)
+        const r = Math.random();
+        particleColor = r > 0.55 ? '255, 255, 255' : (r > 0.28 ? '245, 230, 190' : '224, 186, 102');
+      }
+
+      bokehs.push({
+        x: Math.random() * ambWidth,
+        y: Math.random() * ambHeight,
+        radius: isStarSparkle ? (Math.random() * 8 + 4) : (Math.random() * 16 + 5),
+        speedY: (Math.random() * 0.20 + 0.05),
+        speedX: (Math.random() - 0.5) * 0.08,
+        baseAlpha: isStarSparkle ? (Math.random() * 0.35 + 0.25) : (Math.random() * 0.22 + 0.08),
+        twinklePhase: Math.random() * Math.PI * 2,
+        twinkleSpeed: Math.random() * 0.02 + 0.008,
+        isStar: isStarSparkle,
+        color: particleColor
+      });
+    }
+
+    function renderBokeh() {
+      if (!ambCanvas.isConnected) return;
+      ambCtx.clearRect(0, 0, ambWidth, ambHeight);
+
+      for (let i = 0; i < bokehs.length; i++) {
+        const b = bokehs[i];
+        b.y += b.speedY;
+        b.x += b.speedX;
+        b.twinklePhase += b.twinkleSpeed;
+
+        if (b.y > ambHeight + 30) b.y = -30;
+        if (b.x > ambWidth + 30) b.x = -30;
+        if (b.x < -30) b.x = ambWidth + 30;
+
+        const dynamicAlpha = Math.max(0.08, Math.min(0.75, b.baseAlpha + Math.sin(b.twinklePhase) * 0.18));
+
+        ambCtx.save();
+        ambCtx.fillStyle = `rgba(${b.color}, ${dynamicAlpha})`;
+        ambCtx.shadowBlur = b.isStar ? 14 : 8;
+        ambCtx.shadowColor = `rgba(${b.color}, 0.7)`;
+
+        if (b.isStar) {
+          // Render delicate 4-point star sparkle
+          const size = Math.max(5.5, b.radius * 1.25);
+          ambCtx.translate(b.x, b.y);
+          ambCtx.beginPath();
+          ambCtx.moveTo(0, -size);
+          ambCtx.quadraticCurveTo(0, 0, size, 0);
+          ambCtx.quadraticCurveTo(0, 0, 0, size);
+          ambCtx.quadraticCurveTo(0, 0, -size, 0);
+          ambCtx.quadraticCurveTo(0, 0, 0, -size);
+          ambCtx.fill();
+        } else {
+          // Render soft bokeh sphere
+          ambCtx.beginPath();
+          ambCtx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+          ambCtx.fill();
+        }
+        ambCtx.restore();
+      }
+
+      requestAnimationFrame(renderBokeh);
+    }
+
+    renderBokeh();
+  }
 
   /* ─────────────────────────────────────────────────────────────
      7. RSVP MODAL & SUBMISSION SYSTEM
@@ -795,12 +1092,12 @@ function init() {
 
       // Confetti celebration if attending
       if (isAttending) {
-        triggerConfetti();
+        triggerRsvpConfetti();
       }
 
       // Tailored feedback display
       if (successAlert) {
-        const dict = translations[currentLang] || translations.en;
+        const dict = translations[currentLang] || translations.es;
         const descP = successAlert.querySelector('p');
         if (descP) {
           descP.textContent = isAttending ? dict['modal-success-desc'] : dict['modal-decline-desc'];
@@ -824,11 +1121,11 @@ function init() {
         : 'Hubo un problema al guardar su respuesta. Por favor verifique su conexión e intente nuevamente.');
       if (btnAccept) {
         btnAccept.disabled = false;
-        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || '✓ YES, ATTENDING';
+        if (!isAttending && originalText) btnAccept.innerHTML = translations[currentLang]?.['btn-accept'] || translations.es['btn-accept'];
       }
       if (btnDecline) {
         btnDecline.disabled = false;
-        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || '✕ CANNOT ATTEND';
+        if (isAttending && originalText) btnDecline.innerHTML = translations[currentLang]?.['btn-decline'] || translations.es['btn-decline'];
       }
       if (targetBtn && originalText) {
         targetBtn.innerHTML = originalText;
@@ -851,222 +1148,32 @@ function init() {
     });
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     CELEBRATION ENGINE CONFIGURATION
-     Options: 'petals' (Option 1: Royal Blue Petals & Gold Leaf)
-              'confetti' (Original party confetti)
-              'embers' (Option 2: Warm Golden Hour Embers)
-              'sparkles' (Option 3: Stardust Sparkles)
-              'none' (No continuous animation)
-     ───────────────────────────────────────────────────────────── */
-  const CELEBRATION_MODE = 'petals';
-  window.CELEBRATION_MODE = CELEBRATION_MODE;
-
-  /* ─────────────────────────────────────────────────────────────
-     BURST & RAIN EFFECTS (WAX SEAL OPENING & RSVP CELEBRATION)
-     ───────────────────────────────────────────────────────────── */
-  function triggerConfetti(originEl) {
-    if (CELEBRATION_MODE === 'none') return;
-    if (CELEBRATION_MODE === 'petals') {
-      triggerPetalBurst(originEl);
-    } else {
-      triggerOriginalConfetti(originEl);
-    }
-  }
-
-  function triggerTopConfettiRain() {
-    if (CELEBRATION_MODE === 'none') return;
-    if (CELEBRATION_MODE === 'petals') {
-      triggerTopPetalShower();
-    } else {
-      triggerOriginalTopRain();
-    }
-  }
-
-  // Option 1: Romantic Velvet Crimson Rose Petal & Gold Leaf Burst from Wax Seal
-  function triggerPetalBurst(originEl) {
-    let originX = window.innerWidth / 2;
-    let originY = window.innerHeight / 2;
-    if (originEl && originEl.getBoundingClientRect) {
-      const rect = originEl.getBoundingClientRect();
-      if (rect.width > 0 && rect.height > 0) {
-        originX = rect.left + rect.width / 2;
-        originY = rect.top + rect.height / 2;
-      }
-    }
-
-    const count = 42;
-    for (let i = 0; i < count; i++) {
-      const petal = document.createElement('div');
-      petal.style.position = 'fixed';
-      petal.style.zIndex = '99999';
-      petal.style.left = originX + 'px';
-      petal.style.top = originY + 'px';
-      petal.style.pointerEvents = 'none';
-
-      const isGold = Math.random() < 0.22;
-      const sizeW = isGold ? (7 + Math.random() * 6) : (11 + Math.random() * 9);
-      const sizeH = isGold ? (8 + Math.random() * 8) : (14 + Math.random() * 11);
-      petal.style.width = sizeW + 'px';
-      petal.style.height = sizeH + 'px';
-
-      if (isGold) {
-        petal.style.background = 'radial-gradient(ellipse at 30% 30%, #fef3c7 0%, #d4af37 60%, #92400e 100%)';
-        petal.style.borderRadius = Math.random() < 0.5 ? '50%' : '3px';
-        petal.style.boxShadow = '0 1px 4px rgba(212, 175, 55, 0.4)';
-      } else {
-        const isDarkWine = Math.random() < 0.35;
-        if (isDarkWine) {
-          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #3b63d6 0%, #1e40af 65%, #0d2b5c 100%)';
-        } else {
-          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #7fa2f5 0%, #4169E1 55%, #1a3a9a 100%)';
-        }
-        // Asymmetrical organic petal curvature
-        petal.style.borderRadius = Math.random() < 0.5
-          ? '65% 35% 60% 40% / 70% 35% 65% 30%'
-          : '35% 65% 40% 60% / 35% 70% 30% 65%';
-        petal.style.boxShadow = '0 2px 7px rgba(13, 43, 92, 0.28)';
-      }
-
-      const angle = Math.random() * Math.PI * 2;
-      const velocity = 5 + Math.random() * 11;
-      let vx = Math.cos(angle) * velocity;
-      let vy = Math.sin(angle) * velocity - 2.5; // slight upward pop
-      let rot = Math.random() * 360;
-      let rotSpeed = (Math.random() - 0.5) * 8;
-      let tilt = Math.random() * Math.PI * 2;
-      let tiltSpeed = 0.05 + Math.random() * 0.08;
-
-      document.body.appendChild(petal);
-
-      let posX = 0;
-      let posY = 0;
-      let opacity = 1;
-
-      const anim = setInterval(() => {
-        posX += vx;
-        posY += vy;
-        vx *= 0.96; // air resistance
-        vy += 0.22; // gentle petal gravity
-        rot += rotSpeed;
-        tilt += tiltSpeed;
-        opacity -= 0.016;
-
-        const flipX = Math.cos(tilt);
-        petal.style.transform = `translate(${posX}px, ${posY}px) rotate(${rot}deg) scaleX(${flipX})`;
-        petal.style.opacity = Math.max(0, opacity);
-
-        if (opacity <= 0) {
-          clearInterval(anim);
-          petal.remove();
-        }
-      }, 16);
-    }
-  }
-
-  // Option 1: Top Petal Shower Cascading Upon Envelope Open
-  function triggerTopPetalShower() {
-    const count = 38;
-    for (let i = 0; i < count; i++) {
-      const petal = document.createElement('div');
-      petal.style.position = 'fixed';
-      petal.style.zIndex = '99999';
-      petal.style.left = (Math.random() * window.innerWidth) + 'px';
-      petal.style.top = (-25 - Math.random() * 80) + 'px';
-      petal.style.pointerEvents = 'none';
-
-      const isGold = Math.random() < 0.20;
-      const sizeW = isGold ? (7 + Math.random() * 6) : (12 + Math.random() * 8);
-      const sizeH = isGold ? (8 + Math.random() * 7) : (15 + Math.random() * 10);
-      petal.style.width = sizeW + 'px';
-      petal.style.height = sizeH + 'px';
-
-      if (isGold) {
-        petal.style.background = 'radial-gradient(ellipse at 30% 30%, #fef3c7 0%, #d4af37 60%, #92400e 100%)';
-        petal.style.borderRadius = Math.random() < 0.5 ? '50%' : '3px';
-        petal.style.boxShadow = '0 1px 4px rgba(212, 175, 55, 0.35)';
-      } else {
-        const isDarkWine = Math.random() < 0.35;
-        if (isDarkWine) {
-          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #3b63d6 0%, #1e40af 65%, #0d2b5c 100%)';
-        } else {
-          petal.style.background = 'radial-gradient(ellipse at 35% 35%, #7fa2f5 0%, #4169E1 55%, #1a3a9a 100%)';
-        }
-        petal.style.borderRadius = Math.random() < 0.5
-          ? '65% 35% 60% 40% / 70% 35% 65% 30%'
-          : '35% 65% 40% 60% / 35% 70% 30% 65%';
-        petal.style.boxShadow = '0 2px 6px rgba(13, 43, 92, 0.22)';
-      }
-
-      let vx = (Math.random() - 0.5) * 2.0;
-      let vy = 1.8 + Math.random() * 3.2; // graceful drifting fall
-      let rot = Math.random() * 360;
-      let rotSpeed = (Math.random() - 0.5) * 5;
-      let tilt = Math.random() * Math.PI * 2;
-      let tiltSpeed = 0.035 + Math.random() * 0.05;
-      let sway = Math.random() * Math.PI * 2;
-
-      document.body.appendChild(petal);
-
-      let posX = 0;
-      let posY = 0;
-      let opacity = 1;
-
-      const startDelay = Math.random() * 450;
-      setTimeout(() => {
-        const anim = setInterval(() => {
-          sway += 0.04;
-          posX += vx + Math.sin(sway) * 0.9;
-          posY += vy;
-          rot += rotSpeed;
-          tilt += tiltSpeed;
-
-          if (posY > window.innerHeight * 0.72) {
-            opacity -= 0.02;
-          }
-
-          const flipX = Math.cos(tilt);
-          petal.style.transform = `translate(${posX}px, ${posY}px) rotate(${rot}deg) scaleX(${flipX})`;
-          petal.style.opacity = Math.max(0, opacity);
-
-          if (opacity <= 0 || posY > window.innerHeight + 50) {
-            clearInterval(anim);
-            petal.remove();
-          }
-        }, 16);
-      }, startDelay);
-    }
-  }
-
-  // Backup Original Confetti Functions (Quickly accessible if user chooses to revert)
-  function triggerOriginalConfetti(originEl) {
-    const confettiColors = ['#1e40af', '#1e3a8a', '#2563eb', '#3b82f6', '#d4af37', '#e5c378', '#fff8ea', '#ffffff', '#c9a86a'];
-    let originX = window.innerWidth / 2;
-    let originY = window.innerHeight / 2;
-    if (originEl && originEl.getBoundingClientRect) {
-      const rect = originEl.getBoundingClientRect();
-      if (rect.width > 0 && rect.height > 0) {
-        originX = rect.left + rect.width / 2;
-        originY = rect.top + rect.height / 2;
-      }
-    }
-    const count = 45;
+  function triggerRsvpConfetti() {
+    const confettiColors = [
+      '#5c8c6f', '#7eaf92', '#3a634a', '#d4af37', '#f5e4bd',
+      '#e8b6bb', '#ffffff', '#fff8ea', '#c99f57', '#f7d6d9', '#ffd700'
+    ];
+    const count = window.innerWidth < 600 ? 55 : 80;
     for (let i = 0; i < count; i++) {
       const conf = document.createElement('div');
+      conf.className = 'luxury-confetti-particle';
       conf.style.position = 'fixed';
-      conf.style.zIndex = '99999';
-      conf.style.left = originX + 'px';
-      conf.style.top = originY + 'px';
-      conf.style.width = (6 + Math.random() * 7) + 'px';
-      conf.style.height = (8 + Math.random() * 10) + 'px';
+      conf.style.zIndex = '9999';
+      conf.style.left = '50%';
+      conf.style.top = '50%';
+      const width = 6 + Math.random() * 8;
+      const height = 8 + Math.random() * 12;
+      conf.style.width = width + 'px';
+      conf.style.height = height + 'px';
       conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-      conf.style.borderRadius = '2px';
+      conf.style.borderRadius = Math.random() > 0.4 ? '2px' : '50%';
       conf.style.pointerEvents = 'none';
+      conf.style.boxShadow = '0 2px 6px rgba(45, 79, 59, 0.3)';
 
       const angle = Math.random() * Math.PI * 2;
-      const velocity = 8 + Math.random() * 12;
+      const velocity = 8 + Math.random() * 16;
       let vx = Math.cos(angle) * velocity;
-      let vy = Math.sin(angle) * velocity;
+      let vy = Math.sin(angle) * velocity - 2.5;
 
       document.body.appendChild(conf);
 
@@ -1075,12 +1182,12 @@ function init() {
       let opacity = 1;
 
       const anim = setInterval(() => {
-        posX += vx;
+        posX += vx * 0.98;
         posY += vy;
-        vy += 0.4;
-        opacity -= 0.02;
+        vy += 0.4; // gravity
+        opacity -= 0.016;
 
-        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 4}deg)`;
+        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 5}deg)`;
         conf.style.opacity = opacity;
 
         if (opacity <= 0) {
@@ -1091,258 +1198,13 @@ function init() {
     }
   }
 
-  function triggerOriginalTopRain() {
-    const confettiColors = ['#d4af37', '#e5c378', '#f9e79f', '#c9a86a', '#1e40af', '#1e3a8a', '#2563eb', '#ffffff', '#fff8ea'];
-    const count = 55;
-    for (let i = 0; i < count; i++) {
-      const conf = document.createElement('div');
-      conf.style.position = 'fixed';
-      conf.style.zIndex = '99999';
-      conf.style.left = (Math.random() * window.innerWidth) + 'px';
-      conf.style.top = (-20 - Math.random() * 60) + 'px';
-      conf.style.width = (6 + Math.random() * 8) + 'px';
-      conf.style.height = (8 + Math.random() * 12) + 'px';
-      conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-      conf.style.borderRadius = Math.random() < 0.25 ? '50%' : '2px';
-      conf.style.pointerEvents = 'none';
-
-      let vx = (Math.random() - 0.5) * 3.0;
-      let vy = 3.5 + Math.random() * 5.5;
-      let rot = Math.random() * 360;
-      let rotSpeed = (Math.random() - 0.5) * 12;
-
-      document.body.appendChild(conf);
-
-      let posX = 0;
-      let posY = 0;
-      let opacity = 1;
-
-      const startDelay = Math.random() * 400;
-      setTimeout(() => {
-        const anim = setInterval(() => {
-          posX += vx;
-          posY += vy;
-          rot += rotSpeed;
-          vy += 0.12;
-          if (posY > window.innerHeight * 0.75) {
-            opacity -= 0.025;
-          }
-
-          conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${rot}deg)`;
-          conf.style.opacity = opacity;
-
-          if (opacity <= 0 || posY > window.innerHeight + 50) {
-            clearInterval(anim);
-            conf.remove();
-          }
-        }, 16);
-      }, startDelay);
-    }
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     CONTINUOUS AMBIENT DRIFTING PETALS & GOLD LEAF ENGINE
-     ───────────────────────────────────────────────────────────── */
-  let ambientAnimationRunning = false;
-  let ambientAnimationAnimId = null;
-
-  function startAmbientConfetti() {
-    if (CELEBRATION_MODE === 'none') return;
-    if (ambientAnimationRunning) return;
-
-    const canvas = document.getElementById('ambient-confetti-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    ambientAnimationRunning = true;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth <= 768;
-
-    // Elegant, tranquil density: ~34 on desktop, ~20 on mobile/reduced motion
-    const particleCount = prefersReducedMotion ? 18 : (isMobile ? 22 : 36);
-
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    function handleResize() {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', handleResize);
-
-    function createPetal(initialY) {
-      const rand = Math.random();
-      const isGoldLeaf = rand < 0.18;
-      const isTwinkleStar = !isGoldLeaf && rand < 0.28;
-      const isBurgundy = !isGoldLeaf && !isTwinkleStar && rand < 0.65;
-      const size = isGoldLeaf ? (7 + Math.random() * 6) : (10 + Math.random() * 8);
-
-      return {
-        x: Math.random() * width,
-        y: initialY !== undefined ? initialY : -20 - Math.random() * 40,
-        size: size,
-        isGoldLeaf: isGoldLeaf,
-        isTwinkleStar: isTwinkleStar,
-        isBurgundy: isBurgundy,
-        vy: 0.55 + Math.random() * 0.75, // slow, peaceful descent
-        sway: Math.random() * Math.PI * 2,
-        swaySpeed: 0.012 + Math.random() * 0.018,
-        swayAmp: 0.65 + Math.random() * 0.85,
-        rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.015,
-        tilt: Math.random() * Math.PI * 2,
-        tiltSpeed: 0.018 + Math.random() * 0.032,
-        opacity: 0.55 + Math.random() * 0.35,
-        starPoints: 4,
-        starInner: size * 0.28,
-        starOuter: size * 0.85
-      };
-    }
-
-    const particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(createPetal(Math.random() * height));
-    }
-
-    function drawStar(c, cx, cy, spikes, outerRadius, innerRadius) {
-      let rot = (Math.PI / 2) * 3;
-      let x = cx;
-      let y = cy;
-      const step = Math.PI / spikes;
-      c.beginPath();
-      c.moveTo(cx, cy - outerRadius);
-      for (let i = 0; i < spikes; i++) {
-        x = cx + Math.cos(rot) * outerRadius;
-        y = cy + Math.sin(rot) * outerRadius;
-        c.lineTo(x, y);
-        rot += step;
-        x = cx + Math.cos(rot) * innerRadius;
-        y = cy + Math.sin(rot) * innerRadius;
-        c.lineTo(x, y);
-        rot += step;
-      }
-      c.lineTo(cx, cy - outerRadius);
-      c.closePath();
-      c.fill();
-    }
-
-    function drawOrganicPetal(c, p) {
-      c.save();
-      c.translate(p.x, p.y);
-      c.rotate(p.rotation);
-
-      // 3D tumble flip along horizontal axis
-      const flipX = Math.cos(p.tilt);
-      c.scale(flipX, 1);
-
-      const s = p.size;
-      c.beginPath();
-      // Organic rose petal contour: narrow base, billowing soft rounded lobes, gentle tip
-      c.moveTo(0, -s * 0.85);
-      c.bezierCurveTo(s * 0.72, -s * 0.65, s * 0.88, s * 0.55, 0, s * 0.95);
-      c.bezierCurveTo(-s * 0.88, s * 0.55, -s * 0.72, -s * 0.65, 0, -s * 0.85);
-      c.closePath();
-
-      // Velvety radial gradient with soft directional lighting
-      const grad = c.createRadialGradient(-s * 0.15, -s * 0.25, s * 0.1, 0, 0, s);
-      if (p.isGoldLeaf) {
-        grad.addColorStop(0, '#fef08a');
-        grad.addColorStop(0.45, '#d4af37');
-        grad.addColorStop(0.85, '#b45309');
-        grad.addColorStop(1, '#78350f');
-      } else if (p.isBurgundy) {
-        grad.addColorStop(0, '#3b63d6');
-        grad.addColorStop(0.5, '#1e40af');
-        grad.addColorStop(0.9, '#12307f');
-        grad.addColorStop(1, '#0a1d52');
-      } else {
-        // Classic royal blue
-        grad.addColorStop(0, '#7fa2f5');
-        grad.addColorStop(0.4, '#4169E1');
-        grad.addColorStop(0.8, '#2447b8');
-        grad.addColorStop(1, '#12307f');
-      }
-
-      c.globalAlpha = p.opacity;
-      c.fillStyle = grad;
-      c.fill();
-
-      // Subtle delicate center crease on larger petals
-      if (!p.isGoldLeaf && s > 11) {
-        c.beginPath();
-        c.moveTo(0, -s * 0.7);
-        c.quadraticCurveTo(s * 0.08, 0, 0, s * 0.75);
-        c.strokeStyle = 'rgba(219, 234, 254, 0.22)';
-        c.lineWidth = 1;
-        c.stroke();
-      }
-
-      c.restore();
-    }
-
-    function render() {
-      if (!ambientAnimationRunning) return;
-
-      if (document.hidden) {
-        ambientAnimationAnimId = requestAnimationFrame(render);
-        return;
-      }
-
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-
-        p.sway += p.swaySpeed;
-        p.tilt += p.tiltSpeed;
-        p.rotation += p.rotationSpeed;
-        p.y += p.vy;
-        p.x += Math.sin(p.sway) * p.swayAmp;
-
-        // Reset particle when it floats past screen bottom
-        if (p.y > height + 25) {
-          particles[i] = createPetal(-20);
-          continue;
-        }
-        if (p.x < -30) p.x = width + 30;
-        else if (p.x > width + 30) p.x = -30;
-
-        if (p.isTwinkleStar) {
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate(p.rotation);
-          const twinkle = 0.4 + 0.6 * Math.sin(p.sway * 2.2);
-          ctx.globalAlpha = p.opacity * twinkle;
-          ctx.fillStyle = '#fef08a';
-          ctx.shadowColor = '#d4af37';
-          ctx.shadowBlur = 6;
-          drawStar(ctx, 0, 0, p.starPoints, p.starOuter * 0.65, p.starInner * 0.65);
-          ctx.restore();
-        } else {
-          drawOrganicPetal(ctx, p);
-        }
-      }
-
-      ambientAnimationAnimId = requestAnimationFrame(render);
-    }
-
-    ambientAnimationAnimId = requestAnimationFrame(render);
-  }
-
-  // Expose on window for manual triggers or inspection
-  window.startAmbientConfetti = startAmbientConfetti;
-  window.startAmbientPetals = startAmbientConfetti;
-
   /* ─────────────────────────────────────────────────────────────
      COPY VENUE ADDRESS FUNCTIONALITY
      ───────────────────────────────────────────────────────────── */
   const copyBtn = document.getElementById('copy-address-btn');
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      const address = copyBtn.getAttribute('data-address') || 'Regency Event Center, 207 E Ferguson Ave, Pharr, TX 78577';
+      const address = copyBtn.getAttribute('data-address') || '3905 Club Rancho Dr, Palmdale, CA 93551';
       const textSpan = copyBtn.querySelector('.copy-btn-text');
       const isEs = document.documentElement.lang === 'es';
 
@@ -1381,16 +1243,4 @@ function init() {
     }
   }
 
-  // Check if site is already entered (e.g., reloaded or bypassed)
-  if (document.body.classList.contains('site-entered')) {
-    startAmbientConfetti();
-  }
-
-}
-
-// Execute immediately if DOM is already ready, otherwise on DOMContentLoaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+});
