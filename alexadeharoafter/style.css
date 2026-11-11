@@ -38,7 +38,8 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   min-height: 100%;
-  background-color: var(--bg-paper);
+  background-color: var(--bg-page);
+  background-image: var(--bg-page-gradient);
 }
 
 body {
@@ -105,17 +106,19 @@ body {
 
 @media (max-width: 600px) {
   html {
-    background-color: var(--bg-paper);
+    background-color: var(--bg-page);
+    background-image: var(--bg-page-gradient);
   }
   body {
-    background: var(--bg-paper);
+    background-color: var(--bg-page);
+    background-image: var(--bg-page-gradient);
   }
   .invitation-card.paper-sheet {
     box-shadow: none;
   }
 }
 
-/* ── Light Blue Corner Floral Bouquets (Resting on Paper Edges) ── */
+/* ── Light Blue Corner Floral Bouquets (Top Corners Only) ── */
 .card-floral {
   position: absolute;
   pointer-events: none;
@@ -133,18 +136,6 @@ body {
   top: 0;
   right: 0;
   width: clamp(115px, 26vw, 170px);
-}
-
-.card-floral.floral-bottom-left {
-  bottom: 0;
-  left: 0;
-  width: clamp(95px, 20vw, 140px);
-}
-
-.card-floral.floral-bottom-right {
-  bottom: 0;
-  right: 0;
-  width: clamp(120px, 26vw, 175px);
 }
 
 .floral-img {
@@ -531,12 +522,6 @@ body {
   .card-floral.floral-top-left,
   .card-floral.floral-top-right {
     width: 100px;
-  }
-  .card-floral.floral-bottom-left {
-    width: 82px;
-  }
-  .card-floral.floral-bottom-right {
-    width: 105px;
   }
   .portrait-arch-frame {
     width: clamp(120px, 18vh, 145px);
