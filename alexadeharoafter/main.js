@@ -110,35 +110,56 @@ document.addEventListener('DOMContentLoaded', () => {
      ───────────────────────────────────────────────────────────── */
   const bgAudio = document.getElementById('bg-audio');
   const audioBar = document.getElementById('audio-control-bar');
+  const audioContent = document.getElementById('audio-collapsible-content');
   const audioToggleBtn = document.getElementById('audio-toggle-btn');
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
   const audioCollapseToggle = document.getElementById('audio-collapse-toggle');
+  const songTicker = document.getElementById('song-title-ticker');
 
   let isAudioPlaying = false;
+  let hasEverPlayed = false;
   let userManuallyPaused = false;
   let wasAudioPlayingBeforeHide = false;
+  let fallbackAttempted = false;
+
+  const SONG_TITLE = 'Siesta Freestyle \u2014 Lewis OfMan';
+  const PROMPT_TITLE = '\u25B6 Tap to Play Music \u266A';
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
-    if (audioToggleBtn) {
-      if (playing) {
+    if (playing) {
+      hasEverPlayed = true;
+      if (audioBar) audioBar.classList.add('is-playing');
+      if (audioToggleBtn) {
         audioToggleBtn.classList.add('playing');
-        if (audioPlayIcon) audioPlayIcon.style.display = 'none';
-        if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
         audioToggleBtn.setAttribute('aria-label', 'Pause music');
-      } else {
+      }
+      if (audioPlayIcon) audioPlayIcon.style.display = 'none';
+      if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
+      if (songTicker) {
+        songTicker.textContent = SONG_TITLE;
+      }
+    } else {
+      if (audioBar) audioBar.classList.remove('is-playing');
+      if (audioToggleBtn) {
         audioToggleBtn.classList.remove('playing');
-        if (audioPlayIcon) audioPlayIcon.style.display = 'inline';
-        if (audioPauseIcon) audioPauseIcon.style.display = 'none';
         audioToggleBtn.setAttribute('aria-label', 'Play music');
       }
+      if (audioPlayIcon) audioPlayIcon.style.display = 'inline';
+      if (audioPauseIcon) audioPauseIcon.style.display = 'none';
+      if (songTicker) {
+        songTicker.textContent = hasEverPlayed ? SONG_TITLE : PROMPT_TITLE;
+      }
     }
+    updateSongTickerOffset();
   }
 
   function playAudio() {
     if (!bgAudio) return;
     bgAudio.volume = 0.85;
+
+    // Direct synchronous play request
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
@@ -146,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
           updatePlayState(true);
         })
         .catch((err) => {
-          // Autoplay was prevented by browser policy (waiting for user interaction)
+          // Autoplay restricted until blessed user gesture
           updatePlayState(false);
         });
     }
@@ -158,6 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePlayState(false);
   }
 
+  function toggleAudio() {
+    if (!bgAudio) return;
+    if (isAudioPlaying) {
+      userManuallyPaused = true;
+      wasAudioPlayingBeforeHide = false;
+      pauseAudio();
+    } else {
+      userManuallyPaused = false;
+      playAudio();
+    }
+  }
+
+  // Audio element listeners
   if (bgAudio) {
     bgAudio.addEventListener('play', () => updatePlayState(true));
     bgAudio.addEventListener('playing', () => updatePlayState(true));
@@ -170,29 +204,46 @@ document.addEventListener('DOMContentLoaded', () => {
       updatePlayState(false);
     });
 
+    // Codec failover: fallback to mp3 if m4a ever reports an error
     bgAudio.addEventListener('error', (e) => {
-      console.warn('[Audio element notice]:', bgAudio.error || e);
-      updatePlayState(false);
+      console.warn('[Audio element error notice]:', bgAudio.error || e);
+      if (!fallbackAttempted) {
+        fallbackAttempted = true;
+        bgAudio.src = 'music/song.mp3?v=3';
+        bgAudio.load();
+        if (!userManuallyPaused) {
+          bgAudio.play().then(() => updatePlayState(true)).catch(() => {});
+        }
+      } else {
+        updatePlayState(false);
+      }
+    });
+  }
+
+  // Clicking anywhere on the pill content toggles play/pause
+  if (audioContent) {
+    audioContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleAudio();
+    });
+    audioContent.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleAudio();
+      }
     });
   }
 
   if (audioToggleBtn) {
     audioToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (isAudioPlaying) {
-        userManuallyPaused = true;
-        wasAudioPlayingBeforeHide = false;
-        pauseAudio();
-      } else {
-        userManuallyPaused = false;
-        playAudio();
-      }
+      toggleAudio();
     });
   }
 
   // Marquee Scroll Offset Calculation
   function updateSongTickerOffset() {
-    const ticker = document.querySelector('.song-title-ticker');
+    const ticker = document.getElementById('song-title-ticker');
     const viewport = document.querySelector('.song-marquee-viewport');
     if (!ticker || !viewport) return;
 
@@ -222,32 +273,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Tapping collapsed bar re-expands it
+  // Tapping collapsed bar re-expands it and starts audio if paused
   if (audioBar) {
-    audioBar.addEventListener('click', (e) => {
+    audioBar.addEventListener('click', () => {
       if (audioBar.classList.contains('collapsed')) {
         setBarCollapsed(false);
+        if (!isAudioPlaying && !userManuallyPaused) {
+          playAudio();
+        }
       }
     });
   }
 
-  // Autoplay / First interaction trigger
-  // 1. Attempt initial autoplay (works on desktop / allowed browsers)
+  // 1. Attempt initial autoplay immediately
   playAudio();
 
-  // 2. Fallback: on first touch / click anywhere, start playing if not playing and not user-paused
-  const interactionEvents = ['touchstart', 'pointerdown', 'click', 'keydown'];
-  function handleFirstInteraction() {
-    interactionEvents.forEach((evt) => {
-      document.removeEventListener(evt, handleFirstInteraction, true);
-    });
-    if (!bgAudio) return;
-    if (bgAudio.paused && !userManuallyPaused) {
-      playAudio();
+  // 2. Gesture unlock listener: iOS Safari requires touchstart / touchend / click
+  const blessedEvents = ['touchstart', 'touchend', 'click'];
+  function unlockOnUserGesture(e) {
+    if (!bgAudio || userManuallyPaused) return;
+
+    // If user clicked the collapse toggle, let that handle collapse
+    if (e.target && audioCollapseToggle && audioCollapseToggle.contains(e.target)) {
+      return;
+    }
+
+    if (bgAudio.paused) {
+      const p = bgAudio.play();
+      if (p !== undefined) {
+        p.then(() => {
+          updatePlayState(true);
+          // Remove listener once successfully playing
+          blessedEvents.forEach((evt) => {
+            document.removeEventListener(evt, unlockOnUserGesture, true);
+          });
+        }).catch(() => {
+          // Keep listening on subsequent gestures
+        });
+      }
+    } else {
+      blessedEvents.forEach((evt) => {
+        document.removeEventListener(evt, unlockOnUserGesture, true);
+      });
     }
   }
-  interactionEvents.forEach((evt) => {
-    document.addEventListener(evt, handleFirstInteraction, { capture: true, once: true });
+
+  blessedEvents.forEach((evt) => {
+    document.addEventListener(evt, unlockOnUserGesture, { capture: true, passive: true });
   });
 
   // Page visibility & app switching
@@ -270,6 +342,10 @@ document.addEventListener('DOMContentLoaded', () => {
     pauseAudio();
   });
 
+  // Initial ticker state
+  if (songTicker) {
+    songTicker.textContent = PROMPT_TITLE;
+  }
   updateSongTickerOffset();
   window.addEventListener('resize', updateSongTickerOffset);
 

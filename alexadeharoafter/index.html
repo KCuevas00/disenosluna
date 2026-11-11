@@ -46,7 +46,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=4.1.0" />
+  <link rel="stylesheet" href="style.css?v=4.2.0" />
 </head>
 
 <body class="theme-light">
@@ -56,7 +56,7 @@
 
   <!-- Floating Audio Controls (Play/Pause & Song Preview Ticker) -->
   <div class="audio-control-bar" id="audio-control-bar" role="region" aria-label="Music Player">
-    <div class="audio-collapsible-content" id="audio-collapsible-content">
+    <div class="audio-collapsible-content" id="audio-collapsible-content" role="button" tabindex="0" aria-label="Play or pause music">
       <button id="audio-toggle-btn" class="audio-btn" type="button" aria-label="Play music"
         title="Play / Pause">
         <span class="audio-play-icon" id="audio-play-icon">▶</span>
@@ -68,7 +68,7 @@
       <div class="song-preview-badge" title="Siesta Freestyle — Lewis OfMan">
         <span class="song-note-icon" aria-hidden="true">♪</span>
         <div class="song-marquee-viewport">
-          <span class="song-title-ticker">Siesta Freestyle &mdash; Lewis OfMan</span>
+          <span class="song-title-ticker" id="song-title-ticker">Siesta Freestyle &mdash; Lewis OfMan</span>
         </div>
       </div>
     </div>
@@ -79,9 +79,9 @@
   </div>
 
   <!-- Background Audio Soundtrack -->
-  <audio id="bg-audio" preload="auto" playsinline webkit-playsinline loop>
-    <source src="music/song.m4a?v=2" type="audio/mp4" />
-    <source src="music/song.mp3?v=2" type="audio/mpeg" />
+  <audio id="bg-audio" src="music/song.m4a?v=3" preload="auto" playsinline webkit-playsinline loop>
+    <source src="music/song.m4a?v=3" type="audio/mp4" />
+    <source src="music/song.mp3?v=3" type="audio/mpeg" />
   </audio>
 
   <!-- Main Container: Stretched top to bottom like a sheet of paper -->
@@ -190,7 +190,7 @@
 
   </main>
 
-  <script src="main.js?v=4.1.0"></script>
+  <script src="main.js?v=4.2.0"></script>
 </body>
 
 </html>
