@@ -287,8 +287,8 @@ body {
   font-size: clamp(2.2rem, 7.0vw, 2.85rem);
   font-weight: 400;
   line-height: 1.05;
-  color: var(--text-script);
-  text-shadow: 0 2px 10px rgba(0, 142, 183, 0.25);
+  color: #000000;
+  text-shadow: none;
   margin-bottom: 0.35rem;
 }
 
