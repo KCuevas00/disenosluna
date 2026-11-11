@@ -2876,48 +2876,26 @@ body.site-entered .site-footer p {
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background-color: #fbf7ee !important;
+  background-color: #f7f4ee !important;
   background-image:
-    /* Luminous sunlit glow directly behind the envelope */
-    radial-gradient(ellipse 65% 52% at 50% 46%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 28%, rgba(253, 248, 238, 0.60) 55%, transparent 78%),
-    /* Soft billowy cumulus cloud mist around perimeter */
-    radial-gradient(ellipse 65% 35% at 15% 10%, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.25) 45%, transparent 75%),
-    radial-gradient(ellipse 60% 32% at 85% 12%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.20) 45%, transparent 70%),
-    radial-gradient(ellipse 70% 38% at 50% 98%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 45%, transparent 80%),
-    radial-gradient(ellipse 55% 30% at 8% 85%, rgba(255, 255, 255, 0.60) 0%, transparent 70%),
-    radial-gradient(ellipse 55% 30% at 92% 82%, rgba(255, 255, 255, 0.55) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 25% at 50% 3%, rgba(255, 255, 255, 0.60) 0%, transparent 65%),
-    /* Royal powder-blue sky foundation */
-    linear-gradient(180deg, #fbf7ee 0%, #f5ebd8 25%, #efe0c6 55%, #f6ecd9 100%) !important;
+    /* Editorial fine art vignette emphasizing the central envelope */
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255, 255, 255, 0.20) 0%, rgba(212, 175, 55, 0.04) 65%, rgba(60, 45, 20, 0.16) 100%),
+    url('photos/flatlay-backdrop.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
 
-/* Ambient stardust shimmering dust veil */
-.entry-overlay::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle 1.5px at 20% 30%, rgba(255, 255, 255, 0.95) 0%, transparent 100%),
-    radial-gradient(circle 2px at 75% 25%, rgba(212, 175, 55, 0.85) 0%, transparent 100%),
-    radial-gradient(circle 1.5px at 40% 70%, rgba(224, 186, 102, 0.90) 0%, transparent 100%),
-    radial-gradient(circle 2.5px at 85% 65%, rgba(224, 186, 102, 0.85) 0%, transparent 100%),
-    radial-gradient(circle 1.5px at 12% 85%, rgba(255, 255, 255, 0.90) 0%, transparent 100%),
-    radial-gradient(circle 2px at 60% 15%, rgba(212, 175, 55, 0.80) 0%, transparent 100%),
-    radial-gradient(circle 1.5px at 30% 90%, rgba(224, 186, 102, 0.90) 0%, transparent 100%);
-  opacity: 0.65;
-  z-index: 1;
+/* Hide plain procedural stardust overlays so the photographic flatlay shines */
+.entry-overlay::before,
+.entry-overlay::after {
+  display: none !important;
 }
 
-.entry-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 65%);
-  opacity: 0.9;
-  z-index: 2;
+.entry-twilight-elements,
+#ambient-canvas {
+  display: none !important;
 }
 
 .entry-overlay.fade-out {
