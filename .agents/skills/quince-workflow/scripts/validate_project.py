@@ -10,6 +10,9 @@ import re
 import html.parser
 import subprocess
 
+if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 class HTMLValidator(html.parser.HTMLParser):
     def __init__(self):
         super().__init__()

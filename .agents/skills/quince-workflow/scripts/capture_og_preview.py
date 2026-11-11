@@ -16,10 +16,24 @@ def capture_og(project_dir, port=8099):
     server_proc = subprocess.Popen(server_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(1.2)
 
-    chrome_bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    if not os.path.exists(chrome_bin):
-        # Fallback to standard PATH search
-        chrome_bin = "google-chrome"
+    chrome_bin = None
+    candidates = [
+        r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
+        r'C:\Program Files\Google\Chrome\Application\chrome.exe',
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        'google-chrome',
+        'chrome',
+        r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
+        r'C:\Program Files\Microsoft\Edge\Application\msedge.exe',
+        'msedge'
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            chrome_bin = c
+            break
+
+    if not chrome_bin:
+        chrome_bin = 'chrome'
 
     raw_shot = os.path.join(abs_dir, "temp_og_shot.png")
     chrome_cmd = [

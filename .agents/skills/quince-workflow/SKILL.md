@@ -85,13 +85,16 @@ flowchart TD
 ## Phase 2: Project Scaffolding
 
 1. **Target Directory Naming Convention**:
-   - The target folder must be named using the celebrant's **first and last name** in all lowercase alphanumeric characters (e.g., `rebeccagamboa/`, `dianalucero/`, `mariagomez/`).
-   - Do NOT include middle names, accents, spaces, or special characters in the folder name.
-2. Copy template files from the base template folder into `<target>/`:
-   - Exclude any `.bak`, `.tmp`, or `.DS_Store` files.
+   - Create a folder in disenosluna/quincelandingpage/<firstnamelastname> (e.g., ictoriarosales/, lexadeharo/, dianalucero/).
+   - The target folder must strictly follow the celebrant's **first and last name** in all lowercase alphanumeric characters with no spaces, accents, or special characters.
+2. **Copy Base Template**:
+   - Copy template files from the chosen base template folder (e.g. lexadeharo/ or dianalucero/) into <target>/.
+   - Exclude any .bak, .tmp, or .DS_Store files.
    - Do NOT modify any files in the source template directory.
-3. Save the full raw client order form and package details into `<target>/README.md`:
-   - Must explicitly include `Selected Package: Basic ($55)` or `Selected Package: Premium ($70)`.
+3. **Full Form Retention in README & Guarantee**:
+   - Save the full raw client order form verbatim into <target>/README.md.
+   - Must explicitly include Selected Package: Basic () or Selected Package: Premium ().
+   - **Form Implementation Guarantee**: Make sure absolutely everything provided in the intake form is accurately implemented into the site.
 
 ---
 
@@ -167,8 +170,9 @@ flowchart TD
      - `--bg-page-gradient`.
    - Monogram letter gradients (`.rsvp-char`, `.court-char`, `.c-initial`).
    - SVG wax seal gradients matching the theme.
-3. **Recolor Floral Dividers & Wax Seal**:
-   - Run [scripts/recolor_florals.py](./scripts/recolor_florals.py) to shift foliage hues in `photos/floral-divider.png` and `photos/wax-seal.png` using smoothstep masking without distorting gold stems or transparent pixels.
+3. **Regenerate & Recolor Flowers & Wax Seal**:
+   - Regenerate or recolor the flowers and floral assets using the given theme field and colors (e.g. generate or recolor botanical watercolor corners, divider floral arrangements, and wax seal to harmonize with the theme, strictly avoiding any forbidden colors specified such as Forest Green).
+   - Use [scripts/recolor_florals.py](./scripts/recolor_florals.py) or generate new floral assets matching the theme.
 
 ---
 
