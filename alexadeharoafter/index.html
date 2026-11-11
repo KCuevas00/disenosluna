@@ -54,83 +54,104 @@
   <!-- Ambient background canvas -->
   <canvas id="ambient-canvas" aria-hidden="true"></canvas>
 
-  <!-- Main Container -->
+  <!-- Main Container: Stretched top to bottom like a sheet of paper -->
   <main class="page-container">
 
-    <article class="editorial-card" id="invitation-card">
+    <article class="invitation-card paper-sheet" id="invitation-card">
 
-      <!-- ── PORTRAIT PANEL (Left on Desktop / Top on Mobile) ── -->
-      <section class="editorial-media-panel" aria-label="Photo of Alexa">
-        <img src="photos/celebrant.jpg?v=6" alt="Alexa S. Laco Deharo in teal gown" class="editorial-portrait-img" />
-        <div class="editorial-portrait-overlay" aria-hidden="true"></div>
-        <div class="editorial-gold-seam" aria-hidden="true"></div>
-      </section>
+      <!-- Light Blue Corner Floral Bouquets (Top Corners Only) -->
+      <div class="card-floral floral-top-left" aria-hidden="true">
+        <img src="photos/rose-corner-tl.png?v=3" alt="" class="floral-img" />
+      </div>
+      <div class="card-floral floral-top-right" aria-hidden="true">
+        <img src="photos/rose-corner-tr.png?v=3" alt="" class="floral-img" />
+      </div>
 
-      <!-- ── STATIONERY CONTENT PANEL (Right on Desktop / Bottom on Mobile) ── -->
-      <section class="editorial-content-panel" aria-label="Event Details">
-        
-        <!-- Corner Roses -->
-        <div class="panel-floral floral-tr" aria-hidden="true">
-          <img src="photos/rose-corner-tr.png?v=3" alt="" class="floral-img" />
-        </div>
-        <div class="panel-floral floral-br" aria-hidden="true">
-          <img src="photos/rose-corner-br.png?v=3" alt="" class="floral-img" />
-        </div>
+      <!-- Inner Content -->
+      <div class="card-inner-content">
 
-        <div class="panel-inner">
-          
-          <!-- Header -->
-          <header class="panel-header">
-            <p class="panel-supertitle">QUINCEAÑERA</p>
-            <h1 class="panel-title-main">
-              <span class="title-bold">AFTER</span>
-              <span class="title-script">Party</span>
-            </h1>
-            <p class="panel-subtitle">CELEBRATION</p>
-            <div class="panel-fleuron" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
-          </header>
+        <!-- Headline Typography -->
+        <header class="card-header">
+          <p class="card-supertitle">QUINCEAÑERA</p>
+          <h1 class="card-title-main">
+            <span class="title-bold">AFTER</span>
+            <span class="title-script">Party</span>
+          </h1>
+          <p class="card-subtitle">CELEBRATION</p>
+        </header>
 
-          <!-- Honoring / Name -->
-          <div class="panel-honoring-block">
-            <p class="panel-honoring-label">HONORING</p>
-            <h2 class="panel-celebrant-name">Alexa S. Laco Deharo</h2>
+        <!-- Celebrant Portrait Arch (Archway Tile Floor Image) -->
+        <section class="portrait-section" aria-label="Photo of Alexa">
+          <div class="portrait-arch-frame">
+            <img src="photos/celebrant.jpg?v=6" alt="Alexa S. Laco Deharo in teal gown" class="portrait-img" />
           </div>
+        </section>
 
-          <!-- Date Badge Box -->
-          <div class="panel-date-box">
-            <span class="panel-date-item">SATURDAY</span>
-            <span class="panel-date-dot" aria-hidden="true">✦</span>
-            <span class="panel-date-item">JANUARY 30, 2027</span>
+        <!-- Honoring / Celebrant Name Section (Moved Under Portrait) -->
+        <section class="name-section" aria-label="Honoring Alexa S. Laco Deharo">
+          <div class="fleuron-divider name-fleuron" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+          <p class="card-honoring">HONORING</p>
+          <h2 class="celebrant-name">Alexa S.<br />Laco Deharo</h2>
+        </section>
+
+        <!-- Event Details: Date & Time -->
+        <section class="details-section" aria-label="Event Date and Time">
+          <p class="event-day-name">SATURDAY</p>
+          <div class="date-badge-row">
+            <span class="date-badge-month">JANUARY</span>
+            <span class="date-badge-num">30</span>
+            <span class="date-badge-year">2027</span>
           </div>
-
-          <!-- Obvious Big Bold Black Time -->
-          <div class="panel-time-highlight">
+          <div class="fleuron-divider small-fleuron" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+          <div class="event-time-highlight">
             <span>6:30 PM &ndash; 11:00 PM</span>
           </div>
+        </section>
 
-          <!-- Venue & Directions -->
-          <footer class="panel-venue-footer">
-            <div class="panel-venue-row">
-              <span class="venue-main-name">Rancho Vista Golf Club</span>
-              <span class="venue-separator" aria-hidden="true">✦</span>
-              <span class="venue-city">Palmdale, CA</span>
+        <!-- Venue Section with Golf Club Photo (Matching Main Invite Design) -->
+        <section class="venue-section" aria-label="Venue">
+          
+          <div class="venue-stage venue-stage-reception">
+            
+            <!-- Left: Venue details & Maps Link -->
+            <div class="venue-copy">
+              <div class="venue-header-row">
+                <span class="venue-role-badge">Reception Venue</span>
+                <span class="venue-sparkle" aria-hidden="true">✦</span>
+              </div>
+              <h3 class="venue-title">RANCHO VISTA<br />GOLF CLUB</h3>
+              <p class="venue-address">3905 Club Rancho Dr<br />Palmdale, CA 93551</p>
+
+              <!-- Quiet Underlined Map Link (Open in Maps) -->
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                id="map-link-btn" target="_blank" rel="noopener noreferrer" class="venue-elegant-map-btn"
+                aria-label="Open Rancho Vista Golf Club in Maps">
+                <span>OPEN IN MAPS</span>
+                <span class="arrow-char" aria-hidden="true">&rarr;</span>
+              </a>
             </div>
-            <p class="panel-venue-address">3905 Club Rancho Dr</p>
 
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
-              data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
-              id="map-link-btn" target="_blank" rel="noopener noreferrer" class="panel-map-btn"
-              aria-label="Open Rancho Vista Golf Club in Maps">
-              <span>OPEN IN MAPS</span>
-              <span class="arrow-char" aria-hidden="true">&rarr;</span>
-            </a>
-          </footer>
+            <!-- Right: Rancho Vista Golf Club Photo in Arch with Gold Tiara Crest -->
+            <div class="venue-arch-container">
+              <div class="venue-crown-accent" aria-hidden="true">
+                <img src="photos/crown-flourish.svg" alt="" width="56" height="38" />
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                target="_blank" rel="noopener noreferrer" class="venue-map-arch venue-photo-arch"
+                aria-label="Rancho Vista Golf Club on Maps">
+                <img src="photos/venue-reception.jpg" alt="Rancho Vista Golf Club" class="venue-arch-img reception-photo" />
+              </a>
+            </div>
 
-        </div><!-- /.panel-inner -->
+          </div>
 
-      </section><!-- /.editorial-content-panel -->
+        </section>
 
-    </article><!-- /.editorial-card -->
+      </div><!-- /.card-inner-content -->
+
+    </article><!-- /.invitation-card -->
 
   </main>
 
