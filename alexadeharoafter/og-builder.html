@@ -27,9 +27,9 @@
       background: #fdfbf7 radial-gradient(ellipse at 70% 30%, #ffffff 0%, #fdfbf7 60%, #f4ede1 100%);
     }
 
-    /* ── LEFT SIDE: Full-Bleed Portrait with Vignette & Arch Glow ── */
+    /* ── LEFT SIDE: Full-Bleed Portrait of Alexa ── */
     .og-left {
-      width: 480px;
+      width: 520px;
       height: 630px;
       position: relative;
       overflow: hidden;
@@ -40,13 +40,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center 28%;
       display: block;
     }
     .og-portrait-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(7,42,53,0.1) 0%, rgba(7,42,53,0) 70%, rgba(253,251,247,0.85) 98%, rgba(253,251,247,1) 100%);
+      background: linear-gradient(90deg, rgba(7,42,53,0.08) 0%, rgba(7,42,53,0) 70%, rgba(253,251,247,0.85) 98%, rgba(253,251,247,1) 100%);
       pointer-events: none;
     }
     .og-gold-seam {
@@ -56,11 +56,11 @@
       right: 0;
       width: 3px;
       background: linear-gradient(180deg, #fdf5e2 0%, #c99f57 30%, #8c6f23 70%, #c99f57 100%);
-      box-shadow: 0 0 12px rgba(201, 159, 87, 0.6);
+      box-shadow: 0 0 14px rgba(201, 159, 87, 0.7);
       z-index: 5;
     }
 
-    /* ── RIGHT SIDE: Luxury Stationery Presentation ── */
+    /* ── RIGHT SIDE: "You're Invited to the After Party" ── */
     .og-right {
       flex: 1;
       height: 630px;
@@ -70,7 +70,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px 60px;
+      padding: 50px 70px;
       z-index: 2;
     }
 
@@ -79,7 +79,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 170px;
+      width: 180px;
       pointer-events: none;
       filter: drop-shadow(0 6px 14px rgba(7, 42, 53, 0.12));
     }
@@ -87,136 +87,99 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 175px;
+      width: 185px;
       pointer-events: none;
       filter: drop-shadow(0 6px 14px rgba(7, 42, 53, 0.12));
     }
 
-    /* Typography */
+    /* Typography Hierarchy */
     .og-supertitle {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.38em;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
       color: #c99f57;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
+
+    .og-invited-script {
+      font-family: 'Alex Brush', cursive;
+      font-size: 5.4rem;
+      font-weight: 400;
+      color: #008eb7;
+      line-height: 1;
+      margin-bottom: 2px;
+      text-shadow: 0 2px 14px rgba(0, 142, 183, 0.25);
+    }
+
+    .og-to-the {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #072a35;
+      margin: 6px 0 10px;
+    }
+
     .og-title-main {
       display: flex;
       align-items: baseline;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
+
     .og-title-bold {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 3.4rem;
+      font-size: 4.2rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: #072a35;
     }
+
     .og-title-script {
       font-family: 'Alex Brush', cursive;
-      font-size: 4.4rem;
+      font-size: 5.2rem;
       font-weight: 400;
       color: #008eb7;
       transform: rotate(-3deg);
       display: inline-block;
     }
-    .og-subtitle {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.18rem;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: #072a35;
-      margin-bottom: 12px;
-    }
+
     .og-fleuron {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       letter-spacing: 0.35em;
       color: #c99f57;
-      margin-bottom: 12px;
+      margin: 10px 0 16px;
+      opacity: 0.9;
     }
 
-    .og-honoring {
+    .og-celebrant-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .og-celebrant-label {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.34em;
+      letter-spacing: 0.36em;
       text-transform: uppercase;
       color: #537582;
-      margin-bottom: 2px;
-    }
-    .og-name {
-      font-family: 'Alex Brush', cursive;
-      font-size: 3.8rem;
-      font-weight: 400;
-      line-height: 1.05;
-      color: #008eb7;
-      text-shadow: 0 2px 10px rgba(0, 142, 183, 0.22);
-      margin-bottom: 18px;
     }
 
-    /* Date & Time Row */
-    .og-date-box {
-      width: 100%;
-      max-width: 480px;
-      border-top: 1.5px solid rgba(201, 159, 87, 0.65);
-      border-bottom: 1.5px solid rgba(201, 159, 87, 0.65);
-      padding: 10px 16px;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-    }
-    .og-date-text {
+    .og-celebrant-name {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.35rem;
+      font-size: 2.1rem;
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #072a35;
-    }
-    .og-date-divider {
-      color: #c99f57;
-      font-size: 1rem;
-    }
-
-    /* Big Bold Black Time */
-    .og-time-val {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.95rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #000000;
       line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    /* Venue details */
-    .og-venue {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #072a35;
-    }
-    .og-venue-dot {
-      color: #008eb7;
-      font-size: 0.75rem;
-    }
-    .og-location {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: #537582;
-      margin-top: 3px;
     }
   </style>
 </head>
@@ -230,39 +193,28 @@
       <div class="og-gold-seam"></div>
     </div>
 
-    <!-- RIGHT: Invitation Content -->
+    <!-- RIGHT: "You're Invited to the After Party" -->
     <div class="og-right">
       <img src="photos/rose-corner-tr.png" alt="" class="og-corner-tr">
       <img src="photos/rose-corner-br.png" alt="" class="og-corner-br">
 
       <p class="og-supertitle">QUINCEAÑERA</p>
+      
+      <div class="og-invited-script">You're Invited</div>
+      
+      <p class="og-to-the">TO THE</p>
+      
       <div class="og-title-main">
         <span class="og-title-bold">AFTER</span>
         <span class="og-title-script">Party</span>
       </div>
-      <p class="og-subtitle">CELEBRATION</p>
+
       <div class="og-fleuron" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
 
-      <p class="og-honoring">HONORING</p>
-      <h1 class="og-name">Alexa S. Laco Deharo</h1>
-
-      <!-- Date Box -->
-      <div class="og-date-box">
-        <span class="og-date-text">SATURDAY</span>
-        <span class="og-date-divider">✦</span>
-        <span class="og-date-text">JANUARY 30, 2027</span>
+      <div class="og-celebrant-row">
+        <span class="og-celebrant-label">HONORING</span>
+        <span class="og-celebrant-name">Alexa S. Laco Deharo</span>
       </div>
-
-      <!-- Prominent Time -->
-      <div class="og-time-val">6:30 PM &ndash; 11:00 PM</div>
-
-      <!-- Venue -->
-      <div class="og-venue">
-        <span>Rancho Vista Golf Club</span>
-        <span class="og-venue-dot">✦</span>
-        <span>Palmdale, CA</span>
-      </div>
-      <div class="og-location">3905 Club Rancho Dr</div>
 
     </div>
 
