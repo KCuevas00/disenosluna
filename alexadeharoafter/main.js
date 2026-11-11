@@ -125,14 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastToggleTime = 0;
 
   const SONG_TITLE = 'Siesta Freestyle \u2014 Lewis OfMan';
+  const PROMPT_TITLE = 'Touch to Play \u266A';
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
-    if (songTicker) {
-      songTicker.textContent = SONG_TITLE;
-    }
     if (playing) {
       hasEverPlayed = true;
+      if (songTicker) {
+        songTicker.textContent = SONG_TITLE;
+        songTicker.classList.remove('is-prompt');
+      }
       if (audioBar) audioBar.classList.add('is-playing');
       if (audioToggleBtn) {
         audioToggleBtn.classList.add('playing');
@@ -141,6 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (audioPlayIcon) audioPlayIcon.style.display = 'none';
       if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
     } else {
+      if (songTicker) {
+        songTicker.textContent = hasEverPlayed ? SONG_TITLE : PROMPT_TITLE;
+        if (!hasEverPlayed) {
+          songTicker.classList.add('is-prompt');
+        } else {
+          songTicker.classList.remove('is-prompt');
+        }
+      }
       if (audioBar) audioBar.classList.remove('is-playing');
       if (audioToggleBtn) {
         audioToggleBtn.classList.remove('playing');
@@ -353,7 +363,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial ticker state
   if (songTicker) {
-    songTicker.textContent = SONG_TITLE;
+    songTicker.textContent = PROMPT_TITLE;
+    songTicker.classList.add('is-prompt');
   }
   updateSongTickerOffset();
   window.addEventListener('resize', updateSongTickerOffset);

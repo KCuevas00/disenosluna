@@ -737,6 +737,18 @@ body {
   animation: songTickerPingPong 7.5s ease-in-out infinite;
 }
 
+.song-title-ticker.is-prompt {
+  color: var(--gold-primary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  animation: promptPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes promptPulse {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.97); }
+}
+
 @keyframes songTickerPingPong {
   0%, 25% { transform: translateX(0); }
   50%, 72% { transform: translateX(var(--scroll-offset, -60px)); }
