@@ -46,7 +46,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=4.2.0" />
+  <link rel="stylesheet" href="style.css?v=4.4.0" />
 </head>
 
 <body class="theme-light">
@@ -184,13 +184,77 @@
 
         </section>
 
+        <!-- RSVP Trigger Section -->
+        <div class="after-rsvp-wrapper">
+          <button type="button" id="open-rsvp-btn" class="after-rsvp-btn" aria-label="RSVP to After Party">
+            <span class="rsvp-sparkle" aria-hidden="true">✦</span>
+            <span>RSVP TO AFTER PARTY</span>
+            <span class="rsvp-btn-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+
       </div><!-- /.card-inner-content -->
 
     </article><!-- /.invitation-card -->
 
   </main>
 
-  <script src="main.js?v=4.2.0"></script>
+  <!-- Interactive RSVP Modal -->
+  <div id="rsvp-modal" class="rsvp-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Confirm Attendance for After Party">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="close-modal-btn" aria-label="Close RSVP form">&times;</button>
+      
+      <div class="modal-header">
+        <span class="modal-badge">AFTER PARTY</span>
+        <h3 class="modal-title">Confirm Attendance</h3>
+        <p class="modal-subtitle">Saturday, January 30, 2027 &bull; 6:30 PM &ndash; 11:00 PM<br />Rancho Vista Golf Club</p>
+      </div>
+
+      <form id="rsvp-form" class="modal-form" novalidate>
+        <div class="form-group">
+          <label for="guest-fullname">Your Full Name *</label>
+          <input type="text" id="guest-fullname" name="fullname" placeholder="e.g. Jessica Ramirez" required autocomplete="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="guest-phone">Phone Number (Optional)</label>
+          <input type="tel" id="guest-phone" name="phone" placeholder="(661) 555-0192" autocomplete="tel" />
+        </div>
+
+        <div class="form-group">
+          <label for="guest-party-size">Party Size</label>
+          <select id="guest-party-size" name="partySize">
+            <option value="1" selected>1 Guest (Just Me)</option>
+            <option value="2">2 Guests (+1)</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ Guests</option>
+          </select>
+        </div>
+
+        <div class="rsvp-action-buttons">
+          <button type="button" class="btn-rsvp-action btn-rsvp-accept" id="btn-rsvp-accept">
+            <span class="btn-rsvp-icon">✓</span>
+            <span class="btn-rsvp-text">YES, I'LL BE THERE</span>
+          </button>
+          <button type="button" class="btn-rsvp-action btn-rsvp-decline" id="btn-rsvp-decline">
+            <span class="btn-rsvp-icon">✕</span>
+            <span class="btn-rsvp-text">CANNOT ATTEND</span>
+          </button>
+        </div>
+
+        <!-- Success Alert -->
+        <div class="modal-success-alert" id="modal-success-alert" hidden>
+          <div class="success-icon-badge">✓</div>
+          <h4 id="modal-success-title">You're on the List!</h4>
+          <p id="modal-success-desc">Your RSVP has been saved. See you at the after party!</p>
+          <button type="button" class="btn-modal-done" id="btn-modal-done">CLOSE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js?v=4.4.0"></script>
 </body>
 
 </html>

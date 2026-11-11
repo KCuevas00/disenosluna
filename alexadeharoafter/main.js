@@ -349,4 +349,213 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSongTickerOffset();
   window.addEventListener('resize', updateSongTickerOffset);
 
+  /* ─────────────────────────────────────────────────────────────
+     4. RSVP MODAL & SUBMISSION SYSTEM (Same Google Sheet)
+     ───────────────────────────────────────────────────────────── */
+  const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLfCAhh7jIMivx0ru1eMGB5on5PS6N1NCoOfSbM4tnGo-ESCpsQJ4uaK8pNIPL/exec';
+  const EVENT_SLUG = 'alexadeharo';
+  const CLIENT_NAME = "Alexa S. Laco Deharo's Quinceañera (Maricarmen Deharo)";
+
+  const openRsvpBtn = document.getElementById('open-rsvp-btn');
+  const rsvpModal = document.getElementById('rsvp-modal');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  const btnModalDone = document.getElementById('btn-modal-done');
+  const rsvpForm = document.getElementById('rsvp-form');
+  const btnAccept = document.getElementById('btn-rsvp-accept');
+  const btnDecline = document.getElementById('btn-rsvp-decline');
+  const successAlert = document.getElementById('modal-success-alert');
+  const successDesc = document.getElementById('modal-success-desc');
+
+  function openRsvpModal() {
+    if (!rsvpModal) return;
+    rsvpModal.classList.add('is-active');
+    rsvpModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    if (successAlert) successAlert.hidden = true;
+    if (rsvpForm) {
+      const fieldGroups = rsvpForm.querySelectorAll('.form-group, .rsvp-action-buttons');
+      fieldGroups.forEach(g => g.style.display = '');
+    }
+    const nameInput = document.getElementById('guest-fullname');
+    if (nameInput) {
+      setTimeout(() => nameInput.focus(), 150);
+    }
+  }
+
+  function closeRsvpModal() {
+    if (!rsvpModal) return;
+    rsvpModal.classList.remove('is-active');
+    rsvpModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  if (openRsvpBtn) openRsvpBtn.addEventListener('click', openRsvpModal);
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeRsvpModal);
+  if (btnModalDone) btnModalDone.addEventListener('click', closeRsvpModal);
+
+  if (rsvpModal) {
+    rsvpModal.addEventListener('click', (e) => {
+      if (e.target === rsvpModal) closeRsvpModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && rsvpModal && rsvpModal.classList.contains('is-active')) {
+      closeRsvpModal();
+    }
+  });
+
+  async function processRsvp(isAttending) {
+    const nameInput = document.getElementById('guest-fullname');
+    const phoneInput = document.getElementById('guest-phone');
+    const partySelect = document.getElementById('guest-party-size');
+
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+    const partyVal = partySelect ? partySelect.value : (isAttending ? '1' : '0');
+
+    if (!nameVal) {
+      if (nameInput) {
+        nameInput.focus();
+        nameInput.classList.add('input-error');
+        setTimeout(() => nameInput.classList.remove('input-error'), 1200);
+      }
+      return;
+    }
+
+    const payload = {
+      eventSlug: EVENT_SLUG,
+      clientName: CLIENT_NAME,
+      submittedAt: new Date().toISOString(),
+      fullname: nameVal,
+      contact: phoneVal || 'Confirmed via Web',
+      phone: phoneVal,
+      email: '',
+      attendance: isAttending ? 'Joyfully Accept (After Party)' : 'Regretfully Decline (After Party)',
+      partySize: isAttending ? partyVal : '0',
+      guests: isAttending ? partyVal : '0',
+      notes: isAttending ? 'AFTER PARTY RSVP' : 'AFTER PARTY RSVP - Cannot attend',
+      guestName: nameVal,
+      name: nameVal,
+      attendance_es: isAttending ? 'Sí, Asistirá (After Party)' : 'No Podrá Asistir (After Party)',
+      attending: isAttending ? 'Yes (After Party)' : 'No (After Party)',
+      eventType: 'After Party',
+      wishes: '',
+      song: '',
+      message: ''
+    };
+
+    const targetBtn = isAttending ? btnAccept : btnDecline;
+    const originalText = targetBtn ? targetBtn.innerHTML : '';
+
+    if (btnAccept) btnAccept.disabled = true;
+    if (btnDecline) btnDecline.disabled = true;
+
+    if (targetBtn) {
+      targetBtn.innerHTML = '<span>Saving...</span>';
+    }
+
+    try {
+      if (GOOGLE_SHEETS_RSVP_URL && GOOGLE_SHEETS_RSVP_URL.trim() !== '') {
+        await fetch(GOOGLE_SHEETS_RSVP_URL.trim(), {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+      }
+
+      if (successAlert) {
+        if (successDesc) {
+          successDesc.textContent = isAttending
+            ? `Thanks ${nameVal}! You're on the list with ${partyVal} guest${partyVal === '1' ? '' : 's'}. See you at the after party!`
+            : `Thanks for letting us know, ${nameVal}. You will be missed!`;
+        }
+        if (rsvpForm) {
+          const fieldGroups = rsvpForm.querySelectorAll('.form-group, .rsvp-action-buttons');
+          fieldGroups.forEach(g => g.style.display = 'none');
+        }
+        successAlert.hidden = false;
+        if (isAttending) {
+          triggerRsvpConfetti();
+        }
+      }
+    } catch (err) {
+      console.error('[RSVP Error]:', err);
+      if (successAlert) {
+        if (rsvpForm) {
+          const fieldGroups = rsvpForm.querySelectorAll('.form-group, .rsvp-action-buttons');
+          fieldGroups.forEach(g => g.style.display = 'none');
+        }
+        successAlert.hidden = false;
+      }
+    } finally {
+      if (btnAccept) btnAccept.disabled = false;
+      if (btnDecline) btnDecline.disabled = false;
+      if (targetBtn) targetBtn.innerHTML = originalText;
+    }
+  }
+
+  if (btnAccept) {
+    btnAccept.addEventListener('click', (e) => {
+      e.preventDefault();
+      processRsvp(true);
+    });
+  }
+
+  if (btnDecline) {
+    btnDecline.addEventListener('click', (e) => {
+      e.preventDefault();
+      processRsvp(false);
+    });
+  }
+
+  function triggerRsvpConfetti() {
+    const confettiColors = ['#008eb7', '#00b0d8', '#c99f57', '#ffd700', '#fdf5e2', '#ffffff', '#b8dfea'];
+    const count = window.innerWidth < 600 ? 50 : 75;
+    for (let i = 0; i < count; i++) {
+      const conf = document.createElement('div');
+      conf.style.position = 'fixed';
+      conf.style.zIndex = '9999';
+      conf.style.left = '50%';
+      conf.style.top = '50%';
+      const width = 6 + Math.random() * 8;
+      const height = 8 + Math.random() * 12;
+      conf.style.width = width + 'px';
+      conf.style.height = height + 'px';
+      conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      conf.style.borderRadius = Math.random() > 0.4 ? '2px' : '50%';
+      conf.style.pointerEvents = 'none';
+      conf.style.boxShadow = '0 2px 8px rgba(0, 142, 183, 0.35)';
+
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 8 + Math.random() * 16;
+      let vx = Math.cos(angle) * velocity;
+      let vy = Math.sin(angle) * velocity - 2.5;
+
+      document.body.appendChild(conf);
+
+      let posX = 0;
+      let posY = 0;
+      let opacity = 1;
+
+      const anim = setInterval(() => {
+        posX += vx * 0.98;
+        posY += vy;
+        vy += 0.4;
+        opacity -= 0.016;
+
+        conf.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 5}deg)`;
+        conf.style.opacity = opacity;
+
+        if (opacity <= 0) {
+          clearInterval(anim);
+          conf.remove();
+        }
+      }, 16);
+    }
+  }
+
 });
