@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('[Audio element error notice]:', bgAudio.error || e);
       if (!fallbackAttempted) {
         fallbackAttempted = true;
-        bgAudio.src = 'music/song.mp3?v=3';
+        bgAudio.src = 'music/song.mp3?v=5';
         bgAudio.load();
         if (!userManuallyPaused) {
           bgAudio.play().then(() => updatePlayState(true)).catch(() => {});

@@ -833,61 +833,117 @@ body {
 }
 
 /* ═════════════════════════════════════════════════════════════════════
-   AFTER PARTY RSVP BUTTON & MODAL
+   AFTER PARTY RSVP (FANCY RSVP HERE LETTERS & MODAL)
    ═════════════════════════════════════════════════════════════════════ */
 .after-rsvp-wrapper {
-  margin-top: clamp(0.25rem, 0.9vh, 0.6rem);
+  margin-top: clamp(0.2rem, 0.7vh, 0.5rem);
   width: 100%;
-  max-width: 320px;
   display: flex;
   justify-content: center;
   z-index: 10;
 }
 
-.after-rsvp-btn {
+.after-rsvp-fancy-btn {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  max-width: 270px;
-  padding: clamp(0.48rem, 1vh, 0.65rem) 1.2rem;
-  background: var(--btn-primary-bg);
-  color: #ffffff;
-  border: 1px solid rgba(201, 159, 87, 0.45);
-  border-radius: 999px;
-  font-family: var(--font-sans);
-  font-size: clamp(0.68rem, 1.8vw, 0.74rem);
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 142, 183, 0.28), 0 2px 6px rgba(7, 42, 53, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease;
+  position: relative;
 }
 
-.after-rsvp-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 142, 183, 0.38);
+.after-rsvp-fancy-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 159, 87, 0.55), transparent);
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
-.after-rsvp-btn:active {
-  transform: scale(0.98);
+.after-rsvp-fancy-btn:hover::after {
+  width: 95%;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
 }
 
-.after-rsvp-btn .rsvp-sparkle {
-  color: #fdf5e2;
-  font-size: 0.72rem;
+.after-rsvp-fancy-btn:hover {
+  transform: translateY(-2px);
 }
 
-.after-rsvp-btn .rsvp-btn-arrow {
-  font-size: 0.85rem;
+.after-rsvp-fancy-btn:active {
+  transform: scale(0.97);
+}
+
+.fancy-rsvp-sparkle {
+  color: var(--gold-primary);
+  font-size: 0.7rem;
+  align-self: center;
+  opacity: 0.85;
+}
+
+.fancy-rsvp-letters {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.08rem;
+  letter-spacing: 0.08em;
+}
+
+.fancy-rsvp-char {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 3.6vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(165deg, #072a35 0%, #1f5060 40%, #008eb7 75%, #c99f57 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(7, 42, 53, 0.15));
+  display: inline-block;
   transition: transform 0.2s ease;
 }
 
-.after-rsvp-btn:hover .rsvp-btn-arrow {
-  transform: translateX(3px);
+.after-rsvp-fancy-btn:hover .fancy-rsvp-char {
+  transform: translateY(-1px);
+}
+
+.fancy-rsvp-here {
+  font-family: var(--font-script);
+  font-size: clamp(1.65rem, 4.4vw, 2.05rem);
+  color: var(--text-script);
+  line-height: 1;
+  margin-left: 0.15rem;
+  font-weight: 400;
+  display: inline-block;
+  transform: rotate(-3deg);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.after-rsvp-fancy-btn:hover .fancy-rsvp-here {
+  transform: rotate(0deg) scale(1.05);
+  color: #00a4cc;
+}
+
+.fancy-rsvp-arrow {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--gold-primary);
+  align-self: center;
+  line-height: 1;
+  margin-left: 0.15rem;
+  transition: transform 0.25s ease;
+}
+
+.after-rsvp-fancy-btn:hover .fancy-rsvp-arrow {
+  transform: translateX(4px);
 }
 
 /* Modal Overlay */
