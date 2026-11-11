@@ -126,13 +126,25 @@ body {
 .card-floral.floral-top-left {
   top: 0;
   left: 0;
-  width: clamp(130px, 30vw, 185px);
+  width: clamp(115px, 26vw, 170px);
+}
+
+.card-floral.floral-top-right {
+  top: 0;
+  right: 0;
+  width: clamp(115px, 26vw, 170px);
+}
+
+.card-floral.floral-bottom-left {
+  bottom: 0;
+  left: 0;
+  width: clamp(95px, 20vw, 140px);
 }
 
 .card-floral.floral-bottom-right {
   bottom: 0;
   right: 0;
-  width: clamp(140px, 32vw, 195px);
+  width: clamp(120px, 26vw, 175px);
 }
 
 .floral-img {
@@ -516,11 +528,15 @@ body {
   .invitation-card.paper-sheet {
     padding: clamp(1.2rem, 2.5vh, 1.8rem) 1.1rem;
   }
-  .card-floral.floral-top-left {
-    width: 110px;
+  .card-floral.floral-top-left,
+  .card-floral.floral-top-right {
+    width: 100px;
+  }
+  .card-floral.floral-bottom-left {
+    width: 82px;
   }
   .card-floral.floral-bottom-right {
-    width: 120px;
+    width: 105px;
   }
   .portrait-arch-frame {
     width: clamp(120px, 18vh, 145px);
