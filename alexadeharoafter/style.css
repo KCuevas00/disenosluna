@@ -319,6 +319,24 @@ body {
   padding: 0 0.3rem;
 }
 
+/* ── Event Time Highlight (Circled Section: Black Text) ── */
+.event-time-highlight {
+  margin: clamp(0.2rem, 0.7vh, 0.45rem) 0 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.event-time-highlight span {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 3.8vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  color: #000000; /* Explicit black text as requested */
+  line-height: 1.15;
+}
+
 /* ── Venue Section (Matching Main Invitation Design / Attachment 1) ── */
 .venue-section {
   width: 100%;
@@ -334,7 +352,7 @@ body {
   width: 100%;
 }
 
-/* Left: Venue details & Big Prominent Time */
+/* Left: Venue details & Maps Link */
 .venue-copy {
   flex: 1;
   display: flex;
@@ -386,22 +404,7 @@ body {
   letter-spacing: 0.01em;
   line-height: 1.35;
   color: #334155;
-  margin-bottom: 0.65rem;
-}
-
-/* ── Obvious Big Time (Framed between gold hairlines like Attachment 1) ── */
-.venue-time-tag {
-  width: 100%;
-  border-top: 1px solid rgba(201, 159, 87, 0.75);
-  border-bottom: 1px solid rgba(201, 159, 87, 0.75);
-  padding: 0.4rem 0.1rem;
-  font-family: var(--font-serif);
-  font-size: clamp(1.22rem, 3.6vw, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #8c6f23;
-  margin-bottom: 0.75rem;
-  text-align: left;
+  margin-bottom: clamp(0.65rem, 1.5vh, 1.0rem);
 }
 
 /* ── Elegant Maps Link (Quiet underlined link like Attachment 1) ── */
