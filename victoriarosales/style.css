@@ -5972,16 +5972,26 @@ body.og-preview-mode .entry-lang-picker {
 }
 
 .venue-stage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  gap: 1.25rem;
-  max-width: 500px;
+  justify-content: center;
+  gap: 1.4rem;
+  max-width: 480px;
   width: 100%;
   margin: 1.2rem auto 0;
+  padding-top: 10px;
   position: relative;
   box-sizing: border-box;
+}
+
+@media (min-width: 540px) {
+  .venue-stage {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
 .venue-stage-church {
@@ -6141,19 +6151,24 @@ body.og-preview-mode .entry-lang-picker {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #b38b3f;
   text-transform: uppercase;
-  margin: 0 auto 0.65rem;
+  margin: 0 auto 0.45rem;
   background: rgba(212, 175, 55, 0.10);
-  padding: 0.22rem 0.55rem;
+  padding: 0.28rem 0.65rem;
   border-radius: 6px;
   border: 1px solid rgba(212, 175, 55, 0.25);
-  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .venue-time-tag svg {
@@ -6196,7 +6211,8 @@ body.og-preview-mode .entry-lang-picker {
   }
 
   .venue-stage {
-    gap: 0.85rem;
+    flex-direction: column !important;
+    gap: 1.1rem;
     max-width: 100%;
   }
 
@@ -6210,19 +6226,9 @@ body.og-preview-mode .entry-lang-picker {
   }
 
   .venue-stage-church .venue-map-arch {
-    width: 120px;
-    height: 150px;
-    border-radius: 60px 60px 14px 14px;
-    box-shadow:
-      0 8px 18px rgba(157, 116, 26, 0.14),
-      0 0 0 1.2px #d4af37,
-      0 0 0 2.8px #ffffff;
-  }
-
-  .venue-stage-reception .venue-map-arch {
-    width: 130px;
-    height: 140px;
-    border-radius: 48px 48px 14px 14px;
+    width: 140px;
+    height: 170px;
+    border-radius: 70px 70px 16px 16px;
     box-shadow:
       0 8px 18px rgba(157, 116, 26, 0.14),
       0 0 0 1.2px #d4af37,
@@ -6235,28 +6241,28 @@ body.og-preview-mode .entry-lang-picker {
   }
 
   .venue-title {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.18;
     margin: 0.1rem 0 0.2rem;
   }
 
   .venue-address {
-    font-size: 0.68rem;
-    line-height: 1.32;
-    margin-bottom: 0.35rem;
+    font-size: 0.70rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
   }
 
   .venue-time-tag {
     font-size: 0.68rem;
-    padding: 0.18rem 0.45rem;
-    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 0.45rem;
   }
 
   .venue-elegant-map-btn {
-    padding: 0.36rem 0.8rem;
-    font-size: 0.60rem;
+    padding: 0.4rem 0.95rem;
+    font-size: 0.62rem;
     letter-spacing: 0.08em;
-    gap: 4px;
+    gap: 5px;
   }
 }
 
