@@ -124,10 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let fallbackAttempted = false;
 
   const SONG_TITLE = 'Siesta Freestyle \u2014 Lewis OfMan';
-  const PROMPT_TITLE = '\u25B6 Tap to Play Music \u266A';
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
+    if (songTicker) {
+      songTicker.textContent = SONG_TITLE;
+    }
     if (playing) {
       hasEverPlayed = true;
       if (audioBar) audioBar.classList.add('is-playing');
@@ -137,9 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (audioPlayIcon) audioPlayIcon.style.display = 'none';
       if (audioPauseIcon) audioPauseIcon.style.display = 'inline';
-      if (songTicker) {
-        songTicker.textContent = SONG_TITLE;
-      }
     } else {
       if (audioBar) audioBar.classList.remove('is-playing');
       if (audioToggleBtn) {
@@ -148,9 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (audioPlayIcon) audioPlayIcon.style.display = 'inline';
       if (audioPauseIcon) audioPauseIcon.style.display = 'none';
-      if (songTicker) {
-        songTicker.textContent = hasEverPlayed ? SONG_TITLE : PROMPT_TITLE;
-      }
     }
     updateSongTickerOffset();
   }
@@ -285,41 +281,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 1. Attempt initial autoplay immediately
-  playAudio();
-
-  // 2. Gesture unlock listener: iOS Safari requires touchstart / touchend / click
-  const blessedEvents = ['touchstart', 'touchend', 'click'];
-  function unlockOnUserGesture(e) {
+  // Immediate Autoplay & Universal First-Interaction Unlock
+  function attemptDirectAutoplay() {
     if (!bgAudio || userManuallyPaused) return;
+    playAudio();
+  }
 
-    // If user clicked the collapse toggle, let that handle collapse
-    if (e.target && audioCollapseToggle && audioCollapseToggle.contains(e.target)) {
-      return;
-    }
+  // 1. Fire immediately
+  attemptDirectAutoplay();
+
+  // 2. Lifecycle triggers
+  window.addEventListener('load', attemptDirectAutoplay);
+  window.addEventListener('pageshow', attemptDirectAutoplay);
+  document.addEventListener('DOMContentLoaded', attemptDirectAutoplay);
+
+  // 3. Fallback gesture unlock for mobile browsers enforcing user activation
+  const autoUnlockEvents = ['touchstart', 'touchend', 'click', 'scroll', 'touchmove', 'pointerdown'];
+  function unlockAudio(e) {
+    if (!bgAudio || userManuallyPaused) return;
+    if (e.target && audioCollapseToggle && audioCollapseToggle.contains(e.target)) return;
 
     if (bgAudio.paused) {
+      bgAudio.volume = 0.85;
       const p = bgAudio.play();
       if (p !== undefined) {
         p.then(() => {
           updatePlayState(true);
-          // Remove listener once successfully playing
-          blessedEvents.forEach((evt) => {
-            document.removeEventListener(evt, unlockOnUserGesture, true);
+          autoUnlockEvents.forEach((evt) => {
+            window.removeEventListener(evt, unlockAudio, true);
+            document.removeEventListener(evt, unlockAudio, true);
           });
-        }).catch(() => {
-          // Keep listening on subsequent gestures
-        });
+        }).catch(() => {});
       }
     } else {
-      blessedEvents.forEach((evt) => {
-        document.removeEventListener(evt, unlockOnUserGesture, true);
+      autoUnlockEvents.forEach((evt) => {
+        window.removeEventListener(evt, unlockAudio, true);
+        document.removeEventListener(evt, unlockAudio, true);
       });
     }
   }
 
-  blessedEvents.forEach((evt) => {
-    document.addEventListener(evt, unlockOnUserGesture, { capture: true, passive: true });
+  autoUnlockEvents.forEach((evt) => {
+    window.addEventListener(evt, unlockAudio, { capture: true, passive: true });
+    document.addEventListener(evt, unlockAudio, { capture: true, passive: true });
   });
 
   // Page visibility & app switching
@@ -344,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial ticker state
   if (songTicker) {
-    songTicker.textContent = PROMPT_TITLE;
+    songTicker.textContent = SONG_TITLE;
   }
   updateSongTickerOffset();
   window.addEventListener('resize', updateSongTickerOffset);
