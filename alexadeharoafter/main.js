@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let userManuallyPaused = false;
   let wasAudioPlayingBeforeHide = false;
   let fallbackAttempted = false;
+  let lastToggleTime = 0;
 
   const SONG_TITLE = 'Siesta Freestyle \u2014 Lewis OfMan';
 
@@ -177,13 +178,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleAudio() {
     if (!bgAudio) return;
-    if (isAudioPlaying) {
+    const now = Date.now();
+    // Debounce to prevent rapid double-trigger glitches (touch + synthetic click)
+    if (now - lastToggleTime < 350) return;
+    lastToggleTime = now;
+
+    // Always check actual paused state on the audio element
+    if (!bgAudio.paused) {
       userManuallyPaused = true;
       wasAudioPlayingBeforeHide = false;
       pauseAudio();
     } else {
       userManuallyPaused = false;
       playAudio();
+      removeUnlockListeners();
     }
   }
 
@@ -205,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('[Audio element error notice]:', bgAudio.error || e);
       if (!fallbackAttempted) {
         fallbackAttempted = true;
-        bgAudio.src = 'music/song.mp3?v=5';
+        bgAudio.src = 'music/song.mp3?v=8';
         bgAudio.load();
         if (!userManuallyPaused) {
           bgAudio.play().then(() => updatePlayState(true)).catch(() => {});
@@ -216,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Clicking anywhere on the pill content toggles play/pause
+  // Clicking anywhere on the pill content toggles play/pause smoothly
   if (audioContent) {
     audioContent.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -225,15 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
     audioContent.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
+        e.stopPropagation();
         toggleAudio();
       }
-    });
-  }
-
-  if (audioToggleBtn) {
-    audioToggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleAudio();
     });
   }
 
@@ -297,9 +299,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Fallback gesture unlock for mobile browsers enforcing user activation
   const autoUnlockEvents = ['touchstart', 'touchend', 'click', 'scroll', 'touchmove', 'pointerdown'];
+
+  function removeUnlockListeners() {
+    autoUnlockEvents.forEach((evt) => {
+      window.removeEventListener(evt, unlockAudio, { capture: true });
+      document.removeEventListener(evt, unlockAudio, { capture: true });
+    });
+  }
+
   function unlockAudio(e) {
     if (!bgAudio || userManuallyPaused) return;
-    if (e.target && audioCollapseToggle && audioCollapseToggle.contains(e.target)) return;
+    // CRITICAL FIX: If user tapped on ANY part of the music player, let the dedicated toggle handler take care of it
+    if (e.target && audioBar && audioBar.contains(e.target)) return;
 
     if (bgAudio.paused) {
       bgAudio.volume = 0.85;
@@ -307,17 +318,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (p !== undefined) {
         p.then(() => {
           updatePlayState(true);
-          autoUnlockEvents.forEach((evt) => {
-            window.removeEventListener(evt, unlockAudio, true);
-            document.removeEventListener(evt, unlockAudio, true);
-          });
+          removeUnlockListeners();
         }).catch(() => {});
       }
     } else {
-      autoUnlockEvents.forEach((evt) => {
-        window.removeEventListener(evt, unlockAudio, true);
-        document.removeEventListener(evt, unlockAudio, true);
-      });
+      removeUnlockListeners();
     }
   }
 
