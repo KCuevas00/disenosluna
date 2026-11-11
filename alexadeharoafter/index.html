@@ -18,8 +18,8 @@
   <meta property="og:title" content="Alexa S. Laco Deharo — After Party" />
   <meta property="og:description"
     content="Join us for Alexa's Quinceañera After Party on Saturday, January 30, 2027 from 6:30 PM to 11:00 PM at Rancho Vista Golf Club." />
-  <meta property="og:image" content="https://disenosluna.com/alexadeharoafter/photos/og-preview.jpg?v=4" />
-  <meta property="og:image:secure_url" content="https://disenosluna.com/alexadeharoafter/photos/og-preview.jpg?v=4" />
+  <meta property="og:image" content="https://disenosluna.com/alexadeharoafter/photos/og-preview.jpg?v=5" />
+  <meta property="og:image:secure_url" content="https://disenosluna.com/alexadeharoafter/photos/og-preview.jpg?v=5" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -31,7 +31,7 @@
   <meta name="twitter:title" content="Alexa S. Laco Deharo — After Party" />
   <meta name="twitter:description"
     content="Join us for Alexa's Quinceañera After Party on Saturday, January 30, 2027 from 6:30 PM to 11:00 PM at Rancho Vista Golf Club." />
-  <meta name="twitter:image" content="https://disenosluna.com/alexadeharoafter/photos/og-preview.jpg?v=4" />
+  <meta name="twitter:image" content="https://disenosluna.com/alexadeharoafter/photos/og-preview.jpg?v=5" />
 
   <!-- Favicon / Apple Touch Icon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3" />
@@ -45,12 +45,12 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=3.0.0" />
+  <link rel="stylesheet" href="style.css?v=4.0.0" />
 </head>
 
 <body class="theme-light">
 
-  <!-- Ambient canvas for soft background bokeh -->
+  <!-- Ambient background canvas -->
   <canvas id="ambient-canvas" aria-hidden="true"></canvas>
 
   <!-- Main Container: Stretched top to bottom like a sheet of paper -->
@@ -89,41 +89,61 @@
           </div>
         </section>
 
-        <!-- Event Details: Date & Time Badge -->
-        <section class="details-section" aria-label="Event Date & Time">
+        <!-- Event Details: Date -->
+        <section class="details-section" aria-label="Event Date">
           <p class="event-day-name">SATURDAY</p>
-
           <div class="date-badge-row">
             <span class="date-badge-month">JANUARY</span>
             <span class="date-badge-num">30</span>
-            <span class="date-badge-time">6:30 – 11 PM</span>
+            <span class="date-badge-year">2027</span>
           </div>
-
-          <p class="event-year">2027</p>
-
           <div class="fleuron-divider small-fleuron" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
         </section>
 
-        <!-- Venue & Location -->
-        <section class="venue-section" aria-label="Venue and Location">
-          <h3 class="venue-name">Rancho Vista Golf Club</h3>
-          <p class="venue-address">3905 Club Rancho Dr<br />Palmdale, CA 93551</p>
+        <!-- Venue Section with Golf Club Photo and Obvious Big Time (Matching Main Invite Design) -->
+        <section class="venue-section" aria-label="Venue and Time">
+          
+          <div class="venue-stage venue-stage-reception">
+            
+            <!-- Left: Venue details & Prominent Time between gold hairlines -->
+            <div class="venue-copy">
+              <div class="venue-header-row">
+                <span class="venue-role-badge">Reception Venue</span>
+                <span class="venue-sparkle" aria-hidden="true">✦</span>
+              </div>
+              <h3 class="venue-title">RANCHO VISTA<br />GOLF CLUB</h3>
+              <p class="venue-address">3905 Club Rancho Dr<br />Palmdale, CA 93551</p>
 
-          <p class="venue-note">Join us to celebrate with music, drinks, and dancing from 6:30 PM to 11:00 PM!</p>
+              <!-- Prominent, Obvious Big Time (between two gold hairlines) -->
+              <div class="venue-time-tag">
+                <span>6:30 PM &ndash; 11:00 PM</span>
+              </div>
 
-          <!-- Single Clean Action Button -->
-          <div class="action-buttons-group">
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
-              data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
-              id="map-link-btn" target="_blank" rel="noopener noreferrer" class="cta-button primary-btn"
-              aria-label="Open directions to Rancho Vista Golf Club">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
-              </svg>
-              <span>GET DIRECTIONS</span>
-            </a>
+              <!-- Quiet Underlined Map Link (Open in Maps) -->
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                id="map-link-btn" target="_blank" rel="noopener noreferrer" class="venue-elegant-map-btn"
+                aria-label="Open Rancho Vista Golf Club in Maps">
+                <span>OPEN IN MAPS</span>
+                <span class="arrow-char" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Right: Rancho Vista Golf Club Photo in Arch with Gold Tiara Crest -->
+            <div class="venue-arch-container">
+              <div class="venue-crown-accent" aria-hidden="true">
+                <img src="photos/crown-flourish.svg" alt="" width="56" height="38" />
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                data-apple-url="https://maps.apple.com/?q=Rancho+Vista+Golf+Club,+3905+Club+Rancho+Dr,+Palmdale,+CA+93551"
+                target="_blank" rel="noopener noreferrer" class="venue-map-arch venue-photo-arch"
+                aria-label="Rancho Vista Golf Club on Maps">
+                <img src="photos/venue-reception.jpg" alt="Rancho Vista Golf Club" class="venue-arch-img reception-photo" />
+              </a>
+            </div>
+
           </div>
+
         </section>
 
       </div><!-- /.card-inner-content -->
@@ -132,7 +152,7 @@
 
   </main>
 
-  <script src="main.js?v=3.0.0"></script>
+  <script src="main.js?v=4.0.0"></script>
 </body>
 
 </html>

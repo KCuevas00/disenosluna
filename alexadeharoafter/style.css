@@ -18,9 +18,9 @@
   --bg-page: #c5e4ee;
   --bg-page-gradient: linear-gradient(180deg, #c5e4ee 0%, #b8dfea 25%, #aedbe7 55%, #bfe2ed 100%);
   
-  /* Luxury Stationery Paper Texture */
+  /* Luxury Stationery Paper */
   --bg-paper: #fdfbf7;
-  --bg-paper-gradient: radial-gradient(ellipse at 50% 25%, #ffffff 0%, #fdfbf7 55%, #f6f1e6 100%);
+  --bg-paper-gradient: radial-gradient(ellipse at 50% 20%, #ffffff 0%, #fdfbf7 55%, #f6f1e6 100%);
   
   --text-dark: #072a35;
   --text-medium: #1f5060;
@@ -90,16 +90,17 @@ body {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
+  height: 100dvh;
   background-color: var(--bg-paper);
   background-image: var(--bg-paper-gradient);
   border: none !important; /* NO gold border */
   border-radius: 0; /* Stretches edge-to-edge top to bottom */
   box-shadow: 0 0 60px rgba(7, 42, 53, 0.16);
-  padding: clamp(2.4rem, 5.5vh, 3.8rem) clamp(1.4rem, 5vw, 2.4rem) clamp(2.4rem, 5.5vh, 3.8rem);
+  padding: clamp(1.4rem, 3.2vh, 2.2rem) clamp(1.2rem, 4vw, 1.8rem);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 @media (max-width: 600px) {
@@ -125,13 +126,13 @@ body {
 .card-floral.floral-top-left {
   top: 0;
   left: 0;
-  width: clamp(140px, 32vw, 195px);
+  width: clamp(130px, 30vw, 185px);
 }
 
 .card-floral.floral-bottom-right {
   bottom: 0;
   right: 0;
-  width: clamp(150px, 34vw, 205px);
+  width: clamp(140px, 32vw, 195px);
 }
 
 .floral-img {
@@ -150,36 +151,37 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
-  margin: auto 0;
+  height: 100%;
+  justify-content: space-evenly;
 }
 
 /* ── Typography & Header ── */
 .card-header {
-  margin-bottom: 1.1rem;
+  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
 }
 
 .card-supertitle {
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--gold-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .card-title-main {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
   line-height: 1;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .title-bold {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 8vw, 3.2rem);
+  font-size: clamp(2.0rem, 7vw, 2.7rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--text-dark);
@@ -187,7 +189,7 @@ body {
 
 .title-script {
   font-family: var(--font-script);
-  font-size: clamp(3.0rem, 10vw, 4.0rem);
+  font-size: clamp(2.6rem, 8.5vw, 3.4rem);
   font-weight: 400;
   color: var(--text-script);
   transform: rotate(-3deg);
@@ -197,45 +199,45 @@ body {
 
 .card-subtitle {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--text-dark);
-  margin-top: 0.3rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.3rem;
 }
 
 .fleuron-divider {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   letter-spacing: 0.3em;
   color: var(--gold-primary);
-  margin: 0.35rem 0 0.45rem;
+  margin: 0.2rem 0 0.3rem;
   opacity: 0.85;
 }
 
 .fleuron-divider.small-fleuron {
-  margin: 0.6rem 0 0.2rem;
+  margin: 0.35rem 0 0.15rem;
 }
 
 .card-honoring {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
 }
 
 .celebrant-name {
   font-family: var(--font-script);
-  font-size: clamp(2.6rem, 8.5vw, 3.5rem);
+  font-size: clamp(2.2rem, 7vw, 2.9rem);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--text-script);
   text-shadow: 0 2px 10px rgba(0, 142, 183, 0.25);
-  margin-bottom: 1.1rem;
+  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
 }
 
 /* ── Celebrant Portrait (Archway Tile Floor Image) ── */
@@ -243,13 +245,13 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 1.35rem;
+  margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
 }
 
 .portrait-arch-frame {
-  width: clamp(155px, 25vh, 185px);
-  height: clamp(205px, 32vh, 240px);
-  border-radius: 92px 92px 14px 14px;
+  width: clamp(120px, 17vh, 155px);
+  height: clamp(155px, 23vh, 200px);
+  border-radius: 80px 80px 14px 14px;
   overflow: hidden;
   position: relative;
   border: 2px solid var(--gold-primary);
@@ -270,39 +272,39 @@ body {
   transform: scale(1.04);
 }
 
-/* ── Date & Time Section ── */
+/* ── Date Section ── */
 .details-section {
   width: 100%;
-  max-width: 380px;
-  margin-bottom: 1.2rem;
+  max-width: 360px;
+  margin-bottom: 1.1rem;
 }
 
 .event-day-name {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--gold-primary);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
 }
 
 .date-badge-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
-  padding: 0.45rem 0.5rem;
+  gap: 0.85rem;
+  padding: 0.4rem 0.5rem;
   border-top: 1px solid rgba(201, 159, 87, 0.55);
   border-bottom: 1px solid rgba(201, 159, 87, 0.55);
   margin: 0.2rem 0;
 }
 
 .date-badge-month,
-.date-badge-time {
+.date-badge-year {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-dark);
@@ -314,119 +316,232 @@ body {
   font-weight: 700;
   line-height: 1;
   color: var(--text-script);
-  padding: 0 0.4rem;
+  padding: 0 0.3rem;
 }
 
-.event-year {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  color: var(--text-medium);
-  margin-top: 0.45rem;
-}
-
-/* ── Venue Section ── */
+/* ── Venue Section (Matching Main Invitation Design / Attachment 1) ── */
 .venue-section {
   width: 100%;
-  max-width: 380px;
-  margin-bottom: 0.8rem;
+  max-width: 440px;
+  margin-top: clamp(0.2rem, 1vh, 0.6rem);
 }
 
-.venue-name {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--text-dark);
-  margin-bottom: 0.25rem;
-}
-
-.venue-address {
-  font-family: var(--font-sans);
-  font-size: 0.86rem;
-  line-height: 1.45;
-  color: var(--text-medium);
-  margin-bottom: 0.65rem;
-}
-
-.venue-note {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--text-muted);
-  max-width: 320px;
-  margin: 0.5rem auto 1.4rem;
-}
-
-/* ── Action Button ── */
-.action-buttons-group {
+.venue-stage-reception {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.1rem;
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
 }
 
-.cta-button {
+/* Left: Venue details & Big Prominent Time */
+.venue-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 0;
+}
+
+.venue-header-row {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  width: 100%;
-  min-height: 44px;
-  padding: 0.65rem 1.6rem;
-  border-radius: 999px;
-  font-family: var(--font-sans);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: var(--transition-smooth);
+  gap: 0.45rem;
+  margin-bottom: 0.15rem;
 }
 
-.cta-button:hover {
+.venue-role-badge {
+  font-family: var(--font-script);
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-script);
+  display: inline-block;
+}
+
+.venue-sparkle {
+  color: var(--text-script);
+  font-size: 0.75rem;
+  opacity: 0.8;
   transform: translateY(-2px);
 }
 
-.primary-btn {
-  background: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  box-shadow: 0 4px 16px rgba(0, 142, 183, 0.35);
+.venue-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.18;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
 }
 
-.primary-btn:hover {
-  box-shadow: 0 8px 24px rgba(0, 142, 183, 0.5);
+.venue-address {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: #334155;
+  margin-bottom: 0.65rem;
+}
+
+/* ── Obvious Big Time (Framed between gold hairlines like Attachment 1) ── */
+.venue-time-tag {
+  width: 100%;
+  border-top: 1px solid rgba(201, 159, 87, 0.75);
+  border-bottom: 1px solid rgba(201, 159, 87, 0.75);
+  padding: 0.4rem 0.1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.22rem, 3.6vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #8c6f23;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+/* ── Elegant Maps Link (Quiet underlined link like Attachment 1) ── */
+.venue-elegant-map-btn {
+  background: none;
+  border: 0;
+  border-bottom: 1.5px solid #c99f57;
+  padding: 0 0 3px;
+  color: #006385 !important;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.venue-elegant-map-btn:hover {
+  color: #8c6f23 !important;
+  border-bottom-color: #8c6f23;
+}
+
+.venue-elegant-map-btn .arrow-char {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Right: Rancho Vista Golf Club Photo Arch with Crown Flourish */
+.venue-arch-container {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.venue-crown-accent {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.venue-crown-accent img {
+  display: block;
+  filter: drop-shadow(0 3px 8px rgba(14, 68, 80, 0.28));
+}
+
+.venue-map-arch.venue-photo-arch {
+  width: 140px;
+  height: 150px;
+  border-radius: 54px 54px 18px 18px;
+  overflow: hidden;
+  background: #fdfbf7;
+  box-shadow:
+    0 10px 24px rgba(0, 99, 133, 0.16),
+    0 0 0 1.5px #d4af37,
+    0 0 0 3.5px #ffffff;
+  position: relative;
+  z-index: 3;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.venue-map-arch.venue-photo-arch:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 12px 28px rgba(0, 99, 133, 0.24),
+    0 0 0 1.5px #d4af37,
+    0 0 0 3.5px #ffffff;
+}
+
+.venue-arch-img.reception-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
 }
 
 /* ── Responsive Refinements ── */
 @media (max-width: 440px) {
   .invitation-card.paper-sheet {
-    padding: 2.2rem 1.2rem 2.2rem;
+    padding: clamp(1.2rem, 2.5vh, 1.8rem) 1.1rem;
   }
   .card-floral.floral-top-left {
-    width: 130px;
+    width: 110px;
   }
   .card-floral.floral-bottom-right {
-    width: 140px;
+    width: 120px;
   }
   .portrait-arch-frame {
-    width: 150px;
-    height: 195px;
+    width: clamp(120px, 18vh, 145px);
+    height: clamp(155px, 24vh, 190px);
   }
-  .date-badge-row {
-    gap: 0.6rem;
+  .venue-stage-reception {
+    gap: 0.85rem;
   }
-  .date-badge-month,
-  .date-badge-time {
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
+  .venue-role-badge {
+    font-size: 1.4rem;
   }
-  .date-badge-num {
-    font-size: 1.85rem;
+  .venue-title {
+    font-size: 1.05rem;
+  }
+  .venue-address {
+    font-size: 0.92rem;
+  }
+  .venue-time-tag {
+    font-size: 1.15rem;
+    padding: 0.3rem 0;
+  }
+  .venue-map-arch.venue-photo-arch {
+    width: 122px;
+    height: 132px;
+    border-radius: 46px 46px 14px 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .portrait-arch-frame {
+    width: 110px;
+    height: 145px;
+  }
+  .venue-map-arch.venue-photo-arch {
+    width: 105px;
+    height: 118px;
+    border-radius: 38px 38px 12px 12px;
+  }
+  .venue-title {
+    font-size: 0.95rem;
+  }
+  .venue-time-tag {
+    font-size: 1.05rem;
   }
 }
