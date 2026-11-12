@@ -6668,15 +6668,16 @@ body:not(.site-entered) {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   EDITORIAL DETAIL VIGNETTES (DRESS CODE / DINNER / PHOTOS / GIFTS)
+   EDITORIAL DETAIL VIGNETTES (DRESS CODE / PHOTOS / GIFTS)
    ══════════════════════════════════════════════════════════════ */
 .details-grid {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.6rem;
-  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  max-width: 440px;
   margin: 0 auto;
+  align-items: center;
 }
 
 .detail-item {
@@ -6684,7 +6685,7 @@ body:not(.site-entered) {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 320px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
@@ -6721,28 +6722,68 @@ body:not(.site-entered) {
   color: #334155;
 }
 
-/* 2 × 2 staggered grid with a single gold hairline between columns */
 @media (min-width: 520px) {
   .details-grid {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3rem;
-    row-gap: 2.4rem;
-    align-items: start;
+    gap: 3rem;
+    max-width: 460px;
   }
 
-  .details-grid::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 4%;
-    bottom: 4%;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(201, 159, 87, 0.7), transparent);
-    pointer-events: none;
-  }
+  .detail-item { max-width: 420px; }
+  .detail-script { font-size: 2.3rem; }
+  .detail-prose { font-size: 1.14rem; }
+}
 
-  .detail-item:nth-child(even) { margin-top: 2.6rem; }
-  .detail-item { margin: 0; max-width: none; }
-  .detail-script { font-size: 2rem; }
-  .detail-prose { font-size: 1.04rem; }
+/* ── SUBTLE ELEGANT PHOTO PLACEHOLDERS ── */
+.photo-placeholder {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, #fdfbf7 0%, #f6f0e4 100%) !important;
+  text-decoration: none !important;
+}
+
+.photo-placeholder-text {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #9c8969;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding: 0.5rem;
+  user-select: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.card-portrait-arch.photo-placeholder .photo-placeholder-text {
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  padding: 0.2rem;
+}
+
+.photo-viewport.photo-placeholder {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 340px;
+  min-height: 380px;
+}
+
+.photo-viewport.photo-placeholder .photo-placeholder-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.venue-map-arch.photo-placeholder .photo-placeholder-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.venue-map-arch.photo-placeholder:hover .photo-placeholder-text {
+  color: var(--theme-dark, #8a650e);
+  opacity: 1;
+}
+
+.message-portrait-wrap.photo-placeholder .photo-placeholder-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
