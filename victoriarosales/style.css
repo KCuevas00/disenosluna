@@ -3257,7 +3257,7 @@ html.og-mode .entry-stage-mount {
   display: none !important;
 }
 
-/* 3D Envelope Container (Aesthetic Pearlescent Champagne & Molten Gold System) */
+/* 3D Envelope Container (Tactile Luxury Cotton Paper & Molten Gold System) */
 .luxury-envelope-container {
   position: relative;
   width: min(88vw, 340px);
@@ -3274,14 +3274,17 @@ html.og-mode .entry-stage-mount {
   perspective: 1000px;
   -webkit-perspective: 1000px;
   border-radius: 12px;
-  background: linear-gradient(155deg, #fdfbf7 0%, #f6eee1 35%, #ecdcc2 75%, #dec9a5 100%);
-  border: 1.2px solid rgba(212, 175, 55, 0.6);
+  background-color: #ede4d6;
+  background-image:
+    radial-gradient(ellipse at 50% 35%, rgba(255, 255, 255, 0.45) 0%, rgba(235, 224, 210, 0.2) 60%, rgba(200, 184, 162, 0.38) 100%),
+    url('photos/envelope-paper-texture.jpg');
+  background-size: 100% 100%, 256px 256px;
+  border: 1.2px solid rgba(180, 150, 115, 0.55);
   box-shadow:
-    0 24px 60px rgba(35, 25, 15, 0.35),
-    0 8px 24px rgba(212, 175, 55, 0.28),
-    0 2px 6px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
-    inset 0 0 20px rgba(255, 245, 225, 0.6);
+    0 24px 60px rgba(35, 22, 12, 0.38),
+    0 6px 18px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    inset 0 0 20px rgba(255, 248, 235, 0.35);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
@@ -3289,20 +3292,24 @@ html.og-mode .entry-stage-mount {
 .luxury-envelope-container:hover {
   transform: translateY(-4px) scale(1.015);
   box-shadow:
-    0 32px 70px rgba(30, 20, 10, 0.42),
-    0 14px 32px rgba(212, 175, 55, 0.38),
-    inset 0 0 0 1px rgba(255, 255, 255, 1),
-    inset 0 0 24px rgba(255, 245, 230, 0.7);
+    0 32px 70px rgba(30, 20, 10, 0.44),
+    0 12px 28px rgba(180, 140, 95, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 24px rgba(255, 245, 230, 0.5);
 }
 
-/* Envelope Interior Back Wall (Warm Ivory / Champagne Letterpress) */
+/* Envelope Interior Back Wall (Tactile Paper Interior) */
 .env-back {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #fdfbf7 0%, #f6eee3 100%);
+  background-color: #ede4d6;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(225, 210, 192, 0.35) 100%),
+    url('photos/envelope-paper-texture.jpg');
+  background-size: 100% 100%, 256px 256px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(110, 80, 90, 0.12);
+  box-shadow: inset 0 0 35px rgba(90, 65, 45, 0.18);
   z-index: 1;
 }
 
@@ -3458,19 +3465,23 @@ html.og-mode .entry-stage-mount {
   fill: #c3c9d6;
 }
 
-/* Envelope Front Pocket (Aesthetic Pearlescent Champagne Pocket) */
+/* Envelope Front Pocket (Tactile Luxury Cotton Paper Pocket) */
 .env-pocket {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(168deg, #fdfbf7 0%, #f6eee1 40%, #eddcc0 80%, #dfcea8 100%);
+  background-color: #ede4d6;
+  background-image:
+    radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.45) 0%, rgba(235, 222, 206, 0.2) 50%, rgba(198, 180, 158, 0.42) 100%),
+    url('photos/envelope-paper-texture.jpg');
+  background-size: 100% 100%, 256px 256px;
   border-radius: 12px;
   z-index: 12;
   box-shadow:
-    inset 0 -6px 18px rgba(110, 80, 50, 0.16),
-    inset 0 1.8px 0 rgba(255, 255, 255, 0.95),
-    inset 0 3px 0 rgba(212, 175, 55, 0.35);
+    inset 0 -6px 18px rgba(90, 65, 40, 0.18),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(185, 155, 120, 0.35);
 }
 
 .env-pocket::before {
@@ -3478,8 +3489,8 @@ html.og-mode .entry-stage-mount {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 45%),
-    linear-gradient(-135deg, rgba(255, 255, 255, 0.4) 0%, transparent 45%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(255, 255, 255, 0.25) 0%, transparent 45%);
   pointer-events: none;
   display: block !important;
 }
@@ -3503,11 +3514,11 @@ html.og-mode .entry-stage-mount {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 22px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1.4px solid rgba(184, 134, 11, 0.72);
-  border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(45, 25, 10, 0.16), inset 0 1px 0 rgba(255, 255, 255, 1);
+  padding: 8px 24px;
+  background: rgba(255, 252, 246, 0.94);
+  border: 1.4px solid rgba(138, 102, 64, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(45, 25, 10, 0.14), inset 0 1px 0 rgba(255, 255, 255, 1);
   pointer-events: auto;
   z-index: 14;
   cursor: pointer;
@@ -3518,17 +3529,17 @@ html.og-mode .entry-stage-mount {
 .env-open-badge:hover {
   transform: translateX(-50%) translateY(-2px);
   background: #ffffff;
-  border-color: #b8860b;
-  box-shadow: 0 8px 24px rgba(184, 134, 11, 0.35);
+  border-color: #7b5832;
+  box-shadow: 0 6px 20px rgba(110, 75, 40, 0.28);
 }
 
 .env-open-text {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #4a3308;
+  color: #3d270c;
   white-space: nowrap;
 }
 
@@ -3554,7 +3565,7 @@ html.og-mode .entry-stage-mount {
   pointer-events: none;
 }
 
-/* Envelope 3D Triangular Top Flap (Champagne Satin with Gold Foil Edge) */
+/* Envelope 3D Triangular Top Flap (Tactile Luxury Cotton Paper Flap) */
 .env-flap {
   position: absolute;
   top: 0;
@@ -3562,7 +3573,11 @@ html.og-mode .entry-stage-mount {
   right: 0;
   width: 100%;
   height: 58.5%;
-  background: linear-gradient(160deg, #fffdf8 0%, #f7f2e5 45%, #ecddbf 100%);
+  background-color: #ede4d6;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.5) 0%, rgba(235, 224, 208, 0.2) 65%, rgba(205, 188, 166, 0.35) 100%),
+    url('photos/envelope-paper-texture.jpg');
+  background-size: 100% 100%, 256px 256px;
   transform-origin: top center;
   -webkit-transform-origin: top center;
   transform-style: preserve-3d;
@@ -3573,9 +3588,9 @@ html.og-mode .entry-stage-mount {
   pointer-events: none;
   -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  border-top: 2.2px solid rgba(212, 175, 55, 0.6);
-  filter: drop-shadow(0 12px 18px rgba(45, 30, 15, 0.32));
-  -webkit-filter: drop-shadow(0 12px 18px rgba(45, 30, 15, 0.32));
+  border-top: 1.8px solid rgba(180, 150, 115, 0.55);
+  filter: drop-shadow(0 3px 5px rgba(50, 32, 16, 0.42)) drop-shadow(0 10px 24px rgba(65, 42, 20, 0.26));
+  -webkit-filter: drop-shadow(0 3px 5px rgba(50, 32, 16, 0.42)) drop-shadow(0 10px 24px rgba(65, 42, 20, 0.26));
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -3627,7 +3642,11 @@ html.og-mode .entry-stage-mount {
   z-index: 5;
   filter: none !important;
   -webkit-filter: none !important;
-  background: linear-gradient(160deg, #f7f3e8 0%, #ede3cb 60%, #e1d3b3 100%);
+  background-color: #ede4d6;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.35) 0%, rgba(215, 200, 180, 0.35) 100%),
+    url('photos/envelope-paper-texture.jpg');
+  background-size: 100% 100%, 256px 256px;
 }
 
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
