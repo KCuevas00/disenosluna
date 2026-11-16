@@ -6773,3 +6773,208 @@ body:not(.site-entered) {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
 }
+
+/* ══════════════════════════════════════════════════════════════
+   PERSONALIZED GUEST PASS & INVITATION LIMIT SYSTEM
+   ══════════════════════════════════════════════════════════════ */
+
+/* Envelope Card Personalized Pass Badge */
+.env-card-personal-pass {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(201, 159, 59, 0.45);
+  text-align: center;
+}
+.card-pass-for {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8a650e;
+  margin: 0 0 2px;
+}
+.card-pass-name {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4a3418;
+  margin: 0;
+  line-height: 1.15;
+}
+.card-pass-limit {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: #c99f3b;
+  letter-spacing: 0.08em;
+  margin: 2px 0 0;
+}
+
+/* Page Personalized Pass Banner */
+.page-personalized-banner {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto 2.2rem;
+  padding: 0 1rem;
+}
+.pass-banner-card {
+  position: relative;
+  background: linear-gradient(135deg, #fffdfa 0%, #faf4ea 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.55);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow:
+    0 10px 25px rgba(110, 80, 40, 0.08),
+    0 2px 8px rgba(212, 175, 55, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+.pass-banner-crown {
+  margin-bottom: 6px;
+}
+.pass-banner-tag {
+  display: inline-block;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #8a650e;
+  background: rgba(212, 175, 55, 0.12);
+  padding: 3px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  margin-bottom: 8px;
+}
+.pass-banner-name {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #3b2812;
+  margin: 0 0 5px;
+  letter-spacing: 0.02em;
+}
+.pass-banner-seats {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #7a5a15;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* RSVP Section Guest Summary Callout */
+.rsvp-pass-callout {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto 1.4rem;
+  padding: 0 1rem;
+}
+.pass-callout-inner {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.2px solid rgba(212, 175, 55, 0.6);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(110, 80, 40, 0.08);
+}
+.pass-callout-crown {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.pass-callout-to {
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #3b2812;
+  margin: 0 0 4px;
+}
+.pass-callout-seats {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8a650e;
+  margin: 0;
+}
+
+/* RSVP Modal Party Size Dropdown */
+.modal-select {
+  width: 100%;
+  padding: 11px 14px;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.95rem;
+  color: #332211;
+  background-color: #fffdfb;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a650e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+}
+.modal-select:focus {
+  border-color: #c99f3b;
+  box-shadow: 0 0 0 3px rgba(201, 159, 59, 0.2);
+}
+.form-hint {
+  display: block;
+  font-size: 0.78rem;
+  color: #8a650e;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GUEST PHOTO UPLOAD MODULE
+   ══════════════════════════════════════════════════════════════ */
+.photo-upload-wrap {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+.photo-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #946f1b 0%, #c99f3b 50%, #d8b257 100%);
+  color: #ffffff !important;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 6px 18px rgba(148, 111, 27, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  cursor: pointer;
+}
+.photo-upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 24px rgba(148, 111, 27, 0.45),
+    0 4px 8px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.06);
+}
+.photo-upload-btn:active {
+  transform: translateY(0);
+}
+.photo-upload-note {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.72rem;
+  color: #8a650e;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}

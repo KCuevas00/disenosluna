@@ -13,6 +13,7 @@ const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLf
 const EVENT_SLUG = 'victoriarosales';
 const CLIENT_NAME = "Victoria Rosales's Quinceañera (Maria Contreras)";
 const CLIENT_EMAIL = 'pochitoca@msn.com';
+const GOOGLE_PHOTOS_ALBUM_URL = 'https://photos.app.goo.gl/placeholder';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Prevent browser from restoring a previous scroll position
@@ -138,7 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-subtitle': 'Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico',
       'modal-success-title': 'RSVP Received!',
       'modal-success-desc': 'Thank you for confirming your attendance. We look forward to celebrating with you!',
-      'footer-date': 'Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico'
+      'footer-date': 'Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico',
+      'card-pass-for': 'Special Invitation For',
+      'pass-banner-tag': 'Special Guest Pass',
+      'photos-btn': 'SHARE YOUR PHOTOS',
+      'photos-note': 'Google Photos Album • No app needed',
+      'label-party-limit': 'Number of Attending Guests *'
     },
     es: {
       'entry-invited': '¡Estás Invitado!',
@@ -225,7 +231,12 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-subtitle': 'Sábado, 3 de Julio de 2027 • Jiutepec, Morelos, México',
       'modal-success-title': '¡Confirmación Recibida!',
       'modal-success-desc': '¡Gracias por confirmar su asistencia! Esperamos celebrar este día tan especial con usted.',
-      'footer-date': 'Sábado, 3 de Julio de 2027 • Jiutepec, Morelos, México'
+      'footer-date': 'Sábado, 3 de Julio de 2027 • Jiutepec, Morelos, México',
+      'card-pass-for': 'Invitación Especial Para',
+      'pass-banner-tag': 'Invitación de Honor',
+      'photos-btn': 'SUBIR FOTOS AL ÁLBUM',
+      'photos-note': 'Álbum de Google Fotos • No requiere app',
+      'label-party-limit': 'Número de Personas que Asistirán *'
     }
   };
 
@@ -256,6 +267,134 @@ document.addEventListener('DOMContentLoaded', () => {
       b.classList.toggle('active', on);
       b.setAttribute('aria-pressed', String(on));
     });
+
+    initPersonalizedFeatures(lang);
+  }
+
+  /* ═════════════════════════════════════════════════════════════
+   * PERSONALIZED GUEST PASS & INVITATION LIMIT SYSTEM
+   * ═════════════════════════════════════════════════════════════ */
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestParam = (urlParams.get('to') || urlParams.get('guest') || urlParams.get('familia') || urlParams.get('nombre') || urlParams.get('name') || '').trim();
+  const rawLimit = urlParams.get('limit') || urlParams.get('pases') || urlParams.get('passes') || urlParams.get('guests') || urlParams.get('max');
+  const parsedLimit = rawLimit ? parseInt(rawLimit, 10) : null;
+  const guestLimit = (parsedLimit && !isNaN(parsedLimit) && parsedLimit > 0) ? parsedLimit : null;
+
+  function initPersonalizedFeatures(lang = 'en') {
+    // 1. Google Photos Album Link
+    const photoAlbumBtn = document.getElementById('photo-album-link');
+    if (photoAlbumBtn && GOOGLE_PHOTOS_ALBUM_URL) {
+      photoAlbumBtn.href = GOOGLE_PHOTOS_ALBUM_URL;
+    }
+
+    // 2. Personalized Guest Pass Display
+    const cardPass = document.getElementById('card-personalized-pass');
+    const cardPassName = document.getElementById('card-pass-name');
+    const cardPassLimit = document.getElementById('card-pass-limit');
+
+    const pageBanner = document.getElementById('page-personalized-banner');
+    const pagePassName = document.getElementById('page-pass-name');
+    const pagePassSeats = document.getElementById('page-pass-seats');
+
+    const rsvpCallout = document.getElementById('rsvp-pass-callout');
+    const rsvpPassTo = document.getElementById('rsvp-pass-to');
+    const rsvpPassSeats = document.getElementById('rsvp-pass-seats');
+
+    const modalPartyGroup = document.getElementById('form-group-party');
+    const partySelect = document.getElementById('guest-party-size');
+    const partyHint = document.getElementById('party-size-hint');
+    const nameInput = document.getElementById('guest-fullname');
+
+    if (guestParam) {
+      // Envelope Card
+      if (cardPass && cardPassName) {
+        cardPass.hidden = false;
+        cardPassName.textContent = guestParam;
+        if (cardPassLimit) {
+          if (guestLimit) {
+            cardPassLimit.textContent = lang === 'es'
+              ? (guestLimit === 1 ? '1 Pase Personal' : `${guestLimit} Pases Reservados`)
+              : (guestLimit === 1 ? '1 Reserved Seat' : `${guestLimit} Reserved Seats`);
+          } else {
+            cardPassLimit.textContent = '';
+          }
+        }
+      }
+
+      // Page Banner
+      if (pageBanner && pagePassName) {
+        pageBanner.hidden = false;
+        pagePassName.textContent = guestParam;
+        if (pagePassSeats) {
+          if (guestLimit) {
+            pagePassSeats.textContent = lang === 'es'
+              ? (guestLimit === 1 ? 'Pase Personal Reservado (1 Persona)' : `${guestLimit} Pases Reservados para su Familia`)
+              : (guestLimit === 1 ? 'Personal Seat Reserved (1 Person)' : `${guestLimit} Reserved Seats for your Family`);
+          } else {
+            pagePassSeats.textContent = lang === 'es'
+              ? 'Esperamos contar con su distinguida presencia'
+              : 'We warmly look forward to celebrating with you';
+          }
+        }
+      }
+
+      // RSVP Callout
+      if (rsvpCallout && rsvpPassTo) {
+        rsvpCallout.hidden = false;
+        rsvpPassTo.textContent = guestParam;
+        if (rsvpPassSeats) {
+          if (guestLimit) {
+            rsvpPassSeats.textContent = lang === 'es'
+              ? (guestLimit === 1 ? '1 Lugar Asignado' : `${guestLimit} Lugares Asignados`)
+              : (guestLimit === 1 ? '1 Assigned Seat' : `${guestLimit} Assigned Seats`);
+          } else {
+            rsvpPassSeats.textContent = '';
+          }
+        }
+      }
+
+      // RSVP Modal Full Name Input
+      if (nameInput && (!nameInput.value || nameInput.dataset.prefilled === 'true')) {
+        nameInput.value = guestParam;
+        nameInput.dataset.prefilled = 'true';
+      }
+    }
+
+    // Modal Party Size Select Dropdown
+    if (modalPartyGroup && partySelect) {
+      if (guestLimit) {
+        modalPartyGroup.hidden = false;
+        const prevVal = partySelect.value;
+        partySelect.innerHTML = '';
+        for (let i = guestLimit; i >= 1; i--) {
+          const opt = document.createElement('option');
+          opt.value = String(i);
+          if (i === guestLimit) {
+            opt.textContent = lang === 'es'
+              ? `${i} ${i === 1 ? 'persona' : 'personas'} (Todos / Máximo)`
+              : `${i} ${i === 1 ? 'person' : 'people'} (All / Max)`;
+          } else {
+            opt.textContent = lang === 'es'
+              ? `${i} ${i === 1 ? 'persona' : 'personas'}`
+              : `${i} ${i === 1 ? 'person' : 'people'}`;
+          }
+          partySelect.appendChild(opt);
+        }
+        if (prevVal && parseInt(prevVal, 10) <= guestLimit) {
+          partySelect.value = prevVal;
+        } else {
+          partySelect.value = String(guestLimit);
+        }
+
+        if (partyHint) {
+          partyHint.textContent = lang === 'es'
+            ? `* Límite asignado para su familia: máximo ${guestLimit} persona${guestLimit > 1 ? 's' : ''}`
+            : `* Assigned limit for your party: maximum ${guestLimit} guest${guestLimit > 1 ? 's' : ''}`;
+        }
+      } else {
+        modalPartyGroup.hidden = true;
+      }
+    }
   }
 
   const btnEs = document.getElementById('btn-lang-es');
@@ -273,7 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Default to English on startup unless specified by ?lang=
-  const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang');
   if (urlParams.has('og_preview')) {
     document.body.classList.add('og-preview-mode');
@@ -1026,10 +1164,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameInput = document.getElementById('guest-fullname');
     const phoneInput = document.getElementById('guest-phone');
     const partySelect = document.getElementById('guest-party-size');
+    const modalPartyGroup = document.getElementById('form-group-party');
 
     const nameVal = nameInput ? nameInput.value.trim() : '';
     const phoneVal = phoneInput ? phoneInput.value.trim() : '';
-    const partyVal = partySelect ? partySelect.value : (isAttending ? '1' : '0');
+    let partyVal = (partySelect && modalPartyGroup && !modalPartyGroup.hidden) ? partySelect.value : (isAttending ? '1' : '0');
+    if (guestLimit && parseInt(partyVal, 10) > guestLimit) {
+      partyVal = String(guestLimit);
+    }
 
     if (!nameVal) {
       if (nameInput) {
@@ -1052,7 +1194,10 @@ document.addEventListener('DOMContentLoaded', () => {
       attendance: isAttending ? 'Joyfully Accept' : 'Regretfully Decline',
       partySize: isAttending ? partyVal : '0',
       guests: isAttending ? partyVal : '0',
-      notes: isAttending ? '' : 'Cannot attend',
+      assignedLimit: guestLimit ? String(guestLimit) : '',
+      notes: guestLimit
+        ? (isAttending ? `Confirmed ${partyVal} of ${guestLimit} assigned passes` : `Declined invitation (${guestLimit} assigned passes)`)
+        : (isAttending ? '' : 'Cannot attend'),
       guestName: nameVal,
       name: nameVal,
       attendance_es: isAttending ? 'Sí, Asistirá' : 'No Podrá Asistir',

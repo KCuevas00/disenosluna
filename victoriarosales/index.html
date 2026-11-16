@@ -45,7 +45,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.0.6" />
+  <link rel="stylesheet" href="style.css?v=1.0.7" />
 </head>
 
 <body>
@@ -124,6 +124,14 @@
             </h2>
 
             <div class="card-flourish-accent" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+            <!-- Personalized Honor Pass on Invitation Card -->
+            <div id="card-personalized-pass" class="card-personalized-pass" hidden>
+              <div class="card-pass-divider" aria-hidden="true"></div>
+              <p class="card-pass-for" data-i18n="card-pass-for">Special Invitation For</p>
+              <p class="card-pass-name" id="card-pass-name"></p>
+              <p class="card-pass-limit" id="card-pass-limit"></p>
+            </div>
           </div>
         </div>
 
@@ -343,6 +351,21 @@
 
         <!-- Location Details -->
         <p class="venue-location-hint scroll-fade-in delay-1" data-i18n="invite-venue">JARDÍN ALMA • JIUTEPEC, MORELOS, MEXICO</p>
+
+        <!-- Personalized Guest Honor Pass Banner -->
+        <div id="page-personalized-banner" class="page-personalized-banner scroll-fade-in" hidden>
+          <div class="pass-banner-card">
+            <div class="pass-banner-crown" aria-hidden="true">
+              <svg viewBox="0 0 48 24" width="36" height="18" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 20h36M10 20l-4-12 10 5 8-9 8 9 10-5-4 12H10z" fill="rgba(212,175,55,0.18)" />
+                <circle cx="24" cy="4" r="2.0" fill="#fdf0cd" stroke="#d4af37" stroke-width="0.8" />
+              </svg>
+            </div>
+            <span class="pass-banner-tag" data-i18n="pass-banner-tag">Invitación de Honor</span>
+            <h3 class="pass-banner-name" id="page-pass-name"></h3>
+            <p class="pass-banner-seats" id="page-pass-seats"></p>
+          </div>
+        </div>
 
       </div><!-- /.invitation-body-content -->
 
@@ -590,11 +613,21 @@
             <p class="detail-prose" data-i18n="dresscode-desc">We invite our guests to wear formal attire for Victoria’s special celebration.</p>
           </article>
 
-          <article class="detail-item scroll-fade-in">
+          <article class="detail-item scroll-fade-in photo-upload-item">
             <img class="detail-emblem" src="photos/emblem-photos-memories.svg" alt="" width="44" height="44" aria-hidden="true" />
             <h3 class="detail-script" data-i18n="photos-script">Photos &amp; Memories</h3>
             <span class="detail-rule" aria-hidden="true"></span>
             <p class="detail-prose" data-i18n="photos-desc">We invite you to take photos throughout the evening and share your favorite moments with Victoria!</p>
+            <div class="photo-upload-wrap">
+              <a id="photo-album-link" href="https://photos.app.goo.gl/placeholder" target="_blank" rel="noopener noreferrer" class="photo-upload-btn" data-i18n="photos-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+                <span class="upload-btn-text">SUBIR FOTOS AL ÁLBUM</span>
+              </a>
+              <span class="photo-upload-note" data-i18n="photos-note">Álbum de Google Fotos • No requiere app</span>
+            </div>
           </article>
 
           <article class="detail-item scroll-fade-in">
@@ -690,6 +723,15 @@
 
         <p class="rsvp-deadline-text scroll-fade-in" data-i18n="rsvp-deadline">PLEASE CONFIRM YOUR ATTENDANCE BEFORE JUNE 5, 2027</p>
 
+        <!-- Personalized Guest Pass Callout -->
+        <div id="rsvp-pass-callout" class="rsvp-pass-callout scroll-fade-in" hidden>
+          <div class="pass-callout-inner">
+            <span class="pass-callout-crown" aria-hidden="true">👑</span>
+            <p class="pass-callout-to" id="rsvp-pass-to"></p>
+            <p class="pass-callout-seats" id="rsvp-pass-seats"></p>
+          </div>
+        </div>
+
         <!-- Ribbon Banner Button -->
         <div class="ribbon-btn-wrapper scroll-fade-in delay-1">
           <button id="open-rsvp-modal-btn" class="blush-ribbon-btn" type="button">
@@ -740,6 +782,16 @@
           <input type="tel" id="guest-phone" name="phone" placeholder="(661) 555-0192" />
         </div>
 
+        <div class="form-group" id="form-group-party" hidden>
+          <label for="guest-party-size" data-i18n="label-party-limit">Number of Attending Guests *</label>
+          <div class="select-wrapper">
+            <select id="guest-party-size" name="partySize" class="modal-select">
+              <!-- Dynamically populated from 1 to assigned limit -->
+            </select>
+          </div>
+          <span class="form-hint" id="party-size-hint"></span>
+        </div>
+
         <div class="rsvp-action-buttons">
           <button type="button" class="btn-rsvp-action btn-rsvp-accept" id="btn-rsvp-accept" data-i18n="btn-accept">
             <span class="btn-rsvp-icon">✓</span>
@@ -783,7 +835,7 @@
     <p class="footer-date" data-i18n="footer-date">Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico</p>
   </footer>
 
-  <script src="main.js?v=1.0.5"></script>
+  <script src="main.js?v=1.0.6"></script>
 </body>
 
 </html>
