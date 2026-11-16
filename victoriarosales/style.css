@@ -121,13 +121,15 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — pure airy white backdrop matching merelinnunez */
+/* body must NOT independently scroll — elegant subtle champagne damask backdrop with pearls */
 body.site-entered {
-  background-color: #ffffff !important;
-  background-image: var(--bg-page-gradient) !important;
-  background-size: cover !important;
+  background-color: #f7f3ea !important;
+  background-image:
+    radial-gradient(ellipse 95% 85% at 50% 15%, rgba(255, 255, 255, 0.55) 0%, rgba(247, 243, 234, 0.35) 55%, rgba(215, 202, 178, 0.45) 100%),
+    url('photos/page-damask-bg.jpg') !important;
+  background-size: 100% auto, cover !important;
   background-position: center top !important;
-  background-repeat: no-repeat !important;
+  background-repeat: no-repeat, repeat-y !important;
   background-attachment: scroll !important;
   overflow-x: clip !important;
   overflow-y: visible !important;
@@ -514,14 +516,14 @@ body.site-entered .lang-control-bar {
   max-width: 100%;
   margin: 0 auto;
   background-color: #ffffff;
-  background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #ffffff 100%);
+  background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fefcf8 100%);
   background-origin: padding-box;
   background-clip: padding-box;
-  border: 1px solid rgba(196, 150, 88, 0.32);
+  border: 1.5px solid rgba(212, 175, 55, 0.42);
   border-radius: 28px;
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.07),
-    0 4px 20px rgba(0, 0, 0, 0.04),
+    0 25px 70px rgba(50, 35, 20, 0.14),
+    0 6px 24px rgba(212, 175, 55, 0.16),
     inset 0 0 0 1px rgba(255, 255, 255, 0.95);
 }
 
@@ -787,18 +789,12 @@ body.site-entered .lang-control-bar {
 
 /* ── SECTION 1: COVER / HERO ── */
 .cover-section {
-  padding-top: 3.8rem;
+  padding-top: 2rem;
 }
 
 .top-crown-container,
 .hero-crown-flourish {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  margin: 0 auto 0.8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none !important;
 }
 
 .crown-flourish-img,
@@ -821,6 +817,72 @@ body.site-entered .lang-control-bar {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* ── BAROQUE OVAL FRAME & ROSES CELEBRANT CENTERPIECE ── */
+.baroque-frame-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0.2rem auto 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.baroque-frame-container {
+  position: relative;
+  width: min(88vw, 360px);
+  aspect-ratio: 838 / 1130;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.baroque-frame-container .photo-viewport {
+  position: absolute;
+  top: 17.5%;
+  left: 20%;
+  width: 60%;
+  height: 57%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  background: #fdfbf7;
+  border: none !important;
+  box-shadow: inset 0 0 25px rgba(74, 55, 32, 0.22);
+}
+
+.baroque-frame-container .photo-viewport .celebrant-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: 50%;
+}
+
+.baroque-frame-container .photo-viewport.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #fdfbf7 0%, #f4eee2 100%);
+}
+
+.baroque-frame-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 14px 35px rgba(50, 35, 18, 0.28));
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.baroque-frame-container:hover .baroque-frame-overlay {
+  transform: scale(1.02);
 }
 
 .portrait-stage-wrapper {
@@ -3188,8 +3250,9 @@ html.og-mode .entry-stage-mount {
 /* 3D Envelope Container (Aesthetic Pearlescent Champagne & Molten Gold System) */
 .luxury-envelope-container {
   position: relative;
-  width: min(88vw, 360px);
-  height: 245px;
+  width: min(88vw, 340px);
+  aspect-ratio: 491 / 880;
+  max-height: 72vh;
   margin: 0 auto;
   cursor: pointer;
   user-select: none;
@@ -3200,9 +3263,9 @@ html.og-mode .entry-stage-mount {
   -webkit-transform-style: preserve-3d;
   perspective: 1000px;
   -webkit-perspective: 1000px;
-  border-radius: 8px;
-  background: linear-gradient(155deg, #fdfbf7 0%, #f4eee2 35%, #e9ddcb 75%, #dac8aa 100%);
-  border: 1.2px solid rgba(212, 175, 55, 0.55);
+  border-radius: 12px;
+  background: linear-gradient(155deg, #fdfbf7 0%, #f6eee1 35%, #ecdcc2 75%, #dec9a5 100%);
+  border: 1.2px solid rgba(212, 175, 55, 0.6);
   box-shadow:
     0 24px 60px rgba(35, 25, 15, 0.35),
     0 8px 24px rgba(212, 175, 55, 0.28),
@@ -3220,8 +3283,6 @@ html.og-mode .entry-stage-mount {
     0 14px 32px rgba(212, 175, 55, 0.38),
     inset 0 0 0 1px rgba(255, 255, 255, 1),
     inset 0 0 24px rgba(255, 245, 230, 0.7);
-}
-    inset 0 0 0 1px rgba(255, 255, 255, 1);
 }
 
 /* Envelope Interior Back Wall (Warm Ivory / Champagne Letterpress) */
@@ -3247,10 +3308,10 @@ html.og-mode .entry-stage-mount {
 /* Inside Invitation Letter Card (Bespoke Warm Ivory & Gold Cotton Paper) */
 .env-invitation-card {
   position: absolute;
-  top: 15px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(15px) scale(0.96);
-  -webkit-transform: translateX(-50%) translateY(15px) scale(0.96);
+  transform: translate(-50%, -46%) scale(0.95);
+  -webkit-transform: translate(-50%, -46%) scale(0.95);
   width: min(84vw, 335px);
   max-width: 335px;
   background: #ffffff;
@@ -3258,7 +3319,7 @@ html.og-mode .entry-stage-mount {
   border-radius: 12px;
   padding: 16px 14px;
   z-index: 10;
-  box-shadow: 0 14px 38px rgba(45, 25, 15, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 42px rgba(45, 25, 15, 0.24), inset 0 0 0 1px rgba(255, 255, 255, 0.95);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.65s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
@@ -3272,8 +3333,8 @@ html.og-mode .entry-stage-mount {
 .luxury-envelope-container.is-opened .env-invitation-card {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(-170px) scale(1.02);
-  -webkit-transform: translateX(-50%) translateY(-170px) scale(1.02);
+  transform: translate(-50%, -50%) scale(1.02);
+  -webkit-transform: translate(-50%, -50%) scale(1.02);
   z-index: 35;
   pointer-events: auto;
 }
@@ -3394,11 +3455,8 @@ html.og-mode .entry-stage-mount {
   width: 100%;
   height: 100%;
   background: linear-gradient(168deg, #fdfbf7 0%, #f6eee1 40%, #eddcc0 80%, #dfcea8 100%);
-  border-radius: 8px;
+  border-radius: 12px;
   z-index: 12;
-  pointer-events: none;
-  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
-  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
   box-shadow:
     inset 0 -6px 18px rgba(110, 80, 50, 0.16),
     inset 0 1.8px 0 rgba(255, 255, 255, 0.95),
@@ -3426,6 +3484,66 @@ html.og-mode .entry-stage-mount {
   z-index: 13;
 }
 
+/* High-Contrast Tap/Click to Open Hint Badge on Envelope Pocket */
+.env-open-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.4px solid rgba(184, 134, 11, 0.72);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(45, 25, 10, 0.16), inset 0 1px 0 rgba(255, 255, 255, 1);
+  pointer-events: auto;
+  z-index: 14;
+  cursor: pointer;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.env-open-badge:hover {
+  transform: translateX(-50%) translateY(-2px);
+  background: #ffffff;
+  border-color: #b8860b;
+  box-shadow: 0 8px 24px rgba(184, 134, 11, 0.35);
+}
+
+.env-open-text {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4a3308;
+  white-space: nowrap;
+}
+
+.open-hint-desktop {
+  display: inline;
+}
+
+.open-hint-mobile {
+  display: none;
+}
+
+@media (hover: none), (max-width: 768px) {
+  .open-hint-desktop {
+    display: none;
+  }
+  .open-hint-mobile {
+    display: inline;
+  }
+}
+
+.luxury-envelope-container.is-opened .env-open-badge {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Envelope 3D Triangular Top Flap (Champagne Satin with Gold Foil Edge) */
 .env-flap {
   position: absolute;
@@ -3433,7 +3551,7 @@ html.og-mode .entry-stage-mount {
   left: 0;
   right: 0;
   width: 100%;
-  height: 145px;
+  height: 58.5%;
   background: linear-gradient(160deg, #fffdf8 0%, #f7f2e5 45%, #ecddbf 100%);
   transform-origin: top center;
   -webkit-transform-origin: top center;
@@ -3450,6 +3568,36 @@ html.og-mode .entry-stage-mount {
   -webkit-filter: drop-shadow(0 12px 18px rgba(45, 30, 15, 0.32));
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+/* Elegant "You're Invited!" Calligraphy Written Directly on Flap */
+.env-flap-headline {
+  position: absolute;
+  top: 24%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  z-index: 18;
+  padding: 0 16px;
+  transition: opacity 0.3s ease;
+}
+
+.flap-invited-script {
+  font-family: var(--font-script);
+  font-size: clamp(1.85rem, 6vw, 2.25rem);
+  line-height: 1.05;
+  color: #4a3308;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95), 0 2px 8px rgba(184, 134, 11, 0.22);
+  letter-spacing: 0.01em;
+  display: block;
+  white-space: nowrap;
+}
+
+.luxury-envelope-container.is-opened .env-flap-headline {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .env-flap-edge-svg {
@@ -3475,7 +3623,7 @@ html.og-mode .entry-stage-mount {
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
 .env-wax-seal-wrapper {
   position: absolute;
-  top: 125px;
+  top: 57.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
@@ -3484,8 +3632,8 @@ html.og-mode .entry-stage-mount {
   align-items: center;
   justify-content: center;
   outline: none !important;
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -3516,58 +3664,9 @@ html.og-mode .entry-stage-mount {
   display: none !important;
 }
 
-/* ── CIRCULAR OPEN HINT AROUND ENVELOPE STAMP ── */
+/* ── CIRCULAR OPEN HINT AROUND ENVELOPE STAMP (SUPERCEDED BY ENVELOPE BADGE) ── */
 .seal-hint-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 190px;
-  height: 190px;
-  pointer-events: none;
-  z-index: 18;
-  overflow: visible;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.seal-hint-text {
-  font-family: var(--font-sans);
-  font-size: 8.5px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  fill: #8c6f23;
-  text-transform: uppercase;
-  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
-  opacity: 0.9;
-  transition: opacity 0.3s ease, fill 0.3s ease;
-}
-
-.env-wax-seal-wrapper:hover .seal-hint-ring {
-  transform: translate(-50%, -50%) scale(1.05);
-}
-
-.env-wax-seal-wrapper:hover .seal-hint-text {
-  fill: #8a650e;
-  opacity: 1;
-}
-
-.seal-hint-desktop {
-  display: inline;
-}
-
-.seal-hint-mobile {
-  display: none;
-}
-
-@media (hover: none),
-(max-width: 768px) {
-  .seal-hint-desktop {
-    display: none;
-  }
-
-  .seal-hint-mobile {
-    display: inline;
-  }
+  display: none !important;
 }
 
 
@@ -4164,11 +4263,11 @@ html.og-mode .entry-stage-mount {
   }
 
   .env-flap {
-    height: 60.4%;
+    height: 58.5%;
   }
 
   .env-wax-seal-wrapper {
-    top: 58.9%;
+    top: 57.5%;
   }
 
   /* Invitation Card Corner Flowers: Contained within Viewport */
@@ -4239,11 +4338,11 @@ html.og-mode .entry-stage-mount {
   }
 
   .env-flap {
-    height: 60.4%;
+    height: 58.5%;
   }
 
   .env-wax-seal-wrapper {
-    top: 58.9%;
+    top: 57.5%;
   }
 
   /* Mobile Invitation Card Container & Glowing Stage */
@@ -5328,23 +5427,23 @@ body:not(.site-entered) {
 
 .entry-lang-caption {
   font-family: var(--font-sans);
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.26em;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #8a650e;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+  color: #2b1a04 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.9) !important;
 }
 
 .entry-lang-pills {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  gap: 5px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1.5px solid rgba(184, 134, 11, 0.75) !important;
   border-radius: 999px;
-  box-shadow: 0 6px 22px rgba(157, 116, 26, 0.18), inset 0 0 0 1px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 8px 26px rgba(45, 25, 10, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 1) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -5360,24 +5459,25 @@ body:not(.site-entered) {
   background: transparent;
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700 !important;
   letter-spacing: 0.04em;
-  color: #261a08;
+  color: #2b1a04 !important;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: var(--transition-smooth);
 }
 
 .entry-lang-btn:hover:not(.active) {
-  color: #8a650e;
-  background: rgba(212, 175, 55, 0.18);
+  color: #7c580d !important;
+  background: rgba(212, 175, 55, 0.2) !important;
 }
 
 .entry-lang-btn.active {
-  background: linear-gradient(135deg, #9d741a 0%, #dfb76c 100%);
-  color: #ffffff;
-  box-shadow: 0 3px 14px rgba(201, 159, 59, 0.45);
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #7c580d 0%, #b8860b 50%, #d4af37 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 14px rgba(124, 88, 13, 0.45) !important;
+  border: 1px solid rgba(184, 134, 11, 0.6) !important;
 }
 
 .entry-lang-btn:focus-visible {
@@ -5937,8 +6037,8 @@ body.og-preview-mode .entry-lang-picker {
   backface-visibility: visible;
   -webkit-backface-visibility: visible;
   will-change: auto;
-  transform: translateX(-50%) translateY(20px) scale(0.96);
-  -webkit-transform: translateX(-50%) translateY(20px) scale(0.96);
+  transform: translate(-50%, -46%) scale(0.95);
+  -webkit-transform: translate(-50%, -46%) scale(0.95);
   transition: opacity 0.4s ease 0.1s, transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s;
   -webkit-transition: opacity 0.4s ease 0.1s, -webkit-transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s;
 }
@@ -5946,8 +6046,8 @@ body.og-preview-mode .entry-lang-picker {
 .luxury-envelope-container.is-opened .env-invitation-card {
   visibility: visible;
   opacity: 1;
-  transform: translateX(-50%) translateY(-145px) scale(1.02);
-  -webkit-transform: translateX(-50%) translateY(-145px) scale(1.02);
+  transform: translate(-50%, -50%) scale(1.02);
+  -webkit-transform: translate(-50%, -50%) scale(1.02);
 }
 
 /* ── ENRICHMENT MODULES STYLES ── */

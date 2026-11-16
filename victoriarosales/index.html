@@ -45,7 +45,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.0.8" />
+  <link rel="stylesheet" href="style.css?v=1.0.9" />
 </head>
 
 <body>
@@ -79,12 +79,11 @@
     </div>
 
     <div class="entry-stage-mount">
-      <!-- Royal Crown & Elegant Headline Above Envelope -->
+      <!-- Subtle Royal Tiara above Envelope -->
       <div class="envelope-entry-header" id="envelope-header">
         <div class="header-royal-crown" aria-hidden="true">
-          <img src="photos/crown-flourish.svg" width="68" height="46" alt="" style="filter: drop-shadow(0 4px 10px rgba(184, 134, 11, 0.45));" />
+          <img src="photos/crown-flourish.svg" width="60" height="40" alt="" style="filter: drop-shadow(0 4px 10px rgba(184, 134, 11, 0.45));" />
         </div>
-        <h1 class="entry-invited-script" data-i18n="entry-invited">You're Invited!</h1>
       </div>
 
       <div class="luxury-envelope-container" id="luxury-envelope" role="button"
@@ -141,51 +140,42 @@
         <!-- Envelope Front Pocket (V-cut front facing) -->
         <div class="env-pocket">
           <!-- Visible Crease Folds (Gold & Ivory Trim) -->
-          <svg class="env-folds-svg" viewBox="0 0 370 250" preserveAspectRatio="none" aria-hidden="true">
-            <!-- Bottom diagonal fold creases meeting in center -->
-            <line x1="0" y1="250" x2="185" y2="125" stroke="#d4af37" stroke-width="1.8" stroke-opacity="0.75" />
-            <line x1="370" y1="250" x2="185" y2="125" stroke="#d4af37" stroke-width="1.8" stroke-opacity="0.75" />
-            <line x1="0" y1="249" x2="185" y2="124" stroke="#ffffff" stroke-width="1.0" stroke-opacity="0.85" />
-            <line x1="370" y1="249" x2="185" y2="124" stroke="#ffffff" stroke-width="1.0" stroke-opacity="0.85" />
+          <svg class="env-folds-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <!-- Bottom diagonal fold creases meeting at center -->
+            <line x1="0" y1="100" x2="50" y2="57.5" stroke="#d4af37" stroke-width="0.8" stroke-opacity="0.75" />
+            <line x1="100" y1="100" x2="50" y2="57.5" stroke="#d4af37" stroke-width="0.8" stroke-opacity="0.75" />
+            <line x1="0" y1="99.5" x2="50" y2="57" stroke="#ffffff" stroke-width="0.4" stroke-opacity="0.85" />
+            <line x1="100" y1="99.5" x2="50" y2="57" stroke="#ffffff" stroke-width="0.4" stroke-opacity="0.85" />
           </svg>
+
+          <!-- High-Contrast Tap/Click to Open Hint Badge on Envelope Pocket -->
+          <div class="env-open-badge" aria-hidden="true">
+            <span class="env-open-text open-hint-desktop" data-i18n="seal-hint-desktop">✦ CLICK TO OPEN ✦</span>
+            <span class="env-open-text open-hint-mobile" data-i18n="seal-hint-mobile">✦ TAP TO OPEN ✦</span>
+          </div>
         </div>
 
         <!-- Envelope Triangular Top Flap -->
         <div class="env-flap" id="env-flap">
           <div class="env-flap-inner"></div>
+
+          <!-- Elegant "You're Invited!" Calligraphy Written Directly on Flap -->
+          <div class="env-flap-headline" aria-hidden="true">
+            <span class="flap-invited-script" data-i18n="entry-invited">You're Invited!</span>
+          </div>
+
           <!-- Flap edge fold trim (Gold & Crisp Ivory Accent) -->
-          <svg class="env-flap-edge-svg" viewBox="0 0 370 145" preserveAspectRatio="none" aria-hidden="true">
-            <polyline points="0,0 185,145 370,0" fill="none" stroke="#d4af37" stroke-width="3" stroke-opacity="0.9"
+          <svg class="env-flap-edge-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="0,0 50,100 100,0" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-opacity="0.9"
               stroke-linejoin="round" />
-            <polyline points="0,-1 185,143 370,-1" fill="none" stroke="#fff8e0" stroke-width="1.4" stroke-opacity="0.95"
+            <polyline points="0,-0.5 50,99 100,-0.5" fill="none" stroke="#fff8e0" stroke-width="0.6" stroke-opacity="0.95"
               stroke-linejoin="round" />
           </svg>
         </div>
 
-        <!-- Bespoke Luxury Crimson Wax Seal Stamp with Circular Open Hint -->
+        <!-- Bespoke Luxury Crimson Wax Seal Stamp -->
         <div class="env-wax-seal-wrapper" id="wax-seal-btn" role="button"
           aria-label="Break wax seal to open the invitation" tabindex="0">
-          
-          <!-- Tiny Circular Embossed Letters around the Stamp -->
-          <svg class="seal-hint-ring" viewBox="0 0 160 160" aria-hidden="true">
-            <defs>
-              <path id="sealArcTop" d="M 24,80 A 56,56 0 0,1 136,80" fill="none" />
-              <path id="sealArcBottom" d="M 136,80 A 56,56 0 0,1 24,80" fill="none" />
-            </defs>
-            <text class="seal-hint-text seal-hint-desktop">
-              <textPath href="#sealArcTop" startOffset="50%" text-anchor="middle" data-i18n="seal-hint-desktop">✦ CLICK TO OPEN ✦</textPath>
-            </text>
-            <text class="seal-hint-text seal-hint-desktop">
-              <textPath href="#sealArcBottom" startOffset="50%" text-anchor="middle" data-i18n="seal-hint-desktop">✦ CLICK TO OPEN ✦</textPath>
-            </text>
-            <text class="seal-hint-text seal-hint-mobile">
-              <textPath href="#sealArcTop" startOffset="50%" text-anchor="middle" data-i18n="seal-hint-mobile">✦ TAP TO OPEN ✦</textPath>
-            </text>
-            <text class="seal-hint-text seal-hint-mobile">
-              <textPath href="#sealArcBottom" startOffset="50%" text-anchor="middle" data-i18n="seal-hint-mobile">✦ TAP TO OPEN ✦</textPath>
-            </text>
-          </svg>
-
           <button type="button" class="wax-seal-btn has-img" aria-label="Open Invitation">
             <img class="wax-seal-img" src="photos/wax-seal-xv.png?v=1" alt="Molten Gold XV Wax Seal" aria-hidden="true" />
           </button>
@@ -286,10 +276,15 @@
         <img src="photos/crown-flourish.svg" alt="" class="crown-flourish-img" style="width: 195px; max-width: 65%; height: auto; filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.55)) drop-shadow(0 2px 6px rgba(74, 55, 32, 0.25));" />
       </div>
 
-      <!-- Celebrant Portrait Centerpiece -->
-      <div class="photo-stage scroll-fade-scale">
-        <div class="photo-viewport photo-placeholder">
-          <span class="photo-placeholder-text">&lt;photo here&gt;</span>
+      <!-- Celebrant Portrait Centerpiece with Ornate Baroque Frame & Flowers -->
+      <div class="photo-stage baroque-frame-stage scroll-fade-scale">
+        <div class="baroque-frame-container">
+          <!-- The Photo / Placeholder sits behind the frame opening -->
+          <div class="photo-viewport photo-placeholder">
+            <span class="photo-placeholder-text">&lt;photo here&gt;</span>
+          </div>
+          <!-- 3D Antique Gold Baroque Frame with Roses Overlay -->
+          <img src="photos/baroque-oval-frame.png?v=1" alt="Ornate Gold Baroque Frame" class="baroque-frame-overlay" aria-hidden="true" />
         </div>
       </div>
 
