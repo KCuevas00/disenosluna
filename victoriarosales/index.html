@@ -45,7 +45,7 @@
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.1.2" />
+  <link rel="stylesheet" href="style.css?v=1.1.3" />
 </head>
 
 <body>
@@ -363,17 +363,30 @@
         <!-- Location Details -->
         <p class="venue-location-hint scroll-fade-in delay-1" data-i18n="invite-venue">JARDÍN ALMA • JIUTEPEC, MORELOS, MEXICO</p>
 
-        <!-- Personalized Guest Honor Pass Banner -->
+        <!-- Personalized Guest Honor Pass (Organic Royal Dedication) -->
         <div id="page-personalized-banner" class="page-personalized-banner scroll-fade-in" hidden>
-          <div class="pass-banner-card">
-            <div class="pass-banner-crown" aria-hidden="true">
-              <svg viewBox="0 0 48 24" width="36" height="18" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 20h36M10 20l-4-12 10 5 8-9 8 9 10-5-4 12H10z" fill="rgba(212,175,55,0.18)" />
+          <div class="pass-dedication-wrap">
+            <div class="pass-crown-accent" aria-hidden="true">
+              <svg viewBox="0 0 48 24" width="40" height="20" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 2px 5px rgba(184, 134, 11, 0.3));">
+                <path d="M6 20h36M10 20l-4-12 10 5 8-9 8 9 10-5-4 12H10z" fill="rgba(212,175,55,0.22)" />
+                <circle cx="6" cy="7" r="1.5" fill="#fdf0cd" stroke="#d4af37" stroke-width="0.8" />
+                <circle cx="16" cy="12" r="1.5" fill="#fdf0cd" stroke="#d4af37" stroke-width="0.8" />
                 <circle cx="24" cy="4" r="2.0" fill="#fdf0cd" stroke="#d4af37" stroke-width="0.8" />
+                <circle cx="32" cy="12" r="1.5" fill="#fdf0cd" stroke="#d4af37" stroke-width="0.8" />
+                <circle cx="42" cy="7" r="1.5" fill="#fdf0cd" stroke="#d4af37" stroke-width="0.8" />
               </svg>
             </div>
-            <span class="pass-banner-tag" data-i18n="pass-banner-tag">Invitación de Honor</span>
+            <div class="pass-tag-row">
+              <span class="pass-tag-gem" aria-hidden="true">✦</span>
+              <span class="pass-banner-tag" data-i18n="pass-banner-tag">Invitación de Honor</span>
+              <span class="pass-tag-gem" aria-hidden="true">✦</span>
+            </div>
             <h3 class="pass-banner-name" id="page-pass-name"></h3>
+            <div class="pass-flourish-divider" aria-hidden="true">
+              <span class="pfd-line"></span>
+              <span class="pfd-icon">❦</span>
+              <span class="pfd-line"></span>
+            </div>
             <p class="pass-banner-seats" id="page-pass-seats"></p>
           </div>
         </div>
@@ -704,7 +717,7 @@
         <!-- Personalized Guest Pass Callout -->
         <div id="rsvp-pass-callout" class="rsvp-pass-callout scroll-fade-in" hidden>
           <div class="pass-callout-inner">
-            <span class="pass-callout-crown" aria-hidden="true">👑</span>
+            <span class="pass-callout-crown" aria-hidden="true">✦ &nbsp; ❦ &nbsp; ✦</span>
             <p class="pass-callout-to" id="rsvp-pass-to"></p>
             <p class="pass-callout-seats" id="rsvp-pass-seats"></p>
           </div>
@@ -813,7 +826,7 @@
     <p class="footer-date" data-i18n="footer-date">Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico</p>
   </footer>
 
-  <script src="main.js?v=1.0.6"></script>
+  <script src="main.js?v=1.1.3"></script>
 </body>
 
 </html>

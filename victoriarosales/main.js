@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-success-desc': 'Thank you for confirming your attendance. We look forward to celebrating with you!',
       'footer-date': 'Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico',
       'card-pass-for': 'Special Invitation For',
-      'pass-banner-tag': 'Special Guest Pass',
+      'pass-banner-tag': 'Special Guest Invitation',
       'photos-btn': 'SHARE YOUR PHOTOS',
       'photos-note': 'Google Photos Album • No app needed',
       'label-party-limit': 'Number of Attending Guests *'
@@ -328,8 +328,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pagePassSeats) {
           if (guestLimit) {
             pagePassSeats.textContent = lang === 'es'
-              ? (guestLimit === 1 ? 'Pase Personal Reservado (1 Persona)' : `${guestLimit} Pases Reservados para su Familia`)
-              : (guestLimit === 1 ? 'Personal Seat Reserved (1 Person)' : `${guestLimit} Reserved Seats for your Family`);
+              ? (guestLimit === 1 ? '1 Pase Personal Reservado' : `${guestLimit} Pases Reservados para su Familia`)
+              : (guestLimit === 1 ? '1 Personal Reserved Seat' : `${guestLimit} Reserved Seats for your Family`);
           } else {
             pagePassSeats.textContent = lang === 'es'
               ? 'Esperamos contar con su distinguida presencia'
@@ -413,6 +413,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Default to English on startup unless specified by ?lang=
   const urlLang = urlParams.get('lang');
+  if (urlLang === 'es' || urlLang === 'en') {
+    userSelectedLang = true;
+  }
   if (urlParams.has('og_preview')) {
     document.body.classList.add('og-preview-mode');
   }

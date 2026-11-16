@@ -6964,78 +6964,115 @@ body:not(.site-entered) {
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 0.58rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: #8a650e;
   margin: 0 0 2px;
 }
 .card-pass-name {
-  font-family: var(--font-heading, 'Cormorant Garamond', serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #4a3418;
+  font-family: var(--font-script, 'Alex Brush', cursive);
+  font-size: 1.42rem;
+  font-weight: 400;
+  color: #3b2812;
   margin: 0;
-  line-height: 1.15;
+  line-height: 1.12;
 }
 .card-pass-limit {
-  font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.64rem;
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 0.78rem;
   font-weight: 600;
-  color: #c99f3b;
-  letter-spacing: 0.08em;
+  color: #8a650e;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   margin: 2px 0 0;
 }
 
-/* Page Personalized Pass Banner */
+/* Page Personalized Pass (Organic Royal Dedication - Container-less Luxury) */
 .page-personalized-banner {
   width: 100%;
-  max-width: 440px;
-  margin: 0 auto 2.2rem;
+  max-width: 520px;
+  margin: 1.4rem auto 2.2rem;
   padding: 0 1rem;
-}
-.pass-banner-card {
-  position: relative;
-  background: linear-gradient(135deg, #fffdfa 0%, #faf4ea 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.55);
-  border-radius: 12px;
-  padding: 16px 20px;
   text-align: center;
-  box-shadow:
-    0 10px 25px rgba(110, 80, 40, 0.08),
-    0 2px 8px rgba(212, 175, 55, 0.15),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  position: relative;
 }
-.pass-banner-crown {
-  margin-bottom: 6px;
+.pass-dedication-wrap {
+  position: relative;
+  padding: 1.4rem 1.2rem 1.6rem;
+  background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(212, 175, 55, 0.16) 0%, rgba(250, 243, 230, 0.5) 45%, transparent 75%);
+  text-align: center;
+}
+.pass-crown-accent {
+  margin-bottom: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: crownGentleGlow 4s ease-in-out infinite alternate;
+}
+@keyframes crownGentleGlow {
+  0% { transform: translateY(0); filter: drop-shadow(0 2px 5px rgba(184, 134, 11, 0.3)); }
+  100% { transform: translateY(-1.5px); filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.55)); }
+}
+.pass-tag-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 0.2rem;
+}
+.pass-tag-gem {
+  color: #c99e32;
+  font-size: 0.72rem;
+  opacity: 0.85;
 }
 .pass-banner-tag {
   display: inline-block;
   font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: #8a650e;
-  background: rgba(212, 175, 55, 0.12);
-  padding: 3px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  margin-bottom: 8px;
+  letter-spacing: 0.26em;
+  color: #926d17;
 }
 .pass-banner-name {
-  font-family: var(--font-heading, 'Cormorant Garamond', serif);
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: #3b2812;
-  margin: 0 0 5px;
-  letter-spacing: 0.02em;
+  font-family: var(--font-script, 'Alex Brush', cursive);
+  font-size: clamp(2.5rem, 8vw, 3.6rem);
+  font-weight: 400;
+  color: #2e1e0d;
+  line-height: 1.15;
+  margin: 0.2rem 0 0.3rem;
+  letter-spacing: 0.01em;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95),
+    0 2px 10px rgba(184, 134, 11, 0.22);
+}
+.pass-flourish-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 260px;
+  margin: 0.2rem auto 0.6rem;
+}
+.pfd-line {
+  flex: 1;
+  height: 1.2px;
+  background: linear-gradient(90deg, transparent, rgba(201, 158, 50, 0.65), transparent);
+}
+.pfd-icon {
+  font-size: 0.9rem;
+  color: #bfa048;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(212, 175, 55, 0.3);
 }
 .pass-banner-seats {
-  font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.88rem;
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: clamp(0.85rem, 2.6vw, 0.98rem);
   font-weight: 600;
-  color: #7a5a15;
+  color: #6e4e13;
   margin: 0;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
 }
 
 /* RSVP Section Guest Summary Callout */
@@ -7046,29 +7083,35 @@ body:not(.site-entered) {
   padding: 0 1rem;
 }
 .pass-callout-inner {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1.2px solid rgba(212, 175, 55, 0.6);
-  border-radius: 10px;
-  padding: 14px 16px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 250, 242, 0.92) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 8px;
+  padding: 14px 18px;
   text-align: center;
-  box-shadow: 0 6px 18px rgba(110, 80, 40, 0.08);
+  box-shadow: 0 4px 15px rgba(110, 80, 40, 0.06);
 }
 .pass-callout-crown {
-  font-size: 1.2rem;
+  font-size: 0.72rem;
+  color: #c99e32;
+  letter-spacing: 0.25em;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .pass-callout-to {
-  font-family: var(--font-heading, 'Cormorant Garamond', serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #3b2812;
-  margin: 0 0 4px;
+  font-family: var(--font-script, 'Alex Brush', cursive);
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #2e1e0d;
+  margin: 0 0 2px;
+  line-height: 1.1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .pass-callout-seats {
-  font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.85rem;
+  font-family: var(--font-heading, 'Cormorant Garamond', serif);
+  font-size: 0.95rem;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: #8a650e;
   margin: 0;
 }
