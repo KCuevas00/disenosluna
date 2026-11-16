@@ -556,9 +556,24 @@ body.site-entered .lang-control-bar {
 .flower-card-top-left,
 .feather-top-left,
 .flower-card-bottom-left,
-.flower-card-bottom-right,
-.flower-card-top-right {
+.flower-card-bottom-right {
   display: none !important;
+}
+
+.flower-card-top-right {
+  display: block !important;
+  visibility: visible !important;
+  top: -12px;
+  right: -10px;
+  width: 200px;
+  height: 200px;
+  max-width: 48vw;
+  max-height: 48vw;
+  transform: none;
+  transform-origin: top right;
+  opacity: 1 !important;
+  z-index: 10 !important;
+  filter: drop-shadow(0 8px 18px rgba(157, 116, 26, 0.18)) drop-shadow(0 2px 6px rgba(201, 159, 87, 0.16));
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -817,19 +832,20 @@ body.site-entered .lang-control-bar {
 /* ── BAROQUE OVAL FRAME & ROSES CELEBRANT CENTERPIECE ── */
 .baroque-frame-stage {
   position: relative !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0.2rem auto 0.6rem !important;
+  width: calc(100% + 4.4rem) !important;
+  max-width: none !important;
+  margin: 0.6rem -2.2rem 1.4rem !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   padding: 0 !important;
   overflow: visible !important;
+  z-index: 5 !important;
 }
 
 .baroque-frame-container {
   position: relative !important;
-  width: min(100%, 305px) !important;
+  width: min(95%, 470px) !important;
   aspect-ratio: 838 / 1130 !important;
   margin: 0 auto !important;
   display: flex !important;
@@ -4299,13 +4315,7 @@ html.og-mode .entry-stage-mount {
     top: 57.5%;
   }
 
-  /* Invitation Card Corner Flowers: Disabled for Clean Baroque Centering */
-  .flower-card-top-left,
-  .flower-card-bottom-left,
-  .flower-card-bottom-right,
-  .flower-card-top-right {
-    display: none !important;
-  }
+
 
   /* Mobile Floating Utility Controls (Language Left, Music Right) */
   .lang-control-bar {
@@ -4365,7 +4375,7 @@ html.og-mode .entry-stage-mount {
 
   /* Mobile Invitation Card Container & Glowing Stage */
   .invitation-card-stage {
-    margin: 3.2rem auto 2rem;
+    margin: 4.0rem auto 2rem;
     width: calc(100% - 24px);
   }
 
@@ -4396,19 +4406,20 @@ html.og-mode .entry-stage-mount {
   }
 
   .flower-card-top-right {
-    top: -38px;
-    right: -25px;
-    width: 180px;
-    height: 180px;
+    top: 14px;
+    right: -4px;
+    width: 140px;
+    height: 140px;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    z-index: 10 !important;
     transform: none;
     transform-origin: top right;
   }
 
   .cover-section {
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
     padding-bottom: 2rem;
   }
 
@@ -4421,17 +4432,19 @@ html.og-mode .entry-stage-mount {
   }
 
   .baroque-frame-stage {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0.2rem auto 0.6rem !important;
+    width: calc(100% + 2.4rem) !important;
+    max-width: none !important;
+    margin: 1.8rem -1.2rem 1.2rem !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     padding: 0 !important;
+    overflow: visible !important;
+    z-index: 5 !important;
   }
 
   .baroque-frame-container {
-    width: min(100%, 295px) !important;
+    width: min(97%, 356px) !important;
     aspect-ratio: 838 / 1130 !important;
     margin: 0 auto !important;
   }
