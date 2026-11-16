@@ -556,24 +556,9 @@ body.site-entered .lang-control-bar {
 .flower-card-top-left,
 .feather-top-left,
 .flower-card-bottom-left,
-.flower-card-bottom-right {
-  display: none !important;
-}
-
+.flower-card-bottom-right,
 .flower-card-top-right {
-  display: block !important;
-  visibility: visible !important;
-  top: -52px;
-  right: -52px;
-  width: 280px;
-  height: 280px;
-  max-width: 55vw;
-  max-height: 55vw;
-  transform: none;
-  transform-origin: top right;
-  opacity: 1 !important;
-  z-index: 30;
-  filter: drop-shadow(0 10px 22px rgba(157, 116, 26, 0.16)) drop-shadow(0 2px 6px rgba(201, 159, 87, 0.18));
+  display: none !important;
 }
 
 /* Inside Envelope Card Mini Floral Accent */
@@ -831,23 +816,25 @@ body.site-entered .lang-control-bar {
 
 /* ── BAROQUE OVAL FRAME & ROSES CELEBRANT CENTERPIECE ── */
 .baroque-frame-stage {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  margin: 0.2rem auto 0.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0.2rem auto 0.6rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  overflow: visible !important;
 }
 
 .baroque-frame-container {
-  position: relative;
-  width: min(88vw, 360px);
-  aspect-ratio: 838 / 1130;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative !important;
+  width: min(100%, 305px) !important;
+  aspect-ratio: 838 / 1130 !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .baroque-frame-container .photo-viewport,
@@ -863,7 +850,7 @@ body.site-entered .lang-control-bar {
   border-radius: 50% !important;
   overflow: hidden !important;
   z-index: 1 !important;
-  background: linear-gradient(150deg, #fdfbf7 0%, #f6f0e3 50%, #eee4d1 100%) !important;
+  background: radial-gradient(ellipse at 50% 50%, #ffffff 0%, #fcf8f0 60%, #f4ede0 100%) !important;
   border: none !important;
   box-shadow: none !important;
   margin: 0 !important;
@@ -4293,23 +4280,12 @@ html.og-mode .entry-stage-mount {
     top: 57.5%;
   }
 
-  /* Invitation Card Corner Flowers: Contained within Viewport */
+  /* Invitation Card Corner Flowers: Disabled for Clean Baroque Centering */
   .flower-card-top-left,
   .flower-card-bottom-left,
-  .flower-card-bottom-right {
-    display: none !important;
-  }
-
+  .flower-card-bottom-right,
   .flower-card-top-right {
-    top: -38px;
-    right: -25px;
-    width: 180px;
-    height: 180px;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: none;
-    transform-origin: top right;
+    display: none !important;
   }
 
   /* Mobile Floating Utility Controls (Language Left, Music Right) */
@@ -4423,6 +4399,22 @@ html.og-mode .entry-stage-mount {
     width: 80%;
     max-width: 300px;
     margin: 0.6rem auto 1.4rem;
+  }
+
+  .baroque-frame-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.2rem auto 0.6rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+  }
+
+  .baroque-frame-container {
+    width: min(100%, 295px) !important;
+    aspect-ratio: 838 / 1130 !important;
+    margin: 0 auto !important;
   }
 
   .parents-line {
