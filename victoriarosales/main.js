@@ -13,7 +13,7 @@ const GOOGLE_SHEETS_RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-sijLf
 const EVENT_SLUG = 'victoriarosales';
 const CLIENT_NAME = "Victoria Rosales's Quinceañera (Maria Contreras)";
 const CLIENT_EMAIL = 'pochitoca@msn.com';
-const GOOGLE_PHOTOS_ALBUM_URL = 'https://photos.app.goo.gl/placeholder';
+const GOOGLE_PHOTOS_ALBUM_URL = 'https://photos.app.goo.gl/tAyw2eSEctST7EH1A';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Prevent browser from restoring a previous scroll position
