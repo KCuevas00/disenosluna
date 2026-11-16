@@ -312,9 +312,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cardPassName.textContent = guestParam;
         if (cardPassLimit) {
           if (guestLimit) {
-            cardPassLimit.textContent = lang === 'es'
-              ? (guestLimit === 1 ? '1 Pase Personal' : `${guestLimit} Pases Reservados`)
-              : (guestLimit === 1 ? '1 Reserved Seat' : `${guestLimit} Reserved Seats`);
+            const numBadge = `<span class="card-num-highlight">${guestLimit}</span>`;
+            cardPassLimit.innerHTML = lang === 'es'
+              ? (guestLimit === 1 ? `${numBadge} Pase Personal` : `${numBadge} Pases Reservados`)
+              : (guestLimit === 1 ? `${numBadge} Reserved Seat` : `${numBadge} Reserved Seats`);
           } else {
             cardPassLimit.textContent = '';
           }
@@ -327,9 +328,10 @@ document.addEventListener('DOMContentLoaded', () => {
         pagePassName.textContent = guestParam;
         if (pagePassSeats) {
           if (guestLimit) {
-            pagePassSeats.textContent = lang === 'es'
-              ? (guestLimit === 1 ? '1 Pase Personal Reservado' : `${guestLimit} Pases Reservados para su Familia`)
-              : (guestLimit === 1 ? '1 Personal Reserved Seat' : `${guestLimit} Reserved Seats for your Family`);
+            const numBadge = `<span class="pass-num-highlight">${guestLimit}</span>`;
+            pagePassSeats.innerHTML = lang === 'es'
+              ? (guestLimit === 1 ? `${numBadge} Pase Personal Reservado` : `${numBadge} Pases Reservados para su Familia`)
+              : (guestLimit === 1 ? `${numBadge} Personal Reserved Seat` : `${numBadge} Reserved Seats for your Family`);
           } else {
             pagePassSeats.textContent = lang === 'es'
               ? 'Esperamos contar con su distinguida presencia'
@@ -344,9 +346,10 @@ document.addEventListener('DOMContentLoaded', () => {
         rsvpPassTo.textContent = guestParam;
         if (rsvpPassSeats) {
           if (guestLimit) {
-            rsvpPassSeats.textContent = lang === 'es'
-              ? (guestLimit === 1 ? '1 Lugar Asignado' : `${guestLimit} Lugares Asignados`)
-              : (guestLimit === 1 ? '1 Assigned Seat' : `${guestLimit} Assigned Seats`);
+            const numBadge = `<span class="pass-num-highlight rsvp-num">${guestLimit}</span>`;
+            rsvpPassSeats.innerHTML = lang === 'es'
+              ? (guestLimit === 1 ? `${numBadge} Lugar Asignado` : `${numBadge} Lugares Asignados`)
+              : (guestLimit === 1 ? `${numBadge} Assigned Seat` : `${numBadge} Assigned Seats`);
           } else {
             rsvpPassSeats.textContent = '';
           }
