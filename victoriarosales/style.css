@@ -2877,13 +2877,13 @@ body.site-entered .site-footer p {
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background-color: #f7f4ee !important;
+  background-color: #120e0a !important;
   background-image:
-    /* Editorial fine art vignette emphasizing the central envelope */
-    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255, 255, 255, 0.20) 0%, rgba(212, 175, 55, 0.04) 65%, rgba(60, 45, 20, 0.16) 100%),
-    url('photos/flatlay-backdrop.jpg') !important;
+    /* Editorial royal ballroom vignette with soft chandelier illumination */
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(212, 175, 55, 0.06) 55%, rgba(20, 14, 8, 0.42) 100%),
+    url('photos/ballroom-backdrop.jpg') !important;
   background-size: cover !important;
-  background-position: center center !important;
+  background-position: center top !important;
   background-repeat: no-repeat !important;
   transition: opacity 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.9, 0.3, 1), visibility 0.85s !important;
 }
@@ -3180,35 +3180,16 @@ html.og-mode .entry-stage-mount {
   pointer-events: none;
 }
 
-/* Corner Floral Sprays Framing Envelope (Anchored to Envelope Corners) */
+/* Corner Floral Sprays Framing Envelope */
 .envelope-floral-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 24;
-  opacity: 1 !important;
-}
-
-.envelope-flower-spray {
   display: none !important;
 }
 
-/* Gracefully fade away top-right floral bouquet as envelope opens so letter text & crown remain unobstructed */
-.luxury-envelope-container.is-opened .flower-top-right,
-.entry-overlay.is-opened .flower-top-right {
-  opacity: 0 !important;
-  transform: translate(28px, -28px) scale(0.92);
-  pointer-events: none;
-}
-
-/* 3D Envelope Container (Rococo Damask & Molten Gold System) */
+/* 3D Envelope Container (Aesthetic Pearlescent Champagne & Molten Gold System) */
 .luxury-envelope-container {
   position: relative;
-  width: min(88vw, 340px);
-  aspect-ratio: 491 / 944;
-  max-height: 78vh;
+  width: min(88vw, 360px);
+  height: 245px;
   margin: 0 auto;
   cursor: pointer;
   user-select: none;
@@ -3217,13 +3198,17 @@ html.og-mode .entry-stage-mount {
   -webkit-tap-highlight-color: transparent !important;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  border-radius: 12px;
-  background: #f7f0e7 url('photos/rococo-envelope-full.png?v=2') center / 100% 100% no-repeat;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  border-radius: 8px;
+  background: linear-gradient(155deg, #fdfbf7 0%, #f4eee2 35%, #e9ddcb 75%, #dac8aa 100%);
+  border: 1.2px solid rgba(212, 175, 55, 0.55);
   box-shadow:
-    0 24px 60px rgba(55, 35, 45, 0.22),
+    0 24px 60px rgba(35, 25, 15, 0.35),
     0 8px 24px rgba(212, 175, 55, 0.28),
     0 2px 6px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.95);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 20px rgba(255, 245, 225, 0.6);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
   z-index: 10;
 }
@@ -3231,8 +3216,11 @@ html.og-mode .entry-stage-mount {
 .luxury-envelope-container:hover {
   transform: translateY(-4px) scale(1.015);
   box-shadow:
-    0 32px 70px rgba(45, 25, 35, 0.32),
+    0 32px 70px rgba(30, 20, 10, 0.42),
     0 14px 32px rgba(212, 175, 55, 0.38),
+    inset 0 0 0 1px rgba(255, 255, 255, 1),
+    inset 0 0 24px rgba(255, 245, 230, 0.7);
+}
     inset 0 0 0 1px rgba(255, 255, 255, 1);
 }
 
@@ -3259,18 +3247,18 @@ html.og-mode .entry-stage-mount {
 /* Inside Invitation Letter Card (Bespoke Warm Ivory & Gold Cotton Paper) */
 .env-invitation-card {
   position: absolute;
-  top: 15%;
+  top: 15px;
   left: 50%;
-  transform: translateX(-50%) translateY(20px) scale(0.96);
-  -webkit-transform: translateX(-50%) translateY(20px) scale(0.96);
-  width: 88%;
-  max-width: 295px;
+  transform: translateX(-50%) translateY(15px) scale(0.96);
+  -webkit-transform: translateX(-50%) translateY(15px) scale(0.96);
+  width: min(84vw, 335px);
+  max-width: 335px;
   background: #ffffff;
   border: 1.5px solid rgba(212, 175, 55, 0.65);
   border-radius: 12px;
   padding: 16px 14px;
   z-index: 10;
-  box-shadow: 0 14px 38px rgba(45, 25, 35, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.95);
+  box-shadow: 0 14px 38px rgba(45, 25, 15, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.95);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease 0.1s, transform 0.65s cubic-bezier(0.18, 0.89, 0.32, 1.1) 0.1s, visibility 0.4s ease 0.1s;
@@ -3284,8 +3272,8 @@ html.og-mode .entry-stage-mount {
 .luxury-envelope-container.is-opened .env-invitation-card {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(-145px) scale(1.02);
-  -webkit-transform: translateX(-50%) translateY(-145px) scale(1.02);
+  transform: translateX(-50%) translateY(-170px) scale(1.02);
+  -webkit-transform: translateX(-50%) translateY(-170px) scale(1.02);
   z-index: 35;
   pointer-events: auto;
 }
@@ -3399,67 +3387,95 @@ html.og-mode .entry-stage-mount {
   fill: #c3c9d6;
 }
 
-/* Envelope Front Pocket (Rococo Floral Damask Pocket) */
+/* Envelope Front Pocket (Aesthetic Pearlescent Champagne Pocket) */
 .env-pocket {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: url('photos/rococo-envelope-pocket.png?v=2') center / 100% 100% no-repeat;
-  border-radius: 12px;
+  background: linear-gradient(168deg, #fdfbf7 0%, #f6eee1 40%, #eddcc0 80%, #dfcea8 100%);
+  border-radius: 8px;
   z-index: 12;
   pointer-events: none;
-  -webkit-clip-path: none;
-  clip-path: none;
-  box-shadow: none;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 125px);
+  box-shadow:
+    inset 0 -6px 18px rgba(110, 80, 50, 0.16),
+    inset 0 1.8px 0 rgba(255, 255, 255, 0.95),
+    inset 0 3px 0 rgba(212, 175, 55, 0.35);
 }
 
 .env-pocket::before {
-  display: none !important;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 45%),
+    linear-gradient(-135deg, rgba(255, 255, 255, 0.4) 0%, transparent 45%);
+  pointer-events: none;
+  display: block !important;
 }
 
 .env-folds-svg {
-  display: none !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 13;
 }
 
-/* Envelope 3D Triangular Top Flap (Rococo Baroque Spray Flap) */
+/* Envelope 3D Triangular Top Flap (Champagne Satin with Gold Foil Edge) */
 .env-flap {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  height: 60.4%;
-  background: url('photos/rococo-envelope-flap.png?v=2') top center / 100% 100% no-repeat;
+  height: 145px;
+  background: linear-gradient(160deg, #fffdf8 0%, #f7f2e5 45%, #ecddbf 100%);
   transform-origin: top center;
   -webkit-transform-origin: top center;
-  transform-style: flat;
-  -webkit-transform-style: flat;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   z-index: 15;
-  transition: transform 0.55s cubic-bezier(0.25, 1, 0.4, 1), opacity 0.45s ease;
-  -webkit-transition: -webkit-transform 0.55s cubic-bezier(0.25, 1, 0.4, 1), opacity 0.45s ease;
-  transform: scaleY(1);
-  -webkit-transform: scaleY(1);
+  transition: transform 0.58s cubic-bezier(0.25, 1, 0.4, 1), opacity 0.45s ease;
+  -webkit-transition: -webkit-transform 0.58s cubic-bezier(0.25, 1, 0.4, 1), opacity 0.45s ease;
   pointer-events: none;
-  -webkit-clip-path: none;
-  clip-path: none;
-  border-top: none;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-top: 2.2px solid rgba(212, 175, 55, 0.6);
+  filter: drop-shadow(0 12px 18px rgba(45, 30, 15, 0.32));
+  -webkit-filter: drop-shadow(0 12px 18px rgba(45, 30, 15, 0.32));
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .env-flap-edge-svg {
-  display: none !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 16;
 }
 
 .luxury-envelope-container.is-opened .env-flap {
-  transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  opacity: 0.92;
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  opacity: 0.95;
   z-index: 5;
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: linear-gradient(160deg, #f7f3e8 0%, #ede3cb 60%, #e1d3b3 100%);
 }
 
 /* ── LUMINOUS GLOWING WAX SEAL ANIMATION ── */
 .env-wax-seal-wrapper {
   position: absolute;
-  top: 58.9%;
+  top: 125px;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
@@ -3468,8 +3484,8 @@ html.og-mode .entry-stage-mount {
   align-items: center;
   justify-content: center;
   outline: none !important;
-  width: 178px;
-  height: 178px;
+  width: 160px;
+  height: 160px;
   transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -3478,6 +3494,18 @@ html.og-mode .entry-stage-mount {
   transform: translate(-50%, -50%) scale(0.6);
   -webkit-transform: translate(-50%, -50%) scale(0.6);
   pointer-events: none;
+}
+
+.wax-seal-img {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(40, 25, 10, 0.48));
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wax-seal-btn:hover .wax-seal-img {
+  transform: scale(1.08);
 }
 
 .seal-glow-halo {
@@ -3538,7 +3566,7 @@ html.og-mode .entry-stage-mount {
   }
 
   .seal-hint-mobile {
-    display: none; /* Let the embossed TAP TO OPEN on envelope shine */
+    display: inline;
   }
 }
 
