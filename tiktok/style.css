@@ -2880,7 +2880,7 @@ body.site-entered .site-footer p {
   background-image:
     /* Editorial fine art vignette emphasizing the central envelope */
     radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255, 255, 255, 0.20) 0%, rgba(212, 175, 55, 0.04) 65%, rgba(60, 45, 20, 0.16) 100%),
-    url('photos/flatlay-backdrop.jpg') !important;
+    url('photos/flatlay-backdrop.jpg?v=2') !important;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
