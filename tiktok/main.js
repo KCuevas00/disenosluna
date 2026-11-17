@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-hours': 'Hours',
       'cd-mins': 'Minutes',
       'cd-secs': 'Seconds',
-      'invite-venue': 'JARDÍN ALMA • JIUTEPEC, MORELOS, MEXICO',
+      'invite-venue': 'CYPRESS VENUE • HOUSTON, TEXAS',
       'venue-section-title': 'CEREMONY &amp; RECEPTION',
       'badge-ceremony': 'Ceremony &amp; Mass',
       'ceremony-time-desc': '3:00 PM (Mass at 4:00 PM)',
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'venue-btn-open-maps': 'OPEN IN MAPS',
       'program-title': 'SCHEDULE OF EVENTS',
       'itin-mass': 'Religious Mass',
-      'itin-mass-desc': 'Jardín Alma • Begonias 10, Atlacomulco, Jiutepec, Mor.',
+      'itin-mass-desc': 'St. Michael Catholic Church • 1801 Sage Rd, Houston, TX',
       'itin-entrance': 'Grand Entrance',
       'itin-entrance-desc': 'Welcoming the Quinceañera Citlalli',
       'itin-dinner': 'Dinner',
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-title': 'QUESTIONS &amp; INFORMATION',
       'contact-subtitle': 'CONTACT',
       'contact-script': 'Questions &amp; Info',
-      'contact-desc': 'For any questions or more information regarding the celebration, please contact:<br /><strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); display: block; margin-top: 0.35rem;">Familia Covarrubias Villaseñor: (777) 314-8920</strong>',
+      'contact-desc': 'For any questions or more information regarding the celebration, please contact:<br /><strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); display: block; margin-top: 0.35rem;">Familia Covarrubias Villaseñor: (832) 492-7518</strong>',
       'photos-title': 'PHOTOS &amp; MEMORIES',
       'photos-subtitle': 'CAPTURE THE NIGHT',
       'photos-script': 'Photos &amp; Memories',
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-subtitle': "CITLALLI COVARRUBIAS'S QUINCEAÑERA",
       'modal-success-title': 'RSVP Received!',
       'modal-success-desc': 'Thank you for confirming your attendance. We look forward to celebrating with you!',
-      'footer-date': 'Saturday, July 3, 2027 • Jiutepec, Morelos, Mexico'
+      'footer-date': 'Saturday, July 3, 2027 • Houston, Texas'
     },
     es: {
       'entry-invited': '¡Estás Invitado!',
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cd-hours': 'Horas',
       'cd-mins': 'Minutos',
       'cd-secs': 'Segundos',
-      'invite-venue': 'JARDÍN ALMA • JIUTEPEC, MORELOS, MÉXICO',
+      'invite-venue': 'CYPRESS VENUE • HOUSTON, TEXAS',
       'venue-section-title': 'CEREMONIA Y RECEPCIÓN',
       'badge-ceremony': 'Ceremonia y Misa',
       'ceremony-time-desc': '3:00 PM (Misa a las 4:00 PM)',
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'venue-btn-open-maps': 'ABRIR EN MAPAS',
       'program-title': 'ITINERARIO DEL EVENTO',
       'itin-mass': 'Misa Religiosa',
-      'itin-mass-desc': 'Jardín Alma • Begonias 10, Atlacomulco, Jiutepec, Mor.',
+      'itin-mass-desc': 'St. Michael Catholic Church • 1801 Sage Rd, Houston, TX',
       'itin-entrance': 'Entrada Triunfal',
       'itin-entrance-desc': 'Bienvenida a Citlalli en sus XV Años',
       'itin-dinner': 'Cena de Gala',
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-title': 'PREGUNTAS E INFORMACIÓN',
       'contact-subtitle': 'CONTACTO',
       'contact-script': 'Preguntas e Información',
-      'contact-desc': 'Para cualquier pregunta o mayor información sobre la celebración, por favor contacte a:<br /><strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); display: block; margin-top: 0.35rem;">Familia Covarrubias Villaseñor: (777) 314-8920</strong>',
+      'contact-desc': 'Para cualquier pregunta o mayor información sobre la celebración, por favor contacte a:<br /><strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); display: block; margin-top: 0.35rem;">Familia Covarrubias Villaseñor: (832) 492-7518</strong>',
       'photos-title': 'FOTOS Y RECUERDOS',
       'photos-subtitle': 'CAPTURA LA NOCHE',
       'photos-script': 'Fotos y Recuerdos',
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'modal-subtitle': 'XV AÑOS DE CITLALLI COVARRUBIAS',
       'modal-success-title': '¡Confirmación Recibida!',
       'modal-success-desc': '¡Gracias por confirmar su asistencia! Esperamos celebrar este día tan especial con usted.',
-      'footer-date': 'Sábado, 3 de Julio de 2027 • Jiutepec, Morelos, México'
+      'footer-date': 'Sábado, 3 de Julio de 2027 • Houston, Texas'
     }
   };
 

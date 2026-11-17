@@ -8,7 +8,7 @@ Selected Package: Premium ($70)
 Package Price: $70.00
 Customer Language: ENGLISH (Text customer in English)
 Client Name: Guadalupe Villaseñor
-Client Phone: 7773148920
+Client Phone: 8324927518
 Email: mockup@disenosluna.com
 Social Handle: None provided
 Preferred Contact: Text Message (SMS)
@@ -17,8 +17,8 @@ Celebrant Name: Citlalli Covarrubias
 Event Date: 2027-07-03
 Theme and Colors: Gold
 Language Preference: Bilingual (English & Spanish)
-Ceremony Venue and Address: Jardín Alma, Begonias 10, Atlacomulco, 62560 Jiutepec, Mor., Mexico - 3:00pm
-Reception Venue and Address: Jardín Alma, Begonias 10, Atlacomulco, 62560 Jiutepec, Mor., Mexico - 4:00pm
+Ceremony Venue and Address: St. Michael Catholic Church, 1801 Sage Rd, Houston, TX 77056 - 3:00pm
+Reception Venue and Address: Cypress Venue, 15301 FM 529, Suite 200, Houston, TX 77095 - 4:00pm
 Schedule Milestones:
   QUINCEAÑERA TIMELINE
   * 4:00 PM – Religious Mass
@@ -60,7 +60,7 @@ $70.00
 Client Name
 Guadalupe Villaseñor
 Client Phone
-7773148920
+8324927518
 Email
 mockup@disenosluna.com
 Social Handle
@@ -78,9 +78,9 @@ Gold
 Language Preference
 Bilingual (English & Spanish)
 Ceremony Venue and Address
-Jardín Alma, Begonias 10, Atlacomulco, 62560 Jiutepec, Mor., Mexico - 3:00pm
+St. Michael Catholic Church, 1801 Sage Rd, Houston, TX 77056 - 3:00pm
 Reception Venue and Address
-Jardín Alma, Begonias 10, Atlacomulco, 62560 Jiutepec, Mor., Mexico - 4:00pm
+Cypress Venue, 15301 FM 529, Suite 200, Houston, TX 77095 - 4:00pm
 Schedule Milestones
 QUINCEAÑERA TIMELINE
 * 4:00 PM – Religious Mass
