@@ -28,7 +28,7 @@ Schedule Milestones:
   * 9:00 PM – Party & Open Dance Floor
   * 12:00 AM – Banda
   * 2:30 AM – End of Celebration
-Background Song Request: ME JALO by Fuerza Regida & Grupo Frontera
+Background Song Request: Ya Borracho by Herencia de Grandes
 Live Countdown Enabled: Yes, include live countdown
 Dedication Message: >
   With great joy and gratitude, I invite you to celebrate one of the most special moments of my life, my Quinceañera.
@@ -91,7 +91,7 @@ QUINCEAÑERA TIMELINE
 * 12:00 AM – Banda
 * 2:30 AM – End of Celebration
 Background Song Request
-ME JALO by Fuerza Regida & Grupo Frontera
+Ya Borracho by Herencia de Grandes
 Live Countdown Enabled
 Yes, include live countdown
 Dedication Message
