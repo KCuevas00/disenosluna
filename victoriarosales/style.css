@@ -3338,10 +3338,8 @@ html.og-mode .entry-stage-mount {
     repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.55) 0, rgba(255, 255, 255, 0.55) 1px, transparent 0, transparent 18px);
 }
 
-/* Inside Invitation Letter Card (Disabled: transitions directly to main invitation) */
+/* Inside Invitation Letter Card (Minimal: Celebrant Name & XV Años) */
 .env-invitation-card {
-  display: none !important;
-}
   position: absolute;
   top: 50%;
   left: 50%;

@@ -888,7 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {}
 
-    // 4. Smoothly fade out envelope overlay and unveil main site (750ms after flap opens)
+    // 4. Smoothly fade out envelope overlay and unveil main site (1600ms: allows card glide presentation)
     setTimeout(() => {
       if (overlay) {
         overlay.classList.add('fade-out');
@@ -906,9 +906,9 @@ document.addEventListener('DOMContentLoaded', () => {
       window.removeEventListener('touchmove', blockScrollUntilEntered);
       window.removeEventListener('keydown', blockKeysUntilEntered);
       triggerScrollReveals();
-    }, 750);
+    }, 1600);
 
-    // 5. Final cleanup of overlay (1650ms)
+    // 5. Final cleanup of overlay (2450ms)
     setTimeout(() => {
       if (overlay) {
         overlay.style.display = 'none';
@@ -923,7 +923,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.documentElement.style.scrollBehavior = '';
       }, 50);
-    }, 1650);
+    }, 2450);
 
     triggerScrollReveals();
   }
