@@ -34,7 +34,7 @@ Language Preference
 Bilingual (English & Spanish)
 Ceremony Venue and Address
 Sacred Heart Roman Catholic Church
-4 Richard Ave Dover, NJ 07801 United States || 2:00pm
+4 Richard Ave Dover, NJ 07801 United States || 2:30pm
 Reception Venue and Address
 Casa Bianca Banquets and Catering
 5266 Berkshire Valley Rd Oak Ridge, NJ 07438 United Sates || 6:00pm

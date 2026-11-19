@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': 'Diana A.<br>Lucero',
       'invite-date-month': 'JAN',
       'invite-date-day': 'SATURDAY',
-      'invite-date-time': 'AT 2:00 PM',
+      'invite-date-time': 'AT 2:30 PM',
       'countdown-title': 'COUNTING DOWN TO THE QUINCEAÑERA',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'DOVER &amp; OAK RIDGE • NEW JERSEY',
       'venue-section-title': 'CEREMONY &amp; RECEPTION',
       'badge-ceremony': 'RELIGIOUS CEREMONY',
-      'ceremony-time-desc': '2:00 PM',
+      'ceremony-time-desc': '2:30 PM',
       'badge-reception': 'RECEPTION VENUE',
       'reception-time-desc': '6:00 PM – 11:00 PM',
       'venue-btn-open-maps': 'OPEN IN MAPS',
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': 'Diana A.<br>Lucero',
       'invite-date-month': 'ENE',
       'invite-date-day': 'SÁBADO',
-      'invite-date-time': 'A LAS 2:00 PM',
+      'invite-date-time': 'A LAS 2:30 PM',
       'countdown-title': 'CONTANDO LOS DÍAS PARA LOS XV AÑOS',
       'countdown-today': '🎉 ¡Hoy Es el Gran Día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'DOVER Y OAK RIDGE • NEW JERSEY',
       'venue-section-title': 'CEREMONIA Y RECEPCIÓN',
       'badge-ceremony': 'CEREMONIA RELIGIOSA',
-      'ceremony-time-desc': '2:00 PM',
+      'ceremony-time-desc': '2:30 PM',
       'badge-reception': 'SALÓN DE RECEPCIÓN',
       'reception-time-desc': '6:00 PM – 11:00 PM',
       'venue-btn-open-maps': 'ABRIR EN MAPS',
@@ -794,10 +794,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SATURDAY, JAN 9, 2027 AT 2:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SATURDAY, JAN 9, 2027 AT 2:30 PM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (0 = January)
-  const TARGET_DATE = new Date(2027, 0, 9, 14, 0, 0).getTime();
+  const TARGET_DATE = new Date(2027, 0, 9, 14, 30, 0).getTime();
   const AFTER_EVENT_MS = 10 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');
