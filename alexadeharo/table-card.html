@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta de Mesa / Table Card — Alexa Deharo Quinceañera</title>
+  
+  <!-- Google Fonts matching Alexa's invitation exactly -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #08161c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      font-family: 'Montserrat', sans-serif;
+      color: #0e3d4c;
+    }
+
+    /* Print control toolbar */
+    .toolbar {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #008eb7 0%, #005b78 100%);
+      color: #ffffff;
+      font-weight: 500;
+      padding: 12px 28px;
+      border: 1px solid #d4af37;
+      border-radius: 30px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 142, 183, 0.4);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-print:hover {
+      background: linear-gradient(135deg, #009ec9 0%, #007799 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Luxury Editorial Card (Standard 4" x 6" table frame proportion) */
+    .table-card {
+      width: 400px;
+      min-height: 590px;
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 40px 30px 34px 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      border: 1px solid #e2f0f4;
+    }
+
+    /* Blue watercolor rose spray at top-right */
+    .flower-corner-tr {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 145px;
+      height: auto;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    /* Same blue watercolor rose spray mirrored to bottom-left */
+    .flower-corner-bl {
+      position: absolute;
+      bottom: -12px;
+      left: -12px;
+      width: 145px;
+      height: auto;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+      transform: rotate(180deg);
+    }
+
+    /* Delicate gold border frame */
+    .card-gold-border {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      border: 1px solid #d4af37;
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Tiara flourish from the invitation */
+    .crown-tiara {
+      width: 62px;
+      height: auto;
+      margin-bottom: 6px;
+      filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.35));
+    }
+
+    .header-quince {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13.5px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c99f57;
+      margin-bottom: 2px;
+    }
+
+    /* Celebrant Name formatted as Alexa Deharo in Alex Brush */
+    .celebrant-name {
+      font-family: 'Alex Brush', cursive;
+      font-size: 54px;
+      color: #072a35;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    .divider-filigree {
+      width: 125px;
+      height: auto;
+      margin-bottom: 16px;
+      opacity: 0.75;
+    }
+
+    /* Bilingual Headline */
+    .headline-en {
+      font-family: 'Playfair Display', serif;
+      font-size: 18.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #072a35;
+      margin-bottom: 2px;
+    }
+
+    .headline-es {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15.5px;
+      font-style: italic;
+      color: #008eb7;
+      margin-bottom: 16px;
+    }
+
+    /* QR Code Container with Gold Trim */
+    .qr-container {
+      background: #ffffff;
+      padding: 10px;
+      border: 1.5px solid #d4af37;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0, 142, 183, 0.15);
+      margin-bottom: 16px;
+    }
+
+    .qr-container img {
+      display: block;
+      width: 172px;
+      height: 172px;
+    }
+
+    /* Bilingual Callout */
+    .callout-en {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #072a35;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .callout-es {
+      font-size: 11.5px;
+      font-style: italic;
+      color: #357b8e;
+      margin-bottom: 14px;
+    }
+
+    /* Simple Clean Footer */
+    .footer-note {
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8c8c8c;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 4px;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+        min-height: auto !important;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .table-card {
+        box-shadow: none !important;
+        border: none !important;
+        page-break-inside: avoid;
+        margin: auto;
+      }
+
+      .card-gold-border {
+        border-color: #d4af37 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Imprimir (Ctrl + P)</button>
+  </div>
+
+  <div class="table-card">
+    <!-- Top-Right Blue Rose Spray from Invitation -->
+    <img src="photos/rose-corner-tr.png" alt="" class="flower-corner-tr">
+    
+    <!-- Same Blue Rose Spray Mirrored to Bottom-Left -->
+    <img src="photos/rose-corner-tr.png" alt="" class="flower-corner-bl">
+
+    <!-- Delicate Gold Border Frame -->
+    <div class="card-gold-border"></div>
+
+    <div class="card-content">
+      <!-- Crown tiara flourish from invitation -->
+      <img src="photos/crown-flourish.svg" alt="" class="crown-tiara">
+
+      <div class="header-quince">Mis XV Años</div>
+      <div class="celebrant-name">Alexa Deharo</div>
+
+      <img src="photos/divider-gold-filigree.svg" alt="" class="divider-filigree">
+
+      <div class="headline-en">Capture The Moments</div>
+      <div class="headline-es">Captura los Momentos</div>
+
+      <div class="qr-container">
+        <!-- Live QR Code linking directly to Alexa's Google Photos Album -->
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=https%3A%2F%2Fphotos.app.goo.gl%2FiLfzdv5UiEByxmCV7&margin=4" alt="QR Code Album">
+      </div>
+
+      <div class="callout-en">Scan to share your photos & videos</div>
+      <div class="callout-es">Escanea para compartir tus fotos y videos</div>
+
+      <div class="footer-note">No App Required • No Requiere Descargar Aplicación</div>
+    </div>
+  </div>
+
+</body>
+</html>
