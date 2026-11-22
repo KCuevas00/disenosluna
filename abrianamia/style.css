@@ -6,8 +6,8 @@
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
   /* Soft Pale Pink, Pearl Linen & Luxury Gold Scheme */
-  --bg-page: #fdfafb;
-  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #fdf6f8 60%, #f7e9ee 100%);
+  --bg-page: #faedf1;
+  --bg-page-gradient: radial-gradient(circle at 50% 15%, #ffffff 0%, #faedf1 45%, #f6dce4 80%, #f2cbd7 100%);
   --card-white: #ffffff;
 
   /* Typographic Contrast */
@@ -66,7 +66,7 @@
 }
 
 html {
-  background: #ffffff;
+  background: #faedf1;
   scroll-behavior: smooth;
   overflow-x: clip;
   scrollbar-gutter: stable both-edges;
@@ -92,7 +92,8 @@ body {
 /* Before envelope is opened: lock scrolling on root html only & pure background */
 html:not(.site-entered),
 body:not(.site-entered) {
-  background: #fdf5f7 !important;
+  background: #faedf1 !important;
+  background-color: #faedf1 !important;
   overflow: hidden !important;
   height: 100% !important;
   touch-action: none !important;
@@ -111,8 +112,8 @@ body:not(.site-entered) .site-footer {
 
 /* Once envelope is opened: html is the ONE scroll container */
 html.site-entered {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
+  background: #faedf1 !important;
+  background-color: #faedf1 !important;
   overflow-x: clip !important;
   overflow-y: auto !important;
   height: auto !important;
@@ -121,14 +122,14 @@ html.site-entered {
   -webkit-overflow-scrolling: touch;
 }
 
-/* body must NOT independently scroll — pure airy white backdrop matching merelinnunez */
+/* body must NOT independently scroll — romantic glowing blush backdrop */
 body.site-entered {
-  background-color: #ffffff !important;
+  background-color: #faedf1 !important;
   background-image: var(--bg-page-gradient) !important;
   background-size: cover !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
-  background-attachment: scroll !important;
+  background-attachment: fixed !important;
   overflow-x: clip !important;
   overflow-y: visible !important;
   height: auto !important;
@@ -2417,53 +2418,39 @@ body.site-entered .lang-control-bar {
   font-size: 7.5rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--theme-dark);
-  background: linear-gradient(165deg, #ffffff 0%, #fae6ec 22%, #e8a4b8 45%, #d97d99 65%, #c05c7a 88%, #8c3552 100%);
+  background: linear-gradient(135deg, #fcebf0 0%, #e8a2b6 32%, #ffffff 50%, #d57793 68%, #eeb4c4 85%, #fdf2f5 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 3px 6px rgba(74, 55, 32, 0.25)) drop-shadow(0 1px 3px rgba(212, 175, 55, 0.25));
+  filter: drop-shadow(0 3px 10px rgba(168, 74, 104, 0.22));
   transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .letter-floral {
   position: absolute;
-  z-index: 1;
-  opacity: 1;
   pointer-events: none;
-  filter: drop-shadow(0 3px 6px rgba(41, 56, 36, 0.22)) drop-shadow(0 1px 3px rgba(212, 175, 55, 0.18));
-  object-fit: contain;
+  z-index: 1;
   transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.floral-r {
-  width: 124px;
-  height: auto;
-  top: -16px;
-  left: -24px;
-  transform: rotate(-15deg);
-}
-
 .floral-s {
-  width: 132px;
-  height: auto;
+  width: 130px;
   top: -18px;
   right: -28px;
   transform: rotate(15deg);
 }
 
 .floral-v {
-  width: 116px;
-  height: auto;
+  width: 110px;
   bottom: -18px;
   left: -24px;
   transform: rotate(-25deg);
 }
 
 .floral-p {
-  width: 126px;
-  height: auto;
+  width: 125px;
   top: -12px;
   right: -24px;
   transform: rotate(5deg);
@@ -2471,10 +2458,6 @@ body.site-entered .lang-control-bar {
 
 .rsvp-char-box:hover .rsvp-char {
   transform: translateY(-2px) scale(1.05);
-}
-
-.rsvp-char-box:hover .floral-r {
-  transform: scale(1.08) rotate(-12deg);
 }
 
 .rsvp-char-box:hover .floral-s {
@@ -3197,40 +3180,13 @@ html.og-mode .entry-stage-mount {
   pointer-events: none;
 }
 
-/* Diagonal Corner Floral Sprays Framing Envelope (merelinnunez) */
-.envelope-floral-frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  height: 290px;
-  max-width: 95vw;
-  pointer-events: none;
-  z-index: 25;
-}
-
+/* Diagonal Corner Floral Sprays Framing Envelope - Hidden per client preference */
+.envelope-floral-frame,
 .envelope-flower-spray {
-  position: absolute;
-  object-fit: contain;
-  pointer-events: none;
-  filter: drop-shadow(0 12px 24px rgba(70, 35, 45, 0.16));
-}
-
-.envelope-flower-spray.flower-top-right {
-  top: -55px;
-  right: -48px;
-  width: 275px;
-  height: 275px;
-  z-index: 25;
-}
-
-.envelope-flower-spray.flower-bottom-left {
-  bottom: -55px;
-  left: -48px;
-  width: 275px;
-  height: 275px;
-  z-index: 25;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 /* Gracefully fade away top-right floral bouquet as envelope opens so letter text & crown remain unobstructed */
@@ -4198,7 +4154,6 @@ html.og-mode .entry-stage-mount {
 
   /* Invitation Card Corner Flowers: Contained within Viewport */
   .flower-card-top-left,
-  .flower-card-bottom-left,
   .flower-card-bottom-right {
     display: none !important;
   }
@@ -4213,6 +4168,18 @@ html.og-mode .entry-stage-mount {
     opacity: 1 !important;
     transform: none;
     transform-origin: top right;
+  }
+
+  .flower-card-bottom-left {
+    bottom: -38px;
+    left: -25px;
+    width: 180px;
+    height: 180px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none;
+    transform-origin: bottom left;
   }
 
   /* Mobile Floating Utility Controls (Language Left, Music Right) */
@@ -4298,7 +4265,6 @@ html.og-mode .entry-stage-mount {
   }
 
   .flower-card-top-left,
-  .flower-card-bottom-left,
   .flower-card-bottom-right {
     display: none !important;
   }
@@ -4313,6 +4279,18 @@ html.og-mode .entry-stage-mount {
     opacity: 1 !important;
     transform: none;
     transform-origin: top right;
+  }
+
+  .flower-card-bottom-left {
+    bottom: -38px;
+    left: -25px;
+    width: 180px;
+    height: 180px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none;
+    transform-origin: bottom left;
   }
 
   .cover-section {
@@ -4588,7 +4566,6 @@ html.og-mode .entry-stage-mount {
 
 @media (max-width: 380px) {
   .flower-card-top-left,
-  .flower-card-bottom-left,
   .flower-card-bottom-right {
     display: none !important;
   }
@@ -4603,6 +4580,18 @@ html.og-mode .entry-stage-mount {
     opacity: 1 !important;
     transform: none;
     transform-origin: top right;
+  }
+
+  .flower-card-bottom-left {
+    bottom: -30px;
+    left: -15px;
+    width: 150px;
+    height: 150px;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none;
+    transform-origin: bottom left;
   }
 
   .flower-top-right {
@@ -5117,14 +5106,15 @@ html.og-mode .entry-stage-mount {
 /* ══════════════════════════════════════════════════════════════
    LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
    ══════════════════════════════════════════════════════════════ */
-/* Natural transparent background for root html */
+/* Natural blush pink background for root html */
 html:not(.site-entered) {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
+  background: #faedf1 !important;
+  background-color: #faedf1 !important;
 }
 
 body:not(.site-entered) {
-  background: #fbf7ee !important;
+  background: #faedf1 !important;
+  background-color: #faedf1 !important;
 }
 
 /* Ensure the cloud overlay covers the entire viewport on mobile and desktop without gaps */
@@ -6474,20 +6464,20 @@ body.og-preview-mode .entry-lang-picker {
 
 
 /* ══════════════════════════════════════════════════════════════
-   SAFARI BARS: one flat color at the page edges, no gradient behind them
+   SAFARI BARS & PAGE EDGES: Soft romantic blush pink
    ══════════════════════════════════════════════════════════════ */
 html,
 html.site-entered,
 html:not(.site-entered) {
-  background-color: #f1f9fb !important;
-  background-image: none !important;
+  background-color: #faedf1 !important;
 }
 
-body,
-body.site-entered,
-body:not(.site-entered) {
-  background-color: transparent !important;
-  background-image: none !important;
+body.site-entered {
+  background-color: #faedf1 !important;
+  background-image: radial-gradient(circle at 50% 15%, #ffffff 0%, #faedf1 45%, #f6dce4 80%, #f2cbd7 100%) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 /* ══════════════════════════════════════════════════════════════
