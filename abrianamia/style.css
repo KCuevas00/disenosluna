@@ -1916,6 +1916,7 @@ body.site-entered .lang-control-bar {
   width: 66px;
   height: 66px;
   margin: 0 auto 0.45rem;
+  overflow: visible;
 }
 
 .court-char {
@@ -1924,14 +1925,16 @@ body.site-entered .lang-control-bar {
   font-family: var(--font-serif);
   font-size: 3.1rem;
   font-weight: 700;
-  line-height: 1;
-  color: var(--theme-dark);
-  background: linear-gradient(165deg, #ffffff 0%, #fae6ec 22%, #e8a4b8 45%, #d97d99 65%, #c05c7a 88%, #8c3552 100%);
+  line-height: 1.18;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  background: linear-gradient(135deg, #fcebf0 0%, #e8a2b6 32%, #ffffff 50%, #d57793 68%, #eeb4c4 85%, #fdf2f5 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 2px 4px rgba(74, 32, 45, 0.22)) drop-shadow(0 1px 2px rgba(217, 125, 153, 0.25));
+  filter: drop-shadow(0 2px 6px rgba(168, 74, 104, 0.22));
   transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -6354,20 +6357,23 @@ body.og-preview-mode .entry-lang-picker {
   justify-content: center;
   margin: 0 auto 0.65rem;
   transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: visible;
 }
 
 .court-char {
   font-family: var(--font-serif);
   font-size: 3.4rem;
   font-weight: 700;
-  line-height: 1;
-  color: var(--theme-dark);
-  background: linear-gradient(165deg, #ffffff 0%, #fae6ec 22%, #e8a4b8 45%, #d97d99 65%, #c05c7a 88%, #8c3552 100%);
+  line-height: 1.18;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  background: linear-gradient(135deg, #fcebf0 0%, #e8a2b6 32%, #ffffff 50%, #d57793 68%, #eeb4c4 85%, #fdf2f5 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
   user-select: none;
-  filter: drop-shadow(0 2px 5px rgba(74, 55, 32, 0.22)) drop-shadow(0 1px 2px rgba(212, 175, 55, 0.2));
+  filter: drop-shadow(0 2px 6px rgba(168, 74, 104, 0.22));
   transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
   z-index: 2;
@@ -6446,10 +6452,14 @@ body.og-preview-mode .entry-lang-picker {
     width: 66px;
     height: 66px;
     margin-bottom: 0.45rem;
+    overflow: visible;
   }
 
   .court-char {
     font-size: 2.75rem;
+    line-height: 1.18;
+    padding-bottom: 0.18em;
+    margin-bottom: -0.18em;
   }
 
   .floral-court-1 { width: 64px; top: -6px; left: -10px; }
