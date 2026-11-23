@@ -216,27 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Option 4 Court of Honor Tab Switcher
-  const courtTabBtns = document.querySelectorAll('.court-tab-btn');
-  courtTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      courtTabBtns.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const target = btn.getAttribute('data-court-tab');
-      const paneDamas = document.getElementById('tab-damas');
-      const paneChambelanes = document.getElementById('tab-chambelanes');
-      if (paneDamas && paneChambelanes) {
-        if (target === 'damas') {
-          paneDamas.style.display = 'block';
-          paneChambelanes.style.display = 'none';
-        } else {
-          paneDamas.style.display = 'none';
-          paneChambelanes.style.display = 'block';
-        }
-      }
-    });
-  });
-
   // Default to English on startup unless specified by ?lang=
   const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang');
