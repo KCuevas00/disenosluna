@@ -47,7 +47,7 @@
 
   <!-- Preload Critical Above-The-Fold Entry Backdrop & Assets for Instant Display -->
   <link rel="preload" as="image" href="photos/flatlay-backdrop.jpg?v=1" fetchpriority="high" />
-  <link rel="preload" as="image" href="photos/wax-seal.png?v=2" />
+  <link rel="preload" as="image" href="photos/wax-seal.png?v=3" />
 
   <link rel="stylesheet" href="style.css?v=1.0.0" />
 </head>
@@ -157,6 +157,10 @@
         <div class="env-wax-seal-wrapper" id="wax-seal-btn" role="button"
           aria-label="Break wax seal to open the invitation" tabindex="0">
           
+          <div class="seal-glow-halo" aria-hidden="true"></div>
+          <div class="seal-pulse-ring" aria-hidden="true"></div>
+          <div class="seal-pulse-ring ring-delayed" aria-hidden="true"></div>
+
           <!-- Tiny Circular Embossed Letters around the Stamp -->
           <svg class="seal-hint-ring" viewBox="0 0 160 160" aria-hidden="true">
             <defs>
@@ -178,7 +182,7 @@
           </svg>
 
           <button type="button" class="wax-seal-btn has-img" aria-label="Open Invitation">
-            <img class="wax-seal-img" src="photos/wax-seal.png?v=2" alt="Monogram A Wax Seal" aria-hidden="true" />
+            <img class="wax-seal-img" src="photos/wax-seal.png?v=3" alt="Monogram A Wax Seal" aria-hidden="true" />
           </button>
         </div>
 
