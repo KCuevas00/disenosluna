@@ -22,7 +22,7 @@ Ceremony Venue and Address: N/A
 Reception Venue and Address:
   Venue: The Grand
   Address: 38 Lackawanna Ave, Totowa, NJ 07512
-  Time: 4:00 PM
+  Time: 4:30 PM
   Maps URL: https://maps.app.goo.gl/TDA3SQsEDJp922dE7
 Schedule Milestones: N/A
 Background Song Request: Selena - Dreaming of You (https://youtu.be/lZJWDGaMqRA)

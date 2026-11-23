@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': 'Abriana Mia',
       'invite-date-month': 'FEB',
       'invite-date-day': 'SUNDAY',
-      'invite-date-time': 'AT 4:00 PM',
+      'invite-date-time': 'AT 4:30 PM',
       'countdown-title': 'COUNTING DOWN TO THE BIG DAY',
       'countdown-today': '🎉 Today Is the Big Day! 🎉',
       'countdown-thankyou': 'Thank you for celebrating with us! 🎊',
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'THE GRAND • TOTOWA, NEW JERSEY',
       'venue-section-title': 'RECEPTION VENUE',
       'badge-reception': 'Reception Venue',
-      'reception-time-desc': '4:00 PM',
+      'reception-time-desc': '4:30 PM',
       'venue-btn-open-maps': 'OPEN IN MAPS',
       'court-title': 'COURT OF HONOR',
       'court-damas-title': 'DAMAS',
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-celebrant': 'Abriana Mia',
       'invite-date-month': 'FEB',
       'invite-date-day': 'DOMINGO',
-      'invite-date-time': 'A LAS 4:00 PM',
+      'invite-date-time': 'A LAS 4:30 PM',
       'countdown-title': 'CONTANDO LOS DÍAS PARA EL GRAN DÍA',
       'countdown-today': '🎉 ¡Hoy es el gran día! 🎉',
       'countdown-thankyou': '¡Gracias por celebrar con nosotros! 🎊',
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'invite-venue': 'THE GRAND • TOTOWA, NUEVA JERSEY',
       'venue-section-title': 'LUGAR DE RECEPCIÓN',
       'badge-reception': 'Salón de Recepción',
-      'reception-time-desc': '4:00 PM',
+      'reception-time-desc': '4:30 PM',
       'venue-btn-open-maps': 'ABRIR EN MAPAS',
       'court-title': 'CORTE DE HONOR',
       'court-damas-title': 'DAMAS',
@@ -769,10 +769,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────────────────────────
-     4. COUNTDOWN TIMER ENGINE (SUNDAY, FEB 7, 2027 AT 4:00 PM)
+     4. COUNTDOWN TIMER ENGINE (SUNDAY, FEB 7, 2027 AT 4:30 PM)
      ───────────────────────────────────────────────────────────── */
   // JavaScript Date: Month is 0-indexed (0 = January, 1 = February)
-  const TARGET_DATE = new Date(2027, 1, 7, 16, 0, 0).getTime();
+  const TARGET_DATE = new Date(2027, 1, 7, 16, 30, 0).getTime();
   const AFTER_EVENT_MS = 10 * 60 * 60 * 1000;
 
   const elDays = document.getElementById('cd-days');
