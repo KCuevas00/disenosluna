@@ -7791,3 +7791,13 @@ body.site-entered .invitation-card-stage {
 #rsvp.rsvp-section .section-divider .divider-icon {
   color: #1e3a8a !important;
 }
+
+/* Crisp White Play/Pause Icon & Equalizer Bars inside Audio Button */
+.audio-play-icon,
+.audio-pause-icon {
+  color: #ffffff !important;
+}
+
+.audio-wave i {
+  background: #ffffff !important;
+}
