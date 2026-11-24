@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Disenos Luna//Aida Taily Gonzalez XV Anos//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:aida-taily-gonzalez-xv-20261231@disenosluna.com
+DTSTAMP:20261124T200000Z
+DTSTART:20261231T200000Z
+DTEND:20270101T060000Z
+SUMMARY:XV Años de Aida Taily Gonzalez
+DESCRIPTION:Acompáñanos a celebrar los XV Años de Aida Taily Gonzalez bajo un cielo lleno de estrellas. Ceremonia religiosa a las 2:00 PM en el Templo de la Inmaculada Concepción, La Palma, Guanajuato, México, seguida de la recepción en La Terraza, Salón de eventos.
+LOCATION:Templo de la Inmaculada Concepción, La Palma, Guanajuato, México
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:¡Hoy son los XV Años de Aida Taily Gonzalez!
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
