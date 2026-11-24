@@ -7142,9 +7142,9 @@ body.site-entered {
 
 .photo-stage .photo-viewport {
   width: 100% !important;
-  max-width: 340px !important;
+  max-width: 350px !important;
   height: auto !important;
-  aspect-ratio: 3 / 4 !important;
+  aspect-ratio: 5 / 6 !important;
   border-radius: 26px !important;
   border: 2.5px solid #94a3b8 !important;
   outline: 1.5px solid rgba(30, 58, 138, 0.35) !important;
@@ -7160,15 +7160,15 @@ body.site-entered {
 .photo-stage .celebrant-photo.celebrant-hero-photo {
   width: 100% !important;
   height: 100% !important;
-  aspect-ratio: 3 / 4 !important;
+  aspect-ratio: 5 / 6 !important;
   border-radius: 24px !important;
   object-fit: cover !important;
-  object-position: center 20% !important;
+  object-position: 58% 18% !important;
 }
 
 @media (max-width: 480px) {
   .photo-stage .photo-viewport {
-    max-width: 280px !important;
+    max-width: 295px !important;
     border-radius: 22px !important;
   }
   .photo-stage .celebrant-photo,
@@ -7416,20 +7416,49 @@ body.site-entered {
   color: #334155 !important;
 }
 
-/* 11. Section 6: Dedication Portrait (Landscape Coastal Photo Framing) & Quote */
+/* 11. Section 6: Dedication Arch Portrait with Silver Tiara & Quote */
+.message-portrait-arch-stage {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.15rem;
+  flex-shrink: 0;
+}
+
+.message-crown-accent {
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.message-crown-accent img {
+  display: block;
+  width: 104px;
+  height: auto;
+  filter: drop-shadow(0 3px 8px rgba(15, 30, 54, 0.28));
+}
+
 .message-portrait-wrap {
-  width: 240px !important;
-  height: 175px !important;
-  border-radius: 22px !important;
+  width: 185px !important;
+  height: 235px !important;
+  border-radius: 999px 999px 22px 22px !important;
   border: 2px solid #94a3b8 !important;
-  outline: 1.5px solid rgba(30, 58, 138, 0.3) !important;
-  outline-offset: 4px !important;
-  box-shadow: 0 14px 32px rgba(15, 30, 54, 0.2) !important;
+  outline: none !important;
+  box-shadow:
+    0 0 0 3px #ffffff,
+    0 0 0 4.5px rgba(148, 163, 184, 0.55),
+    0 16px 34px rgba(15, 30, 54, 0.22) !important;
   background: #0f1e36 !important;
+  overflow: hidden !important;
 }
 
 .message-portrait-img {
-  object-position: center 20% !important;
+  object-fit: cover !important;
+  object-position: 42% 18% !important;
 }
 
 .message-quote-mark {
