@@ -5260,20 +5260,19 @@ html.og-mode .entry-stage-mount {
 
 
 /* ══════════════════════════════════════════════════════════════
-   LANDING PAGE: CLOUDS CONTINUE BEHIND THE SAFARI BARS
+   LANDING PAGE: STARRY NAVY CONTINUES BEHIND SAFARI BARS
    ══════════════════════════════════════════════════════════════ */
-/* Natural blush pink background for root html */
 html:not(.site-entered) {
-  background: #faedf1 !important;
-  background-color: #faedf1 !important;
+  background: #071029 !important;
+  background-color: #071029 !important;
 }
 
 body:not(.site-entered) {
-  background: #faedf1 !important;
-  background-color: #faedf1 !important;
+  background: #071029 !important;
+  background-color: #071029 !important;
 }
 
-/* Ensure the cloud overlay covers the entire viewport on mobile and desktop without gaps */
+/* Ensure the starry overlay covers the entire viewport on mobile and desktop without gaps */
 .entry-overlay {
   position: fixed !important;
   inset: 0 !important;
@@ -5283,12 +5282,8 @@ body:not(.site-entered) {
   bottom: 0 !important;
   width: 100% !important;
   height: 100% !important;
-}
-
-@supports (height: 100dvh) {
-  .entry-overlay {
-    height: 100dvh !important;
-  }
+  min-height: 100vh !important;
+  min-height: 100lvh !important;
 }
 
 
@@ -6643,17 +6638,17 @@ body.og-preview-mode .entry-lang-picker {
 
 
 /* ══════════════════════════════════════════════════════════════
-   SAFARI BARS & PAGE EDGES: Soft romantic blush pink
+   SAFARI BARS & PAGE EDGES: Midnight Starry Navy
    ══════════════════════════════════════════════════════════════ */
 html,
 html.site-entered,
 html:not(.site-entered) {
-  background-color: #faedf1 !important;
+  background-color: #071029 !important;
 }
 
 body.site-entered {
-  background-color: #faedf1 !important;
-  background-image: radial-gradient(circle at 50% 15%, #ffffff 0%, #faedf1 45%, #f6dce4 80%, #f2cbd7 100%) !important;
+  background-color: #09132c !important;
+  background-image: var(--bg-page-gradient) !important;
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -6943,10 +6938,17 @@ body.site-entered {
    NAVY BLUE, STERLING SILVER & UNDER THE STARS — AIDA TAILY GONZALEZ OVERRIDES
    ═════════════════════════════════════════════════════════════════════════════ */
 
-/* 1. Midnight Starry Backdrop behind Invitation Card */
+/* 1. Midnight Starry Backdrop behind Invitation Card & Safari Bars */
+:root {
+  color-scheme: dark;
+}
+
 html,
+body,
 html.site-entered,
-html:not(.site-entered) {
+html:not(.site-entered),
+body:not(.site-entered) {
+  background: #071029 !important;
   background-color: #071029 !important;
 }
 
@@ -6967,6 +6969,11 @@ body.site-entered {
 
 /* 2. Landing Screen: Midnight Navy Velvet Flatlay + Twinkling Silver Stars */
 .entry-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100lvh !important;
+  min-height: 100vh !important;
   background-color: #071029 !important;
   background-image:
     radial-gradient(ellipse 75% 65% at 50% 50%, rgba(15, 31, 74, 0.14) 0%, rgba(7, 16, 41, 0.45) 75%, rgba(4, 10, 26, 0.72) 100%),
@@ -6992,14 +6999,17 @@ body.site-entered {
   filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 14px rgba(226, 232, 240, 0.75)) !important;
 }
 
-/* Landing Headline: Luminous Sterling Silver Script */
+/* Landing Headline: Luminous Sterling Silver Script (solid fill, zero clipping) */
 .entry-invited-script {
   color: #f8fafc !important;
-  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 38%, #cbd5e1 68%, #ffffff 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  filter: drop-shadow(0 2px 12px rgba(147, 197, 253, 0.45)) drop-shadow(0 3px 10px rgba(4, 10, 26, 0.85)) !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #f8fafc !important;
+  line-height: 1.24 !important;
+  padding: 0.08em 0.35em !important;
+  overflow: visible !important;
+  filter: drop-shadow(0 2px 12px rgba(147, 197, 253, 0.5)) drop-shadow(0 3px 10px rgba(4, 10, 26, 0.85)) !important;
 }
 
 /* 3. Envelope, Flap, Liner, Inside Card & Wax Seal Halo (Navy & Silver) */
@@ -7024,6 +7034,11 @@ body.site-entered {
   background: linear-gradient(160deg, #f8fafc 0%, #eef2f7 45%, #e2e8f0 100%) !important;
 }
 
+.env-invitation-card {
+  border: 1.5px solid rgba(148, 163, 184, 0.7) !important;
+  box-shadow: 0 14px 38px rgba(4, 10, 26, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.95) !important;
+}
+
 .card-gold-frame {
   border: 1.2px solid rgba(148, 163, 184, 0.7) !important;
   background: #ffffff !important;
@@ -7033,9 +7048,21 @@ body.site-entered {
   border: 0.8px solid rgba(30, 58, 138, 0.28) !important;
 }
 
+/* Remove wrapper border/shadow so there is NO rectangle around the portrait arch */
 .card-portrait-ring {
-  border-color: rgba(148, 163, 184, 0.85) !important;
-  box-shadow: 0 6px 18px rgba(15, 30, 54, 0.18) !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  outline: none !important;
+}
+
+.card-portrait-arch {
+  border-radius: 999px 999px 10px 10px !important;
+  background: #0f1e36 !important;
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 3.5px rgba(148, 163, 184, 0.85),
+    0 8px 18px rgba(15, 30, 54, 0.22) !important;
 }
 
 .card-crown-flourish svg {
@@ -7044,15 +7071,20 @@ body.site-entered {
 
 .card-quince-script {
   color: #1e3a8a !important;
-  background: linear-gradient(135deg, #0f1e36 0%, #1e3a8a 45%, #3b5998 65%, #0f1e36 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #1e3a8a !important;
+  line-height: 1.25 !important;
+  padding: 0.06em 0.3em !important;
+  overflow: visible !important;
 }
 
 .card-celebrant-name,
 .card-celebrant-name .cn-line {
   color: #0f1e36 !important;
+  line-height: 1.2 !important;
+  padding: 0.04em 0.25em !important;
 }
 
 .card-flourish-accent {
@@ -7155,26 +7187,34 @@ body.site-entered {
 
 .quince-script-title {
   color: #1e3a8a !important;
-  background: linear-gradient(135deg, #0f1e36 0%, #1e3a8a 45%, #2b50a8 75%, #0f1e36 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  text-shadow: none !important;
-  filter: drop-shadow(0 2px 8px rgba(148, 163, 184, 0.35)) !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #1e3a8a !important;
+  line-height: 1.22 !important;
+  padding: 0.08em 0.3em !important;
+  overflow: visible !important;
+  text-shadow: 0 2px 10px rgba(148, 163, 184, 0.35) !important;
+  filter: none !important;
 }
 
 .celebrant-name {
   color: #0f1e36 !important;
-  background: linear-gradient(135deg, #0f1e36 0%, #1e3a8a 50%, #0f1e36 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  margin-top: 0.35rem !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #0f1e36 !important;
+  font-size: clamp(2.35rem, 8vw, 3.85rem) !important;
+  line-height: 1.25 !important;
+  padding: 0.08em 0.3em !important;
+  overflow: visible !important;
+  margin-top: 0.25rem !important;
 }
 
 .date-middle-row {
   border-top: 1.5px solid #94a3b8 !important;
   border-bottom: 1.5px solid #94a3b8 !important;
+  overflow: visible !important;
 }
 
 .date-month,
@@ -7185,13 +7225,27 @@ body.site-entered {
   color: #0f1e36 !important;
 }
 
-.date-day-num,
+.date-day-num {
+  color: #1e3a8a !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #1e3a8a !important;
+  line-height: 1.18 !important;
+  padding: 0.06em 0.85rem !important;
+  overflow: visible !important;
+  flex-shrink: 0 !important;
+}
+
 .pt-style-italic .pt-big-num {
   color: #1e3a8a !important;
-  background: linear-gradient(135deg, #0f1e36 0%, #1e3a8a 60%, #2b50a8 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #1e3a8a !important;
+  line-height: 1.22 !important;
+  padding: 0.06em 0.22em !important;
+  overflow: visible !important;
 }
 
 .pt-fleuron,
@@ -7403,11 +7457,18 @@ body.site-entered {
   color: #64748b !important;
 }
 
+.rsvp-char-box {
+  overflow: visible !important;
+}
+
 .rsvp-char {
   background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 28%, #1e3a8a 52%, #64748b 76%, #e2e8f0 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+  line-height: 1.2 !important;
+  padding: 0.08em 0.22em !important;
+  margin: -0.08em -0.22em !important;
   filter: drop-shadow(0 3px 10px rgba(15, 30, 54, 0.25)) !important;
 }
 
@@ -7429,7 +7490,16 @@ body.site-entered {
 }
 
 .modal-card {
+  background: #ffffff !important;
+  color: #0f1e36 !important;
+  color-scheme: light;
   border: 1.5px solid #94a3b8 !important;
+}
+
+.modal-card input,
+.modal-card select {
+  background: #f8fafc !important;
+  color: #0f1e36 !important;
 }
 
 .modal-title {
@@ -7455,8 +7525,24 @@ body.site-entered {
 }
 
 .song-preview-badge,
+.song-title-ticker,
+.song-note-icon,
 .control-arrow-btn {
   color: #0f1e36 !important;
+}
+
+.audio-btn.playing ~ .song-preview-badge .song-note-icon {
+  color: #1e3a8a !important;
+}
+
+.venue-crown-accent {
+  top: -15px !important;
+  z-index: 12 !important;
+}
+
+.venue-crown-accent img {
+  width: 96px !important;
+  height: auto !important;
 }
 
 .site-footer {
