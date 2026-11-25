@@ -113,8 +113,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioPlayIcon = document.getElementById('audio-play-icon');
   const audioPauseIcon = document.getElementById('audio-pause-icon');
 
+  // Start right when Danna begins singing ("Tanto tiempo..." at ~10.0s)
+  const AUDIO_START_OFFSET = 9.7;
+  let hasSetInitialStartTime = false;
+  let lastAudioTime = 0;
+
   let isAudioPlaying = false;
   let wasAudioPlayingBeforeHide = false;
+
+  function ensureAudioStartTime() {
+    if (!bgAudio) return;
+    try {
+      if (bgAudio.readyState >= 1) {
+        if (bgAudio.currentTime < AUDIO_START_OFFSET) {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+        }
+        hasSetInitialStartTime = true;
+      }
+    } catch (e) {}
+  }
 
   function updatePlayState(playing) {
     isAudioPlaying = playing;
@@ -136,10 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function playAudio() {
     if (!bgAudio) return;
     bgAudio.volume = 0.85;
+    ensureAudioStartTime();
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
-        .then(() => updatePlayState(true))
+        .then(() => {
+          ensureAudioStartTime();
+          updatePlayState(true);
+        })
         .catch((err) => {
           console.warn('[Audio autoplay notice]:', err);
           updatePlayState(false);
@@ -154,15 +175,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (bgAudio) {
+    bgAudio.addEventListener('loadedmetadata', ensureAudioStartTime);
+    bgAudio.addEventListener('canplay', ensureAudioStartTime);
     bgAudio.addEventListener('play', () => updatePlayState(true));
     bgAudio.addEventListener('playing', () => updatePlayState(true));
     bgAudio.addEventListener('pause', () => updatePlayState(false));
     bgAudio.addEventListener('ended', () => {
       try {
-        bgAudio.currentTime = 0;
+        bgAudio.currentTime = AUDIO_START_OFFSET;
         bgAudio.play().catch(() => {});
       } catch (e) {}
       updatePlayState(false);
+    });
+    bgAudio.addEventListener('timeupdate', () => {
+      if (!hasSetInitialStartTime && bgAudio.currentTime < AUDIO_START_OFFSET) {
+        try {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+          hasSetInitialStartTime = true;
+        } catch (e) {}
+      } else if (hasSetInitialStartTime && lastAudioTime > (AUDIO_START_OFFSET + 10) && bgAudio.currentTime < 2) {
+        try {
+          bgAudio.currentTime = AUDIO_START_OFFSET;
+        } catch (e) {}
+      }
+      lastAudioTime = bgAudio.currentTime;
     });
     bgAudio.addEventListener('error', (e) => {
       console.warn('[Audio element error]:', bgAudio.error || e);
