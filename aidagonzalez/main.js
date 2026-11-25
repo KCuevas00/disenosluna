@@ -772,6 +772,14 @@ document.addEventListener('DOMContentLoaded', () => {
     rsvpModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
     if (successAlert) successAlert.hidden = true;
+    if (btnAccept) {
+      btnAccept.disabled = false;
+      btnAccept.innerHTML = esMessages['btn-accept'];
+    }
+    if (btnDecline) {
+      btnDecline.disabled = false;
+      btnDecline.innerHTML = esMessages['btn-decline'];
+    }
     const nameInput = document.getElementById('guest-fullname');
     if (nameInput) setTimeout(() => nameInput.focus(), 200);
   }
